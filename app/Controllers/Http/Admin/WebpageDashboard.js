@@ -103,6 +103,9 @@ class WebpageDashboard {
         let userJSON = user.toJSON()
         userJSON.readingProgresses = await user.getReadingProgressStatus(webpage)
 
+        userJSON.created_at = dayjs(user.created_at).unix()
+        userJSON.latest_log_unixms = await user.getLatestLogUnixMS(webpage)
+
         // For test
         //userJSON.readingProgresses[0].isCompleted = true
         //userJSON.readingProgresses[0].start_timestamp = 1
@@ -111,6 +114,16 @@ class WebpageDashboard {
 
         g.users.push(userJSON)
       }
+      
+      g.users.sort((a, b) => {
+        if (b.latest_log_unixms === 0
+                && a.latest_log_unixms === 0) {
+          return b.created_at - a.created_at
+        }
+        else {
+          return b.latest_log_unixms - a.latest_log_unixms
+        }
+      })
 
       outputGroups.push(g)
     }
@@ -126,9 +139,10 @@ class WebpageDashboard {
       let user = readers.rows[i]
       
       let userJSON = user.toJSON()
-      userJSON.created_at = dayjs(user.created_at).unix()
+      
       userJSON.readingProgresses = await user.getReadingProgressStatus(webpage)
       
+      userJSON.created_at = dayjs(user.created_at).unix()
       userJSON.latest_log_unixms = 0
       if (userJSON.latestLog.length > 0) {
         userJSON.latest_log_unixms = parseInt(userJSON.latestLog[0].created_at_unixms, 10)

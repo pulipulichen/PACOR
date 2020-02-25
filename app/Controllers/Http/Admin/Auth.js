@@ -15,6 +15,9 @@ const ADMIN_ROLES = [
   'domain_admin'
 ]
 
+const Config = use('Config')
+let flushCache = Config.get('reading.debug.flushCache') // for test
+
 class Auth {
   async login ({ request, auth }) {
     const {domain, username, password} = request.get()
@@ -133,6 +136,10 @@ class Auth {
   // -----------------------------
   
   async checkLogin ({auth}) {
+    
+    if (flushCache === true) {
+      await Cache.forgetWithTags()
+    }
     
     try {
       let user = await auth.getUser()

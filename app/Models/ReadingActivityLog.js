@@ -23,7 +23,7 @@ class ReadingActivityLog extends Model {
       userID = userID.primaryKeyValue
     }
     
-    let query = await ReadingActivityLog
+    let query = ReadingActivityLog
             .query()
             .where('webpage_id', webpageID)
             .where('user_id', userID)
@@ -48,7 +48,7 @@ class ReadingActivityLog extends Model {
       userID = userID.primaryKeyValue
     }
     
-    let query = await ReadingActivityLog
+    let query = ReadingActivityLog
             .query()
             .where('webpage_id', webpageID)
             .where('user_id', userID)
