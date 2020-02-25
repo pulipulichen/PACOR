@@ -1,15 +1,15 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["client-components/PostRecallKeyword~client-components/PreImaginaryKeyword"],{
 
-/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Questionnaire/components/QuestionnairePage/QuestionnairePage.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Questionnaire/components/QuestionnairePage/QuestionnairePage.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Questionnaire/components/Questionnaire/Questionnaire.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Questionnaire/components/Questionnaire/Questionnaire.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Logout":"登出","Return to login":"回到登入表單","Show Instruction":"顯示說明","Start Answer and Countdown":"開始作答並且倒數計時","Answer":"繼續作答","Show Answer":"顯示作答內容","Sort":"排序"}}')
+  Component.options.__i18n.push('{"en":{"Add keyword: {0}":"Add keyword: {0}","Remove keyword \\"{0}\\"":"Remove keyword \\"{0}\\"","Add keyword \\"{0}\\"":"Add keyword \\"{0}\\""},"zh-TW":{"Logout":"登出","Return to login":"回到登入表單","Show Instruction":"顯示說明","Start Answer and Countdown":"開始作答並且倒數計時","Answer":"繼續作答","Show Answer":"顯示作答內容","Sort":"排序","Add keyword...":"新增關鍵字","Add keyword":"新增關鍵字","Add removed keyword":"回收關鍵字","Answered Keywords":"目前作答的關鍵字","Answered":"已經作答","Removed Keywords":"被移除的關鍵字","Removed":"已經移除","Add keyword: {0}":"新增關鍵字：{0}","Action":"操作","Remove keyword \\"{0}\\"":"移除關鍵字：{0}","Add keyword \\"{0}\\"":"新增關鍵字：{0}"}}')
   delete Component.options._Ctor
 }
 
@@ -26,22 +26,6 @@ module.exports = function (Component) {
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
   Component.options.__i18n.push('{"en":{"You still need to write {0} keywords more.":"You still need to write {0} keyword more. | You still need to write {0} keywords more.","You still need to delete {0} keywords more.":"You still need to delete {0} keyword more. | You still need to delete {0} keywords more.","You still need to write {0} keywords more":"You still need to write {0} keyword more | You still need to write {0} keywords more","You still need to delete {0} keywords more":"You still need to delete {0} keyword more | You still need to delete {0} keywords more"},"zh-TW":{"You still need to write {0} keywords more.":"你還需要寫{0}個關鍵字。","You still need to delete {0} keywords more.":"你還需要刪除{0}個關鍵字。","You still need to write {0} keywords more":"你還需要寫{0}個關鍵字","You still need to delete {0} keywords more":"你還需要刪除{0}個關鍵字"}}')
-  delete Component.options._Ctor
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.yaml?vue&type=custom&index=1&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.yaml?vue&type=custom&index=1&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function (Component) {
-  Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Add keyword: {0}":"Add keyword: {0}","Remove keyword \\"{0}\\"":"Remove keyword \\"{0}\\"","Add keyword \\"{0}\\"":"Add keyword \\"{0}\\""},"zh-TW":{"Add keyword...":"新增關鍵字","Add keyword":"新增關鍵字","Add removed keyword":"回收關鍵字","Answered Keywords":"目前作答的關鍵字","Answered":"已經作答","Removed Keywords":"被移除的關鍵字","Removed":"已經移除","Add keyword: {0}":"新增關鍵字：{0}","Action":"操作","Remove keyword \\"{0}\\"":"移除關鍵字：{0}","Add keyword \\"{0}\\"":"新增關鍵字：{0}"}}')
   delete Component.options._Ctor
 }
 
@@ -718,7 +702,8 @@ let Instruction = {
       paragraphyCount: 0,
       sectionCount: 0,
       headings: [],
-      images: []
+      images: [],
+      keywordEditorThumbnail: this.config.baseURL + '/imgs/keyword-editor.png'
     }
   },
 //  components: {
@@ -744,6 +729,9 @@ let Instruction = {
     },
     timeLimitAutoStart () {
       return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts now.`, [this.preImaginaryConfig.limitMinutes])
+    },
+    timeLimitClickButtonStart () {
+      return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts when you click "Start Answer and Countdown" button.`, [this.preImaginaryConfig.limitMinutes])
     },
     isDiffMode () {
       let isDiffMode = false
@@ -779,7 +767,7 @@ let Instruction = {
       this.headings = headings
 
       let images = []
-      this.sections.find('img').each((i, image) => {
+      this.sections.find('img:not(.keyword-editor-thumbnail)').each((i, image) => {
         
         // 這邊要做動態縮圖
         
@@ -825,19 +813,19 @@ let Instruction = {
 
 /***/ }),
 
-/***/ "./webpack-app/client/Questionnaire/components/QuestionnairePage/QuestionnairePage.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml":
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/components/QuestionnairePage/QuestionnairePage.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./webpack-app/client/Questionnaire/components/Questionnaire/Questionnaire.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Questionnaire/components/Questionnaire/Questionnaire.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePage_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./QuestionnairePage.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Questionnaire/components/QuestionnairePage/QuestionnairePage.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml");
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePage_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePage_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePage_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePage_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePage_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./Questionnaire.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Questionnaire/components/Questionnaire/Questionnaire.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -1267,8 +1255,7 @@ __webpack_require__.r(__webpack_exports__);
 /* empty/unused harmony star reexport *//* harmony import */ var _QuestionnairePageKeyword_less_vue_type_style_index_0_id_2001f8ba_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QuestionnairePageKeyword.less?vue&type=style&index=0&id=2001f8ba&lang=less&scoped=true& */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.less?vue&type=style&index=0&id=2001f8ba&lang=less&scoped=true&");
 /* harmony import */ var _QuestionnairePageKeyword_search_less_vue_type_style_index_1_id_2001f8ba_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./QuestionnairePageKeyword.search.less?vue&type=style&index=1&id=2001f8ba&lang=less&scoped=true& */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.search.less?vue&type=style&index=1&id=2001f8ba&lang=less&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-/* harmony import */ var _QuestionnairePage_QuestionnairePage_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../QuestionnairePage/QuestionnairePage.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml */ "./webpack-app/client/Questionnaire/components/QuestionnairePage/QuestionnairePage.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml");
-/* harmony import */ var _QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./QuestionnairePageKeyword.yaml?vue&type=custom&index=1&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml */ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.yaml?vue&type=custom&index=1&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml");
+/* harmony import */ var _Questionnaire_Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../Questionnaire/Questionnaire.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml */ "./webpack-app/client/Questionnaire/components/Questionnaire/Questionnaire.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml");
 
 
 
@@ -1291,30 +1278,12 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* custom blocks */
 
-if (typeof _QuestionnairePage_QuestionnairePage_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__["default"] === 'function') Object(_QuestionnairePage_QuestionnairePage_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__["default"])(component)
-
-if (typeof _QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_6__["default"] === 'function') Object(_QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_6__["default"])(component)
+if (typeof _Questionnaire_Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__["default"] === 'function') Object(_Questionnaire_Questionnaire_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_5__["default"])(component)
 
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.yaml?vue&type=custom&index=1&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.yaml?vue&type=custom&index=1&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./QuestionnairePageKeyword.yaml?vue&type=custom&index=1&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Questionnaire/components/QuestionnairePageKeyword/QuestionnairePageKeyword.yaml?vue&type=custom&index=1&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CQuestionnaire%5Ccomponents%5CQuestionnairePageKeyword%5CQuestionnairePageKeyword.vue&lang=yaml");
-/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_QuestionnairePageKeyword_yaml_vue_type_custom_index_1_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CQuestionnaire_5Ccomponents_5CQuestionnairePageKeyword_5CQuestionnairePageKeyword_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

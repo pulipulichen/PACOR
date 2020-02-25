@@ -11,7 +11,8 @@ let Instruction = {
       paragraphyCount: 0,
       sectionCount: 0,
       headings: [],
-      images: []
+      images: [],
+      keywordEditorThumbnail: this.config.baseURL + '/imgs/keyword-editor.png'
     }
   },
 //  components: {
@@ -37,6 +38,9 @@ let Instruction = {
     },
     timeLimitAutoStart () {
       return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts now.`, [this.preImaginaryConfig.limitMinutes])
+    },
+    timeLimitClickButtonStart () {
+      return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts when you click "Start Answer and Countdown" button.`, [this.preImaginaryConfig.limitMinutes])
     },
     isDiffMode () {
       let isDiffMode = false
@@ -72,7 +76,7 @@ let Instruction = {
       this.headings = headings
 
       let images = []
-      this.sections.find('img').each((i, image) => {
+      this.sections.find('img:not(.keyword-editor-thumbnail)').each((i, image) => {
         
         // 這邊要做動態縮圖
         

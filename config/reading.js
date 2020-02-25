@@ -13,7 +13,7 @@ module.exports = {
       //minAnnotation: 1,
       //maxAnnotation: 1
     },
-    //stayInReadingProgress: 'PreImaginaryKeyword'
+    stayInReadingProgress: 'PreImaginaryKeyword'
     //stayInReadingProgress: 'PostRecallKeyword'
   },
   
@@ -84,7 +84,6 @@ module.exports = {
       minKeywords: 10,
       limitMinutes: 5,
       //limitMinutes: 0.2,
-      countdownAtStart: false,
     },
     'PostRecall': {
       //instruction: '/instruction/questionnaire/PostRecall.html',
@@ -99,7 +98,6 @@ module.exports = {
       minKeywords: 10,
       limitMinutes: 5,
       //limitMinutes: 0.2,
-      countdownAtStart: false,
       preloadPreImaginaryKeywords: true  // 是否顯示前面撰寫的內容
     },
     

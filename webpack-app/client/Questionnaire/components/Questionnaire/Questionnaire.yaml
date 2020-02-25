@@ -4,6 +4,14 @@ en:
   'Add keyword "{0}"': 'Add keyword "{0}"'
   
 zh-TW:
+  Logout: 登出
+  Return to login: 回到登入表單
+  Show Instruction: 顯示說明
+  Start Answer and Countdown: 開始作答並且倒數計時
+  Answer: 繼續作答
+  Show Answer: 顯示作答內容
+  Sort: 排序
+  
   Add keyword...: 新增關鍵字
   Add keyword: 新增關鍵字
   Add removed keyword: 回收關鍵字

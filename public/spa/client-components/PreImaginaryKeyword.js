@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".image-container[data-v-afa54302] {\n  margin-right: 0.5rem;\n}\nsection.instruction[data-v-afa54302] {\n  border-width: 0 !important;\n  margin: 0 !important;\n  padding: 1em 0 !important;\n  user-select: none;\n}\nsection.instruction[data-v-afa54302]  .highlight {\n  background-color: yellow;\n}\n.diff-highlight[data-v-afa54302] {\n  color: red;\n  font-weight: bold;\n}\n", "",{"version":3,"sources":["Instruction.less?vue&type=style&index=0&id=afa54302&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,oBAAoB;AACtB;AACA;EACE,0BAA0B;EAC1B,oBAAoB;EACpB,yBAAyB;EACzB,iBAAiB;AACnB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,UAAU;EACV,iBAAiB;AACnB","file":"Instruction.less?vue&type=style&index=0&id=afa54302&lang=less&scoped=true&","sourcesContent":[".image-container[data-v-afa54302] {\n  margin-right: 0.5rem;\n}\nsection.instruction[data-v-afa54302] {\n  border-width: 0 !important;\n  margin: 0 !important;\n  padding: 1em 0 !important;\n  user-select: none;\n}\nsection.instruction[data-v-afa54302]  .highlight {\n  background-color: yellow;\n}\n.diff-highlight[data-v-afa54302] {\n  color: red;\n  font-weight: bold;\n}\n"]}]);
+exports.push([module.i, ".image-container[data-v-afa54302] {\n  margin-right: 0.5rem;\n}\nsection.instruction[data-v-afa54302] {\n  border-width: 0 !important;\n  margin: 0 !important;\n  padding: 1em 0 !important;\n  user-select: none;\n}\nsection.instruction[data-v-afa54302]  .highlight {\n  background-color: yellow;\n}\n.diff-highlight[data-v-afa54302] {\n  color: red;\n  font-weight: bold;\n}\n.divided[data-v-afa54302] {\n  border-top: 1px solid #CCC;\n  padding-top: 0.5rem;\n  margin-top: 0.5rem;\n}\n.keyword-editor-thumbnail[data-v-afa54302] {\n  max-width: 50%;\n  min-width: 5em;\n  height: auto;\n}\n", "",{"version":3,"sources":["Instruction.less?vue&type=style&index=0&id=afa54302&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,oBAAoB;AACtB;AACA;EACE,0BAA0B;EAC1B,oBAAoB;EACpB,yBAAyB;EACzB,iBAAiB;AACnB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,UAAU;EACV,iBAAiB;AACnB;AACA;EACE,0BAA0B;EAC1B,mBAAmB;EACnB,kBAAkB;AACpB;AACA;EACE,cAAc;EACd,cAAc;EACd,YAAY;AACd","file":"Instruction.less?vue&type=style&index=0&id=afa54302&lang=less&scoped=true&","sourcesContent":[".image-container[data-v-afa54302] {\n  margin-right: 0.5rem;\n}\nsection.instruction[data-v-afa54302] {\n  border-width: 0 !important;\n  margin: 0 !important;\n  padding: 1em 0 !important;\n  user-select: none;\n}\nsection.instruction[data-v-afa54302]  .highlight {\n  background-color: yellow;\n}\n.diff-highlight[data-v-afa54302] {\n  color: red;\n  font-weight: bold;\n}\n.divided[data-v-afa54302] {\n  border-top: 1px solid #CCC;\n  padding-top: 0.5rem;\n  margin-top: 0.5rem;\n}\n.keyword-editor-thumbnail[data-v-afa54302] {\n  max-width: 50%;\n  min-width: 5em;\n  height: auto;\n}\n"]}]);
 
 
 /***/ }),
@@ -164,23 +164,48 @@ var render = function() {
             )
           : _vm._e(),
         _vm._v(" "),
-        _c("li", [
+        _c("li", { staticClass: "divided" }, [
           _vm._v(
-            _vm._s(
-              _vm.$t(
-                "Don't worry about punctuation or typos, just write down what you predict of."
-              )
-            )
-          )
+            "\n      " +
+              _vm._s(
+                _vm.$t(
+                  'When you click "Start Answer and Countdown" button, a keyword editor will appear like following image:'
+                )
+              ) +
+              "\n      "
+          ),
+          _c("br"),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "keyword-editor-thumbnail",
+            attrs: {
+              src: _vm.keywordEditorThumbnail,
+              title: _vm.$t("Keyword Editor")
+            }
+          })
         ]),
         _vm._v(" "),
-        _vm.preImaginaryConfig.countdownAtStart === false
-          ? _c("li", {
-              domProps: { innerHTML: _vm._s(_vm.timeLimitTypeStart) }
-            })
-          : _c("li", {
-              domProps: { innerHTML: _vm._s(_vm.timeLimitAutoStart) }
-            })
+        _c("li", [
+          _vm._v(
+            "\n      " +
+              _vm._s(_vm.$t("You can perform following actions:")) +
+              "\n      "
+          ),
+          _c("ol", [
+            _c("li", [_vm._v(_vm._s(_vm.$t("Add a keyword")))]),
+            _vm._v(" "),
+            _c("li", [
+              _vm._v(_vm._s(_vm.$t("Remove a keyword from your list")))
+            ]),
+            _vm._v(" "),
+            _c("li", [_vm._v(_vm._s(_vm.$t("Restore a keyword to your list")))])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", {
+          staticClass: "divided",
+          domProps: { innerHTML: _vm._s(_vm.timeLimitClickButtonStart) }
+        })
       ])
     ]
   )
