@@ -95,16 +95,14 @@
     </div>
 
     {{ step.step_name }}
-    <keep-alive>
-      <component 
-        v-bind:is="step.step_name"
-        v-bind:config="config"
-        v-bind:status="status"
-        v-bind:progress="progress"
-        v-bind:lib="lib"
-        v-bind:log="step.log"
-        v-bind:toc="toc">
-      </component>
-    </keep-alive>
+    <component 
+      v-bind:is="step.step_name"
+      v-bind:config="config"
+      v-bind:status="status"
+      v-bind:progress="progress"
+      v-bind:lib="lib"
+      v-bind:log="step.log"
+      v-bind:toc="toc">
+    </component>
   </div>
 </div>

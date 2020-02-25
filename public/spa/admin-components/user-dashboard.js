@@ -902,23 +902,17 @@ var render = function() {
                 : _vm._e()
             ]),
             _vm._v("\r\n\r\n    " + _vm._s(step.step_name) + "\r\n    "),
-            _c(
-              "keep-alive",
-              [
-                _c(step.step_name, {
-                  tag: "component",
-                  attrs: {
-                    config: _vm.config,
-                    status: _vm.status,
-                    progress: _vm.progress,
-                    lib: _vm.lib,
-                    log: step.log,
-                    toc: _vm.toc
-                  }
-                })
-              ],
-              1
-            )
+            _c(step.step_name, {
+              tag: "component",
+              attrs: {
+                config: _vm.config,
+                status: _vm.status,
+                progress: _vm.progress,
+                lib: _vm.lib,
+                log: step.log,
+                toc: _vm.toc
+              }
+            })
           ],
           1
         )
@@ -2630,7 +2624,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (StepModule) {
-  StepModule.prop = ['lib', 'status', 'config', 'progress', 'error', 'view', 'log', 'toc']
+  StepModule.props = ['lib', 'status', 'config', 'progress', 'error', 'view', 'log', 'toc']
 });
 
 /***/ })
