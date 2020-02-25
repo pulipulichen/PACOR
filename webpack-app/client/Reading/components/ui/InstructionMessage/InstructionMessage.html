@@ -24,6 +24,11 @@
         <div v-html="instruction"></div>
       </template>
       <template v-slot:actions>
+        <div class="ui positive button"
+             v-on:click="gotoNextReadingPage"
+             v-if="lib.auth.currentStepConfig.nextReadingPage">
+          {{ $t('Move to next article') }}
+        </div>
         <div class="ui button"
              v-on:click="logout"
              v-if="enableLogout">

@@ -489,7 +489,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"OK":"我知道了！","Close":"我知道了","Start Tutorial":"顯示操作導覽","Logout":"登出","Are you sure to logout?":"您確定要登出嗎？"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"OK":"我知道了！","Close":"我知道了","Start Tutorial":"顯示操作導覽","Logout":"登出","Are you sure to logout?":"您確定要登出嗎？","Move to next article":"進入下一篇文章"}}')
   delete Component.options._Ctor
 }
 
@@ -5053,6 +5053,23 @@ var render = function() {
               key: "actions",
               fn: function() {
                 return [
+                  _vm.lib.auth.currentStepConfig.nextReadingPage
+                    ? _c(
+                        "div",
+                        {
+                          staticClass: "ui positive button",
+                          on: { click: _vm.gotoNextReadingPage }
+                        },
+                        [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("Move to next article")) +
+                              "\r\n        "
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
                   _vm.enableLogout
                     ? _c(
                         "div",
@@ -11389,7 +11406,7 @@ let AnnotaionInstruction = {
         return url
       }
       else {
-        if (this.lib.auth.enableCollaboration 
+        if (this.lib.auth.hasCollaborationStep 
                 && this.lib.StringHelper.isURL(url.collaboration)) {
           return url.collaboration
         }
@@ -28991,6 +29008,10 @@ let InstructionMessage = {
       this.$refs.Modal.hide()
       this.lib.auth.logout()
       location.reload()
+    },
+    gotoNextReadingPage () {
+      let url = this.lib.auth.currentStepConfig.nextReadingPage
+      location.href = url
     }
   } // methods
 }

@@ -22,7 +22,7 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 
 // --------------------
 
-Route.any('/pretest/:article/:date', ({view, params}) => {
+Route.any('/pretest/:group/:article/:date', ({view, params}) => {
   let article = params.article
   return view.render('2020exp-articles.' + article)
 })

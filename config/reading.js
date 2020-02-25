@@ -62,7 +62,6 @@ module.exports = {
    * Exit: 離開
    * FreeReading: 自由閱讀
    * 網址: 例如 http://blog.pulipuli.info
-   * function: 回傳下一個要移動的網址
    */
   readingProgressesFinish: 'FreeReading',
   
@@ -210,7 +209,9 @@ module.exports = {
       },
       showFinishMessage: true, // 顯示恭喜完成的訊息
       //keepShowInstructionMessage: true,
-      enableLogout: true
+      enableLogout: true,
+      // 顯示下一個要閱讀網頁
+      //nextReadingPage: 'http://blog.pulipuli.info'
     },
   },
   annotationTypeModules: {

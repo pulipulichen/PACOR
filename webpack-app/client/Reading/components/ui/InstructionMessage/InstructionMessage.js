@@ -97,6 +97,10 @@ let InstructionMessage = {
       this.$refs.Modal.hide()
       this.lib.auth.logout()
       location.reload()
+    },
+    gotoNextReadingPage () {
+      let url = this.lib.auth.currentStepConfig.nextReadingPage
+      location.href = url
     }
   } // methods
 }

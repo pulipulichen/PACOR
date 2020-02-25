@@ -26,7 +26,7 @@ let AnnotaionInstruction = {
         return url
       }
       else {
-        if (this.lib.auth.enableCollaboration 
+        if (this.lib.auth.hasCollaborationStep 
                 && this.lib.StringHelper.isURL(url.collaboration)) {
           return url.collaboration
         }

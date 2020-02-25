@@ -1113,6 +1113,15 @@ __webpack_require__.r(__webpack_exports__);
     return null
   } // Auth.computed.stepHighlightAnnotationConfig = function () {
   
+  Auth.computed.steps = function () {
+    let steps = []
+    for (let i = 0; i < this.status.readingProgresses.length; i++) {
+      let step = this.status.readingProgresses[i].step_name
+      steps.push(step)
+    }
+    return steps
+  } // Auth.computed.stepHighlightAnnotationConfig = function () {
+  
   Auth.computed.stepSectionAnnotationConfig = function () {
     let config = this.currentStepConfig
     if (config) {
@@ -1133,6 +1142,10 @@ __webpack_require__.r(__webpack_exports__);
   Auth.computed.isEnableCollaboration = function () {
     return this.enableCollaboration
   } // Auth.computed.isEnableCollaboration = function () {
+  
+  Auth.computed.hasCollaborationStep = function () {
+    return (this.steps.indexOf('CollaborativeReading') > -1)
+  } // Auth.computed.enableCollaboration = function () {
   
   Auth.computed.isEnableControlPermission = function () {
     let config = this.currentStepConfig

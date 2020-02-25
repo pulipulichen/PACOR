@@ -1,5 +1,4 @@
 en:
-  TEST_MESSAGE: Test Message
   
 zh-TW:
   # 這是註解
@@ -8,3 +7,5 @@ zh-TW:
   Start Tutorial: 顯示操作導覽
   Logout: 登出
   Are you sure to logout?: 您確定要登出嗎？
+
+  Move to next article: 進入下一篇文章

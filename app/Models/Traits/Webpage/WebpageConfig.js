@@ -70,17 +70,7 @@ class WebpageConfig {
         //console.log('getConfig, reloaded')
         
         let output = Config.get('reading')
-        
-        // For pre-test
-        
-        let pretestPrefix = Env.get('PROTOCOL') + '//' 
-                + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT')
-                + '/pretest'
-        //console.log(this.url, pretestPrefix)
-        if (this.url.startsWith(pretestPrefix)) {
-          let pretestConfig = Config.get('readingPretest')
-          output = TypeHelper.mergeDeep(output, pretestConfig)
-        }
+        output = this._pretestConfig(output)
         
         profiler.before('get domain')
         let query = DomainModel
@@ -158,6 +148,30 @@ class WebpageConfig {
         return o
       }
        */
+    }
+    
+    Model.prototype._pretestConfig = async function (output) {
+      // For pre-test
+      let pretestConfig
+      let pretestPrefixCollaborative = Env.get('PROTOCOL') + '//' 
+              + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT')
+              + '/pretest/collaborative/'
+      let pretestPrefixIndividual = Env.get('PROTOCOL') + '//' 
+              + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT')
+              + '/pretest/individual/'
+      //console.log(this.url, pretestPrefix)
+      if (this.url.startsWith(pretestPrefixCollaborative)) {
+        pretestConfig = Config.get('readingPretestCollaborative')
+      }
+      else if (this.url.startsWith(pretestPrefixIndividual)) {
+        pretestConfig = Config.get('readingPretestIndividual')
+      }
+
+      if (pretestConfig) {
+        output = TypeHelper.mergeDeep(output, pretestConfig)
+      }
+      
+      return output
     }
 
     Model.prototype.getStepConfig = async function (stepName) {
