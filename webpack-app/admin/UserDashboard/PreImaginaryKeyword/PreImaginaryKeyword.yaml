@@ -1,6 +1,6 @@
 en:
-  TEST_MESSAGE: Test Message
-  
+
 zh-TW:
-  # 這是註解
-  TEST_MESSAGE: 測試訊息
+  answeredList: 作答的關鍵字
+  removedList: 刪除的關鍵字
+  start_timestamp: 開始時間

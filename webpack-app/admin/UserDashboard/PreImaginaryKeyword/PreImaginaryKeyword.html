@@ -1,8 +1,21 @@
 <div>
   <div v-for="item in logPair"
     class="ui field">
-    <label>{{ item.name }}</label>
-    <div>{{ item.value }}</div>
+    <template v-if="item.name === 'answeredList' || item.name === 'removedList'">
+      <template v-if="item.value.length > 0">
+        <label>{{ $t(item.name) }}: </label>
+        <div v-for="keyword in item.value"
+             class="ui label">
+          {{ keyword }}
+        </div>
+      </template>
+    </template>
+    <template v-else-if="item.name === 'start_timestamp'"></template>
+    <template v-else>
+      <label>{{ item.name }}</label>
+      <div>{{ item.value }}</div>
+    </template>
+      
   </div>
 </div>
   
