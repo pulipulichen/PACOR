@@ -34,6 +34,20 @@ class UserDashboard {
       for (let i = 0; i < userJSON.readingProgresses.length; i++) {
         let step = userJSON.readingProgresses[i]
         let stepName = step.step_name
+        
+        if (stepName === 'IndividualReading'
+                || stepName === 'CollaborativeReading') {
+          let stat = await this._getAnnotationStatistic(webpage, user, step)
+          Object.keys(stat).forEach((key) => {
+            //console.log(key, stat[key])
+            if (!userJSON.readingProgresses[i].log) {
+              userJSON.readingProgresses[i].log = {}
+            }
+            
+            userJSON.readingProgresses[i].log[key] = stat[key]
+          })
+        }
+        
         //console.log(stepName)
       }
 
@@ -45,6 +59,22 @@ class UserDashboard {
       Cache.put(cacheKey, output, 0.5)
       return output
     })
+  }
+  
+  async _getAnnotationStatistic(webpage, user, step) {
+    let {start_timestamp, end_timestamp} = step
+    
+    let annotation_count = await user.countAnnotations(webpage, start_timestamp, end_timestamp)
+    let word_count = await user.countAnnotationNoteWords(webpage, start_timestamp, end_timestamp)
+    let type_count = await user.countAnnotationTypes(webpage, start_timestamp, end_timestamp)
+    let section_notes = await user.getSectionNotes(webpage, start_timestamp, end_timestamp)
+    
+    return {
+      annotation_count,
+      word_count,
+      type_count,
+      section_notes
+    }
   }
   
   async _checkDomainAdmin(auth, webpageID) {
