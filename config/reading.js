@@ -111,7 +111,10 @@ module.exports = {
       totalLimitMinutes: 60,
     },
     'IndividualReading': {
-      instruction: '/instruction/reading/IndividualReading.html',
+      instruction: {
+        countdown: '/instruction/reading/IndividualReading-endsByCountdown.html',
+        checklist: '/instruction/reading/IndividualReading-endsByChecklist.html',
+      },
       limitMinutes: 30,
       goToNextStepOnChecklistComplete: true,
 //      notification: {
@@ -245,7 +248,10 @@ module.exports = {
       'addable': true,
       'instruction': {
         'summary': "Highlight text you don't understand",
-        'url': '/instruction/annotation/ConfusedClarified.html'
+        'url': {
+          'collaboration': '/instruction/annotation/ConfusedClarified-CollaborativeReading.html',
+          'individual': '/instruction/annotation/ConfusedClarified-IndividualReading.html'
+        }
       },
       "style": {
         //'highlight': 'border-bottom: 1px solid green',
@@ -265,7 +271,10 @@ module.exports = {
       'addable': false,
       'instruction': {
         'summary': 'Write the answer to "questions"',
-        'url': '/instruction/annotation/ConfusedClarified.html'
+        'url': {
+          'collaboration': '/instruction/annotation/ConfusedClarified-CollaborativeReading.html',
+          'individual': '/instruction/annotation/ConfusedClarified-IndividualReading.html'
+        }
       },
       "style": {
         // https://www.colorhexa.com/15792d

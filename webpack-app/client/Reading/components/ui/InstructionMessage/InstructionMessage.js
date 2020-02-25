@@ -22,6 +22,14 @@ let InstructionMessage = {
       if (this.lib.StringHelper.isURL(this.instruction) ) {
         return this.instruction
       }
+      
+      if (typeof(this.lib.auth.currentStepConfig.goToNextStepOnChecklistComplete) !== 'boolean'
+              || this.lib.auth.currentStepConfig.goToNextStepOnChecklistComplete) {
+        return this.instruction.checklist
+      }
+      else {
+        return this.instruction.countdown
+      }
     },
     enableLogout () {
       return this.lib.auth.currentStepConfig.enableLogout

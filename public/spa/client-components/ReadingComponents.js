@@ -2715,7 +2715,7 @@ var render = function() {
           config: _vm.config,
           status: _vm.status,
           lib: _vm.lib,
-          contentURL: _vm.instruction.url,
+          contentURL: _vm.instructionURL,
           cancelButtonText: "CLOSE",
           cancelable: "true"
         },
@@ -11336,6 +11336,21 @@ let AnnotaionInstruction = {
       }
       
       return classList.join(' ')
+    },
+    instructionURL () {
+      let url = this.instruction.url
+      if (this.lib.StringHelper.isURL(url)) {
+        return url
+      }
+      else {
+        if (this.lib.auth.enableCollaboration 
+                && this.lib.StringHelper.isURL(url.collaboration)) {
+          return url.collaboration
+        }
+        else {
+          return url.individual
+        }
+      }
     }
   },
 //  watch: {
@@ -28819,6 +28834,14 @@ let InstructionMessage = {
     contentURL () {
       if (this.lib.StringHelper.isURL(this.instruction) ) {
         return this.instruction
+      }
+      
+      if (typeof(this.lib.auth.currentStepConfig.goToNextStepOnChecklistComplete) !== 'boolean'
+              || this.lib.auth.currentStepConfig.goToNextStepOnChecklistComplete) {
+        return this.instruction.checklist
+      }
+      else {
+        return this.instruction.countdown
       }
     },
     enableLogout () {

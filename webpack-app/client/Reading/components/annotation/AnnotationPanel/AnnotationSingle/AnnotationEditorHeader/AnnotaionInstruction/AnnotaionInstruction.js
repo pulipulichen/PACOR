@@ -19,6 +19,21 @@ let AnnotaionInstruction = {
       }
       
       return classList.join(' ')
+    },
+    instructionURL () {
+      let url = this.instruction.url
+      if (this.lib.StringHelper.isURL(url)) {
+        return url
+      }
+      else {
+        if (this.lib.auth.enableCollaboration 
+                && this.lib.StringHelper.isURL(url.collaboration)) {
+          return url.collaboration
+        }
+        else {
+          return url.individual
+        }
+      }
     }
   },
 //  watch: {
