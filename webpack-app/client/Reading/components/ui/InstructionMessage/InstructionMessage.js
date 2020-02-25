@@ -19,6 +19,10 @@ let InstructionMessage = {
       return this.lib.auth.currentStepConfig.instruction
     },
     contentURL () {
+      if (!this.instruction) {
+        return false
+      }
+      
       if (this.lib.StringHelper.isURL(this.instruction) ) {
         return this.instruction
       }

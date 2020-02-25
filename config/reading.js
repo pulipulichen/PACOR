@@ -7,11 +7,11 @@ module.exports = {
     //forceMaxTimeoutMinutes: 0.2
     forceMaxTimeoutMinutes: 1,
     test: {
-      minAnnotation: 4,
-      maxAnnotation: 9
+      //minAnnotation: 4,
+      //maxAnnotation: 9
       
-      //minAnnotation: 1,
-      //maxAnnotation: 1
+      minAnnotation: 1,
+      maxAnnotation: 1
     },
     
     //stayInReadingProgress: 'PreImaginaryKeyword'
@@ -83,8 +83,8 @@ module.exports = {
     'PreImaginaryKeyword': {
       //instruction: '/instruction/questionnaire/PreImaginary.html',
       minKeywords: 10,
-      limitMinutes: 5,
-      //limitMinutes: 0.2,
+      //limitMinutes: 5,
+      limitMinutes: 0.2,
     },
     'PostRecall': {
       //instruction: '/instruction/questionnaire/PostRecall.html',
@@ -97,8 +97,8 @@ module.exports = {
     'PostRecallKeyword': {
       //instruction: '/instruction/questionnaire/PostRecall.html',
       minKeywords: 10,
-      limitMinutes: 5,
-      //limitMinutes: 0.2,
+      //limitMinutes: 5,
+      limitMinutes: 0.2,
       preloadPreImaginaryKeywords: true  // 是否顯示前面撰寫的內容
     },
     
@@ -180,7 +180,7 @@ module.exports = {
     'FreeReading': {
       //instruction: '/instruction/reading/CollaborativeReading.html',
       permission: {
-        collaboration: true,
+        collaboration: false,
         control: false,
         defaultPermission: 'public',
       },
