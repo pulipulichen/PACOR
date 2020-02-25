@@ -57,9 +57,23 @@ export default (List) => {
 
     if (Array.isArray(result) && result.length > 0) {
       // 過濾掉重複的ID
-      result = result.filter((r) => {
-        return (this.annotationsIDList.indexOf(r.id) === -1)
+      //result = result.filter((r) => {
+      //  return (this.annotationsIDList.indexOf(r.id) === -1)
+      //})
+      let indexToRemove = []
+      result.forEach((r) => {
+        let i = this.annotationsIDList.indexOf(r.id)
+        if (i > -1) {
+          indexToRemove.push(i)
+        }
       })
+      if (indexToRemove.length > 0) {
+        indexToRemove.sort((a, b) => (b - a)})
+
+        indexToRemove.forEach((i) => {
+          this.annotations.splice(i, 1)
+        })
+      }
       this.annotations = this.annotations.concat(result)
     } else {
       this.noMore = true

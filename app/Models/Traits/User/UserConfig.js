@@ -65,7 +65,7 @@ class UserConfig {
         let stepName = await this.getCurrentReadingProgressStepName(webpage)
         
         if (stepName === true 
-                || stepName !== 'PostRecall') {
+                || (stepName !== 'PostRecall' && stepName !== 'PostRecallKeyword')) {
           console.error('[User.getStepAnnotationTypes()] config is error: ' + stepName)
         }
         return []
@@ -101,7 +101,7 @@ class UserConfig {
         if (stepName === true) {
           return []
         }
-        else if (stepName !== 'PostRecall') {
+        else if (stepName !== 'PostRecall' && stepName !== 'PostRecallKeyword') {
           console.error('[User.getStepSectionAnnotationTypes()] config is error: ' + stepName)
         }
         return []
