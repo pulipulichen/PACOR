@@ -14,7 +14,7 @@ module.exports = {
       maxAnnotation: 1
     },
     
-    stayInReadingProgress: 'PreImaginaryKeyword'
+    //stayInReadingProgress: 'PreImaginaryKeyword'
     //stayInReadingProgress: 'PostRecallKeyword'
   },
   
@@ -83,7 +83,7 @@ module.exports = {
     'PreImaginaryKeyword': {
       //instruction: '/instruction/questionnaire/PreImaginary.html',
       minKeywords: 10,
-      limitMinutes: 50,
+      limitMinutes: 5,
       //limitMinutes: 0.2,
     },
     'PostRecall': {
