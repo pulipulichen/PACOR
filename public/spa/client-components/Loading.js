@@ -1081,7 +1081,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
       let finishStep = this.status.readingConfig.readingProgressesFinish
-      if (this.lib.ValidateHelper.isURL(finishStep)) {
+      
+      if (finishStep.startsWith('/') 
+              || this.lib.ValidateHelper.isURL(finishStep)) {
         this._redirect(finishStep)
         return false
       }

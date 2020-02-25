@@ -3,6 +3,7 @@
 'use strict'
 
 const Cache = use('Cache')
+const Config = use('Config')
 
 const Env = use('Env')
 const TypeHelper = use('App/Helpers/TypeHelper')
@@ -68,13 +69,18 @@ class WebpageConfig {
       let doQuery = async () => {
         //console.log('getConfig, reloaded')
         
-        let output = use('Config').get('reading')
+        let output = Config.get('reading')
         
         // For pre-test
         
         let pretestPrefix = Env.get('PROTOCOL') + '//' 
                 + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT')
-                + '/pre-test'
+                + '/pretest'
+        //console.log(this.url, pretestPrefix)
+        if (this.url.startsWith(pretestPrefix)) {
+          let pretestConfig = Config.get('readingPretest')
+          output = TypeHelper.mergeDeep(output, pretestConfig)
+        }
         
         profiler.before('get domain')
         let query = DomainModel

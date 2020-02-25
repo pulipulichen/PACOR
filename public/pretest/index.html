@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>2020 exp pretest articles</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <!-- 在尾端加上日期 -->
+    <script src="/lib/bootstrap/jquery-3.4.1.slim.min.js"></script>
+    <script>
+      //console.log(document.referrer, typeof(document.referrer))
+      
+      if (document.referrer === '') {
+        let d = new Date();
+        let mmdd = [
+          ('0' + (d.getMonth() + 1)).slice(-2),
+          ('0' + d.getDate()).slice(-2)
+        ].join('');
+
+        let readingPage = '/pretest/yakutsk/' + mmdd
+        //console.log(readingPage)
+
+        location.href = readingPage
+      }
+      else {
+        let parts = document.referrer.split('/')
+        let len = parts.length
+        let article = parts[(len - 2)]
+
+        if (article === 'yakutsk') {
+          article = 'sakura'
+        }
+        else if (article === 'three-mountains-king') {
+          article = 'bat-virus'
+        }
+        else {
+          window.alert('Finish!')
+          article = null
+        }
+
+        if (article) {
+          parts[(len - 2)] = article
+          console.log(parts.join('/'))
+          location.href = parts.join('/')
+        }
+      }
+    </script>
+  </body>
+</html>

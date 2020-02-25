@@ -62,6 +62,7 @@ module.exports = {
    * Exit: 離開
    * FreeReading: 自由閱讀
    * 網址: 例如 http://blog.pulipuli.info
+   * function: 回傳下一個要移動的網址
    */
   readingProgressesFinish: 'FreeReading',
   
@@ -98,8 +99,8 @@ module.exports = {
     'PostRecallKeyword': {
       //instruction: '/instruction/questionnaire/PostRecall.html',
       minKeywords: 10,
-      //limitMinutes: 5,
-      limitMinutes: 0.2,
+      limitMinutes: 5,
+      //limitMinutes: 0.2,
       preloadPreImaginaryKeywords: true  // 是否顯示前面撰寫的內容
     },
     

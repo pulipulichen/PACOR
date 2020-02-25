@@ -27,8 +27,3 @@ Route.any('/2020exp/articles/:article/:group', ({view, params}) => {
   let article = params.article
   return view.render('2020exp-articles.' + article)
 })
-
-Route.any('/2020exp/pre-test/:article/:date', ({view, params}) => {
-  let article = params.article
-  return view.render('2020exp-articles.' + article)
-})
