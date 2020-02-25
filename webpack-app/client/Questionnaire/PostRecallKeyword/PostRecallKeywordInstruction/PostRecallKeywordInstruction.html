@@ -21,10 +21,25 @@
             ><img v-bind:src="image.src" 
             v-bind:title="image.title" /></span>
     </li>
-    <li>{{ $t(`Don't worry about punctuation or typos, just write down what you read.`) }}</li>
-    <li v-if="postRecallConfig.countdownAtStart === false"
-        v-html="timeLimitTypeStart"></li>
-    <li v-else
-        v-html="timeLimitAutoStart"></li>
+    
+    <li class="divided">
+      {{ $t('When you click "Start Answer and Countdown" button, a keyword editor will appear like following image:') }}
+      <br />
+      <img class="keyword-editor-thumbnail"
+           v-bind:src="keywordEditorThumbnail"
+           v-bind:title="$t('Keyword Editor')"/>
+    </li>
+    
+    <li>
+      {{ $t('You can perform following actions:') }}
+      <ol>
+        <li>{{ $t('Add a keyword') }}</li>
+        <li>{{ $t('Remove a keyword from your list') }}</li>
+        <li>{{ $t('Restore a keyword to your list') }}</li>
+      </ol>
+    </li>
+    
+    <li class="divided"
+        v-html="timeLimitClickButtonStart"></li>
   </ul>
 </section>

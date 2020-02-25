@@ -1646,7 +1646,7 @@ let Instruction = {
       return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts now.`, [this.preImaginaryConfig.limitMinutes])
     },
     timeLimitClickButtonStart () {
-      return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts when you click "Start Answer and Countdown" button.`, [this.preImaginaryConfig.limitMinutes])
+      return this.$t(`The time limit is <span class="highlight">{0} minutes</span> and the countdown starts when you click "Start Answer and Countdown" button.`, [this.preImaginaryConfig.limitMinutes])
     },
     isDiffMode () {
       let isDiffMode = false
