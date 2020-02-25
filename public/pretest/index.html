@@ -11,14 +11,45 @@
     <script>
       //console.log(document.referrer, typeof(document.referrer))
       
+      // 500
+      // 
+      // hsinchu-wind
+      // microscope
+      // rice
+      // three-mountains-king
+      // yakutsk
+      // 
+      // 1000
+      // 
+      // bat-virus 
+      // colorectal-cancer
+      // sakura
+      //
+      
+      
       if (document.referrer === '') {
         let d = new Date();
         let mmdd = [
           ('0' + (d.getMonth() + 1)).slice(-2),
           ('0' + d.getDate()).slice(-2)
-        ].join('');
+        ].join('')
+        
+        let h = d.getHours()
+        let article = 'hsinchu-wind'
+        if (h > 5 && h <= 10) {
+          article = 'microscope'
+        }
+        else if (h > 10 && h <= 15) {
+          article = 'yakutsk'
+        }
+        else if (h > 15 && h <= 20) {
+          article = 'three-mountains-king'
+        }
+        else if (h > 20 && h <= 23) {
+          article = 'rice'
+        }
 
-        let readingPage = '/pretest/yakutsk/' + mmdd
+        let readingPage = '/pretest/individual/' + article + '/' + mmdd
         //console.log(readingPage)
 
         location.href = readingPage
@@ -27,12 +58,17 @@
         let parts = document.referrer.split('/')
         let len = parts.length
         let article = parts[(len - 2)]
-
-        if (article === 'yakutsk') {
-          article = 'sakura'
+        
+        let mapping = {
+          'hsinchu-wind': 'bat-virus',
+          'microscope': 'bat-virus',
+          'rice': 'sakura',
+          'three-mountains-king': 'sakura',
+          'yakutsk': 'colorectal-cancer',
         }
-        else if (article === 'three-mountains-king') {
-          article = 'bat-virus'
+
+        if (typeof(mapping[article]) === 'string') {
+          article = mapping[article]
         }
         else {
           window.alert('Finish!')
@@ -41,6 +77,7 @@
 
         if (article) {
           parts[(len - 2)] = article
+          parts[(len - 3)] = 'collaborative'
           console.log(parts.join('/'))
           location.href = parts.join('/')
         }

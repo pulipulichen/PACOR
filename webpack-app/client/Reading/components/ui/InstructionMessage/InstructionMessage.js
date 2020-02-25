@@ -13,7 +13,10 @@ let InstructionMessage = {
       return this.lib.auth.currentStep
     },
     localStorageKeyPrefix () {
-      return 'InstructionMessage.' + this.status.userID + '.' + this.tempStepName
+      return 'InstructionMessage.' 
+              + this.status.webpageID + '.' 
+              + this.status.userID + '.' 
+              + this.tempStepName
     },
     instruction () {
       return this.lib.auth.currentStepConfig.instruction
