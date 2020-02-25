@@ -11,4 +11,11 @@ export default (Editor) => {
       this.awaitSubmit = false
     }, 3000)
   }
+  
+  Editor.methods.focusEditor = async function () {
+    while (!this.$refs.editor) {
+      await this.lib.VueHelper.sleep(100)
+    }
+    this.$refs.editor.focus()
+  }
 }

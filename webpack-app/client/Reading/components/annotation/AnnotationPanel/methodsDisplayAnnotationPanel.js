@@ -14,6 +14,9 @@ export default (AnnotationPanel) => {
     
     let transitionCallback = () => {
       //this.placeholder.show()
+      if (this.$refs.AnnotationSingle) {
+        this.$refs.AnnotationSingle.focusEditor()
+      }
     }
     
     if (this.lib.style.isEnableAnimte) {
@@ -24,7 +27,9 @@ export default (AnnotationPanel) => {
     else {
       this.placeholder.show()
       $(this.$refs.panel).show()
-      transitionCallback()
+      setTimeout(() => {
+        transitionCallback()
+      }, 100)
     }
 
     //this.scrollToPinSelection()

@@ -12052,7 +12052,15 @@ let AnnotationEditorModules = {
       //console.log(result)
     },
     focusCommentInput: function () {
-      this.$refs.AnnotationDisscussion.focusCommentInput()
+      if (this.$refs.AnnotationDisscussion) {
+        this.$refs.AnnotationDisscussion.focusCommentInput()
+      }
+      else {
+        this.$refs.AnnotationTypeModule.focusEditor()
+      }
+    },
+    focusEditor () {
+      this.$refs.AnnotationTypeModule.focusEditor()
     }
   } // methods
 }
@@ -12288,6 +12296,9 @@ const transitionMode = 'slide up'
     
     let transitionCallback = () => {
       //this.placeholder.show()
+      if (this.$refs.AnnotationSingle) {
+        this.$refs.AnnotationSingle.focusEditor()
+      }
     }
     
     if (this.lib.style.isEnableAnimte) {
@@ -12298,7 +12309,9 @@ const transitionMode = 'slide up'
     else {
       this.placeholder.show()
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).show()
-      transitionCallback()
+      setTimeout(() => {
+        transitionCallback()
+      }, 100)
     }
 
     //this.scrollToPinSelection()
@@ -15476,6 +15489,13 @@ __webpack_require__.r(__webpack_exports__);
     setTimeout(() => {
       this.awaitSubmit = false
     }, 3000)
+  }
+  
+  Editor.methods.focusEditor = async function () {
+    while (!this.$refs.editor) {
+      await this.lib.VueHelper.sleep(100)
+    }
+    this.$refs.editor.focus()
   }
 });
 
@@ -26204,7 +26224,7 @@ let SectionManager = {
   },
   methods: {
     initSectionNodes: async function () {
-      //console.log('initSectionNodes', this.lib.auth.currentStepAnnotationConfig)
+      //console.log('initSectionNodes', this.lib.auth.stepSectionAnnotationConfig)
       if (!this.lib.auth.stepSectionAnnotationConfig) {
         //console.log('initSectionNodes')
         return false
@@ -27479,9 +27499,16 @@ let SectionPanel = {
     
     //console.log(this.lib.auth.isEnableCollaboration)
     
+    let isChecklistSubmitted = true
+    if (this.lib.auth.stepSectionAnnotationConfig
+            && Array.isArray(this.lib.auth.stepSectionAnnotationConfig.checklist)
+            && this.lib.auth.stepSectionAnnotationConfig.checklist.length > 0) {
+      isChecklistSubmitted = this.lib.auth.isEnableCollaboration
+    }
+    
     return {
       checklistData: [],
-      isChecklistSubmitted: this.lib.auth.isEnableCollaboration
+      isChecklistSubmitted
     }
   },
   components: {
@@ -27491,6 +27518,7 @@ let SectionPanel = {
   computed: {
     isShowAnnotationList () {
       if (this.lib.auth.isEnableCollaboration === false) {
+        //console.log(this.isChecklistSubmitted)
         return this.isChecklistSubmitted
       }
       else {
@@ -27534,6 +27562,13 @@ let SectionPanel = {
       this.isChecklistSubmitted = (this.sectionsData
               && Array.isArray(this.sectionsData.checklistSubmitted)
               && this.sectionsData.checklistSubmitted[this.sectionSeqID] === true )
+      
+      if (!this.lib.auth.stepSectionAnnotationConfig
+            || !Array.isArray(this.lib.auth.stepSectionAnnotationConfig.checklist)
+            || this.lib.auth.stepSectionAnnotationConfig.checklist.length === 0) {
+        // 如果沒有checklist的設定，那就當作已經確認完了
+        this.isChecklistSubmitted = true
+      }
     }
   } // methods
 }

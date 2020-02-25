@@ -254,7 +254,15 @@ let AnnotationEditorModules = {
       //console.log(result)
     },
     focusCommentInput: function () {
-      this.$refs.AnnotationDisscussion.focusCommentInput()
+      if (this.$refs.AnnotationDisscussion) {
+        this.$refs.AnnotationDisscussion.focusCommentInput()
+      }
+      else {
+        this.$refs.AnnotationTypeModule.focusEditor()
+      }
+    },
+    focusEditor () {
+      this.$refs.AnnotationTypeModule.focusEditor()
     }
   } // methods
 }

@@ -10,9 +10,16 @@ let SectionPanel = {
     
     //console.log(this.lib.auth.isEnableCollaboration)
     
+    let isChecklistSubmitted = true
+    if (this.lib.auth.stepSectionAnnotationConfig
+            && Array.isArray(this.lib.auth.stepSectionAnnotationConfig.checklist)
+            && this.lib.auth.stepSectionAnnotationConfig.checklist.length > 0) {
+      isChecklistSubmitted = this.lib.auth.isEnableCollaboration
+    }
+    
     return {
       checklistData: [],
-      isChecklistSubmitted: this.lib.auth.isEnableCollaboration
+      isChecklistSubmitted
     }
   },
   components: {
@@ -22,6 +29,7 @@ let SectionPanel = {
   computed: {
     isShowAnnotationList () {
       if (this.lib.auth.isEnableCollaboration === false) {
+        //console.log(this.isChecklistSubmitted)
         return this.isChecklistSubmitted
       }
       else {
@@ -65,6 +73,13 @@ let SectionPanel = {
       this.isChecklistSubmitted = (this.sectionsData
               && Array.isArray(this.sectionsData.checklistSubmitted)
               && this.sectionsData.checklistSubmitted[this.sectionSeqID] === true )
+      
+      if (!this.lib.auth.stepSectionAnnotationConfig
+            || !Array.isArray(this.lib.auth.stepSectionAnnotationConfig.checklist)
+            || this.lib.auth.stepSectionAnnotationConfig.checklist.length === 0) {
+        // 如果沒有checklist的設定，那就當作已經確認完了
+        this.isChecklistSubmitted = true
+      }
     }
   } // methods
 }

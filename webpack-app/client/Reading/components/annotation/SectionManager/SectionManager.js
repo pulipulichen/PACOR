@@ -58,7 +58,7 @@ let SectionManager = {
   },
   methods: {
     initSectionNodes: async function () {
-      //console.log('initSectionNodes', this.lib.auth.currentStepAnnotationConfig)
+      //console.log('initSectionNodes', this.lib.auth.stepSectionAnnotationConfig)
       if (!this.lib.auth.stepSectionAnnotationConfig) {
         //console.log('initSectionNodes')
         return false
