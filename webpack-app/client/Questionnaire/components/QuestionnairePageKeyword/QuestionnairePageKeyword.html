@@ -8,15 +8,17 @@
     dimmer="opaque"
     cancelable="false">
     <template v-slot:header>
-      <user-avatar 
-        class="user-avatar"
-        v-bind:config="config"
-        v-bind:status="status"
-        v-bind:lib="lib">
-      </user-avatar>
-      {{ lib.auth.username }}
-      :
-      {{ header }}
+      <div v-on:dblclick="nextStep">
+        <user-avatar 
+          class="user-avatar"
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib">
+        </user-avatar>
+        {{ lib.auth.username }}
+        :
+        {{ header }}
+      </div>
     </template>
     <template v-slot:headerMenu
               v-if="lib.auth.currentStep === 'PreImaginary'">

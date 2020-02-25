@@ -151,20 +151,27 @@ var render = function() {
               key: "header",
               fn: function() {
                 return [
-                  _c("user-avatar", {
-                    staticClass: "user-avatar",
-                    attrs: {
-                      config: _vm.config,
-                      status: _vm.status,
-                      lib: _vm.lib
-                    }
-                  }),
-                  _vm._v(
-                    "\r\n      " +
-                      _vm._s(_vm.lib.auth.username) +
-                      "\r\n      :\r\n      " +
-                      _vm._s(_vm.header) +
-                      "\r\n    "
+                  _c(
+                    "div",
+                    { on: { dblclick: _vm.nextStep } },
+                    [
+                      _c("user-avatar", {
+                        staticClass: "user-avatar",
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib
+                        }
+                      }),
+                      _vm._v(
+                        "\r\n        " +
+                          _vm._s(_vm.lib.auth.username) +
+                          "\r\n        :\r\n        " +
+                          _vm._s(_vm.header) +
+                          "\r\n      "
+                      )
+                    ],
+                    1
                   )
                 ]
               },

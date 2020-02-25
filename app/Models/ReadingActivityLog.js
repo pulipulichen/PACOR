@@ -23,12 +23,39 @@ class ReadingActivityLog extends Model {
       userID = userID.primaryKeyValue
     }
     
-    let result = await ReadingActivityLog
+    let query = await ReadingActivityLog
             .query()
             .where('webpage_id', webpageID)
             .where('user_id', userID)
-            .where('type', type)
-            .fetch()
+    
+    if (type) {
+      query.where('type', type)
+    }
+    
+    let result = await query.fetch()
+    
+    return result.toJSON()
+  }
+  
+  static async findLatestLog (webpageID, userID) {
+    if (typeof(webpageID) === 'object'
+            && typeof(webpageID.primaryKeyValue) === 'number') {
+      webpageID = webpageID.primaryKeyValue
+    }
+    
+    if (typeof(userID) === 'object'
+            && typeof(userID.primaryKeyValue) === 'number') {
+      userID = userID.primaryKeyValue
+    }
+    
+    let query = await ReadingActivityLog
+            .query()
+            .where('webpage_id', webpageID)
+            .where('user_id', userID)
+            .orderBy('created_at_unixms', 'desc')
+            .limit(1)
+    
+    let result = await query.fetch()
     
     return result.toJSON()
   }

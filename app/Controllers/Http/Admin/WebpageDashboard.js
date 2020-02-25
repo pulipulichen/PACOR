@@ -9,6 +9,7 @@ const Config = use('Config')
 const Cache = use('Cache')
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
+const dayjs = use('dayjs')
 
 class WebpageDashboard {
   async info ({request, auth}) {
@@ -125,10 +126,28 @@ class WebpageDashboard {
       let user = readers.rows[i]
       
       let userJSON = user.toJSON()
+      userJSON.created_at = dayjs(user.created_at).unix()
       userJSON.readingProgresses = await user.getReadingProgressStatus(webpage)
+      
+      userJSON.latest_log_unixms = 0
+      if (userJSON.latestLog.length > 0) {
+        userJSON.latest_log_unixms = parseInt(userJSON.latestLog[0].created_at_unixms, 10)
+      }
 
       output.push(userJSON)
     }
+    
+    // 排序
+    output.sort((a, b) => {
+      if (b.latest_log_unixms === 0
+              && a.latest_log_unixms === 0) {
+        return b.created_at - a.created_at
+      }
+      else {
+        return b.latest_log_unixms - a.latest_log_unixms
+      }
+    })
+    
     return {
       'group_seq_id': -1,
       'users': output

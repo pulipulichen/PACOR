@@ -127,8 +127,12 @@ class WebpageGroup {
       let idsList = await this.getUserIDsNotInGroup()
       let readers = await User
               .query()
+              .with('latestLog')
               .whereIn('id', idsList)
+              .orderBy('created_at', 'desc')
               .fetch()
+      
+      //console.log(typeof(readers.toJSON().slice(-1)[0].latestLog[0].created_at_unixms))
       return readers
     }
     

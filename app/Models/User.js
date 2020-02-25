@@ -175,6 +175,12 @@ class User extends Model {
     return this.hasMany('App/Models/ReadingActivityLog')
   }
   
+  latestLog () {
+    return this.hasMany('App/Models/ReadingActivityLog')
+            .orderBy('created_at_unixms', 'desc')
+            .limit(1)
+  }
+  
   getPreference (preference) {
     let basePreference = Config.get('userPreference')
     
