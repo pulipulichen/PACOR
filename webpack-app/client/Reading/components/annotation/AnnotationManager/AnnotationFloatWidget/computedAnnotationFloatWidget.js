@@ -28,6 +28,10 @@ export default function (AnnotationFloatWidget) {
     if (this.lib.style.isEnableAnimte === false) {
       classList.push('disable-animate')
     }
+    
+    if (this.isFixed) {
+      classList.push('is-fixed')
+    }
 
     //console.log(classList)
     //return 'bottom'

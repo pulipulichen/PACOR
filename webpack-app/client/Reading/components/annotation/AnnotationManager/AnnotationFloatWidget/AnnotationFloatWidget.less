@@ -2,15 +2,15 @@
 
 .annotation-float-widget {
   transition: opacity 0.3s, z-index 0.3s;
-  
+
   //transition-duration: 0.3s;
-  
+
   //transition: display 0.3s;
   //display: none;
   opacity: 0;
-  
+
   filter: drop-shadow(0px 0px 0.5em rgba(0, 0, 0, 1));
-  
+
   position: fixed !important;
   left: 1em;
   z-index: -1;
@@ -18,45 +18,45 @@
   top: @verticalMargin;
   //max-height: calc(50vh - @TopMenuHeight - 2em);
   //max-height: calc(50vh - @TopMenuHeight - 1em);
-  
+
   overflow-x: hidden;
   overflow-y: auto;
-  
+
   @media only screen and (max-height: 700px) {
     top: 1em;
     max-height: inherit;
   }
-  
+
   &.show {
     opacity: 1;
     z-index: 10;
     //display: block;
   }
-  
+
   &.bottom {
     top: auto;
     bottom: @verticalMargin;
-    
+
     @media only screen and (max-height: 700px) {
       bottom: 5em;
-      
+
       &.show {
         z-index: 999;
       }
     }
-    
+
     &.selecting {
       width: calc(100vw - 14em); // 保留FAB的寬度
     }
   }
-  
+
   .list-button {
     margin-left: 0.5em;
     margin-right: 0.5em;
     vertical-align: top !important;
     direction: ltr;
   }
-  
+
   .footer-row > .column {
     white-space: nowrap;
     overflow-x: auto;
@@ -67,42 +67,46 @@
     padding-left: 0em !important;
     padding-right: 0 !important;
   }
+  
+  &.is-fixed {
+    margin-top: calc(-1em - 2px);
+  }
 }
 
 .close-container.floating.ui.label {
-    float: right;
-    cursor: pointer;
-    user-select: none;
-    //position: relative;
-    z-index: 2; // 比resize handler還要高一點點
+  float: right;
+  cursor: pointer;
+  user-select: none;
+  //position: relative;
+  z-index: 2; // 比resize handler還要高一點點
 
-    left: calc(100% - 0.3em) !important;
-    padding: 0.4em !important;
-    //text-align: center;
-    padding-left: 0.15em !important;
-    padding-top: 0.3em !important;
-    padding-bottom: 0.3em !important;
-    
-    top: 0.9em !important;
-    border: 2px solid white !important;
-    border-radius: 2em !important;
+  left: calc(100% - 0.3em) !important;
+  padding: 0.4em !important;
+  //text-align: center;
+  padding-left: 0.15em !important;
+  padding-top: 0.3em !important;
+  padding-bottom: 0.3em !important;
 
-    .close.icon {
-      opacity: 1 !important;
-      color: white;
-      margin-left: 0.3em;
-      margin-bottom: -0.2em;
-    }
+  top: 0.9em !important;
+  border: 2px solid white !important;
+  border-radius: 2em !important;
+
+  .close.icon {
+    opacity: 1 !important;
+    color: white;
+    margin-left: 0.3em;
+    margin-bottom: -0.2em;
   }
-  
-  .footer-row .UserAvatarIcons {
-    vertical-align: top;
-  }
+}
+
+.footer-row .UserAvatarIcons {
+  vertical-align: top;
+}
 
 @media only screen and (max-width: 767px) {
   .footer-row > .column {
     //padding-bottom: 0 !important;
-    
+
     ::v-deep {
       .UserAvatarIcons,
       .AnnotationTypeButton {
