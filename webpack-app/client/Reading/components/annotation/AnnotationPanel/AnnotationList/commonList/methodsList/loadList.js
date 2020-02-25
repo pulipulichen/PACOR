@@ -68,7 +68,7 @@ export default (List) => {
         }
       })
       if (indexToRemove.length > 0) {
-        indexToRemove.sort((a, b) => (b - a)})
+        indexToRemove.sort((a, b) => (b - a))
 
         indexToRemove.forEach((i) => {
           this.annotations.splice(i, 1)
