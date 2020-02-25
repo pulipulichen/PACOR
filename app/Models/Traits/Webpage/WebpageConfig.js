@@ -3,7 +3,8 @@
 'use strict'
 
 const Cache = use('Cache')
-const ReadingConfig = use('Config').get('reading')
+
+const Env = use('Env')
 const TypeHelper = use('App/Helpers/TypeHelper')
 
 const DomainModel = use('App/Models/Domain')
@@ -67,7 +68,13 @@ class WebpageConfig {
       let doQuery = async () => {
         //console.log('getConfig, reloaded')
         
-        let output = ReadingConfig
+        let output = use('Config').get('reading')
+        
+        // For pre-test
+        
+        let pretestPrefix = Env.get('PROTOCOL') + '//' 
+                + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT')
+                + '/pre-test'
         
         profiler.before('get domain')
         let query = DomainModel
