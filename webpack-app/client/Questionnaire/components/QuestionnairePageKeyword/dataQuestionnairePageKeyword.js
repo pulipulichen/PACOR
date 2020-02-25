@@ -20,7 +20,7 @@ export default function (Questionnaire) {
       removedList: [],
       start_timestamp: null
     }
-    data.persistKey = key + '.' + this.status.userID + '.log'
+    data.persistKey = key + '.' + this.status.webpageID + '.' + this.status.userID + '.log'
     data.remainingSeconds = null
     
     data.answeredList = []
