@@ -22,8 +22,8 @@ let UserDashboard = {
     IndividualReading: IndividualReading,
     CollaborativeReading: CollaborativeReading,
     PostRecall: PostRecall,
-    PreImaginaryKeyword,
-    PostRecallKeyword
+    PreImaginaryKeyword: PreImaginaryKeyword,
+    PostRecallKeyword: PostRecallKeyword
   },
   computed: {
     'webpagePath': function () {
