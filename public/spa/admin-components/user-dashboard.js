@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Checklists in sections":"各小節中的查核單結果"}}')
   delete Component.options._Ctor
 }
 
@@ -121,7 +121,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單"}}')
   delete Component.options._Ctor
 }
 
@@ -137,7 +137,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單"}}')
   delete Component.options._Ctor
 }
 
@@ -153,7 +153,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單"}}')
   delete Component.options._Ctor
 }
 
@@ -169,7 +169,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單"}}')
   delete Component.options._Ctor
 }
 
@@ -185,7 +185,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單"}}')
   delete Component.options._Ctor
 }
 
@@ -201,7 +201,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單"}}')
   delete Component.options._Ctor
 }
 
@@ -408,17 +408,14 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "CollaborativeReading" },
-    [
-      _vm._l(_vm.logPair, function(item) {
-        return _c("div", { staticClass: "ui field" }, [
-          _c("label", [_vm._v(_vm._s(item.name))]),
-          _vm._v(" "),
-          _c("div", [_vm._v(_vm._s(item.value))])
-        ])
-      }),
-      _vm._v("\r\n  CollaborativeReading\r\n")
-    ],
-    2
+    _vm._l(_vm.logPair, function(item) {
+      return _c("div", { staticClass: "ui field" }, [
+        _c("label", [_vm._v(_vm._s(item.name))]),
+        _vm._v(" "),
+        _c("div", [_vm._v(_vm._s(item.value))])
+      ])
+    }),
+    0
   )
 }
 var staticRenderFns = []
@@ -446,17 +443,47 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "IndividualReading" },
-    [
-      _vm._l(_vm.logPair, function(item) {
-        return _c("div", { staticClass: "ui field" }, [
-          _c("label", [_vm._v(_vm._s(item.name))]),
-          _vm._v(" "),
-          _c("div", [_vm._v(_vm._s(item.value))])
-        ])
-      }),
-      _vm._v("\r\n  IndividualReading\r\n")
-    ],
-    2
+    _vm._l(_vm.logPair, function(item) {
+      return _c(
+        "div",
+        { staticClass: "ui field" },
+        [
+          item.name === "checklist"
+            ? [
+                _c("label", [_vm._v(_vm._s(_vm.$t(item.name)))]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(_vm._s(_vm.$t("Checklists in sections")) + ":")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "ol",
+                  _vm._l(item.value, function(checklist) {
+                    return _c(
+                      "li",
+                      _vm._l(checklist, function(checked, i) {
+                        return _c("i", {
+                          staticClass: "square outline icon",
+                          class: { check: checked },
+                          attrs: { title: _vm.displayChecklistItem(i) }
+                        })
+                      }),
+                      0
+                    )
+                  }),
+                  0
+                )
+              ]
+            : [
+                _c("label", [_vm._v(_vm._s(_vm.$t(item.name)))]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s(item.value))])
+              ]
+        ],
+        2
+      )
+    }),
+    0
   )
 }
 var staticRenderFns = []
@@ -553,44 +580,39 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [
-      _vm._l(_vm.logPair, function(item) {
-        return _c(
-          "div",
-          { staticClass: "ui field" },
-          [
-            item.name === "answeredList" || item.name === "removedList"
-              ? [
-                  item.value.length > 0
-                    ? [
-                        _c("label", [_vm._v(_vm._s(_vm.$t(item.name)) + ": ")]),
-                        _vm._v(" "),
-                        _vm._l(item.value, function(keyword) {
-                          return _c("div", { staticClass: "ui label" }, [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(keyword) +
-                                "\r\n        "
-                            )
-                          ])
-                        })
-                      ]
-                    : _vm._e()
-                ]
-              : item.name === "start_timestamp"
-              ? void 0
-              : [
-                  _c("label", [_vm._v(_vm._s(item.name))]),
-                  _vm._v(" "),
-                  _c("div", [_vm._v(_vm._s(item.value))])
-                ]
-          ],
-          2
-        )
-      }),
-      _vm._v("\r\n  \r\n  PreImaginaryKeyword\r\n")
-    ],
-    2
+    _vm._l(_vm.logPair, function(item) {
+      return _c(
+        "div",
+        { staticClass: "ui field" },
+        [
+          item.name === "answeredList" || item.name === "removedList"
+            ? [
+                item.value.length > 0
+                  ? [
+                      _c("label", [_vm._v(_vm._s(_vm.$t(item.name)) + ": ")]),
+                      _vm._v(" "),
+                      _vm._l(item.value, function(keyword) {
+                        return _c("div", { staticClass: "ui label" }, [
+                          _vm._v(
+                            "\r\n          " + _vm._s(keyword) + "\r\n        "
+                          )
+                        ])
+                      })
+                    ]
+                  : _vm._e()
+              ]
+            : item.name === "start_timestamp"
+            ? void 0
+            : [
+                _c("label", [_vm._v(_vm._s(item.name))]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s(item.value))])
+              ]
+        ],
+        2
+      )
+    }),
+    0
   )
 }
 var staticRenderFns = []
@@ -617,44 +639,39 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [
-      _vm._l(_vm.logPair, function(item) {
-        return _c(
-          "div",
-          { staticClass: "ui field" },
-          [
-            item.name === "answeredList" || item.name === "removedList"
-              ? [
-                  item.value.length > 0
-                    ? [
-                        _c("label", [_vm._v(_vm._s(_vm.$t(item.name)) + ": ")]),
-                        _vm._v(" "),
-                        _vm._l(item.value, function(keyword) {
-                          return _c("div", { staticClass: "ui label" }, [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(keyword) +
-                                "\r\n        "
-                            )
-                          ])
-                        })
-                      ]
-                    : _vm._e()
-                ]
-              : item.name === "start_timestamp"
-              ? void 0
-              : [
-                  _c("label", [_vm._v(_vm._s(item.name))]),
-                  _vm._v(" "),
-                  _c("div", [_vm._v(_vm._s(item.value))])
-                ]
-          ],
-          2
-        )
-      }),
-      _vm._v("\r\n  \r\n  PreImaginaryKeyword\r\n")
-    ],
-    2
+    _vm._l(_vm.logPair, function(item) {
+      return _c(
+        "div",
+        { staticClass: "ui field" },
+        [
+          item.name === "answeredList" || item.name === "removedList"
+            ? [
+                item.value.length > 0
+                  ? [
+                      _c("label", [_vm._v(_vm._s(_vm.$t(item.name)) + ": ")]),
+                      _vm._v(" "),
+                      _vm._l(item.value, function(keyword) {
+                        return _c("div", { staticClass: "ui label" }, [
+                          _vm._v(
+                            "\r\n          " + _vm._s(keyword) + "\r\n        "
+                          )
+                        ])
+                      })
+                    ]
+                  : _vm._e()
+              ]
+            : item.name === "start_timestamp"
+            ? void 0
+            : [
+                _c("label", [_vm._v(_vm._s(item.name))]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s(item.value))])
+              ]
+        ],
+        2
+      )
+    }),
+    0
   )
 }
 var staticRenderFns = []
@@ -901,7 +918,7 @@ var render = function() {
                   ])
                 : _vm._e()
             ]),
-            _vm._v("\r\n\r\n    " + _vm._s(step.step_name) + "\r\n    "),
+            _vm._v(" "),
             _c(step.step_name, {
               tag: "component",
               attrs: {
@@ -2592,6 +2609,10 @@ __webpack_require__.r(__webpack_exports__);
       //console.log(this.stepData)
       
       this.toc.refresh()
+  }
+  
+  StepModule.methods.displayChecklistItem = function (i) {
+    return '@TODO ' + i
   }
 });
 

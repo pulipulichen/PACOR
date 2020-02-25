@@ -30,6 +30,12 @@ class UserDashboard {
       let userJSON = user.toJSON()
       
       userJSON.readingProgresses = await user.getReadingProgressStatus(webpage, true)
+      
+      for (let i = 0; i < userJSON.readingProgresses.length; i++) {
+        let step = userJSON.readingProgresses[i]
+        let stepName = step.step_name
+        //console.log(stepName)
+      }
 
       let webpageURL = webpage.url
       let output = {

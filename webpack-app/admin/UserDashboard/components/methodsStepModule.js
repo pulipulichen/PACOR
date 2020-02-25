@@ -10,4 +10,8 @@ export default function (StepModule) {
       
       this.toc.refresh()
   }
+  
+  StepModule.methods.displayChecklistItem = function (i) {
+    return '@TODO ' + i
+  }
 }
