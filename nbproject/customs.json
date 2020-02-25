@@ -71,6 +71,8 @@
         "v-on:read": {},
         "instuction-component": {},
         "v-bind:heightPX": {},
+        "v-bind:toc": {},
+        "v-bind:log": {},
         "v-bind:hook": {},
         "v-bind:notification": {},
         "v-bind:progress": {}

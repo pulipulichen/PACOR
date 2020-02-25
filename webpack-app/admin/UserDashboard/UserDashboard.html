@@ -1,4 +1,4 @@
-<div class="ui form">
+<div class="ui form UserDashboard">
   <div class="ui secondary menu">
     <a class="icon item"
        v-bind:href="'#/webpage-dashboard/' + $route.params.webpageID">
@@ -94,6 +94,8 @@
       </div>
     </div>
 
+    {{ step.step_name }}
+    
     <component 
       v-bind:is="step.step_name"
       v-bind:config="config"
@@ -101,6 +103,7 @@
       v-bind:progress="progress"
       v-bind:lib="lib"
       v-bind:log="step.log"
-      v-bind:toc="toc"></component>
+      v-bind:toc="toc">
+    </component>
   </div>
 </div>

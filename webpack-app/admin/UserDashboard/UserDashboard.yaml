@@ -1,6 +1,6 @@
 en:
-  TEST_MESSAGE: Test Message
   
 zh-TW:
   # 這是註解
-  TEST_MESSAGE: 測試訊息
+  Duration: 活動期間
+  Activity seconds: 活躍時間

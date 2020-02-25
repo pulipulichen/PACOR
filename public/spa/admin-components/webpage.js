@@ -1143,7 +1143,7 @@ let WebpageList = {
           this.pageConfig.page = 1
         }
         
-        console.log(this.$route.params, this.$route.params.page, this.pageConfig.page)
+        //console.log(this.$route.params, this.$route.params.page, this.pageConfig.page)
       }
       else {
         this.pageConfig.page = parseInt(this.$route.params.page, 10)

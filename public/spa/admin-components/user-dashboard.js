@@ -105,7 +105,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Duration":"活動期間","Activity seconds":"活躍時間"}}')
   delete Component.options._Ctor
 }
 
@@ -227,6 +227,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "CollaborativeReading" },
     _vm._l(_vm.logPair, function(item) {
       return _c("div", { staticClass: "ui field" }, [
         _c("label", [_vm._v(_vm._s(item.name))]),
@@ -261,14 +262,18 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(_vm.logPair, function(item) {
-      return _c("div", { staticClass: "ui field" }, [
-        _c("label", [_vm._v(_vm._s(item.name))]),
-        _vm._v(" "),
-        _c("div", [_vm._v(_vm._s(item.value))])
-      ])
-    }),
-    0
+    { staticClass: "IndividualReading" },
+    [
+      _vm._l(_vm.logPair, function(item) {
+        return _c("div", { staticClass: "ui field" }, [
+          _c("label", [_vm._v(_vm._s(item.name))]),
+          _vm._v(" "),
+          _c("div", [_vm._v(_vm._s(item.value))])
+        ])
+      }),
+      _vm._v("\r\n  \r\n  這邊要列出標註數量\r\n")
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -431,7 +436,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "ui form" },
+    { staticClass: "ui form UserDashboard" },
     [
       _c("div", { staticClass: "ui secondary menu" }, [
         _c(
@@ -651,7 +656,9 @@ var render = function() {
                   ])
                 : _vm._e()
             ]),
-            _vm._v(" "),
+            _vm._v(
+              "\r\n\r\n    " + _vm._s(step.step_name) + "\r\n    \r\n    "
+            ),
             _c(step.step_name, {
               tag: "component",
               attrs: {
