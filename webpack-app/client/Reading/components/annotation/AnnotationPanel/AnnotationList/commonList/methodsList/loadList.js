@@ -56,24 +56,39 @@ export default (List) => {
     //console.log(result)
 
     if (Array.isArray(result) && result.length > 0) {
-      // 過濾掉重複的ID
+      // 如果result有重複，那就刪除result
       //result = result.filter((r) => {
       //  return (this.annotationsIDList.indexOf(r.id) === -1)
       //})
-      let indexToRemove = []
-      result.forEach((r) => {
+      
+      // 如果result有重複，那就刪除原本的annotation
+//      let indexToRemove = []
+//      result.forEach((r) => {
+//        let i = this.annotationsIDList.indexOf(r.id)
+//        if (i > -1) {
+//          indexToRemove.push(i)
+//        }
+//      })
+//      if (indexToRemove.length > 0) {
+//        indexToRemove.sort((a, b) => (b - a))
+//
+//        indexToRemove.forEach((i) => {
+//          this.annotations.splice(i, 1)
+//        })
+//      }
+      
+      // 如果result有更新，那就覆蓋掉原本的annotation
+      result = result.filter((r) => {
         let i = this.annotationsIDList.indexOf(r.id)
-        if (i > -1) {
-          indexToRemove.push(i)
+        if (i === -1) {
+          return true
         }
+        
+        this.annotations[i] = r
+        return false
       })
-      if (indexToRemove.length > 0) {
-        indexToRemove.sort((a, b) => (b - a))
-
-        indexToRemove.forEach((i) => {
-          this.annotations.splice(i, 1)
-        })
-      }
+      
+      
       this.annotations = this.annotations.concat(result)
     } else {
       this.noMore = true
