@@ -150,7 +150,7 @@ class WebpageConfig {
        */
     }
     
-    Model.prototype._pretestConfig = async function (output) {
+    Model.prototype._pretestConfig = function (output) {
       // For pre-test
       let pretestConfig
       
@@ -176,7 +176,9 @@ class WebpageConfig {
       }
 
       if (pretestConfig) {
+        //console.log(output)
         output = TypeHelper.mergeDeep(output, pretestConfig)
+        //console.log(output)
       }
       
       return output
