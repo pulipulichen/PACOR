@@ -69,7 +69,9 @@ let TokenizationHelper = {
     if (this._segment === null) {
       let segment = new Segment
       segment.useDefault()
-      console.log(path.join(__dirname, 'novel-segment', 'stopword.txt'))
+      //console.log(path.join(__dirname, 'novel-segment', 'stopword.txt'))
+      segment.loadDict(path.join(__dirname, 'novel-segment', 'dict.txt'))
+      segment.loadDict(path.join(__dirname, 'novel-segment', 'jieba-dict.txt'))
       segment.loadStopwordDict(path.join(__dirname, 'novel-segment', 'stopword.txt'))
       this._segment = segment
     }
