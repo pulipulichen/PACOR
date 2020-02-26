@@ -320,7 +320,7 @@ e f`)
     
     // 然後要轉址
     //return paragraphs
-    response.redirect('/')
+    response.redirect('/admin#/webpage-dashboard/' + webpage.primaryKeyValue  + '/article-analysis')
   }
 }
 

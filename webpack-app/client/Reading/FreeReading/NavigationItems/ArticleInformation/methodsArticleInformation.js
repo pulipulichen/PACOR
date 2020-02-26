@@ -173,7 +173,8 @@ export default function (ArticleInformation) {
     }) 
     
     this.lib.AxiosHelper.postNewWindow('/admin/webpage/analyzeIdeaUnits', {
-      paragraphs
+      paragraphs,
+      url: location.href
     })
   }
 }
