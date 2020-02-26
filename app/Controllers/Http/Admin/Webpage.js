@@ -8,7 +8,7 @@ const UserModel = use('App/Models/User')
 const Config = use('Config')
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
-
+const TokenizationHelper = use('App/Helpers/TokenizationHelper')
 
 class Webpage {
   async list ({request, auth}) {
@@ -322,6 +322,17 @@ e f`)
     //return paragraphs
     response.redirect('/admin#/webpage-dashboard/' + webpage.primaryKeyValue  + '/article-analysis')
   }
+  
+  async testTokenization({request, response}) {
+    let { paragraphs } = request.all()
+    paragraphs = JSON.parse(paragraphs)
+    return paragraphs.map((paragraph) => {
+      paragraph = TokenizationHelper.removePunctuations(paragraph)
+      let segment = TokenizationHelper.parseSegment(paragraph)
+      return segment.map(seg => seg.w).filter(p => p.trim() !== '').join(' / ')
+    }).filter(p => p.trim() !== '').join('\n\n')
+  }
+  
 }
 
 module.exports = Webpage

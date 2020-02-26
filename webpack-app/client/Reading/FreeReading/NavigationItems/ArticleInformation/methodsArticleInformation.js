@@ -162,7 +162,7 @@ export default function (ArticleInformation) {
     downloadLink.click();
   }
   
-  ArticleInformation.methods.sendIdeaUnitsAnalyze = function () {
+  ArticleInformation.methods.openIdeaUnitsAnalyze = function () {
     let paragraphs = []
     this.lib.RangyManager.sectionNodes.children().each((i, paragraph) => {
       
@@ -175,6 +175,21 @@ export default function (ArticleInformation) {
     this.lib.AxiosHelper.postNewWindow('/admin/webpage/analyzeIdeaUnits', {
       paragraphs,
       url: location.href
+    })
+  }
+  
+  ArticleInformation.methods.testTokenization = function () {
+    let paragraphs = []
+    this.lib.RangyManager.sectionNodes.children().each((i, paragraph) => {
+      
+      let text = this.lib.StringHelper.htmlToText(paragraph, true)
+      if (text.trim() !== '') {
+        paragraphs.push(text)
+      }
+    }) 
+    
+    this.lib.AxiosHelper.postNewWindow('/admin/webpage/testTokenization', {
+      paragraphs
     })
   }
 }

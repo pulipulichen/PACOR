@@ -67,8 +67,12 @@
       </ul>
       
       <div class="ui fluid button"
-           v-on:click="sendIdeaUnitsAnalyze">
+           v-on:click="openIdeaUnitsAnalyze">
         {{ $t('Analyze idea units') }}
+      </div>
+      <div class="ui fluid button"
+           v-on:click="testTokenization">
+        {{ $t('Test tokenization') }}
       </div>
       
     </template>

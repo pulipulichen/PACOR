@@ -29,7 +29,7 @@ class WebpageArticle extends Model {
       }
       
       if (changed) {
-        //await instance.save()
+        await instance.save()
       }
     })
   }
@@ -79,7 +79,7 @@ class WebpageArticle extends Model {
         return w
       }).join(' ') 
     }).filter(l => l.trim() !== '').join('\n\n')
-    console.log(this.idea_units_note)
+    //console.log(this.idea_units_note)
     return true
   }
   

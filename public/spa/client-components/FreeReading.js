@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Total {0} images":"Total {0} image | Total {0} images","Total {0} headings":"Total {0} heading | Total {0} headings","This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.":"This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.","This article includes {0} headings:":"This article includes {0} heading: | This article includes {0} headings:","This article includes {0} images:":"This article includes {0} image: | This article includes {0} images:"},"zh-TW":{"Article Information":"文章資訊","Total {0} images":"總共{0}張圖片","Total {0} headings":"總共{0}個標題","Headings":"標題","Images":"圖片","Article Counting":"文章統計","Article Analysis":"文章分析","PreImaginary Instruction":"「閱讀前的預測」說明","Please try to predict what this article might write.":"請預測這篇文章可能會寫什麼。","This article is titled \\"{0}\\".":"這篇文章的標題是「{0}」。","This article includes {0} headings:":"這篇文章包含了以下子標題：","This article includes {0} images:":"這篇文章包含了以下圖片：","This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.":"這篇文章的標題是<span class=\u0027highlight\u0027>「{0}」</span>。","Don\u0027t worry about punctuation or typos, just write down what you predict of.":"請不用考慮標點符號或錯字，把您想到的事情寫下來即可。","The time limit is <span class=\u0027highlight\u0027>{0} minutes</span> and the countdown starts when you start typing.":"<span class=\u0027highlight\u0027>限時{0}分鐘</span>，開始輸入文字時就會開始倒數。","The time limit is <span class=\u0027highlight\u0027>{0} minutes</span> and the countdown starts now.":"<span class=\u0027highlight\u0027>限時{0}分鐘</span>，現在開始倒數即時。","PostRecall Instruction":"「閱讀後的回想」說明","Please recall the content of this article.":"請回想這篇文章的內容。","Don\u0027t worry about punctuation or typos, just write down what you read.":"請不用考慮標點符號或錯字，把您讀到的內容寫下來即可。","Copy HTML":"複製HTML","Word Count":"字數","Paragraph Count":"段落數量","Section Count":"小節數量","Analyze idea units":"分析文章命題"}}')
+  Component.options.__i18n.push('{"en":{"Total {0} images":"Total {0} image | Total {0} images","Total {0} headings":"Total {0} heading | Total {0} headings","This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.":"This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.","This article includes {0} headings:":"This article includes {0} heading: | This article includes {0} headings:","This article includes {0} images:":"This article includes {0} image: | This article includes {0} images:"},"zh-TW":{"Article Information":"文章資訊","Total {0} images":"總共{0}張圖片","Total {0} headings":"總共{0}個標題","Headings":"標題","Images":"圖片","Article Counting":"文章統計","Article Analysis":"文章分析","PreImaginary Instruction":"「閱讀前的預測」說明","Please try to predict what this article might write.":"請預測這篇文章可能會寫什麼。","This article is titled \\"{0}\\".":"這篇文章的標題是「{0}」。","This article includes {0} headings:":"這篇文章包含了以下子標題：","This article includes {0} images:":"這篇文章包含了以下圖片：","This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.":"這篇文章的標題是<span class=\u0027highlight\u0027>「{0}」</span>。","Don\u0027t worry about punctuation or typos, just write down what you predict of.":"請不用考慮標點符號或錯字，把您想到的事情寫下來即可。","The time limit is <span class=\u0027highlight\u0027>{0} minutes</span> and the countdown starts when you start typing.":"<span class=\u0027highlight\u0027>限時{0}分鐘</span>，開始輸入文字時就會開始倒數。","The time limit is <span class=\u0027highlight\u0027>{0} minutes</span> and the countdown starts now.":"<span class=\u0027highlight\u0027>限時{0}分鐘</span>，現在開始倒數即時。","PostRecall Instruction":"「閱讀後的回想」說明","Please recall the content of this article.":"請回想這篇文章的內容。","Don\u0027t worry about punctuation or typos, just write down what you read.":"請不用考慮標點符號或錯字，把您讀到的內容寫下來即可。","Copy HTML":"複製HTML","Word Count":"字數","Paragraph Count":"段落數量","Section Count":"小節數量","Analyze idea units":"分析文章命題","Test idea units":"測試分析文章命題","Test tokenization":"測試斷詞"}}')
   delete Component.options._Ctor
 }
 
@@ -389,12 +389,27 @@ var render = function() {
                   "div",
                   {
                     staticClass: "ui fluid button",
-                    on: { click: _vm.sendIdeaUnitsAnalyze }
+                    on: { click: _vm.openIdeaUnitsAnalyze }
                   },
                   [
                     _vm._v(
                       "\r\n        " +
                         _vm._s(_vm.$t("Analyze idea units")) +
+                        "\r\n      "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "ui fluid button",
+                    on: { click: _vm.testTokenization }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n        " +
+                        _vm._s(_vm.$t("Test tokenization")) +
                         "\r\n      "
                     )
                   ]
@@ -2213,7 +2228,7 @@ __webpack_require__.r(__webpack_exports__);
     downloadLink.click();
   }
   
-  ArticleInformation.methods.sendIdeaUnitsAnalyze = function () {
+  ArticleInformation.methods.openIdeaUnitsAnalyze = function () {
     let paragraphs = []
     this.lib.RangyManager.sectionNodes.children().each((i, paragraph) => {
       
@@ -2226,6 +2241,21 @@ __webpack_require__.r(__webpack_exports__);
     this.lib.AxiosHelper.postNewWindow('/admin/webpage/analyzeIdeaUnits', {
       paragraphs,
       url: location.href
+    })
+  }
+  
+  ArticleInformation.methods.testTokenization = function () {
+    let paragraphs = []
+    this.lib.RangyManager.sectionNodes.children().each((i, paragraph) => {
+      
+      let text = this.lib.StringHelper.htmlToText(paragraph, true)
+      if (text.trim() !== '') {
+        paragraphs.push(text)
+      }
+    }) 
+    
+    this.lib.AxiosHelper.postNewWindow('/admin/webpage/testTokenization', {
+      paragraphs
     })
   }
 });
