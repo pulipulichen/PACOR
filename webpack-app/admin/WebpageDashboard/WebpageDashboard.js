@@ -1,5 +1,6 @@
 import WebpageDashboardGroups from "./WebpageDashboardGroups/WebpageDashboardGroups.vue"
 import WebpageDashboardSubMenu from "./WebpageDashboardSubMenu/WebpageDashboardSubMenu.vue"
+import WebpageArticleAnalysis from "./WebpageArticleAnalysis/WebpageArticleAnalysis.vue"
 
 let WebpageDashboard = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
@@ -12,7 +13,8 @@ let WebpageDashboard = {
   },
   components: {
     'webpage-dashboard-groups': WebpageDashboardGroups,
-    'webpage-dashboard-sub-menu': WebpageDashboardSubMenu
+    'webpage-dashboard-sub-menu': WebpageDashboardSubMenu,
+    'webpage-article-analysis': WebpageArticleAnalysis
   },
   computed: {
     'webpagePath': function () {

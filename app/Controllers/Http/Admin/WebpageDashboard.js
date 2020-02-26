@@ -168,6 +168,12 @@ class WebpageDashboard {
     }
   }
   
+  async getIdeaUnits ({request, auth}) {
+    let { webpageID } = request.all()
+    
+    return webpageID
+  }
+  
 //  async t () {
 //    return 1
 //    let webpage = await WebpageModel.find(1)

@@ -47,4 +47,12 @@
     v-bind:progress="progress"
     v-bind:lib="lib">
   </webpage-dashboard-groups>
+  
+  <webpage-article-analysis
+    v-if="webpage"
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:progress="progress"
+    v-bind:lib="lib">
+  </webpage-article-analysis>
 </div>
