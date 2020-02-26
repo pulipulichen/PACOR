@@ -20,6 +20,11 @@ class DomainAdmin {
      */
     Model.prototype.changeAdmins = async function (adminsArray) {
       if (typeof(adminsArray) === 'string') {
+        adminsArray = adminsArray.trim()
+        if (adminsArray.indexOf('\n') > -1) {
+          adminsArray = adminsArray.split('\n').join(' ')
+        }
+        
         adminsArray = adminsArray.split(' ').map(config => {
           let parts = config.split(':')
           

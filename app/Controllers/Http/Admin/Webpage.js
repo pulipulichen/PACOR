@@ -310,7 +310,7 @@ e f`)
     return webpage.primaryKeyValue
   }
   
-  async analyzeIdeaUnits({request}) {
+  async analyzeIdeaUnits({request, response}) {
     const { paragraphs, url } = request.all()
     let webpage = await WebpageModel.findByURL(url)
     
@@ -319,7 +319,8 @@ e f`)
     //console.log(paragraphs)
     
     // 然後要轉址
-    return paragraphs
+    //return paragraphs
+    response.redirect('/')
   }
 }
 
