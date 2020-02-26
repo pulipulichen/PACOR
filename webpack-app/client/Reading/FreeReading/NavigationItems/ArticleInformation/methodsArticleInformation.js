@@ -172,7 +172,7 @@ export default function (ArticleInformation) {
       }
     }) 
     
-    this.lib.AxiosHelper.postNewWindow('/', {
+    this.lib.AxiosHelper.postNewWindow('/admin/webpage/analyzeIdeaUnits', {
       paragraphs
     })
   }

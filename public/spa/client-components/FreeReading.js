@@ -2223,7 +2223,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     }) 
     
-    this.lib.AxiosHelper.postNewWindow('/', {
+    this.lib.AxiosHelper.postNewWindow('/admin/webpage/analyzeIdeaUnits', {
       paragraphs
     })
   }

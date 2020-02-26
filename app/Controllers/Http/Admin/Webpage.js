@@ -309,6 +309,18 @@ e f`)
     let webpage = await WebpageModel.findByURL(url)
     return webpage.primaryKeyValue
   }
+  
+  async analyzeIdeaUnits({request}) {
+    const { paragraphs, url } = request.all()
+    let webpage = await WebpageModel.findByURL(url)
+    
+    await webpage.analyzeIdeaUnits(paragraphs)
+    //console.log(webpage.primaryKeyValue)
+    //console.log(paragraphs)
+    
+    // 然後要轉址
+    return paragraphs
+  }
 }
 
 module.exports = Webpage
