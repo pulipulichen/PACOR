@@ -1816,14 +1816,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _libs_CopyPasteHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./libs/CopyPasteHelper.js */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/libs/CopyPasteHelper.js");
-/* harmony import */ var _dataArticleInformation_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dataArticleInformation.js */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/dataArticleInformation.js");
-/* harmony import */ var _dataArticleInformation_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_dataArticleInformation_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _computedArticleInformation_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./computedArticleInformation.js */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/computedArticleInformation.js");
-/* harmony import */ var _methodsArticleInformation_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsArticleInformation.js */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/methodsArticleInformation.js");
-
-
-
+/* harmony import */ var _dataArticleInformation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dataArticleInformation.js */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/dataArticleInformation.js");
+/* harmony import */ var _computedArticleInformation_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./computedArticleInformation.js */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/computedArticleInformation.js");
+/* harmony import */ var _methodsArticleInformation_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsArticleInformation.js */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/methodsArticleInformation.js");
 let ArticleInformation = {
   props: ['lib', 'status', 'config'],
   //data () {}, // 轉移到dataArticleInformation
@@ -1832,13 +1827,13 @@ let ArticleInformation = {
 }
 
 
-_dataArticleInformation_js__WEBPACK_IMPORTED_MODULE_1___default()(ArticleInformation)
+Object(_dataArticleInformation_js__WEBPACK_IMPORTED_MODULE_0__["default"])(ArticleInformation)
 
 
-Object(_computedArticleInformation_js__WEBPACK_IMPORTED_MODULE_2__["default"])(ArticleInformation)
+Object(_computedArticleInformation_js__WEBPACK_IMPORTED_MODULE_1__["default"])(ArticleInformation)
 
 
-Object(_methodsArticleInformation_js__WEBPACK_IMPORTED_MODULE_3__["default"])(ArticleInformation)
+Object(_methodsArticleInformation_js__WEBPACK_IMPORTED_MODULE_2__["default"])(ArticleInformation)
 
 /* harmony default export */ __webpack_exports__["default"] = (ArticleInformation);
 
@@ -1970,10 +1965,25 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************************************************************************************!*\
   !*** ./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/dataArticleInformation.js ***!
   \*************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module parse failed: Unexpected token (14:0)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n|     }\n|   },\n> }");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (ArticleInformation) {
+  ArticleInformation.data = function () {    
+    this.$i18n.locale = this.config.locale
+    return {
+      sections: null,
+      paragraphs: null,
+      wordCount: 0,
+      paragraphCount: 0,
+      sectionCount: 0,
+      headings: [],
+      images: []
+    }
+  }
+});
 
 /***/ }),
 
@@ -2201,6 +2211,21 @@ __webpack_require__.r(__webpack_exports__);
     downloadLink.target = '_self';
     downloadLink.download = fileName;
     downloadLink.click();
+  }
+  
+  ArticleInformation.methods.sendIdeaUnitsAnalyze = function () {
+    let paragraphs = []
+    this.lib.RangyManager.sectionNodes.children().each((i, paragraph) => {
+      
+      let text = this.lib.StringHelper.htmlToText(paragraph, true)
+      if (text.trim() !== '') {
+        paragraphs.push(text)
+      }
+    }) 
+    
+    this.lib.AxiosHelper.postNewWindow('/', {
+      paragraphs
+    })
   }
 });
 

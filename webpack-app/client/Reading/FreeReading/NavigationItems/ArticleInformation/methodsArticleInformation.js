@@ -161,4 +161,19 @@ export default function (ArticleInformation) {
     downloadLink.download = fileName;
     downloadLink.click();
   }
+  
+  ArticleInformation.methods.sendIdeaUnitsAnalyze = function () {
+    let paragraphs = []
+    this.lib.RangyManager.sectionNodes.children().each((i, paragraph) => {
+      
+      let text = this.lib.StringHelper.htmlToText(paragraph, true)
+      if (text.trim() !== '') {
+        paragraphs.push(text)
+      }
+    }) 
+    
+    this.lib.AxiosHelper.postNewWindow('/', {
+      paragraphs
+    })
+  }
 }

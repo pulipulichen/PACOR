@@ -1,3 +1,4 @@
+import $ from 'jquery'
 import axios from 'axios'
 axios.defaults.withCredentials = true
 
@@ -129,6 +130,40 @@ let AxiosHelper = {
       }
       return undefined
     }
+  },
+  postNewWindow: async function (path, data) {
+    path = this.getURL(path)
+    
+    // 建立一個form
+    let form = document.createElement("form")
+    let element1 = document.createElement("input")
+    let element2 = document.createElement("input")
+
+    form.method = "POST"
+    form.action = path
+    form.target = '_blank'
+            
+    Object.keys(data).forEach((key) => {
+      let value = data[key]
+      if (value === undefined || value === null) {
+        return false
+      }
+      
+      let element = document.createElement("input")
+      element.name = key
+      
+      if (value && typeof(value) === 'object') {
+        value = JSON.stringify(value)
+      }
+      element.value = value
+      form.appendChild(element)
+    })
+
+    document.body.appendChild(form)
+    form.submit()
+    setTimeout(() => {
+      $(form).remove()
+    })
   }
 }
 

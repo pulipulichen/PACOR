@@ -13601,10 +13601,13 @@ component.options.__file = "webpack-app/components/ui/Pagination/Pagination.vue"
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 
-axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.withCredentials = true
+
+axios__WEBPACK_IMPORTED_MODULE_1___default.a.defaults.withCredentials = true
 
 let AxiosHelper = {
   baseURL: '',
@@ -13647,7 +13650,7 @@ let AxiosHelper = {
     }
     
     try {
-      let result = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(path, options)
+      let result = await axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(path, options)
       if (result === undefined) {
         throw new Error('No response: ' + path + `(${JSON.stringify(options)})`)
       }
@@ -13675,7 +13678,7 @@ let AxiosHelper = {
     }
     
     try {
-      let result = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(this.getURL(path), options)
+      let result = await axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(this.getURL(path), options)
       return result.data
     }
     catch (error) {
@@ -13718,7 +13721,7 @@ let AxiosHelper = {
     //console.log(formData)
     
     try {
-      let result = await axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(this.getURL(path), formData, {
+      let result = await axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(this.getURL(path), formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -13734,6 +13737,40 @@ let AxiosHelper = {
       }
       return undefined
     }
+  },
+  postNewWindow: async function (path, data) {
+    path = this.getURL(path)
+    
+    // 建立一個form
+    let form = document.createElement("form")
+    let element1 = document.createElement("input")
+    let element2 = document.createElement("input")
+
+    form.method = "POST"
+    form.action = path
+    form.target = '_blank'
+            
+    Object.keys(data).forEach((key) => {
+      let value = data[key]
+      if (value === undefined || value === null) {
+        return false
+      }
+      
+      let element = document.createElement("input")
+      element.name = key
+      
+      if (value && typeof(value) === 'object') {
+        value = JSON.stringify(value)
+      }
+      element.value = value
+      form.appendChild(element)
+    })
+
+    document.body.appendChild(form)
+    form.submit()
+    setTimeout(() => {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(form).remove()
+    })
   }
 }
 
@@ -13817,6 +13854,15 @@ let StringHelper = {
     return s.replace(/ /g, '')
   },
   htmlToText (s, spaceInDifferentElement) {
+    if (typeof(s) === 'object') {
+      if (typeof(s.innerHTML) === 'string') {
+        s = s.innerHTML
+      }
+      else if (typeof(s.html) === 'function') {
+        s = s.html()
+      }
+    }
+    
     if (typeof(s) !== 'string') {
       return ''
     }

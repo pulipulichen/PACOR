@@ -1,6 +1,3 @@
-
-import CopyPasteHelper from './libs/CopyPasteHelper.js'
-
 let ArticleInformation = {
   props: ['lib', 'status', 'config'],
   //data () {}, // 轉移到dataArticleInformation

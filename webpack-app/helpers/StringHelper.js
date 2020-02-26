@@ -63,6 +63,15 @@ let StringHelper = {
     return s.replace(/ /g, '')
   },
   htmlToText (s, spaceInDifferentElement) {
+    if (typeof(s) === 'object') {
+      if (typeof(s.innerHTML) === 'string') {
+        s = s.innerHTML
+      }
+      else if (typeof(s.html) === 'function') {
+        s = s.html()
+      }
+    }
+    
     if (typeof(s) !== 'string') {
       return ''
     }
