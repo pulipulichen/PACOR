@@ -35,7 +35,8 @@
       //
       
       
-      if (document.referrer === '') {
+      if (document.referrer === ''
+              || document.referrer === 'http://pc.pulipuli.info:3333/') {
         let d = new Date();
         let mmdd = [
           ('0' + (d.getMonth() + 1)).slice(-2),

@@ -113,7 +113,7 @@ var render = function() {
       staticClass: "instruction SectionPreImaginary"
     },
     [
-      _c("p", [
+      _c("h1", [
         _vm._v(
           _vm._s(_vm.$t("Please try to predict what this article might write."))
         )

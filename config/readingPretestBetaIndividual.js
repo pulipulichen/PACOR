@@ -20,7 +20,7 @@ module.exports = {
       goToNextStepOnChecklistComplete: false,
     },
     FreeReading: {
-      nextReadingPage: '/pretest/index.html'
+      nextReadingPage: '/pretest/beta.html'
     }
   }
 }

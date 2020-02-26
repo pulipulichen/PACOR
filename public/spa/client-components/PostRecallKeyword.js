@@ -111,7 +111,7 @@ var render = function() {
     { ref: "SectionPostRecall", staticClass: "instruction SectionPostRecall" },
     [
       _vm.isDiffMode
-        ? _c("p", { staticClass: "diff-highlight" }, [
+        ? _c("h1", { staticClass: "diff-highlight" }, [
             _vm._v(
               _vm._s(
                 _vm.$t(
@@ -120,7 +120,7 @@ var render = function() {
               )
             )
           ])
-        : _c("p", [
+        : _c("h1", [
             _vm._v(
               _vm._s(
                 _vm.$t(

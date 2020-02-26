@@ -10,7 +10,7 @@ module.exports = {
       limitMinutes: 5,
     },
     FreeReading: {
-      nextReadingPage: '/pretest/index.html'
+      nextReadingPage: '/pretest/alpha.html'
     }
   }
 }
