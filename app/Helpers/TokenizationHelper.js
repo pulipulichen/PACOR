@@ -173,7 +173,7 @@ let TokenizationHelper = {
   parseSegment (text) {
     let segment = this.getChineseSegment()
     let result = segment.doSegment(text, {
-      stripStopword: true
+      //stripStopword: true  
     })
     
     //console.log(segment.POSTAG)
