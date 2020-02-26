@@ -57,6 +57,9 @@ class UserSeeder {
     
     await Cache.flush()
     
+    // 我要在這裡中斷script
+    process.exit()
+    
     return true
   }
 }
