@@ -70,8 +70,17 @@ let TokenizationHelper = {
       let segment = new Segment
       segment.useDefault()
       //console.log(path.join(__dirname, 'novel-segment', 'stopword.txt'))
-      segment.loadDict(path.join(__dirname, 'novel-segment', 'dict.txt'))
-      segment.loadDict(path.join(__dirname, 'novel-segment', 'jieba-dict.txt'))
+      segment.loadDict(path.join(__dirname, 'novel-segment', 'dicts', 'jieba-dict.txt'))
+      
+      segment.loadDict(path.join(__dirname, 'novel-segment', 'dicts', 'A_NR_dict.txt'))
+      segment.loadDict(path.join(__dirname, 'novel-segment', 'dicts', 'D_A_dict.txt'))
+      segment.loadDict(path.join(__dirname, 'novel-segment', 'dicts', 'D_D_dict.txt'))
+      segment.loadDict(path.join(__dirname, 'novel-segment', 'dicts', 'D_N_dict.txt'))
+      segment.loadDict(path.join(__dirname, 'novel-segment', 'dicts', 'D_P_dict.txt'))
+      segment.loadDict(path.join(__dirname, 'novel-segment', 'dicts', 'D_R_dict.txt'))
+      segment.loadDict(path.join(__dirname, 'novel-segment', 'dicts', 'D_V_dict.txt'))
+      segment.loadDict(path.join(__dirname, 'novel-segment', 'dicts', 'D_I_dict.txt'))
+      
       segment.loadStopwordDict(path.join(__dirname, 'novel-segment', 'stopword.txt'))
       this._segment = segment
     }
