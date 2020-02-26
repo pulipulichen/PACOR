@@ -3,7 +3,9 @@ let WebpageArticleAnalysis = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      ideaUnits: ''
+      ideaUnits: '',
+      inited: false,
+      wait: false
     }
   },
 //  components: {
@@ -11,6 +13,9 @@ let WebpageArticleAnalysis = {
   computed: {
   },
   watch: {
+    ideaUnits () {
+      this.saveIdeaUnits()
+    }
   },
   mounted() {
     this.loadIdeaUnits()
@@ -25,6 +30,26 @@ let WebpageArticleAnalysis = {
           webpageID: this.$route.params.webpageID
         })
       }
+      this.inited = true
+    },
+    saveIdeaUnits: async function () {
+      if (this.inited === false) {
+        return false
+      }
+      
+      if (this.wait === true) {
+        return false
+      }
+      this.wait = true
+      
+      await this.lib.VueHelper.sleep(5000)
+      
+      await this.lib.AxiosHelper.post('/admin/WebpageDashboard/setIdeaUnits', {
+        ideaUnits: this.ideaUnits,
+        webpageID: this.$route.params.webpageID
+      })
+      
+      this.wait = false
     }
   } // methods
 }

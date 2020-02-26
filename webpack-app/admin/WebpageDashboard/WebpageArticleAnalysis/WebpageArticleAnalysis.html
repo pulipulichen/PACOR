@@ -1,11 +1,18 @@
-<div class="ui segment">
+<div class="ui segment WebpageArticleAnalysis">
   <h3 class="ui header"
       v-bind:id="attrHeaderID('article-analysis')">
     {{ $t('Article Analysis') }}
   </h3>
   
-  @TODO 能變成SummerNote嗎？
-  <textarea 
-    class="ui textarea"
-    v-model="ideaUnits" />
+  <div class="ui grid">
+    <div class="twelve wide column">
+      <textarea 
+        class="ui textarea"
+        v-bind:class="{saving: wait}"
+        v-model="ideaUnits" />
+    </div>
+    <div class="four wide column">
+      關於Idea Unit的提示
+    </div>
+  </div>
 </div>

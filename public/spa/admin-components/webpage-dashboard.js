@@ -89,7 +89,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"WebpageArticleAnalysis.less?vue&type=style&index=0&id=44585226&lang=less&scoped=true&"}]);
+exports.push([module.i, ".saving[data-v-44585226] {\n  border-color: brown !important;\n}\n", "",{"version":3,"sources":["WebpageArticleAnalysis.less?vue&type=style&index=0&id=44585226&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC","file":"WebpageArticleAnalysis.less?vue&type=style&index=0&id=44585226&lang=less&scoped=true&","sourcesContent":[".saving[data-v-44585226] {\n  border-color: brown !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -165,7 +165,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "ui segment" }, [
+  return _c("div", { staticClass: "ui segment WebpageArticleAnalysis" }, [
     _c(
       "h3",
       {
@@ -174,27 +174,36 @@ var render = function() {
       },
       [_vm._v("\r\n    " + _vm._s(_vm.$t("Article Analysis")) + "\r\n  ")]
     ),
-    _vm._v("\r\n  \r\n  @TODO 能變成SummerNote嗎？\r\n  "),
-    _c("textarea", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.ideaUnits,
-          expression: "ideaUnits"
-        }
-      ],
-      staticClass: "ui textarea",
-      domProps: { value: _vm.ideaUnits },
-      on: {
-        input: function($event) {
-          if ($event.target.composing) {
-            return
+    _vm._v(" "),
+    _c("div", { staticClass: "ui grid" }, [
+      _c("div", { staticClass: "twelve wide column" }, [
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.ideaUnits,
+              expression: "ideaUnits"
+            }
+          ],
+          staticClass: "ui textarea",
+          class: { saving: _vm.wait },
+          domProps: { value: _vm.ideaUnits },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.ideaUnits = $event.target.value
+            }
           }
-          _vm.ideaUnits = $event.target.value
-        }
-      }
-    })
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "four wide column" }, [
+        _vm._v("\r\n      關於Idea Unit的提示\r\n    ")
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -767,7 +776,9 @@ let WebpageArticleAnalysis = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      ideaUnits: ''
+      ideaUnits: '',
+      inited: false,
+      wait: false
     }
   },
 //  components: {
@@ -775,6 +786,9 @@ let WebpageArticleAnalysis = {
   computed: {
   },
   watch: {
+    ideaUnits () {
+      this.saveIdeaUnits()
+    }
   },
   mounted() {
     this.loadIdeaUnits()
@@ -789,6 +803,26 @@ let WebpageArticleAnalysis = {
           webpageID: this.$route.params.webpageID
         })
       }
+      this.inited = true
+    },
+    saveIdeaUnits: async function () {
+      if (this.inited === false) {
+        return false
+      }
+      
+      if (this.wait === true) {
+        return false
+      }
+      this.wait = true
+      
+      await this.lib.VueHelper.sleep(5000)
+      
+      await this.lib.AxiosHelper.post('/admin/WebpageDashboard/setIdeaUnits', {
+        ideaUnits: this.ideaUnits,
+        webpageID: this.$route.params.webpageID
+      })
+      
+      this.wait = false
     }
   } // methods
 }

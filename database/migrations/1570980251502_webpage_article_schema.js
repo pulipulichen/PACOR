@@ -9,7 +9,7 @@ class WebpageArticleSchema extends Schema {
     this.create(tableName, (table) => {
       table.increments()
       table.integer('webpage_id').notNullable().unsigned().references('id').inTable('webpages').onDelete('cascade')
-      table.json('article')  // json 用來保存原始文章的文字內容
+      table.json('article').notNullable()  // json 用來保存原始文章的文字內容
       table.json('idea_units')  // json 用來保存簡易分析後的結果
       table.text('idea_units_note') // 用來保存對idea units 編輯的結果
       table.timestamps()

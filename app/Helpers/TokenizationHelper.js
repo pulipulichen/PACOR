@@ -162,6 +162,9 @@ let TokenizationHelper = {
     
     return outputMerge
   },
+  /**
+   * 輸出結果會是？
+   */
   parseSegment (text) {
     let segment = this.getChineseSegment()
     let result = segment.doSegment(text)
@@ -199,6 +202,7 @@ let TokenizationHelper = {
     
     return output
   },
+  // http://blog.pulipuli.info/2017/11/fasttag-identify-part-of-speech-in.html
   PosRemap: {
     ChineseToEng: ['a_nx', 'nx'],
     ChineseNovelSegment: {
@@ -238,6 +242,7 @@ let TokenizationHelper = {
       w: 'punc',
       nx: '外文字符'  // 需要丟給pos判斷
     },
+    // http://blog.pulipuli.info/2017/11/fasttag-identify-part-of-speech-in.html
     EnglishPosJS: {
       "B": 'adj',
       "CC": "conj",

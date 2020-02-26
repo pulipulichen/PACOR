@@ -170,8 +170,33 @@ class WebpageDashboard {
   
   async getIdeaUnits ({request, auth}) {
     let { webpageID } = request.all()
-    console.log('@TODO getIdeaUnits')
-    return webpageID
+    
+    let webpage = await WebpageModel.find(webpageID)
+    let article = await webpage.article().fetch()
+    if (article) {
+      return article.idea_units_note
+    }
+    else {
+      return ''
+    }
+  }
+  
+  async setIdeaUnits ({request, auth}) {
+    let { webpageID, ideaUnits } = request.all()
+    
+    let webpage = await WebpageModel.find(webpageID)
+    let article = await webpage.article().fetch()
+    if (article) {
+      article.idea_units_note = ideaUnits
+      await article.save()
+    }
+    else {
+      await webpage.article().create({
+        idea_units_note: ideaUnits
+      })
+    }
+    
+    return true
   }
   
 //  async t () {

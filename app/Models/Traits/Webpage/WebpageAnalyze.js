@@ -1,14 +1,19 @@
 'use strict'
 
 const Cache = use('Cache')
-//const WebpageGroupModel = use('App/Models/WebpageGroup')
+const WebpageArticleModel = use('App/Models/WebpageArticle')
 
 class WebpageAnalyze {
 
   register(Model) {
 
     Model.prototype.analyzeIdeaUnits = async function (paragraphs) {
-      console.log('@TODO analyzeIdeaUnits')
+      let article = await this.article().fetch()
+      if (!article) {
+        article = new WebpageArticleModel()
+      }
+      article.article = {paragraphs}
+      await this.article().save(article)
     }
 
   } // register (Model) {
