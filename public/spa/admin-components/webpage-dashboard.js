@@ -174,7 +174,7 @@ var render = function() {
       },
       [_vm._v("\r\n    " + _vm._s(_vm.$t("Article Analysis")) + "\r\n  ")]
     ),
-    _vm._v(" "),
+    _vm._v("\r\n  \r\n  @TODO 能變成SummerNote嗎？\r\n  "),
     _c("textarea", {
       directives: [
         {
