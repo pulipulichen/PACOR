@@ -3,6 +3,7 @@
 const $ = use('cheerio')
 const Segment = use('novel-segment')
 const pos = use('pos')
+const path = use('path')
 
 let TokenizationHelper = {
   htmlToText (html) {
@@ -68,6 +69,8 @@ let TokenizationHelper = {
     if (this._segment === null) {
       let segment = new Segment
       segment.useDefault()
+      console.log(path.join(__dirname, 'novel-segment', 'stopword.txt'))
+      segment.loadStopwordDict(path.join(__dirname, 'novel-segment', 'stopword.txt'))
       this._segment = segment
     }
     
@@ -167,7 +170,9 @@ let TokenizationHelper = {
    */
   parseSegment (text) {
     let segment = this.getChineseSegment()
-    let result = segment.doSegment(text)
+    let result = segment.doSegment(text, {
+      stripStopword: true
+    })
     
     //console.log(segment.POSTAG)
     
