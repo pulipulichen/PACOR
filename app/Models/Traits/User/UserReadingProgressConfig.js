@@ -20,7 +20,8 @@ class UserReadingProgressConfig {
       }
       
       let config = await webpage.getConfig()
-      if (typeof(config.debug.stayInReadingProgress) === 'string') {
+      
+      if (config.debug && typeof(config.debug.stayInReadingProgress) === 'string') {
         return config.debug.stayInReadingProgress
       }
       

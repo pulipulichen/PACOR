@@ -41,10 +41,12 @@ class UserSeeder {
     
     await TestSetupScript.main()
     
-    await WebpageUserGroupScript.main()
-    await AnnotationInteractScript.main()
+    //await WebpageUserGroupScript.main()
+    //await AnnotationInteractScript.main()
     
+    console.log('直接開始吧')
     await WebpageUserGroupScript2.main()
+    console.log('直接開始吧 2')
     await AnnotationInteractScript2.main()
     
     await WebpageUserGroupScript2Cors.main()
