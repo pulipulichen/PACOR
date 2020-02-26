@@ -153,18 +153,26 @@ class WebpageConfig {
     Model.prototype._pretestConfig = async function (output) {
       // For pre-test
       let pretestConfig
-      let pretestPrefixCollaborative = Env.get('PROTOCOL') + '//' 
+      
+      let baseDomain = Env.get('PROTOCOL') + '//' 
               + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT')
-              + '/pretest/collaborative/'
-      let pretestPrefixIndividual = Env.get('PROTOCOL') + '//' 
-              + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT')
-              + '/pretest/individual/'
+      
+      let pretestPrefixAlphaCollaborative = baseDomain + '/pretest/alpha/collaborative/'
+      let pretestPrefixAlphaIndividual = baseDomain + '/pretest/alpha/individual/'
+      let pretestPrefixBetaCollaborative = baseDomain + '/pretest/beta/collaborative/'
+      let pretestPrefixBetaIndividual = baseDomain + '/pretest/beta/individual/'
       //console.log(this.url, pretestPrefix)
-      if (this.url.startsWith(pretestPrefixCollaborative)) {
-        pretestConfig = Config.get('readingPretestCollaborative')
+      if (this.url.startsWith(pretestPrefixAlphaCollaborative)) {
+        pretestConfig = Config.get('readingPretestAlphaCollaborative')
       }
-      else if (this.url.startsWith(pretestPrefixIndividual)) {
-        pretestConfig = Config.get('readingPretestIndividual')
+      else if (this.url.startsWith(pretestPrefixAlphaIndividual)) {
+        pretestConfig = Config.get('readingPretestAlphaIndividual')
+      }
+      else if (this.url.startsWith(pretestPrefixBetaCollaborative)) {
+        pretestConfig = Config.get('readingPretestBetaCollaborative')
+      }
+      else if (this.url.startsWith(pretestPrefixBetaIndividual)) {
+        pretestConfig = Config.get('readingPretestBetaIndividual')
       }
 
       if (pretestConfig) {

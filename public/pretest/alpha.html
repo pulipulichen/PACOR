@@ -11,6 +11,14 @@
     <script>
       //console.log(document.referrer, typeof(document.referrer))
       
+      // 150
+      // 
+      // cd
+      // chinese-paper
+      // chocolate
+      // earth-day
+      // pain-music
+      // 
       // 500
       // 
       // hsinchu-wind
@@ -35,21 +43,21 @@
         ].join('')
         
         let h = d.getHours()
-        let article = 'hsinchu-wind'
+        let article = 'chinese-paper'
         if (h > 5 && h <= 10) {
-          article = 'microscope'
+          article = 'cd'
         }
         else if (h > 10 && h <= 15) {
-          article = 'yakutsk'
+          article = 'chocolate'
         }
         else if (h > 15 && h <= 20) {
-          article = 'three-mountains-king'
+          article = 'earth-day'
         }
         else if (h > 20 && h <= 23) {
-          article = 'rice'
+          article = 'pain-music'
         }
 
-        let readingPage = '/pretest/individual/' + article + '/' + mmdd
+        let readingPage = '/pretest/alpha/individual/' + article + '/' + mmdd
         //console.log(readingPage)
 
         location.href = readingPage
@@ -60,11 +68,11 @@
         let article = parts[(len - 2)]
         
         let mapping = {
-          'hsinchu-wind': 'bat-virus',
-          'microscope': 'bat-virus',
-          'rice': 'sakura',
-          'three-mountains-king': 'sakura',
-          'yakutsk': 'colorectal-cancer',
+          'cd': 'rice',
+          'chinese-paper': 'yakutsk',
+          'chocolate': 'microscope',
+          'earth-day': 'hsinchu-wind',
+          'pain-music': 'three-mountains-king',
         }
 
         if (typeof(mapping[article]) === 'string') {
