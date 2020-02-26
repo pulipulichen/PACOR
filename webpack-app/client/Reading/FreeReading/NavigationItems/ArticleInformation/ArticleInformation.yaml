@@ -12,6 +12,7 @@ zh-TW:
   Headings: 標題
   Images: 圖片
   Article Counting: 文章統計
+  Article Analysis: 文章分析
   
   PreImaginary Instruction: 「閱讀前的預測」說明
   Please try to predict what this article might write.: 請預測這篇文章可能會寫什麼。
@@ -32,3 +33,4 @@ zh-TW:
   Word Count: 字數
   Paragraph Count: 段落數量
   Section Count: 小節數量
+  Analyze idea units: 分析文章命題

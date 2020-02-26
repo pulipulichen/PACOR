@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Total {0} images":"Total {0} image | Total {0} images","Total {0} headings":"Total {0} heading | Total {0} headings","This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.":"This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.","This article includes {0} headings:":"This article includes {0} heading: | This article includes {0} headings:","This article includes {0} images:":"This article includes {0} image: | This article includes {0} images:"},"zh-TW":{"Article Information":"文章資訊","Total {0} images":"總共{0}張圖片","Total {0} headings":"總共{0}個標題","Headings":"標題","Images":"圖片","Article Counting":"文章統計","PreImaginary Instruction":"「閱讀前的預測」說明","Please try to predict what this article might write.":"請預測這篇文章可能會寫什麼。","This article is titled \\"{0}\\".":"這篇文章的標題是「{0}」。","This article includes {0} headings:":"這篇文章包含了以下子標題：","This article includes {0} images:":"這篇文章包含了以下圖片：","This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.":"這篇文章的標題是<span class=\u0027highlight\u0027>「{0}」</span>。","Don\u0027t worry about punctuation or typos, just write down what you predict of.":"請不用考慮標點符號或錯字，把您想到的事情寫下來即可。","The time limit is <span class=\u0027highlight\u0027>{0} minutes</span> and the countdown starts when you start typing.":"<span class=\u0027highlight\u0027>限時{0}分鐘</span>，開始輸入文字時就會開始倒數。","The time limit is <span class=\u0027highlight\u0027>{0} minutes</span> and the countdown starts now.":"<span class=\u0027highlight\u0027>限時{0}分鐘</span>，現在開始倒數即時。","PostRecall Instruction":"「閱讀後的回想」說明","Please recall the content of this article.":"請回想這篇文章的內容。","Don\u0027t worry about punctuation or typos, just write down what you read.":"請不用考慮標點符號或錯字，把您讀到的內容寫下來即可。","Copy HTML":"複製HTML","Word Count":"字數","Paragraph Count":"段落數量","Section Count":"小節數量"}}')
+  Component.options.__i18n.push('{"en":{"Total {0} images":"Total {0} image | Total {0} images","Total {0} headings":"Total {0} heading | Total {0} headings","This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.":"This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.","This article includes {0} headings:":"This article includes {0} heading: | This article includes {0} headings:","This article includes {0} images:":"This article includes {0} image: | This article includes {0} images:"},"zh-TW":{"Article Information":"文章資訊","Total {0} images":"總共{0}張圖片","Total {0} headings":"總共{0}個標題","Headings":"標題","Images":"圖片","Article Counting":"文章統計","Article Analysis":"文章分析","PreImaginary Instruction":"「閱讀前的預測」說明","Please try to predict what this article might write.":"請預測這篇文章可能會寫什麼。","This article is titled \\"{0}\\".":"這篇文章的標題是「{0}」。","This article includes {0} headings:":"這篇文章包含了以下子標題：","This article includes {0} images:":"這篇文章包含了以下圖片：","This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.":"這篇文章的標題是<span class=\u0027highlight\u0027>「{0}」</span>。","Don\u0027t worry about punctuation or typos, just write down what you predict of.":"請不用考慮標點符號或錯字，把您想到的事情寫下來即可。","The time limit is <span class=\u0027highlight\u0027>{0} minutes</span> and the countdown starts when you start typing.":"<span class=\u0027highlight\u0027>限時{0}分鐘</span>，開始輸入文字時就會開始倒數。","The time limit is <span class=\u0027highlight\u0027>{0} minutes</span> and the countdown starts now.":"<span class=\u0027highlight\u0027>限時{0}分鐘</span>，現在開始倒數即時。","PostRecall Instruction":"「閱讀後的回想」說明","Please recall the content of this article.":"請回想這篇文章的內容。","Don\u0027t worry about punctuation or typos, just write down what you read.":"請不用考慮標點符號或錯字，把您讀到的內容寫下來即可。","Copy HTML":"複製HTML","Word Count":"字數","Paragraph Count":"段落數量","Section Count":"小節數量","Analyze idea units":"分析文章命題"}}')
   delete Component.options._Ctor
 }
 
@@ -354,7 +354,7 @@ var render = function() {
                 _c("h3", [
                   _vm._v(
                     "\r\n        " +
-                      _vm._s(_vm.$t("Article Counting")) +
+                      _vm._s(_vm.$t("Article Analysis")) +
                       "\r\n      "
                   )
                 ]),
@@ -383,7 +383,22 @@ var render = function() {
                         _vm._s(_vm.sectionCount)
                     )
                   ])
-                ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "ui fluid button",
+                    on: { click: _vm.sendIdeaUnitsAnalyze }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n        " +
+                        _vm._s(_vm.$t("Analyze idea units")) +
+                        "\r\n      "
+                    )
+                  ]
+                )
               ]
             },
             proxy: true
@@ -1491,155 +1506,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./webpack-app/client/Questionnaire/components/Instruction/Instruction.js?vue&type=script&lang=js&?cf1f":
-/*!*********************************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/components/Instruction/Instruction.js?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Instruction_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./Instruction.js?vue&type=script&lang=js& */ "./webpack-app/client/Questionnaire/components/Instruction/Instruction.js?vue&type=script&lang=js&?e243");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_Instruction_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./webpack-app/client/Questionnaire/components/Instruction/Instruction.js?vue&type=script&lang=js&?e243":
-/*!*********************************************************************************************************!*\
-  !*** ./webpack-app/client/Questionnaire/components/Instruction/Instruction.js?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-
-
-let Instruction = {
-  props: ['lib', 'status', 'config'],
-  data() {    
-    this.$i18n.locale = this.config.locale
-    return {
-      sections: null,
-      paragraphies: null,
-      wordCount: 0,
-      paragraphyCount: 0,
-      sectionCount: 0,
-      headings: [],
-      images: [],
-      keywordEditorThumbnail: this.config.baseURL + '/imgs/keyword-editor.png'
-    }
-  },
-//  components: {
-//  },
-  computed: {
-    articleTitle () {
-      return document.title
-    },
-    readingProgressModules () {
-      return this.status.readingConfig.readingProgressModules
-    },
-    preImaginaryConfig () {
-      return this.readingProgressModules.PreImaginary
-    },
-    postRecallConfig () {
-      return this.readingProgressModules.PostRecall
-    },
-    titleHTML () {
-      return this.$t(`This article is titled <span class='highlight'>&quot;{0}&quot;</span>.`, [this.articleTitle])
-    },
-    timeLimitTypeStart () {
-      return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts when you start typing.`, [this.preImaginaryConfig.limitMinutes])
-    },
-    timeLimitAutoStart () {
-      return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts now.`, [this.preImaginaryConfig.limitMinutes])
-    },
-    timeLimitClickButtonStart () {
-      return this.$t(`The time limit is <span class="highlight">{0} minutes</span> and the countdown starts when you click "Start Answer and Countdown" button.`, [this.preImaginaryConfig.limitMinutes])
-    },
-    isDiffMode () {
-      let isDiffMode = false
-      if (this.lib.auth
-              && this.lib.auth.currentStepConfig.preloadPreImaginaryAnswer) {
-        isDiffMode = this.lib.auth.currentStepConfig.preloadPreImaginaryAnswer
-      }
-      return isDiffMode
-    }
-  },
-//  watch: {
-//  },
-  mounted() {
-    this.calculating()
-  },
-  methods: {
-    calculating () {
-      this.sections = jquery__WEBPACK_IMPORTED_MODULE_0___default()('section')
-      this.paragraphies = this.sections.children()
-
-      let text = this.lib.StringHelper.htmlToTextTrim(this.sections.html(), true)
-      this.wordCount = this.lib.StringHelper.countWords(text)
-
-      this.paragraphyCount = this.paragraphies.length
-
-      this.sectionCount = this.sections.length
-
-      let headings = []
-      //console.log(this.sections.find('h1,h2,h3,h4,h5,h6').length)
-      this.sections.find('h1,h2,h3,h4,h5,h6').each((i, heading) => {
-        headings.push(heading.innerText.trim())
-      })
-      this.headings = headings
-
-      let images = []
-      this.sections.find('img:not(.keyword-editor-thumbnail)').each((i, image) => {
-        
-        // 這邊要做動態縮圖
-        
-        images.push({
-          src: this.resizeImage(image),
-          title: (image.title ? image.title : image.alt)
-        })
-      })
-      this.images = images
-    },
-    resizeImage (image) {
-      let oCanvas = document.createElement("canvas")
-      let oCtx = oCanvas.getContext("2d")
-      
-      let oColorImg = image
-      let nWidth = oColorImg.offsetWidth
-      let nHeight = oColorImg.offsetHeight
-      
-      let maxSize = 200
-      if (nWidth > nHeight) {
-        if (nWidth > 200) {
-          nHeight = 200 * (nHeight / nWidth)
-          nWidth = 200
-        }
-      }
-      else {
-        if (nHeight > 200) {
-          nWidth = 200 * (nWidth / nHeight)
-          nHeight = 200
-        }
-      }
-      
-      oCanvas.width = nWidth
-      oCanvas.height = nHeight
-      oCtx.drawImage(oColorImg, 0, 0, oColorImg.offsetWidth, oColorImg.offsetHeight, 0,0,nWidth,nHeight);
-      
-      return oCanvas.toDataURL()
-    },
-  } // methods
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Instruction);
-
-/***/ }),
-
 /***/ "./webpack-app/client/Reading/CollaborativeReading/CollaborativeReading.html?vue&type=template&id=0ee1c066&scoped=true&":
 /*!******************************************************************************************************************************!*\
   !*** ./webpack-app/client/Reading/CollaborativeReading/CollaborativeReading.html?vue&type=template&id=0ee1c066&scoped=true& ***!
@@ -1950,218 +1816,29 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _libs_CopyPasteHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./libs/CopyPasteHelper.js */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/libs/CopyPasteHelper.js");
-/* harmony import */ var _Questionnaire_PreImaginary_PreImaginaryInstruction_PreImaginaryInstruction_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../Questionnaire/PreImaginary/PreImaginaryInstruction/PreImaginaryInstruction.vue */ "./webpack-app/client/Questionnaire/PreImaginary/PreImaginaryInstruction/PreImaginaryInstruction.vue");
-/* harmony import */ var _Questionnaire_PostRecall_PostRecallInstruction_PostRecallInstruction_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../../Questionnaire/PostRecall/PostRecallInstruction/PostRecallInstruction.vue */ "./webpack-app/client/Questionnaire/PostRecall/PostRecallInstruction/PostRecallInstruction.vue");
-
-
-
+/* harmony import */ var _libs_CopyPasteHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./libs/CopyPasteHelper.js */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/libs/CopyPasteHelper.js");
+/* harmony import */ var _dataArticleInformation_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dataArticleInformation.js */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/dataArticleInformation.js");
+/* harmony import */ var _dataArticleInformation_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_dataArticleInformation_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _computedArticleInformation_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./computedArticleInformation.js */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/computedArticleInformation.js");
+/* harmony import */ var _methodsArticleInformation_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsArticleInformation.js */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/methodsArticleInformation.js");
 
 
 
 let ArticleInformation = {
   props: ['lib', 'status', 'config'],
-  data() {    
-    this.$i18n.locale = this.config.locale
-    return {
-      sections: null,
-      paragraphs: null,
-      wordCount: 0,
-      paragraphCount: 0,
-      sectionCount: 0,
-      headings: [],
-      images: []
-    }
-  },
-  components: {
-    "pre-imaginary-instruction": _Questionnaire_PreImaginary_PreImaginaryInstruction_PreImaginaryInstruction_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    "post-recall-instruction": _Questionnaire_PostRecall_PostRecallInstruction_PostRecallInstruction_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
-  },
-  computed: {
-    articleTitle () {
-      return document.title
-    },
-    readingProgressModules () {
-      return this.status.readingConfig.readingProgressModules
-    },
-    preImaginaryConfig () {
-      return this.readingProgressModules.PreImaginary
-    },
-    titleHTML () {
-      return this.$t(`This article is titled <span class='highlight'>&quot;{0}&quot;</span>.`, [this.articleTitle])
-    },
-    timeLimitTypeStart () {
-      return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts when you start typing.`, [this.preImaginaryConfig.limitMinutes])
-    },
-    timeLimitAutoStart () {
-      return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts now.`, [this.preImaginaryConfig.limitMinutes])
-    }
-  },
-  methods: {
-    show () {
-      this.calculating()
-      this.$refs.Modal.show()
-    },
-    calculating () {
-      this.sections = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-section-seq-id]')
-      this.paragraphs = this.sections.children(':not(.image-label)')
-
-      let text = []
-      this.sections.each((i, ele) => {
-        text.push(this.lib.StringHelper.htmlToTextTrim(ele.innerHTML, true))
-      })
-
-      text = text.join(' ')
-      
-      this.wordCount = this.lib.StringHelper.countWords(text)
-
-      this.paragraphCount = this.paragraphs.length
-
-      this.sectionCount = this.sections.length
-
-      let headings = []
-      //console.log(this.sections.find('h1,h2,h3,h4,h5,h6').length)
-      this.sections.find('h1,h2,h3,h4,h5,h6').each((i, heading) => {
-        headings.push(heading.innerText.trim())
-      })
-      this.headings = headings
-
-      let images = []
-      this.sections.find('img').each((i, image) => {
-        
-        // 這邊要做動態縮圖
-        
-        images.push({
-          src: this.resizeImage(image),
-          title: (image.title ? image.title : image.alt)
-        })
-      })
-      this.images = images
-    },
-    resizeImage (image) {
-      let oCanvas = document.createElement("canvas")
-      let oCtx = oCanvas.getContext("2d")
-      
-      let oColorImg = image
-      let nWidth = oColorImg.offsetWidth
-      let nHeight = oColorImg.offsetHeight
-      
-      let maxSize = 200
-      if (nWidth > nHeight) {
-        if (nWidth > 200) {
-          nHeight = 200 * (nHeight / nWidth)
-          nWidth = 200
-        }
-      }
-      else {
-        if (nHeight > 200) {
-          nWidth = 200 * (nWidth / nHeight)
-          nHeight = 200
-        }
-      }
-      
-      oCanvas.width = nWidth
-      oCanvas.height = nHeight
-      oCtx.drawImage(oColorImg, 0, 0, oColorImg.offsetWidth, oColorImg.offsetHeight, 0,0,nWidth,nHeight);
-      
-      return oCanvas.toDataURL()
-    },
-    removeDataAttr: async function (ele) {
-      //console.log(ele.attributes)
-      //$.each(ele.attributes, function(j, attr) {
-      let i = 0
-      //console.log(ele.attributes[''])
-      //console.log(typeof(ele.attributes[(1 + '')]), ele.attributes[(1 + '')])
-      while (typeof(ele.attributes[(i + '')]) === 'object') {
-        let attr = ele.attributes[(i + '')]
-        
-//        while (attr === undefined) {
-//          console.log(attr, i)
-//          //continue
-//          await this.lib.VueHelper.sleep(100)
-//        }
-        if (attr === undefined) {
-          return false
-        }
-        
-        //console.log(j, attr)
-        // this.attributes is not a plain object, but an array
-        // of attribute nodes, which contain both the name and value
-        let name = attr
-        if (typeof(attr) === 'object' && typeof(attr.name) === 'string') { 
-          name = attr.name
-        }
-        
-        //console.log(name)
-        
-        if (name.startsWith('data-v-')) {
-          //console.log(name)
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(ele).removeAttr(name)
-        }
-        i++
-      }
-      //});
-    },
-    copyHTML: async function ($section) {
-      //console.log(section)
-      
-      let elements = $section.find('*')
-      for (let i = 0; i < elements.length; i++) {
-        let ele = elements.eq(i)[0]
-        //console.log(ele.attributes)
-        await this.removeDataAttr(ele)
-      }
-      
-      $section.find('.highlight').css('background-color', 'yellow')
-      
-      $section.find('img[src]').each(function (i, img) {
-        let filename = 'Questionnaire-img' + i + '.png'
-        img.src = filename
-      })
-      
-      let section = $section[0]
-      //console.log(section.innerHTML)
-      let html = section.innerHTML
-      
-      //console.log(html)
-      let id = html.slice(html.indexOf(" data-v-"), html.indexOf('="">'))
-      html = html.split(id + '=""').join('')
-      
-      html = html.split('</li>').join('</li>\n')
-      html = html.split('</p>').join('</p>\n')
-      html = html.split('img src=').join('img \nsrc=')
-      html = html.split('<span class="image-container">').join('\n<span class="image-container">')
-      
-      _libs_CopyPasteHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"].copyPlainText(html)
-    },
-    copyPreImaginaryInstructionHtml: async function () {
-      //let section = this.$refs.SectionPreImaginary
-      let $section = jquery__WEBPACK_IMPORTED_MODULE_0___default()('section.SectionPreImaginary.instruction').clone()
-      this.copyHTML($section)
-    },
-    copyPostRecallInstructionHtml: async function () {
-      //let section = this.$refs.SectionPreImaginary
-      let $section = jquery__WEBPACK_IMPORTED_MODULE_0___default()('section.SectionPostRecall.instruction').clone()
-      this.copyHTML($section)
-    },
-    downloadImage: function (i, base64) {
-      let filename = 'Questionnaire-img' + i + '.png'
-      this.downloadBase64File(base64, filename)
-    },
-    downloadBase64File (contentBase64, fileName) {
-        const linkSource = contentBase64
-        const downloadLink = document.createElement('a');
-        document.body.appendChild(downloadLink);
-
-        downloadLink.href = linkSource;
-        downloadLink.target = '_self';
-        downloadLink.download = fileName;
-        downloadLink.click(); 
-    }
-  } // methods
+  //data () {}, // 轉移到dataArticleInformation
+  computed: {}, // 轉移到 computedArticleInformation
+  methods: {} // 轉移到 methodsArticleInformation
 }
+
+
+_dataArticleInformation_js__WEBPACK_IMPORTED_MODULE_1___default()(ArticleInformation)
+
+
+Object(_computedArticleInformation_js__WEBPACK_IMPORTED_MODULE_2__["default"])(ArticleInformation)
+
+
+Object(_methodsArticleInformation_js__WEBPACK_IMPORTED_MODULE_3__["default"])(ArticleInformation)
 
 /* harmony default export */ __webpack_exports__["default"] = (ArticleInformation);
 
@@ -2257,6 +1934,49 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/computedArticleInformation.js":
+/*!*****************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/computedArticleInformation.js ***!
+  \*****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (ArticleInformation) {
+  ArticleInformation.computed.articleTitle = function () {
+    return document.title
+  }
+  ArticleInformation.computed.readingProgressModules = function () {
+    return this.status.readingConfig.readingProgressModules
+  }
+  ArticleInformation.computed.preImaginaryConfig = function () {
+    return this.readingProgressModules.PreImaginary
+  }
+  ArticleInformation.computed.titleHTML = function () {
+    return this.$t(`This article is titled <span class='highlight'>&quot;{0}&quot;</span>.`, [this.articleTitle])
+  }
+  ArticleInformation.computed.timeLimitTypeStart = function () {
+    return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts when you start typing.`, [this.preImaginaryConfig.limitMinutes])
+  }
+  ArticleInformation.computed.timeLimitAutoStart = function () {
+    return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts now.`, [this.preImaginaryConfig.limitMinutes])
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/dataArticleInformation.js":
+/*!*************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/dataArticleInformation.js ***!
+  \*************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: Unexpected token (14:0)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n|     }\n|   },\n> }");
+
+/***/ }),
+
 /***/ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/libs/CopyPasteHelper.js":
 /*!***********************************************************************************************************!*\
   !*** ./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/libs/CopyPasteHelper.js ***!
@@ -2304,6 +2024,185 @@ let CopyPasteHelper = {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (CopyPasteHelper);
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/methodsArticleInformation.js":
+/*!****************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/methodsArticleInformation.js ***!
+  \****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _libs_CopyPasteHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./libs/CopyPasteHelper.js */ "./webpack-app/client/Reading/FreeReading/NavigationItems/ArticleInformation/libs/CopyPasteHelper.js");
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (ArticleInformation) {
+  ArticleInformation.methods.show = function () {
+    this.calculating()
+    this.$refs.Modal.show()
+  }
+  ArticleInformation.methods.calculating = function () {
+    this.sections = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-pacor-section-seq-id]')
+    this.paragraphs = this.sections.children(':not(.image-label)')
+
+    let text = []
+    this.sections.each((i, ele) => {
+      text.push(this.lib.StringHelper.htmlToTextTrim(ele.innerHTML, true))
+    })
+
+    text = text.join(' ')
+
+    this.wordCount = this.lib.StringHelper.countWords(text)
+
+    this.paragraphCount = this.paragraphs.length
+
+    this.sectionCount = this.sections.length
+
+    let headings = []
+    //console.log(this.sections.find('h1,h2,h3,h4,h5,h6').length)
+    this.sections.find('h1,h2,h3,h4,h5,h6').each((i, heading) => {
+      headings.push(heading.innerText.trim())
+    })
+    this.headings = headings
+
+    let images = []
+    this.sections.find('img').each((i, image) => {
+
+      // 這邊要做動態縮圖
+
+      images.push({
+        src: this.resizeImage(image),
+        title: (image.title ? image.title : image.alt)
+      })
+    })
+    this.images = images
+  }
+  ArticleInformation.methods.resizeImage = function (image) {
+    let oCanvas = document.createElement("canvas")
+    let oCtx = oCanvas.getContext("2d")
+
+    let oColorImg = image
+    let nWidth = oColorImg.offsetWidth
+    let nHeight = oColorImg.offsetHeight
+
+    let maxSize = 200
+    if (nWidth > nHeight) {
+      if (nWidth > 200) {
+        nHeight = 200 * (nHeight / nWidth)
+        nWidth = 200
+      }
+    } else {
+      if (nHeight > 200) {
+        nWidth = 200 * (nWidth / nHeight)
+        nHeight = 200
+      }
+    }
+
+    oCanvas.width = nWidth
+    oCanvas.height = nHeight
+    oCtx.drawImage(oColorImg, 0, 0, oColorImg.offsetWidth, oColorImg.offsetHeight, 0, 0, nWidth, nHeight);
+
+    return oCanvas.toDataURL()
+  }
+  ArticleInformation.methods.removeDataAttr = async function (ele) {
+    //console.log(ele.attributes)
+    //$.each(ele.attributes, function(j, attr) {
+    let i = 0
+    //console.log(ele.attributes[''])
+    //console.log(typeof(ele.attributes[(1 + '')]), ele.attributes[(1 + '')])
+    while (typeof (ele.attributes[(i + '')]) === 'object') {
+      let attr = ele.attributes[(i + '')]
+
+//        while (attr === undefined) {
+//          console.log(attr, i)
+//          //continue
+//          await this.lib.VueHelper.sleep(100)
+//        }
+      if (attr === undefined) {
+        return false
+      }
+
+      //console.log(j, attr)
+      // this.attributes is not a plain object, but an array
+      // of attribute nodes, which contain both the name and value
+      let name = attr
+      if (typeof (attr) === 'object' && typeof (attr.name) === 'string') {
+        name = attr.name
+      }
+
+      //console.log(name)
+
+      if (name.startsWith('data-v-')) {
+        //console.log(name)
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(ele).removeAttr(name)
+      }
+      i++
+    }
+    //});
+  }
+  ArticleInformation.methods.copyHTML = async function ($section) {
+    //console.log(section)
+
+    let elements = $section.find('*')
+    for (let i = 0; i < elements.length; i++) {
+      let ele = elements.eq(i)[0]
+      //console.log(ele.attributes)
+      await this.removeDataAttr(ele)
+    }
+
+    $section.find('.highlight').css('background-color', 'yellow')
+
+    $section.find('img[src]').each(function (i, img) {
+      let filename = 'Questionnaire-img' + i + '.png'
+      img.src = filename
+    })
+
+    let section = $section[0]
+    //console.log(section.innerHTML)
+    let html = section.innerHTML
+
+    //console.log(html)
+    let id = html.slice(html.indexOf(" data-v-"), html.indexOf('="">'))
+    html = html.split(id + '=""').join('')
+
+    html = html.split('</li>').join('</li>\n')
+    html = html.split('</p>').join('</p>\n')
+    html = html.split('img src=').join('img \nsrc=')
+    html = html.split('<span class="image-container">').join('\n<span class="image-container">')
+
+    _libs_CopyPasteHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"].copyPlainText(html)
+  }
+  ArticleInformation.methods.copyPreImaginaryInstructionHtml = async function () {
+    //let section = this.$refs.SectionPreImaginary
+    let $section = jquery__WEBPACK_IMPORTED_MODULE_0___default()('section.SectionPreImaginary.instruction').clone()
+    this.copyHTML($section)
+  }
+  ArticleInformation.methods.copyPostRecallInstructionHtml = async function () {
+    //let section = this.$refs.SectionPreImaginary
+    let $section = jquery__WEBPACK_IMPORTED_MODULE_0___default()('section.SectionPostRecall.instruction').clone()
+    this.copyHTML($section)
+  }
+  ArticleInformation.methods.downloadImage = function (i, base64) {
+    let filename = 'Questionnaire-img' + i + '.png'
+    this.downloadBase64File(base64, filename)
+  }
+  ArticleInformation.methods.downloadBase64File = function (contentBase64, fileName) {
+    const linkSource = contentBase64
+    const downloadLink = document.createElement('a');
+    document.body.appendChild(downloadLink);
+
+    downloadLink.href = linkSource;
+    downloadLink.target = '_self';
+    downloadLink.download = fileName;
+    downloadLink.click();
+  }
+});
 
 /***/ }),
 
