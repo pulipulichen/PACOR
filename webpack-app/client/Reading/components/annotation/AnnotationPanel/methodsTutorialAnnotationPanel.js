@@ -1,12 +1,33 @@
 import $ from 'jquery'
 
 export default function (AnnotationPanel) {
-    
+  
   AnnotationPanel.methods.setupTutorial = function () {
-    
-    if (this.lib.auth.enableCollaboration === true) {
-      return false
+    if (this.lib.auth.enableCollaboration) {
+      this.setupTutorialCollaborativeReading()
     }
+    else {
+      this.setupTutorialIndividualReading()
+    }
+  }
+  
+  AnnotationPanel.methods.setupTutorialCollaborativeReading = function () {
+    this.lib.TutorialManager.addAction({
+      //backgroundFadeOut: true,
+      beforeCallback: async () => {
+        // 總之隨機塞一個標註進來吧
+        
+      },
+      element: () => {
+        // 顯示討論區的部分
+        return $(this.$refs.panel).find('.AnnotationDiscussion:visible:first')
+      },
+      content: this.$t('You can give a comment to any annotation.'),
+      order: 31
+    })
+  }
+    
+  AnnotationPanel.methods.setupTutorialIndividualReading = function () {
     
     this.lib.TutorialManager.addAction({
       //backgroundFadeOut: true,
@@ -36,4 +57,5 @@ export default function (AnnotationPanel) {
       }
     })
   }
+  
 }

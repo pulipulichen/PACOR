@@ -105,7 +105,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Click \\"ADD\\" to save it.":"按下記下「關鍵字」即可儲存標註。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該類型的閱讀策略"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Click \\"ADD\\" to save it.":"按下記下「關鍵字」即可儲存標註。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該類型的閱讀策略。","You can give a comment to any annotation.":"您可以為標註提供建議。"}}')
   delete Component.options._Ctor
 }
 
@@ -137,7 +137,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Give a comment for this annotation...":"您要給這篇標註什麼意見呢？"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Give a comment for this annotation...":"您要給這篇標註什麼意見呢？","Give a suggestion!":"給個建議吧！"}}')
   delete Component.options._Ctor
 }
 
@@ -169,7 +169,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Load previous {0} comments...":"Load previous {0} comment... | Load previous {0} comments...","Load next {0} comments...":"Load next {0} comment... | Load next {0} comments..."},"zh-TW":{"Load previous {0} comments...":"讀取前面 {0} 篇留言...","Load next {0} comments...":"讀取後面 {0} 篇留言...","Write the first comment now":"沒有留言，要不要寫下第一個留言呢？","No More":"沒有更多留言了"}}')
+  Component.options.__i18n.push('{"en":{"Load previous {0} suggestions...":"Load previous {0} suggestion... | Load previous {0} suggestions...","Load next {0} suggestions...":"Load next {0} suggestion... | Load next {0} suggestions..."},"zh-TW":{"Load previous {0} suggestions...":"讀取前面 {0} 篇建議...","Load next {0} suggestions...":"讀取後面 {0} 篇建議...","Write the first suggestion now":"沒有建議，要不要寫下第一個建議呢？","No More":"沒有更多建議了"}}')
   delete Component.options._Ctor
 }
 
@@ -2401,10 +2401,7 @@ var render = function() {
             }
           ],
           ref: "input",
-          attrs: {
-            type: "text",
-            placeholder: _vm.$t("Give a comment for this annotation...")
-          },
+          attrs: { type: "text", placeholder: _vm.$t("Give a suggestion!") },
           domProps: { value: _vm.note },
           on: {
             keyup: function($event) {
@@ -2599,7 +2596,7 @@ var render = function() {
                 : [
                     _vm._v(
                       "\r\n      " +
-                        _vm._s(_vm.$t("Write the first comment now")) +
+                        _vm._s(_vm.$t("Write the first suggestion now")) +
                         "\r\n    "
                     )
                   ]
@@ -2613,7 +2610,7 @@ var render = function() {
             _vm._v(
               "\r\n    " +
                 _vm._s(
-                  _vm.$t("Load previous {0} comments...", [
+                  _vm.$t("Load previous {0} suggestions...", [
                     _vm.olderCommentCount
                   ])
                 ) +
@@ -2656,7 +2653,9 @@ var render = function() {
             _vm._v(
               "\r\n    " +
                 _vm._s(
-                  _vm.$t("Load next {0} comments...", [_vm.newerCommentCount])
+                  _vm.$t("Load next {0} suggestions...", [
+                    _vm.newerCommentCount
+                  ])
                 ) +
                 "\r\n  "
             )
@@ -12935,12 +12934,33 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (AnnotationPanel) {
-    
+  
   AnnotationPanel.methods.setupTutorial = function () {
-    
-    if (this.lib.auth.enableCollaboration === true) {
-      return false
+    if (this.lib.auth.enableCollaboration) {
+      this.setupTutorialCollaborativeReading()
     }
+    else {
+      this.setupTutorialIndividualReading()
+    }
+  }
+  
+  AnnotationPanel.methods.setupTutorialCollaborativeReading = function () {
+    this.lib.TutorialManager.addAction({
+      //backgroundFadeOut: true,
+      beforeCallback: async () => {
+        // 總之隨機塞一個標註進來吧
+        
+      },
+      element: () => {
+        // 顯示討論區的部分
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationDiscussion:visible:first')
+      },
+      content: this.$t('You can give a comment to any annotation.'),
+      order: 31
+    })
+  }
+    
+  AnnotationPanel.methods.setupTutorialIndividualReading = function () {
     
     this.lib.TutorialManager.addAction({
       //backgroundFadeOut: true,
@@ -12970,6 +12990,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     })
   }
+  
 });
 
 /***/ }),

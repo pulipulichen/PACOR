@@ -11,13 +11,13 @@
       {{ $t('No More') }}
     </template>
     <template v-else>
-      {{ $t('Write the first comment now') }}
+      {{ $t('Write the first suggestion now') }}
     </template>
   </div>
   
   <div class="ui secondary segment no-more"
        v-if="!noMoreOlder && olderCommentCount > 0">
-    {{ $t('Load previous {0} comments...', [olderCommentCount]) }}
+    {{ $t('Load previous {0} suggestions...', [olderCommentCount]) }}
   </div>
   
   <annotation-comment 
@@ -40,7 +40,7 @@
   
   <div class="ui secondary segment no-more"
        v-if="!noMoreNewer && newerCommentCount > 0">
-    {{ $t('Load next {0} comments...', [newerCommentCount]) }}
+    {{ $t('Load next {0} suggestions...', [newerCommentCount]) }}
   </div>
   
 </div>
