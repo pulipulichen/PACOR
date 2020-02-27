@@ -80,6 +80,11 @@ textarea.answer {
 
 .step-result {
   max-height: calc(100vh - 6vh - 16em - 19em) !important;
+  
+  @media only screen and (max-height: 700px) {
+    max-height: calc(100vh - 6vh - 3.5em - 19em) !important;
+  }
+  
   overflow-x: hidden;
   overflow-y: auto;
   

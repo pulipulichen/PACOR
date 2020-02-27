@@ -19,6 +19,11 @@ let InstructionMessage = {
               + this.status.userID + '.' 
               + this.tempStepName
     },
+    localStorageUserKeyPrefix () {
+      return 'InstructionMessage.' 
+              + this.status.userID + '.' 
+              + this.tempStepName
+    },
     instruction () {
       return this.lib.auth.currentStepConfig.instruction
     },
@@ -46,7 +51,9 @@ let InstructionMessage = {
       if (this.lib.auth.currentStepConfig.forceTutorial !== true) {
         return true
       }
-      return (this.hasReadTutorial || localStorage.getItem(this.localStorageKeyPrefix) !== null)
+      return (this.hasReadTutorial 
+              || localStorage.getItem(this.localStorageKeyPrefix) !== null
+              || localStorage.getItem(this.localStorageUserKeyPrefix) !== null) // 表示這個人已經在不同篇文章讀過這個階段的說明了
     }
   },
 //  watch: {
@@ -82,6 +89,7 @@ let InstructionMessage = {
     },
     startTutorial () {
       localStorage.setItem(this.localStorageKeyPrefix, 1)
+      localStorage.setItem(this.localStorageUserKeyPrefix, 1)
       this.hasReadTutorial = true
       this.hide()
       this.lib.TutorialManager.start()
