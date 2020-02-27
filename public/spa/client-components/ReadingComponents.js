@@ -12536,9 +12536,14 @@ const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Readin
 /* harmony default export */ __webpack_exports__["default"] = ((AnnotationPanel) => {
 
   AnnotationPanel.methods._initHeightPX = function () {
-    let sizeRatio = localStorage.getItem(localStorageKeyPrefix + 'sizeRatio')
+    let sizeRatio = localStorage.getItem(localStorageKeyPrefix + this.lib.auth.currentStep + '.sizeRatio')
     if (sizeRatio === null) {
-      sizeRatio = 0.5
+      if (this.lib.auth.currentStep === 'CollaborativeReading') {
+        sizeRatio = 0.7
+      }
+      else {
+        sizeRatio = 0.5
+      }
     } else {
       sizeRatio = parseFloat(sizeRatio)
     }
