@@ -797,7 +797,7 @@ let Instruction = {
 
       let headings = []
       //console.log(this.sections.find('h1,h2,h3,h4,h5,h6').length)
-      this.sections.find('h1,h2,h3,h4,h5,h6').each((i, heading) => {
+      this.sections.find('h2,h3,h4,h5,h6').each((i, heading) => {
         headings.push(heading.innerText.trim())
       })
       this.headings = headings
@@ -815,32 +815,50 @@ let Instruction = {
       this.images = images
     },
     resizeImage (image) {
-      let oCanvas = document.createElement("canvas")
-      let oCtx = oCanvas.getContext("2d")
-      
-      let oColorImg = image
-      let nWidth = oColorImg.offsetWidth
-      let nHeight = oColorImg.offsetHeight
-      
+      var canvas = document.createElement("canvas");
+      var ctx = canvas.getContext("2d");
+      var img = image
+
+      // set size proportional to image
+      //canvas.height = canvas.width * (img.height / img.width);
+
+      // step 1 - resize to 50%
+      var oc = document.createElement('canvas'),
+              octx = oc.getContext('2d');
+
       let maxSize = 200
+      let nWidth = img.offsetWidth
+      let nHeight = img.offsetHeight
       if (nWidth > nHeight) {
-        if (nWidth > 200) {
-          nHeight = 200 * (nHeight / nWidth)
-          nWidth = 200
+        if (nWidth > maxSize) {
+          nHeight = maxSize * (nHeight / nWidth)
+          nWidth = maxSize
         }
       }
       else {
-        if (nHeight > 200) {
-          nWidth = 200 * (nWidth / nHeight)
-          nHeight = 200
+        if (nHeight > maxSize) {
+          nWidth = maxSize * (nWidth / nHeight)
+          nHeight = maxSize
         }
       }
-      
-      oCanvas.width = nWidth
-      oCanvas.height = nHeight
-      oCtx.drawImage(oColorImg, 0, 0, oColorImg.offsetWidth, oColorImg.offsetHeight, 0,0,nWidth,nHeight);
-      
-      return oCanvas.toDataURL()
+
+      oc.width = nWidth
+      oc.height = nHeight
+      console.log(nWidth, nHeight)
+
+      octx.drawImage(img, 0, 0, oc.width, oc.height);
+
+      // step 2
+      octx.drawImage(oc, 0, 0, oc.width, oc.height);
+
+      canvas.width = nWidth
+      canvas.height = nHeight
+    
+      // step 3, resize to final size
+      ctx.drawImage(oc, 0, 0, oc.width, oc.height,
+              0, 0, canvas.width, canvas.height);
+
+      return canvas.toDataURL()
     },
   } // methods
 }
