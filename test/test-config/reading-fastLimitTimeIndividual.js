@@ -1,3 +1,3 @@
 module.exports = {
-  readingProgresses: ['PreImaginary', 'IndividualReading', 'PostRecall'],
+  readingProgresses: ['PreImaginaryKeyword', 'IndividualReading', 'PostRecallKeyword'],
 }

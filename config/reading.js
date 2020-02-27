@@ -8,11 +8,11 @@ module.exports = {
     forceMaxTimeoutMinutes: 1,
     
     test: {
-      minAnnotation: 4,
-      maxAnnotation: 9
+      //minAnnotation: 4,
+      //maxAnnotation: 9
       
-      //minAnnotation: 1,
-      //maxAnnotation: 1
+      minAnnotation: 1,
+      maxAnnotation: 1
     },
     
     //stayInReadingProgress: 'PreImaginaryKeyword'
@@ -116,7 +116,7 @@ module.exports = {
         countdown: '/instruction/reading/IndividualReading-endsByCountdown.html',
         checklist: '/instruction/reading/IndividualReading-endsByChecklist.html',
       },
-      forceTutorial: true,t
+      forceTutorial: true,
       limitMinutes: 30,
       goToNextStepOnChecklistComplete: true,
 //      notification: {

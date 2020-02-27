@@ -41,14 +41,14 @@ class UserSeeder {
     
     await TestSetupScript.main()
     
-//    await WebpageUserGroupScript.main()
-//    await AnnotationInteractScript.main()
-//    
-//    await WebpageUserGroupScript2.main()
-//    await AnnotationInteractScript2.main()
-//    
-//    await WebpageUserGroupScript2Cors.main()
-//    await AnnotationInteractScript2Cors.main()
+    await WebpageUserGroupScript.main()
+    await AnnotationInteractScript.main()
+    
+    await WebpageUserGroupScript2.main()
+    await AnnotationInteractScript2.main()
+    
+    await WebpageUserGroupScript2Cors.main()
+    await AnnotationInteractScript2Cors.main()
     
     await Exp2020Script.main()
     

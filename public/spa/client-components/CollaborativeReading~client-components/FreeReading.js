@@ -498,8 +498,12 @@ __webpack_require__.r(__webpack_exports__);
 //    return this.sideMenu
 //  }
 
-  NavigationItems.methods.setupTutorial = function () {
+  NavigationItems.methods.setupTutorial = async function () {
     //return console.log('@TEST')
+    
+    while (!this.$refs.nav) {
+      await this.lib.VueHelper.sleep(100)
+    }
     
     this.lib.TutorialManager.addAction({
       element: () => {

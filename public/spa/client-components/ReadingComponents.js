@@ -29189,6 +29189,7 @@ __webpack_require__.r(__webpack_exports__);
     
     let guide
     let nextStepTimer
+    let enableNext = true
     
     let onWindowResize = () => {
       return guide.draw();
@@ -29220,6 +29221,9 @@ __webpack_require__.r(__webpack_exports__);
       
       guide.buildLayout();
       guide.layout.bg.click((function(_this) {
+        if (enableNext === false) {
+          return false
+        }
         clearTimeout(nextStepTimer)
         return function() {
           return guide.next();
@@ -29573,6 +29577,7 @@ __webpack_require__.r(__webpack_exports__);
         }
         
         //this.animateCallback(action, callback)
+        enableNext = false
         scrollTimer = setTimeout(() => {
           if (lastPageYOffset !== window.pageYOffset) {
             lastPageYOffset = window.pageYOffset
@@ -29649,9 +29654,12 @@ __webpack_require__.r(__webpack_exports__);
                 } 
                 
                 nextStepTimer = setTimeout(() => {
-                  _this.layout.bg.click()
+                  if (_this.layout.bg.filter(':visible').length > 0) {
+                    _this.layout.bg.click()
+                  }
                 }, timeout)
                 
+                enableNext = true
                 callback()
               };
             })(this));

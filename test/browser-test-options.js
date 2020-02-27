@@ -20,7 +20,7 @@ let TestOptions = {
   //stopAt: 'd2. 隨意寫標註',
   displayDevTools: false,
   
-  groupSize: 6,
+  //groupSize: 6,
   //webpageConfig,
   
   //manualReader: true,

@@ -15,6 +15,7 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
     
     let guide
     let nextStepTimer
+    let enableNext = true
     
     let onWindowResize = () => {
       return guide.draw();
@@ -46,6 +47,9 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
       
       guide.buildLayout();
       guide.layout.bg.click((function(_this) {
+        if (enableNext === false) {
+          return false
+        }
         clearTimeout(nextStepTimer)
         return function() {
           return guide.next();
@@ -399,6 +403,7 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
         }
         
         //this.animateCallback(action, callback)
+        enableNext = false
         scrollTimer = setTimeout(() => {
           if (lastPageYOffset !== window.pageYOffset) {
             lastPageYOffset = window.pageYOffset
@@ -475,9 +480,12 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
                 } 
                 
                 nextStepTimer = setTimeout(() => {
-                  _this.layout.bg.click()
+                  if (_this.layout.bg.filter(':visible').length > 0) {
+                    _this.layout.bg.click()
+                  }
                 }, timeout)
                 
+                enableNext = true
                 callback()
               };
             })(this));

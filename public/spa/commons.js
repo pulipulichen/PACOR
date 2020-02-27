@@ -15131,7 +15131,8 @@ let i18nGlobal = {
     'Assist': '協助',
     'Cancel Assist': '取消協助',
     'Focus Yourself': '只看您本人',
-    'Cancel Focus': '取消專注閱讀'
+    'Cancel Focus': '取消專注閱讀',
+    'Write something': '請寫解答'
   }
 }
 

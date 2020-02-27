@@ -17,8 +17,12 @@ export default function (NavigationItems) {
 //    return this.sideMenu
 //  }
 
-  NavigationItems.methods.setupTutorial = function () {
+  NavigationItems.methods.setupTutorial = async function () {
     //return console.log('@TEST')
+    
+    while (!this.$refs.nav) {
+      await this.lib.VueHelper.sleep(100)
+    }
     
     this.lib.TutorialManager.addAction({
       element: () => {
