@@ -13,11 +13,10 @@ module.exports = {
       limitMinutes: 3,
     },
     'reading': {
-      totalLimitMinutes: 10,
+      totalLimitMinutes: 5,
     },
     'IndividualReading': {
-      limitMinutes: 10,
-      goToNextStepOnChecklistComplete: false,
+      limitMinutes: 5,
     },
     FreeReading: {
       nextReadingPage: '/pretest/alpha.html'

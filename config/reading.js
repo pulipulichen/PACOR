@@ -1,6 +1,6 @@
 module.exports = {
   debug: {
-    flushCache: false,
+    flushCache: true,
     enable: true,
     enableRemoteConosleLog: false,
     //forceMaxTimeoutMinutes: 0.4
@@ -77,28 +77,28 @@ module.exports = {
     'PreImaginary': {
       //instruction: '/instruction/questionnaire/PreImaginary.html',
       minWords: 10,
-      //limitMinutes: 5,
-      limitMinutes: 0.03,
+      limitMinutes: 3,
+      //limitMinutes: 0.03,
       countdownAtStart: false,
     },
     'PreImaginaryKeyword': {
       //instruction: '/instruction/questionnaire/PreImaginary.html',
       minKeywords: 10,
-      limitMinutes: 5,
+      limitMinutes: 3,
       //limitMinutes: 0.2,
     },
     'PostRecall': {
       //instruction: '/instruction/questionnaire/PostRecall.html',
       minWords: 10,
-      //limitMinutes: 5
-      limitMinutes: 0.03,
+      limitMinutes: 3,
+      //limitMinutes: 0.03,
       countdownAtStart: false,
       preloadPreImaginaryAnswer: true  // 是否顯示前面撰寫的內容
     },
     'PostRecallKeyword': {
       //instruction: '/instruction/questionnaire/PostRecall.html',
       minKeywords: 10,
-      limitMinutes: 5,
+      limitMinutes: 3,
       //limitMinutes: 0.2,
       preloadPreImaginaryKeywords: true  // 是否顯示前面撰寫的內容
     },
@@ -181,7 +181,7 @@ module.exports = {
     'FreeReading': {
       //instruction: '/instruction/reading/CollaborativeReading.html',
       permission: {
-        collaboration: false,
+        collaboration: true,
         control: false,
         defaultPermission: 'public',
       },
