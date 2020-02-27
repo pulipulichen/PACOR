@@ -3,7 +3,8 @@ let InstructionMessage = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      tempStepName: this.lib.auth.currentStep
+      tempStepName: this.lib.auth.currentStep,
+      hasReadTutorial: false
     }
   },
 //  components: {
@@ -45,7 +46,7 @@ let InstructionMessage = {
       if (this.lib.auth.currentStepConfig.forceTutorial !== true) {
         return true
       }
-      return (localStorage.getItem(this.localStorageKeyPrefix) !== null)
+      return (this.hasReadTutorial || localStorage.getItem(this.localStorageKeyPrefix) !== null)
     }
   },
 //  watch: {
@@ -81,6 +82,7 @@ let InstructionMessage = {
     },
     startTutorial () {
       localStorage.setItem(this.localStorageKeyPrefix, 1)
+      this.hasReadTutorial = true
       this.hide()
       this.lib.TutorialManager.start()
     },

@@ -17,6 +17,7 @@ module.exports = {
     
     //stayInReadingProgress: 'PreImaginaryKeyword'
     //stayInReadingProgress: 'PostRecallKeyword'
+    stayInReadingProgress: 'CollaborativeReading'
   },
   
   /**

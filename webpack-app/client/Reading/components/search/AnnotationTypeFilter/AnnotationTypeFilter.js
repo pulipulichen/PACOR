@@ -7,7 +7,8 @@ let AnnotationTypeFilter = {
     this.$i18n.locale = this.config.locale
     return {
       inited: false,
-      anchor: null
+      anchor: null,
+      isFixed: false
     }
   },
   components: {
@@ -24,7 +25,11 @@ let AnnotationTypeFilter = {
 //  },
   methods: {
     
-    show: async function () {
+    show: async function (fix) {
+      if (fix === true) {
+        this.isFixed = true
+      }
+      
       if (!this.anchor) {
         this.anchor = $(this.$refs.anchor)
       }
@@ -49,6 +54,10 @@ let AnnotationTypeFilter = {
                 //boundary: document.body,
                 onShow: () => {
                   this.$refs.AnnotationTypeFilterPopup.load()
+                },
+                onHide: () => {
+                  //console.log(this.isFixed)
+                  return !this.isFixed
                 }
               })
       
@@ -59,6 +68,7 @@ let AnnotationTypeFilter = {
     },
     hide () {
       //throw new Error('hide')
+      this.isFixed = false
       this.anchor.popup('hide all')
     },
   } // methods

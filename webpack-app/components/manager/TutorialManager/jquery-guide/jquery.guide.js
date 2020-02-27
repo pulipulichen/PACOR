@@ -50,7 +50,7 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
         if (enableNext === false) {
           return false
         }
-        clearTimeout(nextStepTimer)
+        
         return function() {
           return guide.next();
         };
@@ -205,6 +205,7 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
       };
 
       jQueryGuide.prototype.next = function() {
+        clearTimeout(nextStepTimer)
         glowTippy.hide()
         if (this.step.current + 1 === this.actionList.length) {
           this.exit();
@@ -476,7 +477,7 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
                 
                 let timeout = 5000
                 if (typeof(action.timeout) === 'number'
-                        && action.timeout > 3000) {
+                        && action.timeout > 5000) {
                   timeout = action.timeout
                 } 
                 

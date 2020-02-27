@@ -27828,7 +27828,8 @@ let AnnotationTypeFilter = {
     this.$i18n.locale = this.config.locale
     return {
       inited: false,
-      anchor: null
+      anchor: null,
+      isFixed: false
     }
   },
   components: {
@@ -27845,7 +27846,11 @@ let AnnotationTypeFilter = {
 //  },
   methods: {
     
-    show: async function () {
+    show: async function (fix) {
+      if (fix === true) {
+        this.isFixed = true
+      }
+      
       if (!this.anchor) {
         this.anchor = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.anchor)
       }
@@ -27870,6 +27875,10 @@ let AnnotationTypeFilter = {
                 //boundary: document.body,
                 onShow: () => {
                   this.$refs.AnnotationTypeFilterPopup.load()
+                },
+                onHide: () => {
+                  //console.log(this.isFixed)
+                  return !this.isFixed
                 }
               })
       
@@ -27880,6 +27889,7 @@ let AnnotationTypeFilter = {
     },
     hide () {
       //throw new Error('hide')
+      this.isFixed = false
       this.anchor.popup('hide all')
     },
   } // methods
@@ -28951,7 +28961,8 @@ let InstructionMessage = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      tempStepName: this.lib.auth.currentStep
+      tempStepName: this.lib.auth.currentStep,
+      hasReadTutorial: false
     }
   },
 //  components: {
@@ -28993,7 +29004,7 @@ let InstructionMessage = {
       if (this.lib.auth.currentStepConfig.forceTutorial !== true) {
         return true
       }
-      return (localStorage.getItem(this.localStorageKeyPrefix) !== null)
+      return (this.hasReadTutorial || localStorage.getItem(this.localStorageKeyPrefix) !== null)
     }
   },
 //  watch: {
@@ -29029,6 +29040,7 @@ let InstructionMessage = {
     },
     startTutorial () {
       localStorage.setItem(this.localStorageKeyPrefix, 1)
+      this.hasReadTutorial = true
       this.hide()
       this.lib.TutorialManager.start()
     },
@@ -29224,7 +29236,7 @@ __webpack_require__.r(__webpack_exports__);
         if (enableNext === false) {
           return false
         }
-        clearTimeout(nextStepTimer)
+        
         return function() {
           return guide.next();
         };
@@ -29379,6 +29391,7 @@ __webpack_require__.r(__webpack_exports__);
       };
 
       jQueryGuide.prototype.next = function() {
+        clearTimeout(nextStepTimer)
         glowTippy.hide()
         if (this.step.current + 1 === this.actionList.length) {
           this.exit();
@@ -29650,7 +29663,7 @@ __webpack_require__.r(__webpack_exports__);
                 
                 let timeout = 5000
                 if (typeof(action.timeout) === 'number'
-                        && action.timeout > 3000) {
+                        && action.timeout > 5000) {
                   timeout = action.timeout
                 } 
                 

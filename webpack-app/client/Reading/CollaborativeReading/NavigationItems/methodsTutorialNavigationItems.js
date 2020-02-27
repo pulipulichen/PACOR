@@ -50,9 +50,16 @@ export default function (NavigationItems) {
       enable: () => {
         return !this.$refs.nav.isCompactMode
       },
+      beforeCallback: async () => {
+        await this.$refs.AnnotationTypeFilter.show(true)
+        await this.lib.VueHelper.sleep(500)
+      },
       element: () => {
-        let element = this.$refs.nav.find('.AnnotationTypeFilter:visible:first')
-        return element
+        //console.log($('.ui.popup.visible:visible').length)
+        return $('.ui.popup.visible:visible')
+      },
+      afterClick: () => {
+        this.$refs.AnnotationTypeFilter.hide()
       },
       content: this.$t('You can choose a type of annotations to read.'),
       order: 34
