@@ -300,6 +300,7 @@ module.exports = {
       'addable': true,
       'minWords': 1,
       'noteMustBeEdited': true,
+      'initDraftFromSelection': false, 
       'placeholder': 'Why do you think it is a main idea?',
       'instruction': {
         'summary': 'Highlight key keywords or concepts',

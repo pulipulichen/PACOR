@@ -41,6 +41,7 @@ let Editor = {
     return {
       note: note,
       noteReset: noteReset,
+      quickAddMode: false
       //public: 
     }
   },
@@ -163,10 +164,13 @@ let Editor = {
     this.loadDraft()
   },
   methods: {
-    loadDraft: async function () {
+    loadDraft: async function (force) {
       //console.log(this.note)
-      if (this.note !== '') {
-        return false
+      if (force !== true) {
+        if (this.note !== ''
+                || this.annotationModuleConfig.initDraftFromSelection === false) {
+          return false
+        }
       }
       
       let note
@@ -244,7 +248,9 @@ let Editor = {
       this.$emit('add')
     },
     quickAdd: async function () {
-      return this.addAnnotation()
+      this.loadDraft(true)
+      this.addAnnotation()
+      return true
     },
     
     /**
