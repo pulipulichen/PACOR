@@ -462,7 +462,7 @@ let Instruction = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      sections: null,
+      //sections: null,
       paragraphies: null,
       wordCount: 0,
       paragraphyCount: 0,
@@ -481,23 +481,26 @@ let Instruction = {
     readingProgressModules () {
       return this.status.readingConfig.readingProgressModules
     },
-    preImaginaryConfig () {
-      return this.readingProgressModules.PreImaginary
-    },
-    postRecallConfig () {
-      return this.readingProgressModules.PostRecall
+//    preImaginaryConfig () {
+//      return this.readingProgressModules.PreImaginary
+//    },
+//    postRecallConfig () {
+//      return this.readingProgressModules.PostRecall
+//    },
+    limitMinutes () {
+      return this.lib.auth.currentStepConfig.limitMinutes
     },
     titleHTML () {
       return this.$t(`This article is titled <span class='highlight'>&quot;{0}&quot;</span>.`, [this.articleTitle])
     },
     timeLimitTypeStart () {
-      return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts when you start typing.`, [this.preImaginaryConfig.limitMinutes])
+      return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts when you start typing.`, [this.limitMinutes])
     },
     timeLimitAutoStart () {
-      return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts now.`, [this.preImaginaryConfig.limitMinutes])
+      return this.$t(`The time limit is <span class='highlight'>{0} minutes</span> and the countdown starts now.`, [this.limitMinutes])
     },
     timeLimitClickButtonStart () {
-      return this.$t(`The time limit is <span class="highlight">{0} minutes</span> and the countdown starts when you click "Start Answer and Countdown" button.`, [this.preImaginaryConfig.limitMinutes])
+      return this.$t(`The time limit is <span class="highlight">{0} minutes</span> and the countdown starts when you click "Start Answer and Countdown" button.`, [this.limitMinutes])
     },
     isDiffMode () {
       let isDiffMode = false
@@ -506,6 +509,33 @@ let Instruction = {
         isDiffMode = this.lib.auth.currentStepConfig.preloadPreImaginaryAnswer
       }
       return isDiffMode
+    },
+    sections () {
+      let selector = this.status.readingConfig.selector
+      
+      let article
+      for (let i = 0; i < selector.article.length; i++) {
+        let s = selector.article[i]
+        let e = jquery__WEBPACK_IMPORTED_MODULE_0___default()(s + ':first')
+        if (e.length === 1) {
+          article = e
+          break
+        }
+      }
+      
+      let sections
+      if (article) {
+        for (let i = 0; i < selector.section.length; i++) {
+          let s = selector.section[i]
+          let e = article.children(s)
+          if (e.length > 0) {
+            sections = e
+            break
+          }
+        }
+      }
+      
+      return sections
     }
   },
 //  watch: {
@@ -515,7 +545,6 @@ let Instruction = {
   },
   methods: {
     calculating () {
-      this.sections = jquery__WEBPACK_IMPORTED_MODULE_0___default()('section')
       this.paragraphies = this.sections.children()
 
       let text = this.lib.StringHelper.htmlToTextTrim(this.sections.html(), true)
