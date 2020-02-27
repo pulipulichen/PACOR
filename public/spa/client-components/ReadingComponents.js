@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can read other\u0027s annotations.":"您可以看到其他讀者的標註了。","Select text to highlight.":"請選擇您看不懂或是覺得是重點的文字。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can read other\u0027s annotations.":"您可以看到其他讀者的標註了。","Select text to highlight.":"請選擇您看不懂或是覺得是關鍵字的文字。"}}')
   delete Component.options._Ctor
 }
 
@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"List Annotations":"列出標註","Quick Add":"快速新增","Select an annotation type to highlight the selected text.":"請為你要標註的文字選擇一種類型。","For example, if you choose \\"Main Idea\\" type.":"舉例來說，如果您選擇「重點」類型"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"List Annotations":"列出標註","Quick Add":"快速新增","Select an annotation type to highlight the selected text.":"請為你要標註的文字選擇一種類型。","For example, if you choose \\"Main Idea\\" type.":"舉例來說，如果您選擇「關鍵字」類型"}}')
   delete Component.options._Ctor
 }
 
@@ -105,7 +105,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Click \\"ADD\\" to save it.":"按下記下「重點」即可儲存標註。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Click \\"ADD\\" to save it.":"按下記下「關鍵字」即可儲存標註。"}}')
   delete Component.options._Ctor
 }
 
@@ -185,7 +185,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Hint":"顯示說明","Highlight text you don\u0027t understand":"標註您不懂的文字","Write the answer to \\"questions\\"":"記錄「問題」的解答","Highlight key keywords or concepts":"標亮重點關鍵字或概念","Highlight keywords or concepts in this section":"標亮小節中的關鍵字或概念"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Hint":"顯示說明","Highlight text you don\u0027t understand":"標註您不懂的文字","Write the answer to \\"questions\\"":"記錄「問題」的解答","Highlight key keywords or concepts":"標亮關鍵字或概念","Highlight keywords or concepts in this section":"標亮小節中的關鍵字或概念"}}')
   delete Component.options._Ctor
 }
 
@@ -281,7 +281,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"ADD":"記下「重點」","UPDATE":"更新「重點」"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"ADD":"記下「關鍵字」","UPDATE":"更新「關鍵字」"}}')
   delete Component.options._Ctor
 }
 
@@ -297,7 +297,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Why do you think it is a main idea?":"您為何覺得這裡是重點？"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Why do you think it is a main idea?":"您為何覺得這裡是關鍵字？"}}')
   delete Component.options._Ctor
 }
 
@@ -313,7 +313,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"ADD":"記下「小節重點」","UPDATE":"更新「小節重點」","What do you think are the main ideas of this section?":"您認為這個小節的重點有那些？"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"ADD":"記下「小節關鍵字」","UPDATE":"更新「小節關鍵字」","What do you think are the main ideas of this section?":"您認為這個小節的關鍵字有那些？"}}')
   delete Component.options._Ctor
 }
 
@@ -329,7 +329,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can see others\u0027 section main ideas.":"您可以看到別人撰寫的小節重點標註了。","After reading a section of the article, you have to finish the section checklist.":"在讀完一個小節之後，請您完成這個小節的檢核單。","When you finish all section checklists, you will go to next step.":"當您完成所有小節檢核單之後，您將會前往下一個閱讀階段。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can see others\u0027 section main ideas.":"您可以看到別人撰寫的小節關鍵字了。","After reading a section of the article, you have to finish the section checklist.":"在讀完一個小節之後，請您完成這個小節的檢核單。","When you finish all section checklists, you will go to next step.":"當您完成所有小節檢核單之後，您將會前往下一個閱讀階段。"}}')
   delete Component.options._Ctor
 }
 
@@ -345,7 +345,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Write section main ideas":"撰寫小節重點","Edit section main ideas":"編輯小節重點","Write article main ideas":"撰寫文章重點","Edit article main ideas":"編輯文章重點"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Write section main ideas":"撰寫小節關鍵字","Edit section main ideas":"編輯小節關鍵字","Write article main ideas":"撰寫文章關鍵字","Edit article main ideas":"編輯文章關鍵字"}}')
   delete Component.options._Ctor
 }
 
@@ -377,7 +377,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Check list":"檢核單","Write section main ideas":"撰寫小節重點","Edit section main ideas":"編輯小節重點","I have already read this section.":"我已經讀完了這一節的內容。","I have already written annotations on a sentence I don\u0027t understand.":"我看不懂的地方，已經用「疑問」標示了。","I have already written the main ideas of this section.":"我已經寫完小節重點了。","Please finish checklist.":"請完成這份檢核單","I have read this section!":"我已經讀完這一節了！","Write article main ideas":"撰寫文章重點","Edit article main ideas":"編輯文章重點","I have already read this article.":"我已經讀完了這篇文章的內容。","I have already written the main ideas of this article.":"我已經寫完文章重點了。","I have read this article!":"我已經讀完這篇文章了！"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Check list":"檢核單","Write section main ideas":"撰寫小節關鍵字","Edit section main ideas":"編輯小節關鍵字","I have already read this section.":"我已經讀完了這一節的內容。","I have already written annotations on a sentence I don\u0027t understand.":"我看不懂的地方，已經用「疑問」標示了。","I have already written the main ideas of this section.":"我已經寫完小節關鍵字了。","Please finish checklist.":"請完成這份檢核單","I have read this section!":"我已經讀完這一節了！","Write article main ideas":"撰寫文章關鍵字","Edit article main ideas":"編輯文章關鍵字","I have already read this article.":"我已經讀完了這篇文章的內容。","I have already written the main ideas of this article.":"我已經寫完文章關鍵字了。","I have read this article!":"我已經讀完這篇文章了！"}}')
   delete Component.options._Ctor
 }
 

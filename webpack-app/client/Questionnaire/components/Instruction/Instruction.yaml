@@ -7,6 +7,7 @@ en:
 zh-TW:
   PreImaginary Instruction: 「閱讀前的預測」說明
   Please try to predict what this article might write.: 請預測這篇文章可能會寫什麼。
+  Please use the following clues to predict which keywords this article might mention.: 請根據以下線索，預測看看這篇文章可能會提到那些關鍵字。
   'This article is titled "{0}".': '這篇文章的標題是「{0}」。'
   "This article includes {0} headings:": "這篇文章包含了以下子標題："
   "This article includes {0} images:": "這篇文章包含了以下圖片："
@@ -18,6 +19,7 @@ zh-TW:
   
   PostRecall Instruction: 「閱讀後的回想」說明
   'Please recall the content of this article.': 請回想這篇文章的內容。
+  Please recall the keywords mentioned in this article based on the content of the article you just read and referring to the same tips.: 請根據您剛剛閱讀的文章內容，並參考同樣的提示，回想這篇文章提到的關鍵字。
   
   After reading, please recall the content of this article base on your previous answer.: 在閱讀之後，請回想這篇文章的內容，並修改您之前的作答。
   After reading, please recall the content of this article.: 在閱讀之後，請回想這篇文章的內容。

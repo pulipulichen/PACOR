@@ -815,15 +815,15 @@ let Instruction = {
       this.images = images
     },
     resizeImage (image) {
-      var canvas = document.createElement("canvas");
-      var ctx = canvas.getContext("2d");
-      var img = image
+      let canvas = document.createElement("canvas");
+      let ctx = canvas.getContext("2d");
+      let img = image
 
       // set size proportional to image
       //canvas.height = canvas.width * (img.height / img.width);
 
       // step 1 - resize to 50%
-      var oc = document.createElement('canvas'),
+      let oc = document.createElement('canvas'),
               octx = oc.getContext('2d');
 
       let maxSize = 200
