@@ -7,6 +7,12 @@ export default function (TutorialManager) {
       type = this.defaultType
     }
     //console.log(this.defaultType)
+    
+    if (typeof(this.status.readingConfig.debug.onlyShowTutorialOrder) === 'number' 
+            && action.order !== this.status.readingConfig.debug.onlyShowTutorialOrder) {
+      console.log('@DEBUG onlyShowTutorialOrder: ' + this.status.readingConfig.debug.onlyShowTutorialOrder + '. Exclude order: ' + action.order)
+      return false
+    }
 
     if (Array.isArray(this.actionLists[type]) === false) {
       this.actionLists[type] = []

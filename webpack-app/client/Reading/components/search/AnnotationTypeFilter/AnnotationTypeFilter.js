@@ -69,7 +69,9 @@ let AnnotationTypeFilter = {
     hide () {
       //throw new Error('hide')
       this.isFixed = false
-      this.anchor.popup('hide all')
+      if (this.anchor) {
+        this.anchor.popup('hide all')
+      }
     },
   } // methods
 }

@@ -3907,6 +3907,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* global HTMLElement */
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (TutorialManager) {
@@ -3965,6 +3967,10 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     let width, height
+    if (element instanceof HTMLElement) {
+      element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element)
+    }
+    
     if (typeof(element.offset) === 'function') {
       width = element.width()
       height = element.height()
@@ -4123,6 +4129,12 @@ __webpack_require__.r(__webpack_exports__);
       type = this.defaultType
     }
     //console.log(this.defaultType)
+    
+    if (typeof(this.status.readingConfig.debug.onlyShowTutorialOrder) === 'number' 
+            && action.order !== this.status.readingConfig.debug.onlyShowTutorialOrder) {
+      console.log('@DEBUG onlyShowTutorialOrder: ' + this.status.readingConfig.debug.onlyShowTutorialOrder + '. Exclude order: ' + action.order)
+      return false
+    }
 
     if (Array.isArray(this.actionLists[type]) === false) {
       this.actionLists[type] = []

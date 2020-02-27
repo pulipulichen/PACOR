@@ -1,3 +1,5 @@
+/* global HTMLElement */
+
 import $ from 'jquery'
 
 export default function (TutorialManager) {
@@ -56,6 +58,10 @@ export default function (TutorialManager) {
     }
     
     let width, height
+    if (element instanceof HTMLElement) {
+      element = $(element)
+    }
+    
     if (typeof(element.offset) === 'function') {
       width = element.width()
       height = element.height()

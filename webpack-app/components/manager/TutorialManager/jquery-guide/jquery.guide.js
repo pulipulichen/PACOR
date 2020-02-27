@@ -204,10 +204,16 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
         return true;
       };
 
-      jQueryGuide.prototype.next = function() {
+      jQueryGuide.prototype.next = async function() {
         clearTimeout(nextStepTimer)
-        glowTippy.hide()
+        if (glowTippy) {
+          glowTippy.hide()
+        }
         if (this.step.current + 1 === this.actionList.length) {
+          let lastAction = this.actionList[(this.step.current)];
+          if (typeof(lastAction.afterClick) === 'function') {
+            await lastAction.afterClick()
+          }
           this.exit();
           return false;
         }

@@ -27890,7 +27890,9 @@ let AnnotationTypeFilter = {
     hide () {
       //throw new Error('hide')
       this.isFixed = false
-      this.anchor.popup('hide all')
+      if (this.anchor) {
+        this.anchor.popup('hide all')
+      }
     },
   } // methods
 }
@@ -29390,10 +29392,16 @@ __webpack_require__.r(__webpack_exports__);
         return true;
       };
 
-      jQueryGuide.prototype.next = function() {
+      jQueryGuide.prototype.next = async function() {
         clearTimeout(nextStepTimer)
-        glowTippy.hide()
+        if (glowTippy) {
+          glowTippy.hide()
+        }
         if (this.step.current + 1 === this.actionList.length) {
+          let lastAction = this.actionList[(this.step.current)];
+          if (typeof(lastAction.afterClick) === 'function') {
+            await lastAction.afterClick()
+          }
           this.exit();
           return false;
         }

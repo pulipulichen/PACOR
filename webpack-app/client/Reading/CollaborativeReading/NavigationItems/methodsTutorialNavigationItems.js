@@ -46,11 +46,18 @@ export default function (NavigationItems) {
       order: 33
     })
 
+    /**
+     * 標註類型選取器
+     * 全螢幕版本
+     */
     this.lib.TutorialManager.addAction({
       enable: () => {
         return !this.$refs.nav.isCompactMode
       },
       beforeCallback: async () => {
+        //console.log(this.$refs.AnnotationTypeFilter.$el)
+        await this.lib.TutorialManager.showClick(this.$refs.AnnotationTypeFilter.$el)
+        await this.lib.VueHelper.sleep(500)
         await this.$refs.AnnotationTypeFilter.show(true)
         await this.lib.VueHelper.sleep(500)
       },
@@ -59,7 +66,9 @@ export default function (NavigationItems) {
         return $('.ui.popup.visible:visible')
       },
       afterClick: () => {
-        this.$refs.AnnotationTypeFilter.hide()
+        if (this.$refs.AnnotationTypeFilter) {
+          this.$refs.AnnotationTypeFilter.hide()
+        }
       },
       content: this.$t('You can choose a type of annotations to read.'),
       order: 34
@@ -96,11 +105,23 @@ export default function (NavigationItems) {
           return false
         }
         await this.openSideMenu()
+        await this.lib.VueHelper.sleep(500)
+        
+        window.el = this.$refs.AnnotationTypeFilter.$el
+        await this.lib.TutorialManager.showClick(this.$refs.AnnotationTypeFilter.$el.getBoundingClientRect())
+        await this.lib.VueHelper.sleep(500)
+        
+        await this.$refs.AnnotationTypeFilter.show(true)
+        await this.lib.VueHelper.sleep(500)
       },
       //backgroundFadeOut: true,
       element: async () => {
-        let element = this.$refs.nav.find('.AnnotationTypeFilter:visible:first')
-        return element
+        //let element = this.$refs.nav.find('.AnnotationTypeFilter:visible:first')
+        //return element
+        return $('.ui.popup.visible:visible')
+      },
+      afterClick: () => {
+        this.$refs.AnnotationTypeFilter.hide()
       },
       content: this.$t('You can choose a type of annotations to read.'),
       order: 36
