@@ -44,6 +44,7 @@ let NavigationItems = {
       if (this.$refs.AnnotationTypeFilter !== null) {
         this.lib.AnnotationTypeFilter = this.$refs.AnnotationTypeFilter
       }
+      this.setupTutorial()
     },
     showInstruction () {
       this.$emit('showInstruction')
@@ -56,5 +57,8 @@ let NavigationItems = {
 //    }
   } // methods
 }
+
+import methodsTutorialNavigationItems from './methodsTutorialNavigationItems.js'
+methodsTutorialNavigationItems(NavigationItems)
 
 export default NavigationItems

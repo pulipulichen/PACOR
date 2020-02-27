@@ -72,6 +72,10 @@ let CompactNavigation = {
       //console.log('1')
       this.normalMenuDisplay = true
     },
+    hideNormalMenu () {
+      //console.log('1')
+      this.normalMenuDisplay = false
+    },
     initCompactMode () {
       let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
       this.isCompactMode = (width < this.compactWidth)

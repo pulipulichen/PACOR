@@ -57,7 +57,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"In {0} step":"In {0} step"},"zh-TW":{"In {0} step":"在 {0} 階段"}}')
+  Component.options.__i18n.push('{"en":{"In {0} step":"In {0} step"},"zh-TW":{"In {0} step":"在 {0} 階段","Click here to read instruction again.":"您可以點此再次閱讀導覽"}}')
   delete Component.options._Ctor
 }
 
@@ -101,7 +101,7 @@ exports.push([module.i, "body > .placeholder:first-of-type {\n  padding-top: 60p
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".CompactMenu[data-v-6b6a32b5] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  z-index: 1;\n  width: 100vw;\n  cursor: pointer;\n  padding-top: 2em;\n}\n.CompactMenu > .grid[data-v-6b6a32b5] {\n  margin-left: 0 !important;\n  margin-right: 0 !important;\n}\n.CompactMenu .column[data-v-6b6a32b5] {\n  padding: 0 0.5em !important;\n}\n.CompactMenu > div[data-v-6b6a32b5] {\n  margin-top: 2em;\n  user-select: none;\n  background-color: rgba(64, 64, 64, 0.7);\n  color: #FFF;\n  font-size: 0.7em;\n}\n.normal-menu-overlay[data-v-6b6a32b5] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\n.right.aligned.column[data-v-6b6a32b5]  .CountdownTimer {\n  margin-right: 1em !important;\n}\n", "",{"version":3,"sources":["CompactNavigation.less?vue&type=style&index=0&id=6b6a32b5&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,SAAS;EACT,OAAO;EACP,UAAU;EACV,YAAY;EACZ,eAAe;EACf,gBAAgB;AAClB;AACA;EACE,yBAAyB;EACzB,0BAA0B;AAC5B;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,eAAe;EACf,iBAAiB;EACjB,uCAAuC;EACvC,WAAW;EACX,gBAAgB;AAClB;AACA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,YAAY;EACZ,aAAa;AACf;AACA;EACE,4BAA4B;AAC9B","file":"CompactNavigation.less?vue&type=style&index=0&id=6b6a32b5&lang=less&scoped=true&","sourcesContent":[".CompactMenu[data-v-6b6a32b5] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  z-index: 1;\n  width: 100vw;\n  cursor: pointer;\n  padding-top: 2em;\n}\n.CompactMenu > .grid[data-v-6b6a32b5] {\n  margin-left: 0 !important;\n  margin-right: 0 !important;\n}\n.CompactMenu .column[data-v-6b6a32b5] {\n  padding: 0 0.5em !important;\n}\n.CompactMenu > div[data-v-6b6a32b5] {\n  margin-top: 2em;\n  user-select: none;\n  background-color: rgba(64, 64, 64, 0.7);\n  color: #FFF;\n  font-size: 0.7em;\n}\n.normal-menu-overlay[data-v-6b6a32b5] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\n.right.aligned.column[data-v-6b6a32b5]  .CountdownTimer {\n  margin-right: 1em !important;\n}\n"]}]);
+exports.push([module.i, ".CompactMenu[data-v-6b6a32b5] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  z-index: 1;\n  width: 100vw;\n  cursor: pointer;\n  padding-top: 2em;\n}\n.CompactMenu > .grid[data-v-6b6a32b5] {\n  margin-left: 0 !important;\n  margin-right: 0 !important;\n}\n.CompactMenu .column[data-v-6b6a32b5] {\n  padding: 0 0.5em !important;\n}\n.CompactMenu > div[data-v-6b6a32b5] {\n  margin-top: 2em;\n  user-select: none;\n  background-color: rgba(64, 64, 64, 0.7);\n  color: #FFF;\n  font-size: 0.7em;\n}\n.normal-menu-overlay[data-v-6b6a32b5] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\n.right.aligned.column[data-v-6b6a32b5]  .CountdownTimer,\n.right.aligned.column[data-v-6b6a32b5]  .ReadingProgressIndicator {\n  margin-right: 1em !important;\n}\n", "",{"version":3,"sources":["CompactNavigation.less?vue&type=style&index=0&id=6b6a32b5&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,SAAS;EACT,OAAO;EACP,UAAU;EACV,YAAY;EACZ,eAAe;EACf,gBAAgB;AAClB;AACA;EACE,yBAAyB;EACzB,0BAA0B;AAC5B;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,eAAe;EACf,iBAAiB;EACjB,uCAAuC;EACvC,WAAW;EACX,gBAAgB;AAClB;AACA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,YAAY;EACZ,aAAa;AACf;AACA;;EAEE,4BAA4B;AAC9B","file":"CompactNavigation.less?vue&type=style&index=0&id=6b6a32b5&lang=less&scoped=true&","sourcesContent":[".CompactMenu[data-v-6b6a32b5] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  z-index: 1;\n  width: 100vw;\n  cursor: pointer;\n  padding-top: 2em;\n}\n.CompactMenu > .grid[data-v-6b6a32b5] {\n  margin-left: 0 !important;\n  margin-right: 0 !important;\n}\n.CompactMenu .column[data-v-6b6a32b5] {\n  padding: 0 0.5em !important;\n}\n.CompactMenu > div[data-v-6b6a32b5] {\n  margin-top: 2em;\n  user-select: none;\n  background-color: rgba(64, 64, 64, 0.7);\n  color: #FFF;\n  font-size: 0.7em;\n}\n.normal-menu-overlay[data-v-6b6a32b5] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n}\n.right.aligned.column[data-v-6b6a32b5]  .CountdownTimer,\n.right.aligned.column[data-v-6b6a32b5]  .ReadingProgressIndicator {\n  margin-right: 1em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -244,23 +244,6 @@ var render = function() {
             _c(
               "div",
               { staticClass: "left column" },
-              [_c("reading-progress-indicator")],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "center aligned column" }, [
-              _vm._v(
-                "\r\n        " +
-                  _vm._s(
-                    _vm.$t("READING_PROGRESS." + _vm.lib.auth.currentStep)
-                  ) +
-                  "\r\n      "
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "right aligned column" },
               [
                 _c("simple-countdown-timer", {
                   ref: "SimpleCountdownTimer",
@@ -277,6 +260,23 @@ var render = function() {
                   }
                 })
               ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "center aligned column" }, [
+              _vm._v(
+                "\r\n        " +
+                  _vm._s(
+                    _vm.$t("READING_PROGRESS." + _vm.lib.auth.currentStep)
+                  ) +
+                  "\r\n      "
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "right aligned column" },
+              [_c("reading-progress-indicator")],
               1
             )
           ])
@@ -376,7 +376,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return this.display
-    ? _c("fragment", [_vm._v("\r\n  " + _vm._s(_vm.percent) + "%\r\n")])
+    ? _c("span", { staticClass: "ReadingProgressIndicator" }, [
+        _vm._v("\r\n  " + _vm._s(_vm.percent) + "%\r\n")
+      ])
     : _vm._e()
 }
 var staticRenderFns = []
@@ -996,6 +998,10 @@ let CompactNavigation = {
       //console.log('1')
       this.normalMenuDisplay = true
     },
+    hideNormalMenu () {
+      //console.log('1')
+      this.normalMenuDisplay = false
+    },
     initCompactMode () {
       let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
       this.isCompactMode = (width < this.compactWidth)
@@ -1476,7 +1482,7 @@ __webpack_require__.r(__webpack_exports__);
         },
         content: this.$t(`When countdown to 0, you will go to next step.`),
         //scroll: 'start',
-        order: 53
+        order: 99
       })
     }
   }
@@ -1526,6 +1532,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CompactNavigation_CompactNavigation_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CompactNavigation/CompactNavigation.vue */ "./webpack-app/client/Reading/IndividualReading/NavigationItems/CompactNavigation/CompactNavigation.vue");
+/* harmony import */ var _methodsTutorialNavigationItems_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsTutorialNavigationItems.js */ "./webpack-app/client/Reading/IndividualReading/NavigationItems/methodsTutorialNavigationItems.js");
 //import AnnotationTypeFilter from './../../components/AnnotationTypeFilter/AnnotationTypeFilter.vue'
 
 
@@ -1572,6 +1579,7 @@ let NavigationItems = {
       if (this.$refs.AnnotationTypeFilter !== null) {
         this.lib.AnnotationTypeFilter = this.$refs.AnnotationTypeFilter
       }
+      this.setupTutorial()
     },
     showInstruction () {
       this.$emit('showInstruction')
@@ -1584,6 +1592,9 @@ let NavigationItems = {
 //    }
   } // methods
 }
+
+
+Object(_methodsTutorialNavigationItems_js__WEBPACK_IMPORTED_MODULE_1__["default"])(NavigationItems)
 
 /* harmony default export */ __webpack_exports__["default"] = (NavigationItems);
 
@@ -1662,6 +1673,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_NavigationItems_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CNavigationItems_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/IndividualReading/NavigationItems/methodsTutorialNavigationItems.js":
+/*!********************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/IndividualReading/NavigationItems/methodsTutorialNavigationItems.js ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (NavigationItems) {
+  NavigationItems.methods.setupTutorial = function () {
+    this.lib.TutorialManager.addAction({
+      //backgroundFadeOut: true,
+      beforeCallback: async () => {
+        //let compactMenuElement = this.$refs.nav.$refs.Menu
+        //console.log(compactMenuElement.getBoundingClientRect())
+        
+        let menu = {
+          top: window.innerHeight - 20,
+          left: 40,
+          width: 10,
+          height: 10
+        }
+        
+        await this.lib.TutorialManager.showClick(menu)
+        await this.lib.VueHelper.sleep(1000)
+        this.$refs.nav.showNormalMenu()
+      },
+      element: () => {
+        return $('.NavigationHeaderItem:visible:first')
+      },
+      afterClick: () => {
+        this.$refs.nav.hideNormalMenu()
+      },
+      content: this.$t(`Click here to read instruction again.`),
+      //scroll: 'start',
+      order: 62
+    })
+  }
+});
 
 /***/ }),
 

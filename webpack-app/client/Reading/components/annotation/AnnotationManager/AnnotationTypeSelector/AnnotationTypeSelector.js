@@ -61,7 +61,7 @@ methodsAnnotationTypeSelector(AnnotationTypeSelector)
 import methodsVueFABAnnotationTypeSelector from './methodsVueFABAnnotationTypeSelector.js'
 methodsVueFABAnnotationTypeSelector(AnnotationTypeSelector)
 
-import methodTutorialAnnotationTypeSelector from './methodTutorialAnnotationTypeSelector.js'
-methodTutorialAnnotationTypeSelector(AnnotationTypeSelector)
+import methodsTutorialAnnotationTypeSelector from './methodsTutorialAnnotationTypeSelector.js'
+methodsTutorialAnnotationTypeSelector(AnnotationTypeSelector)
 
 export default AnnotationTypeSelector

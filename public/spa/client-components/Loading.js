@@ -101,7 +101,7 @@ exports.push([module.i, ".close-container[data-v-6279df20] {\n  float: right;\n}
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".non-invasive-web-style-framework .tutorial-modal {\n  background-color: rgba(0, 0, 0, 0.6) !important;\n}\n", "",{"version":3,"sources":["TutorialManager.global.less?vue&type=style&index=1&lang=less&"],"names":[],"mappings":"AAAA;EACE,+CAA+C;AACjD","file":"TutorialManager.global.less?vue&type=style&index=1&lang=less&","sourcesContent":[".non-invasive-web-style-framework .tutorial-modal {\n  background-color: rgba(0, 0, 0, 0.6) !important;\n}\n"]}]);
+exports.push([module.i, ".non-invasive-web-style-framework .tutorial-modal {\n  background-color: rgba(0, 0, 0, 0.6) !important;\n}\nbody.disable-pointer {\n  pointer-events: none;\n}\n", "",{"version":3,"sources":["TutorialManager.global.less?vue&type=style&index=1&lang=less&"],"names":[],"mappings":"AAAA;EACE,+CAA+C;AACjD;AACA;EACE,oBAAoB;AACtB","file":"TutorialManager.global.less?vue&type=style&index=1&lang=less&","sourcesContent":[".non-invasive-web-style-framework .tutorial-modal {\n  background-color: rgba(0, 0, 0, 0.6) !important;\n}\nbody.disable-pointer {\n  pointer-events: none;\n}\n"]}]);
 
 
 /***/ }),

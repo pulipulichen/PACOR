@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"List Annotations":"列出標註","Quick Add":"快速新增","Select an annotation type to highlight the selected text.":"請為你要標註的文字選擇一種類型。","For example, if you choose \\"Main Idea\\" type.":"舉例來說，如果您選擇「關鍵字」類型"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"List Annotations":"列出標註","Quick Add":"快速新增","Select an annotation type to highlight the selected text.":"請為你要標註的文字選擇一種閱讀策略類型。","For example, if you choose \\"Main Idea\\" type.":"舉例來說，如果您選擇「關鍵字」閱讀策略類型。"}}')
   delete Component.options._Ctor
 }
 
@@ -105,7 +105,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Click \\"ADD\\" to save it.":"按下記下「關鍵字」即可儲存標註。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Click \\"ADD\\" to save it.":"按下記下「關鍵字」即可儲存標註。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該類型的閱讀策略"}}')
   delete Component.options._Ctor
 }
 
@@ -6915,7 +6915,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _computedAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./computedAnnotationTypeSelector.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/computedAnnotationTypeSelector.js");
 /* harmony import */ var _methodsAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsAnnotationTypeSelector.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodsAnnotationTypeSelector.js");
 /* harmony import */ var _methodsVueFABAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsVueFABAnnotationTypeSelector.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodsVueFABAnnotationTypeSelector.js");
-/* harmony import */ var _methodTutorialAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodTutorialAnnotationTypeSelector.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodTutorialAnnotationTypeSelector.js");
+/* harmony import */ var _methodsTutorialAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsTutorialAnnotationTypeSelector.js */ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodsTutorialAnnotationTypeSelector.js");
 
 
 /**
@@ -6980,7 +6980,7 @@ Object(_methodsAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_2__["default"]
 Object(_methodsVueFABAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_3__["default"])(AnnotationTypeSelector)
 
 
-Object(_methodTutorialAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_4__["default"])(AnnotationTypeSelector)
+Object(_methodsTutorialAnnotationTypeSelector_js__WEBPACK_IMPORTED_MODULE_4__["default"])(AnnotationTypeSelector)
 
 /* harmony default export */ __webpack_exports__["default"] = (AnnotationTypeSelector);
 
@@ -7147,107 +7147,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodTutorialAnnotationTypeSelector.js":
-/*!*******************************************************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodTutorialAnnotationTypeSelector.js ***!
-  \*******************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function (AnnotationTypeSelector) {
-  AnnotationTypeSelector.methods.setupTutorial = function () {
-    if (this.lib.auth.enableCollaboration === true) {
-      return false
-    }
-    
-    
-    //window.$ = $
-    //window.el = $(this.$el)
-    
-    let $el = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$el)
-    let selection
-    
-    this.lib.TutorialManager.addAction({
-      element: async () => {
-        this.isTutorialMode = true
-        this.lib.RangyManager.restoreLastSelectDemoText()
-        
-        //selection = this.selection
-        //console.log(this.selection.anchorPositions)
-        //console.log(this.lib.RangyManager.selection.anchorPositions)
-        
-        
-        //this.lib.RangyManager.selectionLock = true
-        //let $el = $(this.$el)
-        //throw new Error('如果選取的是多個物件，那應該要為多個物件畫框才行')
-        let elements = $el.find('.fab-container,.fabMask,.fab-item-title')
-        //console.log(elements.length)
-        //console.log(elements)
-        return elements
-      },
-      content: this.$t('Select an annotation type to highlight the selected text.'),
-      order: 21,
-      scroll: false
-    })
-    
-    this.lib.TutorialManager.addAction({
-      element: async () => {
-        if (this.lib.RangyManager.isSelecting() === false) {
-          this.lib.RangyManager.restoreLastSelectDemoText()
-        }
-        
-        let element = $el.find('.MainIdea:not(.quick-add) > .fabMask')
-        //console.log({'MainIdea fabMask': element.length})
-        await this.lib.TutorialManager.showClick(element)
-        
-        let elements = $el.find(`.MainIdea:not(.quick-add) > .fabMask,.MainIdea:not(.quick-add) > .fab-item-title`)
-        //console.log(element.length, element)
-        //console.log('這時候好像就沒有選取了，為什麼呢？')
-        return elements
-      },
-      content: this.$t(`For example, if you choose "Main Idea" type.`),
-      order: 22,
-      afterClick: async () => {
-        //console.log('有執行嗎？')
-        if (this.lib.RangyManager.isSelecting() === false) {
-          this.lib.RangyManager.restoreLastSelectDemoText()
-        }
-        //this.lib.RangyManager.selectionLock = false
-        //await this.lib.VueHelper.sleep(1000)
-        //this.lib.RangyManager.onselect()
-        //console.log('有選取嗎？')
-        
-        
-        //await this.lib.RangyManager.restoreLastSelectDemoText()
-        
-        //await this.lib.RangyManager.restoreLastSelectDemoText()
-        //await this.lib.VueHelper.sleep(1000)
-        
-        //this.selection = selection
-        //console.log(this.selection.anchorParagraphIds)
-        //$el.find('.MainIdea > .fabMask:first').click()  // 這個的確有點到
-        this.addAnnotation('MainIdea')
-        //
-        //await this.lib.VueHelper.sleep(500)
-        //setTimeout(() => {
-          this.isTutorialMode = false
-          
-        
-        //}, 100)
-      },
-      scroll: false
-    })
-  }
-});
-
-/***/ }),
-
 /***/ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodsAnnotationTypeSelector.js":
 /*!************************************************************************************************************************************!*\
   !*** ./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodsAnnotationTypeSelector.js ***!
@@ -7397,6 +7296,107 @@ let debugEnableAutoList = false
     }
 
     this.lib.AnnotationPanel.setAnnotation(annotation)
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodsTutorialAnnotationTypeSelector.js":
+/*!********************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationManager/AnnotationTypeSelector/methodsTutorialAnnotationTypeSelector.js ***!
+  \********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (AnnotationTypeSelector) {
+  AnnotationTypeSelector.methods.setupTutorial = function () {
+    if (this.lib.auth.enableCollaboration === true) {
+      return false
+    }
+    
+    
+    //window.$ = $
+    //window.el = $(this.$el)
+    
+    let $el = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$el)
+    let selection
+    
+    this.lib.TutorialManager.addAction({
+      element: async () => {
+        this.isTutorialMode = true
+        this.lib.RangyManager.restoreLastSelectDemoText()
+        
+        //selection = this.selection
+        //console.log(this.selection.anchorPositions)
+        //console.log(this.lib.RangyManager.selection.anchorPositions)
+        
+        
+        //this.lib.RangyManager.selectionLock = true
+        //let $el = $(this.$el)
+        //throw new Error('如果選取的是多個物件，那應該要為多個物件畫框才行')
+        let elements = $el.find('.fab-container,.fabMask,.fab-item-title')
+        //console.log(elements.length)
+        //console.log(elements)
+        return elements
+      },
+      content: this.$t('Select an annotation type to highlight the selected text.'),
+      order: 21,
+      scroll: false
+    })
+    
+    this.lib.TutorialManager.addAction({
+      element: async () => {
+        if (this.lib.RangyManager.isSelecting() === false) {
+          this.lib.RangyManager.restoreLastSelectDemoText()
+        }
+        
+        let element = $el.find('.MainIdea:not(.quick-add) > .fabMask')
+        //console.log({'MainIdea fabMask': element.length})
+        await this.lib.TutorialManager.showClick(element)
+        
+        let elements = $el.find(`.MainIdea:not(.quick-add) > .fabMask,.MainIdea:not(.quick-add) > .fab-item-title`)
+        //console.log(element.length, element)
+        //console.log('這時候好像就沒有選取了，為什麼呢？')
+        return elements
+      },
+      content: this.$t(`For example, if you choose "Main Idea" type.`),
+      order: 22,
+      afterClick: async () => {
+        //console.log('有執行嗎？')
+        if (this.lib.RangyManager.isSelecting() === false) {
+          this.lib.RangyManager.restoreLastSelectDemoText()
+        }
+        //this.lib.RangyManager.selectionLock = false
+        //await this.lib.VueHelper.sleep(1000)
+        //this.lib.RangyManager.onselect()
+        //console.log('有選取嗎？')
+        
+        
+        //await this.lib.RangyManager.restoreLastSelectDemoText()
+        
+        //await this.lib.RangyManager.restoreLastSelectDemoText()
+        //await this.lib.VueHelper.sleep(1000)
+        
+        //this.selection = selection
+        //console.log(this.selection.anchorParagraphIds)
+        //$el.find('.MainIdea > .fabMask:first').click()  // 這個的確有點到
+        this.addAnnotation('MainIdea')
+        //
+        //await this.lib.VueHelper.sleep(500)
+        //setTimeout(() => {
+          this.isTutorialMode = false
+          
+        
+        //}, 100)
+      },
+      scroll: false
+    })
   }
 });
 
@@ -10087,7 +10087,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _methodsQueryAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./methodsQueryAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsQueryAnnotationPanel.js");
 /* harmony import */ var _methodsEventAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./methodsEventAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsEventAnnotationPanel.js");
 /* harmony import */ var _methodsResizeAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./methodsResizeAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsResizeAnnotationPanel.js");
-/* harmony import */ var _methodTutorialAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./methodTutorialAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodTutorialAnnotationPanel.js");
+/* harmony import */ var _methodsTutorialAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./methodsTutorialAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsTutorialAnnotationPanel.js");
 //import VueDraggableResizable from 'vue-draggable-resizable'
 //import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
 
@@ -10161,7 +10161,7 @@ Object(_methodsEventAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_11__["default"])
 Object(_methodsResizeAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_12__["default"])(AnnotationPanel)
 
 
-Object(_methodTutorialAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_13__["default"])(AnnotationPanel)
+Object(_methodsTutorialAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_13__["default"])(AnnotationPanel)
 
 /* harmony default export */ __webpack_exports__["default"] = (AnnotationPanel);
 
@@ -12307,51 +12307,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodTutorialAnnotationPanel.js":
-/*!***********************************************************************************************************!*\
-  !*** ./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodTutorialAnnotationPanel.js ***!
-  \***********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function (AnnotationPanel) {
-    
-  AnnotationPanel.methods.setupTutorial = function () {
-    
-    if (this.lib.auth.enableCollaboration === true) {
-      return false
-    }
-    
-    this.lib.TutorialManager.addAction({
-      //backgroundFadeOut: true,
-      element: () => {
-        return this.$refs.panel
-      },
-      content: this.$t('You can add note for the annotation.'),
-      order: 31
-    })
-  
-    this.lib.TutorialManager.addAction({
-      element: () => {
-        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .add-button.ValidationButton:visible:first')
-      },
-      content: this.$t('Click "ADD" to save it.'),
-      order: 32,
-      afterClick: () => {
-        this.lib.AnnotationPanel.hide()
-      }
-    })
-  }
-});
-
-/***/ }),
-
 /***/ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsDisplayAnnotationPanel.js":
 /*!***********************************************************************************************************!*\
   !*** ./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsDisplayAnnotationPanel.js ***!
@@ -12962,6 +12917,59 @@ __webpack_require__.r(__webpack_exports__);
 //    //console.log('滾動了')
 //    return false
 //  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsTutorialAnnotationPanel.js":
+/*!************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsTutorialAnnotationPanel.js ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (AnnotationPanel) {
+    
+  AnnotationPanel.methods.setupTutorial = function () {
+    
+    if (this.lib.auth.enableCollaboration === true) {
+      return false
+    }
+    
+    this.lib.TutorialManager.addAction({
+      //backgroundFadeOut: true,
+      element: () => {
+        return this.$refs.panel
+      },
+      content: this.$t('You can add note for the annotation.'),
+      order: 31
+    })
+    
+    this.lib.TutorialManager.addAction({
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotaionInstruction:visible:first')
+      },
+      content: this.$t('Click "Hint" to read instruction of this type.'),
+      order: 32
+    })
+  
+    this.lib.TutorialManager.addAction({
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .add-button.ValidationButton:visible:first')
+      },
+      content: this.$t('Click "ADD" to save it.'),
+      order: 34,
+      afterClick: () => {
+        this.lib.AnnotationPanel.hide()
+      }
+    })
+  }
 });
 
 /***/ }),
@@ -29562,7 +29570,7 @@ __webpack_require__.r(__webpack_exports__);
         
         // ------------------------------
         
-        
+        $('body').addClass('disable-pointer')
         window.addEventListener('scroll', onScrollEvent)
         
         if (action.scroll === false) {
@@ -29691,6 +29699,7 @@ __webpack_require__.r(__webpack_exports__);
                 }, timeout)
                 
                 enableNext = true
+                $('body').removeClass('disable-pointer')
                 callback()
               };
             })(this));

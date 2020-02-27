@@ -5,7 +5,15 @@
     <div class="ui three column grid"
          ref="Menu">
       <div class="left column">
-        <reading-progress-indicator></reading-progress-indicator>
+        <simple-countdown-timer 
+          v-bind:config="config"
+          v-bind:status="status"
+          v-bind:lib="lib"
+          ref="SimpleCountdownTimer"
+          
+          v-bind:pauseAtStart="pauseAtStart"
+          v-on:timeup="$emit('timeup')">
+        </simple-countdown-timer>
       </div>
       <div class="center aligned column">
         <!--
@@ -16,15 +24,7 @@
         {{ $t('READING_PROGRESS.' + lib.auth.currentStep) }}
       </div>
       <div class="right aligned column">
-        <simple-countdown-timer 
-          v-bind:config="config"
-          v-bind:status="status"
-          v-bind:lib="lib"
-          ref="SimpleCountdownTimer"
-          
-          v-bind:pauseAtStart="pauseAtStart"
-          v-on:timeup="$emit('timeup')">
-        </simple-countdown-timer>
+        <reading-progress-indicator></reading-progress-indicator>
       </div>
     </div>
   </div>

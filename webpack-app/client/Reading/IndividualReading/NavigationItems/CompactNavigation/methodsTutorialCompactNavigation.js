@@ -8,7 +8,7 @@ export default function (CompactNavigation) {
         },
         content: this.$t(`When countdown to 0, you will go to next step.`),
         //scroll: 'start',
-        order: 53
+        order: 99
       })
     }
   }

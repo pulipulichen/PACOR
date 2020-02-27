@@ -70,7 +70,7 @@ Event(AnnotationPanel)
 import Resize from './methodsResizeAnnotationPanel.js'
 Resize(AnnotationPanel)
 
-import methodTutorialAnnotationPanel from './methodTutorialAnnotationPanel.js'
-methodTutorialAnnotationPanel(AnnotationPanel)
+import methodsTutorialAnnotationPanel from './methodsTutorialAnnotationPanel.js'
+methodsTutorialAnnotationPanel(AnnotationPanel)
 
 export default AnnotationPanel

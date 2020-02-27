@@ -366,7 +366,7 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
         
         // ------------------------------
         
-        
+        $('body').addClass('disable-pointer')
         window.addEventListener('scroll', onScrollEvent)
         
         if (action.scroll === false) {
@@ -495,6 +495,7 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
                 }, timeout)
                 
                 enableNext = true
+                $('body').removeClass('disable-pointer')
                 callback()
               };
             })(this));
