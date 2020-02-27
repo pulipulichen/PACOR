@@ -136,7 +136,7 @@ export default (RangyManager) => {
         demoSelection = this.rangy.saveSelection()
         resolve(paragraph)
         //console.log('selectRandomRange', 6)
-      }, 1000)
+      }, 500)
     })
   } // RangyManager.methods.selectRandomRange = function () {
   

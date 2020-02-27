@@ -8707,7 +8707,6 @@ __webpack_require__.r(__webpack_exports__);
         while (true) {
           paragraph = await this.lib.RangyManager.selectDemoText()
           //this.lib.RangyManager.onselect()
-          
           if (this.lib.RangyManager.isSelecting()) {
             break
           }
@@ -17450,7 +17449,7 @@ __webpack_require__.r(__webpack_exports__);
         demoSelection = this.rangy.saveSelection()
         resolve(paragraph)
         //console.log('selectRandomRange', 6)
-      }, 1000)
+      }, 500)
     })
   } // RangyManager.methods.selectRandomRange = function () {
   
