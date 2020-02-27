@@ -4,7 +4,7 @@ const Helpers = use('Helpers')
 const Env = use('Env')
 
 const User = use('App/Models/User')
-const Message = use('App/Models/Message')
+//const Message = use('App/Models/Message')
 
 class File {
   
@@ -44,7 +44,10 @@ class File {
     }
     
     // const appSecret = Env.get('APP_SECRET')
-    let imageURL = `${Env.get('APP_URL')}/uploads/${webpage.primaryKeyValue}/${userId}/${name}`
+    //let imageURL = `${Env.get('APP_URL')}/uploads/${webpage.primaryKeyValue}/${userId}/${name}`
+    let baseURL = Env.get('PROTOCOL') + '//' + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT')
+    let imageURL = `${baseURL}/uploads/${webpage.primaryKeyValue}/${userId}/${name}`
+    
     //console.log(imageURL)
     return imageURL
   }
