@@ -15,7 +15,7 @@ module.exports = {
       maxAnnotation: 1
     },
     
-    onlyShowTutorialOrder: 11,
+    //onlyShowTutorialOrder: [33, 34],
     
     //stayInReadingProgress: 'PreImaginaryKeyword'
     //stayInReadingProgress: 'PostRecallKeyword'

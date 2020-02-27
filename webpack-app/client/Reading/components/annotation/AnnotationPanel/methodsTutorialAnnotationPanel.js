@@ -13,7 +13,7 @@ export default function (AnnotationPanel) {
   
   AnnotationPanel.methods.setupTutorialCollaborativeReading = function () {
     this.lib.TutorialManager.addAction({
-      //backgroundFadeOut: true,
+      backgroundFadeOut: true,
       beforeCallback: async () => {
         // 總之隨機塞一個標註進來吧
         let section = this.lib.RangyManager.getOhterHighlightedSection()
@@ -24,7 +24,7 @@ export default function (AnnotationPanel) {
           seqID: seqID
         })
 
-        this.setAnnotation(annotation)
+        this.focusCommentInput(annotation)
         await this.lib.VueHelper.sleep(1000)
       },
       element: () => {

@@ -4132,7 +4132,14 @@ __webpack_require__.r(__webpack_exports__);
     
     if (typeof(this.status.readingConfig.debug.onlyShowTutorialOrder) === 'number' 
             && action.order !== this.status.readingConfig.debug.onlyShowTutorialOrder) {
-      console.log('@DEBUG onlyShowTutorialOrder: ' + this.status.readingConfig.debug.onlyShowTutorialOrder + '. Exclude order: ' + action.order)
+      console.log('@DEBUG onlyShowTutorialOrder: ' + this.status.readingConfig.debug.onlyShowTutorialOrder 
+              + '. Exclude order: ' + action.order)
+      return false
+    }
+    else if (Array.isArray(this.status.readingConfig.debug.onlyShowTutorialOrder)
+            && this.status.readingConfig.debug.onlyShowTutorialOrder.indexOf(action.order) === -1) {
+      console.log('@DEBUG onlyShowTutorialOrder: ' + this.status.readingConfig.debug.onlyShowTutorialOrder.join(',') 
+              + '. Exclude order: ' + action.order)
       return false
     }
 

@@ -51,6 +51,7 @@ export default function (NavigationItems) {
      * 全螢幕版本
      */
     this.lib.TutorialManager.addAction({
+      backgroundFadeOut: true,
       enable: () => {
         return !this.$refs.nav.isCompactMode
       },
@@ -107,18 +108,19 @@ export default function (NavigationItems) {
         await this.openSideMenu()
         await this.lib.VueHelper.sleep(500)
         
-        window.el = this.$refs.AnnotationTypeFilter.$el
-        await this.lib.TutorialManager.showClick(this.$refs.AnnotationTypeFilter.$el.getBoundingClientRect())
-        await this.lib.VueHelper.sleep(500)
+//        window.el = this.$refs.AnnotationTypeFilter.$el
+//        await this.lib.TutorialManager.showClick(this.$refs.AnnotationTypeFilter.$el.getBoundingClientRect())
+//        await this.lib.VueHelper.sleep(500)
         
-        await this.$refs.AnnotationTypeFilter.show(true)
-        await this.lib.VueHelper.sleep(500)
+//        await this.$refs.AnnotationTypeFilter.show(true)
+//        await this.lib.VueHelper.sleep(500)
       },
       //backgroundFadeOut: true,
       element: async () => {
-        //let element = this.$refs.nav.find('.AnnotationTypeFilter:visible:first')
-        //return element
-        return $('.ui.popup.visible:visible')
+        let element = this.$refs.nav.find('.AnnotationTypeFilter:visible:first')
+        return element
+        
+//        return $('.ui.popup.visible:visible')
       },
       afterClick: () => {
         this.$refs.AnnotationTypeFilter.hide()

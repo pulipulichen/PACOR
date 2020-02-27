@@ -12948,7 +12948,7 @@ __webpack_require__.r(__webpack_exports__);
   
   AnnotationPanel.methods.setupTutorialCollaborativeReading = function () {
     this.lib.TutorialManager.addAction({
-      //backgroundFadeOut: true,
+      backgroundFadeOut: true,
       beforeCallback: async () => {
         // 總之隨機塞一個標註進來吧
         let section = this.lib.RangyManager.getOhterHighlightedSection()
@@ -12959,7 +12959,7 @@ __webpack_require__.r(__webpack_exports__);
           seqID: seqID
         })
 
-        this.setAnnotation(annotation)
+        this.focusCommentInput(annotation)
         await this.lib.VueHelper.sleep(1000)
       },
       element: () => {
@@ -29739,7 +29739,7 @@ __webpack_require__.r(__webpack_exports__);
           //setTimeout(() => {
             return _this.layout.bg.animate(animateOption, (function() {
               return function() {
-                setupGlowPopup(_this, action)
+                setupGlowPopup(_this, action, animateOption)
                 _this.layout.container.removeClass('disabled')
                 //scrollIntoView = false
                 
@@ -29771,13 +29771,25 @@ __webpack_require__.r(__webpack_exports__);
       }
       
       let glowTippy
-      let setupGlowPopup = function (_this, action) {
+      let setupGlowPopup = function (_this, action, animateOption) {
         //console.log('需要新增一個div作為框架')
+        let top = actionElement.offset().top
+        //console.log(actionElement[0])
+        /*
+        top = actionElement.offset().top + actionElement.parent().prop('scrollTop')
+        
+        console.log([
+          actionElement.parent().prop('scrollTop'),
+          actionElement.offset().top,
+          actionElement[0].getBoundingClientRect().top,
+          animateOption.borderTopWidth
+        ])
+        */
         _this.layout.glow.fadeIn('fast')
         _this.layout.glow.css({
           'width': actionElement.innerWidth() + 'px',
           'height': actionElement.innerHeight() + 'px',
-          'top': actionElement.offset().top,
+          'top': top,
           'left': actionElement.offset().left
         })
         

@@ -480,7 +480,7 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
           //setTimeout(() => {
             return _this.layout.bg.animate(animateOption, (function() {
               return function() {
-                setupGlowPopup(_this, action)
+                setupGlowPopup(_this, action, animateOption)
                 _this.layout.container.removeClass('disabled')
                 //scrollIntoView = false
                 
@@ -512,13 +512,25 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
       }
       
       let glowTippy
-      let setupGlowPopup = function (_this, action) {
+      let setupGlowPopup = function (_this, action, animateOption) {
         //console.log('需要新增一個div作為框架')
+        let top = actionElement.offset().top
+        //console.log(actionElement[0])
+        /*
+        top = actionElement.offset().top + actionElement.parent().prop('scrollTop')
+        
+        console.log([
+          actionElement.parent().prop('scrollTop'),
+          actionElement.offset().top,
+          actionElement[0].getBoundingClientRect().top,
+          animateOption.borderTopWidth
+        ])
+        */
         _this.layout.glow.fadeIn('fast')
         _this.layout.glow.css({
           'width': actionElement.innerWidth() + 'px',
           'height': actionElement.innerHeight() + 'px',
-          'top': actionElement.offset().top,
+          'top': top,
           'left': actionElement.offset().left
         })
         
