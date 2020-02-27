@@ -157,5 +157,24 @@ export default (RangyManager) => {
       }, 1000)
     })
   }
+  
+  let otherHighlightedSection
+  RangyManager.methods.getOhterHighlightedSection = function () {
+    if (!otherHighlightedSection) {
+      let element = $(`[data-pacor-paragraph-seq-id] [data-pacor-highlight][class^="others-"]`)
+      if (element.length === 0) {
+        element = $(`[data-pacor-paragraph-seq-id] [data-pacor-highlight]`)
+      }
+
+      if (element.length === 0) {
+        //console.log('沒找到')
+        return undefined
+      }
+      element = element.parents('[data-pacor-paragraph-seq-id]:first')
+      otherHighlightedSection = element
+    }
+    //console.log(element)
+    return otherHighlightedSection
+  }
 }
 

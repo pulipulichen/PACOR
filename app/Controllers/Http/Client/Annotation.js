@@ -241,7 +241,6 @@ class Annotation extends WebpageUserBaseController {
     const options = request.all()
     return await AnnotationModel.getAnnotation(webpage, user, options)
   }
-  
 }
 
 module.exports = Annotation

@@ -17,6 +17,7 @@ export default function (AnnotationManager) {
       this.setupTutorialIndividualReading()
     }
   }
+  
   AnnotationManager.methods.setupTutorialCollaborationReading = function () {
 //      this.lib.TutorialManager.addAction(() => {
 //        let element = $(`[data-pacor-paragraph-seq-id] [data-pacor-highlight][class^="others-"]`)
@@ -39,18 +40,19 @@ export default function (AnnotationManager) {
 
     this.lib.TutorialManager.addAction({
       element: () => {
-        let element = $(`[data-pacor-paragraph-seq-id] [data-pacor-highlight][class^="others-"]`)
-        if (element.length === 0) {
-          element = $(`[data-pacor-paragraph-seq-id] [data-pacor-highlight]`)
-        }
-
-        if (element.length === 0) {
-          //console.log('沒找到')
-          return undefined
-        }
-        element = element.parents('[data-pacor-paragraph-seq-id]:first')
-        //console.log(element)
-        return element
+//        let element = $(`[data-pacor-paragraph-seq-id] [data-pacor-highlight][class^="others-"]`)
+//        if (element.length === 0) {
+//          element = $(`[data-pacor-paragraph-seq-id] [data-pacor-highlight]`)
+//        }
+//
+//        if (element.length === 0) {
+//          //console.log('沒找到')
+//          return undefined
+//        }
+//        element = element.parents('[data-pacor-paragraph-seq-id]:first')
+//        //console.log(element)
+//        return element
+        return this.lib.RangyManager.getOhterHighlightedSection()
       },
       content: this.$t(`You can read other's annotations.`),
       scroll: 'start',

@@ -523,45 +523,69 @@ class AnnotationFind {
     } // static async findOthersByWebpageGroup(webpage, user, afterTime) {
 
     Model.getAnnotation = async function (webpage, user, options) {
-      let {
-        annotationID
-      } = options
-      
-      if (!annotationID) {
-        throw new Error('Annotation ID is required.')
-      }
-      
-      let query = AnnotationModel
-              .query()
-              .where('id', TypeHelper.parseInt(annotationID))
-              .where('deleted', false)
-              .with('user', userQueryBuilder)
-              .with('notes')
-              .with('anchorPositions')
-      
-      query.withCount('likes')
-      query.withCount('comments')
+      let cacheKey = Cache.key(`Annotation.getAnnotation`, options)
+      return await Cache.rememberWait([webpage, user], cacheKey, 2, async () => {
+        let {
+          annotationID,
+          seqID
+        } = options
 
-      query.withCount('i_have_liked', (queryBuilder) => {
-        queryBuilder.where('user_id', user.primaryKeyValue)
-      })
-      query.withCount('i_have_commented', (queryBuilder) => {
-        queryBuilder.where('user_id', user.primaryKeyValue)
-      })
+        if (!annotationID && !seqID) {
+          throw new Error('Annotation ID or Seq ID is required.')
+        }
 
-      let annotation = await query.fetch()
-      
-      if (annotation === null) {
-        throw new Error('Annotation is not existed.')
-      }
-      
-      annotation = annotation.first()
-      
-      if (annotation.webpage_id !== webpage.primaryKeyValue) {
-        throw new HttpException('Forbidden', 403)
-      }
-      
-      return annotation
+        let query = AnnotationModel
+                .query()
+                .where('deleted', false)
+                .with('user', userQueryBuilder)
+                .with('notes')
+                .where('webpage_id', webpage.primaryKeyValue)
+                .with('anchorPositions')
+
+        annotationID = TypeHelper.parseInt(annotationID)
+        if (typeof(annotationID) === 'number') {
+          query.where('id', annotationID)
+        }
+        
+        seqID = TypeHelper.parseInt(seqID)
+        if (typeof(seqID) === 'number') {
+          query.whereHas('anchorPositions', (builder) => {
+            builder.where('webpage_id', webpage.primaryKeyValue)
+                   .where('seq_id', seqID)
+                   //.where('type', 'textContent')
+          })
+        }
+
+        query.withCount('likes')
+        query.withCount('comments')
+
+        query.withCount('i_have_liked', (queryBuilder) => {
+          queryBuilder.where('user_id', user.primaryKeyValue)
+        })
+        query.withCount('i_have_commented', (queryBuilder) => {
+          queryBuilder.where('user_id', user.primaryKeyValue)
+        })
+
+        //console.log(DatabaseHelper.toSQL(query))
+
+        let annotation = await query.fetch()
+
+        if (annotation === null) {
+          throw new Error('Annotation is not existed.')
+        }
+
+        if (annotation.size() === 0) {
+          return null
+        }
+
+        annotation = annotation.first()
+        
+        if (annotation.webpage_id !== webpage.primaryKeyValue) {
+          throw new HttpException('Forbidden', 403)
+        }
+
+        return annotation.toJSON()
+      })
     }
   } // register (Model) {
 }
