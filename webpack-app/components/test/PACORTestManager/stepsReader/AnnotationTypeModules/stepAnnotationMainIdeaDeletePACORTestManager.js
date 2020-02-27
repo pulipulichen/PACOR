@@ -31,7 +31,7 @@ export default function (PACORTestManager) {
     }
     
     // 等待Summernote載入
-    await this.sleep(5000)
+    await this.sleep(3000)
     
     if ($('.AnnotationPanel .html-editor-container.editable').length === 0
             || $('.AnnotationPanel .annotation-panel-buttons .delete-button:visible').length === 0) {

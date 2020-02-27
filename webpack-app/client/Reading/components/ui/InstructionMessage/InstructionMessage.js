@@ -80,6 +80,7 @@ let InstructionMessage = {
       this.$refs.Modal.hide()
     },
     startTutorial () {
+      localStorage.setItem(this.localStorageKeyPrefix, 1)
       this.hide()
       this.lib.TutorialManager.start()
     },

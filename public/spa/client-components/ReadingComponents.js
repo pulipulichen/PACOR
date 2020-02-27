@@ -29029,6 +29029,7 @@ let InstructionMessage = {
       this.$refs.Modal.hide()
     },
     startTutorial () {
+      localStorage.setItem(this.localStorageKeyPrefix, 1)
       this.hide()
       this.lib.TutorialManager.start()
     },
@@ -29379,6 +29380,7 @@ __webpack_require__.r(__webpack_exports__);
       };
 
       jQueryGuide.prototype.next = function() {
+        glowTippy.hide()
         if (this.step.current + 1 === this.actionList.length) {
           this.exit();
           return false;
@@ -29647,7 +29649,7 @@ __webpack_require__.r(__webpack_exports__);
                 _this.layout.container.removeClass('disabled')
                 //scrollIntoView = false
                 
-                let timeout = 3000
+                let timeout = 5000
                 if (typeof(action.timeout) === 'number'
                         && action.timeout > 3000) {
                   timeout = action.timeout
@@ -29655,7 +29657,8 @@ __webpack_require__.r(__webpack_exports__);
                 
                 nextStepTimer = setTimeout(() => {
                   if (_this.layout.bg.filter(':visible').length > 0) {
-                    _this.layout.bg.click()
+                    //_this.layout.bg.click()
+                    _this.next()
                   }
                 }, timeout)
                 

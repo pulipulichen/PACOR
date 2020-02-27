@@ -12123,7 +12123,7 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     // 等待Summernote載入
-    await this.sleep(5000)
+    await this.sleep(3000)
     
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .html-editor-container.editable').length === 0
             || jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .annotation-panel-buttons .delete-button:visible').length === 0) {
@@ -12807,7 +12807,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
   
   PACORTestManager.methods.confirmInstructionMessage = async function () {
-    await this.sleep(3000)
+    await this.sleep(5000)
     
     await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button.start-tutorial', {
       timeout: 60 * 1000,
@@ -12817,8 +12817,8 @@ __webpack_require__.r(__webpack_exports__);
     await this.sleep(3000)
     let bg = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.jquery-guide-bg:visible')
     while (bg.length > 0) {
-      await this.waitForElementVisibleClick('.jquery-guide-bg:visible')
-      await this.sleep(3000)
+      await this.waitForElementHidden('.jquery-guide-bg')
+      await this.sleep(5000)
       bg = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.jquery-guide-bg:visible')
     }
     

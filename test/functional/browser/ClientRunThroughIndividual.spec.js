@@ -114,7 +114,7 @@ let config = {
   'c1. pre image': async function ( { assert, client, browser }, page ) {
     //console.log('暫時跳過'); return
     await page.assertFn(async function () {
-      await PACORTestManager.writeQuestionnairePage()
+      await PACORTestManager.writeQuestionnairePageKeyword()
     })
   },
   'd1. 專注閱讀: 確認視窗': async function ( { assert, client, browser }, page ) {
@@ -142,7 +142,7 @@ let config = {
   'f1. post recall': async function ( { assert, client, browser }, page ) {
     //console.log('暫時跳過'); return
     await page.assertFn(async function () {
-      await PACORTestManager.writeQuestionnairePage()
+      await PACORTestManager.writeQuestionnairePageKeyword()
     })
   },
 //  'g1. exit': async function ( { assert, client, browser }, page ) {

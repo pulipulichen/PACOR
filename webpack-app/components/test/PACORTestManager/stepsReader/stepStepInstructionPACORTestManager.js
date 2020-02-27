@@ -3,7 +3,7 @@ import $ from 'jquery'
 export default function (PACORTestManager) {
   
   PACORTestManager.methods.confirmInstructionMessage = async function () {
-    await this.sleep(3000)
+    await this.sleep(5000)
     
     await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button.start-tutorial', {
       timeout: 60 * 1000,
@@ -13,8 +13,8 @@ export default function (PACORTestManager) {
     await this.sleep(3000)
     let bg = $('.jquery-guide-bg:visible')
     while (bg.length > 0) {
-      await this.waitForElementVisibleClick('.jquery-guide-bg:visible')
-      await this.sleep(3000)
+      await this.waitForElementHidden('.jquery-guide-bg')
+      await this.sleep(5000)
       bg = $('.jquery-guide-bg:visible')
     }
     
