@@ -5090,7 +5090,7 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "ui button",
+                      staticClass: "ui button start-tutorial",
                       class: { positive: !_vm.enableLogout },
                       on: { click: _vm.startTutorial }
                     },

@@ -51,6 +51,7 @@
     "novel-segment": "^2.5.7",
     "pos": "^0.4.2",
     "read-excel-file": "^4.0.5",
+    "require-all": "^3.0.0",
     "serve-favicon": "^2.5.0",
     "type-of-is": "^3.5.1",
     "vue-media": "^1.1.1",
