@@ -5103,20 +5103,22 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "ui button close-button",
-                      on: { click: _vm.hide }
-                    },
-                    [
-                      _vm._v(
-                        "\r\n          " +
-                          _vm._s(_vm.$t("Close")) +
-                          "\r\n        "
+                  _vm.showCloseButton
+                    ? _c(
+                        "div",
+                        {
+                          staticClass: "ui button close-button",
+                          on: { click: _vm.hide }
+                        },
+                        [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.$t("Close")) +
+                              "\r\n        "
+                          )
+                        ]
                       )
-                    ]
-                  )
+                    : _vm._e()
                 ]
               },
               proxy: true
@@ -8723,7 +8725,8 @@ __webpack_require__.r(__webpack_exports__);
       },
       content: this.$t(`Select text to highlight.`),
       scroll: 'start',
-      order: 1
+      order: 1,
+      //timeout: 10 * 1000
     })
   }
 });
@@ -28986,6 +28989,12 @@ let InstructionMessage = {
     },
     enableLogout () {
       return this.lib.auth.currentStepConfig.enableLogout
+    },
+    showCloseButton () {
+      if (this.lib.auth.currentStepConfig.forceTutorial !== true) {
+        return true
+      }
+      return (localStorage.getItem(this.localStorageKeyPrefix) !== null)
     }
   },
 //  watch: {
@@ -29179,6 +29188,7 @@ __webpack_require__.r(__webpack_exports__);
     let vm
     
     let guide
+    let nextStepTimer
     
     let onWindowResize = () => {
       return guide.draw();
@@ -29210,6 +29220,7 @@ __webpack_require__.r(__webpack_exports__);
       
       guide.buildLayout();
       guide.layout.bg.click((function(_this) {
+        clearTimeout(nextStepTimer)
         return function() {
           return guide.next();
         };
@@ -29346,6 +29357,7 @@ __webpack_require__.r(__webpack_exports__);
             }
             //$('body').removeClass('jquery-guide-prevent-scroll')
           });
+        
         
       };
 
@@ -29629,6 +29641,17 @@ __webpack_require__.r(__webpack_exports__);
                 setupGlowPopup(_this, action)
                 _this.layout.container.removeClass('disabled')
                 //scrollIntoView = false
+                
+                let timeout = 3000
+                if (typeof(action.timeout) === 'number'
+                        && action.timeout > 3000) {
+                  timeout = action.timeout
+                } 
+                
+                nextStepTimer = setTimeout(() => {
+                  _this.layout.bg.click()
+                }, timeout)
+                
                 callback()
               };
             })(this));

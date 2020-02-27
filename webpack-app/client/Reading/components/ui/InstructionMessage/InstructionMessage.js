@@ -40,6 +40,12 @@ let InstructionMessage = {
     },
     enableLogout () {
       return this.lib.auth.currentStepConfig.enableLogout
+    },
+    showCloseButton () {
+      if (this.lib.auth.currentStepConfig.forceTutorial !== true) {
+        return true
+      }
+      return (localStorage.getItem(this.localStorageKeyPrefix) !== null)
     }
   },
 //  watch: {

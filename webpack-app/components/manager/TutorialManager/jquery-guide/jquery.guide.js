@@ -14,6 +14,7 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
     let vm
     
     let guide
+    let nextStepTimer
     
     let onWindowResize = () => {
       return guide.draw();
@@ -45,6 +46,7 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
       
       guide.buildLayout();
       guide.layout.bg.click((function(_this) {
+        clearTimeout(nextStepTimer)
         return function() {
           return guide.next();
         };
@@ -181,6 +183,7 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
             }
             //$('body').removeClass('jquery-guide-prevent-scroll')
           });
+        
         
       };
 
@@ -464,6 +467,17 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
                 setupGlowPopup(_this, action)
                 _this.layout.container.removeClass('disabled')
                 //scrollIntoView = false
+                
+                let timeout = 3000
+                if (typeof(action.timeout) === 'number'
+                        && action.timeout > 3000) {
+                  timeout = action.timeout
+                } 
+                
+                nextStepTimer = setTimeout(() => {
+                  _this.layout.bg.click()
+                }, timeout)
+                
                 callback()
               };
             })(this));

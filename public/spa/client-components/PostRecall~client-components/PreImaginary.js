@@ -603,7 +603,7 @@ let Instruction = {
 
       oc.width = nWidth
       oc.height = nHeight
-      console.log(nWidth, nHeight)
+      //console.log(nWidth, nHeight)
 
       octx.drawImage(img, 0, 0, oc.width, oc.height);
 

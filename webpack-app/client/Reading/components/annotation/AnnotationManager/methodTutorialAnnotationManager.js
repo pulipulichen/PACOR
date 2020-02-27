@@ -102,7 +102,8 @@ export default function (AnnotationManager) {
       },
       content: this.$t(`Select text to highlight.`),
       scroll: 'start',
-      order: 1
+      order: 1,
+      //timeout: 10 * 1000
     })
   }
 }

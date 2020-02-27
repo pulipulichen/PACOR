@@ -116,6 +116,7 @@ module.exports = {
         countdown: '/instruction/reading/IndividualReading-endsByCountdown.html',
         checklist: '/instruction/reading/IndividualReading-endsByChecklist.html',
       },
+      forceTutorial: true,t
       limitMinutes: 30,
       goToNextStepOnChecklistComplete: true,
 //      notification: {
@@ -146,6 +147,7 @@ module.exports = {
     },
     'CollaborativeReading': {
       instruction: '/instruction/reading/CollaborativeReading.html',
+      forceTutorial: true,
       permission: {
         collaboration: true,
         control: false,

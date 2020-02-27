@@ -40,6 +40,7 @@
           {{ $t('Start Tutorial') }}
         </div>
         <div class="ui button close-button"
+             v-if="showCloseButton"
              v-on:click="hide">
           {{ $t('Close') }}
         </div>
