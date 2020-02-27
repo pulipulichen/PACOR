@@ -329,7 +329,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Write something":"請寫解答"}}')
   delete Component.options._Ctor
 }
 
@@ -2963,6 +2963,16 @@ var render = function() {
                     : _vm._e(),
                   _vm._v(" "),
                   _vm._t("default"),
+                  _vm._v(" "),
+                  !_vm.enable
+                    ? [
+                        _vm._v(
+                          "\r\n        (" +
+                            _vm._s(_vm.$t("Write something")) +
+                            ")\r\n      "
+                        )
+                      ]
+                    : _vm._e(),
                   _vm._v(" "),
                   _vm.rightLabeledIcon
                     ? _c("i", { class: _vm.computedRightLabeledIcon })

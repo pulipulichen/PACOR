@@ -10,6 +10,9 @@
          v-bind:class="computedLeftLabeledIcon"></i>
 
       <slot></slot>
+      <template v-if="!enable">
+        ({{ $t('Write something') }})
+      </template>
 
       <i v-if="rightLabeledIcon"
          v-bind:class="computedRightLabeledIcon"></i>
@@ -21,6 +24,7 @@
       </div>
     </template>
   </template>
+  
   <template v-else>
     ({{ disabledMessage }})
   </template>

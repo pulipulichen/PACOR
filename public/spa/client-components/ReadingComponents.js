@@ -137,7 +137,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Give a comment...":"留個言吧..."}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Give a comment for this annotation...":"您要給這篇標註什麼意見呢？"}}')
   delete Component.options._Ctor
 }
 
@@ -2401,7 +2401,10 @@ var render = function() {
             }
           ],
           ref: "input",
-          attrs: { type: "text", placeholder: _vm.$t("Give a comment...") },
+          attrs: {
+            type: "text",
+            placeholder: _vm.$t("Give a comment for this annotation...")
+          },
           domProps: { value: _vm.note },
           on: {
             keyup: function($event) {
