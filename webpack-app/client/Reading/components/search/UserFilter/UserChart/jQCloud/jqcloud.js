@@ -285,6 +285,7 @@ jQCloud.prototype = {
     // Apply color from word property
     if (word.color) {
       word_span.css('color', word.color);
+      word_span.attr('data-color', word.color)
     }
 
     // Apply size

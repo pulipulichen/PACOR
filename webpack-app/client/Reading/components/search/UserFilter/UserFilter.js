@@ -11,9 +11,10 @@ let UserFilter = {
   computed: {}, // 轉移到 computedUserFilter
 //  watch: {
 //  },
-//  mounted() {
-//    this.testShow() // for test
-//  },
+  mounted() {
+    //this.testShow() // for test
+    this.setupTutorial()
+  },
   methods: {} // 轉移到 methodsUserFilter
 }
 

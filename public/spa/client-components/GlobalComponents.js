@@ -201,7 +201,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Viewing All":"觀看所有讀者","Asist":"協助","View":"觀看","Please select a peer":"選擇一位您想要協助的讀者吧","Only Show You":"只顯示您","Show All":"顯示所有讀者","Cancel":"待會再選","Start Tutorial":"顯示操作導覽"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Viewing All":"觀看所有讀者","Asist":"協助","View":"觀看","Please select a peer":"選擇一位您想要協助的讀者吧","Only Show You":"只顯示您","Show All":"顯示所有讀者","Cancel":"待會再選","Start Tutorial":"顯示操作導覽","Select a peer to watch how his/her read article. And give him/her suggestions.":"您可以選擇一位讀者，看看他/她怎麽讀這篇文章，然後給他/她一些建議吧。","You can see the different of keywords between you can others.":"您可以在看到您與其他人使用關鍵字的差異。","Green words means you and others use the same keywords.":"綠色的字表示您與其他人使用了相同的關鍵字。"}}')
   delete Component.options._Ctor
 }
 
@@ -7830,6 +7830,7 @@ jQCloud.prototype = {
     // Apply color from word property
     if (word.color) {
       word_span.css('color', word.color);
+      word_span.attr('data-color', word.color)
     }
 
     // Apply size
@@ -8145,9 +8146,10 @@ let UserFilter = {
   computed: {}, // 轉移到 computedUserFilter
 //  watch: {
 //  },
-//  mounted() {
-//    this.testShow() // for test
-//  },
+  mounted() {
+    //this.testShow() // for test
+    this.setupTutorial()
+  },
   methods: {} // 轉移到 methodsUserFilter
 }
 
@@ -8359,9 +8361,44 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+let tutorialKey = 'UserFilter'
+
 /* harmony default export */ __webpack_exports__["default"] = (function (UserFilter) {
+  UserFilter.methods.setupTutorial = function () {
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      element: async () => {
+        let element = this.$refs.PeerList.$el
+        return element
+      },
+      content: this.$t('Select a peer to watch how his/her read article. And give him/her suggestions.'),
+      order: 1
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      element: async () => {
+        let element = this.$refs.UserChart.$el
+        return element
+      },
+      content: this.$t('You can see the different of keywords between you can others.'),
+      order: 2
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      element: async () => {
+        let element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.UserChart.$el).find('.jqcloud-wrapper .jqcloud-container .jqcloud-word[data-color="#690"]:first')
+        return element
+      },
+      content: this.$t('Green words means you and others use the same keywords.'),
+      order: 3
+    })
+  }
+    
   UserFilter.methods.startUserFilterTutorial = function () {
-    console.error('@TODO startUserFilterTutorial')
+    this.lib.TutorialManager.start(tutorialKey)
   }
 });
 
