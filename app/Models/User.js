@@ -91,9 +91,9 @@ class User extends Model {
     return this.hasMany('App/Models/Token')
   }
   
-  messages () {
-    return this.hasMany('App/Models/Message')
-  }
+//  messages () {
+//    return this.hasMany('App/Models/Message')
+//  }
   
   oauths () {
     return this.hasMany('App/Models/UserOAuth')

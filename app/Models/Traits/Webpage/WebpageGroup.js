@@ -124,8 +124,9 @@ class WebpageGroup {
 
     // ------------------
 
-    Model.prototype.getUsersNotInGroup = async function () {
-      let idsList = await this.getUserIDsNotInGroup()
+    Model.prototype.getUsersNotInGroup = async function (onlyActive) {
+      let idsList = await this.getUserIDsNotInGroup(onlyActive)
+      
       let readers = await User
               .query()
               .with('latestLog')
@@ -138,7 +139,7 @@ class WebpageGroup {
     }
     
     Model.prototype.getUserIDsInGroups = async function () {
-      let cacheKey = `Webpage.getUserIDsInGroups`
+      let cacheKey = Cache.keys(`Webpage.getUserIDsInGroups`)
       
       return await Cache.rememberWait([this, 'Webpage'], cacheKey, async () => {
         let groups = await this.groups().fetch()
@@ -152,10 +153,10 @@ class WebpageGroup {
       })
     }
     
-    Model.prototype.getUserIDsNotInGroup = async function () {
-      let profiler = new Profiler(1, 'Webpage/WebpageGroup.getUserIDsNotInGroup()')
+    Model.prototype.getUserIDsNotInGroup = async function (onlyActive) {
+      let profiler = new Profiler(1, 'Webpage/WebpageGroup.getUserIDsNotInGroup() ' + onlyActive)
       
-      let cacheKey = `Webpage.getUserIDsNotInGroup`
+      let cacheKey = Cache.keys(`Webpage.getUserIDsNotInGroup`, onlyActive)
       
       profiler.before('Cache.rememberWait')
       
@@ -175,6 +176,12 @@ class WebpageGroup {
 
         if (usersInGroups.length > 0) {
           relation.whereNotIn('id', usersInGroups)
+        }
+        
+        if (onlyActive === true) {
+          relation.whereHas('readingProgresses', (builder) => {
+            builder.where('webpage_id', this.primaryKeyValue)
+          })
         }
 
         profiler.before('fetch')

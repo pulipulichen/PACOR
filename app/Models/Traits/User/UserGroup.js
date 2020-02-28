@@ -70,7 +70,7 @@ class UserGroup {
           
           profiler.before('webpage.getUsersNotInGroup()')
           
-          users = await webpage.getUsersNotInGroup()
+          users = await webpage.getUsersNotInGroup(true)
           users = users.toJSON()
           
           profiler.after('webpage.getUsersNotInGroup()')
@@ -172,7 +172,7 @@ class UserGroup {
           
           profiler.before('webpage.getUserIDsNotInGroup()')
           
-          users = await webpage.getUserIDsNotInGroup()
+          users = await webpage.getUserIDsNotInGroup(true)
           //users = users.toJSON()
           
           profiler.after('webpage.getUserIDsNotInGroup()')

@@ -131,7 +131,7 @@ class WebpageDashboard {
   }
   
   async _getUsersNotInGroup (webpage, excludeNotStartedYet) {
-    let readers = await webpage.getUsersNotInGroup()
+    let readers = await webpage.getUsersNotInGroup(true)
 
     //console.log(webpage.groups)
     let output = []

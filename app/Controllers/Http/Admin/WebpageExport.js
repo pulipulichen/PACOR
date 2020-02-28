@@ -20,6 +20,7 @@ class WebpageExport {
     let webpage = await WebpageModel.find(webpageID)
     
     let data = {
+      /*
       // We will make a Workbook contains 2 Worksheets
       'animals': [
                   {"name": "cat", "category": "animal"}
@@ -31,8 +32,17 @@ class WebpageExport {
                   ,{"name": "Arbok", "category": "pokemon"}
                   ,{"name": "Eevee", "category": "pokemon"}
                 ]
+       */
     }
     
+    data.Questionnaire = await webpage.exportQuestionnaire()
+    
+    
+    let filename = `webpage_` + webpageID + `_all_${dayjs().format('YYYYMMDD-HHmm')}.ods`
+    return this._downloadSpreadsheet(data, filename, response)
+  }
+  
+  _downloadSpreadsheet (data, filename, response) {
     // A workbook is the name given to an Excel file
     var wb = XLSX.utils.book_new() // make Workbook of Excel
 
@@ -50,7 +60,6 @@ class WebpageExport {
       type: 'base64'
     });
     //response.writeHead(200, [['Content-Type',  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']]);
-    let filename = `webpage_` + webpageID + `_all_${dayjs().format('YYYYMMDD-HHmm')}.ods`
     
     response.header('Content-Disposition', `attachment; filename="${filename}"`)
     response.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
