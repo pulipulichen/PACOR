@@ -61,4 +61,12 @@
     v-bind:progress="progress"
     v-bind:lib="lib">
   </webpage-article-analysis>
+  
+  <webpage-export
+    v-if="webpage"
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:progress="progress"
+    v-bind:lib="lib">
+  </webpage-export>
 </div>
