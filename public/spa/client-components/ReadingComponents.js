@@ -297,7 +297,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Why do you think it is a main idea?":"您為何覺得這裡是關鍵字？"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Why do you think it is a main idea?":"您為何覺得這裡是關鍵字？","Write something about the keyword...":"寫些跟這個關鍵字相關的事情吧..."}}')
   delete Component.options._Ctor
 }
 
