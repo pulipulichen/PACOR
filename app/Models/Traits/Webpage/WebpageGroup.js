@@ -202,8 +202,13 @@ class WebpageGroup {
       return output
     }
     
-    Model.parseAdminGroups = function (webpage) {
+    Model.prototype.getActiveUsersCount = async function () {
+      return 20
+    }
+    
+    Model.parseUsersGroupsCount = async function (webpagesInstance, webpage) {
 
+      //let webpage = webpagesInstance.toJSON()
       let groups = []
       let usersCount = 0
       //console.log(webpage.groups)
@@ -221,6 +226,7 @@ class WebpageGroup {
       webpage.groupsCount = groups.length
       webpage.usersCount = usersCount
       webpage.groups = groups.join('\n')
+      webpage.activeUsersCount = await webpagesInstance.getActiveUsersCount() 
     }
     
   } // register (Model) {

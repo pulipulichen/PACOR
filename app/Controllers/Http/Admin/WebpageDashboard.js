@@ -48,7 +48,7 @@ class WebpageDashboard {
       await auth.checkDomainAdmin(webpage.domain_id)
       webpage.config = webpageInstance.config
       
-      WebpageModel.parseAdminGroups(webpage)
+      await WebpageModel.parseUsersGroupsCount(webpageInstance, webpage)
 
       let webpageURL = webpage.url
       let output = {

@@ -45,7 +45,7 @@ class Webpage {
         
         webpage.path = '/' + webpage.url.split('/').slice(3).join('/')
       
-        WebpageModel.parseAdminGroups(webpage)
+        await WebpageModel.parseUsersGroupsCount(webpagesInstance, webpage)
         
         try {
           if (webpage.config === null) {

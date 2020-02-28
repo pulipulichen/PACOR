@@ -8147,6 +8147,14 @@ let WebpageGroupEditor = {
       if (this.buttonMode === false) {
         return 'text-mode'
       }
+    },
+    computedUserCount () {
+      if (typeof(webpage.activeUsersCount) === 'number') {
+        return webpage.activeUsersCount
+      }
+      if (typeof(webpage.usersCount) === 'number') {
+        return webpage.usersCount
+      }
     }
   },
   watch: {
