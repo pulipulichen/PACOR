@@ -72,6 +72,7 @@
   .AnnotationSingle {
     .annotation-discussion {
       border-left: 1px solid #D4D5D6 !important;
+      padding-top: 0.5em;
     }
     
     .annotation-editor {
@@ -81,31 +82,46 @@
 }
 
 @media only screen and (max-width: 991px) {
-  .AnnotationSingle.two.column ::v-deep {
-    .AnnotationEditorHeader.edit-mode {
-      .left.column {
-        .user-avatar, .username {
-          display: none;
-        }
-      }
-      
-      .left.column {
-        width: calc(100% - 6em);
-      }
-    } //.AnnotationEditorHeader {
+  
+  
+  .AnnotationSingle.two.column {
     
-    .html-editor-container {
-      .note-toolbar.center {
-        text-align: right;
-      }
-
-      &.editor-left-handed .note-toolbar.center {
-        text-align: left;
-      }
-    } // .html-editor-container {
-    
-    .AnnotationComment .meta .display-time {
-      display: none;
+    .ui.divider {
+      margin-bottom: 0.5rem;
     }
-  } // .AnnotationSingle.two.column ::v-deep {
+    
+    .annotation-editor {
+      padding-bottom: 0 !important;
+    }
+    
+    ::v-deep {
+      .AnnotationEditorHeader.edit-mode {
+        .left.column {
+          .user-avatar, .username {
+            display: none;
+          }
+        }
+
+        .left.column {
+          width: calc(100% - 6em);
+        }
+      } //.AnnotationEditorHeader {
+
+      .html-editor-container {
+        .note-toolbar.center {
+          text-align: right;
+        }
+
+        &.editor-left-handed .note-toolbar.center {
+          text-align: left;
+        }
+      } // .html-editor-container {
+
+      .AnnotationComment .meta .display-time {
+        display: none;
+      }
+    } // .AnnotationSingle.two.column ::v-deep {
+  }
+  
+    
 }

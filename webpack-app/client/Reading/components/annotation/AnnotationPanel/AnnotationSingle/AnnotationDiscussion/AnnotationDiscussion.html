@@ -1,4 +1,16 @@
 <div class="AnnotationDiscussion">
+  <annotation-discussion-input 
+    ref="AnnotationDiscussionInput"
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+
+    v-bind:annotation="annotation"
+    v-on:add="onInputAdd"
+    v-on:edit="onInputEdit"
+    v-on:cancel="onInputCancel">
+  </annotation-discussion-input>
+  
   <annotation-discussion-list 
     ref="AnnotationDiscussionList"
     v-bind:config="config"
@@ -16,15 +28,4 @@
   </annotation-discussion-list>
   
   
-  <annotation-discussion-input 
-    ref="AnnotationDiscussionInput"
-    v-bind:config="config"
-    v-bind:status="status"
-    v-bind:lib="lib"
-
-    v-bind:annotation="annotation"
-    v-on:add="onInputAdd"
-    v-on:edit="onInputEdit"
-    v-on:cancel="onInputCancel">
-  </annotation-discussion-input>
 </div>

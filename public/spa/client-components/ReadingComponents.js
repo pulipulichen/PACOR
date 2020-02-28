@@ -715,7 +715,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationDiscussionInput[data-v-55f1394b] {\n  white-space: nowrap;\n  overflow: hidden;\n  padding-top: 0.5em;\n  border-top: 1px solid #ccc;\n}\n.AnnotationDiscussionInput.edit-mode .input-field[data-v-55f1394b] {\n  width: calc(100% - 6em) !important;\n}\nimg[data-v-55f1394b] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-55f1394b] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-55f1394b] {\n  width: calc(100% - 3em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-55f1394b] {\n  float: right;\n}\n.right-column > span[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-55f1394b] {\n  height: 42px;\n}\n.left-column[data-v-55f1394b] {\n  width: 8em;\n}\n.left-column[data-v-55f1394b],\n.center-column[data-v-55f1394b],\n.right-column[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["AnnotationDiscussionInput.less?vue&type=style&index=0&id=55f1394b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,0BAA0B;AAC5B;AACA;EACE,kCAAkC;AACpC;AACA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,cAAc;EACd,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,kCAAkC;EAClC,gCAAgC;AAClC;AACA;EACE,YAAY;AACd;AACA;EACE,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,YAAY;AACd;AACA;EACE,UAAU;AACZ;AACA;;;EAGE,qBAAqB;EACrB,sBAAsB;AACxB","file":"AnnotationDiscussionInput.less?vue&type=style&index=0&id=55f1394b&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionInput[data-v-55f1394b] {\n  white-space: nowrap;\n  overflow: hidden;\n  padding-top: 0.5em;\n  border-top: 1px solid #ccc;\n}\n.AnnotationDiscussionInput.edit-mode .input-field[data-v-55f1394b] {\n  width: calc(100% - 6em) !important;\n}\nimg[data-v-55f1394b] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-55f1394b] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-55f1394b] {\n  width: calc(100% - 3em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-55f1394b] {\n  float: right;\n}\n.right-column > span[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-55f1394b] {\n  height: 42px;\n}\n.left-column[data-v-55f1394b] {\n  width: 8em;\n}\n.left-column[data-v-55f1394b],\n.center-column[data-v-55f1394b],\n.right-column[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
+exports.push([module.i, ".AnnotationDiscussionInput[data-v-55f1394b] {\n  white-space: nowrap;\n  overflow: hidden;\n  margin-bottom: 0.5em;\n}\n.AnnotationDiscussionInput.edit-mode .input-field[data-v-55f1394b] {\n  width: calc(100% - 6em) !important;\n}\nimg[data-v-55f1394b] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-55f1394b] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-55f1394b] {\n  width: calc(100% - 3em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-55f1394b] {\n  float: right;\n}\n.right-column > span[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-55f1394b] {\n  height: 42px;\n}\n.left-column[data-v-55f1394b] {\n  width: 8em;\n}\n.left-column[data-v-55f1394b],\n.center-column[data-v-55f1394b],\n.right-column[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["AnnotationDiscussionInput.less?vue&type=style&index=0&id=55f1394b&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,oBAAoB;AACtB;AACA;EACE,kCAAkC;AACpC;AACA;EACE,WAAW;EACX,WAAW;EACX,WAAW;EACX,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,cAAc;EACd,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,kCAAkC;EAClC,gCAAgC;AAClC;AACA;EACE,YAAY;AACd;AACA;EACE,qBAAqB;EACrB,mBAAmB;AACrB;AACA;EACE,YAAY;AACd;AACA;EACE,UAAU;AACZ;AACA;;;EAGE,qBAAqB;EACrB,sBAAsB;AACxB","file":"AnnotationDiscussionInput.less?vue&type=style&index=0&id=55f1394b&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionInput[data-v-55f1394b] {\n  white-space: nowrap;\n  overflow: hidden;\n  margin-bottom: 0.5em;\n}\n.AnnotationDiscussionInput.edit-mode .input-field[data-v-55f1394b] {\n  width: calc(100% - 6em) !important;\n}\nimg[data-v-55f1394b] {\n  height: 2em;\n  width: auto;\n  float: left;\n  max-width: inherit !important;\n}\n.username[data-v-55f1394b] {\n  display: inline-block;\n  max-width: 5em;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  vertical-align: top;\n  line-height: 2em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.input-field[data-v-55f1394b] {\n  width: calc(100% - 3em) !important;\n  display: inline-block !important;\n}\n.right-column[data-v-55f1394b] {\n  float: right;\n}\n.right-column > span[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: top;\n}\n.right-column button[data-v-55f1394b] {\n  height: 42px;\n}\n.left-column[data-v-55f1394b] {\n  width: 8em;\n}\n.left-column[data-v-55f1394b],\n.center-column[data-v-55f1394b],\n.right-column[data-v-55f1394b] {\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
 
 
 /***/ }),
@@ -743,7 +743,7 @@ exports.push([module.i, ".meta[data-v-7749c093] {\n  float: right;\n  user-selec
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationDiscussionList[data-v-e134047a] {\n  overflow-y: auto;\n  border-radius: 0.3em;\n  border: 1px solid #CCC;\n  border-width: 0;\n}\n.no-more[data-v-e134047a] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList[data-v-e134047a] {\n    height: inherit !important;\n    max-height: inherit !important;\n}\n.AnnotationDiscussionList.little-comments[data-v-e134047a] {\n    padding-bottom: 1em;\n}\n}\n", "",{"version":3,"sources":["AnnotationDiscussionList.less?vue&type=style&index=0&id=e134047a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,oBAAoB;EACpB,sBAAsB;EACtB,eAAe;AACjB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,iBAAiB;EACjB,eAAe;AACjB;AACA;AACA;IACI,0BAA0B;IAC1B,8BAA8B;AAClC;AACA;IACI,mBAAmB;AACvB;AACA","file":"AnnotationDiscussionList.less?vue&type=style&index=0&id=e134047a&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionList[data-v-e134047a] {\n  overflow-y: auto;\n  border-radius: 0.3em;\n  border: 1px solid #CCC;\n  border-width: 0;\n}\n.no-more[data-v-e134047a] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList[data-v-e134047a] {\n    height: inherit !important;\n    max-height: inherit !important;\n}\n.AnnotationDiscussionList.little-comments[data-v-e134047a] {\n    padding-bottom: 1em;\n}\n}\n"]}]);
+exports.push([module.i, ".AnnotationDiscussionList[data-v-e134047a] {\n  overflow-y: auto;\n  border-radius: 0.3em;\n  border: 1px solid #CCC;\n  border-width: 0;\n}\n.no-more[data-v-e134047a] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList[data-v-e134047a] {\n    height: inherit !important;\n    max-height: inherit !important;\n}\n.AnnotationDiscussionList.little-comments[data-v-e134047a] {\n    padding-top: 1em;\n}\n}\n", "",{"version":3,"sources":["AnnotationDiscussionList.less?vue&type=style&index=0&id=e134047a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,oBAAoB;EACpB,sBAAsB;EACtB,eAAe;AACjB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,iBAAiB;EACjB,eAAe;AACjB;AACA;AACA;IACI,0BAA0B;IAC1B,8BAA8B;AAClC;AACA;IACI,gBAAgB;AACpB;AACA","file":"AnnotationDiscussionList.less?vue&type=style&index=0&id=e134047a&lang=less&scoped=true&","sourcesContent":[".AnnotationDiscussionList[data-v-e134047a] {\n  overflow-y: auto;\n  border-radius: 0.3em;\n  border: 1px solid #CCC;\n  border-width: 0;\n}\n.no-more[data-v-e134047a] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n  cursor: pointer;\n}\n@media (max-width: 767px) {\n.AnnotationDiscussionList[data-v-e134047a] {\n    height: inherit !important;\n    max-height: inherit !important;\n}\n.AnnotationDiscussionList.little-comments[data-v-e134047a] {\n    padding-top: 1em;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -799,7 +799,7 @@ exports.push([module.i, "img[data-v-0a95f64e] {\n  height: 2em;\n  width: auto;\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationSingle[data-v-16dcafa3] {\n  overflow-y: auto;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons {\n  margin-top: -0.5em !important;\n  max-width: 100% !important;\n  overflow-x: auto !important;\n  overflow-y: hidden !important;\n  margin-left: 0 !important;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons > .column {\n  padding: 0.5em 0 !important;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons .ValidationButton {\n  vertical-align: top;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons .AdminBadge,\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons .UserSelfBadge {\n  vertical-align: super;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons .display-time {\n  display: inline-block;\n  vertical-align: baseline;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n.AnnotationSingle.display-mode[data-v-16dcafa3]  .annotation-panel-buttons {\n  margin-top: 0.5rem !important;\n}\n.AnnotationSingle.display-mode[data-v-16dcafa3]  .annotation-panel-buttons .display-time {\n  vertical-align: middle;\n}\n.AnnotationSingle .annotation-discussion > .divider[data-v-16dcafa3] {\n  display: none;\n}\n@media (max-width: 767px) {\n.ui.stackable.grid.AnnotationSingle .annotation-discussion[data-v-16dcafa3] {\n    padding-top: 0 !important;\n}\n.ui.stackable.grid.AnnotationSingle .annotation-discussion > .divider[data-v-16dcafa3] {\n    display: block;\n}\n.ui.stackable.grid.AnnotationSingle .annotation-editor[data-v-16dcafa3] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-16dcafa3] {\n    border-left: 1px solid #D4D5D6 !important;\n}\n.AnnotationSingle .annotation-editor[data-v-16dcafa3] {\n    overflow-y: auto;\n}\n}\n@media only screen and (max-width: 991px) {\n.AnnotationSingle.two.column[data-v-16dcafa3]  .AnnotationEditorHeader.edit-mode .left.column .user-avatar,\n  .AnnotationSingle.two.column[data-v-16dcafa3]  .AnnotationEditorHeader.edit-mode .left.column .username {\n    display: none;\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .AnnotationEditorHeader.edit-mode .left.column {\n    width: calc(100% - 6em);\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .html-editor-container .note-toolbar.center {\n    text-align: right;\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .html-editor-container.editor-left-handed .note-toolbar.center {\n    text-align: left;\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .AnnotationComment .meta .display-time {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["AnnotationSingle.less?vue&type=style&index=0&id=16dcafa3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;AACA;EACE,6BAA6B;EAC7B,0BAA0B;EAC1B,2BAA2B;EAC3B,6BAA6B;EAC7B,yBAAyB;AAC3B;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,mBAAmB;AACrB;AACA;;EAEE,qBAAqB;AACvB;AACA;EACE,qBAAqB;EACrB,wBAAwB;EACxB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,6BAA6B;AAC/B;AACA;EACE,sBAAsB;AACxB;AACA;EACE,aAAa;AACf;AACA;AACA;IACI,yBAAyB;AAC7B;AACA;IACI,cAAc;AAClB;AACA;IACI,2BAA2B;AAC/B;AACA;AACA;AACA;IACI,yCAAyC;AAC7C;AACA;IACI,gBAAgB;AACpB;AACA;AACA;AACA;;IAEI,aAAa;AACjB;AACA;IACI,uBAAuB;AAC3B;AACA;IACI,iBAAiB;AACrB;AACA;IACI,gBAAgB;AACpB;AACA;IACI,aAAa;AACjB;AACA","file":"AnnotationSingle.less?vue&type=style&index=0&id=16dcafa3&lang=less&scoped=true&","sourcesContent":[".AnnotationSingle[data-v-16dcafa3] {\n  overflow-y: auto;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons {\n  margin-top: -0.5em !important;\n  max-width: 100% !important;\n  overflow-x: auto !important;\n  overflow-y: hidden !important;\n  margin-left: 0 !important;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons > .column {\n  padding: 0.5em 0 !important;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons .ValidationButton {\n  vertical-align: top;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons .AdminBadge,\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons .UserSelfBadge {\n  vertical-align: super;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons .display-time {\n  display: inline-block;\n  vertical-align: baseline;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n.AnnotationSingle.display-mode[data-v-16dcafa3]  .annotation-panel-buttons {\n  margin-top: 0.5rem !important;\n}\n.AnnotationSingle.display-mode[data-v-16dcafa3]  .annotation-panel-buttons .display-time {\n  vertical-align: middle;\n}\n.AnnotationSingle .annotation-discussion > .divider[data-v-16dcafa3] {\n  display: none;\n}\n@media (max-width: 767px) {\n.ui.stackable.grid.AnnotationSingle .annotation-discussion[data-v-16dcafa3] {\n    padding-top: 0 !important;\n}\n.ui.stackable.grid.AnnotationSingle .annotation-discussion > .divider[data-v-16dcafa3] {\n    display: block;\n}\n.ui.stackable.grid.AnnotationSingle .annotation-editor[data-v-16dcafa3] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-16dcafa3] {\n    border-left: 1px solid #D4D5D6 !important;\n}\n.AnnotationSingle .annotation-editor[data-v-16dcafa3] {\n    overflow-y: auto;\n}\n}\n@media only screen and (max-width: 991px) {\n.AnnotationSingle.two.column[data-v-16dcafa3]  .AnnotationEditorHeader.edit-mode .left.column .user-avatar,\n  .AnnotationSingle.two.column[data-v-16dcafa3]  .AnnotationEditorHeader.edit-mode .left.column .username {\n    display: none;\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .AnnotationEditorHeader.edit-mode .left.column {\n    width: calc(100% - 6em);\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .html-editor-container .note-toolbar.center {\n    text-align: right;\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .html-editor-container.editor-left-handed .note-toolbar.center {\n    text-align: left;\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .AnnotationComment .meta .display-time {\n    display: none;\n}\n}\n"]}]);
+exports.push([module.i, ".AnnotationSingle[data-v-16dcafa3] {\n  overflow-y: auto;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons {\n  margin-top: -0.5em !important;\n  max-width: 100% !important;\n  overflow-x: auto !important;\n  overflow-y: hidden !important;\n  margin-left: 0 !important;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons > .column {\n  padding: 0.5em 0 !important;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons .ValidationButton {\n  vertical-align: top;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons .AdminBadge,\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons .UserSelfBadge {\n  vertical-align: super;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons .display-time {\n  display: inline-block;\n  vertical-align: baseline;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n.AnnotationSingle.display-mode[data-v-16dcafa3]  .annotation-panel-buttons {\n  margin-top: 0.5rem !important;\n}\n.AnnotationSingle.display-mode[data-v-16dcafa3]  .annotation-panel-buttons .display-time {\n  vertical-align: middle;\n}\n.AnnotationSingle .annotation-discussion > .divider[data-v-16dcafa3] {\n  display: none;\n}\n@media (max-width: 767px) {\n.ui.stackable.grid.AnnotationSingle .annotation-discussion[data-v-16dcafa3] {\n    padding-top: 0 !important;\n}\n.ui.stackable.grid.AnnotationSingle .annotation-discussion > .divider[data-v-16dcafa3] {\n    display: block;\n}\n.ui.stackable.grid.AnnotationSingle .annotation-editor[data-v-16dcafa3] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-16dcafa3] {\n    border-left: 1px solid #D4D5D6 !important;\n    padding-top: 0.5em;\n}\n.AnnotationSingle .annotation-editor[data-v-16dcafa3] {\n    overflow-y: auto;\n}\n}\n@media only screen and (max-width: 991px) {\n.AnnotationSingle.two.column .ui.divider[data-v-16dcafa3] {\n    margin-bottom: 0.5rem;\n}\n.AnnotationSingle.two.column .annotation-editor[data-v-16dcafa3] {\n    padding-bottom: 0 !important;\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .AnnotationEditorHeader.edit-mode .left.column .user-avatar,\n  .AnnotationSingle.two.column[data-v-16dcafa3]  .AnnotationEditorHeader.edit-mode .left.column .username {\n    display: none;\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .AnnotationEditorHeader.edit-mode .left.column {\n    width: calc(100% - 6em);\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .html-editor-container .note-toolbar.center {\n    text-align: right;\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .html-editor-container.editor-left-handed .note-toolbar.center {\n    text-align: left;\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .AnnotationComment .meta .display-time {\n    display: none;\n}\n}\n", "",{"version":3,"sources":["AnnotationSingle.less?vue&type=style&index=0&id=16dcafa3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;AAClB;AACA;EACE,6BAA6B;EAC7B,0BAA0B;EAC1B,2BAA2B;EAC3B,6BAA6B;EAC7B,yBAAyB;AAC3B;AACA;EACE,2BAA2B;AAC7B;AACA;EACE,mBAAmB;AACrB;AACA;;EAEE,qBAAqB;AACvB;AACA;EACE,qBAAqB;EACrB,wBAAwB;EACxB,kBAAkB;EAClB,mBAAmB;AACrB;AACA;EACE,6BAA6B;AAC/B;AACA;EACE,sBAAsB;AACxB;AACA;EACE,aAAa;AACf;AACA;AACA;IACI,yBAAyB;AAC7B;AACA;IACI,cAAc;AAClB;AACA;IACI,2BAA2B;AAC/B;AACA;AACA;AACA;IACI,yCAAyC;IACzC,kBAAkB;AACtB;AACA;IACI,gBAAgB;AACpB;AACA;AACA;AACA;IACI,qBAAqB;AACzB;AACA;IACI,4BAA4B;AAChC;AACA;;IAEI,aAAa;AACjB;AACA;IACI,uBAAuB;AAC3B;AACA;IACI,iBAAiB;AACrB;AACA;IACI,gBAAgB;AACpB;AACA;IACI,aAAa;AACjB;AACA","file":"AnnotationSingle.less?vue&type=style&index=0&id=16dcafa3&lang=less&scoped=true&","sourcesContent":[".AnnotationSingle[data-v-16dcafa3] {\n  overflow-y: auto;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons {\n  margin-top: -0.5em !important;\n  max-width: 100% !important;\n  overflow-x: auto !important;\n  overflow-y: hidden !important;\n  margin-left: 0 !important;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons > .column {\n  padding: 0.5em 0 !important;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons .ValidationButton {\n  vertical-align: top;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons .AdminBadge,\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons .UserSelfBadge {\n  vertical-align: super;\n}\n.AnnotationSingle[data-v-16dcafa3]  .annotation-panel-buttons .display-time {\n  display: inline-block;\n  vertical-align: baseline;\n  line-height: 2.3em;\n  margin-right: 0.5em;\n}\n.AnnotationSingle.display-mode[data-v-16dcafa3]  .annotation-panel-buttons {\n  margin-top: 0.5rem !important;\n}\n.AnnotationSingle.display-mode[data-v-16dcafa3]  .annotation-panel-buttons .display-time {\n  vertical-align: middle;\n}\n.AnnotationSingle .annotation-discussion > .divider[data-v-16dcafa3] {\n  display: none;\n}\n@media (max-width: 767px) {\n.ui.stackable.grid.AnnotationSingle .annotation-discussion[data-v-16dcafa3] {\n    padding-top: 0 !important;\n}\n.ui.stackable.grid.AnnotationSingle .annotation-discussion > .divider[data-v-16dcafa3] {\n    display: block;\n}\n.ui.stackable.grid.AnnotationSingle .annotation-editor[data-v-16dcafa3] {\n    max-height: 100% !important;\n}\n}\n@media (min-width: 767px) {\n.AnnotationSingle .annotation-discussion[data-v-16dcafa3] {\n    border-left: 1px solid #D4D5D6 !important;\n    padding-top: 0.5em;\n}\n.AnnotationSingle .annotation-editor[data-v-16dcafa3] {\n    overflow-y: auto;\n}\n}\n@media only screen and (max-width: 991px) {\n.AnnotationSingle.two.column .ui.divider[data-v-16dcafa3] {\n    margin-bottom: 0.5rem;\n}\n.AnnotationSingle.two.column .annotation-editor[data-v-16dcafa3] {\n    padding-bottom: 0 !important;\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .AnnotationEditorHeader.edit-mode .left.column .user-avatar,\n  .AnnotationSingle.two.column[data-v-16dcafa3]  .AnnotationEditorHeader.edit-mode .left.column .username {\n    display: none;\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .AnnotationEditorHeader.edit-mode .left.column {\n    width: calc(100% - 6em);\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .html-editor-container .note-toolbar.center {\n    text-align: right;\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .html-editor-container.editor-left-handed .note-toolbar.center {\n    text-align: left;\n}\n.AnnotationSingle.two.column[data-v-16dcafa3]  .AnnotationComment .meta .display-time {\n    display: none;\n}\n}\n"]}]);
 
 
 /***/ }),
@@ -2278,6 +2278,21 @@ var render = function() {
     "div",
     { staticClass: "AnnotationDiscussion" },
     [
+      _c("annotation-discussion-input", {
+        ref: "AnnotationDiscussionInput",
+        attrs: {
+          config: _vm.config,
+          status: _vm.status,
+          lib: _vm.lib,
+          annotation: _vm.annotation
+        },
+        on: {
+          add: _vm.onInputAdd,
+          edit: _vm.onInputEdit,
+          cancel: _vm.onInputCancel
+        }
+      }),
+      _vm._v(" "),
       _c("annotation-discussion-list", {
         ref: "AnnotationDiscussionList",
         attrs: {
@@ -2293,21 +2308,6 @@ var render = function() {
           comment: _vm.focusCommentInput,
           like: _vm.like,
           unlike: _vm.unlike
-        }
-      }),
-      _vm._v(" "),
-      _c("annotation-discussion-input", {
-        ref: "AnnotationDiscussionInput",
-        attrs: {
-          config: _vm.config,
-          status: _vm.status,
-          lib: _vm.lib,
-          annotation: _vm.annotation
-        },
-        on: {
-          add: _vm.onInputAdd,
-          edit: _vm.onInputEdit,
-          cancel: _vm.onInputCancel
         }
       })
     ],
@@ -2579,32 +2579,6 @@ var render = function() {
       }
     },
     [
-      _vm.noMoreOlder
-        ? _c(
-            "div",
-            {
-              staticClass: "ui secondary segment no-more",
-              on: { click: _vm.focusInput }
-            },
-            [
-              _vm.comments.length > 0
-                ? [
-                    _vm._v(
-                      "\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    "
-                    )
-                  ]
-                : [
-                    _vm._v(
-                      "\r\n      " +
-                        _vm._s(_vm.$t("Write the first suggestion now")) +
-                        "\r\n    "
-                    )
-                  ]
-            ],
-            2
-          )
-        : _vm._e(),
-      _vm._v(" "),
       !_vm.noMoreOlder && _vm.olderCommentCount > 0
         ? _c("div", { staticClass: "ui secondary segment no-more" }, [
             _vm._v(
@@ -2660,6 +2634,32 @@ var render = function() {
                 "\r\n  "
             )
           ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.noMoreOlder
+        ? _c(
+            "div",
+            {
+              staticClass: "ui secondary segment no-more",
+              on: { click: _vm.focusInput }
+            },
+            [
+              _vm.comments.length > 0
+                ? [
+                    _vm._v(
+                      "\r\n      " + _vm._s(_vm.$t("No More")) + "\r\n    "
+                    )
+                  ]
+                : [
+                    _vm._v(
+                      "\r\n      " +
+                        _vm._s(_vm.$t("Write the first suggestion now")) +
+                        "\r\n    "
+                    )
+                  ]
+            ],
+            2
+          )
         : _vm._e()
     ],
     2
@@ -3951,7 +3951,7 @@ var render = function() {
     [
       _vm.myAnnotation
         ? [
-            _vm.lib.SectionManager.isArticleNote
+            _vm.lib.SectionManager && _vm.lib.SectionManager.isArticleNote
               ? [
                   _vm._v(
                     "\r\n      " +
@@ -3968,7 +3968,7 @@ var render = function() {
                 ]
           ]
         : [
-            _vm.lib.SectionManager.isArticleNote
+            _vm.lib.SectionManager && _vm.lib.SectionManager.isArticleNote
               ? [
                   _vm._v(
                     "\r\n      " +
@@ -4260,7 +4260,7 @@ var render = function() {
       [
         _vm.isChecklistAnnotationSubmitted
           ? [
-              _vm.lib.SectionManager.isArticleNote
+              _vm.lib.SectionManager && _vm.lib.SectionManager.isArticleNote
                 ? [
                     _vm._v(
                       "\r\n        " +
@@ -4277,7 +4277,7 @@ var render = function() {
                   ]
             ]
           : [
-              _vm.lib.SectionManager.isArticleNote
+              _vm.lib.SectionManager && _vm.lib.SectionManager.isArticleNote
                 ? [
                     _vm._v(
                       "\r\n        " +
@@ -4370,6 +4370,7 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
+                      _vm.lib.SectionManager &&
                       _vm.lib.SectionManager.isArticleNote
                         ? _c("label", [
                             _vm._v(
@@ -27348,7 +27349,7 @@ __webpack_require__.r(__webpack_exports__);
   }
   SectionChecklist.computed.computedSubmitButtonText = function () {
     if (this.isChecklistCompleted) {
-      if (this.lib.SectionManager.isArticleNote) {
+      if (this.lib.SectionManager && this.lib.SectionManager.isArticleNote) {
         return this.$t('I have read this section!')
       }
       else {
