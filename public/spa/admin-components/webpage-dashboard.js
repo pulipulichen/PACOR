@@ -1823,7 +1823,7 @@ let WebpageExport = {
   },
   computed: {
     exportAllData () {
-      return '/admin/WebpageDashboard/exportAllData?webpageID=' + this.$route.params.webpageID
+      return '/admin/WebpageExport/allData?webpageID=' + this.$route.params.webpageID
     }
   },
   watch: {
