@@ -6,8 +6,8 @@
         v-bind:class="computedButtonClassList">
     <i class="edit icon"
        v-if="!buttonMode"></i>
-    {{ webpage.usersCount }}
-    {{ $t('Readers', webpage.usersCount) }}
+    {{ computedUserCount }}
+    {{ $t('Readers', computedUserCount) }}
     /
     {{ webpage.groupsCount }}
     {{ $t('Groups', webpage.groupsCount) }}

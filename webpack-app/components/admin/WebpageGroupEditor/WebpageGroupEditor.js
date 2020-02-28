@@ -35,12 +35,24 @@ let WebpageGroupEditor = {
       return title.join(' ').trim()
     },
     computedButtonClassList () {
+      let classList = []
       if (this.buttonMode === false) {
         return undefined
       }
       else {
-        return 'ui right labeled icon button'
+        classList.push('ui right labeled icon button')
       }
+      
+      if (typeof(this.webpage.activeUsersCount) === 'number'
+              && this.webpage.activeUsersCount > 0) {
+        classList.push('positive')
+      }
+      else if (this.webpage.activeUsersCount === 0
+              && this.webpage.groupsCount > 0) {
+        classList.push('red')
+      }
+      
+      return classList.join(' ')
     },
     computedContainerClassList () {
       if (this.buttonMode === false) {
@@ -48,11 +60,11 @@ let WebpageGroupEditor = {
       }
     },
     computedUserCount () {
-      if (typeof(webpage.activeUsersCount) === 'number') {
-        return webpage.activeUsersCount
+      if (typeof(this.webpage.activeUsersCount) === 'number') {
+        return this.webpage.activeUsersCount
       }
-      if (typeof(webpage.usersCount) === 'number') {
-        return webpage.usersCount
+      if (typeof(this.webpage.usersCount) === 'number') {
+        return this.webpage.usersCount
       }
     }
   },

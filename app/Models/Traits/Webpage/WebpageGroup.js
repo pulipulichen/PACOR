@@ -4,6 +4,7 @@ const Cache = use('Cache')
 const User = use('App/Models/User')
 
 const WebpageGroupModel = use('App/Models/WebpageGroup')
+const ReadingProgressModel = use('App/Models/ReadingProgress')
 
 const Profiler = use('Profiler')
 
@@ -203,7 +204,20 @@ class WebpageGroup {
     }
     
     Model.prototype.getActiveUsersCount = async function () {
-      return 20
+      let cacheKey = Cache.key(`Wepbage.getActiveUsersCount`)
+      return await Cache.rememberWait(['Webpage', this], cacheKey, 3, async () => {
+        let count = await ReadingProgressModel
+                .query()
+                .where('webpage_id', this.primaryKeyValue)
+                .whereHas('user', (builder) => {
+                  builder.where('role', 'reader')
+                })
+                .countDistinct('user_id')
+
+        const total = parseInt(count[0]['count'], 10)
+        //console.log(count)
+        return total
+      })
     }
     
     Model.parseUsersGroupsCount = async function (webpagesInstance, webpage) {
@@ -227,6 +241,7 @@ class WebpageGroup {
       webpage.usersCount = usersCount
       webpage.groups = groups.join('\n')
       webpage.activeUsersCount = await webpagesInstance.getActiveUsersCount() 
+      
     }
     
   } // register (Model) {
