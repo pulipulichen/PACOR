@@ -22,6 +22,11 @@ let Auth = {
       this.status.role = result.role
       this.status.domainID = result.domainID
       this.status.needLogin = false
+    },
+    logoutAndReload: async function () {
+      await this.lib.AxiosHelper.get('/admin/auth/logout')
+      location.reload()
+      return false
     }
   } // methods
 }

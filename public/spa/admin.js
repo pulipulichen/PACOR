@@ -7310,6 +7310,11 @@ let Auth = {
       this.status.role = result.role
       this.status.domainID = result.domainID
       this.status.needLogin = false
+    },
+    logoutAndReload: async function () {
+      await this.lib.AxiosHelper.get('/admin/auth/logout')
+      location.reload()
+      return false
     }
   } // methods
 }
@@ -8453,7 +8458,8 @@ let ErrorHandler = {
               && error.response.data
               && error.response.data.error) {
         let message = error.response.data.error.message
-        if (message === 'Please login') {
+        if (message === 'Please login'
+                || message === `You don't have permission to access.`) {
           this.lib.auth.logoutAndReload()
           return null
         }

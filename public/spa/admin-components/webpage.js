@@ -85,7 +85,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".sub-navigation a.active[data-v-bd87680a] {\n  pointer-events: none;\n}\n", "",{"version":3,"sources":["WebpageList.less?vue&type=style&index=0&id=bd87680a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,oBAAoB;AACtB","file":"WebpageList.less?vue&type=style&index=0&id=bd87680a&lang=less&scoped=true&","sourcesContent":[".sub-navigation a.active[data-v-bd87680a] {\n  pointer-events: none;\n}\n"]}]);
+exports.push([module.i, ".sub-navigation a.active[data-v-bd87680a] {\n  pointer-events: none;\n}\n.ui.table thead .col-title[data-v-bd87680a] {\n  width: 15rem;\n}\n.ui.table thead .col-group[data-v-bd87680a] {\n  width: 25rem;\n}\n", "",{"version":3,"sources":["WebpageList.less?vue&type=style&index=0&id=bd87680a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,oBAAoB;AACtB;AACA;EACE,YAAY;AACd;AACA;EACE,YAAY;AACd","file":"WebpageList.less?vue&type=style&index=0&id=bd87680a&lang=less&scoped=true&","sourcesContent":[".sub-navigation a.active[data-v-bd87680a] {\n  pointer-events: none;\n}\n.ui.table thead .col-title[data-v-bd87680a] {\n  width: 15rem;\n}\n.ui.table thead .col-group[data-v-bd87680a] {\n  width: 25rem;\n}\n"]}]);
 
 
 /***/ }),
@@ -434,29 +434,29 @@ var render = function() {
       _c("table", { staticClass: "ui unstackable table" }, [
         _c("thead", [
           _c("tr", [
-            _c("th", { staticClass: "center aligned" }, [
+            _c("th", { staticClass: "col-path center aligned" }, [
               _vm._v("\r\n          " + _vm._s(_vm.$t("Path")) + "\r\n        ")
             ]),
             _vm._v(" "),
-            _c("th", { staticClass: "center aligned" }, [
+            _c("th", { staticClass: "col-title center aligned" }, [
               _vm._v(
                 "\r\n          " + _vm._s(_vm.$t("Title")) + "\r\n        "
               )
             ]),
             _vm._v(" "),
-            _c("th", { staticClass: "center aligned" }, [
+            _c("th", { staticClass: "col-config center aligned" }, [
               _vm._v(
                 "\r\n          " + _vm._s(_vm.$t("Config")) + "\r\n        "
               )
             ]),
             _vm._v(" "),
-            _c("th", { staticClass: "center aligned" }, [
+            _c("th", { staticClass: "col-group center aligned" }, [
               _vm._v(
                 "\r\n          " + _vm._s(_vm.$t("Group")) + "\r\n        "
               )
             ]),
             _vm._v(" "),
-            _c("th", { staticClass: "center aligned" }, [
+            _c("th", { staticClass: "col-dashboard center aligned" }, [
               _vm._v(
                 "\r\n          " + _vm._s(_vm.$t("Dashboard")) + "\r\n        "
               )
@@ -469,13 +469,23 @@ var render = function() {
           _vm._l(_vm.webpages, function(webpage, index) {
             return _c("tr", [
               _c("td", [
-                _c("a", { attrs: { href: webpage.url, target: "_blank" } }, [
-                  _vm._v(
-                    "\r\n              " +
-                      _vm._s(webpage.path) +
-                      "\r\n          "
-                  )
-                ])
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: webpage.url,
+                      title: webpage.path,
+                      target: "_blank"
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n              " +
+                        _vm._s(_vm.getPathSummary(webpage.path)) +
+                        "\r\n          "
+                    )
+                  ]
+                )
               ]),
               _vm._v(" "),
               _c(
@@ -485,7 +495,7 @@ var render = function() {
                   class: { error: webpage.title === "" }
                 },
                 [
-                  _c("div", { staticClass: "ui action input" }, [
+                  _c("div", { staticClass: "ui action fluid input" }, [
                     _c("input", {
                       directives: [
                         {
@@ -1195,8 +1205,82 @@ let WebpageList = {
     },
     buildPageLink(i) {
       return `/webpage/${this.$route.params.domainID}/list/` + i
+    },
+    getPathSummary (path) {
+      if (path.length < 50) {
+        return path
+      }
+      
+      let parts = path.split('/')
+      let len = parts.length
+      let output = ['']
+      
+      if (len === 2) {
+        return path
+      }
+      else if (len < 4) {
+        // /../..
+        output.push('.../' + parts[(len - 1)])
+      }
+      else if (len === 4) {
+        output.push(parts[1])
+        output.push(parts[2].slice(0, 1) + '...' + parts[2].slice(-1, 1))
+        output.push(parts[3])
+      }
+      else {
+        output.push(parts[1])
+        output.push(parts[2].slice(0, 1) + '...' + parts[(len - 2)].slice(-1))
+        output.push(parts[(len - 1)])
+      }
+      
+      if (output.join('/').length > 50) {
+        output = ['']
+        if (len < 4) {
+          // /../..
+          let lastPart = parts[(len - 1)]
+          if (lastPart.indexOf('?') > -1) {
+            let filename = lastPart.slice(0, lastPart.indexOf('?'))
+            let query = lastPart.slice(lastPart.indexOf('?'))
+            
+            if (filename > 20) {
+              filename = filename.slice(0, 7) + '...' + filename.slice(-7)
+            }
+            
+            if (query > 20) {
+              query = query.slice(0, 20) + '...'
+            }
+            
+            lastPart = filename + '?' + query
+          }
+          else if (lastPart.indexOf('#') > -1) {
+            let filename = lastPart.slice(0, lastPart.indexOf('#'))
+            let query = lastPart.slice(lastPart.indexOf('#'))
+            
+            if (filename > 20) {
+              filename = filename.slice(0, 7) + '...' + filename.slice(-7)
+            }
+            
+            if (query > 20) {
+              query = query.slice(0, 20) + '...'
+            }
+            
+            lastPart = filename + '#' + query
+          }
+          
+          output.push('.../' + parts[(len - 1)])
+        }
+        else if (len === 4) {
+          output.push(parts[1].slice(0, 1) + '...' + parts[2].slice(-1, 1))
+          output.push(parts[3])
+        }
+        else {
+          output.push(parts[1].slice(0, 1) + '...' + parts[(len - 2)].slice(-1))
+          output.push(parts[(len - 1)])
+        }
+      }
+      
+      return output.join('/')
     }
-    
   } // methods
 }
 

@@ -7,19 +7,19 @@
   <table class="ui unstackable table">
     <thead>
       <tr>
-        <th class="center aligned">
+        <th class="col-path center aligned">
           {{ $t('Path') }}
         </th>
-        <th class="center aligned">
+        <th class="col-title center aligned">
           {{ $t('Title') }}
         </th>
-        <th class="center aligned">
+        <th class="col-config center aligned">
           {{ $t('Config') }}
         </th>
-        <th class="center aligned">
+        <th class="col-group center aligned">
           {{ $t('Group') }}
         </th>
-        <th class="center aligned">
+        <th class="col-dashboard center aligned">
           {{ $t('Dashboard') }}
         </th>
       </tr>
@@ -28,13 +28,14 @@
       <tr v-for="(webpage, index) in webpages">
         <td>
           <a v-bind:href="webpage.url"
+             v-bind:title="webpage.path"
              target="_blank">
-              {{ webpage.path }}
+              {{ getPathSummary(webpage.path) }}
           </a>
         </td>
         <td class="field"
             v-bind:class="{error: (webpage.title === '')}">
-          <div class="ui action input">
+          <div class="ui action fluid input">
             <input type="text"
                    v-model="webpage.title"
                    v-on:input="webpage.isChanged = true" />

@@ -1991,7 +1991,8 @@ let ErrorHandler = {
               && error.response.data
               && error.response.data.error) {
         let message = error.response.data.error.message
-        if (message === 'Please login') {
+        if (message === 'Please login'
+                || message === `You don't have permission to access.`) {
           this.lib.auth.logoutAndReload()
           return null
         }
