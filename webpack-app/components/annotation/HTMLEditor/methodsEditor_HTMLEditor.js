@@ -24,7 +24,8 @@ export default function (HTMLEditor) {
       return this
     }
 
-    if (typeof (html) === 'string') {
+    if (typeof (html) === 'string'
+            && html.trim() !== '') {
       if (html.startsWith('<') === false 
               && html.endsWith('>') === false) {
         html = `<p>${html}</p>`

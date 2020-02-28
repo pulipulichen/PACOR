@@ -733,7 +733,8 @@ __webpack_require__.r(__webpack_exports__);
       return this
     }
 
-    if (typeof (html) === 'string') {
+    if (typeof (html) === 'string'
+            && html.trim() !== '') {
       if (html.startsWith('<') === false 
               && html.endsWith('>') === false) {
         html = `<p>${html}</p>`

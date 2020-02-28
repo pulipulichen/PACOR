@@ -53,7 +53,7 @@ class WebpageExport {
     Object.keys(data).forEach(key => {
       let sheet = XLSX.utils.json_to_sheet(data[key])
       XLSX.utils.book_append_sheet(wb, sheet, key) // sheetAName is name of Worksheet
-    }) 
+    })
     
     // export Excel file
     //XLSX.writeFile(wb, './book.xlsx') // name of the file is 'book.xlsx'
