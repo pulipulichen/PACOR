@@ -8,7 +8,10 @@
         v-bind:class="{'disabled': !isEnableSubmit}"
         v-on:click="submit">
         <!-- {{ $t('COMMENT') }} -->
-        <i class="edit icon"></i>
+        <i class="edit icon"
+             v-if="!submitLock"></i>
+        <i class="hourglass outline icon"
+           v-if="submitLock"></i>
       </button>
     </template>
     <template v-else>
@@ -18,7 +21,10 @@
                 v-bind:class="{'disabled': !isEnableSubmit}"
                 v-on:click="submit">
           <!-- {{ $t('EDIT') }} -->
-          <i class="edit icon"></i>
+          <i class="edit icon"
+             v-if="!submitLock"></i>
+          <i class="hourglass outline icon"
+             v-if="submitLock"></i>
         </button>
       </span>
       <span>
@@ -42,7 +48,8 @@
     </div>
   </div>
     -->
-  <div class="center-column ui input field input-field">
+  <div class="center-column ui input field input-field"
+       v-bind:class="{disabled: submitLock}">
     <input 
       type="text"
       ref="input"

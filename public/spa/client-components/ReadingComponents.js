@@ -2357,7 +2357,15 @@ var render = function() {
                     attrs: { type: "button" },
                     on: { click: _vm.submit }
                   },
-                  [_c("i", { staticClass: "edit icon" })]
+                  [
+                    !_vm.submitLock
+                      ? _c("i", { staticClass: "edit icon" })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.submitLock
+                      ? _c("i", { staticClass: "hourglass outline icon" })
+                      : _vm._e()
+                  ]
                 )
               ]
             : [
@@ -2370,7 +2378,15 @@ var render = function() {
                       attrs: { type: "button" },
                       on: { click: _vm.submit }
                     },
-                    [_c("i", { staticClass: "edit icon" })]
+                    [
+                      !_vm.submitLock
+                        ? _c("i", { staticClass: "edit icon" })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.submitLock
+                        ? _c("i", { staticClass: "hourglass outline icon" })
+                        : _vm._e()
+                    ]
                   )
                 ]),
                 _vm._v(" "),
@@ -2390,38 +2406,45 @@ var render = function() {
         2
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "center-column ui input field input-field" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.note,
-              expression: "note"
-            }
-          ],
-          ref: "input",
-          attrs: { type: "text", placeholder: _vm.$t("Give a suggestion!") },
-          domProps: { value: _vm.note },
-          on: {
-            keyup: function($event) {
-              if (
-                !$event.type.indexOf("key") &&
-                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-              ) {
-                return null
+      _c(
+        "div",
+        {
+          staticClass: "center-column ui input field input-field",
+          class: { disabled: _vm.submitLock }
+        },
+        [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.note,
+                expression: "note"
               }
-              return _vm.submit($event)
-            },
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+            ],
+            ref: "input",
+            attrs: { type: "text", placeholder: _vm.$t("Give a suggestion!") },
+            domProps: { value: _vm.note },
+            on: {
+              keyup: function($event) {
+                if (
+                  !$event.type.indexOf("key") &&
+                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                ) {
+                  return null
+                }
+                return _vm.submit($event)
+              },
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.note = $event.target.value
               }
-              _vm.note = $event.target.value
             }
-          }
-        })
-      ])
+          })
+        ]
+      )
     ]
   )
 }

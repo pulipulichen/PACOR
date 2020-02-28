@@ -13,8 +13,10 @@ const TokenizationHelper = use('App/Helpers/TokenizationHelper')
 class Webpage {
   async list ({request, auth}) {
     //await auth.checkAdmin()
+    //throw new HttpException(`You don't have permission to access.`, 403)
     
     let {page = 1, domainID} = request.all()
+    
     await auth.checkDomainAdmin(domainID)
     
     if (isNaN(domainID) === false && typeof(domainID) === 'string') {
