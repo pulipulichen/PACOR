@@ -70,7 +70,7 @@ class WebpageDashboard {
     
     return await Cache.get(cacheKey, async () => {
       let outputGroups = await this._getReadersInGroup(webpage)
-      let outputNotInGroups = await this._getUsersNotInGroup(webpage)
+      let outputNotInGroups = await this._getUsersNotInGroup(webpage, true)
       
       let output = {
         groups: outputGroups,
@@ -130,7 +130,7 @@ class WebpageDashboard {
     return outputGroups
   }
   
-  async _getUsersNotInGroup (webpage) {
+  async _getUsersNotInGroup (webpage, excludeNotStartedYet) {
     let readers = await webpage.getUsersNotInGroup()
 
     //console.log(webpage.groups)
@@ -141,6 +141,12 @@ class WebpageDashboard {
       let userJSON = user.toJSON()
       
       userJSON.readingProgresses = await user.getReadingProgressStatus(webpage)
+      
+      if (excludeNotStartedYet === true) {
+        if (typeof(userJSON.readingProgresses[0].start_timestamp) !== 'number') {
+          continue
+        }
+      }
       
       userJSON.created_at = dayjs(user.created_at).unix()
       userJSON.latest_log_unixms = 0

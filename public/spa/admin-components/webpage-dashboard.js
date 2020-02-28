@@ -244,17 +244,35 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "item" }, [
           _c("div", { staticClass: "ui header" }, [
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "sub header" }, [
-                _vm._v(
-                  "\r\n            " +
-                    _vm._s(_vm.$t("Dashboard")) +
-                    "\r\n          "
-                )
-              ]),
-              _vm._v(" "),
-              _c("h2", [_vm._v(_vm._s(_vm.webpagePath))])
-            ])
+            _c(
+              "div",
+              { staticClass: "content", attrs: { title: _vm.webpagePath } },
+              [
+                _c("div", { staticClass: "sub header" }, [
+                  _vm._v(
+                    "\r\n            " +
+                      _vm._s(_vm.$t("Dashboard")) +
+                      "\r\n          "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("h2", [
+                  _c(
+                    "a",
+                    {
+                      attrs: { href: _vm.status.webpageURL, target: "_blank" }
+                    },
+                    [
+                      _vm._v(
+                        "\r\n              " +
+                          _vm._s(_vm.webpagePathSummary) +
+                          "\r\n            "
+                      )
+                    ]
+                  )
+                ])
+              ]
+            )
           ])
         ]),
         _vm._v(" "),
@@ -958,8 +976,12 @@ let WebpageDashboard = {
   computed: {
     'webpagePath': function () {
       if (typeof(this.status.webpageURL) === 'string') {
-        return '/' + this.status.webpageURL.split('/').slice(3).join('/')
+        let path = '/' + this.status.webpageURL.split('/').slice(3).join('/')
+        return path
       }
+    },
+    webpagePathSummary () {
+      return this.lib.URLHelper.getPathSummary(this.webpagePath)
     }
   },
 //  watch: {

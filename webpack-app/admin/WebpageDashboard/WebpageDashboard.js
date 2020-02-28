@@ -19,8 +19,12 @@ let WebpageDashboard = {
   computed: {
     'webpagePath': function () {
       if (typeof(this.status.webpageURL) === 'string') {
-        return '/' + this.status.webpageURL.split('/').slice(3).join('/')
+        let path = '/' + this.status.webpageURL.split('/').slice(3).join('/')
+        return path
       }
+    },
+    webpagePathSummary () {
+      return this.lib.URLHelper.getPathSummary(this.webpagePath)
     }
   },
 //  watch: {

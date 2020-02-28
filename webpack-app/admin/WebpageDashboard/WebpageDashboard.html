@@ -6,11 +6,17 @@
     </a>
     <div class="item">
       <div class="ui header">
-        <div class="content">
+        <div class="content"
+             v-bind:title="webpagePath">
           <div class="sub header">
             {{ $t('Dashboard') }}
           </div>
-          <h2>{{ webpagePath }}</h2>
+          <h2>
+            <a v-bind:href="status.webpageURL"
+               target="_blank">
+              {{ webpagePathSummary }}
+            </a>
+          </h2>
         </div>
       </div>
     </div>

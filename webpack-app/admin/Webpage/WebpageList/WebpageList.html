@@ -30,7 +30,7 @@
           <a v-bind:href="webpage.url"
              v-bind:title="webpage.path"
              target="_blank">
-              {{ getPathSummary(webpage.path) }}
+              {{ lib.URLHelper.getPathSummary(webpage.path) }}
           </a>
         </td>
         <td class="field"

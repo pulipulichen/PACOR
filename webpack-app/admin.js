@@ -22,6 +22,7 @@ import AxiosHelper from './helpers/AxiosHelper'
 import StringHelper from './helpers/StringHelper'
 import ValidateHelper from './helpers/ValidateHelper'
 import VueHelper from './helpers/VueHelper'
+import URLHelper from './helpers/URLHelper'
 
 // --------------------
 // Components
@@ -85,6 +86,7 @@ let VueController = {
       StringHelper: StringHelper,
       ValidateHelper: ValidateHelper,
       VueHelper: VueHelper,
+      URLHelper: URLHelper,
       //toc: TOCHelper,
     },
     //view: 'Loading',
