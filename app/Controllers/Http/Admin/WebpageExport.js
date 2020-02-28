@@ -33,17 +33,16 @@ class WebpageExport {
                 ]
     }
     
-    var animalWS = XLSX.utils.json_to_sheet(data.animals) 
-    var pokemonWS = XLSX.utils.json_to_sheet(data.pokemons) 
-
     // A workbook is the name given to an Excel file
     var wb = XLSX.utils.book_new() // make Workbook of Excel
 
     // add Worksheet to Workbook
     // Workbook contains one or more worksheets
-    XLSX.utils.book_append_sheet(wb, animalWS, 'animals') // sheetAName is name of Worksheet
-    XLSX.utils.book_append_sheet(wb, pokemonWS, 'pokemons')   
-
+    Object.keys(data).forEach(key => {
+      let sheet = XLSX.utils.json_to_sheet(data[key])
+      XLSX.utils.book_append_sheet(wb, sheet, key) // sheetAName is name of Worksheet
+    }) 
+    
     // export Excel file
     //XLSX.writeFile(wb, './book.xlsx') // name of the file is 'book.xlsx'
     
@@ -51,7 +50,7 @@ class WebpageExport {
       type: 'base64'
     });
     //response.writeHead(200, [['Content-Type',  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']]);
-    let filename = `webpage-` + webpageID + `-all.ods`
+    let filename = `webpage_` + webpageID + `_all_${dayjs().format('YYYYMMDD-HHmm')}.ods`
     
     response.header('Content-Disposition', `attachment; filename="${filename}"`)
     response.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
