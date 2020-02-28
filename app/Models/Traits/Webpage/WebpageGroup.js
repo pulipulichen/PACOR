@@ -139,7 +139,7 @@ class WebpageGroup {
     }
     
     Model.prototype.getUserIDsInGroups = async function () {
-      let cacheKey = Cache.keys(`Webpage.getUserIDsInGroups`)
+      let cacheKey = Cache.key(`Webpage.getUserIDsInGroups`)
       
       return await Cache.rememberWait([this, 'Webpage'], cacheKey, async () => {
         let groups = await this.groups().fetch()
@@ -156,7 +156,7 @@ class WebpageGroup {
     Model.prototype.getUserIDsNotInGroup = async function (onlyActive) {
       let profiler = new Profiler(1, 'Webpage/WebpageGroup.getUserIDsNotInGroup() ' + onlyActive)
       
-      let cacheKey = Cache.keys(`Webpage.getUserIDsNotInGroup`, onlyActive)
+      let cacheKey = Cache.key(`Webpage.getUserIDsNotInGroup`, onlyActive)
       
       profiler.before('Cache.rememberWait')
       
