@@ -46,6 +46,10 @@ export default (AnnotationPanel) => {
     if (annotation) {
       this.setAnnotation(annotation)
     }
+    else {
+      return false
+    }
+    
     setTimeout(() => {
       if (this.$refs.AnnotationSingle) {
         this.$refs.AnnotationSingle.focusCommentInput()

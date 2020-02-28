@@ -17,6 +17,10 @@ export default function (AnnotationPanel) {
       beforeCallback: async () => {
         // 總之隨機塞一個標註進來吧
         let section = this.lib.RangyManager.getOhterHighlightedSection()
+        if (!section) {
+          return false
+        }
+        
         let seqID = parseInt(section.attr('data-pacor-paragraph-seq-id'), 10)
         //console.log(sectionID)
         

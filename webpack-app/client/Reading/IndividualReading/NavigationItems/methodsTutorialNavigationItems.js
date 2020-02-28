@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 export default function (NavigationItems) {
   NavigationItems.methods.setupTutorial = function () {
     this.lib.TutorialManager.addAction({
