@@ -2,8 +2,12 @@
 
 const Cache = use('Cache')
 const UserModel = use('App/Models/User')
+const AnnotationModel = use('App/Models/Annotation')
+const dayjs = use('dayjs')
 
 const ReadingProgressModel = use('App/Models/ReadingProgress')
+const StringHelper = use('App/Helpers/StringHelper')
+const DateHelper = use('App/Helpers/DateHelper')
 
 //const WebpageGroupModel = use('App/Models/WebpageGroup')
 
@@ -125,8 +129,46 @@ class WebpageExport {
       return output
     }
     
-    Model.prototype.exportAnnotations = async function () {
+    Model.prototype.exportAnnotation = async function () {
+      let annotations = await AnnotationModel
+              .query()
+              .where('webpage_id', this.primaryKeyValue)
+              .whereNot('type', 'SectionMainIdea')
+              .with('notes')
+              .orderBy('created_at_unixms')
+              .fetch()
+      
       let output = []
+      
+      for (let i = 0; i < annotations.size(); i++) {
+        let annotation = annotations.nth(i)
+        
+        let item = {
+          user_id: annotation.user_id,
+          deleted: annotation.deleted,
+          type: annotation.type,
+        }
+        
+        let noteInstances = annotation.getRelated('notes')
+        let notes = []
+        for (let j = 0; j < noteInstances.size(); j++) {
+          let noteInstance = noteInstances.nth(j)
+          let n = StringHelper.htmlToText(noteInstance.note, true)
+          n = n.trim()
+          if (n !== '') {
+            notes.push(n)
+          }
+        }
+        item.note = notes.join(' / ')
+        
+        item.created_at = DateHelper.parseAtUnixms(annotation.created_at_unixms).format('YYYY-MMDD-HH:mm:ss')
+        item.updated_at = DateHelper.parseAtUnixms(annotation.updated_at_unixms).format('YYYY-MMDD-HH:mm:ss')
+        if (item.created_at !== item.updated_at) {
+          item.is_updated = true
+        }
+        
+        output.push(item)
+      }
       
       return output
     }

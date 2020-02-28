@@ -35,8 +35,8 @@ class WebpageExport {
        */
     }
     
-    //data.Questionnaire = await webpage.exportQuestionnaire()
-    //data.SectionNote = await webpage.exportSectionNote()
+    data.Questionnaire = await webpage.exportQuestionnaire()
+    data.SectionNote = await webpage.exportSectionNote()
     data.Annotation = await webpage.exportAnnotation()
     
     
@@ -59,6 +59,7 @@ class WebpageExport {
     //XLSX.writeFile(wb, './book.xlsx') // name of the file is 'book.xlsx'
     
     var wbbuf = XLSX.write(wb, {
+      bookType: 'ods',
       type: 'base64'
     });
     //response.writeHead(200, [['Content-Type',  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']]);
