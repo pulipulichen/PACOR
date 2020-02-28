@@ -97,7 +97,8 @@
         </div>
         
         <div class="ui button user-filter-tutorial-button"
-             v-on:click="startUserFilterTutorial">
+             v-on:click="startUserFilterTutorial"
+             v-bind:class="{green: !hasReadTutorial}">
             {{ $t('Start Tutorial') }}
         </div>
       </template>

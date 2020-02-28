@@ -1,6 +1,10 @@
 export default function (UserFilter) {
   UserFilter.data = function () {
     this.$i18n.locale = this.config.locale
+    
+    let localStorageKey = 'UserFilter.' + this.status.userID
+    let hasReadTutorial = (localStorage.getItem(localStorageKey) !== null)
+    
     return {
       filterData: {
         users: [],
@@ -15,7 +19,9 @@ export default function (UserFilter) {
 
           othersJSONMap: null,
         },
-      }
+      },
+      hasReadTutorial,
+      localStorageKey
     }
   }
 }

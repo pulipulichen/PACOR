@@ -13,6 +13,8 @@ export default function (UserFilter) {
       order: 1
     })
     
+    return console.log('@TEST only a tutorial')
+    
     this.lib.TutorialManager.addAction(tutorialKey, {
       element: async () => {
         let element = this.$refs.UserChart.$el
@@ -33,6 +35,9 @@ export default function (UserFilter) {
   }
     
   UserFilter.methods.startUserFilterTutorial = function () {
+    this.hasReadTutorial = true
+    localStorage.setItem(this.localStorageKey, 1)
+    
     this.lib.TutorialManager.start(tutorialKey)
   }
 }

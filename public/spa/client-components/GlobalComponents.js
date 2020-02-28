@@ -2270,6 +2270,7 @@ var render = function() {
                   "div",
                   {
                     staticClass: "ui button user-filter-tutorial-button",
+                    class: { green: !_vm.hasReadTutorial },
                     on: { click: _vm.startUserFilterTutorial }
                   },
                   [
@@ -8315,6 +8316,7 @@ __webpack_require__.r(__webpack_exports__);
       return 'green'
     }
   }
+
 });
 
 /***/ }),
@@ -8331,6 +8333,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (UserFilter) {
   UserFilter.data = function () {
     this.$i18n.locale = this.config.locale
+    
+    let localStorageKey = 'UserFilter.' + this.status.userID
+    let hasReadTutorial = (localStorage.getItem(localStorageKey) !== null)
+    
     return {
       filterData: {
         users: [],
@@ -8345,7 +8351,9 @@ __webpack_require__.r(__webpack_exports__);
 
           othersJSONMap: null,
         },
-      }
+      },
+      hasReadTutorial,
+      localStorageKey
     }
   }
 });
@@ -8378,6 +8386,8 @@ let tutorialKey = 'UserFilter'
       order: 1
     })
     
+    return console.log('@TEST only a tutorial')
+    
     this.lib.TutorialManager.addAction(tutorialKey, {
       element: async () => {
         let element = this.$refs.UserChart.$el
@@ -8398,6 +8408,9 @@ let tutorialKey = 'UserFilter'
   }
     
   UserFilter.methods.startUserFilterTutorial = function () {
+    this.hasReadTutorial = true
+    localStorage.setItem(this.localStorageKey, 1)
+    
     this.lib.TutorialManager.start(tutorialKey)
   }
 });
