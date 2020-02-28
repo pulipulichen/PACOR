@@ -11076,11 +11076,13 @@ let AnnotationDiscussionList = {
         //console.log()
         
         //console.log(this.list.scrollTop(), this.list.height(), commentEle.offsetTop)
-        while ((this.list.scrollTop() + this.list.height()) < commentEle.offsetTop) {
+        let padding = 20
+        while ((this.list.scrollTop() + this.list.height() + padding) < commentEle.offsetTop) {
           commentEle.scrollIntoView({
             behavior: 'smooth'
           })
           await this.lib.VueHelper.sleep(500)
+          //console.log(this.list.scrollTop(), this.list.height(), padding, commentEle.offsetTop)
         }
         
         //setTimeout(() => {
