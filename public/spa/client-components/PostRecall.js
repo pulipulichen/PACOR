@@ -185,7 +185,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm.postRecallConfig.countdownAtStart === false
+        _vm.currentStepConfig.countdownAtStart === false
           ? _c("li", {
               domProps: { innerHTML: _vm._s(_vm.timeLimitTypeStart) }
             })

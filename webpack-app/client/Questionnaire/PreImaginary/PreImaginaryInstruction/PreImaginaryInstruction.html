@@ -18,7 +18,7 @@
             v-bind:title="image.title"/></span>
     </li>
     <li>{{ $t(`Don't worry about punctuation or typos, just write down what you predict of.`) }}</li>
-    <li v-if="preImaginaryConfig.countdownAtStart === false"
+    <li v-if="currentStepConfig.countdownAtStart === false"
         v-html="timeLimitTypeStart"></li>
     <li v-else
         v-html="timeLimitAutoStart"></li>

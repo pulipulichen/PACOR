@@ -22,7 +22,7 @@
             v-bind:title="image.title" /></span>
     </li>
     <li>{{ $t(`Don't worry about punctuation or typos, just write down what you read.`) }}</li>
-    <li v-if="postRecallConfig.countdownAtStart === false"
+    <li v-if="currentStepConfig.countdownAtStart === false"
         v-html="timeLimitTypeStart"></li>
     <li v-else
         v-html="timeLimitAutoStart"></li>

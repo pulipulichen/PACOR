@@ -3,9 +3,9 @@ module.exports = {
     //message: '/2020exp/Login-e.html',
     //allowLoginWithoutGrop: false
   },
-  readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
+  readingProgresses: ['PreImaginaryKeyword', 'IndividualReading', 'CollaborativeReading', 'PostRecallKeyword'],
   readingProgressModules: {
-    PreImaginary: {
+    PreImaginaryKeyword: {
       //instruction: '/2020exp/rice/PreImaginary.html',
       limitMinutes: 3,
       countdownAtStart: true
@@ -30,7 +30,7 @@ module.exports = {
         countdownPause: false
       }
     },
-    PostRecall: {
+    PostRecallKeyword: {
       //instruction: '/2020exp/rice/PostRecall.html',
       limitMinutes: 3,
     }

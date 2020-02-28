@@ -716,6 +716,9 @@ let Instruction = {
 //  components: {
 //  },
   computed: {
+    currentStepConfig () {
+      return this.lib.auth.currentStepConfig
+    },
     articleTitle () {
       return document.title
     },

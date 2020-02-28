@@ -4,9 +4,9 @@ module.exports = {
   login: {
     allowLoginWithoutGrop: true
   },
-  readingProgresses: ['PreImaginary', 'IndividualReading', 'CollaborativeReading', 'PostRecall'],
+  readingProgresses: ['PreImaginaryKeyword', 'IndividualReading', 'CollaborativeReading', 'PostRecallKeyword'],
   readingProgressModules: {
-    PreImaginary: {
+    PreImaginaryKeyword: {
       limitMinutes: quesLimitMins,
       countdownAtStart: false
     },
@@ -30,7 +30,7 @@ module.exports = {
         countdownPause: true
       }
     },
-    PostRecall: {
+    PostRecallKeyword: {
       limitMinutes: quesLimitMins,
       countdownAtStart: false
     }
