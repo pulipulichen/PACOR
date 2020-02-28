@@ -205,6 +205,14 @@ class WebpageDashboard {
     return true
   }
   
+  async exportAllData ({request, auth}) {
+    let { webpageID, ideaUnits } = request.all()
+    
+    let webpage = await WebpageModel.find(webpageID)
+    
+    return webpageID
+  }
+  
 //  async t () {
 //    return 1
 //    let webpage = await WebpageModel.find(1)

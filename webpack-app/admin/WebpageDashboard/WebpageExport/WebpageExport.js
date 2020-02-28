@@ -11,6 +11,9 @@ let WebpageExport = {
     WepbageDashboardSubHeader
   },
   computed: {
+    exportAllData () {
+      return '/admin/WebpageDashboard/exportAllData?webpageID=' + this.$route.params.webpageID
+    }
   },
   watch: {
   },

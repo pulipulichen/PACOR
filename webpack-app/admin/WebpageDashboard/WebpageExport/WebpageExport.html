@@ -6,6 +6,12 @@
     v-bind:header="$t('Webpage Export')"
     anchor="webpage-export">
   </WepbageDashboardSubHeader>
-  
-  okok
+
+  <form class="ui form">
+    <a class="ui fluid button"
+       v-bind:href="exportAllData"
+       target="_blank">
+      {{ $t('Export all data') }}
+    </a>
+  </form>
 </div>

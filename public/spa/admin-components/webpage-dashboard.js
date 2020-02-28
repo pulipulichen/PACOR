@@ -742,7 +742,21 @@ var render = function() {
           anchor: "webpage-export"
         }
       }),
-      _vm._v("\r\n  \r\n  okok\r\n")
+      _vm._v(" "),
+      _c("form", { staticClass: "ui form" }, [
+        _c(
+          "a",
+          {
+            staticClass: "ui fluid button",
+            attrs: { href: _vm.exportAllData, target: "_blank" }
+          },
+          [
+            _vm._v(
+              "\r\n      " + _vm._s(_vm.$t("Export all data")) + "\r\n    "
+            )
+          ]
+        )
+      ])
     ],
     1
   )
@@ -1808,6 +1822,9 @@ let WebpageExport = {
     WepbageDashboardSubHeader: _components_WepbageDashboardSubHeader_WepbageDashboardSubHeader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   computed: {
+    exportAllData () {
+      return '/admin/WebpageDashboard/exportAllData?webpageID=' + this.$route.params.webpageID
+    }
   },
   watch: {
   },
