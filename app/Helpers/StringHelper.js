@@ -84,6 +84,10 @@ let StringHelper = {
       let children = $(s).children()
       output = []
       children.each((i, ele) => {
+        if (!Array.isArray(ele.children)
+                || ele.children.length === 0) {
+          return false
+        }
         let text = ele.children[0].data
         if (typeof(text) !== 'string') {
           return false

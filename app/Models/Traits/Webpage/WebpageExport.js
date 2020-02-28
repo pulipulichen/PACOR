@@ -119,7 +119,7 @@ class WebpageExport {
     Model.prototype.exportSectionNote = async function () {
       
       let output = await this.getReaders(async (reader) => {
-        await reader.exportSectionNote(this)
+        return await reader.exportSectionNote(this)
       })
       
       return output

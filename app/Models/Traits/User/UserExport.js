@@ -4,6 +4,9 @@ const Cache = use('Cache')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 const ReadingActivityLog = use('App/Models/ReadingActivityLog')
 const ReadingProgressModel = use('App/Models/ReadingProgress')
+const AnnotationModel = use('App/Models/Annotation')
+
+const StringHelper = use('App/Helpers/StringHelper')
 
 class UserExport {
 
@@ -83,6 +86,52 @@ class UserExport {
     
     Model.prototype.exportQuestionnaireText = async function (webpage) {
       let steps = ['PreImaginary', 'PostRecall']
+      console.error('@TODO exportQuestionnaireText')
+    }
+    
+    Model.prototype.exportSectionNote = async function (webpage) {
+      let annotations = await AnnotationModel
+              .query()
+              .where('webpage_id', webpage.primaryKeyValue)
+              .where('user_id', this.primaryKeyValue)
+              .where('deleted', false)
+              .where('type', 'SectionMainIdea')
+              .with('anchorPositions')
+              .with('notes')
+              .fetch()
+      
+      let sectionsArray = []
+      for (let i = 0; i < annotations.size(); i++) {
+        let annotation = annotations.nth(i)
+        
+        let item = {}
+        
+        let anchorPositions = annotation.getRelated('anchorPositions')
+        item.sectionID = parseInt(anchorPositions.first().section_id, 10)
+        
+        let notes = annotation.getRelated('notes')
+        if (notes.size() > 0) {
+          item.note = notes.first().note
+          //console.log(item.note)
+          item.note = StringHelper.htmlToText(item.note, true)
+        }
+        else {
+          continue
+        }
+        
+        sectionsArray.push(item)
+      }
+      
+      sectionsArray.sort((a, b) => {
+        return a.sectionID - b.sectionID
+      })
+      
+      let sectionsJSON = {}
+      sectionsArray.forEach(item => {
+        sectionsJSON['section_' + item.sectionID] = item.note
+      })
+      
+      return sectionsJSON
     }
   } // register (Model) {
 }
