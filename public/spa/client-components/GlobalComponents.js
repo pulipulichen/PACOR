@@ -201,7 +201,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Viewing All":"觀看所有讀者","Asist":"協助","View":"觀看","Please select a peer":"選擇一位您想要協助的讀者吧","Only Show You":"只顯示您","Show All":"顯示所有讀者","Cancel":"待會再選"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Viewing All":"觀看所有讀者","Asist":"協助","View":"觀看","Please select a peer":"選擇一位您想要協助的讀者吧","Only Show You":"只顯示您","Show All":"顯示所有讀者","Cancel":"待會再選","Start Tutorial":"顯示操作導覽"}}')
   delete Component.options._Ctor
 }
 
@@ -2264,7 +2264,22 @@ var render = function() {
                       ],
                       2
                     )
-                  : _vm._e()
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "ui button user-filter-tutorial-button",
+                    on: { click: _vm.startUserFilterTutorial }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n            " +
+                        _vm._s(_vm.$t("Start Tutorial")) +
+                        "\r\n        "
+                    )
+                  ]
+                )
               ]
             },
             proxy: true
@@ -8113,148 +8128,42 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _PeerList_PeerList_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PeerList/PeerList.vue */ "./webpack-app/client/Reading/components/search/UserFilter/PeerList/PeerList.vue");
 /* harmony import */ var _UserChart_UserChart_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserChart/UserChart.vue */ "./webpack-app/client/Reading/components/search/UserFilter/UserChart/UserChart.vue");
+/* harmony import */ var _dataUserFilter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dataUserFilter.js */ "./webpack-app/client/Reading/components/search/UserFilter/dataUserFilter.js");
+/* harmony import */ var _computedUserFilter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./computedUserFilter.js */ "./webpack-app/client/Reading/components/search/UserFilter/computedUserFilter.js");
+/* harmony import */ var _methodsUserFilter_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsUserFilter.js */ "./webpack-app/client/Reading/components/search/UserFilter/methodsUserFilter.js");
+/* harmony import */ var _methodsTutorialUserFilter_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methodsTutorialUserFilter.js */ "./webpack-app/client/Reading/components/search/UserFilter/methodsTutorialUserFilter.js");
 
 
 
-let UserSelector = {
+let UserFilter = {
   props: ['lib', 'status', 'config'],
-  data() {    
-    this.$i18n.locale = this.config.locale
-    return {
-      filterData: {
-        users: [],
-        allAnnotationTypes: [],
-        selectUser: null,
-        tempSelectUserID: null,
-        
-        chart: {
-          userJSON: null,
-
-          allJSON: null,
-
-          othersJSONMap: null,
-        }
-      }
-    }
-  },
+  // data() { },  // 轉移到 dataUserFilter
   components: {
     'peer-list': _PeerList_PeerList_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     'user-chart': _UserChart_UserChart_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
   },
-  computed: {
-    peer () {
-      //return this.status.filter.focusUser
-      return this.filterData.selectUser
-    },
-    peerIsMe () {
-//      return (this.status.filter.focusUser 
-//              && this.status.filter.focusUser.id === this.status.userID)
-      return (this.filterData.selectUser
-              && this.filterData.selectUser.id === this.status.userID)
-    },
-    username () {
-      if (this.peer) {
-        let user = this.peer
-
-        if (typeof(user.displayName) === 'string') {
-          return user.displayName
-        }
-        else {
-          return user.username
-        }
-      }
-    },
-    selectUsername () {
-      if (!this.filterData.selectUser) {
-        return undefined
-      }
-      
-      let user = this.filterData.selectUser
-
-      if (typeof(user.displayName) === 'string') {
-        return user.displayName
-      }
-      else {
-        return user.username
-      }
-    },
-    isSelectAnotherUser() {
-      if (!this.filterData.selectUser && !this.status.filter.focusUser) {
-        return false
-      }
-      else if (this.filterData.selectUser) {
-        if (!this.status.filter.focusUser) {
-          return true
-        }
-        return (this.filterData.selectUser.id !== this.status.filter.focusUser.id)
-      }
-      else if (this.status.filter.focusUser) {
-        if (!this.filterData.selectUser) {
-          return true
-        }
-        return (this.filterData.selectUser.id !== this.status.filter.focusUser.id)
-      }
-      else if (!this.filterData.selectUser) {
-        return false
-      }
-    },
-    isNotSelectAllUser () {
-      return (this.status.filter.focusUser)
-    },
-    computedSubmitButtonClassList () {
-      //if (!this.peerIsMe && this.filterData.selectUser) {
-      if (this.filterData.selectUser) {
-        return 'green'
-      }
-    }
-  },
+  computed: {}, // 轉移到 computedUserFilter
 //  watch: {
 //  },
 //  mounted() {
 //    this.testShow() // for test
 //  },
-  methods: {
-    show () {
-      if (this.status.filter.focusUser) {
-        this.filterData.selectUser = this.status.filter.focusUser
-      }
-      //console.log(this.filterData.selectUser)
-      
-      this.$refs.PeerList.loadInit()
-      this.$refs.UserChart.loadInit()
-      
-      this.$refs.Modal.show()
-      this.$emit('show')
-    },
-    selectUser (id) {
-      //console.log(id)
-      this.filterData.tempSelectUserID = id
-      this.show()
-    },
-    hide () {
-      this.$refs.Modal.hide()
-      //console.log('有hide嗎？')
-    },
-    submit () {
-      if (this.filterData.selectUser) {
-        this.status.filter.focusUser = this.filterData.selectUser
-      }
-      else {
-        this.status.filter.focusUser = null
-      }
-      //console.log(this.filterData.selectUser)
-      
-      this.$refs.Modal.hide()
-    },
-    submitShowAll () {
-      this.filterData.selectUser = null
-      this.status.filter.focusUser = null
-      this.$refs.Modal.hide()
-    }
-  } // methods
+  methods: {} // 轉移到 methodsUserFilter
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (UserSelector);
+
+Object(_dataUserFilter_js__WEBPACK_IMPORTED_MODULE_2__["default"])(UserFilter)
+
+
+Object(_computedUserFilter_js__WEBPACK_IMPORTED_MODULE_3__["default"])(UserFilter)
+
+
+Object(_methodsUserFilter_js__WEBPACK_IMPORTED_MODULE_4__["default"])(UserFilter)
+
+
+Object(_methodsTutorialUserFilter_js__WEBPACK_IMPORTED_MODULE_5__["default"])(UserFilter)
+
+/* harmony default export */ __webpack_exports__["default"] = (UserFilter);
 
 /***/ }),
 
@@ -8331,6 +8240,183 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserFilter_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserFilter_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_UserFilter_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserFilter_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserFilter_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserFilter_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_UserFilter_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserFilter_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_UserFilter_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Csearch_5CUserFilter_5CUserFilter_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/search/UserFilter/computedUserFilter.js":
+/*!***************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/search/UserFilter/computedUserFilter.js ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (UserFilter) {
+  UserFilter.computed.peer = function () {
+    //return this.status.filter.focusUser
+    return this.filterData.selectUser
+  }
+  UserFilter.computed.peerIsMe = function () {
+//      return (this.status.filter.focusUser 
+//              && this.status.filter.focusUser.id === this.status.userID)
+    return (this.filterData.selectUser
+            && this.filterData.selectUser.id === this.status.userID)
+  }
+  UserFilter.computed.username = function () {
+    if (this.peer) {
+      let user = this.peer
+
+      if (typeof (user.displayName) === 'string') {
+        return user.displayName
+      } else {
+        return user.username
+      }
+    }
+  }
+  UserFilter.computed.selectUsername = function () {
+    if (!this.filterData.selectUser) {
+      return undefined
+    }
+
+    let user = this.filterData.selectUser
+
+    if (typeof (user.displayName) === 'string') {
+      return user.displayName
+    } else {
+      return user.username
+    }
+  }
+  UserFilter.computed.isSelectAnotherUser = function () {
+    if (!this.filterData.selectUser && !this.status.filter.focusUser) {
+      return false
+    } else if (this.filterData.selectUser) {
+      if (!this.status.filter.focusUser) {
+        return true
+      }
+      return (this.filterData.selectUser.id !== this.status.filter.focusUser.id)
+    } else if (this.status.filter.focusUser) {
+      if (!this.filterData.selectUser) {
+        return true
+      }
+      return (this.filterData.selectUser.id !== this.status.filter.focusUser.id)
+    } else if (!this.filterData.selectUser) {
+      return false
+    }
+  }
+  UserFilter.computed.isNotSelectAllUser = function () {
+    return (this.status.filter.focusUser)
+  }
+  UserFilter.computed.computedSubmitButtonClassList = function () {
+    //if (!this.peerIsMe && this.filterData.selectUser) {
+    if (this.filterData.selectUser) {
+      return 'green'
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/search/UserFilter/dataUserFilter.js":
+/*!***********************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/search/UserFilter/dataUserFilter.js ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (UserFilter) {
+  UserFilter.data = function () {
+    this.$i18n.locale = this.config.locale
+    return {
+      filterData: {
+        users: [],
+        allAnnotationTypes: [],
+        selectUser: null,
+        tempSelectUserID: null,
+        
+        chart: {
+          userJSON: null,
+
+          allJSON: null,
+
+          othersJSONMap: null,
+        },
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/search/UserFilter/methodsTutorialUserFilter.js":
+/*!**********************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/search/UserFilter/methodsTutorialUserFilter.js ***!
+  \**********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (UserFilter) {
+  UserFilter.methods.startUserFilterTutorial = function () {
+    console.error('@TODO startUserFilterTutorial')
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/search/UserFilter/methodsUserFilter.js":
+/*!**************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/search/UserFilter/methodsUserFilter.js ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (UserFilter) {
+  UserFilter.methods.show = function () {
+    if (this.status.filter.focusUser) {
+      this.filterData.selectUser = this.status.filter.focusUser
+    }
+    //console.log(this.filterData.selectUser)
+
+    this.$refs.PeerList.loadInit()
+    this.$refs.UserChart.loadInit()
+
+    this.$refs.Modal.show()
+    this.$emit('show')
+  }
+  UserFilter.methods.selectUser = function (id) {
+    //console.log(id)
+    this.filterData.tempSelectUserID = id
+    this.show()
+  }
+  UserFilter.methods.hide = function () {
+    this.$refs.Modal.hide()
+    //console.log('有hide嗎？')
+  }
+  UserFilter.methods.submit = function () {
+    if (this.filterData.selectUser) {
+      this.status.filter.focusUser = this.filterData.selectUser
+    } else {
+      this.status.filter.focusUser = null
+    }
+    //console.log(this.filterData.selectUser)
+
+    this.$refs.Modal.hide()
+  }
+  UserFilter.methods.submitShowAll = function () {
+    this.filterData.selectUser = null
+    this.status.filter.focusUser = null
+    this.$refs.Modal.hide()
+  }
+  UserFilter.methods.startUserFilterTutorial = function () {
+    console.error('@TODO startUserFilterTutorial')
+  }
+});
 
 /***/ }),
 

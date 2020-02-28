@@ -1,142 +1,32 @@
 import PeerList from './PeerList/PeerList.vue'
 import UserChart from './UserChart/UserChart.vue'
 
-let UserSelector = {
+let UserFilter = {
   props: ['lib', 'status', 'config'],
-  data() {    
-    this.$i18n.locale = this.config.locale
-    return {
-      filterData: {
-        users: [],
-        allAnnotationTypes: [],
-        selectUser: null,
-        tempSelectUserID: null,
-        
-        chart: {
-          userJSON: null,
-
-          allJSON: null,
-
-          othersJSONMap: null,
-        }
-      }
-    }
-  },
+  // data() { },  // 轉移到 dataUserFilter
   components: {
     'peer-list': PeerList,
     'user-chart': UserChart,
   },
-  computed: {
-    peer () {
-      //return this.status.filter.focusUser
-      return this.filterData.selectUser
-    },
-    peerIsMe () {
-//      return (this.status.filter.focusUser 
-//              && this.status.filter.focusUser.id === this.status.userID)
-      return (this.filterData.selectUser
-              && this.filterData.selectUser.id === this.status.userID)
-    },
-    username () {
-      if (this.peer) {
-        let user = this.peer
-
-        if (typeof(user.displayName) === 'string') {
-          return user.displayName
-        }
-        else {
-          return user.username
-        }
-      }
-    },
-    selectUsername () {
-      if (!this.filterData.selectUser) {
-        return undefined
-      }
-      
-      let user = this.filterData.selectUser
-
-      if (typeof(user.displayName) === 'string') {
-        return user.displayName
-      }
-      else {
-        return user.username
-      }
-    },
-    isSelectAnotherUser() {
-      if (!this.filterData.selectUser && !this.status.filter.focusUser) {
-        return false
-      }
-      else if (this.filterData.selectUser) {
-        if (!this.status.filter.focusUser) {
-          return true
-        }
-        return (this.filterData.selectUser.id !== this.status.filter.focusUser.id)
-      }
-      else if (this.status.filter.focusUser) {
-        if (!this.filterData.selectUser) {
-          return true
-        }
-        return (this.filterData.selectUser.id !== this.status.filter.focusUser.id)
-      }
-      else if (!this.filterData.selectUser) {
-        return false
-      }
-    },
-    isNotSelectAllUser () {
-      return (this.status.filter.focusUser)
-    },
-    computedSubmitButtonClassList () {
-      //if (!this.peerIsMe && this.filterData.selectUser) {
-      if (this.filterData.selectUser) {
-        return 'green'
-      }
-    }
-  },
+  computed: {}, // 轉移到 computedUserFilter
 //  watch: {
 //  },
 //  mounted() {
 //    this.testShow() // for test
 //  },
-  methods: {
-    show () {
-      if (this.status.filter.focusUser) {
-        this.filterData.selectUser = this.status.filter.focusUser
-      }
-      //console.log(this.filterData.selectUser)
-      
-      this.$refs.PeerList.loadInit()
-      this.$refs.UserChart.loadInit()
-      
-      this.$refs.Modal.show()
-      this.$emit('show')
-    },
-    selectUser (id) {
-      //console.log(id)
-      this.filterData.tempSelectUserID = id
-      this.show()
-    },
-    hide () {
-      this.$refs.Modal.hide()
-      //console.log('有hide嗎？')
-    },
-    submit () {
-      if (this.filterData.selectUser) {
-        this.status.filter.focusUser = this.filterData.selectUser
-      }
-      else {
-        this.status.filter.focusUser = null
-      }
-      //console.log(this.filterData.selectUser)
-      
-      this.$refs.Modal.hide()
-    },
-    submitShowAll () {
-      this.filterData.selectUser = null
-      this.status.filter.focusUser = null
-      this.$refs.Modal.hide()
-    }
-  } // methods
+  methods: {} // 轉移到 methodsUserFilter
 }
 
-export default UserSelector
+import dataUserFilter from './dataUserFilter.js'
+dataUserFilter(UserFilter)
+
+import computedUserFilter from './computedUserFilter.js'
+computedUserFilter(UserFilter)
+
+import methodsUserFilter from './methodsUserFilter.js'
+methodsUserFilter(UserFilter)
+
+import methodsTutorialUserFilter from './methodsTutorialUserFilter.js'
+methodsTutorialUserFilter(UserFilter)
+
+export default UserFilter

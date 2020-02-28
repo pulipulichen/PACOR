@@ -63,6 +63,7 @@
         </div>
       </template>
       <template v-slot:actions>
+        
         <div class="ui button submit-button"
              v-if="isNotSelectAllUser"
              v-bind:class="computedSubmitButtonClassList"
@@ -93,6 +94,11 @@
                  v-bind:title="selectUsername"
                  class="user-avatar" />
           </template>
+        </div>
+        
+        <div class="ui button user-filter-tutorial-button"
+             v-on:click="startUserFilterTutorial">
+            {{ $t('Start Tutorial') }}
         </div>
       </template>
   </modal>
