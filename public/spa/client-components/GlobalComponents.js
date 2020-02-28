@@ -8386,7 +8386,7 @@ let tutorialKey = 'UserFilter'
       order: 1
     })
     
-    return console.log('@TEST only a tutorial')
+    //return console.log('@TEST only a tutorial')
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       element: async () => {

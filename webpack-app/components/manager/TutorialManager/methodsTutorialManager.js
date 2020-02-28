@@ -49,6 +49,11 @@ export default function (TutorialManager) {
           this.finishModal = $(this.$refs.FinishModal)
         }
         
+        if ($('.ui.dimmer.modals.visible.active').length > 0) {
+          console.log('Skip finish modal becase of other modal is opened.')
+          return false
+        }
+        
         this.finishModal.modal({
           dimmerSettings: {
             dimmerName: 'tutorial-modal'

@@ -4173,6 +4173,11 @@ __webpack_require__.r(__webpack_exports__);
           this.finishModal = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.FinishModal)
         }
         
+        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.ui.dimmer.modals.visible.active').length > 0) {
+          console.log('Skip finish modal becase of other modal is opened.')
+          return false
+        }
+        
         this.finishModal.modal({
           dimmerSettings: {
             dimmerName: 'tutorial-modal'
