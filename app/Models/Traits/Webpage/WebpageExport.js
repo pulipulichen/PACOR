@@ -3,6 +3,8 @@
 const Cache = use('Cache')
 const UserModel = use('App/Models/User')
 
+const ReadingProgressModel = use('App/Models/ReadingProgress')
+
 //const WebpageGroupModel = use('App/Models/WebpageGroup')
 
 class WebpageExport {
@@ -72,7 +74,7 @@ class WebpageExport {
         if (typeof(process) === 'function') {
           let processedJSON = await process(reader)
           if (processedJSON && typeof(processedJSON) === 'object') {
-            console.log(processedJSON)
+            //console.log(processedJSON)
             Object.keys(processedJSON).forEach((key) => {
               readerJSON[key] = processedJSON[key]
             })
@@ -92,10 +94,32 @@ class WebpageExport {
     }
     
     Model.prototype.exportQuestionnaire = async function () {
+      let config = await this.getConfig()
+      let steps = config.readingProgresses
+      
+      let questionnaireMode = 'text'
+      if (steps.indexOf('PostRecallKeyword') > -1 
+                && steps.indexOf('PreImaginaryKeyword') > -1) {
+        questionnaireMode = 'keyword'
+      }
+      
       let output = await this.getReaders(async (reader) => {
-        return {
-          ok: 'test'
+        
+        if (questionnaireMode === 'keyword') {
+          return await reader.exportQuestionnaireKeyword(this)
         }
+        else if (questionnaireMode === 'text') {
+          return await reader.exportQuestionnaireText(this)
+        }
+      })
+      
+      return output
+    }
+    
+    Model.prototype.exportSectionNote = async function () {
+      
+      let output = await this.getReaders(async (reader) => {
+        await reader.exportSectionNote(this)
       })
       
       return output

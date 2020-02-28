@@ -36,6 +36,7 @@ class WebpageExport {
     }
     
     data.Questionnaire = await webpage.exportQuestionnaire()
+    data.SectionNote = await webpage.exportSectionNote()
     
     
     let filename = `webpage_` + webpageID + `_all_${dayjs().format('YYYYMMDD-HHmm')}.ods`
@@ -66,7 +67,7 @@ class WebpageExport {
     //response.end( new Buffer(wbbuf, 'base64') );
     
     //return webpageID
-    return new Buffer(wbbuf, 'base64')
+    return Buffer.from(wbbuf, 'base64')
   }
   
 }
