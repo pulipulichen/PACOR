@@ -76,6 +76,7 @@
 
 @resizeHandlerHeight: 2em;
 .resize-handler {
+  /*
   width: calc(100% - 1.5em);
   height: @resizeHandlerHeight;
   //position: relative;
@@ -85,9 +86,20 @@
   z-index: 1;
   //top: -1em;
   //background-color: rgba(255,0,0,0.7);
-
+  */
+  
+  width: calc(100% - 11em);
+  display: inline-block;
+  height: 3em;
+  //position: relative;
+  cursor: ns-resize;
+  //margin-top: @resizeHandlerHeight * -1;
+  //position: relative;
+  //z-index: 1;
+  //background-color: rgba(255,0,0,0.7);
+  
   &.moving {
-    cursor: grabbing;
+    cursor: grabbing !important;
   }
 }
 
@@ -107,5 +119,33 @@
         margin-bottom: -0.1em !important;
       }
     }
+  }
+}
+
+
+.attached.label {
+  padding: 0 !important;
+  text-align: right;
+  
+  .button {
+    //background-color: transparent;
+    //vertical-align: top;
+    
+    //margin-right: 0 !important;
+    //border-radius: 0;
+    
+    &:hover {
+      background-color: #D2D3D4;
+    }
+    
+    &.resize-button {
+      cursor: ns-resize;
+      
+      &.moving {
+        cursor: grabbing !important;
+      }
+    }
+    
+      
   }
 }

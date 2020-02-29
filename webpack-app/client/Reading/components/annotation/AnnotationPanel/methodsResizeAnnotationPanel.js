@@ -1,6 +1,5 @@
 const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Reading.components.AnnotationManager.AnnotationPanel.'
 const disableSelectClass = 'pacor-disable-user-select'
-let resizeLocker = false
 
 import $ from 'jquery'
 
@@ -13,10 +12,10 @@ let preventScroll = function (event) {
 export default (AnnotationPanel) => {
 
   AnnotationPanel.methods.onResizeStart = function (event) {
-    if (resizeLocker === true) {
+    if (this.resizeLocker === true) {
       return false
     }
-    resizeLocker = true
+    this.resizeLocker = true
     //console.log('start')
     //let body = $('body')
     if (!body) {
@@ -78,7 +77,7 @@ export default (AnnotationPanel) => {
       document.removeEventListener('touchmove', moveEvent)
       document.removeEventListener('touchend', removeMoveEvent)
       body.removeClass(disableSelectClass)
-      resizeLocker = false
+      this.resizeLocker = false
 
       // 計算最後的比例，然後存到preference去
       let sizeRatio = ((window.innerHeight - currentY) / window.innerHeight)

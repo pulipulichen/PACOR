@@ -6,15 +6,33 @@
        v-bind:style="computedSegmentStyle"
        ref="panel"">
 
+    <!--
     <div class="close-container floating ui black label"
          v-on:click.stop="hide">
       <i class="close icon"></i>
     </div>
+    -->
+    <div class="ui top attached mini label label-buttons">
+      <div class="resize-handler"
+           v-bind:class="{'moving': resizeLocker}"
+           v-on:mousedown="onResizeStart"
+           v-on:touchstart="onResizeStart"></div>
 
-    <div class="resize-handler"
-         v-bind:class="{'moving': resizeLocker}"
-         v-on:mousedown="onResizeStart"
-         v-on:touchstart="onResizeStart"></div>
+      <div class="ui mini icon button resize-button"
+           v-bind:class="{'moving': resizeLocker}"
+           v-on:mousedown="onResizeStart"
+           v-on:touchstart="onResizeStart">
+        <i class="arrows alternate vertical icon"></i>
+      </div>
+      <div class="ui mini icon button"
+           v-on:click.stop="hide">
+        <i class="question icon"></i>
+      </div>
+      <div class="ui mini icon button"
+           v-on:click.stop="hide">
+        <i class="close icon"></i>
+      </div>
+    </div>
 
     <!-- ============================ -->
     <!-- 下面才是真正顯示的元件內容 -->

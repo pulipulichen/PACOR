@@ -519,7 +519,7 @@ exports.push([module.i, ".jquery-guide {\n  user-select: none;\n  -webkit-box-si
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-float-widget[data-v-72028fd0] {\n  transition: opacity 0.3s, z-index 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: -1;\n  width: calc(100vw - 4em);\n  top: calc(60px + 1em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n@media only screen and (max-height: 700px) {\n.annotation-float-widget[data-v-72028fd0] {\n    top: 1em;\n    max-height: inherit;\n}\n}\n.annotation-float-widget.show[data-v-72028fd0] {\n  opacity: 1;\n  z-index: 10;\n}\n.annotation-float-widget.bottom[data-v-72028fd0] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n@media only screen and (max-height: 700px) {\n.annotation-float-widget.bottom[data-v-72028fd0] {\n    bottom: 5em;\n}\n.annotation-float-widget.bottom.show[data-v-72028fd0] {\n    z-index: 999;\n}\n}\n.annotation-float-widget.bottom.selecting[data-v-72028fd0] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-72028fd0] {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  vertical-align: top !important;\n  direction: ltr;\n}\n.annotation-float-widget .footer-row > .column[data-v-72028fd0] {\n  white-space: nowrap;\n  overflow-x: auto;\n  overflow-y: hidden;\n  max-width: 100%;\n  margin-left: 1em;\n  margin-right: 1em;\n  padding-left: 0em !important;\n  padding-right: 0 !important;\n}\n.annotation-float-widget.is-fixed[data-v-72028fd0] {\n  margin-top: calc(-2em - 4px);\n}\n.close-container.floating.ui.label[data-v-72028fd0] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.4em !important;\n  padding-left: 0.15em !important;\n  padding-top: 0.3em !important;\n  padding-bottom: 0.3em !important;\n  top: 0.9em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.close-container.floating.ui.label .close.icon[data-v-72028fd0] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n.footer-row .UserAvatarIcons[data-v-72028fd0] {\n  vertical-align: top;\n}\n@media only screen and (max-width: 767px) {\n.footer-row > .column[data-v-72028fd0]  .UserAvatarIcons,\n  .footer-row > .column[data-v-72028fd0]  .AnnotationTypeButton {\n    display: none;\n}\n}\n.attached.label[data-v-72028fd0] {\n  padding: 0 !important;\n  text-align: right;\n}\n.attached.label .button[data-v-72028fd0] {\n  background-color: transparent;\n}\n.attached.label .button[data-v-72028fd0]:hover {\n  background-color: #D2D3D4;\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=72028fd0&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,sCAAsC;EACtC,UAAU;EACV,0CAA0C;EAC1C,0BAA0B;EAC1B,SAAS;EACT,WAAW;EACX,wBAAwB;EACxB,qBAAqB;EACrB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;AACA;IACI,QAAQ;IACR,mBAAmB;AACvB;AACA;AACA;EACE,UAAU;EACV,WAAW;AACb;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;AACA;IACI,WAAW;AACf;AACA;IACI,YAAY;AAChB;AACA;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,8BAA8B;EAC9B,cAAc;AAChB;AACA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,4BAA4B;EAC5B,2BAA2B;AAC7B;AACA;EACE,4BAA4B;AAC9B;AACA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,UAAU;EACV,mCAAmC;EACnC,yBAAyB;EACzB,+BAA+B;EAC/B,6BAA6B;EAC7B,gCAAgC;EAChC,qBAAqB;EACrB,kCAAkC;EAClC,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,qBAAqB;AACvB;AACA;EACE,mBAAmB;AACrB;AACA;AACA;;IAEI,aAAa;AACjB;AACA;AACA;EACE,qBAAqB;EACrB,iBAAiB;AACnB;AACA;EACE,6BAA6B;AAC/B;AACA;EACE,yBAAyB;AAC3B","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=72028fd0&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-72028fd0] {\n  transition: opacity 0.3s, z-index 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: -1;\n  width: calc(100vw - 4em);\n  top: calc(60px + 1em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n@media only screen and (max-height: 700px) {\n.annotation-float-widget[data-v-72028fd0] {\n    top: 1em;\n    max-height: inherit;\n}\n}\n.annotation-float-widget.show[data-v-72028fd0] {\n  opacity: 1;\n  z-index: 10;\n}\n.annotation-float-widget.bottom[data-v-72028fd0] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n@media only screen and (max-height: 700px) {\n.annotation-float-widget.bottom[data-v-72028fd0] {\n    bottom: 5em;\n}\n.annotation-float-widget.bottom.show[data-v-72028fd0] {\n    z-index: 999;\n}\n}\n.annotation-float-widget.bottom.selecting[data-v-72028fd0] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-72028fd0] {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  vertical-align: top !important;\n  direction: ltr;\n}\n.annotation-float-widget .footer-row > .column[data-v-72028fd0] {\n  white-space: nowrap;\n  overflow-x: auto;\n  overflow-y: hidden;\n  max-width: 100%;\n  margin-left: 1em;\n  margin-right: 1em;\n  padding-left: 0em !important;\n  padding-right: 0 !important;\n}\n.annotation-float-widget.is-fixed[data-v-72028fd0] {\n  margin-top: calc(-2em - 4px);\n}\n.close-container.floating.ui.label[data-v-72028fd0] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.4em !important;\n  padding-left: 0.15em !important;\n  padding-top: 0.3em !important;\n  padding-bottom: 0.3em !important;\n  top: 0.9em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.close-container.floating.ui.label .close.icon[data-v-72028fd0] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n.footer-row .UserAvatarIcons[data-v-72028fd0] {\n  vertical-align: top;\n}\n@media only screen and (max-width: 767px) {\n.footer-row > .column[data-v-72028fd0]  .UserAvatarIcons,\n  .footer-row > .column[data-v-72028fd0]  .AnnotationTypeButton {\n    display: none;\n}\n}\n.attached.label[data-v-72028fd0] {\n  padding: 0 !important;\n  text-align: right;\n}\n.attached.label .button[data-v-72028fd0] {\n  background-color: transparent;\n}\n.attached.label .button[data-v-72028fd0]:hover {\n  background-color: #D2D3D4;\n}\n"]}]);
+exports.push([module.i, ".annotation-float-widget[data-v-72028fd0] {\n  transition: opacity 0.3s, z-index 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: -1;\n  width: calc(100vw - 4em);\n  top: calc(60px + 1em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n@media only screen and (max-height: 700px) {\n.annotation-float-widget[data-v-72028fd0] {\n    top: 1em;\n    max-height: inherit;\n}\n}\n.annotation-float-widget.show[data-v-72028fd0] {\n  opacity: 1;\n  z-index: 10;\n}\n.annotation-float-widget.bottom[data-v-72028fd0] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n@media only screen and (max-height: 700px) {\n.annotation-float-widget.bottom[data-v-72028fd0] {\n    bottom: 5em;\n}\n.annotation-float-widget.bottom.show[data-v-72028fd0] {\n    z-index: 999;\n}\n}\n.annotation-float-widget.bottom.selecting[data-v-72028fd0] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-72028fd0] {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  vertical-align: top !important;\n  direction: ltr;\n}\n.annotation-float-widget .footer-row > .column[data-v-72028fd0] {\n  white-space: nowrap;\n  overflow-x: auto;\n  overflow-y: hidden;\n  max-width: 100%;\n  margin-left: 1em;\n  margin-right: 1em;\n  padding-left: 0em !important;\n  padding-right: 0 !important;\n}\n.annotation-float-widget.is-fixed[data-v-72028fd0] {\n  margin-top: calc(-2em - 4px);\n}\n.close-container.floating.ui.label[data-v-72028fd0] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.4em !important;\n  padding-left: 0.15em !important;\n  padding-top: 0.3em !important;\n  padding-bottom: 0.3em !important;\n  top: 0.9em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.close-container.floating.ui.label .close.icon[data-v-72028fd0] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n.footer-row .UserAvatarIcons[data-v-72028fd0] {\n  vertical-align: top;\n}\n@media only screen and (max-width: 767px) {\n.footer-row > .column[data-v-72028fd0]  .UserAvatarIcons,\n  .footer-row > .column[data-v-72028fd0]  .AnnotationTypeButton {\n    display: none;\n}\n}\n.attached.label[data-v-72028fd0] {\n  padding: 0 !important;\n  text-align: right;\n  /*\n  .button {\n    background-color: transparent;\n    margin-right: 0 !important;\n    border-radius: 0;\n    \n    &:hover {\n      background-color: #D2D3D4;\n    }\n  }\n  */\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=72028fd0&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,sCAAsC;EACtC,UAAU;EACV,0CAA0C;EAC1C,0BAA0B;EAC1B,SAAS;EACT,WAAW;EACX,wBAAwB;EACxB,qBAAqB;EACrB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;AACA;IACI,QAAQ;IACR,mBAAmB;AACvB;AACA;AACA;EACE,UAAU;EACV,WAAW;AACb;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;AACA;IACI,WAAW;AACf;AACA;IACI,YAAY;AAChB;AACA;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,8BAA8B;EAC9B,cAAc;AAChB;AACA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,4BAA4B;EAC5B,2BAA2B;AAC7B;AACA;EACE,4BAA4B;AAC9B;AACA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,UAAU;EACV,mCAAmC;EACnC,yBAAyB;EACzB,+BAA+B;EAC/B,6BAA6B;EAC7B,gCAAgC;EAChC,qBAAqB;EACrB,kCAAkC;EAClC,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,qBAAqB;AACvB;AACA;EACE,mBAAmB;AACrB;AACA;AACA;;IAEI,aAAa;AACjB;AACA;AACA;EACE,qBAAqB;EACrB,iBAAiB;EACjB;;;;;;;;;;GAUC;AACH","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=72028fd0&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-72028fd0] {\n  transition: opacity 0.3s, z-index 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: -1;\n  width: calc(100vw - 4em);\n  top: calc(60px + 1em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n@media only screen and (max-height: 700px) {\n.annotation-float-widget[data-v-72028fd0] {\n    top: 1em;\n    max-height: inherit;\n}\n}\n.annotation-float-widget.show[data-v-72028fd0] {\n  opacity: 1;\n  z-index: 10;\n}\n.annotation-float-widget.bottom[data-v-72028fd0] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n@media only screen and (max-height: 700px) {\n.annotation-float-widget.bottom[data-v-72028fd0] {\n    bottom: 5em;\n}\n.annotation-float-widget.bottom.show[data-v-72028fd0] {\n    z-index: 999;\n}\n}\n.annotation-float-widget.bottom.selecting[data-v-72028fd0] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-72028fd0] {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  vertical-align: top !important;\n  direction: ltr;\n}\n.annotation-float-widget .footer-row > .column[data-v-72028fd0] {\n  white-space: nowrap;\n  overflow-x: auto;\n  overflow-y: hidden;\n  max-width: 100%;\n  margin-left: 1em;\n  margin-right: 1em;\n  padding-left: 0em !important;\n  padding-right: 0 !important;\n}\n.annotation-float-widget.is-fixed[data-v-72028fd0] {\n  margin-top: calc(-2em - 4px);\n}\n.close-container.floating.ui.label[data-v-72028fd0] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.4em !important;\n  padding-left: 0.15em !important;\n  padding-top: 0.3em !important;\n  padding-bottom: 0.3em !important;\n  top: 0.9em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.close-container.floating.ui.label .close.icon[data-v-72028fd0] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n.footer-row .UserAvatarIcons[data-v-72028fd0] {\n  vertical-align: top;\n}\n@media only screen and (max-width: 767px) {\n.footer-row > .column[data-v-72028fd0]  .UserAvatarIcons,\n  .footer-row > .column[data-v-72028fd0]  .AnnotationTypeButton {\n    display: none;\n}\n}\n.attached.label[data-v-72028fd0] {\n  padding: 0 !important;\n  text-align: right;\n  /*\n  .button {\n    background-color: transparent;\n    margin-right: 0 !important;\n    border-radius: 0;\n    \n    &:hover {\n      background-color: #D2D3D4;\n    }\n  }\n  */\n}\n"]}]);
 
 
 /***/ }),
@@ -687,7 +687,7 @@ exports.push([module.i, "body.pacor-disable-user-select {\n  user-select: none;\
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".AnnotationPanel[data-v-62f82089] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n}\n.annotation-panel[data-v-62f82089] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 1.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 4em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-62f82089] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-62f82089] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-62f82089] {\n  padding: 0;\n}\n.annotation-panel .close-container.floating.ui.label[data-v-62f82089] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: 100% !important;\n  padding: 0.5em !important;\n  padding-left: 0.2em !important;\n  padding-top: 0.31em !important;\n  padding-bottom: 0.4em !important;\n  top: -1em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n  position: absolute !important;\n}\n@media (max-width: 480px) {\n.annotation-panel .close-container.floating.ui.label[data-v-62f82089] {\n    position: fixed !important;\n    top: -1em !important;\n}\n}\n.annotation-panel .close-container.floating.ui.label .close.icon[data-v-62f82089] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n  margin-top: 0.1em;\n}\n.resize-handler[data-v-62f82089] {\n  width: calc(100% - 1.5em);\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-62f82089] {\n  cursor: grabbing;\n}\n@media (max-width: 767px) {\n.annotation-panel .ui.segment.form.main-segment[data-v-62f82089] {\n    padding-left: 0 !important;\n    padding-right: 0 !important;\n}\n.annotation-panel .close-container.floating.ui.label[data-v-62f82089] {\n    top: -1.2em;\n    left: calc(100% + 0.3em) !important;\n}\n.annotation-panel .close-container.floating.ui.label .close.icon[data-v-62f82089] {\n    margin-left: 0.4em !important;\n    margin-bottom: -0.1em !important;\n}\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=62f82089&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0CAA0C;AAC5C;AACA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,gCAAgC;EAChC,mCAAmC;AACrC;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,UAAU;EACV,qBAAqB;EACrB,yBAAyB;EACzB,8BAA8B;EAC9B,8BAA8B;EAC9B,gCAAgC;EAChC,oBAAoB;EACpB,kCAAkC;EAClC,6BAA6B;EAC7B,6BAA6B;AAC/B;AACA;AACA;IACI,0BAA0B;IAC1B,oBAAoB;AACxB;AACA;AACA;EACE,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,qBAAqB;EACrB,iBAAiB;AACnB;AACA;EACE,yBAAyB;EACzB,WAAW;EACX,YAAY;EACZ,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;AACZ;AACA;EACE,gBAAgB;AAClB;AACA;AACA;IACI,0BAA0B;IAC1B,2BAA2B;AAC/B;AACA;IACI,WAAW;IACX,mCAAmC;AACvC;AACA;IACI,6BAA6B;IAC7B,gCAAgC;AACpC;AACA","file":"AnnotationPanel.less?vue&type=style&index=0&id=62f82089&lang=less&scoped=true&","sourcesContent":[".AnnotationPanel[data-v-62f82089] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n}\n.annotation-panel[data-v-62f82089] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 1.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 4em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-62f82089] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-62f82089] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-62f82089] {\n  padding: 0;\n}\n.annotation-panel .close-container.floating.ui.label[data-v-62f82089] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: 100% !important;\n  padding: 0.5em !important;\n  padding-left: 0.2em !important;\n  padding-top: 0.31em !important;\n  padding-bottom: 0.4em !important;\n  top: -1em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n  position: absolute !important;\n}\n@media (max-width: 480px) {\n.annotation-panel .close-container.floating.ui.label[data-v-62f82089] {\n    position: fixed !important;\n    top: -1em !important;\n}\n}\n.annotation-panel .close-container.floating.ui.label .close.icon[data-v-62f82089] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n  margin-top: 0.1em;\n}\n.resize-handler[data-v-62f82089] {\n  width: calc(100% - 1.5em);\n  height: 2em;\n  cursor: grab;\n  margin-top: -2em;\n  position: relative;\n  z-index: 1;\n}\n.resize-handler.moving[data-v-62f82089] {\n  cursor: grabbing;\n}\n@media (max-width: 767px) {\n.annotation-panel .ui.segment.form.main-segment[data-v-62f82089] {\n    padding-left: 0 !important;\n    padding-right: 0 !important;\n}\n.annotation-panel .close-container.floating.ui.label[data-v-62f82089] {\n    top: -1.2em;\n    left: calc(100% + 0.3em) !important;\n}\n.annotation-panel .close-container.floating.ui.label .close.icon[data-v-62f82089] {\n    margin-left: 0.4em !important;\n    margin-bottom: -0.1em !important;\n}\n}\n"]}]);
+exports.push([module.i, ".AnnotationPanel[data-v-62f82089] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n}\n.annotation-panel[data-v-62f82089] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 1.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 4em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-62f82089] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-62f82089] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-62f82089] {\n  padding: 0;\n}\n.annotation-panel .close-container.floating.ui.label[data-v-62f82089] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: 100% !important;\n  padding: 0.5em !important;\n  padding-left: 0.2em !important;\n  padding-top: 0.31em !important;\n  padding-bottom: 0.4em !important;\n  top: -1em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n  position: absolute !important;\n}\n@media (max-width: 480px) {\n.annotation-panel .close-container.floating.ui.label[data-v-62f82089] {\n    position: fixed !important;\n    top: -1em !important;\n}\n}\n.annotation-panel .close-container.floating.ui.label .close.icon[data-v-62f82089] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n  margin-top: 0.1em;\n}\n.resize-handler[data-v-62f82089] {\n  /*\n  width: calc(100% - 1.5em);\n  height: @resizeHandlerHeight;\n  //position: relative;\n  cursor: grab;\n  margin-top: @resizeHandlerHeight * -1;\n  position: relative;\n  z-index: 1;\n  //top: -1em;\n  //background-color: rgba(255,0,0,0.7);\n  */\n  width: calc(100% - 11em);\n  display: inline-block;\n  height: 3em;\n  cursor: ns-resize;\n}\n.resize-handler.moving[data-v-62f82089] {\n  cursor: grabbing !important;\n}\n@media (max-width: 767px) {\n.annotation-panel .ui.segment.form.main-segment[data-v-62f82089] {\n    padding-left: 0 !important;\n    padding-right: 0 !important;\n}\n.annotation-panel .close-container.floating.ui.label[data-v-62f82089] {\n    top: -1.2em;\n    left: calc(100% + 0.3em) !important;\n}\n.annotation-panel .close-container.floating.ui.label .close.icon[data-v-62f82089] {\n    margin-left: 0.4em !important;\n    margin-bottom: -0.1em !important;\n}\n}\n.attached.label[data-v-62f82089] {\n  padding: 0 !important;\n  text-align: right;\n}\n.attached.label .button[data-v-62f82089]:hover {\n  background-color: #D2D3D4;\n}\n.attached.label .button.resize-button[data-v-62f82089] {\n  cursor: ns-resize;\n}\n.attached.label .button.resize-button.moving[data-v-62f82089] {\n  cursor: grabbing !important;\n}\n", "",{"version":3,"sources":["AnnotationPanel.less?vue&type=style&index=0&id=62f82089&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,0CAA0C;AAC5C;AACA;EACE,0BAA0B;EAC1B,wBAAwB;EACxB,2BAA2B;EAC3B,sBAAsB;EACtB,oBAAoB;EACpB,mCAAmC;EACnC,uBAAuB;EACvB;;;;GAIC;AACH;AACA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,gCAAgC;EAChC,mCAAmC;AACrC;AACA;EACE,aAAa;AACf;AACA;EACE,UAAU;AACZ;AACA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,UAAU;EACV,qBAAqB;EACrB,yBAAyB;EACzB,8BAA8B;EAC9B,8BAA8B;EAC9B,gCAAgC;EAChC,oBAAoB;EACpB,kCAAkC;EAClC,6BAA6B;EAC7B,6BAA6B;AAC/B;AACA;AACA;IACI,0BAA0B;IAC1B,oBAAoB;AACxB;AACA;AACA;EACE,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,qBAAqB;EACrB,iBAAiB;AACnB;AACA;EACE;;;;;;;;;;GAUC;EACD,wBAAwB;EACxB,qBAAqB;EACrB,WAAW;EACX,iBAAiB;AACnB;AACA;EACE,2BAA2B;AAC7B;AACA;AACA;IACI,0BAA0B;IAC1B,2BAA2B;AAC/B;AACA;IACI,WAAW;IACX,mCAAmC;AACvC;AACA;IACI,6BAA6B;IAC7B,gCAAgC;AACpC;AACA;AACA;EACE,qBAAqB;EACrB,iBAAiB;AACnB;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,iBAAiB;AACnB;AACA;EACE,2BAA2B;AAC7B","file":"AnnotationPanel.less?vue&type=style&index=0&id=62f82089&lang=less&scoped=true&","sourcesContent":[".AnnotationPanel[data-v-62f82089] {\n  filter: drop-shadow(0px 0px 0.5em #000000);\n}\n.annotation-panel[data-v-62f82089] {\n  position: fixed !important;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  left: 1.5em !important;\n  bottom: 0 !important;\n  width: calc(100vw - 4em) !important;\n  z-index: 102 !important;\n  /*\n  animation-duration: 3s;\n  animation-delay: 2s;\n  animation-iteration-count: infinite;\n  */\n}\n.annotation-panel > .ui.segment.form[data-v-62f82089] {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  padding: 1em !important;\n  border-top-width: 5px !important;\n  border-top-style: double !important;\n}\n.annotation-panel.hidden[data-v-62f82089] {\n  display: none;\n}\n.annotation-panel .ui.segment.form[data-v-62f82089] {\n  padding: 0;\n}\n.annotation-panel .close-container.floating.ui.label[data-v-62f82089] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: 100% !important;\n  padding: 0.5em !important;\n  padding-left: 0.2em !important;\n  padding-top: 0.31em !important;\n  padding-bottom: 0.4em !important;\n  top: -1em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n  position: absolute !important;\n}\n@media (max-width: 480px) {\n.annotation-panel .close-container.floating.ui.label[data-v-62f82089] {\n    position: fixed !important;\n    top: -1em !important;\n}\n}\n.annotation-panel .close-container.floating.ui.label .close.icon[data-v-62f82089] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n  margin-top: 0.1em;\n}\n.resize-handler[data-v-62f82089] {\n  /*\n  width: calc(100% - 1.5em);\n  height: @resizeHandlerHeight;\n  //position: relative;\n  cursor: grab;\n  margin-top: @resizeHandlerHeight * -1;\n  position: relative;\n  z-index: 1;\n  //top: -1em;\n  //background-color: rgba(255,0,0,0.7);\n  */\n  width: calc(100% - 11em);\n  display: inline-block;\n  height: 3em;\n  cursor: ns-resize;\n}\n.resize-handler.moving[data-v-62f82089] {\n  cursor: grabbing !important;\n}\n@media (max-width: 767px) {\n.annotation-panel .ui.segment.form.main-segment[data-v-62f82089] {\n    padding-left: 0 !important;\n    padding-right: 0 !important;\n}\n.annotation-panel .close-container.floating.ui.label[data-v-62f82089] {\n    top: -1.2em;\n    left: calc(100% + 0.3em) !important;\n}\n.annotation-panel .close-container.floating.ui.label .close.icon[data-v-62f82089] {\n    margin-left: 0.4em !important;\n    margin-bottom: -0.1em !important;\n}\n}\n.attached.label[data-v-62f82089] {\n  padding: 0 !important;\n  text-align: right;\n}\n.attached.label .button[data-v-62f82089]:hover {\n  background-color: #D2D3D4;\n}\n.attached.label .button.resize-button[data-v-62f82089] {\n  cursor: ns-resize;\n}\n.attached.label .button.resize-button.moving[data-v-62f82089] {\n  cursor: grabbing !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -1126,21 +1126,25 @@ var render = function() {
             { staticClass: "ui tertiary segment" },
             [
               _vm.isFixed
-                ? _c("div", { staticClass: "ui top attached mini label" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "ui mini icon button",
-                        on: {
-                          click: function($event) {
-                            $event.stopPropagation()
-                            return _vm.reset($event)
+                ? _c(
+                    "div",
+                    { staticClass: "ui top attached mini label label-buttons" },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "ui mini icon button",
+                          on: {
+                            click: function($event) {
+                              $event.stopPropagation()
+                              return _vm.reset($event)
+                            }
                           }
-                        }
-                      },
-                      [_c("i", { staticClass: "close icon" })]
-                    )
-                  ])
+                        },
+                        [_c("i", { staticClass: "close icon" })]
+                      )
+                    ]
+                  )
                 : _vm._e(),
               _vm._v(" "),
               _c("annotation-item", {
@@ -2200,23 +2204,59 @@ var render = function() {
         [
           _c(
             "div",
-            {
-              staticClass: "close-container floating ui black label",
-              on: {
-                click: function($event) {
-                  $event.stopPropagation()
-                  return _vm.hide($event)
+            { staticClass: "ui top attached mini label label-buttons" },
+            [
+              _c("div", {
+                staticClass: "resize-handler",
+                class: { moving: _vm.resizeLocker },
+                on: {
+                  mousedown: _vm.onResizeStart,
+                  touchstart: _vm.onResizeStart
                 }
-              }
-            },
-            [_c("i", { staticClass: "close icon" })]
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "ui mini icon button resize-button",
+                  class: { moving: _vm.resizeLocker },
+                  on: {
+                    mousedown: _vm.onResizeStart,
+                    touchstart: _vm.onResizeStart
+                  }
+                },
+                [_c("i", { staticClass: "arrows alternate vertical icon" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "ui mini icon button",
+                  on: {
+                    click: function($event) {
+                      $event.stopPropagation()
+                      return _vm.hide($event)
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "question icon" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "ui mini icon button",
+                  on: {
+                    click: function($event) {
+                      $event.stopPropagation()
+                      return _vm.hide($event)
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "close icon" })]
+              )
+            ]
           ),
-          _vm._v(" "),
-          _c("div", {
-            staticClass: "resize-handler",
-            class: { moving: _vm.resizeLocker },
-            on: { mousedown: _vm.onResizeStart, touchstart: _vm.onResizeStart }
-          }),
           _vm._v(" "),
           _vm.panelData.annotation
             ? [
@@ -9667,7 +9707,8 @@ __webpack_require__.r(__webpack_exports__);
       return undefined
     }
     
-    let padding = 40
+    //let padding = 40
+    let padding = 60
     if (this.annotations.length < 2) {
       padding = 0
     }
@@ -12762,7 +12803,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Reading.components.AnnotationManager.AnnotationPanel.'
 const disableSelectClass = 'pacor-disable-user-select'
-let resizeLocker = false
 
 
 
@@ -12775,10 +12815,10 @@ let preventScroll = function (event) {
 /* harmony default export */ __webpack_exports__["default"] = ((AnnotationPanel) => {
 
   AnnotationPanel.methods.onResizeStart = function (event) {
-    if (resizeLocker === true) {
+    if (this.resizeLocker === true) {
       return false
     }
-    resizeLocker = true
+    this.resizeLocker = true
     //console.log('start')
     //let body = $('body')
     if (!body) {
@@ -12840,7 +12880,7 @@ let preventScroll = function (event) {
       document.removeEventListener('touchmove', moveEvent)
       document.removeEventListener('touchend', removeMoveEvent)
       body.removeClass(disableSelectClass)
-      resizeLocker = false
+      this.resizeLocker = false
 
       // 計算最後的比例，然後存到preference去
       let sizeRatio = ((window.innerHeight - currentY) / window.innerHeight)

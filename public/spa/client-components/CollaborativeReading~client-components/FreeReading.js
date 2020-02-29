@@ -515,18 +515,6 @@ __webpack_require__.r(__webpack_exports__);
     
     // ---------------------------
 
-    this.lib.TutorialManager.addAction({
-      enable: () => {
-        return !this.$refs.nav.isCompactMode
-      },
-      element: async () => {
-        let element = this.$refs.nav.find('.UserFilter:visible:first')
-        return element
-      },
-      content: this.$t('You can select a peer and watch what he/she read.'),
-      order: 33
-    })
-
     /**
      * 標註類型選取器
      * 全螢幕版本
@@ -553,8 +541,21 @@ __webpack_require__.r(__webpack_exports__);
         }
       },
       content: this.$t('You can choose a type of annotations to read.'),
+      order: 33
+    })
+    
+    this.lib.TutorialManager.addAction({
+      enable: () => {
+        return !this.$refs.nav.isCompactMode
+      },
+      element: async () => {
+        let element = this.$refs.nav.find('.UserFilter:visible:first')
+        return element
+      },
+      content: this.$t('You can select a peer and watch what he/she read.'),
       order: 34
     })
+
     
     // ---------------------------
     

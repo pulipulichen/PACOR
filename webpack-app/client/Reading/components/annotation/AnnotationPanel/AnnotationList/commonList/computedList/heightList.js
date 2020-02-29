@@ -4,7 +4,8 @@ export default (List) => {
       return undefined
     }
     
-    let padding = 40
+    //let padding = 40
+    let padding = 60
     if (this.annotations.length < 2) {
       padding = 0
     }
