@@ -42,6 +42,31 @@ iframe {
   &> .item.more {
     display: none !important;
   }
+  
+}
+
+.header-icon {
+  float: right;
+  margin-right: 2em !important;
+  cursor: pointer;
+  font-size: 0.6em;
+  
+  &> .icon {
+    //background-color: #D2D3D4;
+    //border: 1px solid #D2D3D4;
+    //border-radius: 0.1em;
+    
+    &.green,
+    &.positive {
+      color: #21ba45 !important;
+    }
+    
+    &:hover {
+      color: #16AB39 !important;
+    }
+        
+  }
+  
 }
 
 @media only screen and (max-width: 767px) {

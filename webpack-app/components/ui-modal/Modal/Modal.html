@@ -19,6 +19,11 @@
       </div>
     </div>
     
+    <div v-if="$slots.headerIcon"
+         class="header-icon">
+      <slot name="headerIcon"></slot>
+    </div>
+    
     <div class="header-slot">
       <slot name="header"></slot>
     </div>

@@ -142,6 +142,9 @@
     "v-on:mouseover": {},
     "v-html": {},
     "v-bind:stepData": {},
+    "v-slot:headericon": {
+      "context": "template"
+    },
     "v-on:click": {
       "context": "button"
     },

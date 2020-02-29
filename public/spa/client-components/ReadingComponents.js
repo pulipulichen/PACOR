@@ -5099,6 +5099,23 @@ var render = function() {
               },
               proxy: true
             },
+            {
+              key: "headerIcon",
+              fn: function() {
+                return [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "icon",
+                      attrs: { title: _vm.$t("Start Tutorial") },
+                      on: { click: _vm.startTutorial }
+                    },
+                    [_c("i", { staticClass: "question icon" })]
+                  )
+                ]
+              },
+              proxy: true
+            },
             _vm.$slots.content
               ? {
                   key: "content",

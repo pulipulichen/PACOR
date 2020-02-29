@@ -15,6 +15,13 @@
           {{ $t('READING_PROGRESS.' + lib.auth.currentStep) }}
         </div>
       </template>
+      <template v-slot:headerIcon>
+        <div class="icon"
+             v-bind:title="$t('Start Tutorial')"
+             v-on:click="startTutorial">
+          <i class="question icon"></i>
+        </div>
+      </template>
       <template v-slot:content
                 v-if="$slots.content">
         <slot name="content"></slot>

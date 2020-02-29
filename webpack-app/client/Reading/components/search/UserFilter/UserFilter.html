@@ -38,6 +38,14 @@
       <template v-slot:header>
         {{ $t('Please select a peer') }}
       </template>
+      <template v-slot:headerIcon>
+        <div class="icon"
+             v-bind:title="$t('Start Tutorial')"
+             v-on:click="startUserFilterTutorial"
+             v-bind:class="{green: !hasReadTutorial}">
+          <i class="question icon"></i>
+        </div>
+      </template>
       <template v-slot:content>
         <div class="ui grid">
           <div class="six wide column left-column">
@@ -96,11 +104,13 @@
           </template>
         </div>
         
+        <!--
         <div class="ui button user-filter-tutorial-button"
              v-on:click="startUserFilterTutorial"
              v-bind:class="{green: !hasReadTutorial}">
             {{ $t('Start Tutorial') }}
         </div>
+        -->
       </template>
   </modal>
 </a>
