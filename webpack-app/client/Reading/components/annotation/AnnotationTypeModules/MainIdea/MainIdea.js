@@ -103,7 +103,8 @@ let Editor = {
       
       let vm = this
       let height
-      let basePadding = `5em`
+      //let basePadding = `5em`
+      let basePadding = `6em`
       
       //console.log(this.lib.auth.isEnableCollaboration)
       if (this.lib.auth.isEnableCollaboration === true) {

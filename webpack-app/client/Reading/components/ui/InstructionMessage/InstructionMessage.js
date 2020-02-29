@@ -2,9 +2,16 @@ let InstructionMessage = {
   props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
+    let localStorageUserKeyPrefix = 'InstructionMessage.' 
+              + this.status.userID + '.' 
+              + this.lib.auth.currentStep
+    let hasReadTutorial = (localStorage.getItem(localStorageUserKeyPrefix) !== null)
+    //console.log(hasReadTutorial, localStorageUserKeyPrefix)
+    
     return {
       tempStepName: this.lib.auth.currentStep,
-      hasReadTutorial: false
+      hasReadTutorial: hasReadTutorial
     }
   },
 //  components: {

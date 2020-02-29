@@ -128,7 +128,8 @@ export default function (AnnotationPanel) {
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return ($(this.$refs.panel).find('.AnnotationSingle.edit-mode .column.annotation-editor:visible:first').length === 1)
+        return (($(this.$refs.panel).find('.AnnotationSingle.edit-mode .column.annotation-editor:visible:first').length === 1)
+                && ($(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1))
       },
       element: () => {
         return $(this.$refs.panel).find('.AnnotationSingle.edit-mode .column.annotation-editor:visible:first')
@@ -137,15 +138,31 @@ export default function (AnnotationPanel) {
       order: 202,
     })
     
+    // ------------------------------
+    
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return ($(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+        return (($(this.$refs.panel).find('.AnnotationSingle .AnnotaionInstruction:visible:first').length === 1)
+                && ($(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 0))
       },
       element: () => {
-        return $(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first')
+        return $(this.$refs.panel).find('.AnnotationSingle .html-editor-container:visible:first')
       },
-      content: this.$t('Click here to read the instruction of this annotation type.'),
-      order: 204,
+      content: this.$t('Write notes based on your reading strategy. Try to use notes to deepen your impression of the article.'),
+      order: 205,
+    })
+    
+    // ------------------------------
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return ($(this.$refs.panel).find('.AnnotationSingle .QuestionTemplate:visible:first').length === 1)
+      },
+      element: () => {
+        return $(this.$refs.panel).find('.AnnotationSingle .QuestionTemplate:visible:first')
+      },
+      content: this.$t('Try to build your question from template.'),
+      order: 212,
     })
     
     this.lib.TutorialManager.addAction(tutorialKey, {
@@ -161,6 +178,20 @@ export default function (AnnotationPanel) {
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
+        return (($(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+                && ($(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 0))
+      },
+      element: () => {
+        return $(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first')
+      },
+      content: this.$t('Click here to read the instruction of this annotation type.'),
+      order: 219,
+    })
+    
+    // ------------------------
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
         return ($(this.$refs.panel).find('.AnnotationSingle .AnnotationInteractive .like.button:visible:first').length === 1)
       },
       element: () => {
@@ -169,6 +200,8 @@ export default function (AnnotationPanel) {
       content: this.$t('If you like this annotation, click "Like" button.'),
       order: 221,
     })
+    
+    // ------------------------------
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {

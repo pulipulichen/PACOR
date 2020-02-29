@@ -68,15 +68,6 @@ export default function (NavigationItems) {
       order: 33
     })
 
-    
-    this.lib.TutorialManager.addAction({
-      element: () => {
-        return this.$refs.nav.find('.NotificationIcon:visible:first')
-      },
-      content: this.$t(`You will get notifications from other readers here.`),
-      order: 34
-    })
-    
     // ---------------------------
 
     
@@ -100,7 +91,7 @@ export default function (NavigationItems) {
       element: async () => {
         return this.$refs.nav.find('.UserFilter:visible:first')
       },
-      content: this.$t('You can select a peer and watch what he/she read.'),
+      content: this.$t('Select a reader, watch how he/she read the article, and give him/her suggestions.'),
       order: 35
     })
 
@@ -129,12 +120,38 @@ export default function (NavigationItems) {
         
 //        return $('.ui.popup.visible:visible')
       },
-      afterClick: () => {
-        this.$refs.AnnotationTypeFilter.hide()
+      afterClick: async () => {
+        await this.$refs.AnnotationTypeFilter.hide()
+        await this.lib.VueHelper.sleep(500)
       },
-      content: this.$t('You can choose a type of annotations to read.'),
+      content: this.$t('Select an annotation type to watch how readers use it to read the article.'),
       order: 36
     })
+    
+    this.lib.TutorialManager.addAction({
+      beforeCallback: async () => {
+        if (this.$refs.nav.isCompactMode === false) {
+          return false
+        }
+        
+        await this.$refs.nav.hideSideMenu()
+        await this.lib.VueHelper.sleep(500)
+        
+//        window.el = this.$refs.AnnotationTypeFilter.$el
+//        await this.lib.TutorialManager.showClick(this.$refs.AnnotationTypeFilter.$el.getBoundingClientRect())
+//        await this.lib.VueHelper.sleep(500)
+        
+//        await this.$refs.AnnotationTypeFilter.show(true)
+//        await this.lib.VueHelper.sleep(500)
+      },
+      element: () => {
+        return $('.NotificationIcon:visible:first')
+      },
+      backgroundFadeOut: true,
+      content: this.$t(`You will get notifications from other readers here.`),
+      order: 38
+    })
+    
     
     // --------------------------
 

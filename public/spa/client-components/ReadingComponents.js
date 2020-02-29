@@ -105,7 +105,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Click \\"ADD\\" to save it.":"按下記下「關鍵字」即可儲存標註。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該閱讀策略。","You can give a comment to any annotation.":"您可以為標註提供建議。","Try to give a suggestion for the reader.":"試著給這位讀者一些建議吧。","Here shows a summary of the list.":"這裡顯示了標註列表的摘要。","You can filter the list with keywords.":"您可以用指定文字來篩選列表。","Click here to see the detail of this annotation and give a suggestion.":"您可點選此處查看標註的詳細內容，並給予建議。","Here is the annotation wrote by other reader.":"這裡是其他讀者撰寫的標註。","Here is the annotation wrote by you. You can edit the annotation.":"這裡是您撰寫的標註，您可以編輯它。","You can use the \\"Finding Answer\\" tool to find the answer of the question.":"您可以用「找尋解答」功能來找尋這個問題的答案。","If you like this annotation, click \\"Like\\" button.":"如果您喜歡這個標註，請按個「讚」吧。","Click here to read the instruction of this annotation type.":"點此查看如何使用這種閱讀策略。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Click \\"ADD\\" to save it.":"按下記下「關鍵字」即可儲存標註。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該閱讀策略。","You can give a comment to any annotation.":"您可以為標註提供建議。","Try to give a suggestion for the reader.":"試著給這位讀者一些建議吧。","Here shows a summary of the list.":"這裡顯示了標註列表的摘要。","You can filter the list with keywords.":"您可以用指定文字來篩選列表。","Click here to see the detail of this annotation and give a suggestion.":"您可點選此處查看標註的詳細內容，並給予建議。","Here is the annotation wrote by other reader.":"這裡是其他讀者撰寫的標註。","Here is the annotation wrote by you. You can edit the annotation.":"這裡是您撰寫的標註，您可以編輯它。","You can use the \\"Finding Answer\\" tool to find the answer of the question.":"您可以用「找尋解答」功能來找尋這個問題的答案。","If you like this annotation, click \\"Like\\" button.":"如果您喜歡他/她寫的標註，請給他/她按個「讚」吧。","Click here to read the instruction of this annotation type.":"點此查看如何使用閱讀策略。","Write notes based on your reading strategy. Try to use notes to deepen your impression of the article.":"根據閱讀策略來撰寫筆記，試著用筆記您加深對文章的印象吧。","Try to build your question from template.":"您可以利用範本來建立您的問題。"}}')
   delete Component.options._Ctor
 }
 
@@ -5176,7 +5176,7 @@ var render = function() {
                     "div",
                     {
                       staticClass: "ui button start-tutorial",
-                      class: { positive: !_vm.enableLogout },
+                      class: { positive: !_vm.hasReadTutorial },
                       on: { click: _vm.startTutorial }
                     },
                     [
@@ -13159,7 +13159,8 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .column.annotation-editor:visible:first').length === 1)
+        return ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .column.annotation-editor:visible:first').length === 1)
+                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1))
       },
       element: () => {
         return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .column.annotation-editor:visible:first')
@@ -13168,15 +13169,31 @@ __webpack_require__.r(__webpack_exports__);
       order: 202,
     })
     
+    // ------------------------------
+    
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+        return ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .AnnotaionInstruction:visible:first').length === 1)
+                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 0))
       },
       element: () => {
-        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first')
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .html-editor-container:visible:first')
       },
-      content: this.$t('Click here to read the instruction of this annotation type.'),
-      order: 204,
+      content: this.$t('Write notes based on your reading strategy. Try to use notes to deepen your impression of the article.'),
+      order: 205,
+    })
+    
+    // ------------------------------
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .QuestionTemplate:visible:first').length === 1)
+      },
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .QuestionTemplate:visible:first')
+      },
+      content: this.$t('Try to build your question from template.'),
+      order: 212,
     })
     
     this.lib.TutorialManager.addAction(tutorialKey, {
@@ -13192,6 +13209,20 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
+        return ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 0))
+      },
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first')
+      },
+      content: this.$t('Click here to read the instruction of this annotation type.'),
+      order: 219,
+    })
+    
+    // ------------------------
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
         return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .AnnotationInteractive .like.button:visible:first').length === 1)
       },
       element: () => {
@@ -13200,6 +13231,8 @@ __webpack_require__.r(__webpack_exports__);
       content: this.$t('If you like this annotation, click "Like" button.'),
       order: 221,
     })
+    
+    // ------------------------------
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
@@ -14312,7 +14345,8 @@ let answerHeightPadding = '8em'
         }
         
         let height
-        let basePadding = `9em`
+        //let basePadding = `9em`
+        let basePadding = `10em`
         
         if (this.enableCollaboration === true
                 && this.lib.style.isStackWidth) {
@@ -14344,9 +14378,14 @@ let answerHeightPadding = '8em'
 
     computedAnswerEditorHeight() {
       let height
-      let basePadding = `12em`
+      
+      //let basePadding = `12em`
+      //if (!this.panelData.enableDiscussion) {
+      //  basePadding = `10em`
+      //}
+      let basePadding = `13em`
       if (!this.panelData.enableDiscussion) {
-        basePadding = `10em`
+        basePadding = `11em`
       }
       
       if (this.enableCollaboration === true
@@ -14957,7 +14996,8 @@ let Editor = {
       
       let vm = this
       let height
-      let basePadding = `5em`
+      //let basePadding = `5em`
+      let basePadding = `6em`
       
       //console.log(this.lib.auth.isEnableCollaboration)
       if (this.lib.auth.isEnableCollaboration === true) {
@@ -15299,7 +15339,8 @@ let Editor = {
       
       let vm = this
       let height
-      let basePadding = `5em`
+      //let basePadding = `5em`
+      let basePadding = `6em`
       
       //console.log(this.lib.auth.isEnableCollaboration)
       if (this.lib.auth.isEnableCollaboration === true) {
@@ -29232,9 +29273,16 @@ let InstructionMessage = {
   props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
+    let localStorageUserKeyPrefix = 'InstructionMessage.' 
+              + this.status.userID + '.' 
+              + this.lib.auth.currentStep
+    let hasReadTutorial = (localStorage.getItem(localStorageUserKeyPrefix) !== null)
+    //console.log(hasReadTutorial, localStorageUserKeyPrefix)
+    
     return {
       tempStepName: this.lib.auth.currentStep,
-      hasReadTutorial: false
+      hasReadTutorial: hasReadTutorial
     }
   },
 //  components: {

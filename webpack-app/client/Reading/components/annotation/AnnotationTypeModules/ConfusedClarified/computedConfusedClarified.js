@@ -80,7 +80,8 @@ export default (Editor) => {
         }
         
         let height
-        let basePadding = `9em`
+        //let basePadding = `9em`
+        let basePadding = `10em`
         
         if (this.enableCollaboration === true
                 && this.lib.style.isStackWidth) {
@@ -112,9 +113,14 @@ export default (Editor) => {
 
     computedAnswerEditorHeight() {
       let height
-      let basePadding = `12em`
+      
+      //let basePadding = `12em`
+      //if (!this.panelData.enableDiscussion) {
+      //  basePadding = `10em`
+      //}
+      let basePadding = `13em`
       if (!this.panelData.enableDiscussion) {
-        basePadding = `10em`
+        basePadding = `11em`
       }
       
       if (this.enableCollaboration === true

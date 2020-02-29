@@ -42,7 +42,7 @@
           {{ $t('Logout') }}
         </div>
         <div class="ui button start-tutorial"
-             v-bind:class="{positive: !enableLogout}"
+             v-bind:class="{positive: !hasReadTutorial}"
              v-on:click="startTutorial">
           {{ $t('Start Tutorial') }}
         </div>
