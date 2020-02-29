@@ -13,36 +13,36 @@ export default function (AnnotationPanel) {
   }
   
   AnnotationPanel.methods.setupTutorialCollaborativeReading = function () {
-    this.lib.TutorialManager.addAction({
-      backgroundFadeOut: true,
-      beforeCallback: async () => {
-        // 總之隨機塞一個標註進來吧
-        let section = this.lib.RangyManager.getOhterHighlightedSection()
-        if (!section) {
-          return false
-        }
-        
-        let seqID = parseInt(section.attr('data-pacor-paragraph-seq-id'), 10)
-        //console.log(sectionID)
-        
-        let annotation = await this.lib.AxiosHelper.get('/client/Annotation/getAnnotation', {
-          seqID: seqID
-        })
-
-        this.focusCommentInput(annotation)
-        await this.lib.VueHelper.sleep(1000)
-      },
-      element: () => {
-        // 顯示討論區的部分
-        //return $(this.$refs.panel).find('.AnnotationDiscussion:visible:first')
-        return $(this.$refs.panel).find('.annotation-discussion:visible:first')
-      },
-      afterClick: () => {
-        this.hide()
-      },
-      content: this.$t('You can give a comment to any annotation.'),
-      order: 11
-    })
+//    this.lib.TutorialManager.addAction({
+//      backgroundFadeOut: true,
+//      beforeCallback: async () => {
+//        // 總之隨機塞一個標註進來吧
+//        let section = this.lib.RangyManager.getOhterHighlightedSection()
+//        if (!section) {
+//          return false
+//        }
+//        
+//        let seqID = parseInt(section.attr('data-pacor-paragraph-seq-id'), 10)
+//        //console.log(sectionID)
+//        
+//        let annotation = await this.lib.AxiosHelper.get('/client/Annotation/getAnnotation', {
+//          seqID: seqID
+//        })
+//
+//        this.focusCommentInput(annotation)
+//        await this.lib.VueHelper.sleep(1000)
+//      },
+//      element: () => {
+//        // 顯示討論區的部分
+//        //return $(this.$refs.panel).find('.AnnotationDiscussion:visible:first')
+//        return $(this.$refs.panel).find('.annotation-discussion:visible:first')
+//      },
+//      afterClick: () => {
+//        this.hide()
+//      },
+//      content: this.$t('You can give a comment to any annotation.'),
+//      order: 11
+//    })
   }
     
   AnnotationPanel.methods.setupTutorialIndividualReading = function () {

@@ -13,23 +13,23 @@ export default function (SectionManager) {
   }
 
   SectionManager.methods.setupTutorialCollaborativeReading = function () {
-    this.lib.TutorialManager.addAction(() => {
-      let item = $(`[data-section-id].SectionPanel .AnnotationItem[data-user-id!="${this.status.userID}"]:visible:first`)
-      let panel
-      if (item.length > 0) {
-        panel = item.parents('.SectionPanel:first')
-      } else {
-        panel = $(`[data-section-id].SectionPanel:visible:first`)
-      }
-
-      return {
-        backgroundFadeOut: true,
-        element: panel,
-        content: this.$t(`You can see others' section main ideas.`),
-        scroll: 'start',
-        order: 21
-      }
-    })
+//    this.lib.TutorialManager.addAction(() => {
+//      let item = $(`[data-section-id].SectionPanel .AnnotationItem[data-user-id!="${this.status.userID}"]:visible:first`)
+//      let panel
+//      if (item.length > 0) {
+//        panel = item.parents('.SectionPanel:first')
+//      } else {
+//        panel = $(`[data-section-id].SectionPanel:visible:first`)
+//      }
+//
+//      return {
+//        backgroundFadeOut: true,
+//        element: panel,
+//        content: this.$t(`You can see others' section main ideas.`),
+//        scroll: 'start',
+//        order: 21
+//      }
+//    })
   }
 
   SectionManager.methods.setupTutorialIndividualReading = function () {

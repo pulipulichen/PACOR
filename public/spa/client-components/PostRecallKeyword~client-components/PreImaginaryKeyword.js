@@ -1749,7 +1749,16 @@ __webpack_require__.r(__webpack_exports__);
       return false
     }
     
-    this.addAnswerKeyword(inputKeyword)
+    if (inputKeyword.indexOf(' ') > -1
+            && this.lib.StringHelper.countWords(inputKeyword).length > 10) {
+      inputKeyword.split(' ').forEach(k => {
+        this.addAnswerKeyword(k.trim())
+      })
+    }
+    else {
+      this.addAnswerKeyword(inputKeyword)
+    }
+    
     this.inputKeyword = ''
     this.$refs.SearchInputText.blur()
     this.$refs.SearchInputText.focus()

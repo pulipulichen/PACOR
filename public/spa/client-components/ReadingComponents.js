@@ -13044,36 +13044,36 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   AnnotationPanel.methods.setupTutorialCollaborativeReading = function () {
-    this.lib.TutorialManager.addAction({
-      backgroundFadeOut: true,
-      beforeCallback: async () => {
-        // 總之隨機塞一個標註進來吧
-        let section = this.lib.RangyManager.getOhterHighlightedSection()
-        if (!section) {
-          return false
-        }
-        
-        let seqID = parseInt(section.attr('data-pacor-paragraph-seq-id'), 10)
-        //console.log(sectionID)
-        
-        let annotation = await this.lib.AxiosHelper.get('/client/Annotation/getAnnotation', {
-          seqID: seqID
-        })
-
-        this.focusCommentInput(annotation)
-        await this.lib.VueHelper.sleep(1000)
-      },
-      element: () => {
-        // 顯示討論區的部分
-        //return $(this.$refs.panel).find('.AnnotationDiscussion:visible:first')
-        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.annotation-discussion:visible:first')
-      },
-      afterClick: () => {
-        this.hide()
-      },
-      content: this.$t('You can give a comment to any annotation.'),
-      order: 11
-    })
+//    this.lib.TutorialManager.addAction({
+//      backgroundFadeOut: true,
+//      beforeCallback: async () => {
+//        // 總之隨機塞一個標註進來吧
+//        let section = this.lib.RangyManager.getOhterHighlightedSection()
+//        if (!section) {
+//          return false
+//        }
+//        
+//        let seqID = parseInt(section.attr('data-pacor-paragraph-seq-id'), 10)
+//        //console.log(sectionID)
+//        
+//        let annotation = await this.lib.AxiosHelper.get('/client/Annotation/getAnnotation', {
+//          seqID: seqID
+//        })
+//
+//        this.focusCommentInput(annotation)
+//        await this.lib.VueHelper.sleep(1000)
+//      },
+//      element: () => {
+//        // 顯示討論區的部分
+//        //return $(this.$refs.panel).find('.AnnotationDiscussion:visible:first')
+//        return $(this.$refs.panel).find('.annotation-discussion:visible:first')
+//      },
+//      afterClick: () => {
+//        this.hide()
+//      },
+//      content: this.$t('You can give a comment to any annotation.'),
+//      order: 11
+//    })
   }
     
   AnnotationPanel.methods.setupTutorialIndividualReading = function () {
@@ -27998,23 +27998,23 @@ __webpack_require__.r(__webpack_exports__);
   }
 
   SectionManager.methods.setupTutorialCollaborativeReading = function () {
-    this.lib.TutorialManager.addAction(() => {
-      let item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel .AnnotationItem[data-user-id!="${this.status.userID}"]:visible:first`)
-      let panel
-      if (item.length > 0) {
-        panel = item.parents('.SectionPanel:first')
-      } else {
-        panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
-      }
-
-      return {
-        backgroundFadeOut: true,
-        element: panel,
-        content: this.$t(`You can see others' section main ideas.`),
-        scroll: 'start',
-        order: 21
-      }
-    })
+//    this.lib.TutorialManager.addAction(() => {
+//      let item = $(`[data-section-id].SectionPanel .AnnotationItem[data-user-id!="${this.status.userID}"]:visible:first`)
+//      let panel
+//      if (item.length > 0) {
+//        panel = item.parents('.SectionPanel:first')
+//      } else {
+//        panel = $(`[data-section-id].SectionPanel:visible:first`)
+//      }
+//
+//      return {
+//        backgroundFadeOut: true,
+//        element: panel,
+//        content: this.$t(`You can see others' section main ideas.`),
+//        scroll: 'start',
+//        order: 21
+//      }
+//    })
   }
 
   SectionManager.methods.setupTutorialIndividualReading = function () {

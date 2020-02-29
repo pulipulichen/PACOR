@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"In {0} step":"In {0} step"},"zh-TW":{"In {0} step":"在 {0} 階段","Collaborative Reading will end at count to 0.":"請注意，倒數計時到0的時候，協助閱讀階段就會結束。","You will get notifications from other readers here.":"您可以在這裡收到來自其他讀者的通知。","You can select a peer and watch what he/she read.":"您可以在這裡選擇要協助的同儕。","You can choose a type of annotations to read.":"您可以在這裡選擇要顯示的標註類型。","Article Information":"文章資訊"}}')
+  Component.options.__i18n.push('{"en":{"In {0} step":"In {0} step"},"zh-TW":{"In {0} step":"在 {0} 階段","Collaborative Reading will end at count to 0.":"請注意，倒數計時到0的時候，協助閱讀階段就會結束。","You will get notifications from other readers here.":"您可以在這裡收到來自其他讀者的通知。","You can select a peer and watch what he/she read.":"您可以在這裡選擇要協助的同儕。","You can choose a type of annotations to read.":"您可以在這裡選擇要顯示的標註類型。","Article Information":"文章資訊","Select a reader, watch how he/she read the article, and give him/her suggestions.":"請在此選擇一位讀者，看他/她是怎麽讀這篇文章，然後給他/她一些建議吧。","Select an annotation type to watch how readers use it to read the article.":"選擇一種標註類型，看看其他讀者是怎麽用它來讀文章的。"}}')
   delete Component.options._Ctor
 }
 
@@ -498,6 +498,7 @@ __webpack_require__.r(__webpack_exports__);
 //    return this.sideMenu
 //  }
 
+
   NavigationItems.methods.setupTutorial = async function () {
     //return console.log('@TEST')
     
@@ -505,16 +506,20 @@ __webpack_require__.r(__webpack_exports__);
       await this.lib.VueHelper.sleep(100)
     }
     
+    
+    // UserFilter
     this.lib.TutorialManager.addAction({
-      element: () => {
-        return this.$refs.nav.find('.NotificationIcon:visible:first')
+      enable: () => {
+        return !this.$refs.nav.isCompactMode
       },
-      content: this.$t(`You will get notifications from other readers here.`),
-      order: 32
+      element: async () => {
+        let element = this.$refs.nav.find('.UserFilter:visible:first')
+        return element
+      },
+      content: this.$t('Select a reader, watch how he/she read the article, and give him/her suggestions.'),
+      order: 31
     })
     
-    // ---------------------------
-
     /**
      * 標註類型選取器
      * 全螢幕版本
@@ -540,22 +545,23 @@ __webpack_require__.r(__webpack_exports__);
           this.$refs.AnnotationTypeFilter.hide()
         }
       },
-      content: this.$t('You can choose a type of annotations to read.'),
+      content: this.$t('Select an annotation type to watch how readers use it to read the article.'),
       order: 33
     })
+
     
     this.lib.TutorialManager.addAction({
-      enable: () => {
-        return !this.$refs.nav.isCompactMode
+      element: () => {
+        return this.$refs.nav.find('.NotificationIcon:visible:first')
       },
-      element: async () => {
-        let element = this.$refs.nav.find('.UserFilter:visible:first')
-        return element
-      },
-      content: this.$t('You can select a peer and watch what he/she read.'),
+      content: this.$t(`You will get notifications from other readers here.`),
       order: 34
     })
+    
+    // ---------------------------
 
+    
+    
     
     // ---------------------------
     

@@ -17,6 +17,7 @@ export default function (NavigationItems) {
 //    return this.sideMenu
 //  }
 
+
   NavigationItems.methods.setupTutorial = async function () {
     //return console.log('@TEST')
     
@@ -24,16 +25,20 @@ export default function (NavigationItems) {
       await this.lib.VueHelper.sleep(100)
     }
     
+    
+    // UserFilter
     this.lib.TutorialManager.addAction({
-      element: () => {
-        return this.$refs.nav.find('.NotificationIcon:visible:first')
+      enable: () => {
+        return !this.$refs.nav.isCompactMode
       },
-      content: this.$t(`You will get notifications from other readers here.`),
-      order: 32
+      element: async () => {
+        let element = this.$refs.nav.find('.UserFilter:visible:first')
+        return element
+      },
+      content: this.$t('Select a reader, watch how he/she read the article, and give him/her suggestions.'),
+      order: 31
     })
     
-    // ---------------------------
-
     /**
      * 標註類型選取器
      * 全螢幕版本
@@ -59,22 +64,23 @@ export default function (NavigationItems) {
           this.$refs.AnnotationTypeFilter.hide()
         }
       },
-      content: this.$t('You can choose a type of annotations to read.'),
+      content: this.$t('Select an annotation type to watch how readers use it to read the article.'),
       order: 33
     })
+
     
     this.lib.TutorialManager.addAction({
-      enable: () => {
-        return !this.$refs.nav.isCompactMode
+      element: () => {
+        return this.$refs.nav.find('.NotificationIcon:visible:first')
       },
-      element: async () => {
-        let element = this.$refs.nav.find('.UserFilter:visible:first')
-        return element
-      },
-      content: this.$t('You can select a peer and watch what he/she read.'),
+      content: this.$t(`You will get notifications from other readers here.`),
       order: 34
     })
+    
+    // ---------------------------
 
+    
+    
     
     // ---------------------------
     
