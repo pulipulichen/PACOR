@@ -166,7 +166,7 @@ export default function (AnnotationPanel) {
       element: () => {
         return $(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first')
       },
-      content: this.$t('You can give a comment to any annotation.'),
+      content: this.$t('Try to give a suggestion for the reader.'),
       order: 231,
     })
   }
