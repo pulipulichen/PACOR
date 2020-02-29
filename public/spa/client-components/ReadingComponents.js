@@ -105,7 +105,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Click \\"ADD\\" to save it.":"按下記下「關鍵字」即可儲存標註。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該類型的閱讀策略。","You can give a comment to any annotation.":"您可以為標註提供建議。","Try to give a suggestion for the reader.":"試著給這位讀者一些建議吧。","Here shows a summary of the list.":"這裡顯示了標註列表的摘要。","You can filter the list with keywords.":"您可以用指定文字來篩選列表。","Click here to see the detail of this annotation and give a suggestion.":"您可點選此處查看標註的詳細內容，並給予建議。","Here is the annotation wrote by other reader.":"這裡是其他讀者撰寫的標註。","Here is the annotation wrote by you. You can edit the annotation.":"這裡是您撰寫的標註，您可以編輯它。","You can use the \\"Finding Answer\\" tool to find the answer of the question.":"您可以用「找尋解答」功能來找尋這個問題的答案。","If you like this annotation, click \\"Like\\" button.":"如果您喜歡這個標註，請按個「讚」吧。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Click \\"ADD\\" to save it.":"按下記下「關鍵字」即可儲存標註。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該閱讀策略。","You can give a comment to any annotation.":"您可以為標註提供建議。","Try to give a suggestion for the reader.":"試著給這位讀者一些建議吧。","Here shows a summary of the list.":"這裡顯示了標註列表的摘要。","You can filter the list with keywords.":"您可以用指定文字來篩選列表。","Click here to see the detail of this annotation and give a suggestion.":"您可點選此處查看標註的詳細內容，並給予建議。","Here is the annotation wrote by other reader.":"這裡是其他讀者撰寫的標註。","Here is the annotation wrote by you. You can edit the annotation.":"這裡是您撰寫的標註，您可以編輯它。","You can use the \\"Finding Answer\\" tool to find the answer of the question.":"您可以用「找尋解答」功能來找尋這個問題的答案。","If you like this annotation, click \\"Like\\" button.":"如果您喜歡這個標註，請按個「讚」吧。","Click here to read the instruction of this annotation type.":"點此查看如何使用這種閱讀策略。"}}')
   delete Component.options._Ctor
 }
 
@@ -13170,6 +13170,17 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
+        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+      },
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first')
+      },
+      content: this.$t('Click here to read the instruction of this annotation type.'),
+      order: 204,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
         return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .ResourceSearch:visible:first').length === 1)
       },
       element: () => {
@@ -13192,7 +13203,8 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1)
+        return ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1)
+                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.display-mode .column.annotation-editor:visible:first').length === 1))
       },
       element: () => {
         return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first')

@@ -139,6 +139,17 @@ export default function (AnnotationPanel) {
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
+        return ($(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+      },
+      element: () => {
+        return $(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first')
+      },
+      content: this.$t('Click here to read the instruction of this annotation type.'),
+      order: 204,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
         return ($(this.$refs.panel).find('.AnnotationSingle .ResourceSearch:visible:first').length === 1)
       },
       element: () => {
@@ -161,7 +172,8 @@ export default function (AnnotationPanel) {
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return ($(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1)
+        return (($(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1)
+                && ($(this.$refs.panel).find('.AnnotationSingle.display-mode .column.annotation-editor:visible:first').length === 1))
       },
       element: () => {
         return $(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first')
