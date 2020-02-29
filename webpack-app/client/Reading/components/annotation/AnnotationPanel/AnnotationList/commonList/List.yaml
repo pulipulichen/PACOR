@@ -4,7 +4,8 @@ en:
 zh-TW:
   Back to list: 回到列表
   Back to full list: 回到完整列表
-  Finding: 正在搜尋
+  Finding: 正在篩選中
   No Search Result: 沒有符合的標註
   No More: 沒有更多標註了
-  Find {0} Annotations: 總共搜尋出{0}篇標註
+  Find {0} Annotations: 篩選後為{0}篇標註
+  Filtering the list...: 篩選列表...

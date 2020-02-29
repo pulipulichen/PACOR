@@ -9,6 +9,7 @@ export default function (AnnotationPanel) {
     else {
       this.setupTutorialIndividualReading()
     }
+    this.setupLocalTutorial()
   }
   
   AnnotationPanel.methods.setupTutorialCollaborativeReading = function () {
@@ -75,4 +76,98 @@ export default function (AnnotationPanel) {
     })
   }
   
+  
+  AnnotationPanel.methods.setupLocalTutorial = function () {
+    let tutorialKey = 'AnnotationPanel'
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return ($(this.$refs.panel).find('.AnnotationSingle:visible:first').length === 0)
+      },
+      element: () => {
+        return $(this.$refs.panel).find('.List > .summary-information:visible:first')
+      },
+      content: this.$t('Here shows a summary of the list.'),
+      order: 101,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return ($(this.$refs.panel).find('.List .search-input:visible:first input').length === 1)
+      },
+      element: () => {
+        return $(this.$refs.panel).find('.List .search-input:visible:first input')
+      },
+      content: this.$t('You can filter the list with keywords.'),
+      order: 102,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return ($(this.$refs.panel).find('.AnnotationItem:visible:first .meta').length === 1)
+      },
+      element: () => {
+        return $(this.$refs.panel).find('.AnnotationItem:visible:first .meta')
+      },
+      content: this.$t('Click here to see the detail of this annotation and give a suggestion.'),
+      order: 103,
+    })
+    
+    // ----------------------------------
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return ($(this.$refs.panel).find('.AnnotationSingle.display-mode .column.annotation-editor:visible:first').length === 1)
+      },
+      element: () => {
+        return $(this.$refs.panel).find('.AnnotationSingle.display-mode .column.annotation-editor:visible:first')
+      },
+      content: this.$t('Here is the annotation wrote by other reader.'),
+      order: 201,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return ($(this.$refs.panel).find('.AnnotationSingle.edit-mode .column.annotation-editor:visible:first').length === 1)
+      },
+      element: () => {
+        return $(this.$refs.panel).find('.AnnotationSingle.edit-mode .column.annotation-editor:visible:first')
+      },
+      content: this.$t('Here is the annotation wrote by you. You can edit the annotation.'),
+      order: 202,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return ($(this.$refs.panel).find('.AnnotationSingle .ResourceSearch:visible:first').length === 1)
+      },
+      element: () => {
+        return $(this.$refs.panel).find('.AnnotationSingle .ResourceSearch:visible:first')
+      },
+      content: this.$t('You can use the "Finding Answer" tool to find the answer of the question.'),
+      order: 213,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return ($(this.$refs.panel).find('.AnnotationSingle .AnnotationInteractive .like.button:visible:first').length === 1)
+      },
+      element: () => {
+        return $(this.$refs.panel).find('.AnnotationSingle .AnnotationInteractive .like.button:visible:first')
+      },
+      content: this.$t('If you like this annotation, click "Like" button.'),
+      order: 221,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return ($(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1)
+      },
+      element: () => {
+        return $(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first')
+      },
+      content: this.$t('You can give a comment to any annotation.'),
+      order: 231,
+    })
+  }
 }

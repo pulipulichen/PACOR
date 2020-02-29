@@ -30,7 +30,7 @@ export default function (TutorialManager) {
     //console.log(this.actionLists)
   }
   
-  TutorialManager.methods.start = function (type) {
+  TutorialManager.methods.start = function (type, showFinishModel) {
     let actions = this.getActions(type)
     if (Array.isArray(actions) === false) {
       return false
@@ -51,6 +51,10 @@ export default function (TutorialManager) {
         
         if ($('.ui.dimmer.modals.visible.active').length > 0) {
           console.log('Skip finish modal becase of other modal is opened.')
+          return false
+        }
+        
+        if (showFinishModel === false) {
           return false
         }
         

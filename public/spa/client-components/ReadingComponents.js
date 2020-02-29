@@ -73,7 +73,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Find {0} Annotations":"Find {0} Annotations | Find {0} Annotations"},"zh-TW":{"Back to list":"回到列表","Back to full list":"回到完整列表","Finding":"正在搜尋","No Search Result":"沒有符合的標註","No More":"沒有更多標註了","Find {0} Annotations":"總共搜尋出{0}篇標註"}}')
+  Component.options.__i18n.push('{"en":{"Find {0} Annotations":"Find {0} Annotations | Find {0} Annotations"},"zh-TW":{"Back to list":"回到列表","Back to full list":"回到完整列表","Finding":"正在篩選中","No Search Result":"沒有符合的標註","No More":"沒有更多標註了","Find {0} Annotations":"篩選後為{0}篇標註","Filtering the list...":"篩選列表..."}}')
   delete Component.options._Ctor
 }
 
@@ -89,7 +89,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Find {0} Annotations":"Find {0} Annotations | Find {0} Annotations"},"zh-TW":{"Back to list":"回到列表","Back to full list":"回到完整列表","Finding":"正在搜尋","No Search Result":"沒有符合的標註","No More":"沒有更多標註了","Find {0} Annotations":"總共搜尋出{0}篇標註"}}')
+  Component.options.__i18n.push('{"en":{"Find {0} Annotations":"Find {0} Annotations | Find {0} Annotations"},"zh-TW":{"Back to list":"回到列表","Back to full list":"回到完整列表","Finding":"正在篩選中","No Search Result":"沒有符合的標註","No More":"沒有更多標註了","Find {0} Annotations":"篩選後為{0}篇標註","Filtering the list...":"篩選列表..."}}')
   delete Component.options._Ctor
 }
 
@@ -105,7 +105,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Click \\"ADD\\" to save it.":"按下記下「關鍵字」即可儲存標註。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該類型的閱讀策略。","You can give a comment to any annotation.":"您可以為標註提供建議。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Click \\"ADD\\" to save it.":"按下記下「關鍵字」即可儲存標註。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該類型的閱讀策略。","You can give a comment to any annotation.":"您可以為標註提供建議。","Here shows a summary of the list.":"這裡顯示了標註列表的摘要。","You can filter the list with keywords.":"您可以用指定文字來篩選列表。","Click here to see the detail of this annotation and give a suggestion.":"您可點選此處查看標註的詳細內容，並給予建議。","Here is the annotation wrote by other reader.":"這裡是其他讀者撰寫的標註。","Here is the annotation wrote by you. You can edit the annotation.":"這裡是您撰寫的標註，您可以編輯它。","You can use the \\"Finding Answer\\" tool to find the answer of the question.":"您可以用「找尋解答」功能來找尋這個問題的答案。","If you like this annotation, click \\"Like\\" button.":"如果您喜歡這個標註，請按個「讚」吧。"}}')
   delete Component.options._Ctor
 }
 
@@ -645,7 +645,7 @@ exports.push([module.i, "@media only screen and (max-width: 767px) {\n.summary-i
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".back-button[data-v-0dc943e9] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-0dc943e9] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-0dc943e9] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-0dc943e9]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.summary-information[data-v-0dc943e9]  .AnnotationTypeButton {\n  vertical-align: top;\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.list[data-v-0dc943e9] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-0dc943e9] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n}\n.pacor-search-result[data-v-0dc943e9] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-0dc943e9] {\n  float: right;\n  vertical-align: top;\n  margin-top: -0.3em;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=0dc943e9&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,mBAAmB;EACnB,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,iBAAiB;AACnB;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;;;;EAIE;AACF;EACE,YAAY;EACZ,mBAAmB;EACnB,kBAAkB;AACpB","file":"List.less?vue&type=style&index=0&id=0dc943e9&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-0dc943e9] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-0dc943e9] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-0dc943e9] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-0dc943e9]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.summary-information[data-v-0dc943e9]  .AnnotationTypeButton {\n  vertical-align: top;\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.list[data-v-0dc943e9] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-0dc943e9] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n}\n.pacor-search-result[data-v-0dc943e9] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-0dc943e9] {\n  float: right;\n  vertical-align: top;\n  margin-top: -0.3em;\n}\n"]}]);
+exports.push([module.i, ".back-button[data-v-0dc943e9] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-0dc943e9] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-0dc943e9] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-0dc943e9]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.summary-information[data-v-0dc943e9]  .AnnotationTypeButton {\n  vertical-align: top;\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.list[data-v-0dc943e9] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-0dc943e9] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n}\n.pacor-search-result[data-v-0dc943e9] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-0dc943e9] {\n  float: right;\n  vertical-align: top;\n  margin-top: -0.3em;\n  padding-left: 1em;\n  background-color: #F3F4F5;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=0dc943e9&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,mBAAmB;EACnB,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,iBAAiB;AACnB;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;;;;EAIE;AACF;EACE,YAAY;EACZ,mBAAmB;EACnB,kBAAkB;EAClB,iBAAiB;EACjB,yBAAyB;AAC3B","file":"List.less?vue&type=style&index=0&id=0dc943e9&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-0dc943e9] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-0dc943e9] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-0dc943e9] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-0dc943e9]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.summary-information[data-v-0dc943e9]  .AnnotationTypeButton {\n  vertical-align: top;\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.list[data-v-0dc943e9] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-0dc943e9] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n}\n.pacor-search-result[data-v-0dc943e9] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-0dc943e9] {\n  float: right;\n  vertical-align: top;\n  margin-top: -0.3em;\n  padding-left: 1em;\n  background-color: #F3F4F5;\n}\n"]}]);
 
 
 /***/ }),
@@ -659,7 +659,7 @@ exports.push([module.i, ".back-button[data-v-0dc943e9] {\n  vertical-align: top 
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".back-button[data-v-64ecd929] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-64ecd929] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-64ecd929] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-64ecd929]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.summary-information[data-v-64ecd929]  .AnnotationTypeButton {\n  vertical-align: top;\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.list[data-v-64ecd929] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-64ecd929] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n}\n.pacor-search-result[data-v-64ecd929] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-64ecd929] {\n  float: right;\n  vertical-align: top;\n  margin-top: -0.3em;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=64ecd929&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,mBAAmB;EACnB,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,iBAAiB;AACnB;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;;;;EAIE;AACF;EACE,YAAY;EACZ,mBAAmB;EACnB,kBAAkB;AACpB","file":"List.less?vue&type=style&index=0&id=64ecd929&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-64ecd929] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-64ecd929] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-64ecd929] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-64ecd929]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.summary-information[data-v-64ecd929]  .AnnotationTypeButton {\n  vertical-align: top;\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.list[data-v-64ecd929] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-64ecd929] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n}\n.pacor-search-result[data-v-64ecd929] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-64ecd929] {\n  float: right;\n  vertical-align: top;\n  margin-top: -0.3em;\n}\n"]}]);
+exports.push([module.i, ".back-button[data-v-64ecd929] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-64ecd929] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-64ecd929] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-64ecd929]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.summary-information[data-v-64ecd929]  .AnnotationTypeButton {\n  vertical-align: top;\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.list[data-v-64ecd929] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-64ecd929] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n}\n.pacor-search-result[data-v-64ecd929] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-64ecd929] {\n  float: right;\n  vertical-align: top;\n  margin-top: -0.3em;\n  padding-left: 1em;\n  background-color: #F3F4F5;\n}\n", "",{"version":3,"sources":["List.less?vue&type=style&index=0&id=64ecd929&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,mBAAmB;AACrB;AACA;EACE,qBAAqB;EACrB,gBAAgB;EAChB,mBAAmB;EACnB,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;AACnB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,mBAAmB;EACnB,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,iBAAiB;AACnB;AACA;EACE,4BAA4B;EAC5B,mCAAmC;EACnC,qBAAqB;AACvB;AACA;;;;EAIE;AACF;EACE,YAAY;EACZ,mBAAmB;EACnB,kBAAkB;EAClB,iBAAiB;EACjB,yBAAyB;AAC3B","file":"List.less?vue&type=style&index=0&id=64ecd929&lang=less&scoped=true&","sourcesContent":[".back-button[data-v-64ecd929] {\n  vertical-align: top !important;\n}\n.summary-information[data-v-64ecd929] {\n  white-space: nowrap;\n}\n.summary-information .label[data-v-64ecd929] {\n  display: inline-block;\n  line-height: 2em;\n  vertical-align: top;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  user-select: none;\n}\n.summary-information[data-v-64ecd929]  .UserAvatarIcons {\n  margin-right: 0.5em;\n}\n.summary-information[data-v-64ecd929]  .AnnotationTypeButton {\n  vertical-align: top;\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.list[data-v-64ecd929] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  padding-right: 1em;\n}\n.no-more[data-v-64ecd929] {\n  text-align: center;\n  color: gray;\n  user-select: none;\n}\n.pacor-search-result[data-v-64ecd929] {\n  font-weight: bold !important;\n  background-color: yellow !important;\n  color: red !important;\n}\n/*.keyword {\n  font-weight: bold;\n  display: inline-block;\n  line-height: 2em;\n}*/\n.search-input[data-v-64ecd929] {\n  float: right;\n  vertical-align: top;\n  margin-top: -0.3em;\n  padding-left: 1em;\n  background-color: #F3F4F5;\n}\n"]}]);
 
 
 /***/ }),
@@ -1731,7 +1731,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "FilteredList" },
+    { staticClass: "FilteredList List" },
     [
       _c(
         "div",
@@ -1750,7 +1750,7 @@ var render = function() {
                   ],
                   attrs: {
                     type: "text",
-                    placeholder: _vm.$t("Search..."),
+                    placeholder: _vm.$t("Filtering the list..."),
                     onfocus: "this.select()"
                   },
                   domProps: { value: _vm.panelData.keyword },
@@ -1963,7 +1963,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "MainList" },
+    { staticClass: "MainList List" },
     [
       _vm.isHeaderVisible
         ? [
@@ -1984,7 +1984,7 @@ var render = function() {
                         ],
                         attrs: {
                           type: "text",
-                          placeholder: _vm.$t("Search..."),
+                          placeholder: _vm.$t("Filtering the list..."),
                           onfocus: "this.select()"
                         },
                         domProps: { value: _vm.panelData.keyword },
@@ -2235,7 +2235,10 @@ var render = function() {
                   on: {
                     click: function($event) {
                       $event.stopPropagation()
-                      return _vm.hide($event)
+                      return _vm.lib.TutorialManager.start(
+                        "AnnotationPanel",
+                        false
+                      )
                     }
                   }
                 },
@@ -10352,7 +10355,8 @@ let AnnotationDiscussion = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      comment: null
+      comment: null,
+      headerPadding: 110
     }
   },
   components: {
@@ -10361,7 +10365,7 @@ let AnnotationDiscussion = {
   },
   computed: {
     listHeightPX () {
-      return this.heightPX - 100
+      return this.heightPX - this.headerPadding
     }
   },
 //  watch: {
@@ -11970,7 +11974,8 @@ let AnnotationEditorModules = {
       hook: {
         commentLike: null
       },
-      enableScrollToAnnotation: true
+      enableScrollToAnnotation: true,
+      headerPadding: 25
     }
   },
   components: {
@@ -12028,7 +12033,7 @@ let AnnotationEditorModules = {
     },
     componentHeightPX () {
       // 這個是header的高度
-      return this.heightPX - 70
+      return this.heightPX - 60 - this.headerPadding
     },
     discussionHeightPX () {
       // 這個是header的高度
@@ -12046,13 +12051,15 @@ let AnnotationEditorModules = {
       }
     },
     computedContainerStyle () {
+      let padding = this.headerPadding
       return {
-        'max-height': (this.heightPX - 10) + `px`
+        'max-height': (this.heightPX - padding) + `px`
       }
     },
     computedEditorStyle () {
+      let padding = this.headerPadding
       return {
-        'max-height': this.heightPX-10 + `px`
+        'max-height': (this.heightPX- padding) + `px`
       }
     },
     displayTime () {
@@ -13016,6 +13023,7 @@ __webpack_require__.r(__webpack_exports__);
     else {
       this.setupTutorialIndividualReading()
     }
+    this.setupLocalTutorial()
   }
   
   AnnotationPanel.methods.setupTutorialCollaborativeReading = function () {
@@ -13082,6 +13090,100 @@ __webpack_require__.r(__webpack_exports__);
     })
   }
   
+  
+  AnnotationPanel.methods.setupLocalTutorial = function () {
+    let tutorialKey = 'AnnotationPanel'
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle:visible:first').length === 0)
+      },
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.List > .summary-information:visible:first')
+      },
+      content: this.$t('Here shows a summary of the list.'),
+      order: 101,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.List .search-input:visible:first input').length === 1)
+      },
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.List .search-input:visible:first input')
+      },
+      content: this.$t('You can filter the list with keywords.'),
+      order: 102,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationItem:visible:first .meta').length === 1)
+      },
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationItem:visible:first .meta')
+      },
+      content: this.$t('Click here to see the detail of this annotation and give a suggestion.'),
+      order: 103,
+    })
+    
+    // ----------------------------------
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.display-mode .column.annotation-editor:visible:first').length === 1)
+      },
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.display-mode .column.annotation-editor:visible:first')
+      },
+      content: this.$t('Here is the annotation wrote by other reader.'),
+      order: 201,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .column.annotation-editor:visible:first').length === 1)
+      },
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .column.annotation-editor:visible:first')
+      },
+      content: this.$t('Here is the annotation wrote by you. You can edit the annotation.'),
+      order: 202,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .ResourceSearch:visible:first').length === 1)
+      },
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .ResourceSearch:visible:first')
+      },
+      content: this.$t('You can use the "Finding Answer" tool to find the answer of the question.'),
+      order: 213,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .AnnotationInteractive .like.button:visible:first').length === 1)
+      },
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .AnnotationInteractive .like.button:visible:first')
+      },
+      content: this.$t('If you like this annotation, click "Like" button.'),
+      order: 221,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1)
+      },
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first')
+      },
+      content: this.$t('You can give a comment to any annotation.'),
+      order: 231,
+    })
+  }
 });
 
 /***/ }),

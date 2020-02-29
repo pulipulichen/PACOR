@@ -16,6 +16,9 @@
       
       <div class="date">
         {{ displayTime }}
+        <template v-if="notification.has_read">
+          ({{ $t('Has read') }})
+        </template>
       </div>
     </div>
     <div class="extra text"

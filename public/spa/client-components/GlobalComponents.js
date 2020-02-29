@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Reply your annotation":"回應了您的標註","Like your annotation":"覺得您的標註很讚","Like your comment":"覺得您的留言很讚","can be assisted now":"可以請您來協助了"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Reply your annotation":"回應了您的標註","Like your annotation":"覺得您的標註很讚","Like your comment":"覺得您的留言很讚","can be assisted now":"可以請您來協助了","Has read":"已讀"}}')
   delete Component.options._Ctor
 }
 
@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Reply your annotation":"回應了您的標註","Like your annotation":"覺得您的標註很讚","Like your comment":"覺得您的留言很讚","can be assisted now":"可以請您來協助了"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Reply your annotation":"回應了您的標註","Like your annotation":"覺得您的標註很讚","Like your comment":"覺得您的留言很讚","can be assisted now":"可以請您來協助了","Has read":"已讀"}}')
   delete Component.options._Ctor
 }
 
@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Reply your annotation":"回應了您的標註","Like your annotation":"覺得您的標註很讚","Like your comment":"覺得您的留言很讚","can be assisted now":"可以請您來協助了"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Reply your annotation":"回應了您的標註","Like your annotation":"覺得您的標註很讚","Like your comment":"覺得您的留言很讚","can be assisted now":"可以請您來協助了","Has read":"已讀"}}')
   delete Component.options._Ctor
 }
 
@@ -57,7 +57,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Reply your annotation":"回應了您的標註","Like your annotation":"覺得您的標註很讚","Like your comment":"覺得您的留言很讚","can be assisted now":"可以請您來協助了"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Reply your annotation":"回應了您的標註","Like your annotation":"覺得您的標註很讚","Like your comment":"覺得您的留言很讚","can be assisted now":"可以請您來協助了","Has read":"已讀"}}')
   delete Component.options._Ctor
 }
 
@@ -995,9 +995,23 @@ var render = function() {
           _vm._v(
             "\r\n      \r\n      " + _vm._s(_vm.action) + "\r\n      \r\n      "
           ),
-          _c("div", { staticClass: "date" }, [
-            _vm._v("\r\n        " + _vm._s(_vm.displayTime) + "\r\n      ")
-          ])
+          _c(
+            "div",
+            { staticClass: "date" },
+            [
+              _vm._v("\r\n        " + _vm._s(_vm.displayTime) + "\r\n        "),
+              _vm.notification.has_read
+                ? [
+                    _vm._v(
+                      "\r\n          (" +
+                        _vm._s(_vm.$t("Has read")) +
+                        ")\r\n        "
+                    )
+                  ]
+                : _vm._e()
+            ],
+            2
+          )
         ]),
         _vm._v(" "),
         _vm.summary
@@ -1055,9 +1069,23 @@ var render = function() {
           _vm._v(
             "\r\n      \r\n      " + _vm._s(_vm.action) + "\r\n      \r\n      "
           ),
-          _c("div", { staticClass: "date" }, [
-            _vm._v("\r\n        " + _vm._s(_vm.displayTime) + "\r\n      ")
-          ])
+          _c(
+            "div",
+            { staticClass: "date" },
+            [
+              _vm._v("\r\n        " + _vm._s(_vm.displayTime) + "\r\n        "),
+              _vm.notification.has_read
+                ? [
+                    _vm._v(
+                      "\r\n          (" +
+                        _vm._s(_vm.$t("Has read")) +
+                        ")\r\n        "
+                    )
+                  ]
+                : _vm._e()
+            ],
+            2
+          )
         ]),
         _vm._v(" "),
         _vm.summary
@@ -1115,9 +1143,23 @@ var render = function() {
           _vm._v(
             "\r\n      \r\n      " + _vm._s(_vm.action) + "\r\n      \r\n      "
           ),
-          _c("div", { staticClass: "date" }, [
-            _vm._v("\r\n        " + _vm._s(_vm.displayTime) + "\r\n      ")
-          ])
+          _c(
+            "div",
+            { staticClass: "date" },
+            [
+              _vm._v("\r\n        " + _vm._s(_vm.displayTime) + "\r\n        "),
+              _vm.notification.has_read
+                ? [
+                    _vm._v(
+                      "\r\n          (" +
+                        _vm._s(_vm.$t("Has read")) +
+                        ")\r\n        "
+                    )
+                  ]
+                : _vm._e()
+            ],
+            2
+          )
         ]),
         _vm._v(" "),
         _vm.summary
@@ -1175,9 +1217,23 @@ var render = function() {
           _vm._v(
             "\r\n      \r\n      " + _vm._s(_vm.action) + "\r\n      \r\n      "
           ),
-          _c("div", { staticClass: "date" }, [
-            _vm._v("\r\n        " + _vm._s(_vm.displayTime) + "\r\n      ")
-          ])
+          _c(
+            "div",
+            { staticClass: "date" },
+            [
+              _vm._v("\r\n        " + _vm._s(_vm.displayTime) + "\r\n        "),
+              _vm.notification.has_read
+                ? [
+                    _vm._v(
+                      "\r\n          (" +
+                        _vm._s(_vm.$t("Has read")) +
+                        ")\r\n        "
+                    )
+                  ]
+                : _vm._e()
+            ],
+            2
+          )
         ]),
         _vm._v(" "),
         _vm.summary

@@ -19,7 +19,8 @@ let AnnotationEditorModules = {
       hook: {
         commentLike: null
       },
-      enableScrollToAnnotation: true
+      enableScrollToAnnotation: true,
+      headerPadding: 25
     }
   },
   components: {
@@ -77,7 +78,7 @@ let AnnotationEditorModules = {
     },
     componentHeightPX () {
       // 這個是header的高度
-      return this.heightPX - 70
+      return this.heightPX - 60 - this.headerPadding
     },
     discussionHeightPX () {
       // 這個是header的高度
@@ -95,13 +96,15 @@ let AnnotationEditorModules = {
       }
     },
     computedContainerStyle () {
+      let padding = this.headerPadding
       return {
-        'max-height': (this.heightPX - 10) + `px`
+        'max-height': (this.heightPX - padding) + `px`
       }
     },
     computedEditorStyle () {
+      let padding = this.headerPadding
       return {
-        'max-height': this.heightPX-10 + `px`
+        'max-height': (this.heightPX- padding) + `px`
       }
     },
     displayTime () {

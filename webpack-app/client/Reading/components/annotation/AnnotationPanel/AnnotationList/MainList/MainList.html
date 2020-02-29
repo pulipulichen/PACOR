@@ -1,4 +1,4 @@
-<div class="MainList">
+<div class="MainList List">
   <!-- == Header == -->
   <template v-if="isHeaderVisible">
 
@@ -8,7 +8,7 @@
            v-if="annotation === null">
         <input type="text" 
                v-model="panelData.keyword"
-               v-bind:placeholder="$t('Search...')"
+               v-bind:placeholder="$t('Filtering the list...')"
                onfocus="this.select()">
         <i class="search icon"></i>
       </div>

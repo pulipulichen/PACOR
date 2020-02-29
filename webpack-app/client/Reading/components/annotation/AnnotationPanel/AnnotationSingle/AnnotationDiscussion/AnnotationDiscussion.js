@@ -8,7 +8,8 @@ let AnnotationDiscussion = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      comment: null
+      comment: null,
+      headerPadding: 110
     }
   },
   components: {
@@ -17,7 +18,7 @@ let AnnotationDiscussion = {
   },
   computed: {
     listHeightPX () {
-      return this.heightPX - 100
+      return this.heightPX - this.headerPadding
     }
   },
 //  watch: {
