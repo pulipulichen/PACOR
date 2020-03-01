@@ -1,8 +1,8 @@
 <div class="CollaborativeReading">
   <!-- 提示元件 -->
   
-  <instruction-message 
-    ref="InstructionMessage"
+  <reading-instruction
+    ref="ReadingInstruction"
     v-bind:config="config"
     v-bind:status="status"
     v-bind:lib="lib">
@@ -14,7 +14,7 @@
         v-bind:lib="lib">
       </instruction-message-content>
     </template>
-  </instruction-message>
+  </reading-instruction>
   
   <!-- 共用元件 -->
 

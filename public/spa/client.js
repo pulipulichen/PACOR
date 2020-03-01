@@ -1040,8 +1040,8 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('search-input', () => {
   return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors~client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/search/SearchManager/SearchInput/SearchInput.vue */ "./webpack-app/client/Reading/components/search/SearchManager/SearchInput/SearchInput.vue"))
 })
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('instruction-message', () => {
-  return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors~client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/ui/InstructionMessage/InstructionMessage.vue */ "./webpack-app/client/Reading/components/ui/InstructionMessage/InstructionMessage.vue"))
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('reading-instruction', () => {
+  return Promise.all(/*! import() | client-components/ReadingComponents */[__webpack_require__.e("vendors~client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/Loading~client-components/ReadingComponents"), __webpack_require__.e("client-components/ReadingComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/ui/ReadingInstruction/ReadingInstruction.vue */ "./webpack-app/client/Reading/components/ui/ReadingInstruction/ReadingInstruction.vue"))
 })
 
 //Vue.component('compact-navigation', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './Reading/components/ui-navigation/CompactNavigation/CompactNavigation.vue'))

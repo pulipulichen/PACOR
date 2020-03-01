@@ -26,8 +26,8 @@ Vue.component('search-input', () => {
   return import(/* webpackChunkName: "client-components/ReadingComponents" */ './Reading/components/search/SearchManager/SearchInput/SearchInput.vue')
 })
 
-Vue.component('instruction-message', () => {
-  return import(/* webpackChunkName: "client-components/ReadingComponents" */ './Reading/components/ui/InstructionMessage/InstructionMessage.vue')
+Vue.component('reading-instruction', () => {
+  return import(/* webpackChunkName: "client-components/ReadingComponents" */ './Reading/components/ui/ReadingInstruction/ReadingInstruction.vue')
 })
 
 //Vue.component('compact-navigation', () => import(/* webpackChunkName: "client-components/ReadingComponents" */ './Reading/components/ui-navigation/CompactNavigation/CompactNavigation.vue'))

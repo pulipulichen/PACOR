@@ -92,7 +92,7 @@ let CollaborativeReading = {
       this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
     },
     showInstruction() {
-      this.$refs.InstructionMessage.show()
+      this.$refs.ReadingInstruction.show()
     },
     timeup () {
       //throw new Error('Wait')

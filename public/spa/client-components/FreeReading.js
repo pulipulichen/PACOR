@@ -229,8 +229,8 @@ var render = function() {
     "div",
     { staticClass: "CollaborativeReading" },
     [
-      _c("instruction-message", {
-        ref: "InstructionMessage",
+      _c("reading-instruction", {
+        ref: "ReadingInstruction",
         attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib },
         scopedSlots: _vm._u(
           [
@@ -1644,7 +1644,7 @@ let CollaborativeReading = {
       this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
     },
     showInstruction() {
-      this.$refs.InstructionMessage.show()
+      this.$refs.ReadingInstruction.show()
     },
     timeup () {
       //throw new Error('Wait')

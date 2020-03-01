@@ -1,6 +1,5 @@
 import NavigationItems from './NavigationItems/NavigationItems.vue'
 //const NavigationItems = require('./NavigationItems/NavigationItems.vue').default
-import IndividualReadingInstruction from './IndividualReadingInstruction/IndividualReadingInstruction.vue'
 
 let IndividualReading = {
   props: ['lib', 'status', 'config'],
@@ -10,7 +9,6 @@ let IndividualReading = {
   },
   components: {
     'navigation-items': NavigationItems,
-    'individual-reading-instruction': IndividualReadingInstruction
   },
 //  computed: {
 //  },
@@ -86,7 +84,7 @@ let IndividualReading = {
     },
     
     showInstruction() {
-      this.$refs.InstructionMessage.show()
+      this.$refs.ReadingInstruction.show()
     }
   } // methods
 }

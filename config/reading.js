@@ -115,10 +115,10 @@ module.exports = {
       totalLimitMinutes: 60,
     },
     'IndividualReading': {
-      instruction: {
-        countdown: '/instruction/reading/IndividualReading-endsByCountdown.html',
-        checklist: '/instruction/reading/IndividualReading-endsByChecklist.html',
-      },
+      //instruction: {
+      //  countdown: '/instruction/reading/IndividualReading-endsByCountdown.html',
+      //  checklist: '/instruction/reading/IndividualReading-endsByChecklist.html',
+      //},
       forceTutorial: true,
       limitMinutes: 30,
       goToNextStepOnChecklistComplete: true,
