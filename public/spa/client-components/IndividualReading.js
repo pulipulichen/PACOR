@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"\\"{0}\\"":"\\"{0}\\"","and {0}":"and {0}","Please use {0} reading strategies to read this article.":"Please use {0} reading strategies to read this article."},"zh-TW":{"Now please concentrate on reading this article!":"現在請您專心閱讀這篇文章囉！","\\"{0}\\"":"「{0}」",", ":"、","and {0}":"以及{0}","Please use {0} reading strategies to read this article.":"請使用{0}閱讀策略來閱讀這篇文章。"}}')
+  Component.options.__i18n.push('{"en":{"\\"{0}\\"":"\\"{0}\\"","<span class=\\"highlight\\">\\"{0}\\"</span>":"<span class=\\"highlight\\">\\"{0}\\"</span>","and {0}":"and {0}","Please use {0} reading strategies to read this article.":"Please use {0} reading strategies to read this article.","When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.":"When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.","When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.":"When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.","Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant.":"Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant."},"zh-TW":{"Now please concentrate on reading this article!":"現在請您專心閱讀這篇文章囉！","\\"{0}\\"":"「{0}」","<span class=\\"highlight\\">\\"{0}\\"</span>":"<span class=\\"highlight\\">「{0}」</span>",", ":"、","and {0}":"以及{0}","Please use {0} reading strategies to read this article.":"請使用{0}閱讀策略來閱讀這篇文章。","When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.":"閱讀文章的時候要一併完成「查核表」和撰寫「{0}」筆記。","When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.":"閱讀文章的時候要一併完成<span class=\\"highlight\\">「查核表」</span>和撰寫<span class=\\"highlight\\">「{0}」</span>筆記。","Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant.":"限時<span class=\\"highlight\\">{0}分鐘</span>，現在開始計時。"}}')
   delete Component.options._Ctor
 }
 
@@ -103,7 +103,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"IndividualReadingInstruction.less?vue&type=style&index=0&id=79503c70&lang=less&scoped=true&"}]);
+exports.push([module.i, ".ReadingInstruction[data-v-79503c70]  .highlight {\n  background-color: yellow;\n  font-weight: bold;\n}\nli[data-v-79503c70] {\n  margin-bottom: 0.5rem;\n}\n", "",{"version":3,"sources":["IndividualReadingInstruction.less?vue&type=style&index=0&id=79503c70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;EACxB,iBAAiB;AACnB;AACA;EACE,qBAAqB;AACvB","file":"IndividualReadingInstruction.less?vue&type=style&index=0&id=79503c70&lang=less&scoped=true&","sourcesContent":[".ReadingInstruction[data-v-79503c70]  .highlight {\n  background-color: yellow;\n  font-weight: bold;\n}\nli[data-v-79503c70] {\n  margin-bottom: 0.5rem;\n}\n"]}]);
 
 
 /***/ }),
@@ -264,45 +264,46 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "IndividualReadingInstruction" }, [
-    _c("div", { staticClass: "ui middle aligned grid" }, [
-      _c("div", { staticClass: "four wide column" }, [
-        _c("img", {
-          staticClass: "ui image",
-          attrs: { src: _vm.computedCoverImage }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "twelve wide column" }, [
-        _c("h1", { staticClass: "ui header" }, [
-          _vm._v(
-            "\r\n        " +
-              _vm._s(
-                _vm.$t("Now please concentrate on reading this article!")
-              ) +
-              "\r\n      "
-          )
+  return _c(
+    "div",
+    { staticClass: "IndividualReadingInstruction ReadingInstruction" },
+    [
+      _c("div", { staticClass: "ui middle aligned grid" }, [
+        _c("div", { staticClass: "four wide column" }, [
+          _c("img", {
+            staticClass: "ui image",
+            attrs: { src: _vm.computedCoverImage }
+          })
         ]),
         _vm._v(" "),
-        _c("ul", [
-          _c("li", [_vm._v(_vm._s(_vm.computedAnnotationType))]),
-          _vm._v(" "),
-          _c("li", [_vm._v(_vm._s(_vm.computedChecklist))]),
-          _vm._v(" "),
-          _c("li", [
+        _c("div", { staticClass: "twelve wide column" }, [
+          _c("h1", { staticClass: "ui header" }, [
             _vm._v(
-              _vm._s(
-                _vm.$t(
-                  "Limited to {0} minutes, now it starts instant.",
-                  _vm.limitMinutes
-                )
-              )
+              "\r\n        " +
+                _vm._s(
+                  _vm.$t("Now please concentrate on reading this article!")
+                ) +
+                "\r\n      "
             )
+          ]),
+          _vm._v(" "),
+          _c("ul", [
+            _c("li", {
+              domProps: { innerHTML: _vm._s(_vm.computedAnnotationType) }
+            }),
+            _vm._v(" "),
+            _vm.computedChecklist
+              ? _c("li", {
+                  domProps: { innerHTML: _vm._s(_vm.computedChecklist) }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _c("li", { domProps: { innerHTML: _vm._s(_vm.computedLimitTime) } })
           ])
         ])
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1074,7 +1075,7 @@ let Instruction = {
       }
       if (types.indexOf('Confused') > -1
               && types.indexOf('Clarified') > -1) {
-        useTypes.push(this.$t(`"{0}"`, [this.$t('ANNOTATION_TYPE.' + 'Confused') + ' / ' + this.$t('ANNOTATION_TYPE.' + 'Clarified')]))
+        useTypes.push(this.$t(`<span class="highlight">"{0}"</span>`, [this.$t('ANNOTATION_TYPE.' + 'Confused') + ' / ' + this.$t('ANNOTATION_TYPE.' + 'Clarified')]))
       }
       
       if (useTypes.length > 2) {
@@ -1092,18 +1093,29 @@ let Instruction = {
       return this.$t('Please use {0} reading strategies to read this article.', [useTypesTrans])
     },
     computedChecklist () {
-      
+      if (!this.stepConfig.sectionAnnotation 
+              || Array.isArray(this.stepConfig.sectionAnnotation.checklist) === false) {
+        return false
+      }
+      let sectionTypeTrans = this.$t('ANNOTATION_TYPE.SectionMainIdea')
+      if (this.lib.SectionManager) {
+        sectionTypeTrans = this.lib.SectionManager.sectionTypeTrans
+      }
+      return this.$t('When reading an article, complete both the <span class="highlight">"Checklist"</span> and the <span class="highlight">"{0}"</span> note.', [sectionTypeTrans])
     },
     limitMinutes () {
       return this.lib.auth.currentStepConfig.limitMinutes
+    },
+    computedLimitTime () {
+      return this.$t('Limited to <span class="highlight">{0} minutes</span>, now it starts instant.', [this.limitMinutes])
     }
   },
-  watch: {
-  },
-  mounted() {
-  },
-  methods: {
-  } // methods
+//  watch: {
+//  },
+//  mounted() {
+//  },
+//  methods: {
+//  } // methods
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Instruction);

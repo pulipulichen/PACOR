@@ -3216,7 +3216,7 @@ var render = function() {
                     "div",
                     {
                       staticClass: "header-icon",
-                      class: { "no-close-button": _vm.computedShowCloseButton }
+                      class: { "no-close-button": !_vm.computedShowCloseButton }
                     },
                     [_vm._t("headerIcon")],
                     2

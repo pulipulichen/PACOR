@@ -26689,6 +26689,14 @@ let SectionManager = {
     },
     isArticleNote () {
       return (this.sectionNodes.length === 1)
+    },
+    sectionTypeTrans () {
+      if (this.isArticleNote === true) {
+        return this.$t('ANNOTATION_TYPE.ArticleMainIdea')
+      }
+      else {
+        return this.$t('ANNOTATION_TYPE.SectionMainIdea')
+      }
     }
   },
   watch: {

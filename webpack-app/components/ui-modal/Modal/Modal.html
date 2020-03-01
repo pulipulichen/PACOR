@@ -21,7 +21,7 @@
     
     <div v-if="$slots.headerIcon"
          class="header-icon"
-         v-bind:class="{'no-close-button': computedShowCloseButton}">
+         v-bind:class="{'no-close-button': !computedShowCloseButton}">
       <slot name="headerIcon"></slot>
     </div>
     
