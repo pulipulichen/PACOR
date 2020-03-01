@@ -10,7 +10,19 @@ let CountdownTimer = {
   },
   computed: {
     dataRemainingTime () {
-      return this.lib.DayJSHelper.formatHHMMSS(this.dataRemainingSec)
+      let t = this.lib.DayJSHelper.formatHHMMSS(this.dataRemainingSec)
+      
+      if (t === -1) {
+        t = '00:00'
+      }
+      else if (this.dataRemainingSec < 10) {
+        t = '00:0' + t
+      }
+      else if (this.dataRemainingSec < 60) {
+        t = '00:' + t
+      }
+      
+      return t
     }
   },
   watch: {

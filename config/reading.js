@@ -19,6 +19,7 @@ module.exports = {
     
     //stayInReadingProgress: 'PreImaginaryKeyword'
     //stayInReadingProgress: 'PostRecallKeyword'
+    stayInReadingProgress: 'IndividualReading'
     //stayInReadingProgress: 'CollaborativeReading'
   },
   
@@ -179,7 +180,7 @@ module.exports = {
         updateInterval: 30000
       },
       debug: {
-        countdownPause: true
+        countdownPause: false
       }
     },
     

@@ -1079,7 +1079,7 @@ let Instruction = {
 //  },
   computed: {
     computedCoverImage () {
-      return this.config.baseURL + '/instruction/reading/IndividualReading/cat-1460882_1280.png'
+      return this.config.baseURL + '/instruction/reading/IndividualReading/cat-reading.png'
     },
     stepConfig () {
       return this.lib.auth.currentStepConfig
