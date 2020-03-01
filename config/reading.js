@@ -145,11 +145,11 @@ module.exports = {
 //        updateInterval: 30000
       },
       debug: {
-        countdownPause: true
+        countdownPause: false
       }
     },
     'CollaborativeReading': {
-      instruction: '/instruction/reading/CollaborativeReading.html',
+      //instruction: '/instruction/reading/CollaborativeReading.html',
       forceTutorial: true,
       permission: {
         collaboration: true,
@@ -179,7 +179,7 @@ module.exports = {
         updateInterval: 30000
       },
       debug: {
-        countdownPause: false
+        countdownPause: true
       }
     },
     

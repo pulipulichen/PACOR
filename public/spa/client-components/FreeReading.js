@@ -232,29 +232,23 @@ var render = function() {
       _c("reading-instruction", {
         ref: "ReadingInstruction",
         attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib },
-        scopedSlots: _vm._u(
-          [
-            _vm.$options.components["instruction-message-content"]
-              ? {
-                  key: "content",
-                  fn: function() {
-                    return [
-                      _c("instruction-message-content", {
-                        attrs: {
-                          config: _vm.config,
-                          status: _vm.status,
-                          lib: _vm.lib
-                        }
-                      })
-                    ]
-                  },
-                  proxy: true
-                }
-              : null
-          ],
-          null,
-          true
-        )
+        scopedSlots: _vm._u([
+          {
+            key: "content",
+            fn: function() {
+              return [
+                _c("collaborative-reading-instruction", {
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib
+                  }
+                })
+              ]
+            },
+            proxy: true
+          }
+        ])
       }),
       _vm._v(" "),
       _c("rangy", {
@@ -1549,10 +1543,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NavigationItems/NavigationItems.vue */ "./webpack-app/client/Reading/CollaborativeReading/NavigationItems/NavigationItems.vue");
-/* harmony import */ var _methodsTestCollaborativeReading_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsTestCollaborativeReading.js */ "./webpack-app/client/Reading/CollaborativeReading/methodsTestCollaborativeReading.js");
+/* harmony import */ var _CollaborativeReadingInstruction_CollaborativeReadingInstruction_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CollaborativeReadingInstruction/CollaborativeReadingInstruction.vue */ "./webpack-app/client/Reading/CollaborativeReading/CollaborativeReadingInstruction/CollaborativeReadingInstruction.vue");
+/* harmony import */ var _methodsTestCollaborativeReading_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsTestCollaborativeReading.js */ "./webpack-app/client/Reading/CollaborativeReading/methodsTestCollaborativeReading.js");
 
 //import NotificationManager from './../components/NotificationManager/NotificationManager.vue'
 //import $ from 'jquery'
+
 
 let CollaborativeReading = {
   props: ['lib', 'status', 'config'],
@@ -1562,8 +1558,9 @@ let CollaborativeReading = {
   },
   components: {
     'navigation-items': _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'instruction-message-content': null,
+    //'instruction-message-content': null,
     //'notification-manager': NotificationManager
+    'collaborative-reading-instruction': _CollaborativeReadingInstruction_CollaborativeReadingInstruction_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
 //  computed: {
 //  },
@@ -1655,7 +1652,7 @@ let CollaborativeReading = {
 }
 
 
-Object(_methodsTestCollaborativeReading_js__WEBPACK_IMPORTED_MODULE_1__["default"])(CollaborativeReading)
+Object(_methodsTestCollaborativeReading_js__WEBPACK_IMPORTED_MODULE_2__["default"])(CollaborativeReading)
 
 /* harmony default export */ __webpack_exports__["default"] = (CollaborativeReading);
 

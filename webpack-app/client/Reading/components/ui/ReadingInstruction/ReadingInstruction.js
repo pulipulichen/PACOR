@@ -39,7 +39,7 @@ let ReadingInstruction = {
     },
     contentURL () {
       //console.log(this.instruction)
-      if (!this.instruction) {
+      if (!this.instruction || this.$slots.content) {
         return false
       }
       

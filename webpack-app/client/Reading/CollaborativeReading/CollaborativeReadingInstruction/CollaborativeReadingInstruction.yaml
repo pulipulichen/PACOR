@@ -19,6 +19,7 @@ zh-TW:
   'When reading an article, complete both the "Checklist" and the "{0}" note.': 閱讀文章的時候要一併完成「查核表」和撰寫「{0}」筆記。
   'When reading an article, complete both the <span class="highlight">"Checklist"</span> and the <span class="highlight">"{0}"</span> note.': '閱讀文章的時候要一併完成<span class="highlight">「查核表」</span>和撰寫<span class="highlight">「{0}」</span>筆記。'
   Limited to <span class="highlight">{0} minutes</span>, now it starts instant.: 限時<span class="highlight">{0}分鐘</span>，現在開始計時。
+  ", now it starts instant.": "，現在開始計時"
   
+  Now please see how other readers read this article and give them some suggestions.: 現在請您看看其他讀者是怎麼讀這篇文章，並給他們一些建議吧。
   ". Please do your best to assist other readers.": 。請盡力去協助其他讀者吧。
-  ". Please read the article carefully.": 。請仔細閱讀文章吧。

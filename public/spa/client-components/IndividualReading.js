@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"\\"{0}\\"":"\\"{0}\\"","<span class=\\"highlight\\">\\"{0}\\"</span>":"<span class=\\"highlight\\">\\"{0}\\"</span>","and {0}":"and {0}","Please use {0} reading strategies to read this article.":"Please use {0} reading strategies to read this article.","When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.":"When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.","When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.":"When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.","Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant.":"Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant."},"zh-TW":{"Now please concentrate on reading this article!":"現在請您專心閱讀這篇文章囉！","\\"{0}\\"":"「{0}」","<span class=\\"highlight\\">\\"{0}\\"</span>":"<span class=\\"highlight\\">「{0}」</span>",", ":"、","and {0}":"以及{0}","Please use {0} reading strategies to read this article.":"請使用{0}閱讀策略來閱讀這篇文章。","When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.":"閱讀文章的時候要一併完成「查核表」和撰寫「{0}」筆記。","When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.":"閱讀文章的時候要一併完成<span class=\\"highlight\\">「查核表」</span>和撰寫<span class=\\"highlight\\">「{0}」</span>筆記。","Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant.":"限時<span class=\\"highlight\\">{0}分鐘</span>，現在開始計時。"}}')
+  Component.options.__i18n.push('{"en":{"\\"{0}\\"":"\\"{0}\\"","<span class=\\"highlight\\">\\"{0}\\"</span>":"<span class=\\"highlight\\">\\"{0}\\"</span>","and {0}":"and {0}","Please use {0} reading strategies to read this article.":"Please use {0} reading strategies to read this article.","When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.":"When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.","When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.":"When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.","Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant.":"Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant."},"zh-TW":{"Now please concentrate on reading this article!":"現在請您專心閱讀這篇文章囉！","\\"{0}\\"":"「{0}」","<span class=\\"highlight\\">\\"{0}\\"</span>":"<span class=\\"highlight\\">「{0}」</span>",", ":"、","and {0}":"以及{0}","Please use {0} reading strategies to read this article.":"請使用{0}閱讀策略來閱讀這篇文章。","When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.":"閱讀文章的時候要一併完成「查核表」和撰寫「{0}」筆記。","When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.":"閱讀文章的時候要一併完成<span class=\\"highlight\\">「查核表」</span>和撰寫<span class=\\"highlight\\">「{0}」</span>筆記。","Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant.":"限時<span class=\\"highlight\\">{0}分鐘</span>，現在開始計時。",". Please do your best to assist other readers.":"。請盡力去協助其他讀者吧。",". Please read the article carefully.":"。請仔細閱讀文章吧。"}}')
   delete Component.options._Ctor
 }
 
@@ -298,7 +298,25 @@ var render = function() {
                 })
               : _vm._e(),
             _vm._v(" "),
-            _c("li", { domProps: { innerHTML: _vm._s(_vm.computedLimitTime) } })
+            _c(
+              "li",
+              [
+                _c("simple-remaining-timer", {
+                  staticClass: "highlight",
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib
+                  }
+                }),
+                _vm._v(
+                  "\r\n          " +
+                    _vm._s(_vm.$t(". Please read the article carefully.")) +
+                    "\r\n        "
+                )
+              ],
+              1
+            )
           ])
         ])
       ])
@@ -862,7 +880,7 @@ let IndividualReading = {
     //console.log(this.lib.style.scrollBarWidth)
     //this._testDetect()
     //this._testSelectRandom()
-    this._testInstruction()
+    //this._testInstruction()
   },
   destroyed () {
     //console.log('退場了')

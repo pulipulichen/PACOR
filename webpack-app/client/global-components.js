@@ -81,6 +81,10 @@ Vue.component('digital-countdown-timer', () => {
   return import(/* webpackChunkName: "client-components/GlobalComponents" */ './../components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.vue')
 })
 
+Vue.component('simple-remaining-timer', () => {
+  return import(/* webpackChunkName: "client-components/GlobalComponents" */ './../components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.vue')
+})
+
 //import ValidationButton from './../components/ui-button/ValidationButton/ValidationButton.vue'
 //Vue.component('validation-button', ValidationButton)
 Vue.component('validation-button', () => {

@@ -6,12 +6,9 @@
     </div>
     <div class="twelve wide column">
       <h1 class="ui header">
-        {{ $t('Now please concentrate on reading this article!') }}
+        {{ $t('Now please see how other readers read this article and give them some suggestions.') }}
       </h1>
       <ul>
-        <li v-html="computedAnnotationType"></li>
-        <li v-if="computedChecklist"
-            v-html="computedChecklist"></li>
         <li>
           <simple-remaining-timer
             class="highlight"
@@ -19,7 +16,7 @@
             v-bind:status="status"
             v-bind:lib="lib">
           </simple-remaining-timer>
-          {{ $t('. Please read the article carefully.') }}
+          {{ $t('. Please do your best to assist other readers.') }}
         </li>
       </ul>
     </div>

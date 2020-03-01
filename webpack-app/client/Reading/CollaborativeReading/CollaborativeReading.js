@@ -1,6 +1,7 @@
 import NavigationItems from './NavigationItems/NavigationItems.vue'
 //import NotificationManager from './../components/NotificationManager/NotificationManager.vue'
 //import $ from 'jquery'
+import CollaborativeReadingInstruction from './CollaborativeReadingInstruction/CollaborativeReadingInstruction.vue'
 
 let CollaborativeReading = {
   props: ['lib', 'status', 'config'],
@@ -10,8 +11,9 @@ let CollaborativeReading = {
   },
   components: {
     'navigation-items': NavigationItems,
-    'instruction-message-content': null,
+    //'instruction-message-content': null,
     //'notification-manager': NotificationManager
+    'collaborative-reading-instruction': CollaborativeReadingInstruction
   },
 //  computed: {
 //  },

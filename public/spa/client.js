@@ -914,6 +914,10 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('digital-countdown-timer',
   return Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors~client-components/GlobalComponents"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.bind(null, /*! ./../components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.vue */ "./webpack-app/components/reading-progress/DigitalCountdownTimer/DigitalCountdownTimer.vue"))
 })
 
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('simple-remaining-timer', () => {
+  return Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors~client-components/GlobalComponents"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.bind(null, /*! ./../components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.vue */ "./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.vue"))
+})
+
 //import ValidationButton from './../components/ui-button/ValidationButton/ValidationButton.vue'
 //Vue.component('validation-button', ValidationButton)
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('validation-button', () => {

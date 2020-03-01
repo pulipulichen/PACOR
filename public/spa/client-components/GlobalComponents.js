@@ -288,6 +288,22 @@ module.exports = function (Component) {
 
 /***/ }),
 
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CSimpleRemainingTimer%5CSimpleRemainingTimer.vue&lang=yaml":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CSimpleRemainingTimer%5CSimpleRemainingTimer.vue&lang=yaml ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Remaining Time":"剩餘時間"}}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/reading-progress/StepProgressBar/StepProgressBar.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CStepProgressBar%5CStepProgressBar.vue&lang=yaml":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/components/reading-progress/StepProgressBar/StepProgressBar.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CStepProgressBar%5CStepProgressBar.vue&lang=yaml ***!
@@ -715,6 +731,20 @@ var getUrl = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/ru
 var ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(/*! ./fonts/digital-7.ttf */ "./webpack-app/components/reading-progress/DigitalCountdownTimer/fonts/digital-7.ttf"));
 // Module
 exports.push([module.i, ".DigitalCountdownTimer[data-v-2b3215b5] {\n  color: #ffffff;\n  border-radius: 0.3em;\n  border: 1px solid white;\n  font-family: 'digital-7', 'sans-serif';\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n  font-size: 1.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  padding-top: 0.1em;\n}\n@font-face {\n  font-family: 'digital-7';\n  src: url(" + ___CSS_LOADER_URL___0___ + ");\n}\n/* CLOCK */\ndiv.clock div[data-v-2b3215b5] {\n  display: inline-block;\n  position: relative;\n}\ndiv.clock div p[data-v-2b3215b5] {\n  position: relative;\n  z-index: 100;\n  margin-bottom: 0 !important;\n  line-height: 1em;\n}\ndiv.clock div p.minutes[data-v-2b3215b5],\ndiv.clock div p.seconds[data-v-2b3215b5] {\n  transition: text-shadow 0.3s ease !important;\n}\ndiv.clock .placeholder[data-v-2b3215b5] {\n  color: #8E5229;\n  position: absolute;\n  top: 0;\n  z-index: 50;\n}\ndiv.clock .meridian[data-v-2b3215b5] {\n  margin-left: 0.5em;\n}\n/*END CLOCK*/\n/*CLASS THAT CHANGES COLOR OF TEXT TO APPEAR LIKE ITS \"ON\"*/\n.light-on[data-v-2b3215b5] {\n  color: #ffffff;\n}\n.message[data-v-2b3215b5] {\n  display: block !important;\n  font-size: 0.4em;\n  top: 0.1em;\n  text-align: center;\n  left: -0.3em;\n}\n.seconds[data-v-2b3215b5] {\n  margin-right: 0.5em;\n}\n.seconds.two[data-v-2b3215b5] {\n  margin-right: 0;\n}\n.seconds.two[data-v-2b3215b5],\n.minutes.two[data-v-2b3215b5] {\n  left: -0.5em;\n}\n.colon[data-v-2b3215b5] {\n  margin-left: -0.7em;\n  margin-right: -0.3em;\n}\n.seconds-numbers[data-v-2b3215b5] {\n  margin-right: -1em;\n}\n.minutes-numbers[data-v-2b3215b5] {\n  margin-right: 0.5em;\n}\n.minutes-numbers .minutes.hidden[data-v-2b3215b5],\n.minutes-numbers .minutes.two[data-v-2b3215b5] {\n  margin-right: -0.5em;\n}\n.glow[data-v-2b3215b5] {\n  text-shadow: 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5);\n}\n.hidden[data-v-2b3215b5] {\n  visibility: hidden;\n}\n.colon-hidden[data-v-2b3215b5] {\n  color: #8E5229;\n}\n", "",{"version":3,"sources":["DigitalCountdownTimer.less?vue&type=style&index=0&id=2b3215b5&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,oBAAoB;EACpB,uBAAuB;EACvB,sCAAsC;EACtC,mBAAmB;EACnB,oBAAoB;EACpB,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;EACnB,kBAAkB;AACpB;AACA;EACE,wBAAwB;EACxB,kCAAiC;AACnC;AACA,UAAU;AACV;EACE,qBAAqB;EACrB,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,YAAY;EACZ,2BAA2B;EAC3B,gBAAgB;AAClB;AACA;;EAEE,4CAA4C;AAC9C;AACA;EACE,cAAc;EACd,kBAAkB;EAClB,MAAM;EACN,WAAW;AACb;AACA;EACE,kBAAkB;AACpB;AACA,YAAY;AACZ,2DAA2D;AAC3D;EACE,cAAc;AAChB;AACA;EACE,yBAAyB;EACzB,gBAAgB;EAChB,UAAU;EACV,kBAAkB;EAClB,YAAY;AACd;AACA;EACE,mBAAmB;AACrB;AACA;EACE,eAAe;AACjB;AACA;;EAEE,YAAY;AACd;AACA;EACE,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,mBAAmB;AACrB;AACA;;EAEE,oBAAoB;AACtB;AACA;EACE,4RAA4R;AAC9R;AACA;EACE,kBAAkB;AACpB;AACA;EACE,cAAc;AAChB","file":"DigitalCountdownTimer.less?vue&type=style&index=0&id=2b3215b5&lang=less&scoped=true&","sourcesContent":[".DigitalCountdownTimer[data-v-2b3215b5] {\n  color: #ffffff;\n  border-radius: 0.3em;\n  border: 1px solid white;\n  font-family: 'digital-7', 'sans-serif';\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n  font-size: 1.5em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  padding-top: 0.1em;\n}\n@font-face {\n  font-family: 'digital-7';\n  src: url('./fonts/digital-7.ttf');\n}\n/* CLOCK */\ndiv.clock div[data-v-2b3215b5] {\n  display: inline-block;\n  position: relative;\n}\ndiv.clock div p[data-v-2b3215b5] {\n  position: relative;\n  z-index: 100;\n  margin-bottom: 0 !important;\n  line-height: 1em;\n}\ndiv.clock div p.minutes[data-v-2b3215b5],\ndiv.clock div p.seconds[data-v-2b3215b5] {\n  transition: text-shadow 0.3s ease !important;\n}\ndiv.clock .placeholder[data-v-2b3215b5] {\n  color: #8E5229;\n  position: absolute;\n  top: 0;\n  z-index: 50;\n}\ndiv.clock .meridian[data-v-2b3215b5] {\n  margin-left: 0.5em;\n}\n/*END CLOCK*/\n/*CLASS THAT CHANGES COLOR OF TEXT TO APPEAR LIKE ITS \"ON\"*/\n.light-on[data-v-2b3215b5] {\n  color: #ffffff;\n}\n.message[data-v-2b3215b5] {\n  display: block !important;\n  font-size: 0.4em;\n  top: 0.1em;\n  text-align: center;\n  left: -0.3em;\n}\n.seconds[data-v-2b3215b5] {\n  margin-right: 0.5em;\n}\n.seconds.two[data-v-2b3215b5] {\n  margin-right: 0;\n}\n.seconds.two[data-v-2b3215b5],\n.minutes.two[data-v-2b3215b5] {\n  left: -0.5em;\n}\n.colon[data-v-2b3215b5] {\n  margin-left: -0.7em;\n  margin-right: -0.3em;\n}\n.seconds-numbers[data-v-2b3215b5] {\n  margin-right: -1em;\n}\n.minutes-numbers[data-v-2b3215b5] {\n  margin-right: 0.5em;\n}\n.minutes-numbers .minutes.hidden[data-v-2b3215b5],\n.minutes-numbers .minutes.two[data-v-2b3215b5] {\n  margin-right: -0.5em;\n}\n.glow[data-v-2b3215b5] {\n  text-shadow: 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5), 0px 0px 10px rgba(255, 255, 128, 0.5);\n}\n.hidden[data-v-2b3215b5] {\n  visibility: hidden;\n}\n.colon-hidden[data-v-2b3215b5] {\n  color: #8E5229;\n}\n"]}]);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.less?vue&type=style&index=0&id=72ed910a&lang=less&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.less?vue&type=style&index=0&id=72ed910a&lang=less&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Module
+exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"SimpleRemainingTimer.less?vue&type=style&index=0&id=72ed910a&lang=less&scoped=true&"}]);
 
 
 /***/ }),
@@ -2899,6 +2929,38 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.html?vue&type=template&id=72ed910a&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.html?vue&type=template&id=72ed910a&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("span", { staticClass: "SimpleRemainingTimer" }, [
+    _vm._v(
+      "\r\n  " +
+        _vm._s(_vm.$t("Remaining Time")) +
+        " \r\n  " +
+        _vm._s(_vm.dataRemainingTime) +
+        "\r\n"
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/reading-progress/StepProgressBar/StepProgressBar.html?vue&type=template&id=386af451&scoped=true&":
 /*!*************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./webpack-app/components/reading-progress/StepProgressBar/StepProgressBar.html?vue&type=template&id=386af451&scoped=true& ***!
@@ -4174,6 +4236,27 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("81a57fba", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.less?vue&type=style&index=0&id=72ed910a&lang=less&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js??ref--1-2!./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.less?vue&type=style&index=0&id=72ed910a&lang=less&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./SimpleRemainingTimer.less?vue&type=style&index=0&id=72ed910a&lang=less&scoped=true& */ "./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.less?vue&type=style&index=0&id=72ed910a&lang=less&scoped=true&");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("20a4b45d", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -9978,6 +10061,189 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports) {
 
 module.exports = "http://pc.pulipuli.info:3333/spa/asset/digital-7.ttf";
+
+/***/ }),
+
+/***/ "./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.html?vue&type=template&id=72ed910a&scoped=true&":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.html?vue&type=template&id=72ed910a&scoped=true& ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_SimpleRemainingTimer_html_vue_type_template_id_72ed910a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./SimpleRemainingTimer.html?vue&type=template&id=72ed910a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.html?vue&type=template&id=72ed910a&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_SimpleRemainingTimer_html_vue_type_template_id_72ed910a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_SimpleRemainingTimer_html_vue_type_template_id_72ed910a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.js?vue&type=script&lang=js&?98dc":
+/*!***********************************************************************************************************************!*\
+  !*** ./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.js?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let CountdownTimer = {
+  props: ['lib', 'config'
+    , 'remainingSeconds', 'pauseAtStart'],
+  data() {    
+    this.$i18n.locale = this.config.locale
+    return {
+      dataRemainingSec: this.remainingSeconds,
+      dataPause: this.pauseAtStart
+    }
+  },
+  computed: {
+    dataRemainingTime () {
+      return this.lib.DayJSHelper.formatHHMMSS(this.dataRemainingSec)
+    }
+  },
+  watch: {
+    remainingSeconds (remainingSec) {
+      this.dataRemainingSec = remainingSec
+    },
+    pauseAtStart (pause) {
+      this.dataPause = pause
+    }
+  },
+  mounted() {
+    this.start()
+  },
+  methods: {
+    start: function () {
+      if (!this.dataRemainingSec) {
+        //this.dataRemainingSec = await this.lib.AxiosHelper.get('/client/ReadingProgress/getRemainingSeconds')
+        this.dataRemainingSec = this.lib.auth.getRemainingSeconds()
+      }
+      
+      //console.log(this.pauseAtStart)
+      if (this.dataPause === true) {
+        return null
+      }
+      setTimeout(() => {
+        this.dataRemainingSec--
+        
+        if (this.dataRemainingSec > 0) {
+          this.start()
+        }
+        else {
+          this.timeup()
+        }
+      }, 1000)
+    },
+    timeup () {
+      //console.log('timeup')
+      this.$emit('timeup')
+    },
+    pause () {
+      this.dataPause = true
+    },
+    resume () {
+      this.dataPause = false
+      this.start()
+    }
+  } // methods
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (CountdownTimer);
+
+/***/ }),
+
+/***/ "./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.js?vue&type=script&lang=js&?e3a0":
+/*!***********************************************************************************************************************!*\
+  !*** ./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.js?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SimpleRemainingTimer_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./SimpleRemainingTimer.js?vue&type=script&lang=js& */ "./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.js?vue&type=script&lang=js&?98dc");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_SimpleRemainingTimer_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.less?vue&type=style&index=0&id=72ed910a&lang=less&scoped=true&":
+/*!**********************************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.less?vue&type=style&index=0&id=72ed910a&lang=less&scoped=true& ***!
+  \**********************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SimpleRemainingTimer_less_vue_type_style_index_0_id_72ed910a_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-style-loader!../../../../node_modules/css-loader/dist/cjs.js?sourceMap!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/less-loader/dist/cjs.js??ref--1-2!./SimpleRemainingTimer.less?vue&type=style&index=0&id=72ed910a&lang=less&scoped=true& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js?sourceMap!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/less-loader/dist/cjs.js?!./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.less?vue&type=style&index=0&id=72ed910a&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SimpleRemainingTimer_less_vue_type_style_index_0_id_72ed910a_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SimpleRemainingTimer_less_vue_type_style_index_0_id_72ed910a_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SimpleRemainingTimer_less_vue_type_style_index_0_id_72ed910a_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SimpleRemainingTimer_less_vue_type_style_index_0_id_72ed910a_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_sourceMap_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_less_loader_dist_cjs_js_ref_1_2_SimpleRemainingTimer_less_vue_type_style_index_0_id_72ed910a_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.vue":
+/*!***********************************************************************************************!*\
+  !*** ./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.vue ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SimpleRemainingTimer_html_vue_type_template_id_72ed910a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SimpleRemainingTimer.html?vue&type=template&id=72ed910a&scoped=true& */ "./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.html?vue&type=template&id=72ed910a&scoped=true&");
+/* harmony import */ var _SimpleRemainingTimer_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SimpleRemainingTimer.js?vue&type=script&lang=js& */ "./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.js?vue&type=script&lang=js&?e3a0");
+/* empty/unused harmony star reexport *//* harmony import */ var _SimpleRemainingTimer_less_vue_type_style_index_0_id_72ed910a_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SimpleRemainingTimer.less?vue&type=style&index=0&id=72ed910a&lang=less&scoped=true& */ "./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.less?vue&type=style&index=0&id=72ed910a&lang=less&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _SimpleRemainingTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CSimpleRemainingTimer_5CSimpleRemainingTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SimpleRemainingTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CSimpleRemainingTimer%5CSimpleRemainingTimer.vue&lang=yaml */ "./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CSimpleRemainingTimer%5CSimpleRemainingTimer.vue&lang=yaml");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _SimpleRemainingTimer_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SimpleRemainingTimer_html_vue_type_template_id_72ed910a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SimpleRemainingTimer_html_vue_type_template_id_72ed910a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "72ed910a",
+  null
+  
+)
+
+/* custom blocks */
+
+if (typeof _SimpleRemainingTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CSimpleRemainingTimer_5CSimpleRemainingTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"] === 'function') Object(_SimpleRemainingTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CSimpleRemainingTimer_5CSimpleRemainingTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_4__["default"])(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CSimpleRemainingTimer%5CSimpleRemainingTimer.vue&lang=yaml":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CSimpleRemainingTimer%5CSimpleRemainingTimer.vue&lang=yaml ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_SimpleRemainingTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CSimpleRemainingTimer_5CSimpleRemainingTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/@kazupon/vue-i18n-loader/lib!./SimpleRemainingTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CSimpleRemainingTimer%5CSimpleRemainingTimer.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/components/reading-progress/SimpleRemainingTimer/SimpleRemainingTimer.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Ccomponents%5Creading-progress%5CSimpleRemainingTimer%5CSimpleRemainingTimer.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_SimpleRemainingTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CSimpleRemainingTimer_5CSimpleRemainingTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_SimpleRemainingTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CSimpleRemainingTimer_5CSimpleRemainingTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_SimpleRemainingTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CSimpleRemainingTimer_5CSimpleRemainingTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_SimpleRemainingTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CSimpleRemainingTimer_5CSimpleRemainingTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_SimpleRemainingTimer_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Ccomponents_5Creading_progress_5CSimpleRemainingTimer_5CSimpleRemainingTimer_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
