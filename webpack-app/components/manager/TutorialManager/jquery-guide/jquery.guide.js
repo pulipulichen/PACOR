@@ -536,7 +536,15 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
         
         let glow = _this.layout.glow
         let tippyInited = true
-        if (action.content) {
+        
+        let content = action.content
+        //console.log(action)
+        if (action.title) {
+          content = '<strong>' + action.title + '</strong> ' + content
+          //console.log(content)
+        }
+        
+        if (content) {
           if (isStart === false) {
             return false
           }
@@ -546,7 +554,7 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
           }
           
           if (tippyInited === false) {
-            glow.attr('data-tippy-content', action.content)
+            glow.attr('data-tippy-content', content)
             
             glowTippy = tippy(_this.layout.glow[0], {
               theme: 'light',
@@ -555,7 +563,7 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
             //window.gt = glowTippy
           }
           else {
-            glowTippy.setContent(action.content)
+            glowTippy.setContent(content)
           }
           
           glowTippy.show()

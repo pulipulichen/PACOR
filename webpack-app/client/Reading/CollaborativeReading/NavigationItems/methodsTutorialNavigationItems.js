@@ -35,6 +35,7 @@ export default function (NavigationItems) {
         let element = this.$refs.nav.find('.UserFilter:visible:first')
         return element
       },
+      title: this.$t('Assisting Reader Tool'),
       content: this.$t('Select a reader, watch how he/she read the article, and give him/her suggestions.'),
       order: 31
     })
@@ -64,7 +65,7 @@ export default function (NavigationItems) {
           this.$refs.AnnotationTypeFilter.hide()
         }
       },
-      title: this.$t('Assisting Reader Tool'),
+      title: this.$t('Annotation Type Selector'),
       content: this.$t('Select an annotation type to watch how readers use it to read the article.'),
       order: 33
     })
@@ -157,16 +158,20 @@ export default function (NavigationItems) {
     // --------------------------
 
     this.lib.TutorialManager.addAction({
+      //backgroundFadeOut: false,
       element: async () => {
         if (this.$refs.nav.sideMenuDisplay === true) {
           await this.$refs.nav.hideSideMenu()
         }
-        return this.$refs.DigitalCountdownTimer
+        //return this.$refs.DigitalCountdownTimer
+        return this.$refs.nav.find('.DigitalCountdownTimer-wrapper:visible:first')
       },
       content: this.$t('Collaborative Reading will end at count to 0.'),
       order: 39
     })
   }
+  
+  // -------------------------------------
   
   NavigationItems.methods.openSideMenu = async function () {
     //console.log(this.$refs.nav.sideMenuDisplay)

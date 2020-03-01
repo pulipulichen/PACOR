@@ -2034,7 +2034,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (NavigationItems) {
   NavigationItems.methods.setupTutorial = function () {
     this.lib.TutorialManager.addAction({
-      //backgroundFadeOut: true,
+      backgroundFadeOut: true,
       beforeCallback: async () => {
         //let compactMenuElement = this.$refs.nav.$refs.Menu
         //console.log(compactMenuElement.getBoundingClientRect())

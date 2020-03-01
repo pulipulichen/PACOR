@@ -110,7 +110,8 @@ let i18nGlobal = {
     'Cancel Focus': '取消專注閱讀',
     'Write something': '請寫筆記',
     
-    'Assisting Reader Tool': '協助讀者工具'
+    'Assisting Reader Tool': '協助讀者工具',
+    'Annotation Type Selector': '閱讀策略篩選器',
   }
 }
 
