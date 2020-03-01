@@ -29352,7 +29352,7 @@ let ReadingInstruction = {
               + this.status.userID + '.' 
               + this.lib.auth.currentStep
     let hasReadTutorial = (localStorage.getItem(localStorageUserKeyPrefix) !== null)
-    //console.log(hasReadTutorial, localStorageUserKeyPrefix)
+    console.log(hasReadTutorial, localStorageUserKeyPrefix)
     
     return {
       tempStepName: this.lib.auth.currentStep,
@@ -29429,8 +29429,8 @@ let ReadingInstruction = {
         return this.show()
       }
       
-      if (!this.instruction && !this.lib.auth.currentStepConfig.showFinishMessage) {
-        return null
+      if (this.lib.auth.currentStepConfig.showFinishMessage === true) {
+        return this.show()
       }
       
       //console.log(localStorage.getItem(this.localStorageKeyPrefix))

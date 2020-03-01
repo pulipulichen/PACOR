@@ -123,8 +123,10 @@ export default function (NavigationItems) {
 //        return $('.ui.popup.visible:visible')
       },
       afterClick: async () => {
-        await this.$refs.AnnotationTypeFilter.hide()
-        await this.lib.VueHelper.sleep(500)
+        if (this.$refs.AnnotationTypeFilter) {
+          await this.$refs.AnnotationTypeFilter.hide()
+          await this.lib.VueHelper.sleep(500)
+        }
       },
       content: this.$t('Select an annotation type to watch how readers use it to read the article.'),
       order: 36
@@ -132,13 +134,11 @@ export default function (NavigationItems) {
     
     this.lib.TutorialManager.addAction({
       beforeCallback: async () => {
-        if (this.$refs.nav.isCompactMode === false) {
-          return false
+        if (this.$refs.nav.isCompactMode === true) {
+          await this.$refs.nav.hideSideMenu()
+          await this.lib.VueHelper.sleep(500)
         }
-        
-        await this.$refs.nav.hideSideMenu()
-        await this.lib.VueHelper.sleep(500)
-        
+        //console.log('ok?')
 //        window.el = this.$refs.AnnotationTypeFilter.$el
 //        await this.lib.TutorialManager.showClick(this.$refs.AnnotationTypeFilter.$el.getBoundingClientRect())
 //        await this.lib.VueHelper.sleep(500)
@@ -147,9 +147,11 @@ export default function (NavigationItems) {
 //        await this.lib.VueHelper.sleep(500)
       },
       element: () => {
-        return $('.NotificationIcon:visible:first')
+        //return $('.NotificationIcon:visible:first')
+        //console.log(this.$refs.nav.find('.NotificationIcon-wrapper:visible:first').length)
+        return this.$refs.nav.find('.NotificationIcon-wrapper:visible:first')
       },
-      backgroundFadeOut: true,
+      //backgroundFadeOut: true,
       content: this.$t(`You will get notifications from other readers here.`),
       order: 38
     })

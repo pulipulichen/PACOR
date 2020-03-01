@@ -8,11 +8,11 @@ module.exports = {
     forceMaxTimeoutMinutes: 1,
     
     test: {
-      //minAnnotation: 4,
-      //maxAnnotation: 9
+      minAnnotation: 4,
+      maxAnnotation: 9
       
-      minAnnotation: 1,
-      maxAnnotation: 1
+      //minAnnotation: 1,
+      //maxAnnotation: 1
     },
     
     //onlyShowTutorialOrder: [33, 34],
@@ -20,7 +20,7 @@ module.exports = {
     //stayInReadingProgress: 'PreImaginaryKeyword'
     //stayInReadingProgress: 'PostRecallKeyword'
     //stayInReadingProgress: 'IndividualReading'
-    stayInReadingProgress: 'CollaborativeReading'
+    //stayInReadingProgress: 'CollaborativeReading'
   },
   
   /**

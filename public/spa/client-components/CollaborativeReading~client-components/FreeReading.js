@@ -186,7 +186,7 @@ var render = function() {
                 return [
                   _vm.lib.style.isLeftHanded
                     ? _c("notification-icon", {
-                        staticClass: "in-fullmode",
+                        staticClass: "in-fullmode NotificationIcon-wrapper",
                         attrs: {
                           config: _vm.config,
                           status: _vm.status,
@@ -290,7 +290,7 @@ var render = function() {
                   _vm._v(" "),
                   !_vm.lib.style.isLeftHanded
                     ? _c("notification-icon", {
-                        staticClass: "in-top",
+                        staticClass: "in-top NotificationIcon-wrapper",
                         attrs: {
                           config: _vm.config,
                           status: _vm.status,
@@ -308,6 +308,7 @@ var render = function() {
               fn: function() {
                 return [
                   _c("notification-icon", {
+                    staticClass: "NotificationIcon-wrapper",
                     attrs: {
                       config: _vm.config,
                       status: _vm.status,
@@ -338,7 +339,7 @@ var render = function() {
           ],
           null,
           false,
-          1970065540
+          3380958780
         )
       })
     : _vm._e()
@@ -955,8 +956,10 @@ __webpack_require__.r(__webpack_exports__);
 //        return $('.ui.popup.visible:visible')
       },
       afterClick: async () => {
-        await this.$refs.AnnotationTypeFilter.hide()
-        await this.lib.VueHelper.sleep(500)
+        if (this.$refs.AnnotationTypeFilter) {
+          await this.$refs.AnnotationTypeFilter.hide()
+          await this.lib.VueHelper.sleep(500)
+        }
       },
       content: this.$t('Select an annotation type to watch how readers use it to read the article.'),
       order: 36
@@ -964,13 +967,11 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction({
       beforeCallback: async () => {
-        if (this.$refs.nav.isCompactMode === false) {
-          return false
+        if (this.$refs.nav.isCompactMode === true) {
+          await this.$refs.nav.hideSideMenu()
+          await this.lib.VueHelper.sleep(500)
         }
-        
-        await this.$refs.nav.hideSideMenu()
-        await this.lib.VueHelper.sleep(500)
-        
+        //console.log('ok?')
 //        window.el = this.$refs.AnnotationTypeFilter.$el
 //        await this.lib.TutorialManager.showClick(this.$refs.AnnotationTypeFilter.$el.getBoundingClientRect())
 //        await this.lib.VueHelper.sleep(500)
@@ -979,9 +980,11 @@ __webpack_require__.r(__webpack_exports__);
 //        await this.lib.VueHelper.sleep(500)
       },
       element: () => {
-        return jquery__WEBPACK_IMPORTED_MODULE_0___default()('.NotificationIcon:visible:first')
+        //return $('.NotificationIcon:visible:first')
+        //console.log(this.$refs.nav.find('.NotificationIcon-wrapper:visible:first').length)
+        return this.$refs.nav.find('.NotificationIcon-wrapper:visible:first')
       },
-      backgroundFadeOut: true,
+      //backgroundFadeOut: true,
       content: this.$t(`You will get notifications from other readers here.`),
       order: 38
     })

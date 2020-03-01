@@ -10,7 +10,7 @@
   v-on:onSideMenuChange="(m) => {isSideMenuDisplay = m}">
   <template v-slot:header>
     <notification-icon
-      class="in-fullmode"
+      class="in-fullmode NotificationIcon-wrapper"
       v-if="lib.style.isLeftHanded"
       v-bind:config="config"
       v-bind:status="status"
@@ -89,7 +89,7 @@
       v-bind:status="status"
       v-bind:lib="lib"
       position="left"
-      class="in-top">
+      class="in-top NotificationIcon-wrapper">
     </notification-icon>
   </template>
 
@@ -99,7 +99,8 @@
       v-bind:config="config"
       v-bind:status="status"
       v-bind:lib="lib"
-      position="left">
+      position="left"
+      class="NotificationIcon-wrapper">
     </notification-icon>
   </template>
   

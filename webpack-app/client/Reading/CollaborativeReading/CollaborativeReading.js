@@ -29,7 +29,7 @@ let CollaborativeReading = {
     //await this._testShowVerticalMenu()
     //this._testSearch()
     //this._testErrorAuth()
-    this._testTutorial()
+    //this._testTutorial()
     //this._testTutorialShowClick()
     //this._testInstruction()
     //this._testNotificationFullList()
