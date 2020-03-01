@@ -7,7 +7,7 @@ let FreeReading = {
 }
 
 FreeReading.components['navigation-items'] = NavigationItems
-FreeReading.components['instruction-message-content'] = QuestionnaireResults
+FreeReading.components['reading-instruction-message'] = QuestionnaireResults
 
 FreeReading.mounted = async function () {
   this.initComponentToLib()

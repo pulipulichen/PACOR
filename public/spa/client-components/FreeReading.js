@@ -237,7 +237,7 @@ var render = function() {
             key: "content",
             fn: function() {
               return [
-                _c("collaborative-reading-instruction", {
+                _c("reading-instruction-message", {
                   attrs: {
                     config: _vm.config,
                     status: _vm.status,
@@ -1560,7 +1560,7 @@ let CollaborativeReading = {
     'navigation-items': _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     //'instruction-message-content': null,
     //'notification-manager': NotificationManager
-    'collaborative-reading-instruction': _CollaborativeReadingInstruction_CollaborativeReadingInstruction_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    'reading-instruction-message': _CollaborativeReadingInstruction_CollaborativeReadingInstruction_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
 //  computed: {
 //  },
@@ -1742,7 +1742,7 @@ let FreeReading = {
 }
 
 FreeReading.components['navigation-items'] = _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-FreeReading.components['instruction-message-content'] = _QuestionnaireResults_QuestionnaireResults_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+FreeReading.components['reading-instruction-message'] = _QuestionnaireResults_QuestionnaireResults_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 
 FreeReading.mounted = async function () {
   this.initComponentToLib()

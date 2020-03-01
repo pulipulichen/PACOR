@@ -29352,7 +29352,7 @@ let ReadingInstruction = {
               + this.status.userID + '.' 
               + this.lib.auth.currentStep
     let hasReadTutorial = (localStorage.getItem(localStorageUserKeyPrefix) !== null)
-    console.log(hasReadTutorial, localStorageUserKeyPrefix)
+    //console.log(hasReadTutorial, localStorageUserKeyPrefix)
     
     return {
       tempStepName: this.lib.auth.currentStep,

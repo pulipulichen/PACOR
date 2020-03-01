@@ -1,6 +1,6 @@
 let setTraitBrowser = function (trait, headless) {
   
-  console.log({headless})
+  //console.log({headless})
   
   /**
    * https://github.com/puppeteer/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions

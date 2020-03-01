@@ -13,7 +13,7 @@ let CollaborativeReading = {
     'navigation-items': NavigationItems,
     //'instruction-message-content': null,
     //'notification-manager': NotificationManager
-    'collaborative-reading-instruction': CollaborativeReadingInstruction
+    'reading-instruction-message': CollaborativeReadingInstruction
   },
 //  computed: {
 //  },

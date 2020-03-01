@@ -103,7 +103,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".ReadingInstruction[data-v-79503c70]  .highlight {\n  background-color: yellow;\n  font-weight: bold;\n}\nli[data-v-79503c70] {\n  margin-bottom: 0.5rem;\n}\nh1[data-v-79503c70] {\n  text-indent: -0.25em !important;\n}\n", "",{"version":3,"sources":["IndividualReadingInstruction.less?vue&type=style&index=0&id=79503c70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;EACxB,iBAAiB;AACnB;AACA;EACE,qBAAqB;AACvB;AACA;EACE,+BAA+B;AACjC","file":"IndividualReadingInstruction.less?vue&type=style&index=0&id=79503c70&lang=less&scoped=true&","sourcesContent":[".ReadingInstruction[data-v-79503c70]  .highlight {\n  background-color: yellow;\n  font-weight: bold;\n}\nli[data-v-79503c70] {\n  margin-bottom: 0.5rem;\n}\nh1[data-v-79503c70] {\n  text-indent: -0.25em !important;\n}\n"]}]);
+exports.push([module.i, ".ReadingInstruction[data-v-79503c70]  .highlight {\n  background-color: yellow;\n  font-weight: bold;\n}\nli[data-v-79503c70] {\n  margin-bottom: 0.5rem;\n}\nh1[data-v-79503c70] {\n  text-indent: -0.25em !important;\n}\n.instruction-column[data-v-79503c70] {\n  vertical-align: top !important;\n}\n", "",{"version":3,"sources":["IndividualReadingInstruction.less?vue&type=style&index=0&id=79503c70&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;EACxB,iBAAiB;AACnB;AACA;EACE,qBAAqB;AACvB;AACA;EACE,+BAA+B;AACjC;AACA;EACE,8BAA8B;AAChC","file":"IndividualReadingInstruction.less?vue&type=style&index=0&id=79503c70&lang=less&scoped=true&","sourcesContent":[".ReadingInstruction[data-v-79503c70]  .highlight {\n  background-color: yellow;\n  font-weight: bold;\n}\nli[data-v-79503c70] {\n  margin-bottom: 0.5rem;\n}\nh1[data-v-79503c70] {\n  text-indent: -0.25em !important;\n}\n.instruction-column[data-v-79503c70] {\n  vertical-align: top !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -269,14 +269,14 @@ var render = function() {
     { staticClass: "IndividualReadingInstruction ReadingInstruction" },
     [
       _c("div", { staticClass: "ui middle aligned grid" }, [
-        _c("div", { staticClass: "four wide column" }, [
+        _c("div", { staticClass: "four wide column instruction-column" }, [
           _c("img", {
             staticClass: "ui image",
             attrs: { src: _vm.computedCoverImage }
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "twelve wide column" }, [
+        _c("div", { staticClass: "twelve wide column instruction-column" }, [
           _c("h1", { staticClass: "ui header" }, [
             _vm._v(
               "\r\n        " +

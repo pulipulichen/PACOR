@@ -356,6 +356,7 @@ let logManager = {
     output.left = 0
     
     let i = this.getDisplayIndex(index) % 9
+    console.log({displayIndex: i})
     if ([1,4,7].indexOf(index) > -1) {
       output.left = output.width + 1
     }
