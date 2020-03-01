@@ -60,6 +60,24 @@ let Instruction = {
     },
     computedLimitTime () {
       return this.$t('Limited to <span class="highlight">{0} minutes</span>, now it starts instant.', [this.limitMinutes])
+    },
+    computedAssistingReaderTool () {
+      if (this.lib.auth.enableCollaboration === false) {
+        return false
+      }
+      return this.$t('Please use the <span class="highlight">"Assist Reader tool"</span> to select a reader to assist.')
+    },
+    computedSuggestion () {
+      if (this.lib.auth.enableCollaboration === false) {
+        return false
+      }
+      return this.$t('Give him / her some <span class="highlight">suggestions</span> based on the annotations written by the reader.')
+    },
+    computedReadDifferently () {
+      if (this.lib.auth.enableCollaboration === false) {
+        return false
+      }
+      return this.$t('Think about why others <span class="highlight">read in different ways</span> with you, and then try to read the article from a different perspective.')
     }
   },
 //  watch: {

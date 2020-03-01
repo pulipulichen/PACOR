@@ -64,6 +64,7 @@ export default function (NavigationItems) {
           this.$refs.AnnotationTypeFilter.hide()
         }
       },
+      title: this.$t('Assisting Reader Tool'),
       content: this.$t('Select an annotation type to watch how readers use it to read the article.'),
       order: 33
     })

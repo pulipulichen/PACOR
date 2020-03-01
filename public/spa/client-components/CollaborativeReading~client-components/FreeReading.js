@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"\\"{0}\\"":"\\"{0}\\"","<span class=\\"highlight\\">\\"{0}\\"</span>":"<span class=\\"highlight\\">\\"{0}\\"</span>","and {0}":"and {0}","Please use {0} reading strategies to read this article.":"Please use {0} reading strategies to read this article.","When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.":"When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.","When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.":"When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.","Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant.":"Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant."},"zh-TW":{"Now please concentrate on reading this article!":"現在請您專心閱讀這篇文章囉！","\\"{0}\\"":"「{0}」","<span class=\\"highlight\\">\\"{0}\\"</span>":"<span class=\\"highlight\\">「{0}」</span>",", ":"、","and {0}":"以及{0}","Please use {0} reading strategies to read this article.":"請使用{0}閱讀策略來閱讀這篇文章。","When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.":"閱讀文章的時候要一併完成「查核表」和撰寫「{0}」筆記。","When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.":"閱讀文章的時候要一併完成<span class=\\"highlight\\">「查核表」</span>和撰寫<span class=\\"highlight\\">「{0}」</span>筆記。","Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant.":"限時<span class=\\"highlight\\">{0}分鐘</span>，現在開始計時。",", now it starts instant.":"，現在開始計時","Now please see how other readers read this article and give them some suggestions.":"現在請您看看其他讀者是怎麼讀這篇文章，並給他們一些建議吧。",". Please do your best to assist other readers.":"。請盡力去協助其他讀者吧。"}}')
+  Component.options.__i18n.push('{"en":{"\\"{0}\\"":"\\"{0}\\"","<span class=\\"highlight\\">\\"{0}\\"</span>":"<span class=\\"highlight\\">\\"{0}\\"</span>","and {0}":"and {0}","Please use {0} reading strategies to read this article.":"Please use {0} reading strategies to read this article.","When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.":"When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.","When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.":"When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.","Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant.":"Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant."},"zh-TW":{"Now please concentrate on reading this article!":"現在請您專心閱讀這篇文章囉！","\\"{0}\\"":"「{0}」","<span class=\\"highlight\\">\\"{0}\\"</span>":"<span class=\\"highlight\\">「{0}」</span>",", ":"、","and {0}":"以及{0}","Please use {0} reading strategies to read this article.":"請使用{0}閱讀策略來閱讀這篇文章。","When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.":"閱讀文章的時候要一併完成「查核表」和撰寫「{0}」筆記。","When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.":"閱讀文章的時候要一併完成<span class=\\"highlight\\">「查核表」</span>和撰寫<span class=\\"highlight\\">「{0}」</span>筆記。","Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant.":"限時<span class=\\"highlight\\">{0}分鐘</span>，現在開始計時。",", now it starts instant.":"，現在開始計時","Now please see how other readers read this article and give them some suggestions.":"現在請您看看其他讀者是怎麼讀這篇文章，並給他們一些建議吧。",". Please do your best to assist other readers.":"，請盡力去協助其他讀者吧。","Please use the <span class=\\"highlight\\">\\"Assist Reader tool\\"</span> to select a reader to assist.":"請使用<span class=\\"highlight\\">「協助讀者工具」</span>，選擇一位讀者來協助吧。","Give him / her some <span class=\\"highlight\\">suggestions</span> based on the annotations written by the reader.":"根據讀者撰寫的標註，給他/她一些<span class=\\"highlight\\">建議</span>吧。","Think about why others <span class=\\"highlight\\">read in different ways</span> with you, and then try to read the article from a different perspective.":"想一想為什麼別人會跟您用<span class=\\"highlight\\">不同的方式閱讀</span>，再試著從不同角度來閱讀文章。"}}')
   delete Component.options._Ctor
 }
 
@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".ReadingInstruction[data-v-6fc97542]  .highlight {\n  background-color: yellow;\n  font-weight: bold;\n}\nli[data-v-6fc97542] {\n  margin-bottom: 0.5rem;\n}\n", "",{"version":3,"sources":["CollaborativeReadingInstruction.less?vue&type=style&index=0&id=6fc97542&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;EACxB,iBAAiB;AACnB;AACA;EACE,qBAAqB;AACvB","file":"CollaborativeReadingInstruction.less?vue&type=style&index=0&id=6fc97542&lang=less&scoped=true&","sourcesContent":[".ReadingInstruction[data-v-6fc97542]  .highlight {\n  background-color: yellow;\n  font-weight: bold;\n}\nli[data-v-6fc97542] {\n  margin-bottom: 0.5rem;\n}\n"]}]);
+exports.push([module.i, ".ReadingInstruction[data-v-6fc97542]  .highlight {\n  background-color: yellow;\n  font-weight: bold;\n}\nli[data-v-6fc97542] {\n  margin-bottom: 0.5rem;\n}\nh1[data-v-6fc97542] {\n  text-indent: -0.25em !important;\n}\n", "",{"version":3,"sources":["CollaborativeReadingInstruction.less?vue&type=style&index=0&id=6fc97542&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;EACxB,iBAAiB;AACnB;AACA;EACE,qBAAqB;AACvB;AACA;EACE,+BAA+B;AACjC","file":"CollaborativeReadingInstruction.less?vue&type=style&index=0&id=6fc97542&lang=less&scoped=true&","sourcesContent":[".ReadingInstruction[data-v-6fc97542]  .highlight {\n  background-color: yellow;\n  font-weight: bold;\n}\nli[data-v-6fc97542] {\n  margin-bottom: 0.5rem;\n}\nh1[data-v-6fc97542] {\n  text-indent: -0.25em !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -101,6 +101,18 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("ul", [
+            _c("li", {
+              domProps: { innerHTML: _vm._s(_vm.computedAssistingReaderTool) }
+            }),
+            _vm._v(" "),
+            _c("li", {
+              domProps: { innerHTML: _vm._s(_vm.computedSuggestion) }
+            }),
+            _vm._v(" "),
+            _c("li", {
+              domProps: { innerHTML: _vm._s(_vm.computedReadDifferently) }
+            }),
+            _vm._v(" "),
             _c(
               "li",
               [
@@ -467,6 +479,24 @@ let Instruction = {
     },
     computedLimitTime () {
       return this.$t('Limited to <span class="highlight">{0} minutes</span>, now it starts instant.', [this.limitMinutes])
+    },
+    computedAssistingReaderTool () {
+      if (this.lib.auth.enableCollaboration === false) {
+        return false
+      }
+      return this.$t('Please use the <span class="highlight">"Assist Reader tool"</span> to select a reader to assist.')
+    },
+    computedSuggestion () {
+      if (this.lib.auth.enableCollaboration === false) {
+        return false
+      }
+      return this.$t('Give him / her some <span class="highlight">suggestions</span> based on the annotations written by the reader.')
+    },
+    computedReadDifferently () {
+      if (this.lib.auth.enableCollaboration === false) {
+        return false
+      }
+      return this.$t('Think about why others <span class="highlight">read in different ways</span> with you, and then try to read the article from a different perspective.')
     }
   },
 //  watch: {
@@ -864,6 +894,7 @@ __webpack_require__.r(__webpack_exports__);
           this.$refs.AnnotationTypeFilter.hide()
         }
       },
+      title: this.$t('Assisting Reader Tool'),
       content: this.$t('Select an annotation type to watch how readers use it to read the article.'),
       order: 33
     })

@@ -9,6 +9,9 @@
         {{ $t('Now please see how other readers read this article and give them some suggestions.') }}
       </h1>
       <ul>
+        <li v-html="computedAssistingReaderTool"></li>
+        <li v-html="computedSuggestion"></li>
+        <li v-html="computedReadDifferently"></li>
         <li>
           <simple-remaining-timer
             class="highlight"
