@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":{"\\"{0}\\"":"\\"{0}\\"","and {0}":"and {0}","Please use {0} reading strategies to read this article.":"Please use {0} reading strategies to read this article."},"zh-TW":{"Now please concentrate on reading this article!":"現在請您專心閱讀這篇文章囉！","\\"{0}\\"":"「{0}」",", ":"、","and {0}":"以及{0}","Please use {0} reading strategies to read this article.":"請使用{0}閱讀策略來閱讀這篇文章。"}}')
   delete Component.options._Ctor
 }
 
@@ -265,7 +265,43 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "IndividualReadingInstruction" }, [
-    _vm._v("\r\n  訊息\r\n")
+    _c("div", { staticClass: "ui middle aligned grid" }, [
+      _c("div", { staticClass: "four wide column" }, [
+        _c("img", {
+          staticClass: "ui image",
+          attrs: { src: _vm.computedCoverImage }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "twelve wide column" }, [
+        _c("h1", { staticClass: "ui header" }, [
+          _vm._v(
+            "\r\n        " +
+              _vm._s(
+                _vm.$t("Now please concentrate on reading this article!")
+              ) +
+              "\r\n      "
+          )
+        ]),
+        _vm._v(" "),
+        _c("ul", [
+          _c("li", [_vm._v(_vm._s(_vm.computedAnnotationType))]),
+          _vm._v(" "),
+          _c("li", [_vm._v(_vm._s(_vm.computedChecklist))]),
+          _vm._v(" "),
+          _c("li", [
+            _vm._v(
+              _vm._s(
+                _vm.$t(
+                  "Limited to {0} minutes, now it starts instant.",
+                  _vm.limitMinutes
+                )
+              )
+            )
+          ])
+        ])
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -1023,6 +1059,44 @@ let Instruction = {
 //  components: {
 //  },
   computed: {
+    computedCoverImage () {
+      return this.config.baseURL + '/instruction/reading/IndividualReading/cat-1460882_1280.png'
+    },
+    stepConfig () {
+      return this.lib.auth.currentStepConfig
+    },
+    computedAnnotationType () {
+      let types = this.stepConfig.highlightAnnotation.types
+      
+      let useTypes = []
+      if (types.indexOf('MainIdea') > -1) {
+        useTypes.push(this.$t(`"{0}"`, [this.$t('ANNOTATION_TYPE.' + 'MainIdea')]))
+      }
+      if (types.indexOf('Confused') > -1
+              && types.indexOf('Clarified') > -1) {
+        useTypes.push(this.$t(`"{0}"`, [this.$t('ANNOTATION_TYPE.' + 'Confused') + ' / ' + this.$t('ANNOTATION_TYPE.' + 'Clarified')]))
+      }
+      
+      if (useTypes.length > 2) {
+        useTypes[(useTypes.length - 1)] = this.$t(`and {0}`, [useTypes[(useTypes.length - 1)]])
+      }
+      
+      let useTypesTrans = ''
+      for (let i = 0; i < useTypes.length; i++) {
+        if (i > 0 && i < useTypes.length - 1) {
+          useTypesTrans = useTypesTrans + this.$t(', ')
+        }
+        useTypesTrans = useTypesTrans + useTypes[i]
+      }
+      
+      return this.$t('Please use {0} reading strategies to read this article.', [useTypesTrans])
+    },
+    computedChecklist () {
+      
+    },
+    limitMinutes () {
+      return this.lib.auth.currentStepConfig.limitMinutes
+    }
   },
   watch: {
   },

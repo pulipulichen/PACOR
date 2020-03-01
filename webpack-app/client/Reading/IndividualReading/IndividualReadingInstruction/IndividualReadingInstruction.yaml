@@ -1,6 +1,13 @@
 en:
-  TEST_MESSAGE: Test Message
+  '"{0}"': '"{0}"'
+  'and {0}': 'and {0}'
+  Please use {0} reading strategies to read this article.: Please use {0} reading strategies to read this article.
   
 zh-TW:
   # 這是註解
-  TEST_MESSAGE: 測試訊息
+  Now please concentrate on reading this article!: 現在請您專心閱讀這篇文章囉！
+  
+  '"{0}"': 「{0}」
+  ', ': '、'
+  'and {0}': 以及{0}
+  Please use {0} reading strategies to read this article.: 請使用{0}閱讀策略來閱讀這篇文章。

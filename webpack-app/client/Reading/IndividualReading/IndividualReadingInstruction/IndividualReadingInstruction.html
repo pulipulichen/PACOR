@@ -1,3 +1,18 @@
 <div class="IndividualReadingInstruction">
-  訊息
+  <div class="ui middle aligned grid">
+    <div class="four wide column">
+      <img v-bind:src="computedCoverImage"
+           class="ui image" />
+    </div>
+    <div class="twelve wide column">
+      <h1 class="ui header">
+        {{ $t('Now please concentrate on reading this article!') }}
+      </h1>
+      <ul>
+        <li>{{ computedAnnotationType }}</li>
+        <li>{{ computedChecklist }}</li>
+        <li>{{ $t('Limited to {0} minutes, now it starts instant.', limitMinutes) }}</li>
+      </ul>
+    </div>
+  </div>
 </div>
