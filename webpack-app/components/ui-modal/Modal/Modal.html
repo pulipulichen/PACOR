@@ -2,7 +2,7 @@
      v-bind:class="computedModalClassList"
      ref="modal">
   <i class="close icon"
-     v-if="cancelable !== 'false' && cancelable !== false"></i>
+     v-if="computedShowCloseButton"></i>
   <div class="header"
        v-bind:class="computedHeaderClassList"
        v-if="$slots.header">
@@ -20,7 +20,8 @@
     </div>
     
     <div v-if="$slots.headerIcon"
-         class="header-icon">
+         class="header-icon"
+         v-bind:class="{'no-close-button': computedShowCloseButton}">
       <slot name="headerIcon"></slot>
     </div>
     

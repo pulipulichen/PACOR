@@ -145,7 +145,7 @@ module.exports = {
 //        updateInterval: 30000
       },
       debug: {
-        countdownPause: false
+        countdownPause: true
       }
     },
     'CollaborativeReading': {

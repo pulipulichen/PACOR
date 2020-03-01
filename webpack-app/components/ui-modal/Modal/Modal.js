@@ -47,6 +47,9 @@ let Modal = {
         classList.push('non-cancellable')
       }
       return classList.join(' ')
+    },
+    computedShowCloseButton () {
+      return (this.cancelable !== 'false' && this.cancelable !== false)
     }
   },
   destroyed: function () {

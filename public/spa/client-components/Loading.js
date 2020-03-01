@@ -1702,7 +1702,8 @@ let Login = {
       let d = (new Date())
       let currentMS = d.getTime() + (d.getTimezoneOffset() * 1000)
       
-      this.username = 'Anon.' + currentMS.toString(36)
+      //this.username = 'Anon.' + currentMS.toString(36)
+      this.username = '睨鳴' + currentMS.toString(36)
       this.password = ''
       this.adminMode = false
     },

@@ -5166,21 +5166,7 @@ var render = function() {
                   },
                   proxy: true
                 }
-              : {
-                  key: "content",
-                  fn: function() {
-                    return [
-                      _c("reading-instruction-message", {
-                        attrs: {
-                          config: _vm.config,
-                          status: _vm.status,
-                          lib: _vm.lib
-                        }
-                      })
-                    ]
-                  },
-                  proxy: true
-                },
+              : null,
             {
               key: "actions",
               fn: function() {

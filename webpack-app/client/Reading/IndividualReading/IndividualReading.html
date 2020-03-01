@@ -6,6 +6,13 @@
     v-bind:config="config"
     v-bind:status="status"
     v-bind:lib="lib">
+    <template v-slot:content>
+      <individual-reading-instruction
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib">
+      </individual-reading-instruction>
+    </template>
   </reading-instruction>
   
   <!-- 共用元件 -->
