@@ -29,11 +29,12 @@
       </template>
       <template 
         v-slot:content
-        v-else-if="!contentURL">
+        v-else-if="!contentURL && instruction">
         <div v-html="instruction"></div>
       </template>
-      <template v-slot:content
-                v-else>
+      <template 
+        v-slot:content
+        v-else>
         <reading-instruction-message
           v-bind:config="config"
           v-bind:status="status"

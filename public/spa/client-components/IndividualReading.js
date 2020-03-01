@@ -728,6 +728,7 @@ let IndividualReading = {
     //console.log(this.lib.style.scrollBarWidth)
     //this._testDetect()
     //this._testSelectRandom()
+    this._testInstruction()
   },
   destroyed () {
     //console.log('退場了')
@@ -1825,6 +1826,14 @@ __webpack_require__.r(__webpack_exports__);
     
     //$('.fab-cantainer.MainIdea').click()
     //await this.lib.RangyManager.onselect()
+  }
+  
+  IndividualReading.methods._testInstruction = async function () {
+    console.log('@TEST _testInstruction')
+    await this.lib.VueHelper.sleep(3000)
+    
+    //console.log($('.NavigationHeaderItem:first').length)
+    this.$refs.ReadingInstruction.show()
   }
 });
 

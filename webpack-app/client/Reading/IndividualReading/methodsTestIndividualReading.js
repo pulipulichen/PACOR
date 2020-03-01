@@ -90,4 +90,12 @@ export default function (IndividualReading) {
     //$('.fab-cantainer.MainIdea').click()
     //await this.lib.RangyManager.onselect()
   }
+  
+  IndividualReading.methods._testInstruction = async function () {
+    console.log('@TEST _testInstruction')
+    await this.lib.VueHelper.sleep(3000)
+    
+    //console.log($('.NavigationHeaderItem:first').length)
+    this.$refs.ReadingInstruction.show()
+  }
 }

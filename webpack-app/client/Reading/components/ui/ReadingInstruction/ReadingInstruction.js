@@ -1,4 +1,6 @@
-let InstructionMessage = {
+import ReadingInstructionMessage from './ReadingInstructionMessage/ReadingInstructionMessage.vue'
+
+let ReadingInstruction = {
   props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
@@ -14,8 +16,9 @@ let InstructionMessage = {
       hasReadTutorial: hasReadTutorial
     }
   },
-//  components: {
-//  },
+  components: {
+    'reading-instruction-message': ReadingInstructionMessage
+  },
   computed: {
     stepName() {
       return this.lib.auth.currentStep
@@ -35,6 +38,7 @@ let InstructionMessage = {
       return this.lib.auth.currentStepConfig.instruction
     },
     contentURL () {
+      //console.log(this.instruction)
       if (!this.instruction) {
         return false
       }
@@ -132,4 +136,4 @@ let InstructionMessage = {
   } // methods
 }
 
-export default InstructionMessage
+export default ReadingInstruction
