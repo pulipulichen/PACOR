@@ -1,4 +1,4 @@
-let answerHeightPadding = '8em'
+let answerHeightPadding = '7em'
 
 export default (Editor) => {
   Editor.computed = {
@@ -95,8 +95,7 @@ export default (Editor) => {
         return height
         
       } else {
-        //return answerHeightPadding
-        return '10em'
+        return answerHeightPadding
         
 //        let height
 //        if (this.enableCollaboration === true
@@ -121,10 +120,10 @@ export default (Editor) => {
       //  basePadding = `10em`
       //}
       //let basePadding = `13em`
-      let basePadding = `14em`
+      let basePadding = `15em`
       if (!this.panelData.enableDiscussion) {
         //basePadding = `11em`
-        basePadding = `12em`
+        basePadding = `13em`
       }
       
       if (this.enableCollaboration === true

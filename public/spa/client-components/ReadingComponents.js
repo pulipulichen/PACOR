@@ -14445,7 +14445,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let answerHeightPadding = '8em'
+let answerHeightPadding = '7em'
 
 /* harmony default export */ __webpack_exports__["default"] = ((Editor) => {
   Editor.computed = {
@@ -14542,8 +14542,7 @@ let answerHeightPadding = '8em'
         return height
         
       } else {
-        //return answerHeightPadding
-        return '10em'
+        return answerHeightPadding
         
 //        let height
 //        if (this.enableCollaboration === true
@@ -14568,10 +14567,10 @@ let answerHeightPadding = '8em'
       //  basePadding = `10em`
       //}
       //let basePadding = `13em`
-      let basePadding = `14em`
+      let basePadding = `15em`
       if (!this.panelData.enableDiscussion) {
         //basePadding = `11em`
-        basePadding = `12em`
+        basePadding = `13em`
       }
       
       if (this.enableCollaboration === true
