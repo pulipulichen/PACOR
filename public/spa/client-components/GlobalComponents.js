@@ -2302,7 +2302,7 @@ var render = function() {
                       "div",
                       {
                         staticClass: "ui button submit-button",
-                        class: _vm.computedSubmitButtonClassList,
+                        class: _vm.computedShowAllSubmitButtonClassList,
                         on: { click: _vm.submitShowAll }
                       },
                       [
@@ -8463,9 +8463,25 @@ __webpack_require__.r(__webpack_exports__);
   }
   UserFilter.computed.isNotSelectAllUser = function () {
     //return (this.status.filter.focusUser)
-    return (!this.filterData.selectUser)
+    return (!this.filterData.selectUser && this.status.filter.focusUser)
   }
   UserFilter.computed.computedSubmitButtonClassList = function () {
+    //if (!this.peerIsMe && this.filterData.selectUser) {
+    //if (this.filterData.selectUser) {
+    //  return 'green'
+    //}
+    if (!this.status.filter.focusUser) {
+      return 'green'
+    }
+    
+    if (this.status.filter.focusUser
+            && this.filterData.selectUser
+            && this.status.filter.focusUser.id !== this.filterData.selectUser.id) {
+      return 'green'
+    }
+  }
+  
+  UserFilter.computed.computedShowAllSubmitButtonClassList = function () {
     //if (!this.peerIsMe && this.filterData.selectUser) {
     //if (this.filterData.selectUser) {
     //  return 'green'
@@ -8473,7 +8489,9 @@ __webpack_require__.r(__webpack_exports__);
     if (this.status.filter.focusUser) {
       return 'green'
     }
+    
   }
+  
   
   UserFilter.computed.currentPeer = function () {
     return this.status.filter.focusUser

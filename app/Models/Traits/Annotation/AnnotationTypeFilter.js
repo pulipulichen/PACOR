@@ -57,7 +57,7 @@ class AnnotationTypeFilter {
         //console.log(focusUserID, user.primaryKeyValue)
         if (focusUserID && focusUserID !== user.primaryKeyValue) {
           let otherUser = await UserModel.find(focusUserID)
-          othersCounts = await otherUser.getAnnotationTypes(webpage)
+          othersCounts = await otherUser.getHighlightAnnotationTypes(webpage)
         }
         else {
           othersCounts = await user.getWebpageHighlightAnnotationTypes(webpage)
