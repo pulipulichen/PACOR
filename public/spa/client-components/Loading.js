@@ -1648,6 +1648,10 @@ __webpack_require__.r(__webpack_exports__);
         key: 'display_name',
         value: encodeURIComponent(this.status.displayName)
       },
+      {
+        key: 'referrer',
+        value: location.href
+      },
     ]
     
     replacePairs.forEach(({key, value}) => {

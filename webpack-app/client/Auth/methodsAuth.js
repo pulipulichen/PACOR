@@ -257,6 +257,10 @@ export default function (Auth) {
         key: 'display_name',
         value: encodeURIComponent(this.status.displayName)
       },
+      {
+        key: 'referrer',
+        value: location.href
+      },
     ]
     
     replacePairs.forEach(({key, value}) => {

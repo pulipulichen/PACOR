@@ -25,6 +25,15 @@ let AnnotaionInstruction = {
       if (this.lib.StringHelper.isURL(url)) {
         return url
       }
+      else if (this.type === 'SectionMainIdea'
+              && this.lib.SectionManager) {
+        if (this.lib.SectionManager.isArticleNote === true) {
+          return url.article
+        }
+        else {
+          return url.section
+        }
+      }
       else {
         if (this.lib.auth.hasCollaborationStep 
                 && this.lib.StringHelper.isURL(url.collaboration)) {
@@ -34,6 +43,19 @@ let AnnotaionInstruction = {
           return url.individual
         }
       }
+    },
+    summary () {
+      let summary = this.instruction.summary
+      if (this.type === 'SectionMainIdea'
+              && this.lib.SectionManager) {
+        if (this.lib.SectionManager.isArticleNote === true) {
+          summary = summary.article
+        }
+        else {
+          summary = summary.section
+        }
+      }
+      return summary
     }
   },
 //  watch: {

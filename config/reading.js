@@ -220,7 +220,7 @@ module.exports = {
       enableLogout: true,
       /**
        * 顯示下一個要閱讀網頁
-       * {user_id} {username} {display_name}
+       * {user_id} {username} {display_name} {referrer}
        * @type String
        */ 
       //nextReadingPage: 'https://docs.google.com/forms/d/e/1FAIpQLSell8cSs_S2Ssi7DwHOEsDOM-qvNUh5b8MtFEIZN5oNaioTlA/viewform?usp=pp_url&entry.897829081={user_id}&entry.1819046409={username}&entry.1737232835={display_name}'
@@ -339,8 +339,14 @@ module.exports = {
       'noteMustBeEdited': true,
       'placeholder': 'What do you think are the main ideas of this section?',
       'instruction': {
-        'summary': 'Highlight keywords or concepts in this section',
-        'url': '/instruction/annotation/SectionMainIdea.html'
+        'summary': {
+          'article': 'Highlight keywords or concepts in the article',
+          'section': 'Highlight keywords or concepts in this section',
+        },
+        'url': {
+          'article': '/instruction/annotation/ArticleMainIdea.html',
+          'section': '/instruction/annotation/SectionMainIdea.html'
+        }
       },
       "style": {
         //'highlight': 'border-bottom: 1px solid red',

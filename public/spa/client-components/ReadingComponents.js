@@ -185,7 +185,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Hint":"顯示說明","Highlight text you don\u0027t understand":"標註您不懂的文字","Write the answer to \\"questions\\"":"記錄「問題」的解答","Highlight key keywords or concepts":"標亮關鍵字或概念","Highlight keywords or concepts in this section":"標亮小節中的關鍵字或概念"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Hint":"顯示說明","Highlight text you don\u0027t understand":"記下您看不懂或有疑問的片段","Write the answer to \\"questions\\"":"記錄「疑問」的解答","Highlight key keywords or concepts":"記下您對文章有印象的關鍵字","Highlight keywords or concepts in this section":"記下小節中的重點關鍵字","Highlight keywords or concepts in the article":"記下文章中的重點關鍵字"}}')
   delete Component.options._Ctor
 }
 
@@ -2816,9 +2816,7 @@ var render = function() {
       _vm._v(" "),
       _vm.editable
         ? _c("div", { staticClass: "summary" }, [
-            _vm._v(
-              "\r\n    " + _vm._s(_vm.$t(_vm.instruction.summary)) + "\r\n  "
-            )
+            _vm._v("\r\n    " + _vm._s(_vm.$t(_vm.summary)) + "\r\n  ")
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -11629,6 +11627,15 @@ let AnnotaionInstruction = {
       if (this.lib.StringHelper.isURL(url)) {
         return url
       }
+      else if (this.type === 'SectionMainIdea'
+              && this.lib.SectionManager) {
+        if (this.lib.SectionManager.isArticleNote === true) {
+          return url.article
+        }
+        else {
+          return url.section
+        }
+      }
       else {
         if (this.lib.auth.hasCollaborationStep 
                 && this.lib.StringHelper.isURL(url.collaboration)) {
@@ -11638,6 +11645,19 @@ let AnnotaionInstruction = {
           return url.individual
         }
       }
+    },
+    summary () {
+      let summary = this.instruction.summary
+      if (this.type === 'SectionMainIdea'
+              && this.lib.SectionManager) {
+        if (this.lib.SectionManager.isArticleNote === true) {
+          summary = summary.article
+        }
+        else {
+          summary = summary.section
+        }
+      }
+      return summary
     }
   },
 //  watch: {
