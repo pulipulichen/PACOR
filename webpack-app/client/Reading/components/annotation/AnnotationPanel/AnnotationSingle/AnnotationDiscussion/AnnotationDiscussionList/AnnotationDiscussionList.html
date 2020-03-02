@@ -28,14 +28,15 @@
   </annotation-comment>
   
   <annotation-comment 
-    v-if="showDemoAnnotationItem"
+    v-if="panelData.showDemoComment"
     v-bind:key="demoComment.id"
 
     v-bind:config="config"
     v-bind:status="status"
     v-bind:lib="lib"
 
-    v-bind:comment="demoComment">
+    v-bind:comment="demoComment"
+    class="demo-comment">
   </annotation-comment>
   
   <div class="ui secondary segment no-more"
@@ -44,7 +45,7 @@
   </div>
   
   <div class="ui secondary segment no-more"
-       v-if="noMoreOlder && showDemoAnnotationItem === false"
+       v-if="noMoreOlder && panelData.showDemoComment === false"
        v-on:click="focusInput">
     <template v-if="comments.length > 0">
       {{ $t('No More') }}

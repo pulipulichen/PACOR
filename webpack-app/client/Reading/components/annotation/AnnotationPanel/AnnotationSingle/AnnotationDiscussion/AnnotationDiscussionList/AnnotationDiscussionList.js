@@ -31,7 +31,6 @@ let AnnotationDiscussionList = {
       loadLock: false,
       
       list: null,  // 暫存實體元素
-      showDemoAnnotationItem: false  // 是否顯示展示用的標註
     }
   },
   components: {
@@ -65,7 +64,7 @@ let AnnotationDiscussionList = {
 //      }
 //    },
     demoComment () {
-      let type = this.panelData.annotation.type
+      let type = this.annotation.type
       
       let note
       if (['MainIdea'].indexOf(type) > -1) {
@@ -85,6 +84,12 @@ let AnnotationDiscussionList = {
   watch: {
     annotation () {
       this.initComments()
+    },
+    'panelData.showDemoComment' (showDemoComment) {
+      if (showDemoComment === true) {
+        //console.log('捲')
+        this.scrollToBottom()
+      }
     }
   },
   mounted() {

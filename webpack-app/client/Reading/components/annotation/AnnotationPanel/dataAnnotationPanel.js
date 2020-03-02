@@ -21,6 +21,7 @@ export default {
     keyword: '',
     
     heightPX: 500,  // 記錄目前使用的高度，不可省略
+    showDemoComment: false  // 是否顯示展示用的標註
   },
   
   

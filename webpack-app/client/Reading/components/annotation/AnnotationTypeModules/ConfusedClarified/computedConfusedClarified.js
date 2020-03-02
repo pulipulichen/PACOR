@@ -118,9 +118,11 @@ export default (Editor) => {
       //if (!this.panelData.enableDiscussion) {
       //  basePadding = `10em`
       //}
-      let basePadding = `13em`
+      //let basePadding = `13em`
+      let basePadding = `14em`
       if (!this.panelData.enableDiscussion) {
-        basePadding = `11em`
+        //basePadding = `11em`
+        basePadding = `12em`
       }
       
       if (this.enableCollaboration === true

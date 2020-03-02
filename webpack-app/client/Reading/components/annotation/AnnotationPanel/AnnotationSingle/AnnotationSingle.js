@@ -133,7 +133,7 @@ let AnnotationEditorModules = {
       this.hook = {}
       this.initHover()
       this.scrollToAnnotation()
-    }
+    },
   },
   destroyed () {
     this.lib.RangyManager.hoverOut(true)

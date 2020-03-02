@@ -105,7 +105,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Click \\"ADD\\" to save it.":"按下記下「關鍵字」即可儲存標註。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該閱讀策略。","You can give a comment to any annotation.":"您可以為標註提供建議。","Try to give a suggestion for the reader.":"試著給這位讀者一些建議吧。","Here shows a summary of the list.":"這裡顯示了標註列表的摘要。","You can filter the list with keywords.":"您可以用指定文字來篩選列表。","Click here to see the detail of this annotation and give a suggestion.":"您可點選此處查看標註的詳細內容，並給予建議。","Here is the annotation wrote by other reader.":"這裡是其他讀者撰寫的標註。","Here is the annotation wrote by you. You can edit the annotation.":"這裡是您撰寫的標註，您可以編輯它。","You can use the \\"Finding Answer\\" tool to find the answer of the question.":"您可以用「找尋解答」功能來找尋這個問題的答案。","If you like this annotation, click \\"Like\\" button.":"如果您喜歡他/她寫的標註，請給他/她按個「讚」吧。","Click here to read the instruction of this annotation type.":"點此查看如何使用閱讀策略。","Write notes based on your reading strategy. Try to use notes to deepen your impression of the article.":"根據閱讀策略來撰寫筆記，試著用筆記您加深對文章的印象吧。","Try to build your question from template.":"您可以利用範本來建立您的問題。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Click \\"ADD\\" to save it.":"按下記下「關鍵字」即可儲存標註。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該閱讀策略。","You can give a comment to any annotation.":"您可以為標註提供建議。","Try to give a suggestion for the reader.":"試著給這位讀者一些建議吧。","Here shows a summary of the list.":"這裡顯示了標註列表的摘要。","You can filter the list with keywords.":"您可以用指定文字來篩選列表。","Click here to see the detail of this annotation and give a suggestion.":"您可點選此處查看標註的詳細內容，並給予建議。","Here is the annotation wrote by other reader.":"這裡是其他讀者撰寫的標註。","Here is the annotation wrote by you. You can edit the annotation.":"這裡是您撰寫的標註，您可以編輯它。","You can use the \\"Finding Answer\\" tool to find the answer of the question.":"您可以用「找尋解答」功能來找尋這個問題的答案。","If you like this annotation, click \\"Like\\" button.":"如果您喜歡他/她寫的標註，請給他/她按個「讚」吧。","Click here to read the instruction of this annotation type.":"點此查看如何使用閱讀策略。","Write notes based on your reading strategy. Try to use notes to deepen your impression of the article.":"根據閱讀策略來撰寫筆記，試著用筆記您加深對文章的印象吧。","Try to build your question from template.":"您可以利用範本來建立您的問題。","If you like other reader\u0027s suggestion, click \\"Like\\" to add the suggestion as your answer.":"如果您覺得其他讀者的建議很好，按「讚」可以把建議加入您的答案中喔。","You can see the suggestions from other reader.":"您可以在這裡看到其他讀者的建議。"}}')
   delete Component.options._Ctor
 }
 
@@ -2720,9 +2720,10 @@ var render = function() {
         })
       }),
       _vm._v(" "),
-      _vm.showDemoAnnotationItem
+      _vm.panelData.showDemoComment
         ? _c("annotation-comment", {
             key: _vm.demoComment.id,
+            staticClass: "demo-comment",
             attrs: {
               config: _vm.config,
               status: _vm.status,
@@ -2746,7 +2747,7 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _vm.noMoreOlder && _vm.showDemoAnnotationItem === false
+      _vm.noMoreOlder && _vm.panelData.showDemoComment === false
         ? _c(
             "div",
             {
@@ -11114,7 +11115,6 @@ let AnnotationDiscussionList = {
       loadLock: false,
       
       list: null,  // 暫存實體元素
-      showDemoAnnotationItem: false  // 是否顯示展示用的標註
     }
   },
   components: {
@@ -11148,7 +11148,7 @@ let AnnotationDiscussionList = {
 //      }
 //    },
     demoComment () {
-      let type = this.panelData.annotation.type
+      let type = this.annotation.type
       
       let note
       if (['MainIdea'].indexOf(type) > -1) {
@@ -11168,6 +11168,12 @@ let AnnotationDiscussionList = {
   watch: {
     annotation () {
       this.initComments()
+    },
+    'panelData.showDemoComment' (showDemoComment) {
+      if (showDemoComment === true) {
+        //console.log('捲')
+        this.scrollToBottom()
+      }
     }
   },
   mounted() {
@@ -12212,7 +12218,7 @@ let AnnotationEditorModules = {
       this.hook = {}
       this.initHover()
       this.scrollToAnnotation()
-    }
+    },
   },
   destroyed () {
     this.lib.RangyManager.hoverOut(true)
@@ -12504,6 +12510,7 @@ __webpack_require__.r(__webpack_exports__);
     keyword: '',
     
     heightPX: 500,  // 記錄目前使用的高度，不可省略
+    showDemoComment: false  // 是否顯示展示用的標註
   },
   
   
@@ -13368,6 +13375,37 @@ __webpack_require__.r(__webpack_exports__);
       },
       content: this.$t('Try to give a suggestion for the reader.'),
       order: 231,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1))
+      },
+      beforeCallback: async () => {
+        this.panelData.showDemoComment = true
+        await this.lib.VueHelper.sleep(500)
+      },
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first')
+      },
+      content: this.$t(`You can see the suggestions from other reader.`),
+      order: 241,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1))
+      },
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first .demo-comment')
+      },
+      content: this.$t(`If you like other reader's suggestion, click "Like" to add the suggestion as your answer.`),
+      afterClick: () => {
+        this.panelData.showDemoComment = false
+      },
+      order: 242,
     })
   }
 });
@@ -14507,9 +14545,11 @@ let answerHeightPadding = '8em'
       //if (!this.panelData.enableDiscussion) {
       //  basePadding = `10em`
       //}
-      let basePadding = `13em`
+      //let basePadding = `13em`
+      let basePadding = `14em`
       if (!this.panelData.enableDiscussion) {
-        basePadding = `11em`
+        //basePadding = `11em`
+        basePadding = `12em`
       }
       
       if (this.enableCollaboration === true

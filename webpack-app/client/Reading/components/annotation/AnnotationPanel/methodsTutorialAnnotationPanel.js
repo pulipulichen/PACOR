@@ -214,5 +214,36 @@ export default function (AnnotationPanel) {
       content: this.$t('Try to give a suggestion for the reader.'),
       order: 231,
     })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return (($(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+                && ($(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1))
+      },
+      beforeCallback: async () => {
+        this.panelData.showDemoComment = true
+        await this.lib.VueHelper.sleep(500)
+      },
+      element: () => {
+        return $(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first')
+      },
+      content: this.$t(`You can see the suggestions from other reader.`),
+      order: 241,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return (($(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+                && ($(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1))
+      },
+      element: () => {
+        return $(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first .demo-comment')
+      },
+      content: this.$t(`If you like other reader's suggestion, click "Like" to add the suggestion as your answer.`),
+      afterClick: () => {
+        this.panelData.showDemoComment = false
+      },
+      order: 242,
+    })
   }
 }
