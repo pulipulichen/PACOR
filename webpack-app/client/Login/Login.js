@@ -1,3 +1,4 @@
+import LoginMessage from './LoginMessage/LoginMessage.vue'
 import Media from 'vue-media'
 
 let Login = {
@@ -15,6 +16,10 @@ let Login = {
       isCompactMode: false,
       isContinue: false,
     }
+  },
+  components: {
+    'media': Media,
+    'login-message': LoginMessage
   },
   computed: {
     isDisableLogin: function () {
@@ -94,9 +99,6 @@ let Login = {
         return this.config.baseURL + this.status.readingConfig.login.logo
       }
     }
-  },
-  components: {
-    'media': Media,
   },
 //  watch: {
 //  },

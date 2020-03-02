@@ -48,8 +48,9 @@ module.exports = {
      * 
      * 純文字
      * 網址
+     * 不寫：使用預設訊息
      */
-    message: '/instruction/login/Login.html',
+    //message: '/instruction/login/Login.html',
     //message: 'ok',
     
     /**

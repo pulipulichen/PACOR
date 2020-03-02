@@ -47,10 +47,17 @@
              v-on:submit.stop="login">
 
           <iframe-message-segment 
+            v-if='loginMessage'
             class="login-message"
             v-bind:config="config"
             v-bind:message="loginMessage">
           </iframe-message-segment>
+          <login-message
+            v-if='!loginMessage'
+            v-bind:config="config"
+            v-bind:status="status"
+            v-bind:lib="lib">
+          </login-message>
 
           <div class="ui field">
             <label for="loginUsername">

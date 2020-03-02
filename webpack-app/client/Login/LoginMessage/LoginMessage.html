@@ -1,0 +1,17 @@
+<div class="LoginMessage ui segment">
+  <h1>
+    {{ $t('Have fun from reading with PACOR!') }}
+  </h1>
+  
+  <p>{{ $t('This reading instruction includes the following activities:') }}</p>
+  <ol>
+    <li v-for="step in steps">
+      {{ $t('READING_PROGRESS.' + step) }}
+    </li>
+  </ol>
+  
+  <p>
+    <span v-html="computedTotalTimeMessage"></span>
+    <span>{{ $t("Let's start reading!") }}</span>
+  </p>
+</div>

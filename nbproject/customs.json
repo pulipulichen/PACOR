@@ -103,6 +103,7 @@
         "cancelable": {},
         "v-bind:fullContent": {},
         "v-bind:status": {},
+        "v-bind:keyboardShortcuts": {},
         "v-on:hide": {},
         "dimmer": {},
         "v-bind:error": {},
