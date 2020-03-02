@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"For {0}: Congratulation! You finished reading.":"For {0}: Congratulation! You finished reading."},"zh-TW":{"Thank you for your reading":"感謝您的閱讀","Congratulation! You finished reading.":"恭喜您讀完了！","CLOSE WINDOW":"關閉視窗","For {0}: Congratulation! You finished reading.":"{0}：恭喜您讀完了！","Following are your previous answers:":"以下是您之前的作答：","Here are your impressions of the content of the article before and after reading it.":"以下是您在閱讀前的預測和閱讀後對文章內容的印象。","Here are your predictions before reading and your recall after reading.":"以下是您在閱讀前的預測和閱讀後的回想。","Please think about how your impression of the article has changed after reading it? What caused you to change your mind?":"請試著想想讀完之後您對文章的印象有什麼改變？又是什麼原因讓您改變想法了呢？"}}')
+  Component.options.__i18n.push('{"en":{"For {0}: Congratulation! You finished reading.":"For {0}: Congratulation! You finished reading."},"zh-TW":{"Thank you for your reading":"感謝您的閱讀","Congratulation! You finished reading.":"恭喜您讀完了！","CLOSE WINDOW":"關閉視窗","For {0}: Congratulation! You finished reading.":"{0}：恭喜您讀完了！","Following are your previous answers:":"以下是您之前的作答：","Here are your impressions of the content of the article before and after reading it.":"以下是您在閱讀前的預測和閱讀後對文章內容的印象。","Here are your predictions before reading and your recall after reading.":"以下是您在閱讀前的預測和閱讀後的回想。","Here are your predictions before reading.":"以下是您在閱讀前的預測。","Here are your recall after reading.":"以下是您在閱讀後的回想。","Please think about how your impression of the article has changed after reading it? What caused you to change your mind?":"請試著想想讀完之後您對文章的印象有什麼改變？又是什麼原因讓您改變想法了呢？","Please think about how your impression of the article titled \\"{0}\\" has changed after reading it? What caused you to change your mind?":"請試著想想讀完之後您對文章的印象有什麼改變？又是什麼原因讓您改變想法了呢？"}}')
   delete Component.options._Ctor
 }
 
@@ -336,7 +336,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm.PreImaginaryResult || _vm.PostRecallResult
+        _vm.PreImaginaryResult && _vm.PostRecallResult
           ? _c("p", [
               _vm._v(
                 "\r\n        \r\n        " +
@@ -348,10 +348,27 @@ var render = function() {
                   "\r\n        " +
                   _vm._s(
                     _vm.$t(
-                      "Please think about how your impression of the article has changed after reading it? What caused you to change your mind?"
+                      'Please think about how your impression of the article titled "{0}" has changed after reading it? What caused you to change your mind?',
+                      [_vm.title]
                     )
                   ) +
                   "\r\n        \r\n      "
+              )
+            ])
+          : _vm.PreImaginaryResult
+          ? _c("p", [
+              _vm._v(
+                "\r\n        " +
+                  _vm._s(_vm.$t("Here are your predictions before reading.")) +
+                  "\r\n      "
+              )
+            ])
+          : _vm.PostRecallResult
+          ? _c("p", [
+              _vm._v(
+                "\r\n        " +
+                  _vm._s(_vm.$t("Here are your recall after reading.")) +
+                  "\r\n      "
               )
             ])
           : _vm._e()
@@ -1847,6 +1864,9 @@ let QuestionnaireResults = {
   computed: {
     username () {
       return this.lib.auth.username
+    },
+    title () {
+      return document.title
     }
   },
 //  watch: {
@@ -1879,10 +1899,12 @@ let QuestionnaireResults = {
       this.PostRecallResult = results.PostRecall
     },
     isRemovedKeyword (keyword) {
-      return (this.PostRecallResult.indexOf(keyword) === -1)
+      return (Array.isArray(this.PostRecallResult) 
+        && this.PostRecallResult.indexOf(keyword) === -1)
     },
     isAddedKeyword (keyword) {
-      return (this.PreImaginaryResult.indexOf(keyword) === -1)
+      return (Array.isArray(this.PreImaginaryResult) 
+        && this.PreImaginaryResult.indexOf(keyword) === -1)
     },
   } // methods
 }

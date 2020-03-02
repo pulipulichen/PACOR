@@ -12,6 +12,9 @@ let QuestionnaireResults = {
   computed: {
     username () {
       return this.lib.auth.username
+    },
+    title () {
+      return document.title
     }
   },
 //  watch: {
@@ -44,10 +47,12 @@ let QuestionnaireResults = {
       this.PostRecallResult = results.PostRecall
     },
     isRemovedKeyword (keyword) {
-      return (this.PostRecallResult.indexOf(keyword) === -1)
+      return (Array.isArray(this.PostRecallResult) 
+        && this.PostRecallResult.indexOf(keyword) === -1)
     },
     isAddedKeyword (keyword) {
-      return (this.PreImaginaryResult.indexOf(keyword) === -1)
+      return (Array.isArray(this.PreImaginaryResult) 
+        && this.PreImaginaryResult.indexOf(keyword) === -1)
     },
   } // methods
 }
