@@ -173,7 +173,10 @@ let AnnotationEditorModules = {
       }
     },
     scrollToAnnotation () {
-      if (this.enableScrollToAnnotation === false) {
+      //console.trace(this.enableScrollToAnnotation, this.$refs.AnnotationTypeModule.quickAddMode)
+      if (this.enableScrollToAnnotation === false
+              || (this.$refs.AnnotationTypeModule && this.$refs.AnnotationTypeModule.quickAddMode === true)
+              || this.lib.AnnotationPanel.isHide) {
         return false
       }
       

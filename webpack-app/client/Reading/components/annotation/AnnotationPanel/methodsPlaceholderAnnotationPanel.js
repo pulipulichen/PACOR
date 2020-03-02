@@ -10,7 +10,7 @@ export default (AnnotationPanel) => {
         sizeRatio = 0.7
       }
       else {
-        sizeRatio = 0.5
+        sizeRatio = 0.7
       }
     } else {
       sizeRatio = parseFloat(sizeRatio)

@@ -12222,7 +12222,10 @@ let AnnotationEditorModules = {
       }
     },
     scrollToAnnotation () {
-      if (this.enableScrollToAnnotation === false) {
+      //console.trace(this.enableScrollToAnnotation, this.$refs.AnnotationTypeModule.quickAddMode)
+      if (this.enableScrollToAnnotation === false
+              || (this.$refs.AnnotationTypeModule && this.$refs.AnnotationTypeModule.quickAddMode === true)
+              || this.lib.AnnotationPanel.isHide) {
         return false
       }
       
@@ -12677,7 +12680,7 @@ const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Readin
         sizeRatio = 0.7
       }
       else {
-        sizeRatio = 0.5
+        sizeRatio = 0.7
       }
     } else {
       sizeRatio = parseFloat(sizeRatio)
@@ -13090,6 +13093,13 @@ __webpack_require__.r(__webpack_exports__);
     }
     /*顯示出捲動後的高度值*/
     return bodyTop
+  }
+  
+  AnnotationPanel.methods.setEnableScrollToAnnotation = function (enable) {
+    this.enableScrollToAnnotation = enable
+    if (this.$refs.AnnotationSingle) {
+      this.$refs.AnnotationSingle.enableScrollToAnnotation = enable
+    }
   }
   
 //  AnnotationPanel.methods.stopScrollPropagation = function (event) {
@@ -15172,7 +15182,7 @@ let Editor = {
         this.$refs.editor.html(this.note)
       }
     },
-    addAnnotation: async function () {
+    addAnnotation: async function (callback) {
       this.setWaitSubmit()
       this.lib.AnnotationHelper.validate(this.annotation)
       
@@ -15224,10 +15234,19 @@ let Editor = {
       }
       
       this.$emit('add')
+      
+      if (typeof(callback) === 'function') {
+        callback()
+      }
     },
     quickAdd: async function () {
+      //this.$parent.enableScrollToAnnotation = false
+      //console.log('有嗎')
+      this.lib.AnnotationPanel.setEnableScrollToAnnotation(false)
       this.loadDraft(true)
-      this.addAnnotation()
+      this.addAnnotation(() => {
+        this.lib.AnnotationPanel.setEnableScrollToAnnotation(true)
+      })
       return true
     },
     
@@ -15515,7 +15534,7 @@ let Editor = {
         this.$refs.editor.html(this.note)
       }
     },
-    addAnnotation: async function () {
+    addAnnotation: async function (callback) {
       this.setWaitSubmit()
       this.lib.AnnotationHelper.validate(this.annotation)
       
@@ -15567,10 +15586,19 @@ let Editor = {
       }
       
       this.$emit('add')
+      
+      if (typeof(callback) === 'function') {
+        callback()
+      }
     },
     quickAdd: async function () {
+      //this.$parent.enableScrollToAnnotation = false
+      //console.log('有嗎')
+      this.lib.AnnotationPanel.setEnableScrollToAnnotation(false)
       this.loadDraft(true)
-      this.addAnnotation()
+      this.addAnnotation(() => {
+        this.lib.AnnotationPanel.setEnableScrollToAnnotation(true)
+      })
       return true
     },
     

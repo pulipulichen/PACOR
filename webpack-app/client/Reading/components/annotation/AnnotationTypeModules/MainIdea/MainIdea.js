@@ -195,7 +195,7 @@ let Editor = {
         this.$refs.editor.html(this.note)
       }
     },
-    addAnnotation: async function () {
+    addAnnotation: async function (callback) {
       this.setWaitSubmit()
       this.lib.AnnotationHelper.validate(this.annotation)
       
@@ -247,10 +247,19 @@ let Editor = {
       }
       
       this.$emit('add')
+      
+      if (typeof(callback) === 'function') {
+        callback()
+      }
     },
     quickAdd: async function () {
+      //this.$parent.enableScrollToAnnotation = false
+      //console.log('有嗎')
+      this.lib.AnnotationPanel.setEnableScrollToAnnotation(false)
       this.loadDraft(true)
-      this.addAnnotation()
+      this.addAnnotation(() => {
+        this.lib.AnnotationPanel.setEnableScrollToAnnotation(true)
+      })
       return true
     },
     

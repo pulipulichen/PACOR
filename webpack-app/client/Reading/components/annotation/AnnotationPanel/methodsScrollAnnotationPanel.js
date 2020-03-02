@@ -70,6 +70,13 @@ export default (AnnotationPanel) => {
     return bodyTop
   }
   
+  AnnotationPanel.methods.setEnableScrollToAnnotation = function (enable) {
+    this.enableScrollToAnnotation = enable
+    if (this.$refs.AnnotationSingle) {
+      this.$refs.AnnotationSingle.enableScrollToAnnotation = enable
+    }
+  }
+  
 //  AnnotationPanel.methods.stopScrollPropagation = function (event) {
 //    event.stopPropagation(true)
 //    //event.preventDefault(true)
