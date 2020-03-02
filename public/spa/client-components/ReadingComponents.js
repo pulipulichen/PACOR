@@ -169,7 +169,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Load previous {0} suggestions...":"Load previous {0} suggestion... | Load previous {0} suggestions...","Load next {0} suggestions...":"Load next {0} suggestion... | Load next {0} suggestions..."},"zh-TW":{"Load previous {0} suggestions...":"讀取前面 {0} 篇建議...","Load next {0} suggestions...":"讀取後面 {0} 篇建議...","Write the first suggestion now":"沒有建議，要不要寫下第一個建議呢？","No More":"沒有更多建議了"}}')
+  Component.options.__i18n.push('{"en":{"Load previous {0} suggestions...":"Load previous {0} suggestion... | Load previous {0} suggestions...","Load next {0} suggestions...":"Load next {0} suggestion... | Load next {0} suggestions..."},"zh-TW":{"Load previous {0} suggestions...":"讀取前面 {0} 篇建議...","Load next {0} suggestions...":"讀取後面 {0} 篇建議...","Write the first suggestion now":"沒有建議，要不要寫下第一個建議呢？","No More":"沒有更多建議了","Great idea! I agree with you.":"好主意！我覺得您寫得很讚！","I think the answer is ...":"我覺得答案是..."}}')
   delete Component.options._Ctor
 }
 
@@ -2720,6 +2720,18 @@ var render = function() {
         })
       }),
       _vm._v(" "),
+      _vm.showDemoAnnotationItem
+        ? _c("annotation-comment", {
+            key: _vm.demoComment.id,
+            attrs: {
+              config: _vm.config,
+              status: _vm.status,
+              lib: _vm.lib,
+              comment: _vm.demoComment
+            }
+          })
+        : _vm._e(),
+      _vm._v(" "),
       !_vm.noMoreNewer && _vm.newerCommentCount > 0
         ? _c("div", { staticClass: "ui secondary segment no-more" }, [
             _vm._v(
@@ -2734,7 +2746,7 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _vm.noMoreOlder
+      _vm.noMoreOlder && _vm.showDemoAnnotationItem === false
         ? _c(
             "div",
             {
@@ -11101,7 +11113,8 @@ let AnnotationDiscussionList = {
       
       loadLock: false,
       
-      list: null  // 暫存實體元素
+      list: null,  // 暫存實體元素
+      showDemoAnnotationItem: false  // 是否顯示展示用的標註
     }
   },
   components: {
@@ -11133,7 +11146,24 @@ let AnnotationDiscussionList = {
 //      else {
 //        return []
 //      }
-//    }
+//    },
+    demoComment () {
+      let type = this.panelData.annotation.type
+      
+      let note
+      if (['MainIdea'].indexOf(type) > -1) {
+        note = this.$t('Great idea! I agree with you.')
+      }
+      else if (['ConfusedClarified', 'Confused', 'Clarified'].indexOf(type) > -1) {
+        note = this.$t('I think the answer is ...')
+      }
+      
+      return {
+        id: -1,
+        user: this.lib.auth.demoUser,
+        note,
+      }
+    }
   },
   watch: {
     annotation () {
@@ -12149,7 +12179,7 @@ let AnnotationEditorModules = {
     computedContainerStyle () {
       let h = this.heightPX - this.headerPadding
       
-      if (window.innerWidth < 480) {
+      if (window.innerWidth < 768) {
         h = h - 60
       }
       

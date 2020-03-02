@@ -164,4 +164,16 @@ export default function (Auth) {
     //console.log(this.config.baseURL, location.href)
     //return true
   }
+  
+  Auth.computed.demoUser = function () {
+    let username = this.$t('John Doe')
+    
+    return {
+      id: -1,
+      username,
+      display_name: username,
+      avatar_url: this.config.baseURL + '/avatars/guest.png',
+      role: 'reader'
+    }
+  }
 }

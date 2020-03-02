@@ -27,13 +27,24 @@
     v-on:delete="onCommentDelete(i)">
   </annotation-comment>
   
+  <annotation-comment 
+    v-if="showDemoAnnotationItem"
+    v-bind:key="demoComment.id"
+
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+
+    v-bind:comment="demoComment">
+  </annotation-comment>
+  
   <div class="ui secondary segment no-more"
        v-if="!noMoreNewer && newerCommentCount > 0">
     {{ $t('Load next {0} suggestions...', [newerCommentCount]) }}
   </div>
   
   <div class="ui secondary segment no-more"
-       v-if="noMoreOlder"
+       v-if="noMoreOlder && showDemoAnnotationItem === false"
        v-on:click="focusInput">
     <template v-if="comments.length > 0">
       {{ $t('No More') }}

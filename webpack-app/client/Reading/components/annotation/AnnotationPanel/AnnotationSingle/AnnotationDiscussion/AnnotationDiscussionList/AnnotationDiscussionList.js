@@ -30,7 +30,8 @@ let AnnotationDiscussionList = {
       
       loadLock: false,
       
-      list: null  // 暫存實體元素
+      list: null,  // 暫存實體元素
+      showDemoAnnotationItem: false  // 是否顯示展示用的標註
     }
   },
   components: {
@@ -62,7 +63,24 @@ let AnnotationDiscussionList = {
 //      else {
 //        return []
 //      }
-//    }
+//    },
+    demoComment () {
+      let type = this.panelData.annotation.type
+      
+      let note
+      if (['MainIdea'].indexOf(type) > -1) {
+        note = this.$t('Great idea! I agree with you.')
+      }
+      else if (['ConfusedClarified', 'Confused', 'Clarified'].indexOf(type) > -1) {
+        note = this.$t('I think the answer is ...')
+      }
+      
+      return {
+        id: -1,
+        user: this.lib.auth.demoUser,
+        note,
+      }
+    }
   },
   watch: {
     annotation () {

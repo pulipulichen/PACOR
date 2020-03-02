@@ -100,7 +100,7 @@ let AnnotationEditorModules = {
     computedContainerStyle () {
       let h = this.heightPX - this.headerPadding
       
-      if (window.innerWidth < 480) {
+      if (window.innerWidth < 768) {
         h = h - 60
       }
       
