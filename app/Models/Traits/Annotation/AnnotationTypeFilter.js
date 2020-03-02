@@ -47,9 +47,15 @@ class AnnotationTypeFilter {
         //types = types.filter(type => (type !== 'SectionMainIdea'))
         
         let myCounts = await user.getHighlightAnnotationTypes(webpage)
-        let othersCounts
+        let othersCounts = {}
         
-        if (focusUserID) {
+        if (typeof(focusUserID) === 'string'
+                && !isNaN(focusUserID)) {
+          focusUserID = parseInt(focusUserID, 10)
+        } 
+        
+        //console.log(focusUserID, user.primaryKeyValue)
+        if (focusUserID && focusUserID !== user.primaryKeyValue) {
           let otherUser = await UserModel.find(focusUserID)
           othersCounts = await otherUser.getAnnotationTypes(webpage)
         }

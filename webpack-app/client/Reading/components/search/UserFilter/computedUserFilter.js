@@ -51,11 +51,15 @@ export default function (UserFilter) {
     }
   }
   UserFilter.computed.isNotSelectAllUser = function () {
-    return (this.status.filter.focusUser)
+    //return (this.status.filter.focusUser)
+    return (!this.filterData.selectUser)
   }
   UserFilter.computed.computedSubmitButtonClassList = function () {
     //if (!this.peerIsMe && this.filterData.selectUser) {
-    if (this.filterData.selectUser) {
+    //if (this.filterData.selectUser) {
+    //  return 'green'
+    //}
+    if (this.status.filter.focusUser) {
       return 'green'
     }
   }
@@ -93,6 +97,7 @@ export default function (UserFilter) {
   }
 
   UserFilter.computed.currentPeerIsMe = function () {
+    //console.log(this.status.filter.focusUser, this.status.userID)
     return (this.status.filter.focusUser
       && this.status.filter.focusUser.id === this.status.userID)
   }

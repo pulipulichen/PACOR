@@ -14,7 +14,7 @@
         {{ typeData.othersCount }}
       </span>
     </template>
-    <template v-else>
+    <template v-else-if="!othersIsMe">
       <span class="column">
         <img v-bind:src="othersAvatar"
              class="user-avatar"

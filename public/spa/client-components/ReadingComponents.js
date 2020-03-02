@@ -4758,7 +4758,8 @@ var render = function() {
                     )
                   ])
                 ]
-              : [
+              : !_vm.othersIsMe
+              ? [
                   _c("span", { staticClass: "column" }, [
                     _c("img", {
                       staticClass: "user-avatar",
@@ -4787,6 +4788,7 @@ var render = function() {
                     )
                   ])
                 ]
+              : _vm._e()
           ]
         : _vm._e(),
       _vm._v(" "),
@@ -28377,6 +28379,7 @@ let AnnotationTypeFilter = {
   methods: {
     
     show: async function (fix) {
+      //console.log(fix)
       if (fix === true) {
         this.isFixed = true
       }
@@ -28396,21 +28399,23 @@ let AnnotationTypeFilter = {
       
       await this.$refs.AnnotationTypeFilterPopup.load()
       
-      this.anchor.popup({
-                popup: popup,
-                inline     : true,
-                hoverable  : true,
-                on    : 'click',
-                position: "top center",
-                //boundary: document.body,
-                onShow: () => {
-                  this.$refs.AnnotationTypeFilterPopup.load()
-                },
-                onHide: () => {
-                  //console.log(this.isFixed)
-                  return !this.isFixed
-                }
-              })
+      let popupOptions = {
+        popup: popup,
+        inline     : true,
+        hoverable  : true,
+        on    : 'click',
+        position: "top center",
+        //boundary: document.body,
+        onShow: () => {
+          this.$refs.AnnotationTypeFilterPopup.load()
+        },
+        onHide: () => {
+          //console.log(this.isFixed)
+          return !this.isFixed
+        }
+      }
+      console.log(popupOptions)
+      this.anchor.popup(popupOptions)
       
       //await this.lib.VueHelper.sleep(500)
       this.anchor.popup('show')

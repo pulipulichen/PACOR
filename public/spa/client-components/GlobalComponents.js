@@ -2315,7 +2315,8 @@ var render = function() {
                     )
                   : _vm._e(),
                 _vm._v(" "),
-                _vm.isSelectAnotherUser
+                _vm.isSelectAnotherUser &&
+                (_vm.peerIsMe || _vm.filterData.selectUser)
                   ? _c(
                       "div",
                       {
@@ -8461,11 +8462,15 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
   UserFilter.computed.isNotSelectAllUser = function () {
-    return (this.status.filter.focusUser)
+    //return (this.status.filter.focusUser)
+    return (!this.filterData.selectUser)
   }
   UserFilter.computed.computedSubmitButtonClassList = function () {
     //if (!this.peerIsMe && this.filterData.selectUser) {
-    if (this.filterData.selectUser) {
+    //if (this.filterData.selectUser) {
+    //  return 'green'
+    //}
+    if (this.status.filter.focusUser) {
       return 'green'
     }
   }
@@ -8503,6 +8508,7 @@ __webpack_require__.r(__webpack_exports__);
   }
 
   UserFilter.computed.currentPeerIsMe = function () {
+    //console.log(this.status.filter.focusUser, this.status.userID)
     return (this.status.filter.focusUser
       && this.status.filter.focusUser.id === this.status.userID)
   }
