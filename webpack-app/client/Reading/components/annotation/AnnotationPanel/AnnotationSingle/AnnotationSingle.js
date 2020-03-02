@@ -78,7 +78,9 @@ let AnnotationEditorModules = {
     },
     componentHeightPX () {
       // 這個是header的高度
-      return this.heightPX - 60 - this.headerPadding
+      let h = this.heightPX - 60 - this.headerPadding
+      
+      return h
     },
     discussionHeightPX () {
       // 這個是header的高度
@@ -96,9 +98,14 @@ let AnnotationEditorModules = {
       }
     },
     computedContainerStyle () {
-      let padding = this.headerPadding
+      let h = this.heightPX - this.headerPadding
+      
+      if (window.innerWidth < 480) {
+        h = h - 60
+      }
+      
       return {
-        'max-height': (this.heightPX - padding) + `px`
+        'max-height': h + `px`
       }
     },
     computedEditorStyle () {

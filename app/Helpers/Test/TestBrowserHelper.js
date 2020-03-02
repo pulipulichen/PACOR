@@ -199,12 +199,18 @@ let TestBrowserHelper = function (title, url, config, options) {
         
         let h = headless
         let sizeOptions
-        if (forceShowIndexes.indexOf(i) > -1) {
+        let posIndex = index
+        if (forceShowIndexes.length > 0) {
+          posIndex = forceShowIndexes.indexOf(index)
+        }
+        if (posIndex > -1) {
           h = false
         }
         if (h === false) {
-          sizeOptions = logManager.getSizeOptions(forceShowIndexes.indexOf(index), screenSize)
+          sizeOptions = logManager.getSizeOptions(posIndex, screenSize)
         }
+        //console.log(posIndex, forceShowIndexes, forceShowIndexes.indexOf(index), sizeOptions)
+        //return
         
         let page
         
