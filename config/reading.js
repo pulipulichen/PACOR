@@ -218,8 +218,12 @@ module.exports = {
       showFinishMessage: true, // 顯示恭喜完成的訊息
       //keepShowInstructionMessage: true,
       enableLogout: true,
-      // 顯示下一個要閱讀網頁
-      //nextReadingPage: 'http://blog.pulipuli.info'
+      /**
+       * 顯示下一個要閱讀網頁
+       * {user_id} {username} {display_name}
+       * @type String
+       */ 
+      //nextReadingPage: 'https://docs.google.com/forms/d/e/1FAIpQLSell8cSs_S2Ssi7DwHOEsDOM-qvNUh5b8MtFEIZN5oNaioTlA/viewform?usp=pp_url&entry.897829081={user_id}&entry.1819046409={username}&entry.1737232835={display_name}'
     },
   },
   annotationTypeModules: {

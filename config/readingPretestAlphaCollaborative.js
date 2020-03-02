@@ -4,10 +4,10 @@ module.exports = {
   },
   readingProgressModules: {
     'reading': {
-      totalLimitMinutes: 10,
+      totalLimitMinutes: 40,
     },
     'IndividualReading': {
-      limitMinutes: 5,
+      limitMinutes: 10,
       goToNextStepOnChecklistComplete: true,
     },
     'PreImaginaryKeyword': {

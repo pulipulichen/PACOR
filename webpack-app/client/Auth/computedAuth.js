@@ -47,6 +47,7 @@ export default function (Auth) {
       
       if (finishStep.startsWith('/') 
               || this.lib.ValidateHelper.isURL(finishStep)) {
+        finishStep = this.lib.auth.filterURL(finishStep)
         this._redirect(finishStep)
         return false
       }

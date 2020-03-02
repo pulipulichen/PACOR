@@ -127,6 +127,7 @@ let InstructionMessage = {
     },
     gotoNextReadingPage () {
       let url = this.lib.auth.currentStepConfig.nextReadingPage
+      url = this.lib.auth.filterURL(url)
       location.href = url
     }
   } // methods

@@ -29583,6 +29583,9 @@ let ReadingInstruction = {
     },
     gotoNextReadingPage () {
       let url = this.lib.auth.currentStepConfig.nextReadingPage
+      url = this.lib.auth.filterURL(url)
+      //console.log(url)
+      //return false
       location.href = url
     }
   } // methods

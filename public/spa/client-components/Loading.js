@@ -1246,6 +1246,7 @@ __webpack_require__.r(__webpack_exports__);
       
       if (finishStep.startsWith('/') 
               || this.lib.ValidateHelper.isURL(finishStep)) {
+        finishStep = this.lib.auth.filterURL(finishStep)
         this._redirect(finishStep)
         return false
       }
@@ -1626,6 +1627,36 @@ __webpack_require__.r(__webpack_exports__);
       return 0
     }
     return Math.ceil(remaining_ms / 1000)
+  }
+  
+  Auth.methods.filterURL = function (url) {
+//    console.log(url, this.lib.ValidateHelper.isURL(url))
+//    if (this.lib.ValidateHelper.isURL(url) === false) {
+//      return url
+//    }
+    
+    let replacePairs = [
+      {
+        key: 'username',
+        value: encodeURIComponent(this.status.username)
+      },
+      {
+        key: 'user_id',
+        value: this.status.userID
+      },
+      {
+        key: 'display_name',
+        value: encodeURIComponent(this.status.displayName)
+      },
+    ]
+    
+    replacePairs.forEach(({key, value}) => {
+      if (url.indexOf('{' + key + '}') > -1) {
+        url = url.split('{' + key + '}').join(value)
+      }
+    })
+    //console.log(url, replacePairs)
+    return url
   }
 });
 
