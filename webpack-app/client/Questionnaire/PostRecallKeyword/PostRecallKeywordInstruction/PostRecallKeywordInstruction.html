@@ -3,8 +3,8 @@
   ref="SectionPostRecall">
   
   <template v-if="isDiffMode">
-    <h1 class="diff-highlight">{{ $t('Please recall the keywords mentioned in this article.') }}</h1>
-    {{ $t('You can referring to the same tips before.') }}
+    <h1>{{ $t('After reading, please recall the content of this article base on your previous answer.') }}</h1>
+    <p>{{ $t('You can referring to the same tips before.') }}</p>
   </template>
   
   <h1 v-else>{{ $t('After reading, please recall the content of this article.') }}</h1>

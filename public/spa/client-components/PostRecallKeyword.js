@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.":"This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.","This article includes {0} headings:":"This article includes {0} heading: | This article includes {0} headings:","This article includes {0} images:":"This article includes {0} image: | This article includes {0} images:"},"zh-TW":{"PreImaginary Instruction":"「閱讀前的預測」說明","Please try to predict what this article might write.":"請預測這篇文章可能會寫什麼。","Please use the following clues to predict which keywords this article might mention.":"請根據以下線索，預測看看這篇文章可能會提到那些關鍵字。","This article is titled \\"{0}\\".":"這篇文章的標題是「{0}」。","This article includes {0} headings:":"這篇文章包含了以下子標題：","This article includes {0} images:":"這篇文章包含了以下圖片：","This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.":"這篇文章的標題是<span class=\u0027highlight\u0027>「{0}」</span>。","Don\u0027t worry about punctuation or typos, just write down what you predict of.":"請不用考慮標點符號或錯字，把您想到的事情寫下來即可。","The time limit is <span class=\u0027highlight\u0027>{0} minutes</span> and the countdown starts when you start typing.":"<span class=\u0027highlight\u0027>限時{0}分鐘</span>，開始輸入文字時就會開始倒數。","The time limit is <span class=\u0027highlight\u0027>{0} minutes</span> and the countdown starts now.":"<span class=\u0027highlight\u0027>限時{0}分鐘</span>，現在開始倒數即時。","The time limit is <span class=\\"highlight\\">{0} minutes</span> and the countdown starts when you click \\"Start Answer and Countdown\\" button.":"<span class=\u0027highlight\u0027>限時{0}分鐘</span>，按下「開始作答並且倒數計時」按鈕之後開始倒數即時。","PostRecall Instruction":"「閱讀後的回想」說明","Please recall the content of this article.":"請回想這篇文章的內容。","Please recall the keywords mentioned in this article based on the content of the article you just read and referring to the same tips.":"請根據您剛剛閱讀的文章內容，並參考同樣的提示，回想這篇文章提到的關鍵字。","After reading, please recall the content of this article base on your previous answer.":"在閱讀之後，請回想這篇文章的內容，並修改您之前的作答。","After reading, please recall the content of this article.":"在閱讀之後，請回想這篇文章的內容。","Don\u0027t worry about punctuation or typos, just write down what you read.":"請不用考慮標點符號或錯字，把您讀到的內容寫下來即可。","When you click \\"Start Answer and Countdown\\" button, a keyword editor will appear like following image:":"當您按下「開始作答並且倒數計時」按鈕之後，就會看到以下的關鍵字編輯器：","Keyword Editor":"關鍵字編輯器","You can perform following actions:":"您可以進行以下操作：","Add a keyword":"新增關鍵字","Remove a keyword from your list":"從您目前作答的清單中移除關鍵字","Restore a keyword to your list":"將關鍵字加回到您的清單","You can referring to the same tips before.":"您可以參考與之前相同的提示。","Please recall the keywords mentioned in this article.":"請回想這篇文章中提到的關鍵字。"}}')
+  Component.options.__i18n.push('{"en":{"This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.":"This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.","This article includes {0} headings:":"This article includes {0} heading: | This article includes {0} headings:","This article includes {0} images:":"This article includes {0} image: | This article includes {0} images:"},"zh-TW":{"PreImaginary Instruction":"「閱讀前的預測」說明","Please try to predict what this article might write.":"請預測這篇文章可能會寫什麼。","Please use the following clues to predict which keywords this article might mention.":"請根據以下線索，預測看看這篇文章可能會提到那些關鍵字。","This article is titled \\"{0}\\".":"這篇文章的標題是「{0}」。","This article includes {0} headings:":"這篇文章包含了以下子標題：","This article includes {0} images:":"這篇文章包含了以下圖片：","This article is titled <span class=\u0027highlight\u0027>&quot;{0}&quot;</span>.":"這篇文章的標題是<span class=\u0027highlight\u0027>「{0}」</span>。","Don\u0027t worry about punctuation or typos, just write down what you predict of.":"請不用考慮標點符號或錯字，把您想到的事情寫下來即可。","The time limit is <span class=\u0027highlight\u0027>{0} minutes</span> and the countdown starts when you start typing.":"<span class=\u0027highlight\u0027>限時{0}分鐘</span>，開始輸入文字時就會開始倒數。","The time limit is <span class=\u0027highlight\u0027>{0} minutes</span> and the countdown starts now.":"<span class=\u0027highlight\u0027>限時{0}分鐘</span>，現在開始倒數即時。","The time limit is <span class=\\"highlight\\">{0} minutes</span> and the countdown starts when you click \\"Start Answer and Countdown\\" button.":"<span class=\u0027highlight\u0027>限時{0}分鐘</span>，按下「開始作答並且倒數計時」按鈕之後開始倒數即時。","PostRecall Instruction":"「閱讀後的回想」說明","Please recall the content of this article.":"請回想這篇文章的內容。","Please recall the keywords mentioned in this article based on the content of the article you just read and referring to the same tips.":"請根據您剛剛閱讀的文章內容，並參考同樣的提示，回想這篇文章提到的關鍵字。","After reading, please recall the content of this article base on your previous answer.":"在閱讀之後，請回想閱讀中記得的關鍵字，並修改您之前的作答。","After reading, please recall the content of this article.":"在閱讀之後，請回想這篇文章的內容。","Don\u0027t worry about punctuation or typos, just write down what you read.":"請不用考慮標點符號或錯字，把您讀到的內容寫下來即可。","When you click \\"Start Answer and Countdown\\" button, a keyword editor will appear like following image:":"當您按下「開始作答並且倒數計時」按鈕之後，就會看到以下的關鍵字編輯器：","Keyword Editor":"關鍵字編輯器","You can perform following actions:":"您可以進行以下操作：","Add a keyword":"新增關鍵字","Remove a keyword from your list":"從您目前作答的清單中移除關鍵字","Restore a keyword to your list":"將關鍵字加回到您的清單","You can referring to the same tips before.":"您可以參考與之前相同的提示。","Please recall the keywords mentioned in this article.":"請回想這篇文章中提到的關鍵字。"}}')
   delete Component.options._Ctor
 }
 
@@ -112,20 +112,21 @@ var render = function() {
     [
       _vm.isDiffMode
         ? [
-            _c("h1", { staticClass: "diff-highlight" }, [
+            _c("h1", [
               _vm._v(
                 _vm._s(
                   _vm.$t(
-                    "Please recall the keywords mentioned in this article."
+                    "After reading, please recall the content of this article base on your previous answer."
                   )
                 )
               )
             ]),
-            _vm._v(
-              "\n    " +
-                _vm._s(_vm.$t("You can referring to the same tips before.")) +
-                "\n  "
-            )
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                _vm._s(_vm.$t("You can referring to the same tips before."))
+              )
+            ])
           ]
         : _c("h1", [
             _vm._v(

@@ -18,9 +18,9 @@ module.exports = {
     //onlyShowTutorialOrder: [33, 34],
     
     //stayInReadingProgress: 'PreImaginaryKeyword'
-    //stayInReadingProgress: 'PostRecallKeyword'
+    stayInReadingProgress: 'PostRecallKeyword'
     //stayInReadingProgress: 'IndividualReading'
-    stayInReadingProgress: 'CollaborativeReading'
+    //stayInReadingProgress: 'CollaborativeReading'
     //stayInReadingProgress: 'FreeReading'
   },
   
@@ -106,7 +106,7 @@ module.exports = {
       minKeywords: 10,
       limitMinutes: 3,
       //limitMinutes: 0.2,
-      preloadPreImaginaryKeywords: true  // 是否顯示前面撰寫的內容
+      preloadPreImaginaryAnswer: true  // 是否顯示前面撰寫的內容
     },
     
     // ---------------------------
