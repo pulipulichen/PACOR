@@ -37,6 +37,12 @@
         ].join('')
         
         let h = d.getHours()
+        
+        // 加上日期偏移
+        let date = d.getDate()
+        let adjust = parseInt(24 / 5, 10)
+        h = (h + date * adjust) % 24
+        
         let article = 'hsinchu-wind'
         if (h > 5 && h <= 10) {
           article = 'microscope'
