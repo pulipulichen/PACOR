@@ -132,7 +132,7 @@ export default (RangyManager) => {
       //anchor_text = element.innerText.slice(start_pos - 1, end_pos - 1)
       anchor_text = element.innerText.slice(start_pos, end_pos)
     } else {
-      anchor_text = element.innerText.slice(0, end_pos - 1)
+      anchor_text = element.innerText.slice(0, end_pos)
     }
     return {
       start_pos,

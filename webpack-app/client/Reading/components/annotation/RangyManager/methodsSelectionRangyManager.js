@@ -255,7 +255,7 @@ export default (RangyManager) => {
     this.selection.anchorPositions.forEach((position, i) => {
       let h = highlights[i]
       let { start_pos, end_pos, anchor_text } = this._getAnchorPositionFromHighlight(h)
-
+      //console.log(anchor_text)
       position.start_pos = start_pos
       position.end_pos = end_pos
       position.anchor_text = anchor_text

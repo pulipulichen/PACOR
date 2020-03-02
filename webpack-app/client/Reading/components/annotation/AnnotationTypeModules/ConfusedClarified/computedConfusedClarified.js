@@ -75,13 +75,14 @@ export default (Editor) => {
 
     computedQuestionEditorHeight() {
       if (this.isQuestionSubmitted === false) {
+        //console.log(this.heightPX)
         if (this.heightPX < 250) {
-          return '7em'
+          return '6em'
         }
         
         let height
         //let basePadding = `9em`
-        let basePadding = `10em`
+        let basePadding = `12em`
         
         if (this.enableCollaboration === true
                 && this.lib.style.isStackWidth) {
@@ -94,7 +95,8 @@ export default (Editor) => {
         return height
         
       } else {
-        return answerHeightPadding
+        //return answerHeightPadding
+        return '10em'
         
 //        let height
 //        if (this.enableCollaboration === true

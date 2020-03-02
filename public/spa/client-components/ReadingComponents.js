@@ -185,7 +185,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Hint":"顯示說明","Highlight text you don\u0027t understand":"記下您看不懂或有疑問的片段","Write the answer to \\"questions\\"":"記錄「疑問」的解答","Highlight key keywords or concepts":"記下您對文章有印象的關鍵字","Highlight keywords or concepts in this section":"記下小節中的重點關鍵字","Highlight keywords or concepts in the article":"記下文章中的重點關鍵字"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Hint":"顯示說明","Highlight text you don\u0027t understand":"記下您看不懂或有疑問的片段","Write the answer to \\"questions\\"":"解答您的「疑問」","Highlight key keywords or concepts":"記下您對文章有印象的關鍵字","Highlight keywords or concepts in this section":"記下小節中的重點關鍵字","Highlight keywords or concepts in the article":"記下文章中的重點關鍵字"}}')
   delete Component.options._Ctor
 }
 
@@ -14522,13 +14522,14 @@ let answerHeightPadding = '8em'
 
     computedQuestionEditorHeight() {
       if (this.isQuestionSubmitted === false) {
+        //console.log(this.heightPX)
         if (this.heightPX < 250) {
-          return '7em'
+          return '6em'
         }
         
         let height
         //let basePadding = `9em`
-        let basePadding = `10em`
+        let basePadding = `12em`
         
         if (this.enableCollaboration === true
                 && this.lib.style.isStackWidth) {
@@ -14541,7 +14542,8 @@ let answerHeightPadding = '8em'
         return height
         
       } else {
-        return answerHeightPadding
+        //return answerHeightPadding
+        return '10em'
         
 //        let height
 //        if (this.enableCollaboration === true
@@ -16475,6 +16477,7 @@ __webpack_require__.r(__webpack_exports__);
   RangyManager.methods.getAnchorTextArrayFromAnnotation = function (annotation) {
     return annotation.anchorPositions.map(pos => {
       if (pos.anchor_text) {
+        //console.log(pos.anchor_text)
         return pos.anchor_text
       }
       
@@ -16490,11 +16493,12 @@ __webpack_require__.r(__webpack_exports__);
       let element = document.getElementById(paragraph_id)
       //console.log(element, h.containerElementId, i)
       let anchor_text
+      //console.log(start_pos, end_pos)
       if (start_pos > 0) {
         //anchor_text = element.innerText.slice(start_pos - 1, end_pos - 1)
         anchor_text = element.innerText.slice(start_pos, end_pos)
       } else {
-        anchor_text = element.innerText.slice(0, end_pos - 1)
+        anchor_text = element.innerText.slice(0, end_pos)
       }
       
       pos.anchor_text = anchor_text
@@ -16504,7 +16508,10 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   RangyManager.methods.getAnchorTextFromSelection = function () {
-    return this.rangy.getSelection().toString()
+    let section = this.rangy.getSelection()
+    let text = section.toString()
+    //console.log(text)
+    return text
   }
   
   RangyManager.methods.getRectFromAnchorPositions = function (anchorPositions) {
@@ -16914,7 +16921,7 @@ __webpack_require__.r(__webpack_exports__);
       //anchor_text = element.innerText.slice(start_pos - 1, end_pos - 1)
       anchor_text = element.innerText.slice(start_pos, end_pos)
     } else {
-      anchor_text = element.innerText.slice(0, end_pos - 1)
+      anchor_text = element.innerText.slice(0, end_pos)
     }
     return {
       start_pos,
@@ -17696,7 +17703,7 @@ __webpack_require__.r(__webpack_exports__);
     this.selection.anchorPositions.forEach((position, i) => {
       let h = highlights[i]
       let { start_pos, end_pos, anchor_text } = this._getAnchorPositionFromHighlight(h)
-
+      //console.log(anchor_text)
       position.start_pos = start_pos
       position.end_pos = end_pos
       position.anchor_text = anchor_text
