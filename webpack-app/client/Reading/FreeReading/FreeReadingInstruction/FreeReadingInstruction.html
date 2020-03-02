@@ -5,13 +5,16 @@
       <img v-bind:src="status.avatar"
            class="ui image" />
     </div>
-    <div class="twelve wide column">
+    <div class="twelve wide column message-column">
       <h1 class="ui header">
         {{ $t('For {0}: Congratulation! You finished reading.', [username]) }}
       </h1>
-      <template v-if="PreImaginaryResult || PostRecallResult">
-        {{ $t('Following are your previous answers:') }}
-      </template>
+      <p v-if="(PreImaginaryResult) || (PostRecallResult)">
+        
+        {{ $t('Here are your predictions before reading and your recall after reading.') }}
+        {{ $t('Please think about how your impression of the article has changed after reading it? What caused you to change your mind?') }}
+        
+      </p>
     </div>
   </div>
   
