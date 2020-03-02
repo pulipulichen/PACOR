@@ -14602,6 +14602,9 @@ let answerHeightPadding = '7em'
 
     anchorText() {
       //console.log(this.annotation)
+      if (!this.lib.RangyManager) {
+        return ''
+      }
       
       let anchorTexts
       //try {

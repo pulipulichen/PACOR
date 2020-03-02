@@ -59,5 +59,41 @@ export default function (UserFilter) {
       return 'green'
     }
   }
+  
+  UserFilter.computed.currentPeer = function () {
+    return this.status.filter.focusUser
+  }
+  
+  UserFilter.computed.currentPeerAvatarURL = function () {
+    if (!this.currentPeer) {
+      return false
+    }
+    
+    if (this.currentPeer.avatar_url) {
+      return this.currentPeer.avatar_url
+    }
+    else {
+      this.currentPeer.avatarURL
+    }
+  }
+  
+  
+  UserFilter.computed.selectPeerAvatarURL = function () {
+    if (!this.filterData.selectUser) {
+      return false
+    }
+    
+    let user = this.filterData.selectUser
+    if (user.avatar_url) {
+      return user.avatar_url
+    }
+    else {
+      user.avatarURL
+    }
+  }
 
+  UserFilter.computed.currentPeerIsMe = function () {
+    return (this.status.filter.focusUser
+      && this.status.filter.focusUser.id === this.status.userID)
+  }
 }

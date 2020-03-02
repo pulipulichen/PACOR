@@ -2179,7 +2179,7 @@ var render = function() {
     "a",
     { staticClass: "item UserFilter", on: { click: _vm.show } },
     [
-      _vm.peerIsMe
+      _vm.currentPeerIsMe
         ? [
             _c("span", { staticClass: "peer-label" }, [
               _vm._v("\r\n      " + _vm._s(_vm.$t("View")) + " \r\n    ")
@@ -2187,10 +2187,10 @@ var render = function() {
             _vm._v(" "),
             _c("img", {
               staticClass: "user-avatar",
-              attrs: { src: _vm.peer.avatar_url, title: _vm.username }
+              attrs: { src: _vm.currentPeerAvatarURL, title: _vm.username }
             })
           ]
-        : _vm.peer
+        : _vm.currentPeer
         ? [
             _c("span", { staticClass: "peer-label" }, [
               _vm._v("\r\n      " + _vm._s(_vm.$t("Asist")) + " \r\n    ")
@@ -2198,7 +2198,7 @@ var render = function() {
             _vm._v(" "),
             _c("img", {
               staticClass: "user-avatar",
-              attrs: { src: _vm.peer.avatar_url, title: _vm.username }
+              attrs: { src: _vm.currentPeerAvatarURL, title: _vm.username }
             })
           ]
         : [
@@ -2359,7 +2359,7 @@ var render = function() {
                               _c("img", {
                                 staticClass: "user-avatar",
                                 attrs: {
-                                  src: _vm.filterData.selectUser.avatar_url,
+                                  src: _vm.selectPeerAvatarURL,
                                   title: _vm.selectUsername
                                 }
                               })
@@ -8469,7 +8469,43 @@ __webpack_require__.r(__webpack_exports__);
       return 'green'
     }
   }
+  
+  UserFilter.computed.currentPeer = function () {
+    return this.status.filter.focusUser
+  }
+  
+  UserFilter.computed.currentPeerAvatarURL = function () {
+    if (!this.currentPeer) {
+      return false
+    }
+    
+    if (this.currentPeer.avatar_url) {
+      return this.currentPeer.avatar_url
+    }
+    else {
+      this.currentPeer.avatarURL
+    }
+  }
+  
+  
+  UserFilter.computed.selectPeerAvatarURL = function () {
+    if (!this.filterData.selectUser) {
+      return false
+    }
+    
+    let user = this.filterData.selectUser
+    if (user.avatar_url) {
+      return user.avatar_url
+    }
+    else {
+      user.avatarURL
+    }
+  }
 
+  UserFilter.computed.currentPeerIsMe = function () {
+    return (this.status.filter.focusUser
+      && this.status.filter.focusUser.id === this.status.userID)
+  }
 });
 
 /***/ }),

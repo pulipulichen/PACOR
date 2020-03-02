@@ -155,6 +155,9 @@ export default (Editor) => {
 
     anchorText() {
       //console.log(this.annotation)
+      if (!this.lib.RangyManager) {
+        return ''
+      }
       
       let anchorTexts
       //try {

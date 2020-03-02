@@ -1,24 +1,23 @@
 <a class="item UserFilter"
    v-on:click="show">
-  <template v-if="peerIsMe">
+  <template v-if="currentPeerIsMe">
     <span class="peer-label">
       {{ $t('View') }} 
     </span>
     
-    <img v-bind:src="peer.avatar_url"
+    <img v-bind:src="currentPeerAvatarURL"
          v-bind:title="username"
          class="user-avatar" />
   </template>
-  <template v-else-if="peer">
+  <template v-else-if="currentPeer">
     <span class="peer-label">
       {{ $t('Asist') }} 
     </span>
     
-    <img v-bind:src="peer.avatar_url"
+    <img v-bind:src="currentPeerAvatarURL"
          v-bind:title="username"
          class="user-avatar" />
   </template>
-  
   <template v-else>
     <span class="peer-all-label peer-label">
       {{ $t('Viewing All') }}
@@ -98,7 +97,7 @@
             {{ $t('Asist') }}:
             {{ selectUsername }}
             </span>
-            <img v-bind:src="filterData.selectUser.avatar_url"
+            <img v-bind:src="selectPeerAvatarURL"
                  v-bind:title="selectUsername"
                  class="user-avatar" />
           </template>
