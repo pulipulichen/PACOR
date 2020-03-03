@@ -36,8 +36,11 @@
     drop-shadow(1px -1px 1px rgba(255,255,255,0.5)) 
     drop-shadow(-1px -1px 1px rgba(255,255,255,0.5));*/
 
-  filter: drop-shadow(1px 1px 3px rgba(255,255,0,0.5)) 
-    drop-shadow(-1px 1px 3px rgba(255,255,0,0.5)) 
-    drop-shadow(1px -1px 3px rgba(255,255,0,0.5)) 
-    drop-shadow(-1px -1px 3px rgba(255,255,0,0.5));
+  //@quickAddShadowColor: rgba(255,255,0,0.5);
+  @quickAddShadowColor: rgba(236, 240, 241,0.5);
+
+  filter: drop-shadow(1px 1px 3px @quickAddShadowColor) 
+    drop-shadow(-1px 1px 3px @quickAddShadowColor) 
+    drop-shadow(1px -1px 3px @quickAddShadowColor) 
+    drop-shadow(-1px -1px 3px @quickAddShadowColor);
 }

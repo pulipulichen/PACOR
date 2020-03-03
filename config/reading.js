@@ -321,15 +321,15 @@ module.exports = {
       "style": {
         //'highlight': 'border-bottom: 1px solid red',
         'highlight': {
-          'my': 'background-color: rgba(229,91,0,0.5); color: black;',
-          'others': 'border-bottom: 2px solid #e55b00'
+          'my': 'background-color: rgba(52, 152, 219, ,0.5); color: black;',
+          'others': 'border-bottom: 2px solid rgba(52, 152, 219, 0.7)'
         },
-        'segmentColor': '#e55b00',
+        'segmentColor': '#2980b9',
         'button': {
           'icon': 'exclamation',
           'color': 'white',
           //'backgroundColor': 'orange',
-          'backgroundColor': '#e55b00',
+          'backgroundColor': '#2980b9',
         }
       }
     },
