@@ -48,7 +48,8 @@ let AnnotationDiscussionList = {
       }
     },
     computedContainerClass () {
-      if (this.comments.length < 10) {
+      if (Array.isArray(this.comments) 
+              && this.comments.length < 10) {
         return 'little-comments'
       }
     },
