@@ -12,7 +12,8 @@ let Instruction = {
       sectionCount: 0,
       headings: [],
       images: [],
-      keywordEditorThumbnail: this.config.baseURL + '/imgs/keyword-editor.png'
+      keywordEditorThumbnail: this.config.baseURL + '/imgs/keyword-editor.png',
+      thumbnailImageMaxSize: 300
     }
   },
 //  components: {
@@ -131,7 +132,7 @@ let Instruction = {
       let oc = document.createElement('canvas'),
               octx = oc.getContext('2d');
 
-      let maxSize = 200
+      let maxSize = this.thumbnailImageMaxSize
       let nWidth = img.offsetWidth
       let nHeight = img.offsetHeight
       if (nWidth > nHeight) {
