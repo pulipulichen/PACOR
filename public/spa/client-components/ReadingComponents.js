@@ -1053,7 +1053,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".TypeItem[data-v-28af1646] {\n  white-space: nowrap;\n  cursor: pointer;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  text-align: center;\n}\n.TypeItem[data-v-28af1646]:hover {\n  color: #1E70BF;\n}\n.column[data-v-28af1646] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.column.button[data-v-28af1646] {\n  margin-left: 0.5em !important;\n  margin-right: 0.5em !important;\n}\nimg[data-v-28af1646] {\n  max-height: 1.5em;\n  width: auto;\n}\n.username[data-v-28af1646] {\n  font-weight: bold;\n}\n", "",{"version":3,"sources":["TypeItem.less?vue&type=style&index=0&id=28af1646&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,eAAe;EACf,iBAAiB;EACjB,oBAAoB;EACpB,kBAAkB;AACpB;AACA;EACE,cAAc;AAChB;AACA;EACE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,6BAA6B;EAC7B,8BAA8B;AAChC;AACA;EACE,iBAAiB;EACjB,WAAW;AACb;AACA;EACE,iBAAiB;AACnB","file":"TypeItem.less?vue&type=style&index=0&id=28af1646&lang=less&scoped=true&","sourcesContent":[".TypeItem[data-v-28af1646] {\n  white-space: nowrap;\n  cursor: pointer;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  text-align: center;\n}\n.TypeItem[data-v-28af1646]:hover {\n  color: #1E70BF;\n}\n.column[data-v-28af1646] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.column.button[data-v-28af1646] {\n  margin-left: 0.5em !important;\n  margin-right: 0.5em !important;\n}\nimg[data-v-28af1646] {\n  max-height: 1.5em;\n  width: auto;\n}\n.username[data-v-28af1646] {\n  font-weight: bold;\n}\n"]}]);
+exports.push([module.i, ".TypeItem[data-v-28af1646] {\n  white-space: nowrap;\n  cursor: pointer;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  text-align: left;\n}\n.TypeItem[data-v-28af1646]:hover {\n  color: #1E70BF;\n}\n.column[data-v-28af1646] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.column.left[data-v-28af1646] {\n  text-align: right;\n}\n.column.right[data-v-28af1646] {\n  text-align: left;\n}\n.column.button[data-v-28af1646] {\n  margin-left: 0.5em !important;\n  margin-right: 0.5em !important;\n  width: 5rem;\n  text-align: left;\n}\nimg[data-v-28af1646] {\n  max-height: 1.5em;\n  width: auto;\n}\n.username[data-v-28af1646] {\n  font-weight: bold;\n}\n", "",{"version":3,"sources":["TypeItem.less?vue&type=style&index=0&id=28af1646&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,eAAe;EACf,iBAAiB;EACjB,oBAAoB;EACpB,gBAAgB;AAClB;AACA;EACE,cAAc;AAChB;AACA;EACE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,iBAAiB;AACnB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,6BAA6B;EAC7B,8BAA8B;EAC9B,WAAW;EACX,gBAAgB;AAClB;AACA;EACE,iBAAiB;EACjB,WAAW;AACb;AACA;EACE,iBAAiB;AACnB","file":"TypeItem.less?vue&type=style&index=0&id=28af1646&lang=less&scoped=true&","sourcesContent":[".TypeItem[data-v-28af1646] {\n  white-space: nowrap;\n  cursor: pointer;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  text-align: left;\n}\n.TypeItem[data-v-28af1646]:hover {\n  color: #1E70BF;\n}\n.column[data-v-28af1646] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.column.left[data-v-28af1646] {\n  text-align: right;\n}\n.column.right[data-v-28af1646] {\n  text-align: left;\n}\n.column.button[data-v-28af1646] {\n  margin-left: 0.5em !important;\n  margin-right: 0.5em !important;\n  width: 5rem;\n  text-align: left;\n}\nimg[data-v-28af1646] {\n  max-height: 1.5em;\n  width: auto;\n}\n.username[data-v-28af1646] {\n  font-weight: bold;\n}\n"]}]);
 
 
 /***/ }),
@@ -4738,60 +4738,6 @@ var render = function() {
     "div",
     { staticClass: "type-item TypeItem", on: { click: _vm.selectType } },
     [
-      _vm.lib.auth.isEnableCollaboration
-        ? [
-            _vm.othersIsAll
-              ? [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "column username" }, [
-                    _vm._v(
-                      "\r\n        " + _vm._s(_vm.$t("All")) + "\r\n      "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "column" }, [
-                    _vm._v(
-                      "\r\n        :\r\n        " +
-                        _vm._s(_vm.typeData.othersCount) +
-                        "\r\n      "
-                    )
-                  ])
-                ]
-              : !_vm.othersIsMe
-              ? [
-                  _c("span", { staticClass: "column" }, [
-                    _c("img", {
-                      staticClass: "user-avatar",
-                      attrs: {
-                        src: _vm.othersAvatar,
-                        title: _vm.othersUsername
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "column username" }, [
-                    _c("span", { staticClass: "username-container" }, [
-                      _vm._v(
-                        "\r\n          " +
-                          _vm._s(_vm.othersUsername) +
-                          "\r\n        "
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "column" }, [
-                    _vm._v(
-                      "\r\n        :\r\n        " +
-                        _vm._s(_vm.typeData.othersCount) +
-                        "\r\n      "
-                    )
-                  ])
-                ]
-              : _vm._e()
-          ]
-        : _vm._e(),
-      _vm._v(" "),
       _c(
         "span",
         { staticClass: "column button" },
@@ -4810,21 +4756,87 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("span", { staticClass: "column" }, [
-        _c("img", {
-          staticClass: "user-avatar",
-          attrs: { src: _vm.myAvatar, title: _vm.username }
-        })
-      ]),
-      _vm._v(" "),
-      _c("span", { staticClass: "column username" }, [
-        _c("span", { staticClass: "username-container" }, [
-          _vm._v("\r\n    " + _vm._s(_vm.username) + "\r\n    ")
+        _c("span", { staticClass: "column" }, [
+          _c("img", {
+            staticClass: "user-avatar",
+            attrs: { src: _vm.myAvatar, title: _vm.username }
+          })
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "column username" }, [
+          _c("span", { staticClass: "username-container" }, [
+            _vm._v("\r\n      " + _vm._s(_vm.username) + "\r\n      ")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "column" }, [
+          _vm._v(
+            "\r\n      :\r\n      " + _vm._s(_vm.typeData.myCount) + "\r\n    "
+          )
         ])
       ]),
       _vm._v(" "),
-      _c("span", { staticClass: "column" }, [
-        _vm._v("\r\n    :\r\n    " + _vm._s(_vm.typeData.myCount) + "\r\n  ")
-      ])
+      _vm.lib.auth.isEnableCollaboration
+        ? [
+            _vm._v("\r\n    / \r\n    "),
+            _c(
+              "span",
+              { staticClass: "column" },
+              [
+                _vm.othersIsAll
+                  ? [
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "column username" }, [
+                        _vm._v(
+                          "\r\n        " + _vm._s(_vm.$t("All")) + "\r\n      "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "column" }, [
+                        _vm._v(
+                          "\r\n        :\r\n        " +
+                            _vm._s(_vm.typeData.othersCount) +
+                            "\r\n      "
+                        )
+                      ])
+                    ]
+                  : !_vm.othersIsMe
+                  ? [
+                      _c("span", { staticClass: "column" }, [
+                        _c("img", {
+                          staticClass: "user-avatar",
+                          attrs: {
+                            src: _vm.othersAvatar,
+                            title: _vm.othersUsername
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "column username" }, [
+                        _c("span", { staticClass: "username-container" }, [
+                          _vm._v(
+                            "\r\n          " +
+                              _vm._s(_vm.othersUsername) +
+                              "\r\n        "
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "column" }, [
+                        _vm._v(
+                          "\r\n        :\r\n        " +
+                            _vm._s(_vm.typeData.othersCount) +
+                            "\r\n      "
+                        )
+                      ])
+                    ]
+                  : _vm._e()
+              ],
+              2
+            )
+          ]
+        : _vm._e()
     ],
     2
   )
@@ -28460,7 +28472,7 @@ let AnnotationTypeFilter = {
           return !this.isFixed
         }
       }
-      console.log(popupOptions)
+      //console.log(popupOptions)
       this.anchor.popup(popupOptions)
       
       //await this.lib.VueHelper.sleep(500)

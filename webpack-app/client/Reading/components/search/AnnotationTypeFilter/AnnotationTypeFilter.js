@@ -61,7 +61,7 @@ let AnnotationTypeFilter = {
           return !this.isFixed
         }
       }
-      console.log(popupOptions)
+      //console.log(popupOptions)
       this.anchor.popup(popupOptions)
       
       //await this.lib.VueHelper.sleep(500)
