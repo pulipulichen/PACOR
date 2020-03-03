@@ -489,7 +489,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"OK":"我知道了！","Close":"我知道了","Start Tutorial":"顯示操作導覽","Logout":"登出","Are you sure to logout?":"您確定要登出嗎？","Move to next article":"前往下一篇文章","Move to next phase":"前往下一篇階段"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"OK":"我知道了！","Close":"我知道了","Start Tutorial":"顯示操作導覽","Logout":"登出","Are you sure to logout?":"您確定要登出嗎？","Move to next article":"前往下一篇文章","Move to next phase":"前往下一個活動"}}')
   delete Component.options._Ctor
 }
 
