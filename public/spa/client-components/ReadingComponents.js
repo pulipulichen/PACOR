@@ -489,7 +489,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"OK":"我知道了！","Close":"我知道了","Start Tutorial":"顯示操作導覽","Logout":"登出","Are you sure to logout?":"您確定要登出嗎？","Move to next article":"進入下一篇文章"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"OK":"我知道了！","Close":"我知道了","Start Tutorial":"顯示操作導覽","Logout":"登出","Are you sure to logout?":"您確定要登出嗎？","Move to next article":"前往下一篇文章","Move to next phase":"前往下一篇階段"}}')
   delete Component.options._Ctor
 }
 
@@ -5194,7 +5194,7 @@ var render = function() {
                         [
                           _vm._v(
                             "\r\n          " +
-                              _vm._s(_vm.$t("Move to next article")) +
+                              _vm._s(_vm.$t("Move to next phase")) +
                               "\r\n        "
                           )
                         ]

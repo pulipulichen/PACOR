@@ -66,7 +66,7 @@
           article = 'pain-music'
         }
 
-        let readingPage = '/pretest/alpha/individual/' + article + '/' + mmdd
+        let readingPage = '/pretest/alpha/1/' + article + '/' + mmdd
         //console.log(readingPage)
 
         location.href = readingPage
@@ -75,6 +75,7 @@
         let parts = document.referrer.split('/')
         let len = parts.length
         let article = parts[(len - 2)]
+        let seq = parseInt(parts[(len - 3)], 10)
         
         let mapping = {
           'cd': 'rice',
@@ -82,6 +83,28 @@
           'chocolate': 'microscope',
           'earth-day': 'hsinchu-wind',
           'pain-music': 'three-mountains-king',
+          'yakutsk': 'morning-reading'
+        }
+        
+        if (seq === 1) {
+          mapping = {
+            'cd': 'chinese-paper',
+            'chinese-paper': 'chocolate',
+            'chocolate': 'earth-day',
+            'earth-day': 'pain-music',
+            'pain-music': 'cd',
+            
+          }
+        }
+        else if (seq === 2) {
+          mapping = {
+            'cd': 'rice',
+          'chinese-paper': 'yakutsk',
+          'chocolate': 'microscope',
+          'earth-day': 'hsinchu-wind',
+          'pain-music': 'three-mountains-king',
+          'yakutsk': 'morning-reading'
+          }
         }
 
         if (typeof(mapping[article]) === 'string') {
@@ -94,7 +117,7 @@
 
         if (article) {
           parts[(len - 2)] = article
-          parts[(len - 3)] = 'collaborative'
+          parts[(len - 3)] = seq + 1
           console.log(parts.join('/'))
           location.href = parts.join('/')
         }

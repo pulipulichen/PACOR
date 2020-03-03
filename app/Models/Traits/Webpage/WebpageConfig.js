@@ -157,16 +157,16 @@ class WebpageConfig {
       let baseDomain = Env.get('PROTOCOL') + '//' 
               + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT')
       
-      let pretestPrefixAlphaCollaborative = baseDomain + '/pretest/alpha/collaborative/'
-      let pretestPrefixAlphaIndividual = baseDomain + '/pretest/alpha/individual/'
+      let pretestPrefixAlpha = baseDomain + '/pretest/alpha/'
+      
       let pretestPrefixBetaCollaborative = baseDomain + '/pretest/beta/collaborative/'
       let pretestPrefixBetaIndividual = baseDomain + '/pretest/beta/individual/'
-      //console.log(this.url, pretestPrefix)
-      if (this.url.startsWith(pretestPrefixAlphaCollaborative)) {
-        pretestConfig = Config.get('readingPretestAlphaCollaborative')
-      }
-      else if (this.url.startsWith(pretestPrefixAlphaIndividual)) {
-        pretestConfig = Config.get('readingPretestAlphaIndividual')
+      
+      if (this.url.startsWith(pretestPrefixAlpha)) {
+        let parts = this.url.split('/')
+        let seq = parts[(parts.length - 3)]
+        
+        pretestConfig = Config.get('readingPretestAlpha' + seq)
       }
       else if (this.url.startsWith(pretestPrefixBetaCollaborative)) {
         pretestConfig = Config.get('readingPretestBetaCollaborative')

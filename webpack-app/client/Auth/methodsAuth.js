@@ -250,6 +250,10 @@ export default function (Auth) {
         value: encodeURIComponent(this.status.username)
       },
       {
+        key: 'id',
+        value: this.status.userID
+      },
+      {
         key: 'user_id',
         value: this.status.userID
       },

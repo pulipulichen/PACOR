@@ -1,10 +1,7 @@
 module.exports = {
-  login: {
-    message: '/instruction/login/LoginPretest.html',
-  },
   readingProgressModules: {
     'reading': {
-      totalLimitMinutes: 40,
+      totalLimitMinutes: 30,
     },
     'IndividualReading': {
       limitMinutes: 10,
@@ -20,7 +17,7 @@ module.exports = {
       preloadPreImaginaryKeywords: true  // 是否顯示前面撰寫的內容
     },
     FreeReading: {
-      nextReadingPage: '/pretest/alpha.html'
+      nextReadingPage: 'https://docs.google.com/forms/d/e/1FAIpQLSdqkgpOYUmB81bRNiK_z4_8Rn-l2RQEtzXjuNkgvXBVaYvE0g/viewform?usp=pp_url&entry.449355614={id}'
     }
   }
 }
