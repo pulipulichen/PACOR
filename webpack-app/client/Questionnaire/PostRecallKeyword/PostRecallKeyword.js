@@ -13,10 +13,10 @@ let PostRecall = {
     'instruction': Instruction
   },
   mounted: async function () {
-    //console.log(this.lib.auth.currentStepConfig.preloadPreImaginaryAnswer)
+    //console.log(this.lib.auth.currentStepConfig.preloadPreImaginary)
     //console.log(this.$refs.Questionnaire.answer)
-    //console.log(this.lib.auth.currentStepConfig.preloadPreImaginaryKeywords)
-    if (this.lib.auth.currentStepConfig.preloadPreImaginaryKeywords === true
+    //console.log(this.lib.auth.currentStepConfig.preloadPreImaginary)
+    if (this.lib.auth.currentStepConfig.preloadPreImaginary === true
             && this.$refs.Questionnaire.answeredList.length === 0
             && this.$refs.Questionnaire.removedList.length === 0) {
       let log = await this.lib.AxiosHelper.get('/client/Questionnaire/getPreImaginaryKeywords')

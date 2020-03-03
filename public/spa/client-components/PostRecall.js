@@ -268,9 +268,9 @@ let PostRecall = {
     'instruction': _PostRecallInstruction_PostRecallInstruction_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   mounted: async function () {
-    //console.log(this.lib.auth.currentStepConfig.preloadPreImaginaryAnswer)
+    //console.log(this.lib.auth.currentStepConfig.preloadPreImaginary)
     //console.log(this.$refs.Questionnaire.answer)
-    if (this.lib.auth.currentStepConfig.preloadPreImaginaryAnswer === true
+    if (this.lib.auth.currentStepConfig.preloadPreImaginary === true
             && this.$refs.Questionnaire.answer === '') {
       let answer = await this.lib.AxiosHelper.get('/client/Questionnaire/getPreImaginaryAnswer')
       //console.log(answer)

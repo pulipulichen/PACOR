@@ -51,8 +51,8 @@ let Instruction = {
     isDiffMode () {
       let isDiffMode = false
       if (this.lib.auth
-              && this.lib.auth.currentStepConfig.preloadPreImaginaryAnswer) {
-        isDiffMode = this.lib.auth.currentStepConfig.preloadPreImaginaryAnswer
+              && this.lib.auth.currentStepConfig.preloadPreImaginary) {
+        isDiffMode = this.lib.auth.currentStepConfig.preloadPreImaginary
       }
       return isDiffMode
     },

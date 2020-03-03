@@ -99,14 +99,14 @@ module.exports = {
       limitMinutes: 3,
       //limitMinutes: 0.03,
       countdownAtStart: false,
-      preloadPreImaginaryAnswer: true  // 是否顯示前面撰寫的內容
+      preloadPreImaginary: true  // 是否顯示前面撰寫的內容
     },
     'PostRecallKeyword': {
       //instruction: '/instruction/questionnaire/PostRecall.html',
       minKeywords: 10,
       limitMinutes: 3,
       //limitMinutes: 0.2,
-      preloadPreImaginaryAnswer: true  // 是否顯示前面撰寫的內容
+      preloadPreImaginary: true  // 是否顯示前面撰寫的內容
     },
     
     // ---------------------------
