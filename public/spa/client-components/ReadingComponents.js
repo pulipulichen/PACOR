@@ -377,7 +377,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Check list":"檢核單","Write section main ideas":"撰寫小節關鍵字","Edit section main ideas":"編輯小節關鍵字","I have already read this section.":"我已經讀完了這一節的內容。","I have already written annotations on a sentence I don\u0027t understand.":"我看不懂的地方，已經用「疑問」標示了。","I have already written the main ideas of this section.":"我已經寫完小節關鍵字了。","Please finish checklist.":"請完成這份檢核單","I have read this section!":"我已經讀完這一節了！","Write article main ideas":"撰寫文章關鍵字","Edit article main ideas":"編輯文章關鍵字","I have already read this article.":"我已經讀完了這篇文章的內容。","I have already written the main ideas of this article.":"我已經寫完文章關鍵字了。","I have read this article!":"我已經讀完這篇文章了！"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Check list":"檢核單","Write section main ideas":"撰寫小節關鍵字","Edit section main ideas":"編輯小節關鍵字","I have already read this section.":"我已經讀完了這一節的內容。","I have already written annotations on a sentence I don\u0027t understand.":"讀到看不懂的文字時，我已經記下「疑問」了。","I have already written the main ideas of this section.":"我已經寫完小節關鍵字了。","Please finish checklist.":"請完成這份檢核單","I have read this section!":"我已經讀完這一節了！","Write article main ideas":"撰寫文章關鍵字","Edit article main ideas":"編輯文章關鍵字","I have already read this article.":"我已經讀完了這篇文章的內容。","I have already written the main ideas of this article.":"我已經寫完文章關鍵字了。","I have read this article!":"我已經讀完這篇文章了！"}}')
   delete Component.options._Ctor
 }
 
@@ -27832,7 +27832,7 @@ __webpack_require__.r(__webpack_exports__);
     return `Pacor.SectionChecklist.${this.sectionSeqID}.`
   }
   SectionChecklist.computed.checklistAnnotationIndex = function () {
-    let i = this.checklist.indexOf('SectionMainIdea')
+    let i = this.checklist.indexOf('{SectionMainIdea}')
     //console.log(i)
     return i
   }
@@ -27844,7 +27844,34 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     let checklist = this.lib.auth.stepSectionAnnotationConfig.checklist
-    return checklist
+    
+    // 稍微過濾一下checklist的內容
+    let isArticleNote = this.lib.SectionManager.isArticleNote
+    let output = []
+    checklist.map(item => {
+      if (item === '{CheckRead}') {
+        if (isArticleNote === true) {
+          output.push('I have already read this article.')
+        }
+        else {
+          output.push('I have already read this section.')
+        }
+      }
+      else if (item === '{HighlightConfused}') {
+        if (this.lib.auth.currentStepConfig.highlightAnnotation.types.indexOf('Confused') > -1)
+        output.push(`I have already written annotations on a sentence I don't understand.`)
+      }
+      else if (item === '{SectionMainIdea}') {
+        if (isArticleNote === true) {
+          output.push('I have already written the main ideas of this article.')
+        }
+        else {
+          output.push('I have already written the main ideas of this section.')
+        }
+      }
+    })
+    
+    return output 
   }
 
   SectionChecklist.computed.computedSubmitButtonClass = function () {

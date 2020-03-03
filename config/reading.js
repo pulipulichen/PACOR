@@ -141,9 +141,9 @@ module.exports = {
         enableSectionAnnotation: true,
         type: ['SectionMainIdea'],
         checklist: [
-          'I have already read this section.',
-          'I have already written annotations on a sentence I don\'t understand.',
-          'SectionMainIdea', // 'I have already written the main ideas of this section.',
+          '{CheckRead}',
+          '{HighlightConfused}',
+          '{SectionMainIdea}', // 'I have already written the main ideas of this section.',
         ],
 //        updateInterval: 30000
       },

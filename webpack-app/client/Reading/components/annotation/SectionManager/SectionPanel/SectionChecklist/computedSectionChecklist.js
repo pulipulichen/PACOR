@@ -64,7 +64,7 @@ export default (SectionChecklist) => {
     return `Pacor.SectionChecklist.${this.sectionSeqID}.`
   }
   SectionChecklist.computed.checklistAnnotationIndex = function () {
-    let i = this.checklist.indexOf('SectionMainIdea')
+    let i = this.checklist.indexOf('{SectionMainIdea}')
     //console.log(i)
     return i
   }
@@ -76,7 +76,34 @@ export default (SectionChecklist) => {
     }
     
     let checklist = this.lib.auth.stepSectionAnnotationConfig.checklist
-    return checklist
+    
+    // 稍微過濾一下checklist的內容
+    let isArticleNote = this.lib.SectionManager.isArticleNote
+    let output = []
+    checklist.map(item => {
+      if (item === '{CheckRead}') {
+        if (isArticleNote === true) {
+          output.push('I have already read this article.')
+        }
+        else {
+          output.push('I have already read this section.')
+        }
+      }
+      else if (item === '{HighlightConfused}') {
+        if (this.lib.auth.currentStepConfig.highlightAnnotation.types.indexOf('Confused') > -1)
+        output.push(`I have already written annotations on a sentence I don't understand.`)
+      }
+      else if (item === '{SectionMainIdea}') {
+        if (isArticleNote === true) {
+          output.push('I have already written the main ideas of this article.')
+        }
+        else {
+          output.push('I have already written the main ideas of this section.')
+        }
+      }
+    })
+    
+    return output 
   }
 
   SectionChecklist.computed.computedSubmitButtonClass = function () {
