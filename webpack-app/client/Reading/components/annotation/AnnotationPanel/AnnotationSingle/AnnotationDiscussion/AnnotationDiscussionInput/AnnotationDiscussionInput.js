@@ -51,6 +51,18 @@ let AnnotationDiscussionInput = {
       }
       
       return classList.join(' ')
+    },
+    computedSubmitButtonClassList () {
+      let classList = []
+      
+      if (!this.isEnableSubmit === true) {
+        classList.push('disabled')
+      }
+      else {
+        classList.push('positive')
+      }
+      
+      return classList.join(' ')
     }
   },
   watch: {

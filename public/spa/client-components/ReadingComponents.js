@@ -2428,7 +2428,7 @@ var render = function() {
                   "button",
                   {
                     staticClass: "ui mini icon button",
-                    class: { disabled: !_vm.isEnableSubmit },
+                    class: _vm.computedSubmitButtonClassList,
                     attrs: { type: "button" },
                     on: { click: _vm.submit }
                   },
@@ -10674,6 +10674,18 @@ let AnnotationDiscussionInput = {
       
       if (this.isEditMode === true) {
         classList.push('edit-mode')
+      }
+      
+      return classList.join(' ')
+    },
+    computedSubmitButtonClassList () {
+      let classList = []
+      
+      if (!this.isEnableSubmit === true) {
+        classList.push('disabled')
+      }
+      else {
+        classList.push('positive')
       }
       
       return classList.join(' ')
