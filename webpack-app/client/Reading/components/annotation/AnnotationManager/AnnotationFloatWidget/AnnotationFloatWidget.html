@@ -32,7 +32,8 @@
       v-on:comment="viewAnnotationComment">
     </annotation-item>
     
-    <div class="ui column grid footer-row">
+    <div class="ui column grid footer-row"
+         v-if="annotationCount > 1">
       <div class="column"
            v-bind:class="computedButtonsClassNames">
         

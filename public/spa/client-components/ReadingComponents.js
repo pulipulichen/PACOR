@@ -1191,71 +1191,73 @@ var render = function() {
                 on: { comment: _vm.viewAnnotationComment }
               }),
               _vm._v(" "),
-              _c("div", { staticClass: "ui column grid footer-row" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "column",
-                    class: _vm.computedButtonsClassNames
-                  },
-                  [
-                    _c("user-avatar-icons", {
-                      staticStyle: { "margin-right": "0.5em" },
-                      attrs: {
-                        config: _vm.config,
-                        status: _vm.status,
-                        lib: _vm.lib,
-                        users: _vm.users,
-                        userCount: _vm.userCount
+              _vm.annotationCount > 1
+                ? _c("div", { staticClass: "ui column grid footer-row" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "column",
+                        class: _vm.computedButtonsClassNames
                       },
-                      on: { find: _vm.findUser }
-                    }),
-                    _vm._v(" "),
-                    _vm._l(_vm.types, function(t) {
-                      return _c("annotation-type-button", {
-                        key: t.type,
-                        attrs: {
-                          lib: _vm.lib,
-                          config: _vm.config,
-                          status: _vm.status,
-                          type: t.type,
-                          count: t.count
-                        },
-                        on: { find: _vm.findType }
-                      })
-                    }),
-                    _vm._v(" "),
-                    _vm.isFixed
-                      ? _c(
-                          "button",
-                          {
-                            staticClass:
-                              "ui mini white basic button list-button",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                $event.stopPropagation()
-                                return _vm.list($event)
-                              }
-                            }
+                      [
+                        _c("user-avatar-icons", {
+                          staticStyle: { "margin-right": "0.5em" },
+                          attrs: {
+                            config: _vm.config,
+                            status: _vm.status,
+                            lib: _vm.lib,
+                            users: _vm.users,
+                            userCount: _vm.userCount
                           },
-                          [
-                            _vm._v(
-                              "\r\n          " +
-                                _vm._s(
-                                  _vm.$t("List all {0} annotations...", [
-                                    _vm.annotationCount
-                                  ])
-                                ) +
-                                "\r\n        "
+                          on: { find: _vm.findUser }
+                        }),
+                        _vm._v(" "),
+                        _vm._l(_vm.types, function(t) {
+                          return _c("annotation-type-button", {
+                            key: t.type,
+                            attrs: {
+                              lib: _vm.lib,
+                              config: _vm.config,
+                              status: _vm.status,
+                              type: t.type,
+                              count: t.count
+                            },
+                            on: { find: _vm.findType }
+                          })
+                        }),
+                        _vm._v(" "),
+                        _vm.isFixed
+                          ? _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "ui mini white basic button list-button",
+                                attrs: { type: "button" },
+                                on: {
+                                  click: function($event) {
+                                    $event.stopPropagation()
+                                    return _vm.list($event)
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\r\n          " +
+                                    _vm._s(
+                                      _vm.$t("List all {0} annotations...", [
+                                        _vm.annotationCount
+                                      ])
+                                    ) +
+                                    "\r\n        "
+                                )
+                              ]
                             )
-                          ]
-                        )
-                      : _vm._e()
-                  ],
-                  2
-                )
-              ])
+                          : _vm._e()
+                      ],
+                      2
+                    )
+                  ])
+                : _vm._e()
             ],
             1
           )

@@ -1,6 +1,8 @@
 module.exports = {
-  login: {
-    message: '/instruction/login/LoginPretest.html',
+  debug: {
+    flushCache: false,
+    enable: true,
+    stayInReadingProgress: null
   },
   readingProgresses: ['PreImaginaryKeyword', 'IndividualReading', 'CollaborativeReading', 'PostRecallKeyword'],
   readingProgressModules: {

@@ -1,4 +1,9 @@
 module.exports = {
+  debug: {
+    flushCache: false,
+    enable: true,
+    stayInReadingProgress: null
+  },
   readingProgressModules: {
     'reading': {
       totalLimitMinutes: 30,
