@@ -217,7 +217,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"I don\u0027t know what is \\"{0}\\"?":"I don\u0027t know what is \\"{0}\\"?","Why is \\"{0}\\"?":"Why is \\"{0}\\"?"},"zh-TW":{"I don\u0027t know what is \\"{0}\\"?":"我不知道什麼是「{0}」？","Why is \\"{0}\\"?":"為什麼是「{0}」？","Question":"問題","Answer":"解答","Do you want to use his comment as your answer?":"您要將這個評論作為您的解答嗎？","New question will overwrite your question. Are you sure?":"您要用新問題取代目前的問題嗎？","Write your question here...":"您對著段文字有所疑問的理由是...","Write your answer here...":"對於這個問題，您的解答是..."}}')
+  Component.options.__i18n.push('{"en":{"I don\u0027t know what is \\"{0}\\"?":"I don\u0027t know what is \\"{0}\\"?","Why is \\"{0}\\"?":"Why is \\"{0}\\"?"},"zh-TW":{"I don\u0027t know what is \\"{0}\\"?":"我不知道什麼是「{0}」？","Why is \\"{0}\\"?":"為什麼是「{0}」？","Question":"問題","Answer":"解答","Do you want to use his comment as your answer?":"您要將這個評論作為您的解答嗎？","Do you want to use his comment replace your answer?":"您要將這個評論取代您目前的解答嗎？","New question will overwrite your question. Are you sure?":"您要用新問題取代目前的問題嗎？","Write your question here...":"您對著段文字有所疑問的理由是...","Write your answer here...":"對於這個問題，您的解答是..."}}')
   delete Component.options._Ctor
 }
 
@@ -871,7 +871,7 @@ exports.push([module.i, ".display-time[data-v-3882afce] {\n  vertical-align: bas
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-panel-buttons[data-v-6fa9e8ca]  .AnnotationInteractive {\n  margin-right: 4px;\n}\n.buttons-row > button[data-v-6fa9e8ca] {\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.buttons-row.second[data-v-6fa9e8ca] {\n  margin-top: 0.5em;\n}\n.buttons-row.second .delete-button[data-v-6fa9e8ca] {\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;AACnB;AACA;EACE,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE,iBAAiB;AACnB;AACA;EACE,sBAAsB;AACxB","file":"FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&","sourcesContent":[".annotation-panel-buttons[data-v-6fa9e8ca]  .AnnotationInteractive {\n  margin-right: 4px;\n}\n.buttons-row > button[data-v-6fa9e8ca] {\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.buttons-row.second[data-v-6fa9e8ca] {\n  margin-top: 0.5em;\n}\n.buttons-row.second .delete-button[data-v-6fa9e8ca] {\n  vertical-align: middle;\n}\n"]}]);
+exports.push([module.i, ".annotation-panel-buttons[data-v-6fa9e8ca]  .AnnotationInteractive {\n  margin-right: 4px;\n}\n.buttons-row > button[data-v-6fa9e8ca] {\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.buttons-row.second[data-v-6fa9e8ca] {\n  margin-top: 0.5em;\n}\n.buttons-row.second .display-time[data-v-6fa9e8ca] {\n  vertical-align: top !important;\n}\n.buttons-row.second .delete-button[data-v-6fa9e8ca] {\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;AACnB;AACA;EACE,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE,iBAAiB;AACnB;AACA;EACE,8BAA8B;AAChC;AACA;EACE,sBAAsB;AACxB","file":"FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&","sourcesContent":[".annotation-panel-buttons[data-v-6fa9e8ca]  .AnnotationInteractive {\n  margin-right: 4px;\n}\n.buttons-row > button[data-v-6fa9e8ca] {\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.buttons-row.second[data-v-6fa9e8ca] {\n  margin-top: 0.5em;\n}\n.buttons-row.second .display-time[data-v-6fa9e8ca] {\n  vertical-align: top !important;\n}\n.buttons-row.second .delete-button[data-v-6fa9e8ca] {\n  vertical-align: middle;\n}\n"]}]);
 
 
 /***/ }),
@@ -2705,9 +2705,6 @@ var render = function() {
               return _vm.$emit("comment", comment)
             },
             like: function($event) {
-              return _vm.onCommentLike(comment)
-            },
-            unlike: function($event) {
               return _vm.onCommentLike(comment)
             },
             edit: function($event) {
@@ -12236,6 +12233,10 @@ let AnnotationEditorModules = {
         h = h - 60
       }
       
+      if (this.enableDiscussion === true) {
+        h = h - 20
+      }
+      
       return {
         'max-height': h + `px`
       }
@@ -14832,7 +14833,7 @@ __webpack_require__.r(__webpack_exports__);
       let commentNote = comment.note
       
       if (this.answer !== '') {
-        let title = this.$t('Do you want to use his comment as your answer?')
+        let title = this.$t('Do you want to use his comment replace your answer?')
         let confirm = await this.lib.ConfirmModal.show(title)
         if (confirm === false) {
           return null
@@ -14840,9 +14841,9 @@ __webpack_require__.r(__webpack_exports__);
       }
       
       this.answer = commentNote
-      let answerReset = this.lib.StringHelper.htmlTrim(commentNote)
-      answerReset = this.lib.StringHelper.htmlToText(answerReset)
-      this.answerReset = answerReset
+      //let answerReset = this.lib.StringHelper.htmlTrim(commentNote)
+      //answerReset = this.lib.StringHelper.htmlToText(answerReset)
+      //this.answerReset = answerReset
       
       this.panelData.isAnnotationEditing = true
       

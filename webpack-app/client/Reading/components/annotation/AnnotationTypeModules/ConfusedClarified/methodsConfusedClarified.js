@@ -73,7 +73,7 @@ export default (Editor) => {
       let commentNote = comment.note
       
       if (this.answer !== '') {
-        let title = this.$t('Do you want to use his comment as your answer?')
+        let title = this.$t('Do you want to use his comment replace your answer?')
         let confirm = await this.lib.ConfirmModal.show(title)
         if (confirm === false) {
           return null
@@ -81,9 +81,9 @@ export default (Editor) => {
       }
       
       this.answer = commentNote
-      let answerReset = this.lib.StringHelper.htmlTrim(commentNote)
-      answerReset = this.lib.StringHelper.htmlToText(answerReset)
-      this.answerReset = answerReset
+      //let answerReset = this.lib.StringHelper.htmlTrim(commentNote)
+      //answerReset = this.lib.StringHelper.htmlToText(answerReset)
+      //this.answerReset = answerReset
       
       this.panelData.isAnnotationEditing = true
       

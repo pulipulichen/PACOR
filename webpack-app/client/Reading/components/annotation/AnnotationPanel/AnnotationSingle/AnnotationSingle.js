@@ -104,6 +104,10 @@ let AnnotationEditorModules = {
         h = h - 60
       }
       
+      if (this.enableDiscussion === true) {
+        h = h - 20
+      }
+      
       return {
         'max-height': h + `px`
       }
