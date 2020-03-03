@@ -81,8 +81,8 @@
           <div class="ui top aligned grid list-grid"
                v-bind:class="{disabled: isTimeUp}">
             <div class="ten wide column">
-              <div class="ui top attached teal inverted segment step-heading">
-                <span>
+              <div class="ui top attached teal inverted segment step-header-container">
+                <span class="step-header">
                   {{ $t('Answered Keywords') }}
                 </span>
                 <button type="button" 
@@ -106,8 +106,8 @@
 
 
             <div class="six wide column">
-              <div class="ui top attached grey inverted segment step-heading">
-                <span>
+              <div class="ui top attached grey inverted segment step-header-container">
+                <span class="step-header">
                   {{ $t('Removed Keywords') }}
                 </span>
                 <button type="button" 

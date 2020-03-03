@@ -61,7 +61,7 @@ textarea.answer {
   }
 }
   
-.step-heading {
+.step-header-container {
   text-align: center;
   font-weight: bold;
   
@@ -75,6 +75,14 @@ textarea.answer {
   .button {
     margin-top: -0.3rem;
     margin-bottom: -0.2rem;
+  }
+  
+  .step-header {
+    max-width: calc(100% - 3em);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
   }
 }
 
