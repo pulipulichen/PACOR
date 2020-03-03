@@ -19,7 +19,7 @@ let Instruction = {
       
       let useTypes = []
       if (types.indexOf('MainIdea') > -1) {
-        useTypes.push(this.$t(`"{0}"`, [this.$t('ANNOTATION_TYPE.' + 'MainIdea')]))
+        useTypes.push(this.$t(`<span class="highlight">"{0}"</span>`, [this.$t('ANNOTATION_TYPE.' + 'MainIdea')]))
       }
       if (types.indexOf('Confused') > -1
               && types.indexOf('Clarified') > -1) {
@@ -31,11 +31,16 @@ let Instruction = {
       }
       
       let useTypesTrans = ''
-      for (let i = 0; i < useTypes.length; i++) {
-        if (i > 0 && i < useTypes.length - 1) {
-          useTypesTrans = useTypesTrans + this.$t(', ')
+      if (useTypes.length > 2) {
+        for (let i = 0; i < useTypes.length; i++) {
+          if (i > 0 && i < useTypes.length - 1) {
+            useTypesTrans = useTypesTrans + this.$t(', ')
+          }
+          useTypesTrans = useTypesTrans + useTypes[i]
         }
-        useTypesTrans = useTypesTrans + useTypes[i]
+      }
+      else {
+        useTypesTrans = useTypes.join(this.$t(' and '))
       }
       
       return this.$t('Please use {0} reading strategies to read this article.', [useTypesTrans])
