@@ -27832,11 +27832,12 @@ __webpack_require__.r(__webpack_exports__);
     return `Pacor.SectionChecklist.${this.sectionSeqID}.`
   }
   SectionChecklist.computed.checklistAnnotationIndex = function () {
-    let i = this.checklist.indexOf('{SectionMainIdea}')
+    let i = this.checklistConfig.indexOf('{SectionMainIdea}')
     //console.log(i)
     return i
   }
-  SectionChecklist.computed.checklist = function () {
+  
+  SectionChecklist.computed.checklistConfig = function () {
     if (!this.lib.auth.stepSectionAnnotationConfig
             && Array.isArray(this.lib.auth.stepSectionAnnotationConfig.checklist) === false) {
       throw new Error(this.$t('Lost checklist config'))
@@ -27844,6 +27845,11 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     let checklist = this.lib.auth.stepSectionAnnotationConfig.checklist
+    return checklist
+  }
+  
+  SectionChecklist.computed.checklist = function () {
+    let checklist = this.checklistConfig
     
     // 稍微過濾一下checklist的內容
     let isArticleNote = this.lib.SectionManager.isArticleNote
@@ -28008,7 +28014,7 @@ if (debugMockUpdate === true) {
   }
   
   SectionChecklist.methods.openSectionAnnotationEditor = function () {
-    //console.log(this.annotation)
+    console.log(this.annotation)
     this.lib.AnnotationPanel.setAnnotation(this.annotation, {
       'add': (annotation) => {
         //console.log('Add annotation 有嗎？')

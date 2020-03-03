@@ -27,7 +27,7 @@ export default (SectionChecklist) => {
   }
   
   SectionChecklist.methods.openSectionAnnotationEditor = function () {
-    //console.log(this.annotation)
+    console.log(this.annotation)
     this.lib.AnnotationPanel.setAnnotation(this.annotation, {
       'add': (annotation) => {
         //console.log('Add annotation 有嗎？')

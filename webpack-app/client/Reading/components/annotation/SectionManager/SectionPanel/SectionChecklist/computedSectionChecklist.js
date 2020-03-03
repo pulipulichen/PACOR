@@ -64,11 +64,12 @@ export default (SectionChecklist) => {
     return `Pacor.SectionChecklist.${this.sectionSeqID}.`
   }
   SectionChecklist.computed.checklistAnnotationIndex = function () {
-    let i = this.checklist.indexOf('{SectionMainIdea}')
+    let i = this.checklistConfig.indexOf('{SectionMainIdea}')
     //console.log(i)
     return i
   }
-  SectionChecklist.computed.checklist = function () {
+  
+  SectionChecklist.computed.checklistConfig = function () {
     if (!this.lib.auth.stepSectionAnnotationConfig
             && Array.isArray(this.lib.auth.stepSectionAnnotationConfig.checklist) === false) {
       throw new Error(this.$t('Lost checklist config'))
@@ -76,6 +77,11 @@ export default (SectionChecklist) => {
     }
     
     let checklist = this.lib.auth.stepSectionAnnotationConfig.checklist
+    return checklist
+  }
+  
+  SectionChecklist.computed.checklist = function () {
+    let checklist = this.checklistConfig
     
     // 稍微過濾一下checklist的內容
     let isArticleNote = this.lib.SectionManager.isArticleNote

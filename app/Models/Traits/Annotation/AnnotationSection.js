@@ -322,34 +322,60 @@ class AnnotationSection {
         annotations = annotations.toJSON()
         
         // 依照順序排序
-        let noteMap = []
-        let addedNote = []
+        let noteMap = {}
+        let addedNote = {}
         
         annotations.forEach(annotation => {
           let note = annotation.notes[0].note
           note = TokenizationHelper.htmlToText(note)
           note = TokenizationHelper.removePunctuations(note)
           
-          if (addedNote.indexOf(note) > -1) {
+          let seqID = annotation.anchorPositions[0].seq_id + ''
+          
+          if (Array.isArray(noteMap[seqID]) === false) {
+            noteMap[seqID] = []
+          }
+          
+          if (Array.isArray(addedNote[seqID]) === false) {
+            addedNote[seqID] = []
+          }
+          
+          if (addedNote[seqID].indexOf(note) > -1) {
             return false // 不加入重複的字
           }
-          addedNote.push(note)
+          addedNote[seqID].push(note)
           
-          noteMap.push({
+          noteMap[seqID].push({
+            seq_id: annotation.anchorPositions[0].start_pos,
             start_pos: annotation.anchorPositions[0].start_pos,
             note: note
           })
         })
         
-        noteMap.sort((a, b) => {
-          return a.start_pos - b.start_pos
+        Object.keys(noteMap).forEach(seqID => {
+          noteMap[seqID].sort((a, b) => {
+            return a.start_pos - b.start_pos
+          })
         })
+        
+        let seqIDList = Object.keys(noteMap).map(seqIDString => parseInt(seqIDString, 10))
+        seqIDList.sort()
+        
         
         // 
         
-        return '<ul>\n<li>' + noteMap.map(annotation => {
-          return annotation.note
-        }).join('</li>\n<li>') + '</li>\n</ul>'
+        //return '<ul>\n<li>' + noteMap.map(annotation => {
+        //  return annotation.note
+        //}).join('</li>\n<li>') + '</li>\n</ul>'
+        
+        let output = []
+        
+        seqIDList.forEach(seqIDInt => {
+          let notes = noteMap[seqIDInt + ''].map(annotation => annotation.note)
+          output.push(`<ul><li>${notes.join('</li><li>')}</li></ul>`)
+        })
+        
+        return output.join('\n<hr />\n')
       })
     } // Model.getMainIdeasInSection = async function (webpage, user, query) {
   } // register (Model) {

@@ -856,7 +856,7 @@ __webpack_require__.r(__webpack_exports__);
       return [
         // [groupName, [list of button]]
         ['list', ['ul', 'ol', 'indent', 'outdent']],
-        ['insert', ['link', 'picture', 'video']]
+        ['insert', ['hr', 'link', 'picture', 'video']]
         
         /*
         ['style', ['bold', 'italic', 'underline', 'clear']],
