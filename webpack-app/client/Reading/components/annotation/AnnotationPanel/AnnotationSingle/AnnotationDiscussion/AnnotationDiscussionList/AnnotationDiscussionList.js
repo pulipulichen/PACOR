@@ -42,9 +42,14 @@ let AnnotationDiscussionList = {
       //  return null
       //}
       
+      let padding = 0
+      if (window.innerWidth > 768) {
+        padding = 20
+      }
+      
       return {
-        'height': this.heightPX + 'px',
-        'max-height': this.heightPX + 'px',
+        'height': (this.heightPX - padding) + 'px',
+        'max-height': (this.heightPX - padding) + 'px',
       }
     },
     computedContainerClass () {
@@ -145,47 +150,63 @@ let AnnotationDiscussionList = {
       //console.log('@TODO AnnotationDiscussionList.initComments()')
       
       if (this.noMoreOlder !== true) {
-        this.scrollToBottom()
+        await this.scrollToBottom()
       }
+      else {
+        this.glowFocusCommentID()
+      }
+      
       this.loadLock = false
     },
     scrollToBottom: async function () {
       //console.log(this.comments.length)
-      setTimeout(async () => {
-        //console.log(this.comments.length)
-        if (!this.list) {
-          this.list = $(this.$refs.list)
-        }
-        let focusComment
-        if (!this.panelData.focusCommentID) {
-          focusComment = this.list.children('.AnnotationComment:last')
-        }
-        else {
-          focusComment = this.list.children(`.AnnotationComment[data-comment-id="${this.panelData.focusCommentID}"]`)
-          focusComment.transition('glow')
-          this.panelData.focusCommentID = null
-        }
-        
-        let commentEle = focusComment[0]
-        //console.log()
-        
-        //console.log(this.list.scrollTop(), this.list.height(), commentEle.offsetTop)
-        let padding = 20
-        while ((this.list.scrollTop() + this.list.height() + padding) < commentEle.offsetTop) {
-          commentEle.scrollIntoView({
-            behavior: 'smooth'
-          })
-          await this.lib.VueHelper.sleep(500)
-          //console.log(this.list.scrollTop(), this.list.height(), padding, commentEle.offsetTop)
-        }
-        
-        //setTimeout(() => {
-        this.loadLock = false
-        //}, 500)
-        //window.list = list
-        //list.scrollTop = list.scrollHeight
-        
-      }, 100)
+      
+      await this.lib.VueHelper.sleep(100)
+      
+      //console.log(this.comments.length)
+      if (!this.list) {
+        this.list = $(this.$refs.list)
+      }
+      
+      let commentEle = this.glowFocusCommentID()
+      //console.log()
+
+      //console.log(this.list.scrollTop(), this.list.height(), commentEle.offsetTop)
+      let padding = 20
+      while ((this.list.scrollTop() + this.list.height() + padding) < commentEle.offsetTop) {
+        commentEle.scrollIntoView({
+          behavior: 'smooth'
+        })
+        await this.lib.VueHelper.sleep(500)
+        //console.log(this.list.scrollTop(), this.list.height(), padding, commentEle.offsetTop)
+      }
+
+      //setTimeout(() => {
+      this.loadLock = false
+      //}, 500)
+      //window.list = list
+      //list.scrollTop = list.scrollHeight
+    },
+    glowFocusCommentID: async function () {
+      //console.log(this.comments.length)
+      if (!this.list) {
+        this.list = $(this.$refs.list)
+      }
+      
+      await this.lib.VueHelper.sleep(100)
+      
+      let focusComment
+      //console.log('有嗎？', this.panelData.focusCommentID)
+      if (!this.panelData.focusCommentID) {
+        focusComment = this.list.children('.AnnotationComment:last')
+      }
+      else {
+        focusComment = this.list.children(`.AnnotationComment[data-comment-id="${this.panelData.focusCommentID}"]`)
+        focusComment.transition('glow')
+        //console.log('有嗎？', focusComment.length)
+        this.panelData.focusCommentID = null
+      }
+      return focusComment[0]
     },
     loadOlder: async function () {
       //console.log('loadOlder')

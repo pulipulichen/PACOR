@@ -80,6 +80,9 @@ let AnnotationEditorModules = {
       // 這個是header的高度
       let h = this.heightPX - 60 - this.headerPadding
       
+      if (this.enableDiscussion === true) {
+        h = h - 60
+      }
       return h
     },
     discussionHeightPX () {
@@ -103,6 +106,9 @@ let AnnotationEditorModules = {
       if (window.innerWidth < 768) {
         h = h - 60
       }
+      else if (this.enableDiscussion === true) {
+        return undefined
+      }
       
       if (this.enableDiscussion === true) {
         h = h - 20
@@ -114,8 +120,14 @@ let AnnotationEditorModules = {
     },
     computedEditorStyle () {
       let padding = this.headerPadding
+      
+      let h = (this.heightPX- padding)
+      if (this.enableDiscussion === true) {
+        h = h - 40
+      }
+      
       return {
-        'max-height': (this.heightPX- padding) + `px`
+        'max-height': h + `px`
       }
     },
     displayTime () {

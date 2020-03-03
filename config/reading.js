@@ -19,7 +19,7 @@ module.exports = {
     
     //stayInReadingProgress: 'PreImaginaryKeyword'
     //stayInReadingProgress: 'PostRecallKeyword'
-    //stayInReadingProgress: 'IndividualReading'
+    stayInReadingProgress: 'IndividualReading'
     //stayInReadingProgress: 'CollaborativeReading'
     //stayInReadingProgress: 'FreeReading'
   },

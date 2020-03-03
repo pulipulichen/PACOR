@@ -871,7 +871,7 @@ exports.push([module.i, ".display-time[data-v-3882afce] {\n  vertical-align: bas
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-panel-buttons[data-v-6fa9e8ca]  .AnnotationInteractive {\n  margin-right: 4px;\n}\n.buttons-row > button[data-v-6fa9e8ca] {\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.buttons-row.second[data-v-6fa9e8ca] {\n  margin-top: 0.5em;\n}\n.buttons-row.second .display-time[data-v-6fa9e8ca] {\n  vertical-align: top !important;\n}\n.buttons-row.second .delete-button[data-v-6fa9e8ca] {\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;AACnB;AACA;EACE,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE,iBAAiB;AACnB;AACA;EACE,8BAA8B;AAChC;AACA;EACE,sBAAsB;AACxB","file":"FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&","sourcesContent":[".annotation-panel-buttons[data-v-6fa9e8ca]  .AnnotationInteractive {\n  margin-right: 4px;\n}\n.buttons-row > button[data-v-6fa9e8ca] {\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.buttons-row.second[data-v-6fa9e8ca] {\n  margin-top: 0.5em;\n}\n.buttons-row.second .display-time[data-v-6fa9e8ca] {\n  vertical-align: top !important;\n}\n.buttons-row.second .delete-button[data-v-6fa9e8ca] {\n  vertical-align: middle;\n}\n"]}]);
+exports.push([module.i, ".annotation-panel-buttons[data-v-6fa9e8ca]  .AnnotationInteractive {\n  margin-right: 4px;\n}\n.buttons-row > button[data-v-6fa9e8ca] {\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.buttons-row.second[data-v-6fa9e8ca] {\n  margin-top: 0.5em;\n}\n.buttons-row.second .display-time[data-v-6fa9e8ca] {\n  vertical-align: middle !important;\n}\n.buttons-row.second .delete-button[data-v-6fa9e8ca] {\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,iBAAiB;AACnB;AACA;EACE,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE,iBAAiB;AACnB;AACA;EACE,iCAAiC;AACnC;AACA;EACE,sBAAsB;AACxB","file":"FooterButtons.less?vue&type=style&index=0&id=6fa9e8ca&lang=less&scoped=true&","sourcesContent":[".annotation-panel-buttons[data-v-6fa9e8ca]  .AnnotationInteractive {\n  margin-right: 4px;\n}\n.buttons-row > button[data-v-6fa9e8ca] {\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n.buttons-row.second[data-v-6fa9e8ca] {\n  margin-top: 0.5em;\n}\n.buttons-row.second .display-time[data-v-6fa9e8ca] {\n  vertical-align: middle !important;\n}\n.buttons-row.second .delete-button[data-v-6fa9e8ca] {\n  vertical-align: middle;\n}\n"]}]);
 
 
 /***/ }),
@@ -11147,9 +11147,14 @@ let AnnotationDiscussionList = {
       //  return null
       //}
       
+      let padding = 0
+      if (window.innerWidth > 768) {
+        padding = 20
+      }
+      
       return {
-        'height': this.heightPX + 'px',
-        'max-height': this.heightPX + 'px',
+        'height': (this.heightPX - padding) + 'px',
+        'max-height': (this.heightPX - padding) + 'px',
       }
     },
     computedContainerClass () {
@@ -11250,47 +11255,63 @@ let AnnotationDiscussionList = {
       //console.log('@TODO AnnotationDiscussionList.initComments()')
       
       if (this.noMoreOlder !== true) {
-        this.scrollToBottom()
+        await this.scrollToBottom()
       }
+      else {
+        this.glowFocusCommentID()
+      }
+      
       this.loadLock = false
     },
     scrollToBottom: async function () {
       //console.log(this.comments.length)
-      setTimeout(async () => {
-        //console.log(this.comments.length)
-        if (!this.list) {
-          this.list = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.list)
-        }
-        let focusComment
-        if (!this.panelData.focusCommentID) {
-          focusComment = this.list.children('.AnnotationComment:last')
-        }
-        else {
-          focusComment = this.list.children(`.AnnotationComment[data-comment-id="${this.panelData.focusCommentID}"]`)
-          focusComment.transition('glow')
-          this.panelData.focusCommentID = null
-        }
-        
-        let commentEle = focusComment[0]
-        //console.log()
-        
-        //console.log(this.list.scrollTop(), this.list.height(), commentEle.offsetTop)
-        let padding = 20
-        while ((this.list.scrollTop() + this.list.height() + padding) < commentEle.offsetTop) {
-          commentEle.scrollIntoView({
-            behavior: 'smooth'
-          })
-          await this.lib.VueHelper.sleep(500)
-          //console.log(this.list.scrollTop(), this.list.height(), padding, commentEle.offsetTop)
-        }
-        
-        //setTimeout(() => {
-        this.loadLock = false
-        //}, 500)
-        //window.list = list
-        //list.scrollTop = list.scrollHeight
-        
-      }, 100)
+      
+      await this.lib.VueHelper.sleep(100)
+      
+      //console.log(this.comments.length)
+      if (!this.list) {
+        this.list = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.list)
+      }
+      
+      let commentEle = this.glowFocusCommentID()
+      //console.log()
+
+      //console.log(this.list.scrollTop(), this.list.height(), commentEle.offsetTop)
+      let padding = 20
+      while ((this.list.scrollTop() + this.list.height() + padding) < commentEle.offsetTop) {
+        commentEle.scrollIntoView({
+          behavior: 'smooth'
+        })
+        await this.lib.VueHelper.sleep(500)
+        //console.log(this.list.scrollTop(), this.list.height(), padding, commentEle.offsetTop)
+      }
+
+      //setTimeout(() => {
+      this.loadLock = false
+      //}, 500)
+      //window.list = list
+      //list.scrollTop = list.scrollHeight
+    },
+    glowFocusCommentID: async function () {
+      //console.log(this.comments.length)
+      if (!this.list) {
+        this.list = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this.$refs.list)
+      }
+      
+      await this.lib.VueHelper.sleep(100)
+      
+      let focusComment
+      //console.log('有嗎？', this.panelData.focusCommentID)
+      if (!this.panelData.focusCommentID) {
+        focusComment = this.list.children('.AnnotationComment:last')
+      }
+      else {
+        focusComment = this.list.children(`.AnnotationComment[data-comment-id="${this.panelData.focusCommentID}"]`)
+        focusComment.transition('glow')
+        //console.log('有嗎？', focusComment.length)
+        this.panelData.focusCommentID = null
+      }
+      return focusComment[0]
     },
     loadOlder: async function () {
       //console.log('loadOlder')
@@ -12209,6 +12230,9 @@ let AnnotationEditorModules = {
       // 這個是header的高度
       let h = this.heightPX - 60 - this.headerPadding
       
+      if (this.enableDiscussion === true) {
+        h = h - 60
+      }
       return h
     },
     discussionHeightPX () {
@@ -12232,6 +12256,9 @@ let AnnotationEditorModules = {
       if (window.innerWidth < 768) {
         h = h - 60
       }
+      else if (this.enableDiscussion === true) {
+        return undefined
+      }
       
       if (this.enableDiscussion === true) {
         h = h - 20
@@ -12243,8 +12270,14 @@ let AnnotationEditorModules = {
     },
     computedEditorStyle () {
       let padding = this.headerPadding
+      
+      let h = (this.heightPX- padding)
+      if (this.enableDiscussion === true) {
+        h = h - 40
+      }
+      
       return {
-        'max-height': (this.heightPX- padding) + `px`
+        'max-height': h + `px`
       }
     },
     displayTime () {
@@ -15214,6 +15247,9 @@ let Editor = {
       let height
       //let basePadding = `5em`
       let basePadding = `6em`
+      if (window.innerWidth < 768) {
+        basePadding = `8em`
+      }
       
       //console.log(this.lib.auth.isEnableCollaboration)
       if (this.lib.auth.isEnableCollaboration === true) {
@@ -15566,6 +15602,9 @@ let Editor = {
       let height
       //let basePadding = `5em`
       let basePadding = `6em`
+      if (window.innerWidth < 768) {
+        basePadding = `8em`
+      }
       
       //console.log(this.lib.auth.isEnableCollaboration)
       if (this.lib.auth.isEnableCollaboration === true) {

@@ -105,6 +105,9 @@ let Editor = {
       let height
       //let basePadding = `5em`
       let basePadding = `6em`
+      if (window.innerWidth < 768) {
+        basePadding = `8em`
+      }
       
       //console.log(this.lib.auth.isEnableCollaboration)
       if (this.lib.auth.isEnableCollaboration === true) {
