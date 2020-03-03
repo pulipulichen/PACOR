@@ -1753,7 +1753,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NavigationItems/NavigationItems.vue */ "./webpack-app/client/Reading/FreeReading/NavigationItems/NavigationItems.vue");
 /* harmony import */ var _CollaborativeReading_CollaborativeReading_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CollaborativeReading/CollaborativeReading.js */ "./webpack-app/client/Reading/CollaborativeReading/CollaborativeReading.js");
-/* harmony import */ var _FreeReadingInstruction_FreeReadingInstruction_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FreeReadingInstruction/FreeReadingInstruction.vue */ "./webpack-app/client/Reading/FreeReading/FreeReadingInstruction/FreeReadingInstruction.vue");
+/* harmony import */ var _FreeReadingInstruction_FreeReadingInstruction_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FreeReadingInstruction/FreeReadingInstruction.vue */ "./webpack-app/client/Reading/FreeReading/FreeReadingInstruction/FreeReadingInstruction.vue");
 /* harmony import */ var _methodsTestFreeReading_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsTestFreeReading.js */ "./webpack-app/client/Reading/FreeReading/methodsTestFreeReading.js");
 
 
@@ -1764,7 +1764,7 @@ let FreeReading = {
 }
 
 FreeReading.components['navigation-items'] = _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-FreeReading.components['reading-instruction-message'] = _FreeReadingInstruction_FreeReadingInstruction_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+FreeReading.components['reading-instruction-message'] = _FreeReadingInstruction_FreeReadingInstruction_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 
 FreeReading.mounted = async function () {
   this.initComponentToLib()

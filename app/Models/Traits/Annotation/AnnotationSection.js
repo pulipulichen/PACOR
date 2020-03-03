@@ -323,9 +323,17 @@ class AnnotationSection {
         
         // 依照順序排序
         let noteMap = []
+        let addedNote = []
+        
         annotations.forEach(annotation => {
           let note = annotation.notes[0].note
           note = TokenizationHelper.htmlToText(note)
+          note = TokenizationHelper.removePunctuations(note)
+          
+          if (addedNote.indexOf(note) > -1) {
+            return false // 不加入重複的字
+          }
+          addedNote.push(note)
           
           noteMap.push({
             start_pos: annotation.anchorPositions[0].start_pos,
@@ -337,9 +345,11 @@ class AnnotationSection {
           return a.start_pos - b.start_pos
         })
         
-        return '<p>' + noteMap.map(annotation => {
+        // 
+        
+        return '<ul>\n<li>' + noteMap.map(annotation => {
           return annotation.note
-        }).join('</p>\n<p>') + '</p>'
+        }).join('</li>\n<li>') + '</li>\n</ul>'
       })
     } // Model.getMainIdeasInSection = async function (webpage, user, query) {
   } // register (Model) {

@@ -855,7 +855,8 @@ __webpack_require__.r(__webpack_exports__);
     else {
       return [
         // [groupName, [list of button]]
-        ['toolbar', ['ul', 'ol', 'link', 'picture', 'video']]
+        ['list', ['ul', 'ol', 'indent', 'outdent']],
+        ['insert', ['link', 'picture', 'video']]
         
         /*
         ['style', ['bold', 'italic', 'underline', 'clear']],
@@ -2757,6 +2758,9 @@ __webpack_require__.r(__webpack_exports__);
    * returns item of array
    */
   function find(array, pred) {
+    if (!array) {
+      return undefined
+    }
       for (var idx = 0, len = array.length; idx < len; idx++) {
           var item = array[idx];
           if (pred(item)) {
@@ -3445,7 +3449,10 @@ __webpack_require__.r(__webpack_exports__);
    */
   function appendChildNodes(node, aChild) {
       $$1.each(aChild, function (idx, child) {
+        try {
           node.appendChild(child);
+        }
+        catch (e) {}
       });
       return node;
   }
@@ -9630,8 +9637,27 @@ sel.addRange(range);
           this.context.memo('button.justifyCenter', func.invoke(justifyCenter, 'render'));
           this.context.memo('button.justifyRight', func.invoke(justifyRight, 'render'));
           this.context.memo('button.justifyFull', func.invoke(justifyFull, 'render'));
-          this.context.memo('button.outdent', func.invoke(outdent, 'render'));
-          this.context.memo('button.indent', func.invoke(indent, 'render'));
+          
+          //this.context.memo('button.outdent', func.invoke(outdent, 'render'));
+          //this.context.memo('button.indent', func.invoke(indent, 'render'));
+          
+          this.context.memo('button.outdent', function () {
+              return _this.button({
+                  className: 'note-btn-outdent',
+                  contents: _this.ui.icon(_this.options.icons.outdent),
+                  tooltip: _this.lang.paragraph.outdent + _this.representShortcut('outdent'),
+                  click: _this.context.createInvokeHandler('editor.outdent')
+              }).render();
+          });
+          this.context.memo('button.indent', function () {
+              return _this.button({
+                  className: 'note-btn-indent',
+                  contents: _this.ui.icon(_this.options.icons.indent),
+                  tooltip: _this.lang.paragraph.indent + _this.representShortcut('indent'),
+                  click: _this.context.createInvokeHandler('editor.indent')
+              }).render();
+          });
+          
           this.context.memo('button.paragraph', function () {
               return _this.ui.buttonGroup([
                   _this.button({
