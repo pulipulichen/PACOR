@@ -26,7 +26,7 @@ export default function (HTMLEditor) {
     else {
       return [
         // [groupName, [list of button]]
-        ['toolbar', ['link', 'picture', 'video']]
+        ['toolbar', ['ul', 'ol', 'link', 'picture', 'video']]
         
         /*
         ['style', ['bold', 'italic', 'underline', 'clear']],

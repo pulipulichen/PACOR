@@ -9126,28 +9126,31 @@ sel.addRange(range);
             }
             $$1(this).removeClass('first-focus')
           
-            if (this.value !== undefined && this.value.trim() !== "") {
+            if (this.value !== undefined 
+                    && this.value.trim() !== "") {
               return
             }
             //console.log(this.value)
             //console.log(event.originalEvent.clipboardData.getData('Text'))
             //console.log(event)
-            navigator.clipboard.readText()
-              .then(text => {
-                text = text.trim()
-                //console.log(text)
-                //console.log('Pasted content: ', text);
-                if (isURL(text)) {
-                  this.value = text
-                  this.select()
-                  //this.keyup()
-                  button.removeClass('disabled')
-                  button.removeAttr('disabled')
-                }
-              })
-              .catch(err => {
-                //console.error('Failed to read clipboard contents: ', err);
-              });
+            if (navigator.clipboard) {
+              navigator.clipboard.readText()
+                .then(text => {
+                  text = text.trim()
+                  //console.log(text)
+                  //console.log('Pasted content: ', text);
+                  if (isURL(text)) {
+                    this.value = text
+                    this.select()
+                    //this.keyup()
+                    button.removeClass('disabled')
+                    button.removeAttr('disabled')
+                  }
+                })
+                .catch(err => {
+                  //console.error('Failed to read clipboard contents: ', err);
+                });
+            }
           })
           
           let openMethodKey = 'summernote.LinkDialog.openMethod'
