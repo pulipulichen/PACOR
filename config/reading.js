@@ -19,7 +19,7 @@ module.exports = {
     
     //stayInReadingProgress: 'PreImaginaryKeyword'
     //stayInReadingProgress: 'PostRecallKeyword'
-    //stayInReadingProgress: 'IndividualReading'
+    stayInReadingProgress: 'IndividualReading'
     //stayInReadingProgress: 'CollaborativeReading'
     //stayInReadingProgress: 'FreeReading'
   },
@@ -321,7 +321,7 @@ module.exports = {
       "style": {
         //'highlight': 'border-bottom: 1px solid red',
         'highlight': {
-          'my': 'background-color: rgba(52, 152, 219,0.5); color: black;',
+          'my': 'background-color: rgba(52, 152, 219,0.2); color: black;',
           'others': 'border-bottom: 2px solid rgba(52, 152, 219, 0.7)'
         },
         'segmentColor': '#2980b9',

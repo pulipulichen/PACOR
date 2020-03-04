@@ -44,8 +44,15 @@ class Annotation extends WebpageUserBaseController {
       let annotations = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
 
       // 來做計算
-      annotations = annotations.toJSON()
-      let annotationCount = annotations.length
+      let annotationCount = 0
+      
+      if (annotations) {
+        if (typeof(annotations.toJSON) === 'function') {
+          annotations = annotations.toJSON()
+        }
+        annotationCount = annotations.length
+      }
+      
       if (annotationCount === 0) {
         return 0
       }
@@ -58,7 +65,10 @@ class Annotation extends WebpageUserBaseController {
         query.anchorMode = 'overlap'
         annotation = await AnnotationModel.findByWebpageGroupPosition(webpage, user, query)
       }
-      annotation = annotation.toJSON()
+      
+      if (annotation) {
+        annotation = annotation.toJSON()
+      }
       //console.log('annotation', annotation)
 
       // ---------------------
