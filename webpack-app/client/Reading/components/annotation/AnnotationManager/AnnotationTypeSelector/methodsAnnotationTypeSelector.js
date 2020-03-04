@@ -47,6 +47,10 @@ export default function (AnnotationTypeSelector) {
     this.setupTutorial()
   }
   AnnotationTypeSelector.methods.addAnnotation = function (type, isQuickAdd) {
+    if (!this.selection) {
+      return null
+    }
+    
     //this.lib.RangyManager.restoreLastSelection()
     //console.log({isSelecting: this.lib.RangyManager.isSelecting()})
     //if (this.lib.RangyManager.isSelecting() === false) {
