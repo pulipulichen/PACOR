@@ -28,6 +28,9 @@ let NotificationManager = {
       if (this.notificationData.unreadCount === 0) {
         return 'disabled'
       }
+    },
+    updateInterval () {
+      return this.lib.auth.currentStepConfig.notification.updateInterval
     }
   },
 //  watch: {
@@ -74,23 +77,32 @@ let NotificationManager = {
       if (this.isLoading === true || this.pause === true) {
         return null
       }
+      
+      if (this.afterTime 
+              && this.lib.DayJSHelper.time() - this.afterTime < this.updateInterval) {
+        this.startReloadData()
+        return null
+      }
+      
       this.isLoading = true
       
       //if (this.status.notificationData.unreadNotifications.length > 0) {
       //  this.afterTime = parseInt(this.status.notificationData.unreadNotifications[0].created_at_unixms, 10)
       //}
       
-      let data = {
+      let query = {
       //  afterTime: this.afterTime
       }
       //console.log(this.isLoading)
-      let result = await this.lib.AxiosHelper.get('/client/UserNotification/getNotification', data)
+      let result = await this.lib.AxiosHelper.get('/client/UserNotification/getNotification', query)
       //if (this.afterTime) {
         //console.log({result})
         //console.log({data})
       //}
       this.startReloadData()
       this.isLoading = false
+      this.afterTime = this.lib.DayJSHelper.time()
+      
       if (result === 0) {
         return null
       }
@@ -123,8 +135,10 @@ let NotificationManager = {
       //console.log(result)
     },
     startReloadData () {
-      clearTimeout(this.timer)
-      let updateInterval = this.lib.auth.currentStepConfig.notification.updateInterval
+      if (this.timer) {
+        clearTimeout(this.timer)
+      }
+      let updateInterval = this.updateInterval
       //console.log(updateInterval)
       
       this.timer = setTimeout(() => {
@@ -133,7 +147,9 @@ let NotificationManager = {
           //console.log('暫停了')
           return null
         }
-        clearTimeout(this.timer)
+        if (this.timer) {
+          clearTimeout(this.timer)
+        }
         //console.trace('讀了讀了')
         //return
         this.loadNotificationData()

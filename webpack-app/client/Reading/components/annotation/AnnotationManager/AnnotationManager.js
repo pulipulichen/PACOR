@@ -25,7 +25,8 @@ let AnnotationManager = {
       //annotationModule: 'MainIdea', // for test
       afterTime: null,
       //loadHighlightInterval: 60 * 1000,
-      loadHighlightInterval: this.lib.auth.stepHighlightAnnotationConfig.otherHighlightBatchInterval
+      loadHighlightInterval: this.lib.auth.stepHighlightAnnotationConfig.otherHighlightBatchInterval,
+      loadTimer: null
       
 //      highlightPos: null,
 //      highlightEvent: null,
@@ -90,7 +91,7 @@ let AnnotationManager = {
       this.status.progress.highlights = true
     },
     'status.filter.focusUser' () {
-      this.reloadHighlights()
+      this.reloadOthersHighlights()
     },
     'status.filter.findType' () {
       this.reloadHighlights()
@@ -151,20 +152,25 @@ let AnnotationManager = {
         return null
       }
       
-      let data = {
+      if (this.afterTime 
+              && this.lib.DayJSHelper.time() - this.afterTime < this.loadHighlightInterval) {
+        return null
+      }
+      
+      let query = {
         sessionToken: this.status.sessionToken
       }
       if (typeof(this.afterTime) === 'number') {
-        data.afterTime = this.afterTime
+        query.afterTime = this.afterTime
       }
       
       // 什麼意思？意義不明
-      this.lib.AnnotationHelper.filter(data)
-      //console.log(data)
+      this.lib.AnnotationHelper.filterQuery(query)
+      //console.log(query, this.highlightsURL)
+      let result = await this.lib.AxiosHelper.get(this.highlightsURL, query)
       
-      let result = await this.lib.AxiosHelper.get(this.highlightsURL, data)
       if (!this.lib.RangyManager) {
-        return false  // 似乎被移除了...
+        return false  // 當RangyManager不存在的時候，取消其他操作
       }
       
       //console.log(result)
@@ -195,7 +201,10 @@ let AnnotationManager = {
       
       //console.log(this.loadHighlightInterval)
       if (typeof(this.loadHighlightInterval) === 'number') {
-        setTimeout(() => {
+        if (this.loadTimer) {
+          clearTimeout(this.loadTimer)
+        }
+        this.loadTimer = setTimeout(() => {
           this.loadHighlights()
         }, this.loadHighlightInterval)
       }
@@ -207,7 +216,17 @@ let AnnotationManager = {
     reloadHighlights () {
       //console.log('重新讀取')
       this.afterTime = null
+      this.isLoaded = false
       this.lib.RangyManager.removeHighlights()
+      
+      //console.log('哈囉？', this.afterTime)
+      this.loadHighlights()
+    },
+    reloadOthersHighlights () {
+      //console.log('重新讀取')
+      this.afterTime = null
+      //this.isLoaded = false
+      this.lib.RangyManager.removeOthersHighlights()
       
       //console.log('哈囉？', this.afterTime)
       this.loadHighlights()

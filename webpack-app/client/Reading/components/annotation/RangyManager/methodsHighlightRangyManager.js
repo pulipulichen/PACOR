@@ -180,6 +180,18 @@ export default (RangyManager) => {
     })
   }
   
+  RangyManager.methods.removeOthersHighlights = function () {
+    this.highlighter.highlights = this.highlighter.highlights.filter(hl => {
+      let className = hl.classApplier.className
+      if (className.startsWith('others-')) {
+        hl.unapply()
+        return false
+      } else {
+        return true
+      }
+    })
+  }
+  
   RangyManager.methods.removeHighlights = function () {
     //this.highlighter.deserialize('type:textContent|')
     this.highlighter.removeAllHighlights()

@@ -30,7 +30,7 @@ let SearchManager = {
       }
       let url = '/client/Annotation/listCount'
       
-      this.lib.AnnotationHelper.filter(query)
+      this.lib.AnnotationHelper.filterQuery(query)
 
       this.status.search.count = await this.lib.AxiosHelper.post(url, query)
       

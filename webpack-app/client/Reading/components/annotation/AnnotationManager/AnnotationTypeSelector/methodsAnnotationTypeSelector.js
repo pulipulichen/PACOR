@@ -1,6 +1,7 @@
 let debugEnableAutoList = false
 
 export default function (AnnotationTypeSelector) {
+    
   AnnotationTypeSelector.methods.initRangyEvent = function () {
     let rangy = this.lib.RangyManager
     rangy.addEventListener('select', (data) => {
@@ -46,6 +47,7 @@ export default function (AnnotationTypeSelector) {
 
     this.setupTutorial()
   }
+  
   AnnotationTypeSelector.methods.addAnnotation = function (type, isQuickAdd) {
     if (!this.selection) {
       return null

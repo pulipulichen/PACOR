@@ -6493,7 +6493,7 @@ __webpack_require__.r(__webpack_exports__);
     }
     let url = 'client/Annotation/floatWidget'
 
-    this.lib.AnnotationHelper.filter(query)
+    this.lib.AnnotationHelper.filterQuery(query)
 
     let result = await this.lib.AxiosHelper.post(url, query)
     if (result === null) {
@@ -6782,7 +6782,8 @@ let AnnotationManager = {
       //annotationModule: 'MainIdea', // for test
       afterTime: null,
       //loadHighlightInterval: 60 * 1000,
-      loadHighlightInterval: this.lib.auth.stepHighlightAnnotationConfig.otherHighlightBatchInterval
+      loadHighlightInterval: this.lib.auth.stepHighlightAnnotationConfig.otherHighlightBatchInterval,
+      loadTimer: null
       
 //      highlightPos: null,
 //      highlightEvent: null,
@@ -6847,7 +6848,7 @@ let AnnotationManager = {
       this.status.progress.highlights = true
     },
     'status.filter.focusUser' () {
-      this.reloadHighlights()
+      this.reloadOthersHighlights()
     },
     'status.filter.findType' () {
       this.reloadHighlights()
@@ -6908,20 +6909,25 @@ let AnnotationManager = {
         return null
       }
       
-      let data = {
+      if (this.afterTime 
+              && this.lib.DayJSHelper.time() - this.afterTime < this.loadHighlightInterval) {
+        return null
+      }
+      
+      let query = {
         sessionToken: this.status.sessionToken
       }
       if (typeof(this.afterTime) === 'number') {
-        data.afterTime = this.afterTime
+        query.afterTime = this.afterTime
       }
       
       // 什麼意思？意義不明
-      this.lib.AnnotationHelper.filter(data)
-      //console.log(data)
+      this.lib.AnnotationHelper.filterQuery(query)
+      //console.log(query, this.highlightsURL)
+      let result = await this.lib.AxiosHelper.get(this.highlightsURL, query)
       
-      let result = await this.lib.AxiosHelper.get(this.highlightsURL, data)
       if (!this.lib.RangyManager) {
-        return false  // 似乎被移除了...
+        return false  // 當RangyManager不存在的時候，取消其他操作
       }
       
       //console.log(result)
@@ -6952,7 +6958,10 @@ let AnnotationManager = {
       
       //console.log(this.loadHighlightInterval)
       if (typeof(this.loadHighlightInterval) === 'number') {
-        setTimeout(() => {
+        if (this.loadTimer) {
+          clearTimeout(this.loadTimer)
+        }
+        this.loadTimer = setTimeout(() => {
           this.loadHighlights()
         }, this.loadHighlightInterval)
       }
@@ -6964,7 +6973,17 @@ let AnnotationManager = {
     reloadHighlights () {
       //console.log('重新讀取')
       this.afterTime = null
+      this.isLoaded = false
       this.lib.RangyManager.removeHighlights()
+      
+      //console.log('哈囉？', this.afterTime)
+      this.loadHighlights()
+    },
+    reloadOthersHighlights () {
+      //console.log('重新讀取')
+      this.afterTime = null
+      //this.isLoaded = false
+      this.lib.RangyManager.removeOthersHighlights()
       
       //console.log('哈囉？', this.afterTime)
       this.loadHighlights()
@@ -7345,6 +7364,7 @@ __webpack_require__.r(__webpack_exports__);
 let debugEnableAutoList = false
 
 /* harmony default export */ __webpack_exports__["default"] = (function (AnnotationTypeSelector) {
+    
   AnnotationTypeSelector.methods.initRangyEvent = function () {
     let rangy = this.lib.RangyManager
     rangy.addEventListener('select', (data) => {
@@ -7390,6 +7410,7 @@ let debugEnableAutoList = false
 
     this.setupTutorial()
   }
+  
   AnnotationTypeSelector.methods.addAnnotation = function (type, isQuickAdd) {
     if (!this.selection) {
       return null
@@ -10083,7 +10104,7 @@ __webpack_require__.r(__webpack_exports__);
     let query = this.querySummary
     //console.log(query)
     
-    this.lib.AnnotationHelper.filter(query)
+    this.lib.AnnotationHelper.filterQuery(query)
     
     let url = '/client/Annotation/listSummary'
 
@@ -10124,7 +10145,7 @@ __webpack_require__.r(__webpack_exports__);
     let query = this.query
 
     let url = '/client/Annotation/listNext'
-    this.lib.AnnotationHelper.filter(query)
+    this.lib.AnnotationHelper.filterQuery(query)
     
     let result = await this.lib.AxiosHelper.post(url, query)
     //console.log(result)
@@ -17036,6 +17057,18 @@ __webpack_require__.r(__webpack_exports__);
     this.highlighter.highlights = this.highlighter.highlights.filter(hl => {
       let className = hl.classApplier.className
       if (className.startsWith('my-')) {
+        hl.unapply()
+        return false
+      } else {
+        return true
+      }
+    })
+  }
+  
+  RangyManager.methods.removeOthersHighlights = function () {
+    this.highlighter.highlights = this.highlighter.highlights.filter(hl => {
+      let className = hl.classApplier.className
+      if (className.startsWith('others-')) {
         hl.unapply()
         return false
       } else {
@@ -26872,10 +26905,12 @@ let SectionManager = {
         checklist: [],
         checklistAnnotation: [],
         checklistSubmitted: [],
-        annotation: []
+        annotation: [],
+        enableRefresh: true
       },
       enableLoad: true,
       pause: false,
+      afterTime: null
       //sectionData: []
     }
   },
@@ -26904,6 +26939,9 @@ let SectionManager = {
       else {
         return this.$t('ANNOTATION_TYPE.SectionMainIdea')
       }
+    },
+    updateInterval () {
+      return this.lib.auth.stepSectionAnnotationConfig.updateInterval
     }
   },
   watch: {
@@ -27001,11 +27039,17 @@ let SectionManager = {
     },
     
     loadAnnotation: async function () {
+      //console.log(this.enableLoad, this.lib.auth.isEnableCollaboration, this.pause, this.afterTime)
       if (this.enableLoad === false 
               || this.lib.auth.isEnableCollaboration === false
               || this.pause === true) {
         return false
       } 
+      
+      if (this.afterTime 
+              && this.lib.DayJSHelper.time() - this.afterTime < this.updateInterval) {
+        return false
+      }
       
       //console.log(this.query)
       let result = await this.lib.AxiosHelper.get('/client/Section/getSectionAnnotations', this.query)
@@ -27013,6 +27057,8 @@ let SectionManager = {
       if (Array.isArray(result)) {
         this.sectionsData.annotation = result
       }
+      
+      this.afterTime = this.lib.DayJSHelper.time()
     },
     setRefreshInterval: async function () {
       if (this.lib.auth.isEnableCollaboration === false) {
@@ -27020,12 +27066,12 @@ let SectionManager = {
         return false
       }
       
-      let updateInterval = this.lib.auth.stepSectionAnnotationConfig.updateInterval
-      //console.log(updateInterval)
+      let updateInterval = this.updateInterval
+      
       if (typeof(updateInterval) !== 'number') {
         return false
       }
-      
+      //console.log(updateInterval)
       await this.lib.VueHelper.sleep(updateInterval)
       
       if (this.enableLoad === false 
@@ -27034,7 +27080,12 @@ let SectionManager = {
         return false
       } 
       
-      if (this.sectionsData.enableRefresh === true) {
+      //console.log(this.enableLoad, this.lib.auth.isEnableCollaboration, this.pause
+      //  , this.afterTime
+      //  , this.sectionsData.enableRefresh)
+      
+      if (this.sectionsData.enableRefresh === undefined
+              || this.sectionsData.enableRefresh === true) {
         this.loadAnnotation()
       }
 
@@ -29220,7 +29271,7 @@ let SearchManager = {
       }
       let url = '/client/Annotation/listCount'
       
-      this.lib.AnnotationHelper.filter(query)
+      this.lib.AnnotationHelper.filterQuery(query)
 
       this.status.search.count = await this.lib.AxiosHelper.post(url, query)
       

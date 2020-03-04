@@ -7139,7 +7139,7 @@ let AnnotationHelper = {
    * @param {Object} data 傳送給伺服器用於查詢用的資料
    * @returns {undefined}
    */
-  filter: function (data) {
+  filterQuery: function (data) {
     if (typeof(this.status.filter.findType) === 'string') {
       data.findType = this.status.filter.findType
     }

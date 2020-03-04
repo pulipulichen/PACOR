@@ -11,10 +11,12 @@ let SectionManager = {
         checklist: [],
         checklistAnnotation: [],
         checklistSubmitted: [],
-        annotation: []
+        annotation: [],
+        enableRefresh: true
       },
       enableLoad: true,
       pause: false,
+      afterTime: null
       //sectionData: []
     }
   },
@@ -43,6 +45,9 @@ let SectionManager = {
       else {
         return this.$t('ANNOTATION_TYPE.SectionMainIdea')
       }
+    },
+    updateInterval () {
+      return this.lib.auth.stepSectionAnnotationConfig.updateInterval
     }
   },
   watch: {
@@ -140,11 +145,17 @@ let SectionManager = {
     },
     
     loadAnnotation: async function () {
+      //console.log(this.enableLoad, this.lib.auth.isEnableCollaboration, this.pause, this.afterTime)
       if (this.enableLoad === false 
               || this.lib.auth.isEnableCollaboration === false
               || this.pause === true) {
         return false
       } 
+      
+      if (this.afterTime 
+              && this.lib.DayJSHelper.time() - this.afterTime < this.updateInterval) {
+        return false
+      }
       
       //console.log(this.query)
       let result = await this.lib.AxiosHelper.get('/client/Section/getSectionAnnotations', this.query)
@@ -152,6 +163,8 @@ let SectionManager = {
       if (Array.isArray(result)) {
         this.sectionsData.annotation = result
       }
+      
+      this.afterTime = this.lib.DayJSHelper.time()
     },
     setRefreshInterval: async function () {
       if (this.lib.auth.isEnableCollaboration === false) {
@@ -159,12 +172,12 @@ let SectionManager = {
         return false
       }
       
-      let updateInterval = this.lib.auth.stepSectionAnnotationConfig.updateInterval
-      //console.log(updateInterval)
+      let updateInterval = this.updateInterval
+      
       if (typeof(updateInterval) !== 'number') {
         return false
       }
-      
+      //console.log(updateInterval)
       await this.lib.VueHelper.sleep(updateInterval)
       
       if (this.enableLoad === false 
@@ -173,7 +186,12 @@ let SectionManager = {
         return false
       } 
       
-      if (this.sectionsData.enableRefresh === true) {
+      //console.log(this.enableLoad, this.lib.auth.isEnableCollaboration, this.pause
+      //  , this.afterTime
+      //  , this.sectionsData.enableRefresh)
+      
+      if (this.sectionsData.enableRefresh === undefined
+              || this.sectionsData.enableRefresh === true) {
         this.loadAnnotation()
       }
 

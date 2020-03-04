@@ -20,7 +20,7 @@ export default function (AnnotationFloatWidget) {
     }
     let url = 'client/Annotation/floatWidget'
 
-    this.lib.AnnotationHelper.filter(query)
+    this.lib.AnnotationHelper.filterQuery(query)
 
     let result = await this.lib.AxiosHelper.post(url, query)
     if (result === null) {
