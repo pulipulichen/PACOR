@@ -86,13 +86,15 @@ export default (AnnotationPanel) => {
   } // AnnotationPanel.methods.hide = async function (doEmitCancel) {
   
   AnnotationPanel.methods.checkBeforeHide = async function () {
-    if (this.panelData.isAnnotationEditing === false) {
+    if (this.panelData.isAnnotationEditing === false
+            && this.panelData.isCommentEditing === false) {
       return true
     }
     
     let confirm = await this.lib.ConfirmModal.show(this.$t('You are still editing. Are you sure to discard changes?'))
     if (confirm === true) {
       this.panelData.isAnnotationEditing = false
+      this.panelData.isCommentEditing = false
     }
     //console.log({confirm})
     return confirm

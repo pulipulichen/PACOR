@@ -6,7 +6,7 @@ if (debugSkipCreate === true) {
 }
 
 let AnnotationDiscussionInput = {
-  props: ['lib', 'status', 'config', 'annotation'],
+  props: ['lib', 'status', 'config', 'annotation', 'panelData'],
   data() {    
     this.$i18n.locale = this.config.locale
     //console.log('建置了AnnotationDiscussionInput')
@@ -73,6 +73,14 @@ let AnnotationDiscussionInput = {
       }
       else {
         this.note = ''
+      }
+    },
+    'note' (note) {
+      if (note.trim() === '') {
+        this.panelData.isCommentEditing = false
+      }
+      else {
+        this.panelData.isCommentEditing = true
       }
     }
   },

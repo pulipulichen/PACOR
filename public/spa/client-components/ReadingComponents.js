@@ -2361,6 +2361,7 @@ var render = function() {
           config: _vm.config,
           status: _vm.status,
           lib: _vm.lib,
+          panelData: _vm.panelData,
           annotation: _vm.annotation
         },
         on: {
@@ -10675,7 +10676,7 @@ if (debugSkipCreate === true) {
 }
 
 let AnnotationDiscussionInput = {
-  props: ['lib', 'status', 'config', 'annotation'],
+  props: ['lib', 'status', 'config', 'annotation', 'panelData'],
   data() {    
     this.$i18n.locale = this.config.locale
     //console.log('建置了AnnotationDiscussionInput')
@@ -10742,6 +10743,14 @@ let AnnotationDiscussionInput = {
       }
       else {
         this.note = ''
+      }
+    },
+    'note' (note) {
+      if (note.trim() === '') {
+        this.panelData.isCommentEditing = false
+      }
+      else {
+        this.panelData.isCommentEditing = true
       }
     }
   },
@@ -12608,6 +12617,7 @@ __webpack_require__.r(__webpack_exports__);
     anchorPositions: null,
     annotation: null,
     isAnnotationEditing: false,
+    isCommentEditing: false,
     enableDiscussion: false,
     
     filter: {
@@ -12739,13 +12749,15 @@ const transitionMode = 'slide up'
   } // AnnotationPanel.methods.hide = async function (doEmitCancel) {
   
   AnnotationPanel.methods.checkBeforeHide = async function () {
-    if (this.panelData.isAnnotationEditing === false) {
+    if (this.panelData.isAnnotationEditing === false
+            && this.panelData.isCommentEditing === false) {
       return true
     }
     
     let confirm = await this.lib.ConfirmModal.show(this.$t('You are still editing. Are you sure to discard changes?'))
     if (confirm === true) {
       this.panelData.isAnnotationEditing = false
+      this.panelData.isCommentEditing = false
     }
     //console.log({confirm})
     return confirm
@@ -13033,6 +13045,12 @@ __webpack_require__.r(__webpack_exports__);
     this.panelData.filter = null
     this.panelData.annotation = null
     this.panelData.keyword = ''
+    
+    this.panelData.isAnnotationEditing = false
+    this.panelData.isCommentEditing = false
+    this.panelData.focusCommentID = null
+    this.panelData.showDemoComment = false
+    
     this.lib.RangyManager.hoverOut(true)
   }
   

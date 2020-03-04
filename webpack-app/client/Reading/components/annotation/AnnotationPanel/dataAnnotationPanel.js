@@ -4,6 +4,7 @@ export default {
     anchorPositions: null,
     annotation: null,
     isAnnotationEditing: false,
+    isCommentEditing: false,
     enableDiscussion: false,
     
     filter: {

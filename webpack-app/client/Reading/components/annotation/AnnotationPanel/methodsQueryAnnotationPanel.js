@@ -128,6 +128,12 @@ export default (AnnotationPanel) => {
     this.panelData.filter = null
     this.panelData.annotation = null
     this.panelData.keyword = ''
+    
+    this.panelData.isAnnotationEditing = false
+    this.panelData.isCommentEditing = false
+    this.panelData.focusCommentID = null
+    this.panelData.showDemoComment = false
+    
     this.lib.RangyManager.hoverOut(true)
   }
   
