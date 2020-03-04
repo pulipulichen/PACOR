@@ -1090,6 +1090,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _watchAuth_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./watchAuth.js */ "./webpack-app/client/Auth/watchAuth.js");
 /* harmony import */ var _methodsAuth_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsAuth.js */ "./webpack-app/client/Auth/methodsAuth.js");
 /* harmony import */ var _computedAuth_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./computedAuth.js */ "./webpack-app/client/Auth/computedAuth.js");
+/* harmony import */ var _computedArticleAuth_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./computedArticleAuth.js */ "./webpack-app/client/Auth/computedArticleAuth.js");
 let Auth = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {
@@ -1111,6 +1112,9 @@ Object(_methodsAuth_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Auth)
 
 
 Object(_computedAuth_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Auth)
+
+
+Object(_computedArticleAuth_js__WEBPACK_IMPORTED_MODULE_3__["default"])(Auth)
 
 /* harmony default export */ __webpack_exports__["default"] = (Auth);
 
@@ -1185,6 +1189,69 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_Auth_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CAuth_5CAuth_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_Auth_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CAuth_5CAuth_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_Auth_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CAuth_5CAuth_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_Auth_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CAuth_5CAuth_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_Auth_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CAuth_5CAuth_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Auth/computedArticleAuth.js":
+/*!********************************************************!*\
+  !*** ./webpack-app/client/Auth/computedArticleAuth.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (Auth) {
+  
+  Auth.computed.article = function () {
+    let articleSelector = this.status.readingConfig.selector.article
+    for (let i = 0; i < articleSelector.length; i++) {
+      let node = jquery__WEBPACK_IMPORTED_MODULE_0___default()(articleSelector[i])
+      if (node.length > 0) {
+        return node
+        break
+      }
+    }
+    
+    throw this.$t('Cannot found any article node.')
+    return false
+  }
+  
+  Auth.computed.sections = function () {
+    let sectionSelector = this.status.readingConfig.selector.section
+    
+    let children = this.article.children()
+    for (let i = 0; i < sectionSelector.length; i++) {
+      let nodes = children.filter(sectionSelector[i])
+      if (nodes.length > 0) {
+        return nodes
+        break
+      }
+    }
+
+    throw this.$t('Cannot found any section node.')
+    return false
+  }
+  
+  Auth.computed.paragraphs = function () {
+    if (!this.sections) {
+      return null
+    }
+    
+    let paragraphs = []
+    this.sections.each((i, section) => {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(section).children().each((i, paragraph) => {
+        paragraphs.push(jquery__WEBPACK_IMPORTED_MODULE_0___default()(paragraph))
+      })
+    })
+    
+    return paragraphs
+  }
+});
 
 /***/ }),
 
@@ -4362,10 +4429,13 @@ __webpack_require__.r(__webpack_exports__);
     if (element instanceof HTMLElement) {
       element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element)
     }
-    
+    console.log(element)
     if (typeof(element.offset) === 'function') {
       width = element.width()
       height = element.height()
+      
+      console.log(element[0].getBoundingClientRect())
+      
       element = element.offset()
     }
     
@@ -4396,6 +4466,7 @@ __webpack_require__.r(__webpack_exports__);
       top = top - window.pageYOffset
     }
     
+    console.log(top, this.lib.style.detectIsIOS)
     if (this.lib.style.detectIsIOS) {
       top = top - 50
     }

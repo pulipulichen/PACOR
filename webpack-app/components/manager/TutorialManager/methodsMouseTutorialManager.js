@@ -61,10 +61,13 @@ export default function (TutorialManager) {
     if (element instanceof HTMLElement) {
       element = $(element)
     }
-    
+    console.log(element)
     if (typeof(element.offset) === 'function') {
       width = element.width()
       height = element.height()
+      
+      console.log(element[0].getBoundingClientRect())
+      
       element = element.offset()
     }
     
@@ -95,6 +98,7 @@ export default function (TutorialManager) {
       top = top - window.pageYOffset
     }
     
+    console.log(top, this.lib.style.detectIsIOS)
     if (this.lib.style.detectIsIOS) {
       top = top - 50
     }

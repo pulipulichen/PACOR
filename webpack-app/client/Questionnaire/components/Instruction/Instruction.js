@@ -23,6 +23,15 @@ let Instruction = {
       return this.lib.auth.currentStepConfig
     },
     articleTitle () {
+      //return document.title
+      let article = this.lib.auth.article
+      if (article && article.length === 1) {
+        let heading = article.find('h1,h2,h3').eq(0)
+        if (heading.length === 1) {
+          return heading.text().trim()
+        }
+      }
+      
       return document.title
     },
     readingProgressModules () {

@@ -20,4 +20,7 @@ methodsAuth(Auth)
 import computedAuth from './computedAuth.js'
 computedAuth(Auth)
 
+import computedArticleAuth from './computedArticleAuth.js'
+computedArticleAuth(Auth)
+
 export default Auth
