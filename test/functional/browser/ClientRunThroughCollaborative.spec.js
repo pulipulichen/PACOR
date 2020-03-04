@@ -148,8 +148,14 @@ let config = {
       //PACORTestManager.log('呃，怎麽不能運作了...')
       await PACORTestManager.waitForElementVisible('.Navigation.menu', 60 * 1000)
       // Navigation
-      await PACORTestManager.sleep(3000)
+      await PACORTestManager.sleep(1000)
       await PACORTestManager.writeAnnotations()
+      
+      for (let i = 0; i < PACORTestManager.getRandomInt(5); i++) {
+        await PACORTestManager.likeAnnotation()
+        await PACORTestManager.sleep(1000)
+        await PACORTestManager.addAndEditComment()
+      }
       
       //await PACORTestManager.sleep(1000 * 60 * 30)
     })  // await page.assertFn(async function () {

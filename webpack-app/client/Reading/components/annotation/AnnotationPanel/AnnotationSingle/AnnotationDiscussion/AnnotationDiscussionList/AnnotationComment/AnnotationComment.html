@@ -23,7 +23,7 @@
     <div v-if="comment.user_id === status.userID"
          class="control-buttons">
       <button type="button"
-              class="ui mini icon button"
+              class="ui mini icon button edit-button"
               v-on:click="$emit('edit')">
         <!--
         {{ $t('EDIT') }}
@@ -31,7 +31,7 @@
         <i class="edit icon"></i>
       </button>
       <button type="button"
-              class="ui mini icon button"
+              class="ui mini icon button delete-button"
               v-on:click="onDelete">
         <i class="trash alternate icon"></i>
       </button>

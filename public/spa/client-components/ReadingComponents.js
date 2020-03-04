@@ -2591,7 +2591,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "ui mini icon button",
+                    staticClass: "ui mini icon button edit-button",
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
@@ -2605,7 +2605,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "ui mini icon button",
+                    staticClass: "ui mini icon button delete-button",
                     attrs: { type: "button" },
                     on: { click: _vm.onDelete }
                   },

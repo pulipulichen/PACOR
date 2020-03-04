@@ -4816,8 +4816,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _stepsReader_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./stepsReader/stepStepInstructionPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsReader/stepStepInstructionPACORTestManager.js");
 /* harmony import */ var _stepsReader_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./stepsReader/stepLoginPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsReader/stepLoginPACORTestManager.js");
 /* harmony import */ var _stepsReader_stepAddAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./stepsReader/stepAddAnnotationPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsReader/stepAddAnnotationPACORTestManager.js");
-/* harmony import */ var _stepsAdmin_stepAdminConfigPACORTestManager_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./stepsAdmin/stepAdminConfigPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsAdmin/stepAdminConfigPACORTestManager.js");
-/* harmony import */ var _stepsAdmin_stepAdminLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./stepsAdmin/stepAdminLoginPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsAdmin/stepAdminLoginPACORTestManager.js");
+/* harmony import */ var _stepsReader_stepInteractPACORTestManager_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./stepsReader/stepInteractPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsReader/stepInteractPACORTestManager.js");
+/* harmony import */ var _stepsAdmin_stepAdminConfigPACORTestManager_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./stepsAdmin/stepAdminConfigPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsAdmin/stepAdminConfigPACORTestManager.js");
+/* harmony import */ var _stepsAdmin_stepAdminLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./stepsAdmin/stepAdminLoginPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsAdmin/stepAdminLoginPACORTestManager.js");
 
 
 let PACORTestManager = {
@@ -4951,15 +4952,18 @@ Object(_stepsReader_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_11__["
 
 Object(_stepsReader_stepAddAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_12__["default"])(PACORTestManager)
 
+
+Object(_stepsReader_stepInteractPACORTestManager_js__WEBPACK_IMPORTED_MODULE_13__["default"])(PACORTestManager)
+
 // ---------------
 // adminSteps
 // ---------------
 
 
-Object(_stepsAdmin_stepAdminConfigPACORTestManager_js__WEBPACK_IMPORTED_MODULE_13__["default"])(PACORTestManager)
+Object(_stepsAdmin_stepAdminConfigPACORTestManager_js__WEBPACK_IMPORTED_MODULE_14__["default"])(PACORTestManager)
 
 
-Object(_stepsAdmin_stepAdminLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_14__["default"])(PACORTestManager)
+Object(_stepsAdmin_stepAdminLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_15__["default"])(PACORTestManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (PACORTestManager);
 
@@ -6583,6 +6587,92 @@ __webpack_require__.r(__webpack_exports__);
   
   Object(_AnnotationTypeModules_stepAnnotationMainIdeaDeletePACORTestManager_js__WEBPACK_IMPORTED_MODULE_5__["default"])(PACORTestManager)
   Object(_AnnotationTypeModules_stepAnnotationMainIdeaEditPACORTestManager_js__WEBPACK_IMPORTED_MODULE_4__["default"])(PACORTestManager)
+});
+
+/***/ }),
+
+/***/ "./webpack-app/components/test/PACORTestManager/stepsReader/stepInteractPACORTestManager.js":
+/*!**************************************************************************************************!*\
+  !*** ./webpack-app/components/test/PACORTestManager/stepsReader/stepInteractPACORTestManager.js ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
+  PACORTestManager.methods.selectAnnotationFromSearch = async function (excludedMyAnnotation) {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationSingle:visible').length > 0) {
+      // 已經顯示了，不用執行這個
+      return true
+    }
+    
+    await this.waitForElementVisibleClick('.SearchManager .ui.icon.button')
+    
+    await this.sleep(1000)
+    
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.MainList.List:visible').length > 0) {
+      if (excludedMyAnnotation === true) {
+        let annotationItemCount = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.MainList.List:visible .AnnotationItem:not(.my-annotation)').length
+        let i = this.getRandomInt(annotationItemCount)
+        await this.waitForElementVisibleClick('.MainList.List:visible .AnnotationItem:not(.my-annotation):eq(' + i + ')')
+      }
+      else {
+        let annotationItemCount = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.MainList.List:visible .AnnotationItem').length
+        let i = this.getRandomInt(annotationItemCount)
+        await this.waitForElementVisibleClick('.MainList.List:visible .AnnotationItem:eq(' + i + ')')
+      }
+      await this.sleep(1000)
+    }
+    return true
+  }
+  
+  PACORTestManager.methods.closeSelectAnnotation = async function () {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .main-segment:visible').length === 0) {
+      // 已經隱藏了，不用執行這個
+      return true
+    }
+    
+    await this.waitForElementVisibleClick('.AnnotationPanel .label-buttons .close.icon')
+  }
+    
+  PACORTestManager.methods.addAndEditComment = async function () {
+    await this.selectAnnotationFromSearch()
+    
+    await this.typeInput('.AnnotationDiscussionInput .ui.input input[type="text"]', this.createRandomText())
+    await this.sleep(500)
+    
+    await this.waitForElementVisibleClick('.AnnotationDiscussionInput .right-column button:not(.disabled)')
+    
+    // ----------------
+    // 然後編輯comment
+    
+    await this.sleep(1000)
+    await this.waitForElementVisibleClick('.AnnotationDiscussionList .AnnotationComment button.edit-button')
+    await this.sleep(500)
+    
+    await this.typeInput('.AnnotationDiscussionInput .ui.input input[type="text"]', this.createRandomText())
+    await this.waitForElementVisibleClick('.AnnotationDiscussionInput .right-column button:not(.disabled)')
+    
+    await this.closeSelectAnnotation()
+  }
+  
+  PACORTestManager.methods.likeAnnotation = async function () {
+    await this.selectAnnotationFromSearch(true)
+    
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.annotation-editor .AnnotationInteractive button.like:visible').length > 0) {
+      await this.waitForElementVisibleClick('.annotation-editor .AnnotationInteractive button.like')
+      await this.sleep(500)
+      await this.waitForElementVisibleClick('.annotation-editor .AnnotationInteractive button.like.green')
+      await this.sleep(500)
+    }
+    
+    await this.closeSelectAnnotation()
+  }
 });
 
 /***/ }),

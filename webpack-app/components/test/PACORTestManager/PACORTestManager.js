@@ -131,6 +131,9 @@ stepLoginPACORTestManager(PACORTestManager)
 import stepAddAnnotationPACORTestManager from './stepsReader/stepAddAnnotationPACORTestManager.js'
 stepAddAnnotationPACORTestManager(PACORTestManager)
 
+import stepInteractPACORTestManager from './stepsReader/stepInteractPACORTestManager.js'
+stepInteractPACORTestManager(PACORTestManager)
+
 // ---------------
 // adminSteps
 // ---------------
