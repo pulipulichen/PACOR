@@ -4418,7 +4418,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
    
-  TutorialManager.methods.showClickExecute = async function (element) {
+  TutorialManager.methods.showClickExecute = async function (element, limitedRect) {
     window.removeEventListener('scroll', onWindowScrollEvent)
     //console.log('showClickExecute')
     if (!$clickImage) {
@@ -4429,12 +4429,14 @@ __webpack_require__.r(__webpack_exports__);
     if (element instanceof HTMLElement) {
       element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element)
     }
-    console.log(element)
+    //console.log(element)
+    
+    
     if (typeof(element.offset) === 'function') {
       width = element.width()
       height = element.height()
       
-      console.log(element[0].getBoundingClientRect())
+      //console.log(element[0].getBoundingClientRect())
       
       element = element.offset()
     }
@@ -4466,9 +4468,14 @@ __webpack_require__.r(__webpack_exports__);
       top = top - window.pageYOffset
     }
     
-    console.log(top, this.lib.style.detectIsIOS)
+    //console.log(top, this.lib.style.detectIsIOS)
     if (this.lib.style.detectIsIOS) {
       top = top - 50
+    }
+    
+    if (limitedRect 
+            && (top > limitedRect.bottom || top < limitedRect.top) ) {
+      top = top - window.scrollY
     }
     
     if (typeof(width) !== 'number') {

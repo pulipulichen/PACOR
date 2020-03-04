@@ -347,5 +347,14 @@ export default (RangyManager) => {
     //console.log(this.rangy.getSelection().toString())
     return (this.rangy.getSelection().toString() !== '')
   }
+  
+  RangyManager.methods.getSelectionRect = async function () {
+    let sel = await this.lib.RangyManager.rangy.getSelection()
+    let range = sel.getRangeAt(0).cloneRange()
+    //let rect = range.getBoundingDocumentRect()
+    let rect = range.getBoundingClientRect()
+    
+    return rect
+  }
 }
 

@@ -91,9 +91,7 @@ export default function (AnnotationManager) {
           }
         }
         
-        var sel = await this.lib.RangyManager.rangy.getSelection();
-        var range = sel.getRangeAt(0).cloneRange();
-        var rect = range.getBoundingDocumentRect();
+        var rect = await this.lib.RangyManager.getSelectionRect()
         //console.log(rect)
         
         this.lib.TutorialManager.showClick(rect)

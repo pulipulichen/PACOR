@@ -50,7 +50,7 @@ export default function (TutorialManager) {
     }
   }
    
-  TutorialManager.methods.showClickExecute = async function (element) {
+  TutorialManager.methods.showClickExecute = async function (element, limitedRect) {
     window.removeEventListener('scroll', onWindowScrollEvent)
     //console.log('showClickExecute')
     if (!$clickImage) {
@@ -61,12 +61,14 @@ export default function (TutorialManager) {
     if (element instanceof HTMLElement) {
       element = $(element)
     }
-    console.log(element)
+    //console.log(element)
+    
+    
     if (typeof(element.offset) === 'function') {
       width = element.width()
       height = element.height()
       
-      console.log(element[0].getBoundingClientRect())
+      //console.log(element[0].getBoundingClientRect())
       
       element = element.offset()
     }
@@ -98,9 +100,14 @@ export default function (TutorialManager) {
       top = top - window.pageYOffset
     }
     
-    console.log(top, this.lib.style.detectIsIOS)
+    //console.log(top, this.lib.style.detectIsIOS)
     if (this.lib.style.detectIsIOS) {
       top = top - 50
+    }
+    
+    if (limitedRect 
+            && (top > limitedRect.bottom || top < limitedRect.top) ) {
+      top = top - window.scrollY
     }
     
     if (typeof(width) !== 'number') {

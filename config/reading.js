@@ -15,11 +15,11 @@ module.exports = {
       //maxAnnotation: 1
     },
     
-    //onlyShowTutorialOrder: [33, 34],
+    //onlyShowTutorialOrder: [1],
     
     //stayInReadingProgress: 'PreImaginaryKeyword'
     //stayInReadingProgress: 'PostRecallKeyword'
-    stayInReadingProgress: 'IndividualReading'
+    //stayInReadingProgress: 'IndividualReading'
     //stayInReadingProgress: 'CollaborativeReading'
     //stayInReadingProgress: 'FreeReading'
   },
