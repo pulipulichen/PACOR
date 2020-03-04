@@ -51,6 +51,9 @@ export default function (Questionnaire) {
     data.noResult = false
     data.inputKeyword = ""
     
+    data.nextStepClickCounter = 0
+    data.nextStepClickTimer = null
+    
     return data
   }
 }

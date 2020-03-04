@@ -153,7 +153,9 @@ var render = function() {
                 return [
                   _c(
                     "div",
-                    { on: { dblclick: _vm.nextStep } },
+                    {
+                      on: { dblclick: _vm.nextStep, click: _vm.detectNextStep }
+                    },
                     [
                       _c("user-avatar", {
                         staticClass: "user-avatar",
@@ -1548,6 +1550,9 @@ __webpack_require__.r(__webpack_exports__);
     data.noResult = false
     data.inputKeyword = ""
     
+    data.nextStepClickCounter = 0
+    data.nextStepClickTimer = null
+    
     return data
   }
 });
@@ -1645,7 +1650,20 @@ __webpack_require__.r(__webpack_exports__);
     this.persist()
   }
   
-  
+  Questionnaire.methods.detectNextStep = function () {
+    this.nextStepClickCounter++
+    if (this.nextStepClickCounter > 2) {
+      return this.nextStep()
+    }
+
+    if (this.nextStepClickTimer) {
+      clearTimeout(this.nextStepClickTimer)
+    }
+    this.nextStepClickTimer = setTimeout(() => {
+      this.nextStepClickCounter = 0
+      clearTimeout(this.nextStepClickTimer)
+    }, 3000)
+  }
   
 });
 

@@ -11,6 +11,7 @@
     v-on:hide="onHide">
       <template v-slot:header>
         <div v-on:dblclick="nextStep"
+             v-on:click="detectNextStep"
              class="step-title">
           {{ $t('READING_PROGRESS.' + lib.auth.currentStep) }}
         </div>

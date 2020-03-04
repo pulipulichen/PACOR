@@ -8,7 +8,8 @@
     dimmer="opaque"
     cancelable="false">
     <template v-slot:header>
-      <div v-on:dblclick="nextStep">
+      <div v-on:dblclick="nextStep"
+           v-on:click="detectNextStep">
         <user-avatar 
           class="user-avatar"
           v-bind:config="config"

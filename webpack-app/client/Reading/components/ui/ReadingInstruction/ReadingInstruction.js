@@ -17,7 +17,9 @@ let ReadingInstruction = {
     
     return {
       tempStepName: this.lib.auth.currentStep,
-      hasReadTutorial: hasReadTutorial
+      hasReadTutorial: hasReadTutorial,
+      nextStepClickCounter: 0,
+      nextStepClickTimer: null
     }
   },
   components: {
@@ -139,6 +141,20 @@ let ReadingInstruction = {
       //console.log(url)
       //return false
       location.href = url
+    },
+    detectNextStep () {
+      this.nextStepClickCounter++
+      if (this.nextStepClickCounter > 2) {
+        return this.nextStep()
+      }
+      
+      if (this.nextStepClickTimer) {
+        clearTimeout(this.nextStepClickTimer)
+      }
+      this.nextStepClickTimer = setTimeout(() => {
+        this.nextStepClickCounter = 0
+        clearTimeout(this.nextStepClickTimer)
+      }, 3000)
     }
   } // methods
 }

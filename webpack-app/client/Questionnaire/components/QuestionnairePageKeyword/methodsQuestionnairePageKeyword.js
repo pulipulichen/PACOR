@@ -78,6 +78,19 @@ export default function (Questionnaire) {
     this.persist()
   }
   
-  
+  Questionnaire.methods.detectNextStep = function () {
+    this.nextStepClickCounter++
+    if (this.nextStepClickCounter > 2) {
+      return this.nextStep()
+    }
+
+    if (this.nextStepClickTimer) {
+      clearTimeout(this.nextStepClickTimer)
+    }
+    this.nextStepClickTimer = setTimeout(() => {
+      this.nextStepClickCounter = 0
+      clearTimeout(this.nextStepClickTimer)
+    }, 3000)
+  }
   
 }
