@@ -51,7 +51,7 @@ export default function (NavigationItems) {
       },
       beforeCallback: async () => {
         //console.log(this.$refs.AnnotationTypeFilter.$el)
-        await this.lib.TutorialManager.showClick(this.$refs.AnnotationTypeFilter.$el)
+        await this.lib.TutorialManager.showFixedClick(this.$refs.AnnotationTypeFilter.$el)
         await this.lib.VueHelper.sleep(500)
         await this.$refs.AnnotationTypeFilter.show(true)
         await this.lib.VueHelper.sleep(500)
@@ -187,7 +187,7 @@ export default function (NavigationItems) {
       width: 10,
       height: 10
     }
-    await this.lib.TutorialManager.showClick(icon)
+    await this.lib.TutorialManager.showFixedClick(icon)
 
     await this.lib.VueHelper.sleep(500)
     await this.$refs.nav.showSideMenu()

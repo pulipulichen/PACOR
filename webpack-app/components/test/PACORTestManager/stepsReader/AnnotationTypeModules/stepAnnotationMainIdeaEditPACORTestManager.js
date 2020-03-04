@@ -31,6 +31,7 @@ export default function (PACORTestManager) {
       await this.waitForElementVisibleClick(editSelector, {
         timeout: 3000
       })
+      await this.sleep(1000)
     }
     catch (e) {
       console.log('Float widget is not visible... retry')
@@ -38,7 +39,10 @@ export default function (PACORTestManager) {
     }
     
     // 等待Summernote載入
-    await this.sleep(5000)
+    if ($('.AnnotationFloatWidget:visible').length > 0) {
+      console.log('沒有點到 ', editSelector)
+      return await this.editMainIdeaAnnotation()
+    }
     
     // 如果有一筆標註以上，那就會跳出列表
     if ($('.AnnotationPanel .html-editor-container.editable').length === 0
@@ -48,10 +52,14 @@ export default function (PACORTestManager) {
         await this.waitForElementVisibleClick('.MainList .AnnotationItem.my-annotation[data-annotation-type="MainIdea"]:first .meta', {
           timeout: 3000
         })
+        await this.sleep(5000)
       }
       catch (e) {
         console.log('誤判嗎？ stepAnnotationMainIdeaEditPACORTestManager')
       }
+    }
+    else {
+      await this.sleep(5000)
     }
     
     let editor

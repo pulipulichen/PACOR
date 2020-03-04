@@ -4638,6 +4638,20 @@ __webpack_require__.r(__webpack_exports__);
               + '. Exclude order: ' + action.order)
       return false
     }
+    
+    // 在這裡處理timeout的問題
+    if (typeof(action.timeout) !== 'number') {
+      let timeout = 5000
+      let content = action.content
+      let contentWordCount = this.lib.StringHelper.countWords(content)
+      if (contentWordCount > 40) {
+        timeout = timeout * 2
+      }
+      else if (contentWordCount > 20) {
+        timeout = timeout * 1.5
+      }
+      action.timeout = timeout
+    }
 
     if (Array.isArray(this.actionLists[type]) === false) {
       this.actionLists[type] = []
@@ -5555,6 +5569,10 @@ __webpack_require__.r(__webpack_exports__);
       min = 0
     }
     
+    if (max === 0) {
+      return 0
+    }
+    
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -6198,7 +6216,7 @@ __webpack_require__.r(__webpack_exports__);
     await this.sleep(500)
     highlight.click()
     
-    await this.sleep(500)
+    await this.sleep(3000)
     let editSelector = '.AnnotationFloatWidget .AnnotationItem .meta'
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationFloatWidget .list-button:visible').length > 0) {
       editSelector = '.AnnotationFloatWidget .list-button'
@@ -6208,14 +6226,18 @@ __webpack_require__.r(__webpack_exports__);
       await this.waitForElementVisibleClick(editSelector, {
         timeout: 3000
       })
+      await this.sleep(1000)
     }
     catch (e) {
-      console.log('Float widget is not visible... retry')
+      console.log('Float widget is not visible... retry: ' + editSelector)
       return await this.editMainIdeaAnnotation()
     }
     
     // 等待Summernote載入
-    await this.sleep(3000)
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationFloatWidget:visible').length > 0) {
+      console.log('沒有點到 ', editSelector)
+      return await this.editMainIdeaAnnotation()
+    }
     
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .html-editor-container.editable').length === 0
             || jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .annotation-panel-buttons .delete-button:visible').length === 0) {
@@ -6228,6 +6250,9 @@ __webpack_require__.r(__webpack_exports__);
       catch (e) {
         console.log('誤判嗎？ stepAnnotationMainIdeaDeletePACORTestManager')
       }
+    }
+    else {
+      await this.sleep(3000)
     }
     
     try {
@@ -6316,6 +6341,7 @@ __webpack_require__.r(__webpack_exports__);
       await this.waitForElementVisibleClick(editSelector, {
         timeout: 3000
       })
+      await this.sleep(1000)
     }
     catch (e) {
       console.log('Float widget is not visible... retry')
@@ -6323,7 +6349,10 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     // 等待Summernote載入
-    await this.sleep(5000)
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationFloatWidget:visible').length > 0) {
+      console.log('沒有點到 ', editSelector)
+      return await this.editMainIdeaAnnotation()
+    }
     
     // 如果有一筆標註以上，那就會跳出列表
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .html-editor-container.editable').length === 0
@@ -6333,10 +6362,14 @@ __webpack_require__.r(__webpack_exports__);
         await this.waitForElementVisibleClick('.MainList .AnnotationItem.my-annotation[data-annotation-type="MainIdea"]:first .meta', {
           timeout: 3000
         })
+        await this.sleep(5000)
       }
       catch (e) {
         console.log('誤判嗎？ stepAnnotationMainIdeaEditPACORTestManager')
       }
+    }
+    else {
+      await this.sleep(5000)
     }
     
     let editor
@@ -6624,28 +6657,35 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     console.log('找尋搜尋按鈕...')
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.SearchManager .ui.icon.button:visible').length ===  0) {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.Navigation .SearchManager:visible .ui.icon.button:visible').length ===  0) {
       console.log('找不到搜尋按鈕，打開側邊欄')
-      await this.waitForElementVisibleClick('.show-side-menu-item')
+      await this.waitForElementVisibleClick('.Navigation .show-side-menu-item')
       await this.sleep(1000)
+      await this.waitForElementVisibleClick('.vertical-menu .SearchManager:visible .ui.icon.button')
     }
-    await this.waitForElementVisibleClick('.SearchManager .ui.icon.button')
+    else {
+      await this.waitForElementVisibleClick('.Navigation .SearchManager .ui.icon.button')
+    }
     
     await this.sleep(1000)
     
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.MainList.List:visible').length > 0) {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .MainList.List:visible').length > 0) {
       console.log('似乎是列表')
       if (excludedMyAnnotation === true) {
-        let annotationItemCount = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.MainList.List:visible .AnnotationItem:not(.my-annotation)').length
-        let i = this.getRandomInt(annotationItemCount)
+        let annotationItemCount = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .MainList.List:visible .AnnotationItem:not(.my-annotation)').length
+        if (annotationItemCount === 0) {
+          return false
+        }
+        let i = this.getRandomInt(annotationItemCount - 1)
+        
         console.log('點選標註 i = ' + i)
-        await this.waitForElementVisibleClick('.MainList.List:visible .AnnotationItem:not(.my-annotation):eq(' + i + ')')
+        await this.waitForElementVisibleClick('.AnnotationPanel .MainList.List:visible .AnnotationItem:not(.my-annotation):eq(' + i + ') .meta .right.angle.icon')
       }
       else {
-        let annotationItemCount = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.MainList.List:visible .AnnotationItem').length
-        let i = this.getRandomInt(annotationItemCount)
+        let annotationItemCount = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .MainList.List:visible .AnnotationItem').length
+        let i = this.getRandomInt(annotationItemCount - 1)
         console.log('點選標註 i = ' + i)
-        await this.waitForElementVisibleClick('.MainList.List:visible .AnnotationItem:eq(' + i + ')')
+        await this.waitForElementVisibleClick('.AnnotationPanel .MainList.List:visible .AnnotationItem:eq(' + i + ') .meta .right.angle.icon')
       }
       await this.sleep(1000)
     }
@@ -6669,19 +6709,22 @@ __webpack_require__.r(__webpack_exports__);
     await this.typeInput('.AnnotationDiscussionInput .ui.input input[type="text"]', this.createRandomText())
     await this.sleep(500)
     
-    await this.waitForElementVisibleClick('.AnnotationDiscussionInput .right-column button:not(.disabled)')
+    await this.waitForElementVisibleClick('.AnnotationDiscussionInput .right-column button:not(.disabled):first')
     
     // ----------------
     // 然後編輯comment
+    
+    //await this.sleep(1000 * 10)
     
     console.log('編輯建議')
     await this.sleep(1000)
     await this.waitForElementVisibleClick('.AnnotationDiscussionList .AnnotationComment button.edit-button')
     await this.sleep(500)
-    
+    //console.log('已經成功加上編輯')
     await this.typeInput('.AnnotationDiscussionInput .ui.input input[type="text"]', this.createRandomText())
-    await this.waitForElementVisibleClick('.AnnotationDiscussionInput .right-column button:not(.disabled)')
-    
+    //console.log('修改了文字')
+    await this.waitForElementVisibleClick('.AnnotationDiscussionInput .right-column button:not(.disabled):first')
+    //console.log('完成編輯')
     await this.closeSelectAnnotation()
   }
   
@@ -7013,7 +7056,9 @@ __webpack_require__.r(__webpack_exports__);
     
     await this.sleep(3000)
     let bg = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.jquery-guide-bg:visible')
+    
     while (bg.length > 0) {
+      console.log('等待導覽結束...')
       await this.waitForElementHidden('.jquery-guide-bg')
       await this.sleep(5000)
       bg = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.jquery-guide-bg:visible')

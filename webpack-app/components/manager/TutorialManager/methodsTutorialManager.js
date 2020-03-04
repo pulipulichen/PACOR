@@ -20,6 +20,20 @@ export default function (TutorialManager) {
               + '. Exclude order: ' + action.order)
       return false
     }
+    
+    // 在這裡處理timeout的問題
+    if (typeof(action.timeout) !== 'number') {
+      let timeout = 5000
+      let content = action.content
+      let contentWordCount = this.lib.StringHelper.countWords(content)
+      if (contentWordCount > 40) {
+        timeout = timeout * 2
+      }
+      else if (contentWordCount > 20) {
+        timeout = timeout * 1.5
+      }
+      action.timeout = timeout
+    }
 
     if (Array.isArray(this.actionLists[type]) === false) {
       this.actionLists[type] = []

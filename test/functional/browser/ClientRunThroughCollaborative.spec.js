@@ -126,7 +126,8 @@ let config = {
       await PACORTestManager.waitForElementVisible('[data-pacor-paragraph-seq-id]')
       await PACORTestManager.waitForElementVisible('.CompactNavigation .CompactMenu', 60 * 1000)
       
-      await PACORTestManager.writeAnnotations()
+      console.log('先跳過')
+      //await PACORTestManager.writeAnnotations()
     })  // await page.assertFn(async function () {
   },
   'd3. 處理檢核單': async function ( { assert, client, browser }, page ) {
@@ -151,7 +152,7 @@ let config = {
       await PACORTestManager.sleep(1000)
       await PACORTestManager.writeAnnotations()
       
-      for (let i = 0; i < PACORTestManager.getRandomInt(5); i++) {
+      for (let i = 0; i < PACORTestManager.getRandomInt(2, 5); i++) {
         await PACORTestManager.likeAnnotation()
         await PACORTestManager.sleep(1000)
         await PACORTestManager.addAndEditComment()

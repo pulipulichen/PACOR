@@ -20,7 +20,7 @@ export default function (PACORTestManager) {
     await this.sleep(500)
     highlight.click()
     
-    await this.sleep(500)
+    await this.sleep(3000)
     let editSelector = '.AnnotationFloatWidget .AnnotationItem .meta'
     if ($('.AnnotationFloatWidget .list-button:visible').length > 0) {
       editSelector = '.AnnotationFloatWidget .list-button'
@@ -30,14 +30,18 @@ export default function (PACORTestManager) {
       await this.waitForElementVisibleClick(editSelector, {
         timeout: 3000
       })
+      await this.sleep(1000)
     }
     catch (e) {
-      console.log('Float widget is not visible... retry')
+      console.log('Float widget is not visible... retry: ' + editSelector)
       return await this.editMainIdeaAnnotation()
     }
     
     // 等待Summernote載入
-    await this.sleep(3000)
+    if ($('.AnnotationFloatWidget:visible').length > 0) {
+      console.log('沒有點到 ', editSelector)
+      return await this.editMainIdeaAnnotation()
+    }
     
     if ($('.AnnotationPanel .html-editor-container.editable').length === 0
             || $('.AnnotationPanel .annotation-panel-buttons .delete-button:visible').length === 0) {
@@ -50,6 +54,9 @@ export default function (PACORTestManager) {
       catch (e) {
         console.log('誤判嗎？ stepAnnotationMainIdeaDeletePACORTestManager')
       }
+    }
+    else {
+      await this.sleep(3000)
     }
     
     try {

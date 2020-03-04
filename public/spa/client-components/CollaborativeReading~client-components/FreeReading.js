@@ -894,7 +894,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       beforeCallback: async () => {
         //console.log(this.$refs.AnnotationTypeFilter.$el)
-        await this.lib.TutorialManager.showClick(this.$refs.AnnotationTypeFilter.$el)
+        await this.lib.TutorialManager.showFixedClick(this.$refs.AnnotationTypeFilter.$el)
         await this.lib.VueHelper.sleep(500)
         await this.$refs.AnnotationTypeFilter.show(true)
         await this.lib.VueHelper.sleep(500)
@@ -1030,7 +1030,7 @@ __webpack_require__.r(__webpack_exports__);
       width: 10,
       height: 10
     }
-    await this.lib.TutorialManager.showClick(icon)
+    await this.lib.TutorialManager.showFixedClick(icon)
 
     await this.lib.VueHelper.sleep(500)
     await this.$refs.nav.showSideMenu()

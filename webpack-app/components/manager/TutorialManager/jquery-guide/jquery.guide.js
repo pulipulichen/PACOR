@@ -450,7 +450,7 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
           actionElement = $(actionElement)
         }
         if (actionElement.is(':visible') === false) {
-          console.error('actionElement is not visible', actionElement)
+          console.log('actionElement is not visible', actionElement)
           return next()
         }
         

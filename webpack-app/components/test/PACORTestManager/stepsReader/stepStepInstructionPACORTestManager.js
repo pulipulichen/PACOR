@@ -12,7 +12,9 @@ export default function (PACORTestManager) {
     
     await this.sleep(3000)
     let bg = $('.jquery-guide-bg:visible')
+    
     while (bg.length > 0) {
+      console.log('等待導覽結束...')
       await this.waitForElementHidden('.jquery-guide-bg')
       await this.sleep(5000)
       bg = $('.jquery-guide-bg:visible')
