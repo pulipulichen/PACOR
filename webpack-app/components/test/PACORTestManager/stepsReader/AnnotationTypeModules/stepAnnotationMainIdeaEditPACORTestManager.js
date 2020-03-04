@@ -21,8 +21,14 @@ export default function (PACORTestManager) {
     await this.sleep(500)
     highlight.click()
     
+    await this.sleep(500)
+    let editSelector = '.AnnotationFloatWidget .AnnotationItem .meta'
+    if ($('.AnnotationFloatWidget .list-button:visible').length > 0) {
+      editSelector = '.AnnotationFloatWidget .list-button'
+    }
+    
     try {
-      await this.waitForElementVisibleClick('.AnnotationFloatWidget .list-button', {
+      await this.waitForElementVisibleClick(editSelector, {
         timeout: 3000
       })
     }

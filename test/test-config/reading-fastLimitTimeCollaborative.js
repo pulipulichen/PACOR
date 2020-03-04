@@ -1,6 +1,7 @@
 module.exports = {
   debug: {
     flushCache: false,
+    stayInReadingProgress: null
   },
   readingProgressModules: {
     'PreImaginary': {

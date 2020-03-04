@@ -12165,8 +12165,14 @@ __webpack_require__.r(__webpack_exports__);
     await this.sleep(500)
     highlight.click()
     
+    await this.sleep(500)
+    let editSelector = '.AnnotationFloatWidget .AnnotationItem .meta'
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationFloatWidget .list-button:visible').length > 0) {
+      editSelector = '.AnnotationFloatWidget .list-button'
+    }
+    
     try {
-      await this.waitForElementVisibleClick('.AnnotationFloatWidget .list-button', {
+      await this.waitForElementVisibleClick(editSelector, {
         timeout: 3000
       })
     }
@@ -12267,8 +12273,14 @@ __webpack_require__.r(__webpack_exports__);
     await this.sleep(500)
     highlight.click()
     
+    await this.sleep(500)
+    let editSelector = '.AnnotationFloatWidget .AnnotationItem .meta'
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationFloatWidget .list-button:visible').length > 0) {
+      editSelector = '.AnnotationFloatWidget .list-button'
+    }
+    
     try {
-      await this.waitForElementVisibleClick('.AnnotationFloatWidget .list-button', {
+      await this.waitForElementVisibleClick(editSelector, {
         timeout: 3000
       })
     }
@@ -12578,19 +12590,28 @@ __webpack_require__.r(__webpack_exports__);
       return true
     }
     
+    console.log('找尋搜尋按鈕...')
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.SearchManager .ui.icon.button:visible').length ===  0) {
+      console.log('找不到搜尋按鈕，打開側邊欄')
+      await this.waitForElementVisibleClick('.show-side-menu-item')
+      await this.sleep(1000)
+    }
     await this.waitForElementVisibleClick('.SearchManager .ui.icon.button')
     
     await this.sleep(1000)
     
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.MainList.List:visible').length > 0) {
+      console.log('似乎是列表')
       if (excludedMyAnnotation === true) {
         let annotationItemCount = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.MainList.List:visible .AnnotationItem:not(.my-annotation)').length
         let i = this.getRandomInt(annotationItemCount)
+        console.log('點選標註 i = ' + i)
         await this.waitForElementVisibleClick('.MainList.List:visible .AnnotationItem:not(.my-annotation):eq(' + i + ')')
       }
       else {
         let annotationItemCount = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.MainList.List:visible .AnnotationItem').length
         let i = this.getRandomInt(annotationItemCount)
+        console.log('點選標註 i = ' + i)
         await this.waitForElementVisibleClick('.MainList.List:visible .AnnotationItem:eq(' + i + ')')
       }
       await this.sleep(1000)
@@ -12604,12 +12625,14 @@ __webpack_require__.r(__webpack_exports__);
       return true
     }
     
+    console.log('關閉AnnotationPanel')
     await this.waitForElementVisibleClick('.AnnotationPanel .label-buttons .close.icon')
   }
     
   PACORTestManager.methods.addAndEditComment = async function () {
     await this.selectAnnotationFromSearch()
     
+    console.log('建議留言')
     await this.typeInput('.AnnotationDiscussionInput .ui.input input[type="text"]', this.createRandomText())
     await this.sleep(500)
     
@@ -12618,6 +12641,7 @@ __webpack_require__.r(__webpack_exports__);
     // ----------------
     // 然後編輯comment
     
+    console.log('編輯建議')
     await this.sleep(1000)
     await this.waitForElementVisibleClick('.AnnotationDiscussionList .AnnotationComment button.edit-button')
     await this.sleep(500)
@@ -12632,6 +12656,7 @@ __webpack_require__.r(__webpack_exports__);
     await this.selectAnnotationFromSearch(true)
     
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.annotation-editor .AnnotationInteractive button.like:visible').length > 0) {
+      console.log('喜愛標註')
       await this.waitForElementVisibleClick('.annotation-editor .AnnotationInteractive button.like')
       await this.sleep(500)
       await this.waitForElementVisibleClick('.annotation-editor .AnnotationInteractive button.like.green')
