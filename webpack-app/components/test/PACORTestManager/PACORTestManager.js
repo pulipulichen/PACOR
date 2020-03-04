@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 let PACORTestManager = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -8,6 +10,9 @@ let PACORTestManager = {
 //  components: {
 //  },
   computed: {
+    jQuery () {
+      return $
+    },
     isTesting () {
       return (typeof(window.PACORTestManagerInteractions) === 'function')
     },

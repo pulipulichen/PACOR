@@ -11,7 +11,8 @@ let TutorialManager = {
       actionLists: {},
       guide: null,
       isPlaying: false,
-      finishModal: null
+      finishModal: null,
+      clickFixed: false
     }
   },
   created: async function () {
@@ -23,6 +24,14 @@ let TutorialManager = {
   computed: {
     defaultType () {
       return this.lib.auth.currentStep
+    },
+    enableTimeout () {
+      let enable = true
+      if (this.status.readingConfig.debug.tutorialEnableTimeout === false) {
+        enable = false
+        console.log('@DEBUG tutorialEnableTimeout = false')
+      }
+      return enable
     }
   },
   watch: {

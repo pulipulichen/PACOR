@@ -161,7 +161,7 @@ exports.push([module.i, ".non-invasive-web-style-framework .tutorial-modal {\n  
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".click-image[data-v-1bc43b50] {\n  position: fixed;\n  display: none;\n  z-index: 2002;\n  filter: drop-shadow(10px 10px 4px rgba(255, 255, 255, 0.5));\n}\n.modal[data-v-1bc43b50] {\n  cursor: pointer;\n  user-select: none;\n}\n.content[data-v-1bc43b50] {\n  text-align: center;\n}\n", "",{"version":3,"sources":["TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,aAAa;EACb,aAAa;EACb,2DAA2D;AAC7D;AACA;EACE,eAAe;EACf,iBAAiB;AACnB;AACA;EACE,kBAAkB;AACpB","file":"TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&","sourcesContent":[".click-image[data-v-1bc43b50] {\n  position: fixed;\n  display: none;\n  z-index: 2002;\n  filter: drop-shadow(10px 10px 4px rgba(255, 255, 255, 0.5));\n}\n.modal[data-v-1bc43b50] {\n  cursor: pointer;\n  user-select: none;\n}\n.content[data-v-1bc43b50] {\n  text-align: center;\n}\n"]}]);
+exports.push([module.i, ".click-image[data-v-1bc43b50] {\n  position: absolute;\n  display: none;\n  z-index: 2002;\n  filter: drop-shadow(10px 10px 4px rgba(255, 255, 255, 0.5));\n}\n.click-image.fixed[data-v-1bc43b50] {\n  position: fixed;\n}\n.modal[data-v-1bc43b50] {\n  cursor: pointer;\n  user-select: none;\n}\n.content[data-v-1bc43b50] {\n  text-align: center;\n}\n", "",{"version":3,"sources":["TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,aAAa;EACb,aAAa;EACb,2DAA2D;AAC7D;AACA;EACE,eAAe;AACjB;AACA;EACE,eAAe;EACf,iBAAiB;AACnB;AACA;EACE,kBAAkB;AACpB","file":"TutorialManager.less?vue&type=style&index=0&id=1bc43b50&lang=less&scoped=true&","sourcesContent":[".click-image[data-v-1bc43b50] {\n  position: absolute;\n  display: none;\n  z-index: 2002;\n  filter: drop-shadow(10px 10px 4px rgba(255, 255, 255, 0.5));\n}\n.click-image.fixed[data-v-1bc43b50] {\n  position: fixed;\n}\n.modal[data-v-1bc43b50] {\n  cursor: pointer;\n  user-select: none;\n}\n.content[data-v-1bc43b50] {\n  text-align: center;\n}\n"]}]);
 
 
 /***/ }),
@@ -856,6 +856,7 @@ var render = function() {
     _c("img", {
       ref: "ClickImage",
       staticClass: "click-image",
+      class: { fixed: _vm.clickFixed },
       attrs: { src: _vm.config.baseURL + "/imgs/click.png" }
     }),
     _vm._v(" "),
@@ -4236,7 +4237,8 @@ let TutorialManager = {
       actionLists: {},
       guide: null,
       isPlaying: false,
-      finishModal: null
+      finishModal: null,
+      clickFixed: false
     }
   },
   created: async function () {
@@ -4248,6 +4250,14 @@ let TutorialManager = {
   computed: {
     defaultType () {
       return this.lib.auth.currentStep
+    },
+    enableTimeout () {
+      let enable = true
+      if (this.status.readingConfig.debug.tutorialEnableTimeout === false) {
+        enable = false
+        console.log('@DEBUG tutorialEnableTimeout = false')
+      }
+      return enable
     }
   },
   watch: {
@@ -4400,10 +4410,14 @@ __webpack_require__.r(__webpack_exports__);
     }, 200)
   }
   
-  TutorialManager.methods.showClick = async function (e) {
+  TutorialManager.methods.showClick = async function (e, options) {
     if (this.lib.style.detectIsIOS && window.innerWidth < 768) {
       // 太小了，不使用指標
       return false
+    }
+    
+    if (!options) {
+      options = {}
     }
     
     lastPageYOffset = window.pageYOffset
@@ -4414,8 +4428,18 @@ __webpack_require__.r(__webpack_exports__);
     await this.lib.VueHelper.sleep(200)
     if (isScrolling === false) {
       //console.log('first')
-      this.showClickExecute(element)
+      if (options.awaitExecute === true) {
+        await this.showClickExecute(element)
+      }
+      else {
+        this.showClickExecute(element)
+      }
     }
+  }
+  
+  TutorialManager.methods.showFixedClick = async function (e) {
+    this.clickFixed = true
+    await this.showClick(e)
   }
    
   TutorialManager.methods.showClickExecute = async function (element, limitedRect) {
@@ -4535,7 +4559,9 @@ __webpack_require__.r(__webpack_exports__);
         await this.lib.VueHelper.sleep(1000)
 
         resolve(true)
-        $clickImage.fadeOut()
+        $clickImage.fadeOut(() => {
+          this.clickFixed = false
+        })
       })
     })
     //throw new Error('@showClick')
@@ -4624,12 +4650,15 @@ __webpack_require__.r(__webpack_exports__);
   
   TutorialManager.methods.start = function (type, showFinishModel) {
     let actions = this.getActions(type)
-    if (Array.isArray(actions) === false) {
+    if (Array.isArray(actions) === false || this.isPlaying === true) {
       return false
     }
+    
+    
     //console.log(actions)
     this.guide = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.guide({
       vm: this,
+      enableTimeout: this.enableTimeout,
       actions,
       complete: () => {
         this.isPlaying = false
@@ -4773,20 +4802,24 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _methodsPACORTestManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./methodsPACORTestManager */ "./webpack-app/components/test/PACORTestManager/methodsPACORTestManager.js");
-/* harmony import */ var _methodsFactoryPACORTestManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsFactoryPACORTestManager */ "./webpack-app/components/test/PACORTestManager/methodsFactoryPACORTestManager.js");
-/* harmony import */ var _methodsWaitPACORTestManager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsWaitPACORTestManager */ "./webpack-app/components/test/PACORTestManager/methodsWaitPACORTestManager.js");
-/* harmony import */ var _methodsRandomPACORTestManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsRandomPACORTestManager */ "./webpack-app/components/test/PACORTestManager/methodsRandomPACORTestManager.js");
-/* harmony import */ var _methodsPuppeteerPACORTestManager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsPuppeteerPACORTestManager */ "./webpack-app/components/test/PACORTestManager/methodsPuppeteerPACORTestManager.js");
-/* harmony import */ var _methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methodsExceptionPACORTestManager */ "./webpack-app/components/test/PACORTestManager/methodsExceptionPACORTestManager.js");
-/* harmony import */ var _methodsRemoteConsoleLogPACORTestManager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./methodsRemoteConsoleLogPACORTestManager */ "./webpack-app/components/test/PACORTestManager/methodsRemoteConsoleLogPACORTestManager.js");
-/* harmony import */ var _stepsReader_stepQuestionnairePACORTestManager_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./stepsReader/stepQuestionnairePACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsReader/stepQuestionnairePACORTestManager.js");
-/* harmony import */ var _stepsReader_stepSectionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./stepsReader/stepSectionPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsReader/stepSectionPACORTestManager.js");
-/* harmony import */ var _stepsReader_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./stepsReader/stepStepInstructionPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsReader/stepStepInstructionPACORTestManager.js");
-/* harmony import */ var _stepsReader_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./stepsReader/stepLoginPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsReader/stepLoginPACORTestManager.js");
-/* harmony import */ var _stepsReader_stepAddAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./stepsReader/stepAddAnnotationPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsReader/stepAddAnnotationPACORTestManager.js");
-/* harmony import */ var _stepsAdmin_stepAdminConfigPACORTestManager_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./stepsAdmin/stepAdminConfigPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsAdmin/stepAdminConfigPACORTestManager.js");
-/* harmony import */ var _stepsAdmin_stepAdminLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./stepsAdmin/stepAdminLoginPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsAdmin/stepAdminLoginPACORTestManager.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _methodsPACORTestManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsPACORTestManager */ "./webpack-app/components/test/PACORTestManager/methodsPACORTestManager.js");
+/* harmony import */ var _methodsFactoryPACORTestManager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsFactoryPACORTestManager */ "./webpack-app/components/test/PACORTestManager/methodsFactoryPACORTestManager.js");
+/* harmony import */ var _methodsWaitPACORTestManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methodsWaitPACORTestManager */ "./webpack-app/components/test/PACORTestManager/methodsWaitPACORTestManager.js");
+/* harmony import */ var _methodsRandomPACORTestManager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methodsRandomPACORTestManager */ "./webpack-app/components/test/PACORTestManager/methodsRandomPACORTestManager.js");
+/* harmony import */ var _methodsPuppeteerPACORTestManager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methodsPuppeteerPACORTestManager */ "./webpack-app/components/test/PACORTestManager/methodsPuppeteerPACORTestManager.js");
+/* harmony import */ var _methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./methodsExceptionPACORTestManager */ "./webpack-app/components/test/PACORTestManager/methodsExceptionPACORTestManager.js");
+/* harmony import */ var _methodsRemoteConsoleLogPACORTestManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./methodsRemoteConsoleLogPACORTestManager */ "./webpack-app/components/test/PACORTestManager/methodsRemoteConsoleLogPACORTestManager.js");
+/* harmony import */ var _stepsReader_stepQuestionnairePACORTestManager_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./stepsReader/stepQuestionnairePACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsReader/stepQuestionnairePACORTestManager.js");
+/* harmony import */ var _stepsReader_stepSectionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./stepsReader/stepSectionPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsReader/stepSectionPACORTestManager.js");
+/* harmony import */ var _stepsReader_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./stepsReader/stepStepInstructionPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsReader/stepStepInstructionPACORTestManager.js");
+/* harmony import */ var _stepsReader_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./stepsReader/stepLoginPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsReader/stepLoginPACORTestManager.js");
+/* harmony import */ var _stepsReader_stepAddAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./stepsReader/stepAddAnnotationPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsReader/stepAddAnnotationPACORTestManager.js");
+/* harmony import */ var _stepsAdmin_stepAdminConfigPACORTestManager_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./stepsAdmin/stepAdminConfigPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsAdmin/stepAdminConfigPACORTestManager.js");
+/* harmony import */ var _stepsAdmin_stepAdminLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./stepsAdmin/stepAdminLoginPACORTestManager.js */ "./webpack-app/components/test/PACORTestManager/stepsAdmin/stepAdminLoginPACORTestManager.js");
+
+
 let PACORTestManager = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -4797,6 +4830,9 @@ let PACORTestManager = {
 //  components: {
 //  },
   computed: {
+    jQuery () {
+      return jquery__WEBPACK_IMPORTED_MODULE_0___default.a
+    },
     isTesting () {
       return (typeof(window.PACORTestManagerInteractions) === 'function')
     },
@@ -4873,25 +4909,25 @@ let PACORTestManager = {
 }
 
 
-Object(_methodsPACORTestManager__WEBPACK_IMPORTED_MODULE_0__["default"])(PACORTestManager)
+Object(_methodsPACORTestManager__WEBPACK_IMPORTED_MODULE_1__["default"])(PACORTestManager)
 
 
-Object(_methodsFactoryPACORTestManager__WEBPACK_IMPORTED_MODULE_1__["default"])(PACORTestManager)
+Object(_methodsFactoryPACORTestManager__WEBPACK_IMPORTED_MODULE_2__["default"])(PACORTestManager)
 
 
-Object(_methodsWaitPACORTestManager__WEBPACK_IMPORTED_MODULE_2__["default"])(PACORTestManager)
+Object(_methodsWaitPACORTestManager__WEBPACK_IMPORTED_MODULE_3__["default"])(PACORTestManager)
 
 
-Object(_methodsRandomPACORTestManager__WEBPACK_IMPORTED_MODULE_3__["default"])(PACORTestManager)
+Object(_methodsRandomPACORTestManager__WEBPACK_IMPORTED_MODULE_4__["default"])(PACORTestManager)
 
 
-Object(_methodsPuppeteerPACORTestManager__WEBPACK_IMPORTED_MODULE_4__["default"])(PACORTestManager)
+Object(_methodsPuppeteerPACORTestManager__WEBPACK_IMPORTED_MODULE_5__["default"])(PACORTestManager)
 
 
-Object(_methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_5__["default"])(PACORTestManager)
+Object(_methodsExceptionPACORTestManager__WEBPACK_IMPORTED_MODULE_6__["default"])(PACORTestManager)
 
 
-Object(_methodsRemoteConsoleLogPACORTestManager__WEBPACK_IMPORTED_MODULE_6__["default"])(PACORTestManager)
+Object(_methodsRemoteConsoleLogPACORTestManager__WEBPACK_IMPORTED_MODULE_7__["default"])(PACORTestManager)
 
 //import methodsWindowPACORTestManager from './methodsWindowPACORTestManager'
 //methodsWindowPACORTestManager(PACORTestManager)
@@ -4901,29 +4937,29 @@ Object(_methodsRemoteConsoleLogPACORTestManager__WEBPACK_IMPORTED_MODULE_6__["de
 // ---------------
 
 
-Object(_stepsReader_stepQuestionnairePACORTestManager_js__WEBPACK_IMPORTED_MODULE_7__["default"])(PACORTestManager)
+Object(_stepsReader_stepQuestionnairePACORTestManager_js__WEBPACK_IMPORTED_MODULE_8__["default"])(PACORTestManager)
 
 
-Object(_stepsReader_stepSectionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_8__["default"])(PACORTestManager)
+Object(_stepsReader_stepSectionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_9__["default"])(PACORTestManager)
 
 
-Object(_stepsReader_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_9__["default"])(PACORTestManager)
+Object(_stepsReader_stepStepInstructionPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__["default"])(PACORTestManager)
 
 
-Object(_stepsReader_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_10__["default"])(PACORTestManager)
+Object(_stepsReader_stepLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_11__["default"])(PACORTestManager)
 
 
-Object(_stepsReader_stepAddAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_11__["default"])(PACORTestManager)
+Object(_stepsReader_stepAddAnnotationPACORTestManager_js__WEBPACK_IMPORTED_MODULE_12__["default"])(PACORTestManager)
 
 // ---------------
 // adminSteps
 // ---------------
 
 
-Object(_stepsAdmin_stepAdminConfigPACORTestManager_js__WEBPACK_IMPORTED_MODULE_12__["default"])(PACORTestManager)
+Object(_stepsAdmin_stepAdminConfigPACORTestManager_js__WEBPACK_IMPORTED_MODULE_13__["default"])(PACORTestManager)
 
 
-Object(_stepsAdmin_stepAdminLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_13__["default"])(PACORTestManager)
+Object(_stepsAdmin_stepAdminLoginPACORTestManager_js__WEBPACK_IMPORTED_MODULE_14__["default"])(PACORTestManager)
 
 /* harmony default export */ __webpack_exports__["default"] = (PACORTestManager);
 

@@ -1,9 +1,13 @@
 .click-image {
-  position: fixed;
+  position: absolute;
   display: none;
   z-index: 2002;
   
   filter: drop-shadow(10px 10px 4px rgba(255,255,255,.5));
+  
+  &.fixed {
+    position: fixed;
+  }
 }
 
 .modal {

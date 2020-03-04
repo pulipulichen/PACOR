@@ -6,6 +6,7 @@ export default function (IndividualReading) {
   // -----------------------------------------------------
 
   IndividualReading.methods._testSearch = function () {
+    console.log('@DEBUG _testSearch')
     if (!this.lib.AnnotationPanel) {
       setTimeout(() => {
         this._testSearch()
@@ -23,7 +24,7 @@ export default function (IndividualReading) {
   }
 
   IndividualReading.methods._testTutorial = async function () {
-
+    console.log('@DEBUG _testTutorial')
     await this.lib.VueHelper.sleep(3000)
     
     window.scrollTo({
@@ -35,14 +36,14 @@ export default function (IndividualReading) {
   }
   
   IndividualReading.methods._testTutorialClick = async function () {
-
+    console.log('@DEBUG _testTutorialClick')
     await this.lib.VueHelper.sleep(3000)
 
     this.lib.TutorialManager.showClick($('.SectionChecklist:first'))
   }
 
   IndividualReading.methods._testTutorialShowClick = async function () {
-    
+    console.log('@DEBUG _testTutorialShowClick')
     await this.lib.VueHelper.sleep(1000)
     
     let paragraph = await this.lib.RangyManager.selectDemoText()
@@ -72,6 +73,7 @@ export default function (IndividualReading) {
   }
   
   IndividualReading.methods._testDetect = async function () {
+    console.log('@DEBUG _testDetect')
     console.log({
       os: this.lib.style.detectOS,
       browser: this.lib.style.detectBrowser,
@@ -79,6 +81,7 @@ export default function (IndividualReading) {
   }
   
   IndividualReading.methods._testSelectRandom = async function () {
+    console.log('@DEBUG _testSelectRandom')
     await this.lib.VueHelper.sleep(1000)
     
     await this.lib.RangyManager.selectDemoText()

@@ -1,7 +1,8 @@
 <div class="TutorialManager">
   <img class="click-image"
        ref="ClickImage"
-       v-bind:src="config.baseURL + '/imgs/click.png'" />
+       v-bind:src="config.baseURL + '/imgs/click.png'"
+       v-bind:class="{fixed: clickFixed}"/>
   
   <div class="ui basic modal finish-modal" 
        ref="FinishModal"

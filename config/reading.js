@@ -3,6 +3,7 @@ module.exports = {
     flushCache: true,
     enable: true,
     enableRemoteConosleLog: false,
+    tutorialEnableTimeout: true,
     //forceMaxTimeoutMinutes: 0.4
     //forceMaxTimeoutMinutes: 0.2
     forceMaxTimeoutMinutes: 1,
@@ -15,11 +16,11 @@ module.exports = {
       //maxAnnotation: 1
     },
     
-    //onlyShowTutorialOrder: [1],
+    //onlyShowTutorialOrder: [62],
     
     //stayInReadingProgress: 'PreImaginaryKeyword'
     //stayInReadingProgress: 'PostRecallKeyword'
-    //stayInReadingProgress: 'IndividualReading'
+    stayInReadingProgress: 'IndividualReading'
     //stayInReadingProgress: 'CollaborativeReading'
     //stayInReadingProgress: 'FreeReading'
   },

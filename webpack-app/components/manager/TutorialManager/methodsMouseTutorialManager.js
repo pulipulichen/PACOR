@@ -32,10 +32,14 @@ export default function (TutorialManager) {
     }, 200)
   }
   
-  TutorialManager.methods.showClick = async function (e) {
+  TutorialManager.methods.showClick = async function (e, options) {
     if (this.lib.style.detectIsIOS && window.innerWidth < 768) {
       // 太小了，不使用指標
       return false
+    }
+    
+    if (!options) {
+      options = {}
     }
     
     lastPageYOffset = window.pageYOffset
@@ -46,8 +50,18 @@ export default function (TutorialManager) {
     await this.lib.VueHelper.sleep(200)
     if (isScrolling === false) {
       //console.log('first')
-      this.showClickExecute(element)
+      if (options.awaitExecute === true) {
+        await this.showClickExecute(element)
+      }
+      else {
+        this.showClickExecute(element)
+      }
     }
+  }
+  
+  TutorialManager.methods.showFixedClick = async function (e) {
+    this.clickFixed = true
+    await this.showClick(e)
   }
    
   TutorialManager.methods.showClickExecute = async function (element, limitedRect) {
@@ -167,7 +181,9 @@ export default function (TutorialManager) {
         await this.lib.VueHelper.sleep(1000)
 
         resolve(true)
-        $clickImage.fadeOut()
+        $clickImage.fadeOut(() => {
+          this.clickFixed = false
+        })
       })
     })
     //throw new Error('@showClick')

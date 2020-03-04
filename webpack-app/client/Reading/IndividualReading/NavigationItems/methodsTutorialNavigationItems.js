@@ -15,7 +15,7 @@ export default function (NavigationItems) {
           height: 10
         }
         
-        await this.lib.TutorialManager.showClick(menu)
+        await this.lib.TutorialManager.showFixedClick(menu)
         await this.lib.VueHelper.sleep(1000)
         this.$refs.nav.showNormalMenu()
       },

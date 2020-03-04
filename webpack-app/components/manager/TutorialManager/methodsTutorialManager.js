@@ -32,12 +32,15 @@ export default function (TutorialManager) {
   
   TutorialManager.methods.start = function (type, showFinishModel) {
     let actions = this.getActions(type)
-    if (Array.isArray(actions) === false) {
+    if (Array.isArray(actions) === false || this.isPlaying === true) {
       return false
     }
+    
+    
     //console.log(actions)
     this.guide = $.guide({
       vm: this,
+      enableTimeout: this.enableTimeout,
       actions,
       complete: () => {
         this.isPlaying = false

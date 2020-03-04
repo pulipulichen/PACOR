@@ -42,8 +42,17 @@ export default function (AnnotationTypeSelector) {
           this.lib.RangyManager.restoreLastSelectDemoText()
         }
         
-        let element = $el.find('.MainIdea:not(.quick-add) > .fabMask')
+        let element = $el.find('.fab-item.MainIdea:not(.quick-add)')
         //console.log({'MainIdea fabMask': element.length})
+        /*
+        console.log({
+          l: element.length,
+          a: element.offset(),
+          b: element[0].getBoundingClientRect(),
+          c: element[0].getBoundingClientRect().top + window.scrollY
+        })
+        element.css('border', '3px solid red')
+        */
         await this.lib.TutorialManager.showClick(element)
         
         let elements = $el.find(`.MainIdea:not(.quick-add) > .fabMask,.MainIdea:not(.quick-add) > .fab-item-title`)

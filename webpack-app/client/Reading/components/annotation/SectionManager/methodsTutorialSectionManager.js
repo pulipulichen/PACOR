@@ -33,28 +33,48 @@ export default function (SectionManager) {
   }
 
   SectionManager.methods.setupTutorialIndividualReading = function () {
-    this.lib.TutorialManager.addAction({
-      backgroundFadeOut: true,
-      element: () => {
-        this.lib.AnnotationPanel.hide()
-        let panel = $(`[data-section-id].SectionPanel:visible:first`)
-        return panel
-      },
-      content: this.$t(`After reading a section of the article, you have to finish the section checklist.`),
-      scroll: 'start',
-      order: 51
-    })
+    if (this.isArticleNote === false) {
 
-    if (this.lib.auth.currentStepConfig.goToNextStepOnChecklistComplete === true) {
       this.lib.TutorialManager.addAction({
-        //backgroundFadeOut: true,
+        backgroundFadeOut: true,
         element: () => {
-          let panel = $(`[data-section-id].SectionPanel:visible:last`)
+          this.lib.AnnotationPanel.hide()
+          let panel = $(`[data-section-id].SectionPanel:visible:first`)
           return panel
         },
-        content: this.$t(`When you finish all section checklists, you will go to next step.`),
+        content: this.$t(`After reading a section of the article, you have to finish the section checklist.`),
         scroll: 'start',
-        order: 52
+        order: 51
+      })
+
+      if (this.lib.auth.currentStepConfig.goToNextStepOnChecklistComplete === true) {
+        this.lib.TutorialManager.addAction({
+          //backgroundFadeOut: true,
+          element: () => {
+            let panel = $(`[data-section-id].SectionPanel:visible:last`)
+            return panel
+          },
+          content: this.$t(`When you finish all section checklists, you will go to next step.`),
+          scroll: 'start',
+          order: 52
+        })
+      }
+    }
+    else {
+      let content = this.$t(`After reading a section of the article, you have to finish the section checklist.`)
+      if (this.lib.auth.currentStepConfig.goToNextStepOnChecklistComplete === true) {
+        content = content + ' ' + this.$t(`When you finish all section checklists, you will go to next step.`)
+      }
+      this.lib.TutorialManager.addAction({
+        backgroundFadeOut: true,
+        element: () => {
+          this.lib.AnnotationPanel.hide()
+          let panel = $(`[data-section-id].SectionPanel:visible:first`)
+          return panel
+        },
+        content: content,
+        scroll: 'start',
+        order: 51
       })
     }
   }

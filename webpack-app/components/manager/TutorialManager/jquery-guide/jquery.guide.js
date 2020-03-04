@@ -46,6 +46,10 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
         vm = options.vm
       }
       
+      if (typeof(options.enableTimeout) === 'boolean') {
+        enableTimeout = options.enableTimeout
+      }
+      
       completeCallback = options.complete ? options.complete : null
       
       guide.buildLayout();
@@ -527,12 +531,15 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
         ])
         */
         _this.layout.glow.fadeIn('fast')
-        _this.layout.glow.css({
+        let cssConfig = {
           'width': actionElement.innerWidth() + 'px',
           'height': actionElement.innerHeight() + 'px',
           'top': top,
           'left': actionElement.offset().left
-        })
+        }
+        //console.log(cssConfig)
+        
+        _this.layout.glow.css(cssConfig)
         
         let glow = _this.layout.glow
         let tippyInited = true

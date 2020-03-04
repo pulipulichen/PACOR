@@ -7567,8 +7567,17 @@ __webpack_require__.r(__webpack_exports__);
           this.lib.RangyManager.restoreLastSelectDemoText()
         }
         
-        let element = $el.find('.MainIdea:not(.quick-add) > .fabMask')
+        let element = $el.find('.fab-item.MainIdea:not(.quick-add)')
         //console.log({'MainIdea fabMask': element.length})
+        /*
+        console.log({
+          l: element.length,
+          a: element.offset(),
+          b: element[0].getBoundingClientRect(),
+          c: element[0].getBoundingClientRect().top + window.scrollY
+        })
+        element.css('border', '3px solid red')
+        */
         await this.lib.TutorialManager.showClick(element)
         
         let elements = $el.find(`.MainIdea:not(.quick-add) > .fabMask,.MainIdea:not(.quick-add) > .fab-item-title`)
@@ -17905,8 +17914,8 @@ __webpack_require__.r(__webpack_exports__);
   RangyManager.methods.getSelectionRect = async function () {
     let sel = await this.lib.RangyManager.rangy.getSelection()
     let range = sel.getRangeAt(0).cloneRange()
-    //let rect = range.getBoundingDocumentRect()
-    let rect = range.getBoundingClientRect()
+    let rect = range.getBoundingDocumentRect()
+    //let rect = range.getBoundingClientRect()
     
     return rect
   }
@@ -28454,28 +28463,48 @@ __webpack_require__.r(__webpack_exports__);
   }
 
   SectionManager.methods.setupTutorialIndividualReading = function () {
-    this.lib.TutorialManager.addAction({
-      backgroundFadeOut: true,
-      element: () => {
-        this.lib.AnnotationPanel.hide()
-        let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
-        return panel
-      },
-      content: this.$t(`After reading a section of the article, you have to finish the section checklist.`),
-      scroll: 'start',
-      order: 51
-    })
+    if (this.isArticleNote === false) {
 
-    if (this.lib.auth.currentStepConfig.goToNextStepOnChecklistComplete === true) {
       this.lib.TutorialManager.addAction({
-        //backgroundFadeOut: true,
+        backgroundFadeOut: true,
         element: () => {
-          let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:last`)
+          this.lib.AnnotationPanel.hide()
+          let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
           return panel
         },
-        content: this.$t(`When you finish all section checklists, you will go to next step.`),
+        content: this.$t(`After reading a section of the article, you have to finish the section checklist.`),
         scroll: 'start',
-        order: 52
+        order: 51
+      })
+
+      if (this.lib.auth.currentStepConfig.goToNextStepOnChecklistComplete === true) {
+        this.lib.TutorialManager.addAction({
+          //backgroundFadeOut: true,
+          element: () => {
+            let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:last`)
+            return panel
+          },
+          content: this.$t(`When you finish all section checklists, you will go to next step.`),
+          scroll: 'start',
+          order: 52
+        })
+      }
+    }
+    else {
+      let content = this.$t(`After reading a section of the article, you have to finish the section checklist.`)
+      if (this.lib.auth.currentStepConfig.goToNextStepOnChecklistComplete === true) {
+        content = content + ' ' + this.$t(`When you finish all section checklists, you will go to next step.`)
+      }
+      this.lib.TutorialManager.addAction({
+        backgroundFadeOut: true,
+        element: () => {
+          this.lib.AnnotationPanel.hide()
+          let panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-section-id].SectionPanel:visible:first`)
+          return panel
+        },
+        content: content,
+        scroll: 'start',
+        order: 51
       })
     }
   }
@@ -30114,6 +30143,10 @@ __webpack_require__.r(__webpack_exports__);
         vm = options.vm
       }
       
+      if (typeof(options.enableTimeout) === 'boolean') {
+        enableTimeout = options.enableTimeout
+      }
+      
       completeCallback = options.complete ? options.complete : null
       
       guide.buildLayout();
@@ -30595,12 +30628,15 @@ __webpack_require__.r(__webpack_exports__);
         ])
         */
         _this.layout.glow.fadeIn('fast')
-        _this.layout.glow.css({
+        let cssConfig = {
           'width': actionElement.innerWidth() + 'px',
           'height': actionElement.innerHeight() + 'px',
           'top': top,
           'left': actionElement.offset().left
-        })
+        }
+        //console.log(cssConfig)
+        
+        _this.layout.glow.css(cssConfig)
         
         let glow = _this.layout.glow
         let tippyInited = true
