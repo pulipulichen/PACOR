@@ -1,6 +1,12 @@
 .step-heading {
   text-align: center;
   font-weight: bold;
+  
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .step-result {
@@ -37,4 +43,8 @@
 
 .message-column {
   text-indent: -0.5em;
+  
+  max-height: 14em;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
