@@ -44,6 +44,7 @@ class AnnotationFind {
         , orderBy
         , excludeIDList
         , focusUserID
+        , withAnchorText
       } = options
       
       profiler.mark('parsing options', options)
@@ -68,7 +69,11 @@ class AnnotationFind {
                 .where('deleted', false)
                 .whereRaw('((user_id = ? ) or (user_id != ? and public = ?))', [user.primaryKeyValue, user.primaryKeyValue, true])
                 //.whereRaw('user_id = ?', [user.primaryKeyValue])
-                .with('anchorPositions')
+                .with('anchorPositions', (query) => {
+                  if (withAnchorText === true) {
+                    query.setVisible(['id', 'webpage_id', 'type', 'section_id', 'seq_id', 'paragraph_id', 'start_pos', 'end_pos', 'anchor_text'])
+                  }
+                })
         
         profiler.mark('query')
 

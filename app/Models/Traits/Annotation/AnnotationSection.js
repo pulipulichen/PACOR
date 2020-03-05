@@ -9,6 +9,7 @@ const Cache = use('Cache')
 const Config = use('Config')
 
 const TokenizationHelper = use('App/Helpers/TokenizationHelper')
+const StringHelper = use('App/Helpers/StringHelper')
 const Profiler = use('Profiler')
 
 class AnnotationSection {
@@ -304,13 +305,14 @@ class AnnotationSection {
     
     Model.getMainIdeasInSection = async function (webpage, user, query) {
       let cacheKey = Cache.key(`Annotation.getSectionAnnotationsDraft`, query)
-      return await Cache.rememberWait([webpage, user], cacheKey, async () => {
+      return await Cache.rememberWait([webpage, user], cacheKey, 2, async () => {
         let { section_id } = query
         
         let annotations = await this.findByWebpageGroupPosition(webpage, user, {
           findUserID: user.primaryKeyValue,
           findType: 'MainIdea',
-          section_id: section_id
+          section_id: section_id,
+          withAnchorText: true
         })
         
         //console.log(annotations.size())
@@ -326,9 +328,27 @@ class AnnotationSection {
         let addedNote = {}
         
         annotations.forEach(annotation => {
-          let note = annotation.notes[0].note
-          note = TokenizationHelper.htmlToText(note)
-          note = TokenizationHelper.removePunctuations(note)
+          //let note = annotation.notes[0].note
+          let note = annotation.notes.map(n => {
+            let text = n.note
+            text = TokenizationHelper.htmlToText(text)
+            text = TokenizationHelper.removePunctuations(text)
+            return text
+          }).join(' / ').trim()
+          
+          let anchorText = annotation.anchorPositions.map(a => {
+            let text = a.anchor_text
+            text = TokenizationHelper.htmlToText(text)
+            text = TokenizationHelper.removePunctuations(text)
+            return text
+          }).join(' ').trim()
+          
+          if (note !== anchorText) {
+            if (StringHelper.countWords(anchorText) > 10) {
+              anchorText = anchorText.slice(0, 10) + '...'
+            }
+            note = anchorText + ': ' + note
+          }
           
           let seqID = annotation.anchorPositions[0].seq_id + ''
           
