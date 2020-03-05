@@ -12676,11 +12676,18 @@ __webpack_require__.r(__webpack_exports__);
       throw new Error('沒有成功關閉AnnotationPanel')
     }
   }
+  
+  PACORTestManager.methods.addAndEditComments = async function (min, max) {
+    for (let i = 0; i < this.getRandomInt(min, max); i++) {
+      await this.addAndEditComment(i)
+      await this.sleep(1000)
+    }
+  }
     
-  PACORTestManager.methods.addAndEditComment = async function () {
+  PACORTestManager.methods.addAndEditComment = async function (i) {
     await this.selectAnnotationFromSearch()
     
-    console.log('建議留言')
+    console.log('建議留言 i=' + i)
     await this.typeInput('.AnnotationDiscussionInput .ui.input input[type="text"]', this.createRandomText())
     await this.sleep(500)
     

@@ -152,11 +152,8 @@ let config = {
       await PACORTestManager.sleep(1000)
       await PACORTestManager.writeAnnotations()
       
-      for (let i = 0; i < PACORTestManager.getRandomInt(2, 5); i++) {
-        await PACORTestManager.likeAnnotation()
-        await PACORTestManager.sleep(1000)
-        await PACORTestManager.addAndEditComment()
-      }
+      await PACORTestManager.likeAnnotation()
+      await PACORTestManager.addAndEditComments(2, 5)
       
       //await PACORTestManager.sleep(1000 * 60 * 30)
     })  // await page.assertFn(async function () {
