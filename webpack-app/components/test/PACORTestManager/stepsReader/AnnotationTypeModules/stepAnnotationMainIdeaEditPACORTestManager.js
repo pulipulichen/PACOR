@@ -12,6 +12,11 @@ export default function (PACORTestManager) {
     
     console.log('Edit Annotation: Main Idea')
     
+    if ($('.AnnotationFloatWidget.show.is-fixed:visible').length > 0) {
+      // 已經顯示了，不用執行這個
+      await this.waitForElementVisibleClick('.AnnotationFloatWidget.show.is-fixed:visible .close.icon')
+    }
+    
     let highlights = await this.waitForElementVisible('.my-MainIdea[data-pacor-highlight]', {
       timeout: 3000
     })
@@ -29,7 +34,7 @@ export default function (PACORTestManager) {
     
     try {
       await this.waitForElementVisibleClick(editSelector, {
-        timeout: 3000
+        timeout: 1000
       })
       await this.sleep(1000)
     }
@@ -39,8 +44,8 @@ export default function (PACORTestManager) {
     }
     
     // 等待Summernote載入
-    if ($('.AnnotationFloatWidget:visible').length > 0) {
-      console.log('沒有點到 ', editSelector)
+    if ($('.AnnotationFloatWidget.show:visible > .segment').length > 0) {
+      console.log('AnnotationFloatWidget還是開著 ', editSelector)
       return await this.editMainIdeaAnnotation()
     }
     

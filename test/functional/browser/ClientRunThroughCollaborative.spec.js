@@ -126,8 +126,8 @@ let config = {
       await PACORTestManager.waitForElementVisible('[data-pacor-paragraph-seq-id]')
       await PACORTestManager.waitForElementVisible('.CompactNavigation .CompactMenu', 60 * 1000)
       
-      console.log('先跳過')
-      //await PACORTestManager.writeAnnotations()
+      //console.log('先跳過')
+      await PACORTestManager.writeAnnotations()
     })  // await page.assertFn(async function () {
   },
   'd3. 處理檢核單': async function ( { assert, client, browser }, page ) {

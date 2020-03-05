@@ -16,6 +16,7 @@ let LoginMessage = {
       let modules = this.status.readingConfig.readingProgressModules
       let hasAddedReading = false
       
+      let instructionMinute = 2
       this.steps.forEach(step => {
         let module = modules[step]
         if (!module) {
@@ -27,14 +28,16 @@ let LoginMessage = {
             return false
           }
           //console.log('reading', modules['reading'].totalLimitMinutes)
-          time = time + modules['reading'].totalLimitMinutes
+          time = time + modules['reading'].totalLimitMinutes + instructionMinute
           hasAddedReading = true
           return false
         }
         
         //console.log('step', step, module.limitMinutes)
-        time = time + module.limitMinutes
+        time = time + module.limitMinutes + instructionMinute
       })
+      
+      time = Math.ceil(time)
       
       return time
     },

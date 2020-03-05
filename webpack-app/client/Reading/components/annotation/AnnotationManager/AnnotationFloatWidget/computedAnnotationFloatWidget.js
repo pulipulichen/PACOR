@@ -24,7 +24,23 @@ export default function (AnnotationFloatWidget) {
     if (this.lib.RangyManager.isSelecting()) {
       classList.push('selecting')
     }
-
+    
+//    console.log({
+//      mouse: this.triggerEvent.clientY,
+//      widget: this.$el.getBoundingClientRect()
+//    })
+    
+//    let disableAnimate = false
+//    let rect = this.$el.getBoundingClientRect()
+//    let mouseY = this.triggerEvent.clientY
+//    if (mouseY >= rect.top && mouseY <= rect.bottom) {
+//      disableAnimate = true
+//    }
+//
+//    if (disableAnimate || this.lib.style.isEnableAnimte === false) {
+//      classList.push('disable-animate')
+//    }
+    //console.log(disableAnimate)
     if (this.lib.style.isEnableAnimte === false) {
       classList.push('disable-animate')
     }
@@ -39,6 +55,20 @@ export default function (AnnotationFloatWidget) {
       return classList.join(' ')
     }
   } // AnnotationFloatWidget.computed.computedContainerClassNames = function () {
+
+  AnnotationFloatWidget.computed.isTriggerBehindFloatWidget = function () {
+    if (!this.triggerEvent 
+            || typeof(this.triggerEvent.clientY) !== 'number') {
+      return false
+    }
+    
+    let rect = this.$el.getBoundingClientRect()
+    let mouseY = this.triggerEvent.clientY
+    let bottom = rect.top + 180
+    //console.log(mouseY, rect.top, bottom)
+    return (mouseY >= rect.top && mouseY <= bottom)
+  }
+    
 
   AnnotationFloatWidget.computed.computedButtonsClassNames = function () {
     let classList = []

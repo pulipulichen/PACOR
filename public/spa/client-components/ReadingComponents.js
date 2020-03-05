@@ -535,7 +535,7 @@ exports.push([module.i, ".jquery-guide {\n  user-select: none;\n  -webkit-box-si
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".annotation-float-widget[data-v-72028fd0] {\n  transition: opacity 0.3s, z-index 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: -1;\n  width: calc(100vw - 4em);\n  top: calc(60px + 1em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n@media only screen and (max-height: 700px) {\n.annotation-float-widget[data-v-72028fd0] {\n    top: 1em;\n    max-height: inherit;\n}\n}\n.annotation-float-widget.show[data-v-72028fd0] {\n  opacity: 1;\n  z-index: 10;\n}\n.annotation-float-widget.bottom[data-v-72028fd0] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n@media only screen and (max-height: 700px) {\n.annotation-float-widget.bottom[data-v-72028fd0] {\n    bottom: 5em;\n}\n.annotation-float-widget.bottom.show[data-v-72028fd0] {\n    z-index: 999;\n}\n}\n.annotation-float-widget.bottom.selecting[data-v-72028fd0] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-72028fd0] {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  vertical-align: top !important;\n  direction: ltr;\n}\n.annotation-float-widget .footer-row > .column[data-v-72028fd0] {\n  white-space: nowrap;\n  overflow-x: auto;\n  overflow-y: hidden;\n  max-width: 100%;\n  margin-left: 1em;\n  margin-right: 1em;\n  padding-left: 0em !important;\n  padding-right: 0 !important;\n}\n.annotation-float-widget.is-fixed[data-v-72028fd0] {\n  margin-top: calc(-2em - 4px);\n}\n.close-container.floating.ui.label[data-v-72028fd0] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.4em !important;\n  padding-left: 0.15em !important;\n  padding-top: 0.3em !important;\n  padding-bottom: 0.3em !important;\n  top: 0.9em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.close-container.floating.ui.label .close.icon[data-v-72028fd0] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n.footer-row .UserAvatarIcons[data-v-72028fd0] {\n  vertical-align: top;\n}\n@media only screen and (max-width: 767px) {\n.footer-row > .column[data-v-72028fd0]  .UserAvatarIcons,\n  .footer-row > .column[data-v-72028fd0]  .AnnotationTypeButton {\n    display: none;\n}\n}\n.attached.label[data-v-72028fd0] {\n  padding: 0 !important;\n  text-align: right;\n  /*\n  .button {\n    background-color: transparent;\n    margin-right: 0 !important;\n    border-radius: 0;\n    \n    &:hover {\n      background-color: #D2D3D4;\n    }\n  }\n  */\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=72028fd0&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,sCAAsC;EACtC,UAAU;EACV,0CAA0C;EAC1C,0BAA0B;EAC1B,SAAS;EACT,WAAW;EACX,wBAAwB;EACxB,qBAAqB;EACrB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;AACA;IACI,QAAQ;IACR,mBAAmB;AACvB;AACA;AACA;EACE,UAAU;EACV,WAAW;AACb;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;AACA;IACI,WAAW;AACf;AACA;IACI,YAAY;AAChB;AACA;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,8BAA8B;EAC9B,cAAc;AAChB;AACA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,4BAA4B;EAC5B,2BAA2B;AAC7B;AACA;EACE,4BAA4B;AAC9B;AACA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,UAAU;EACV,mCAAmC;EACnC,yBAAyB;EACzB,+BAA+B;EAC/B,6BAA6B;EAC7B,gCAAgC;EAChC,qBAAqB;EACrB,kCAAkC;EAClC,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,qBAAqB;AACvB;AACA;EACE,mBAAmB;AACrB;AACA;AACA;;IAEI,aAAa;AACjB;AACA;AACA;EACE,qBAAqB;EACrB,iBAAiB;EACjB;;;;;;;;;;GAUC;AACH","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=72028fd0&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-72028fd0] {\n  transition: opacity 0.3s, z-index 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: -1;\n  width: calc(100vw - 4em);\n  top: calc(60px + 1em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n@media only screen and (max-height: 700px) {\n.annotation-float-widget[data-v-72028fd0] {\n    top: 1em;\n    max-height: inherit;\n}\n}\n.annotation-float-widget.show[data-v-72028fd0] {\n  opacity: 1;\n  z-index: 10;\n}\n.annotation-float-widget.bottom[data-v-72028fd0] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n@media only screen and (max-height: 700px) {\n.annotation-float-widget.bottom[data-v-72028fd0] {\n    bottom: 5em;\n}\n.annotation-float-widget.bottom.show[data-v-72028fd0] {\n    z-index: 999;\n}\n}\n.annotation-float-widget.bottom.selecting[data-v-72028fd0] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-72028fd0] {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  vertical-align: top !important;\n  direction: ltr;\n}\n.annotation-float-widget .footer-row > .column[data-v-72028fd0] {\n  white-space: nowrap;\n  overflow-x: auto;\n  overflow-y: hidden;\n  max-width: 100%;\n  margin-left: 1em;\n  margin-right: 1em;\n  padding-left: 0em !important;\n  padding-right: 0 !important;\n}\n.annotation-float-widget.is-fixed[data-v-72028fd0] {\n  margin-top: calc(-2em - 4px);\n}\n.close-container.floating.ui.label[data-v-72028fd0] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.4em !important;\n  padding-left: 0.15em !important;\n  padding-top: 0.3em !important;\n  padding-bottom: 0.3em !important;\n  top: 0.9em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.close-container.floating.ui.label .close.icon[data-v-72028fd0] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n.footer-row .UserAvatarIcons[data-v-72028fd0] {\n  vertical-align: top;\n}\n@media only screen and (max-width: 767px) {\n.footer-row > .column[data-v-72028fd0]  .UserAvatarIcons,\n  .footer-row > .column[data-v-72028fd0]  .AnnotationTypeButton {\n    display: none;\n}\n}\n.attached.label[data-v-72028fd0] {\n  padding: 0 !important;\n  text-align: right;\n  /*\n  .button {\n    background-color: transparent;\n    margin-right: 0 !important;\n    border-radius: 0;\n    \n    &:hover {\n      background-color: #D2D3D4;\n    }\n  }\n  */\n}\n"]}]);
+exports.push([module.i, ".annotation-float-widget[data-v-72028fd0] {\n  transition: opacity 0.3s, z-index 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: -1;\n  width: calc(100vw - 4em);\n  top: calc(60px + 1em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n@media only screen and (max-height: 700px) {\n.annotation-float-widget[data-v-72028fd0] {\n    top: 3em;\n    max-height: inherit;\n}\n.annotation-float-widget[data-v-72028fd0]  .AnnotationItem .note {\n    max-width: calc(100%);\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n}\n@media only screen and (max-height: 700px) and only screen and (max-width: 767px) {\n.annotation-float-widget[data-v-72028fd0]  .AnnotationItem .note {\n    max-width: calc(100% - 6em);\n}\n}\n.annotation-float-widget.show[data-v-72028fd0] {\n  opacity: 1;\n  z-index: 10;\n}\n.annotation-float-widget.bottom[data-v-72028fd0] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n@media only screen and (max-height: 700px) {\n.annotation-float-widget.bottom[data-v-72028fd0] {\n    bottom: 5em;\n}\n.annotation-float-widget.bottom.show[data-v-72028fd0] {\n    z-index: 999;\n}\n}\n.annotation-float-widget.bottom.selecting[data-v-72028fd0] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-72028fd0] {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  vertical-align: top !important;\n  direction: ltr;\n}\n.annotation-float-widget .footer-row > .column[data-v-72028fd0] {\n  white-space: nowrap;\n  overflow-x: auto;\n  overflow-y: hidden;\n  max-width: 100%;\n  margin-left: 1em;\n  margin-right: 1em;\n  padding-left: 0em !important;\n  padding-right: 0 !important;\n}\n.annotation-float-widget.is-fixed[data-v-72028fd0] {\n  margin-top: calc(-2em - 4px);\n}\n.close-container.floating.ui.label[data-v-72028fd0] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.4em !important;\n  padding-left: 0.15em !important;\n  padding-top: 0.3em !important;\n  padding-bottom: 0.3em !important;\n  top: 0.9em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.close-container.floating.ui.label .close.icon[data-v-72028fd0] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n.footer-row .UserAvatarIcons[data-v-72028fd0] {\n  vertical-align: top;\n}\n@media only screen and (max-width: 767px) {\n.footer-row > .column[data-v-72028fd0]  .UserAvatarIcons,\n  .footer-row > .column[data-v-72028fd0]  .AnnotationTypeButton {\n    display: none;\n}\n}\n.attached.label[data-v-72028fd0] {\n  padding: 0 !important;\n  text-align: right;\n  /*\n  .button {\n    background-color: transparent;\n    margin-right: 0 !important;\n    border-radius: 0;\n    \n    &:hover {\n      background-color: #D2D3D4;\n    }\n  }\n  */\n}\n", "",{"version":3,"sources":["AnnotationFloatWidget.less?vue&type=style&index=0&id=72028fd0&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,sCAAsC;EACtC,UAAU;EACV,0CAA0C;EAC1C,0BAA0B;EAC1B,SAAS;EACT,WAAW;EACX,wBAAwB;EACxB,qBAAqB;EACrB,kBAAkB;EAClB,gBAAgB;AAClB;AACA;AACA;IACI,QAAQ;IACR,mBAAmB;AACvB;AACA;IACI,qBAAqB;IACrB,gBAAgB;IAChB,uBAAuB;IACvB,mBAAmB;AACvB;AACA;AACA;AACA;IACI,2BAA2B;AAC/B;AACA;AACA;EACE,UAAU;EACV,WAAW;AACb;AACA;EACE,SAAS;EACT,wBAAwB;AAC1B;AACA;AACA;IACI,WAAW;AACf;AACA;IACI,YAAY;AAChB;AACA;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,8BAA8B;EAC9B,cAAc;AAChB;AACA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,kBAAkB;EAClB,eAAe;EACf,gBAAgB;EAChB,iBAAiB;EACjB,4BAA4B;EAC5B,2BAA2B;AAC7B;AACA;EACE,4BAA4B;AAC9B;AACA;EACE,YAAY;EACZ,eAAe;EACf,iBAAiB;EACjB,UAAU;EACV,mCAAmC;EACnC,yBAAyB;EACzB,+BAA+B;EAC/B,6BAA6B;EAC7B,gCAAgC;EAChC,qBAAqB;EACrB,kCAAkC;EAClC,6BAA6B;AAC/B;AACA;EACE,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,qBAAqB;AACvB;AACA;EACE,mBAAmB;AACrB;AACA;AACA;;IAEI,aAAa;AACjB;AACA;AACA;EACE,qBAAqB;EACrB,iBAAiB;EACjB;;;;;;;;;;GAUC;AACH","file":"AnnotationFloatWidget.less?vue&type=style&index=0&id=72028fd0&lang=less&scoped=true&","sourcesContent":[".annotation-float-widget[data-v-72028fd0] {\n  transition: opacity 0.3s, z-index 0.3s;\n  opacity: 0;\n  filter: drop-shadow(0px 0px 0.5em #000000);\n  position: fixed !important;\n  left: 1em;\n  z-index: -1;\n  width: calc(100vw - 4em);\n  top: calc(60px + 1em);\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n@media only screen and (max-height: 700px) {\n.annotation-float-widget[data-v-72028fd0] {\n    top: 3em;\n    max-height: inherit;\n}\n.annotation-float-widget[data-v-72028fd0]  .AnnotationItem .note {\n    max-width: calc(100%);\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n}\n@media only screen and (max-height: 700px) and only screen and (max-width: 767px) {\n.annotation-float-widget[data-v-72028fd0]  .AnnotationItem .note {\n    max-width: calc(100% - 6em);\n}\n}\n.annotation-float-widget.show[data-v-72028fd0] {\n  opacity: 1;\n  z-index: 10;\n}\n.annotation-float-widget.bottom[data-v-72028fd0] {\n  top: auto;\n  bottom: calc(60px + 1em);\n}\n@media only screen and (max-height: 700px) {\n.annotation-float-widget.bottom[data-v-72028fd0] {\n    bottom: 5em;\n}\n.annotation-float-widget.bottom.show[data-v-72028fd0] {\n    z-index: 999;\n}\n}\n.annotation-float-widget.bottom.selecting[data-v-72028fd0] {\n  width: calc(100vw - 14em);\n}\n.annotation-float-widget .list-button[data-v-72028fd0] {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n  vertical-align: top !important;\n  direction: ltr;\n}\n.annotation-float-widget .footer-row > .column[data-v-72028fd0] {\n  white-space: nowrap;\n  overflow-x: auto;\n  overflow-y: hidden;\n  max-width: 100%;\n  margin-left: 1em;\n  margin-right: 1em;\n  padding-left: 0em !important;\n  padding-right: 0 !important;\n}\n.annotation-float-widget.is-fixed[data-v-72028fd0] {\n  margin-top: calc(-2em - 4px);\n}\n.close-container.floating.ui.label[data-v-72028fd0] {\n  float: right;\n  cursor: pointer;\n  user-select: none;\n  z-index: 2;\n  left: calc(100% - 0.3em) !important;\n  padding: 0.4em !important;\n  padding-left: 0.15em !important;\n  padding-top: 0.3em !important;\n  padding-bottom: 0.3em !important;\n  top: 0.9em !important;\n  border: 2px solid white !important;\n  border-radius: 2em !important;\n}\n.close-container.floating.ui.label .close.icon[data-v-72028fd0] {\n  opacity: 1 !important;\n  color: white;\n  margin-left: 0.3em;\n  margin-bottom: -0.2em;\n}\n.footer-row .UserAvatarIcons[data-v-72028fd0] {\n  vertical-align: top;\n}\n@media only screen and (max-width: 767px) {\n.footer-row > .column[data-v-72028fd0]  .UserAvatarIcons,\n  .footer-row > .column[data-v-72028fd0]  .AnnotationTypeButton {\n    display: none;\n}\n}\n.attached.label[data-v-72028fd0] {\n  padding: 0 !important;\n  text-align: right;\n  /*\n  .button {\n    background-color: transparent;\n    margin-right: 0 !important;\n    border-radius: 0;\n    \n    &:hover {\n      background-color: #D2D3D4;\n    }\n  }\n  */\n}\n"]}]);
 
 
 /***/ }),
@@ -6403,7 +6403,23 @@ __webpack_require__.r(__webpack_exports__);
     if (this.lib.RangyManager.isSelecting()) {
       classList.push('selecting')
     }
-
+    
+//    console.log({
+//      mouse: this.triggerEvent.clientY,
+//      widget: this.$el.getBoundingClientRect()
+//    })
+    
+//    let disableAnimate = false
+//    let rect = this.$el.getBoundingClientRect()
+//    let mouseY = this.triggerEvent.clientY
+//    if (mouseY >= rect.top && mouseY <= rect.bottom) {
+//      disableAnimate = true
+//    }
+//
+//    if (disableAnimate || this.lib.style.isEnableAnimte === false) {
+//      classList.push('disable-animate')
+//    }
+    //console.log(disableAnimate)
     if (this.lib.style.isEnableAnimte === false) {
       classList.push('disable-animate')
     }
@@ -6418,6 +6434,20 @@ __webpack_require__.r(__webpack_exports__);
       return classList.join(' ')
     }
   } // AnnotationFloatWidget.computed.computedContainerClassNames = function () {
+
+  AnnotationFloatWidget.computed.isTriggerBehindFloatWidget = function () {
+    if (!this.triggerEvent 
+            || typeof(this.triggerEvent.clientY) !== 'number') {
+      return false
+    }
+    
+    let rect = this.$el.getBoundingClientRect()
+    let mouseY = this.triggerEvent.clientY
+    let bottom = rect.top + 180
+    //console.log(mouseY, rect.top, bottom)
+    return (mouseY >= rect.top && mouseY <= bottom)
+  }
+    
 
   AnnotationFloatWidget.computed.computedButtonsClassNames = function () {
     let classList = []
@@ -6554,7 +6584,10 @@ __webpack_require__.r(__webpack_exports__);
 
   AnnotationFloatWidget.methods.reset = function () {
     this.anchorPositions = null
-    this.isFixed = false
+    //setTimeout(() => {
+      this.isFixed = false
+      this.isFixedMouseout = false
+    //}, 500)
   }
 });
 
@@ -6643,13 +6676,17 @@ __webpack_require__.r(__webpack_exports__);
     this.anchorPositions = data.anchorPositions
     //useMouse = true
     interactiveMode = 'mouse'
+    
+    if (this.isTriggerBehindFloatWidget === true) {
+      this.isFixed = true
+    }
   } // AnnotationFloatWidget.methods.rangyEventMouseover = function (data) {
 
 //  AnnotationFloatWidget.methods.rangyEventMouseover = function (data) {
 //    
 //  } // AnnotationFloatWidget.methods.rangyEventMouseover = function (data) {
 
-  AnnotationFloatWidget.methods.rangyEventMouseout = function (data) {
+  AnnotationFloatWidget.methods.rangyEventMouseout = async function (data) {
     if (this.lib.AnnotationPanel.isHide === false) {
       return false
     }
@@ -6657,7 +6694,14 @@ __webpack_require__.r(__webpack_exports__);
       this.isFixedMouseout = true
       return false
     }
-
+    
+    //await this.lib.VueHelper.sleep(100)
+    //console.log(this.isTriggerBehindFloatWidget)
+    if (this.isTriggerBehindFloatWidget === true) {
+      this.isFixed = true
+      return true
+    }
+    
     this.anchorPositions = null
     //useMouse = false
     interactiveMode = null
@@ -6665,6 +6709,11 @@ __webpack_require__.r(__webpack_exports__);
   
   AnnotationFloatWidget.methods.rangyEventMousemove = function (data) {
     if (rangy.isSelecting() === false) {
+      return false
+    }
+    
+    if (this.isTriggerBehindFloatWidget === true) {
+      this.isFixed = true
       return false
     }
 
@@ -10788,6 +10837,7 @@ let AnnotationDiscussionInput = {
         note: this.note
       }
       
+      this.panelData.isCommentEditing = false
       let result
       if (debugSkipCreate !== true) {
         result = await this.lib.AxiosHelper.post('/client/AnnotationComment/create', data)
@@ -10826,7 +10876,7 @@ let AnnotationDiscussionInput = {
         commentID: this.comment.id,
         note: this.note
       }
-      
+      this.panelData.isCommentEditing = false
       let result = await this.lib.AxiosHelper.post('/client/AnnotationComment/update', data)
       
       if (typeof(result.id) !== 'number') {

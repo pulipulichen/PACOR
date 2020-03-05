@@ -9,11 +9,11 @@ module.exports = {
     forceMaxTimeoutMinutes: 1,
     
     test: {
-      //minAnnotation: 4,
-      //maxAnnotation: 9
+      minAnnotation: 4,
+      maxAnnotation: 9
       
-      minAnnotation: 2,
-      maxAnnotation: 2
+      //minAnnotation: 2,
+      //maxAnnotation: 2
     },
     
     //onlyShowTutorialOrder: [62],
@@ -322,7 +322,7 @@ module.exports = {
       "style": {
         //'highlight': 'border-bottom: 1px solid red',
         'highlight': {
-          'my': 'background-color: rgba(52, 152, 219,0.2); color: black;',
+          'my': 'background-color: rgba(52, 152, 219, 0.3); color: black;',
           'others': 'border-bottom: 2px solid rgba(52, 152, 219, 0.7)'
         },
         'segmentColor': '#2980b9',

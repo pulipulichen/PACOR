@@ -80,6 +80,9 @@ export default function (AnnotationFloatWidget) {
 
   AnnotationFloatWidget.methods.reset = function () {
     this.anchorPositions = null
-    this.isFixed = false
+    //setTimeout(() => {
+      this.isFixed = false
+      this.isFixedMouseout = false
+    //}, 500)
   }
 }

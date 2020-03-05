@@ -72,13 +72,17 @@ export default function (AnnotationFloatWidget) {
     this.anchorPositions = data.anchorPositions
     //useMouse = true
     interactiveMode = 'mouse'
+    
+    if (this.isTriggerBehindFloatWidget === true) {
+      this.isFixed = true
+    }
   } // AnnotationFloatWidget.methods.rangyEventMouseover = function (data) {
 
 //  AnnotationFloatWidget.methods.rangyEventMouseover = function (data) {
 //    
 //  } // AnnotationFloatWidget.methods.rangyEventMouseover = function (data) {
 
-  AnnotationFloatWidget.methods.rangyEventMouseout = function (data) {
+  AnnotationFloatWidget.methods.rangyEventMouseout = async function (data) {
     if (this.lib.AnnotationPanel.isHide === false) {
       return false
     }
@@ -86,7 +90,14 @@ export default function (AnnotationFloatWidget) {
       this.isFixedMouseout = true
       return false
     }
-
+    
+    //await this.lib.VueHelper.sleep(100)
+    //console.log(this.isTriggerBehindFloatWidget)
+    if (this.isTriggerBehindFloatWidget === true) {
+      this.isFixed = true
+      return true
+    }
+    
     this.anchorPositions = null
     //useMouse = false
     interactiveMode = null
@@ -94,6 +105,11 @@ export default function (AnnotationFloatWidget) {
   
   AnnotationFloatWidget.methods.rangyEventMousemove = function (data) {
     if (rangy.isSelecting() === false) {
+      return false
+    }
+    
+    if (this.isTriggerBehindFloatWidget === true) {
+      this.isFixed = true
       return false
     }
 

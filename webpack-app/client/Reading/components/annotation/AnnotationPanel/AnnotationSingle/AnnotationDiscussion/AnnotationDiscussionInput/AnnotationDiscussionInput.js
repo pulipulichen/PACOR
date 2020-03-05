@@ -118,6 +118,7 @@ let AnnotationDiscussionInput = {
         note: this.note
       }
       
+      this.panelData.isCommentEditing = false
       let result
       if (debugSkipCreate !== true) {
         result = await this.lib.AxiosHelper.post('/client/AnnotationComment/create', data)
@@ -156,7 +157,7 @@ let AnnotationDiscussionInput = {
         commentID: this.comment.id,
         note: this.note
       }
-      
+      this.panelData.isCommentEditing = false
       let result = await this.lib.AxiosHelper.post('/client/AnnotationComment/update', data)
       
       if (typeof(result.id) !== 'number') {

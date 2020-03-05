@@ -351,12 +351,15 @@ let logManager = {
     
     output.width = Math.ceil(output.width / 3)
     output.height = Math.ceil(output.height / 2)
+    if (output.height < 600) {
+      output.height = 600
+    }
     
     output.top = 0
     output.left = 0
     
     let i = this.getDisplayIndex(index) % 9
-    console.log({displayIndex: i})
+    //console.log({displayIndex: i})
     if ([1,4,7].indexOf(index) > -1) {
       output.left = output.width + 1
     }

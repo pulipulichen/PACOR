@@ -31,6 +31,10 @@
   
   .display-time {
     line-height: 2.2rem;
+    
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
 }
 
@@ -123,10 +127,6 @@
     .display-time {
       max-width: 0;
       overflow-x: hidden;
-      
-      @media (max-width: 767px) {
-        display: none;
-      }
     }
   }
 }
