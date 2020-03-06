@@ -71,6 +71,7 @@ class WebpageConfig {
         
         let output = Config.get('reading')
         output = this._pretestConfig(output)
+        output = this._setup2020ExpConfig(output)
         
         profiler.before('get domain')
         let query = DomainModel
@@ -179,6 +180,30 @@ class WebpageConfig {
         //console.log(output)
         output = TypeHelper.mergeDeep(output, pretestConfig)
         //console.log(output)
+      }
+      
+      return output
+    }
+    
+    
+    Model.prototype._setup2020ExpConfig = function (output) {
+      // For pre-test
+      let pretestConfig
+      
+      let baseDomain = Env.get('PROTOCOL') + '//' 
+              + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT')
+      
+      let prefix = baseDomain + '/2020exp/'
+      //console.log(prefix, this.url)
+      if (this.url.startsWith(prefix)) {
+        let parts = this.url.split('/')
+        let group = parts[(parts.length - 3)]
+        let seq = parts[(parts.length - 2)]
+        
+        // reading2020ExpCtrl3
+        //console.log('reading2020Exp_' + group + seq)
+        pretestConfig = Config.get('reading2020Exp_' + group + seq)
+        output = TypeHelper.mergeDeep(output, pretestConfig)
       }
       
       return output
