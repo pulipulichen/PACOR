@@ -28,8 +28,8 @@ module.exports = {
 //        //types: ['MainIdea'],
 //      //},
 //    },
-//    'FreeReading': {
-//      //nextReadingPage: '/pretest/alpha.html'
-//    }
+    'FreeReading': {
+      nextReadingPage: 'https://docs.google.com/forms/d/e/1FAIpQLSdqkgpOYUmB81bRNiK_z4_8Rn-l2RQEtzXjuNkgvXBVaYvE0g/viewform?usp=pp_url&entry.449355614={id}'
+    }
   }
 }

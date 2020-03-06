@@ -121,7 +121,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".saving[data-v-44585226] {\n  border-color: brown !important;\n}\n", "",{"version":3,"sources":["WebpageArticleAnalysis.less?vue&type=style&index=0&id=44585226&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC","file":"WebpageArticleAnalysis.less?vue&type=style&index=0&id=44585226&lang=less&scoped=true&","sourcesContent":[".saving[data-v-44585226] {\n  border-color: brown !important;\n}\n"]}]);
+exports.push([module.i, ".saving[data-v-44585226] {\n  border-color: brown !important;\n}\n.idea-units-textarea[data-v-44585226] {\n  height: 100% !important;\n  max-height: inherit !important;\n}\n", "",{"version":3,"sources":["WebpageArticleAnalysis.less?vue&type=style&index=0&id=44585226&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,8BAA8B;AAChC;AACA;EACE,uBAAuB;EACvB,8BAA8B;AAChC","file":"WebpageArticleAnalysis.less?vue&type=style&index=0&id=44585226&lang=less&scoped=true&","sourcesContent":[".saving[data-v-44585226] {\n  border-color: brown !important;\n}\n.idea-units-textarea[data-v-44585226] {\n  height: 100% !important;\n  max-height: inherit !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -246,7 +246,7 @@ var render = function() {
               expression: "ideaUnits"
             }
           ],
-          staticClass: "ui textarea",
+          staticClass: "ui textarea idea-units-textarea",
           class: { saving: _vm.wait },
           domProps: { value: _vm.ideaUnits },
           on: {
@@ -260,13 +260,71 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "four wide column" }, [
-        _vm._v("\r\n      關於Idea Unit的提示\r\n    ")
-      ])
+      _vm._m(0)
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "four wide column" }, [
+      _vm._v("\r\n      關於Idea Unit的提示：\r\n      \r\n      "),
+      _c("p", [_vm._v("文本模型命題的識別共有4條原則：")]),
+      _vm._v(" "),
+      _c("ol", [
+        _c("li", [
+          _vm._v(
+            "文字包含了動詞和述詞即為一個命題，以斜線拆開文本中的不同命題。"
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _vm._v("重要的專有詞彙或細節視為單獨各別的命題，以底線標示。")
+        ]),
+        _vm._v(" "),
+        _c("li", [_vm._v("文本中列舉的概念各別被視為獨立命題。")]),
+        _vm._v(" "),
+        _c("li", [
+          _vm._v(
+            "若可以用不同的文字敘述表達與該命題相同的概念，則以大括號備註在該命題旁邊，視為同一個命題。"
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("p", [_vm._v("處境模型命題的識別共有3條原則：")]),
+      _vm._v(" "),
+      _c("ol", [
+        _c("li", [
+          _vm._v("文本中沒有寫出，但可推論之隱含的概念，視為額外的命題。")
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _vm._v(
+            "文本中沒有直接相連，但可連結不同位置後得出的概念，視為額外的命題。"
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _vm._v(
+            "如果是句子中可省略，但對整體文本而言依然重要的字句，則切割成不同命題。"
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("p", [_vm._v("最後是命題排除的2條原則：")]),
+      _vm._v(" "),
+      _c("ol", [
+        _c("li", [
+          _vm._v("從命題中排除可省略的文字，例如副詞、介詞，以小括號備註。")
+        ]),
+        _vm._v(" "),
+        _c("li", [_vm._v("排除重複的命題。")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
