@@ -16,7 +16,7 @@ let TokenizationHelper = {
     return $(html).text()
   },
   removePunctuations (s) {
-    s = s.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()。，、；：「」『』（）—？！…《》～〔〕［］・　]/g, " ")
+    s = s.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()。，、；：「」『』（）—？！…《》～〔〕［］・─　]/g, " ")
     while (s.indexOf('  ') > -1) {
       s = s.replace(/  /g, ' ')
     }

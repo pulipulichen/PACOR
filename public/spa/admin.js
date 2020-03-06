@@ -14060,7 +14060,7 @@ let StringHelper = {
     string = string.replace(r3,' {THI} ');
     //string = string.replace(/(<([^>]+)>)/ig,”") ;
     string = string.replace(/(\(|\)|\*|\||\+|\”|\’|_|;|:|,|\.|\?)/ig," ") ;
-    string = string.replace(/(。，、；：「」『』（）—？！…《》～〔〕［］・　)/ig," ") ;
+    string = string.replace(/(。，、；：「」『』（）—？！…《》～〔〕［］・─　)/ig," ") ;
     string = string.replace(/\s+/ig," ");
     //string = string.replace(/_+/ig," ");
     var a = string.split(/[\s+|\\|\/]/g);
@@ -14086,7 +14086,7 @@ let StringHelper = {
       return ''
     }
     
-    s = s.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()。，、；：「」『』（）—？！…《》～〔〕［］・　]/g, " ")
+    s = s.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()。，、；：「」『』（）—？！…《》～〔〕［］・─　]/g, " ")
     while (s.indexOf('  ') > -1) {
       s = s.replace(/  /g, ' ')
     }
