@@ -77,6 +77,10 @@ export default (SectionChecklist) => {
     }
     
     let checklist = this.lib.auth.stepSectionAnnotationConfig.checklist
+    if (this.lib.auth.currentStepConfig.highlightAnnotation.types.indexOf('Confused') === -1) {
+      checklist = checklist.filter(i => (i !== '{HighlightConfused}'))
+    }
+    
     return checklist
   }
   
@@ -96,8 +100,9 @@ export default (SectionChecklist) => {
         }
       }
       else if (item === '{HighlightConfused}') {
-        if (this.lib.auth.currentStepConfig.highlightAnnotation.types.indexOf('Confused') > -1)
-        output.push(`I have already written annotations on a sentence I don't understand.`)
+        if (this.lib.auth.currentStepConfig.highlightAnnotation.types.indexOf('Confused') > -1) {
+          output.push(`I have already written annotations on a sentence I don't understand.`)
+        }
       }
       else if (item === '{SectionMainIdea}') {
         if (isArticleNote === true) {

@@ -20,7 +20,7 @@ module.exports = {
     
     //stayInReadingProgress: 'PreImaginaryKeyword'
     //stayInReadingProgress: 'PostRecallKeyword'
-    //stayInReadingProgress: 'IndividualReading'
+    stayInReadingProgress: 'IndividualReading'
     //stayInReadingProgress: 'CollaborativeReading'
     //stayInReadingProgress: 'FreeReading'
   },
@@ -135,7 +135,8 @@ module.exports = {
         defaultPermission: 'public',
       },
       highlightAnnotation: {
-        types: ['Clarified', 'Confused', 'MainIdea'],
+        //types: ['Clarified', 'Confused', 'MainIdea'],
+        types: ['MainIdea'],
       },
       sectionAnnotation: {
         types: ['SectionMainIdea'],

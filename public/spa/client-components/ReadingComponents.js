@@ -28050,6 +28050,10 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     let checklist = this.lib.auth.stepSectionAnnotationConfig.checklist
+    if (this.lib.auth.currentStepConfig.highlightAnnotation.types.indexOf('Confused') === -1) {
+      checklist = checklist.filter(i => (i !== '{HighlightConfused}'))
+    }
+    
     return checklist
   }
   
@@ -28069,8 +28073,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
       else if (item === '{HighlightConfused}') {
-        if (this.lib.auth.currentStepConfig.highlightAnnotation.types.indexOf('Confused') > -1)
-        output.push(`I have already written annotations on a sentence I don't understand.`)
+        if (this.lib.auth.currentStepConfig.highlightAnnotation.types.indexOf('Confused') > -1) {
+          output.push(`I have already written annotations on a sentence I don't understand.`)
+        }
       }
       else if (item === '{SectionMainIdea}') {
         if (isArticleNote === true) {
@@ -28150,7 +28155,11 @@ __webpack_require__.r(__webpack_exports__);
       
       if (this.lib.auth.stepSectionAnnotationConfig 
               && this.lib.auth.stepSectionAnnotationConfig.checklist) {
-        let checkListLength = this.lib.auth.stepSectionAnnotationConfig.checklist.length
+        let checkList = this.lib.auth.stepSectionAnnotationConfig.checklist
+        if (this.lib.auth.currentStepConfig.highlightAnnotation.types.indexOf('Confused') === -1) {
+          checkList = checkList.filter(i => (i !== '{HighlightConfused}'))
+        }
+        let checkListLength = checkList.length
         for (let i = 0; i < checkListLength; i++) {
           this.sectionsData.checklist[this.sectionSeqID].push(false)
         }
@@ -28219,7 +28228,7 @@ if (debugMockUpdate === true) {
   }
   
   SectionChecklist.methods.openSectionAnnotationEditor = function () {
-    console.log(this.annotation)
+    //console.log(this.annotation)
     this.lib.AnnotationPanel.setAnnotation(this.annotation, {
       'add': (annotation) => {
         //console.log('Add annotation 有嗎？')
@@ -28306,7 +28315,7 @@ if (debugMockUpdate === true) {
     let result = checked.filter(c => c !== true)
 
     //this.$forceUpdate()
-    //console.log(checked.length, checked, result)
+    console.log(checked.length, checked, result)
     this.isChecklistCompleted = (result.length === 0)
   }
 });

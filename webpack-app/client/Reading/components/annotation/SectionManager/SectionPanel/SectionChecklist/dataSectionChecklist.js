@@ -9,7 +9,11 @@ export default (SectionChecklist) => {
       
       if (this.lib.auth.stepSectionAnnotationConfig 
               && this.lib.auth.stepSectionAnnotationConfig.checklist) {
-        let checkListLength = this.lib.auth.stepSectionAnnotationConfig.checklist.length
+        let checkList = this.lib.auth.stepSectionAnnotationConfig.checklist
+        if (this.lib.auth.currentStepConfig.highlightAnnotation.types.indexOf('Confused') === -1) {
+          checkList = checkList.filter(i => (i !== '{HighlightConfused}'))
+        }
+        let checkListLength = checkList.length
         for (let i = 0; i < checkListLength; i++) {
           this.sectionsData.checklist[this.sectionSeqID].push(false)
         }

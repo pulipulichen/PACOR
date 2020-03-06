@@ -27,7 +27,7 @@ export default (SectionChecklist) => {
   }
   
   SectionChecklist.methods.openSectionAnnotationEditor = function () {
-    console.log(this.annotation)
+    //console.log(this.annotation)
     this.lib.AnnotationPanel.setAnnotation(this.annotation, {
       'add': (annotation) => {
         //console.log('Add annotation 有嗎？')
@@ -114,7 +114,7 @@ export default (SectionChecklist) => {
     let result = checked.filter(c => c !== true)
 
     //this.$forceUpdate()
-    //console.log(checked.length, checked, result)
+    console.log(checked.length, checked, result)
     this.isChecklistCompleted = (result.length === 0)
   }
 }
