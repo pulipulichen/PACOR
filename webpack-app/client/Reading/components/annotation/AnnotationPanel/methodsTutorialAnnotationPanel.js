@@ -52,7 +52,7 @@ export default function (AnnotationPanel) {
       element: () => {
         return this.$refs.panel
       },
-      content: this.$t('You can add note for the annotation.'),
+      content: this.$t('Please write down the reasons for choosing this keyword or other things you think of from this keyword. You can also insert pictures.'),
       order: 31
     })
     
