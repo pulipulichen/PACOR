@@ -617,14 +617,16 @@ var render = function() {
               key: "items",
               fn: function() {
                 return [
-                  _c("annotation-type-filter", {
-                    ref: "AnnotationTypeFilter",
-                    attrs: {
-                      config: _vm.config,
-                      status: _vm.status,
-                      lib: _vm.lib
-                    }
-                  }),
+                  _vm.lib.auth.featureEnable.AnnotationTypeFilter
+                    ? _c("annotation-type-filter", {
+                        ref: "AnnotationTypeFilter",
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib
+                        }
+                      })
+                    : _vm._e(),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -668,7 +670,7 @@ var render = function() {
           ],
           null,
           false,
-          1542386900
+          881435680
         )
       })
     : _vm._e()
@@ -918,10 +920,15 @@ let IndividualReading = {
       this.status.progress.initComponents = true
     },
     initNavComponentToLib: async function () {
-      while (!this.$refs.nav.$refs.AnnotationTypeFilter) {
-        await this.lib.VueHelper.sleep(100)
+      if (this.lib.auth.featureEnable.AnnotationTypeFilter) {
+        while (!this.$refs.nav.$refs.AnnotationTypeFilter) {
+          await this.lib.VueHelper.sleep(100)
+        }
+        this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
       }
-      this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
+      else {
+        this.lib.AnnotationTypeFilter = null
+      }
       
       this.status.progress.initComponents = true
     },

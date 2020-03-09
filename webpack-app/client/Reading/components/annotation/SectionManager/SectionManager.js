@@ -36,7 +36,7 @@ let SectionManager = {
       }
     },
     isArticleNote () {
-      console.log(this.sectionNodes.length)
+      //console.log(this.sectionNodes.length)
       return (this.sectionNodes.length === 1)
     },
     sectionTypeTrans () {

@@ -260,10 +260,15 @@ let CollaborativeReading = {
         this.lib.UserFilter = this.$refs.nav.$refs.UserFilter
       }
       
-      while (!this.$refs.nav.$refs.AnnotationTypeFilter) {
-        await this.lib.VueHelper.sleep(100)
+      if (this.lib.auth.featureEnable.AnnotationTypeFilter) {
+        while (!this.$refs.nav.$refs.AnnotationTypeFilter) {
+          await this.lib.VueHelper.sleep(100)
+        }
+        this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
       }
-      this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
+      else {
+        this.lib.AnnotationTypeFilter = false
+      }
     },
     showInstruction() {
       this.$refs.ReadingInstruction.show()

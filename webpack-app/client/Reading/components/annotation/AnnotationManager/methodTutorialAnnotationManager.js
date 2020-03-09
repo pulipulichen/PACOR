@@ -54,7 +54,7 @@ export default function (AnnotationManager) {
 //        return element
         return this.lib.RangyManager.getOhterHighlightedSection()
       },
-      content: this.$t(`You can read other's annotations.`),
+      content: this.$t(`You can see the annotations of other readers. The bottom line is the annotation of other readers, and the background color is your annotation.`),
       scroll: 'start',
       order: 1
     })

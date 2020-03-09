@@ -273,14 +273,16 @@ var render = function() {
                     on: { show: _vm.hideSideMenu }
                   }),
                   _vm._v(" "),
-                  _c("annotation-type-filter", {
-                    ref: "AnnotationTypeFilter",
-                    attrs: {
-                      config: _vm.config,
-                      status: _vm.status,
-                      lib: _vm.lib
-                    }
-                  }),
+                  _vm.lib.auth.featureEnable.AnnotationTypeFilter
+                    ? _c("annotation-type-filter", {
+                        ref: "AnnotationTypeFilter",
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib
+                        }
+                      })
+                    : _vm._e(),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -349,7 +351,7 @@ var render = function() {
           ],
           null,
           false,
-          3380958780
+          1577943048
         )
       })
     : _vm._e()
@@ -890,6 +892,10 @@ __webpack_require__.r(__webpack_exports__);
     this.lib.TutorialManager.addAction({
       backgroundFadeOut: true,
       enable: () => {
+        if (!this.lib.auth.featureEnable.AnnotationTypeFilter) {
+          return false
+        }
+        
         return !this.$refs.nav.isCompactMode
       },
       beforeCallback: async () => {
@@ -942,6 +948,10 @@ __webpack_require__.r(__webpack_exports__);
 
     this.lib.TutorialManager.addAction({
       enable: () => {
+        if (!this.lib.auth.featureEnable.AnnotationTypeFilter) {
+          return false
+        }
+        
         return this.$refs.nav.isCompactMode
       },
       beforeCallback: async () => {

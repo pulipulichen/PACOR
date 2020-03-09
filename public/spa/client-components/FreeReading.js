@@ -701,14 +701,16 @@ var render = function() {
                           })
                         : _vm._e(),
                       _vm._v(" "),
-                      _c("annotation-type-filter", {
-                        ref: "AnnotationTypeFilter",
-                        attrs: {
-                          config: _vm.config,
-                          status: _vm.status,
-                          lib: _vm.lib
-                        }
-                      }),
+                      _vm.lib.auth.featureEnable.AnnotationTypeFilter
+                        ? _c("annotation-type-filter", {
+                            ref: "AnnotationTypeFilter",
+                            attrs: {
+                              config: _vm.config,
+                              status: _vm.status,
+                              lib: _vm.lib
+                            }
+                          })
+                        : _vm._e(),
                       _vm._v(" "),
                       _c(
                         "div",
@@ -826,7 +828,7 @@ var render = function() {
               ],
               null,
               false,
-              2791702580
+              1921609472
             )
           })
         : _vm._e(),
@@ -1657,10 +1659,15 @@ let CollaborativeReading = {
         this.lib.UserFilter = this.$refs.nav.$refs.UserFilter
       }
       
-      while (!this.$refs.nav.$refs.AnnotationTypeFilter) {
-        await this.lib.VueHelper.sleep(100)
+      if (this.lib.auth.featureEnable.AnnotationTypeFilter) {
+        while (!this.$refs.nav.$refs.AnnotationTypeFilter) {
+          await this.lib.VueHelper.sleep(100)
+        }
+        this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
       }
-      this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
+      else {
+        this.lib.AnnotationTypeFilter = false
+      }
     },
     showInstruction() {
       this.$refs.ReadingInstruction.show()

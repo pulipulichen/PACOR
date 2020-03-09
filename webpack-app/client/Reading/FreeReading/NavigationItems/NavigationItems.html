@@ -59,6 +59,7 @@
       </user-filter>
 
       <annotation-type-filter 
+        v-if="lib.auth.featureEnable.AnnotationTypeFilter"
         ref="AnnotationTypeFilter"
         v-bind:config="config"
         v-bind:status="status"

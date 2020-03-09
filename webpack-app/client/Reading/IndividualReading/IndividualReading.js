@@ -66,10 +66,15 @@ let IndividualReading = {
       this.status.progress.initComponents = true
     },
     initNavComponentToLib: async function () {
-      while (!this.$refs.nav.$refs.AnnotationTypeFilter) {
-        await this.lib.VueHelper.sleep(100)
+      if (this.lib.auth.featureEnable.AnnotationTypeFilter) {
+        while (!this.$refs.nav.$refs.AnnotationTypeFilter) {
+          await this.lib.VueHelper.sleep(100)
+        }
+        this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
       }
-      this.lib.AnnotationTypeFilter = this.$refs.nav.$refs.AnnotationTypeFilter
+      else {
+        this.lib.AnnotationTypeFilter = null
+      }
       
       this.status.progress.initComponents = true
     },

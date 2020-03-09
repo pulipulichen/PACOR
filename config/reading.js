@@ -149,6 +149,9 @@ module.exports = {
         ],
 //        updateInterval: 30000
       },
+      features: {
+        AnnotationTypeFilter: false
+      },
       debug: {
         countdownPause: false
       }
@@ -183,6 +186,9 @@ module.exports = {
         types: ['SectionMainIdea'],
         updateInterval: 30000
       },
+      features: {
+        AnnotationTypeFilter: false
+      },
       debug: {
         countdownPause: false
       }
@@ -216,6 +222,9 @@ module.exports = {
         enableSectionAnnotation: true,
         types: ['SectionMainIdea'],
         updateInterval: 30000
+      },
+      features: {
+        AnnotationTypeFilter: false
       },
       showFinishMessage: true, // 顯示恭喜完成的訊息
       //keepShowInstructionMessage: true,

@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can read other\u0027s annotations.":"您可以看到其他讀者的標註了。","Select text to highlight.":"請選擇您看不懂或是覺得是關鍵字的文字。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can read other\u0027s annotations.":"您可以看到其他讀者的標註了。","You can see the annotations of other readers. The bottom line is the annotation of other readers, and the background color is your annotation.":"您可以看到其他讀者的標註了。底線就是其他讀者的標註，底色則是您的標註。","Select text to highlight.":"請選擇您看不懂或是覺得是關鍵字的文字。"}}')
   delete Component.options._Ctor
 }
 
@@ -8970,7 +8970,7 @@ __webpack_require__.r(__webpack_exports__);
 //        return element
         return this.lib.RangyManager.getOhterHighlightedSection()
       },
-      content: this.$t(`You can read other's annotations.`),
+      content: this.$t(`You can see the annotations of other readers. The bottom line is the annotation of other readers, and the background color is your annotation.`),
       scroll: 'start',
       order: 1
     })
@@ -27052,7 +27052,7 @@ let SectionManager = {
       }
     },
     isArticleNote () {
-      console.log(this.sectionNodes.length)
+      //console.log(this.sectionNodes.length)
       return (this.sectionNodes.length === 1)
     },
     sectionTypeTrans () {

@@ -1444,6 +1444,19 @@ __webpack_require__.r(__webpack_exports__);
       role: 'reader'
     }
   }
+  
+  Auth.computed.featureEnable = function () {
+    let output = {}
+    
+    let config = this.currentStepConfig
+    if (config.features) {
+      Object.keys(config.features).forEach(key => {
+        output[key] = config.features[key]
+      })
+    }
+    
+    return output
+  }
 });
 
 /***/ }),

@@ -47,6 +47,10 @@ export default function (NavigationItems) {
     this.lib.TutorialManager.addAction({
       backgroundFadeOut: true,
       enable: () => {
+        if (!this.lib.auth.featureEnable.AnnotationTypeFilter) {
+          return false
+        }
+        
         return !this.$refs.nav.isCompactMode
       },
       beforeCallback: async () => {
@@ -99,6 +103,10 @@ export default function (NavigationItems) {
 
     this.lib.TutorialManager.addAction({
       enable: () => {
+        if (!this.lib.auth.featureEnable.AnnotationTypeFilter) {
+          return false
+        }
+        
         return this.$refs.nav.isCompactMode
       },
       beforeCallback: async () => {
