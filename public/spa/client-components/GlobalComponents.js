@@ -345,7 +345,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Write something":"請寫解答"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Write something":"請寫筆記"}}')
   delete Component.options._Ctor
 }
 
@@ -3105,7 +3105,7 @@ var render = function() {
                     ? [
                         _vm._v(
                           "\r\n        (" +
-                            _vm._s(_vm.$t("Write something")) +
+                            _vm._s(_vm.writeSomethingMessage) +
                             ")\r\n      "
                         )
                       ]
@@ -10756,12 +10756,20 @@ let ValidationButton = {
   props: ['locale', 'lib', 'countdownSec'
     , 'minWordCount', 'maxWordCount', 'text', 'ignoreWordCount'
     , 'color', 'enable'
-    , 'rightLabeledIcon', 'leftLabeledIcon'],
+    , 'rightLabeledIcon', 'leftLabeledIcon',
+    , 'writeSomething'],
   data() {    
     this.$i18n.locale = this.locale
+    
+    let writeSomethingMessage = this.writeSomething
+    if (!this.writeSomething) {
+      writeSomethingMessage = this.$t('Write something')
+    }
+    
     return {
       remainingSeconds: 0,
-      awaitSubmit: false
+      awaitSubmit: false,
+      writeSomethingMessage
     }
   },
   computed: {

@@ -5,7 +5,9 @@
       <i class="check square outline icon"></i>
       -->
       <div class="content">
-        #{{ sectionSeqID + 1 }}
+        <template v-if="!lib.SectionManager.isArticleNote">
+          #{{ sectionSeqID + 1 }}
+        </template>
         {{ $t("Check list") }}
         {{ sectionHeader }}
       </div>
@@ -18,7 +20,7 @@
     v-on:click="openSectionAnnotationEditor"
     v-bind:style="computedSectionMainIdeaButtonStyle">
     <template v-if="isChecklistAnnotationSubmitted">
-      <template v-if="lib.SectionManager && lib.SectionManager.isArticleNote">
+      <template v-if="lib.SectionManager && lib.SectionManager.isArticleNote === true">
         {{ $t('Edit article main ideas') }}
       </template>
       <template v-else>
@@ -26,7 +28,7 @@
       </template>
     </template>
     <template v-else>
-      <template v-if="lib.SectionManager && lib.SectionManager.isArticleNote">
+      <template v-if="lib.SectionManager && lib.SectionManager.isArticleNote === true">
         {{ $t('Write article main ideas') }}
       </template>
       <template v-else>

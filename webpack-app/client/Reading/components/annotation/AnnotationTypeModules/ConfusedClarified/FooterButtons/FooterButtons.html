@@ -42,7 +42,8 @@
 
           v-on:click="submitQuestion"
           v-bind:class="$parent.computedSubmitButtonClassList"
-          v-bind:style="computedSubmitQuestionStyle">
+          v-bind:style="computedSubmitQuestionStyle"
+          v-bind:writeSomething="$t('WRITE QUESTION')">
           {{ $t('SAVE QUESTION') }}  
         </validation-button>
       </template>
@@ -71,7 +72,8 @@
 
           v-on:click="submitAnswer"
           v-bind:class="$parent.computedSubmitButtonClassList"
-          v-bind:style="computedSubmitAnswerStyle">
+          v-bind:style="computedSubmitAnswerStyle"
+          v-bind:writeSomething="$t('WRITE ANSWER')">
           {{ $t('SAVE ANSWER') }}  
         </validation-button>
 

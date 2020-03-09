@@ -50,7 +50,7 @@ export default (SectionChecklist) => {
   }
   SectionChecklist.computed.computedSubmitButtonText = function () {
     if (this.isChecklistCompleted) {
-      if (this.lib.SectionManager && this.lib.SectionManager.isArticleNote) {
+      if (this.lib.SectionManager && this.lib.SectionManager.isArticleNote === false) {
         return this.$t('I have read this section!')
       }
       else {

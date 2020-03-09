@@ -161,7 +161,8 @@ export default function (AnnotationPanel) {
       element: () => {
         return $(this.$refs.panel).find('.AnnotationSingle .QuestionTemplate:visible:first')
       },
-      content: this.$t('Try to build your question from template.'),
+      title: this.$t('Question Template'),
+      content: this.$t('Try to build your question with templates.'),
       order: 212,
     })
     
@@ -172,6 +173,7 @@ export default function (AnnotationPanel) {
       element: () => {
         return $(this.$refs.panel).find('.AnnotationSingle .ResourceSearch:visible:first')
       },
+      title: this.$t('Finding Answer'),
       content: this.$t('You can use the "Finding Answer" tool to find the answer of the question.'),
       order: 213,
     })

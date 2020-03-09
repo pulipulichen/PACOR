@@ -13,6 +13,19 @@ export default (AnnotationPanel) => {
 //      return this.annotationConfig.enablePermissionControll
 //    },
 
+  AnnotationPanel.computed.localStorageKeyPrefix = function () {
+    let key = 'AnnotationPanel.localStorageKeyPrefix.' + this.lib.auth.currentStep
+    
+    if (this.lib.auth.enableCollaboration === true) {
+      key = key + '.c.'
+    }
+    else {
+      key = key + '.i.'
+    }
+    
+    return key
+  }
+
   AnnotationPanel.computed.computedPlaceholderHeight = function () {
     //return `calc(${this.heightVH}vh - ${this.navigationPlaceholderHeight}px)`
     return `calc(${this.panelData.heightPX}px - ${this.navigationPlaceholderHeight}px)`

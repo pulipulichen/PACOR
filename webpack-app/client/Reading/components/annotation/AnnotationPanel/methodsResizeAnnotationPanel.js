@@ -1,4 +1,4 @@
-const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Reading.components.AnnotationManager.AnnotationPanel.'
+//const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Reading.components.AnnotationManager.AnnotationPanel.'
 const disableSelectClass = 'pacor-disable-user-select'
 
 import $ from 'jquery'
@@ -82,7 +82,7 @@ export default (AnnotationPanel) => {
       // 計算最後的比例，然後存到preference去
       let sizeRatio = ((window.innerHeight - currentY) / window.innerHeight)
       //console.log(sizeRatio)
-      localStorage.setItem(localStorageKeyPrefix + 'sizeRatio', sizeRatio)
+      localStorage.setItem(this.localStorageKeyPrefix + 'sizeRatio', sizeRatio)
       
       body.unbind('scroll', preventScroll)
     }

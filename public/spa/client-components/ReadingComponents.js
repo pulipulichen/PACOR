@@ -105,7 +105,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Please write down the reasons for choosing this keyword or other things you think of from this keyword. You can also insert pictures.":"請您用筆記寫下選擇這個關鍵字的理由，或是您從這個關鍵字聯想到的其他事情。您也可以插入圖片。","Click \\"ADD\\" to save it.":"按下記下「關鍵字」即可儲存標註。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該閱讀策略。","You can give a comment to any annotation.":"您可以為標註提供建議。","Try to give a suggestion for the reader.":"試著給這位讀者一些建議吧。","Here shows a summary of the list.":"這裡顯示了標註列表的摘要。","You can filter the list with keywords.":"您可以用指定文字來篩選列表。","Click here to see the detail of this annotation and give a suggestion.":"您可點選此處查看標註的詳細內容，並給予建議。","Here is the annotation wrote by other reader.":"這裡是其他讀者撰寫的標註。","Here is the annotation wrote by you. You can edit the annotation.":"這裡是您撰寫的標註，您可以編輯它。","You can use the \\"Finding Answer\\" tool to find the answer of the question.":"您可以用「找尋解答」功能來找尋這個問題的答案。","If you like this annotation, click \\"Like\\" button.":"如果您喜歡他/她寫的標註，請給他/她按個「讚」吧。","Click here to read the instruction of this annotation type.":"點此查看如何使用閱讀策略。","Write notes based on your reading strategy. Try to use notes to deepen your impression of the article.":"根據閱讀策略來撰寫筆記，試著用筆記您加深對文章的印象吧。","Try to build your question from template.":"您可以利用範本來建立您的問題。","If you like other reader\u0027s suggestion, click \\"Like\\" to add the suggestion as your answer.":"如果您覺得其他讀者的建議很好，按「讚」可以把建議加入您的答案中喔。","You can see the suggestions from other reader.":"您可以在這裡看到其他讀者的建議。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Please write down the reasons for choosing this keyword or other things you think of from this keyword. You can also insert pictures.":"請您用筆記寫下選擇這個關鍵字的理由，或是您從這個關鍵字聯想到的其他事情。您也可以插入圖片。","Click \\"ADD\\" to save it.":"按下記下「關鍵字」即可儲存標註。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該閱讀策略。","You can give a comment to any annotation.":"您可以為標註提供建議。","Try to give a suggestion for the reader.":"試著給這位讀者一些建議吧。","Here shows a summary of the list.":"這裡顯示了標註列表的摘要。","You can filter the list with keywords.":"您可以用指定文字來篩選列表。","Click here to see the detail of this annotation and give a suggestion.":"您可點選此處查看標註的詳細內容，並給予建議。","Here is the annotation wrote by other reader.":"這裡是其他讀者撰寫的標註。","Here is the annotation wrote by you. You can edit the annotation.":"這裡是您撰寫的標註，您可以編輯它。","Finding Answer":"找尋解答","You can use the \\"Finding Answer\\" tool to find the answer of the question.":"您可以用「找尋解答」功能來找尋這個問題的答案。","If you like this annotation, click \\"Like\\" button.":"如果您喜歡他/她寫的標註，請給他/她按個「讚」吧。","Click here to read the instruction of this annotation type.":"點此查看如何使用閱讀策略。","Write notes based on your reading strategy. Try to use notes to deepen your impression of the article.":"根據閱讀策略來撰寫筆記，試著用筆記您加深對文章的印象吧。","Question Template":"問題範本","Try to build your question with templates.":"您可以利用「問題範本」來擬定您的問題。","If you like other reader\u0027s suggestion, click \\"Like\\" to add the suggestion as your answer.":"如果您覺得其他讀者的建議很好，按「讚」可以把建議加入您的答案中喔。","You can see the suggestions from other reader.":"您可以在這裡看到其他讀者的建議。"}}')
   delete Component.options._Ctor
 }
 
@@ -233,7 +233,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"SAVE QUESTION":"記下「疑問」","SAVE ANSWER":"改為「已澄清」","WRITE LATER":"保持「疑問」"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"SAVE QUESTION":"記下「疑問」","SAVE ANSWER":"改為「已釐清」","WRITE LATER":"稍後解答","WRITE QUESTION":"請寫問題","WRITE ANSWER":"請寫答案"}}')
   delete Component.options._Ctor
 }
 
@@ -3289,7 +3289,8 @@ var render = function() {
                                 text: _vm.$parent.question,
                                 minWordCount: _vm.$parent.questionMinWords,
                                 locale: _vm.status.preference.locale,
-                                enable: _vm.$parent.isEnableSubmitQuestion
+                                enable: _vm.$parent.isEnableSubmitQuestion,
+                                writeSomething: _vm.$t("WRITE QUESTION")
                               },
                               on: { click: _vm.submitQuestion }
                             },
@@ -3334,7 +3335,8 @@ var render = function() {
                                 text: _vm.$parent.answer,
                                 minWordCount: _vm.$parent.answerMinWords,
                                 locale: _vm.status.preference.locale,
-                                enable: _vm.$parent.isEnableSubmitAnswer
+                                enable: _vm.$parent.isEnableSubmitAnswer,
+                                writeSomething: _vm.$t("WRITE ANSWER")
                               },
                               on: { click: _vm.submitAnswer }
                             },
@@ -4344,17 +4346,29 @@ var render = function() {
   return _c("div", { staticClass: "ui segment SectionChecklist" }, [
     _c("div", { staticClass: "header-container" }, [
       _c("div", { staticClass: "ui tiny header" }, [
-        _c("div", { staticClass: "content" }, [
-          _vm._v(
-            "\r\n        #" +
-              _vm._s(_vm.sectionSeqID + 1) +
+        _c(
+          "div",
+          { staticClass: "content" },
+          [
+            !_vm.lib.SectionManager.isArticleNote
+              ? [
+                  _vm._v(
+                    "\r\n          #" +
+                      _vm._s(_vm.sectionSeqID + 1) +
+                      "\r\n        "
+                  )
+                ]
+              : _vm._e(),
+            _vm._v(
               "\r\n        " +
-              _vm._s(_vm.$t("Check list")) +
-              "\r\n        " +
-              _vm._s(_vm.sectionHeader) +
-              "\r\n      "
-          )
-        ])
+                _vm._s(_vm.$t("Check list")) +
+                "\r\n        " +
+                _vm._s(_vm.sectionHeader) +
+                "\r\n      "
+            )
+          ],
+          2
+        )
       ])
     ]),
     _vm._v(" "),
@@ -4369,7 +4383,8 @@ var render = function() {
       [
         _vm.isChecklistAnnotationSubmitted
           ? [
-              _vm.lib.SectionManager && _vm.lib.SectionManager.isArticleNote
+              _vm.lib.SectionManager &&
+              _vm.lib.SectionManager.isArticleNote === true
                 ? [
                     _vm._v(
                       "\r\n        " +
@@ -4386,7 +4401,8 @@ var render = function() {
                   ]
             ]
           : [
-              _vm.lib.SectionManager && _vm.lib.SectionManager.isArticleNote
+              _vm.lib.SectionManager &&
+              _vm.lib.SectionManager.isArticleNote === true
                 ? [
                     _vm._v(
                       "\r\n        " +
@@ -12622,6 +12638,19 @@ __webpack_require__.r(__webpack_exports__);
 //      return this.annotationConfig.enablePermissionControll
 //    },
 
+  AnnotationPanel.computed.localStorageKeyPrefix = function () {
+    let key = 'AnnotationPanel.localStorageKeyPrefix.' + this.lib.auth.currentStep
+    
+    if (this.lib.auth.enableCollaboration === true) {
+      key = key + '.c.'
+    }
+    else {
+      key = key + '.i.'
+    }
+    
+    return key
+  }
+
   AnnotationPanel.computed.computedPlaceholderHeight = function () {
     //return `calc(${this.heightVH}vh - ${this.navigationPlaceholderHeight}px)`
     return `calc(${this.panelData.heightPX}px - ${this.navigationPlaceholderHeight}px)`
@@ -12882,13 +12911,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Reading.components.AnnotationManager.AnnotationPanel.'
+//const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Reading.components.AnnotationManager.AnnotationPanel.'
 
 
 /* harmony default export */ __webpack_exports__["default"] = ((AnnotationPanel) => {
 
   AnnotationPanel.methods._initHeightPX = function () {
-    let sizeRatio = localStorage.getItem(localStorageKeyPrefix + this.lib.auth.currentStep + '.sizeRatio')
+    let sizeRatio = localStorage.getItem(this.localStorageKeyPrefix + '.sizeRatio')
     if (sizeRatio === null) {
       if (this.lib.auth.currentStep === 'CollaborativeReading') {
         sizeRatio = 0.7
@@ -13132,7 +13161,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Reading.components.AnnotationManager.AnnotationPanel.'
+//const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Reading.components.AnnotationManager.AnnotationPanel.'
 const disableSelectClass = 'pacor-disable-user-select'
 
 
@@ -13216,7 +13245,7 @@ let preventScroll = function (event) {
       // 計算最後的比例，然後存到preference去
       let sizeRatio = ((window.innerHeight - currentY) / window.innerHeight)
       //console.log(sizeRatio)
-      localStorage.setItem(localStorageKeyPrefix + 'sizeRatio', sizeRatio)
+      localStorage.setItem(this.localStorageKeyPrefix + 'sizeRatio', sizeRatio)
       
       body.unbind('scroll', preventScroll)
     }
@@ -13506,7 +13535,8 @@ __webpack_require__.r(__webpack_exports__);
       element: () => {
         return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .QuestionTemplate:visible:first')
       },
-      content: this.$t('Try to build your question from template.'),
+      title: this.$t('Question Template'),
+      content: this.$t('Try to build your question with templates.'),
       order: 212,
     })
     
@@ -13517,6 +13547,7 @@ __webpack_require__.r(__webpack_exports__);
       element: () => {
         return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .ResourceSearch:visible:first')
       },
+      title: this.$t('Finding Answer'),
       content: this.$t('You can use the "Finding Answer" tool to find the answer of the question.'),
       order: 213,
     })
@@ -27014,6 +27045,7 @@ let SectionManager = {
       }
     },
     isArticleNote () {
+      console.log(this.sectionNodes.length)
       return (this.sectionNodes.length === 1)
     },
     sectionTypeTrans () {
@@ -28023,7 +28055,7 @@ __webpack_require__.r(__webpack_exports__);
   }
   SectionChecklist.computed.computedSubmitButtonText = function () {
     if (this.isChecklistCompleted) {
-      if (this.lib.SectionManager && this.lib.SectionManager.isArticleNote) {
+      if (this.lib.SectionManager && this.lib.SectionManager.isArticleNote === false) {
         return this.$t('I have read this section!')
       }
       else {

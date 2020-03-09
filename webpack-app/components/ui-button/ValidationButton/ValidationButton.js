@@ -2,12 +2,20 @@ let ValidationButton = {
   props: ['locale', 'lib', 'countdownSec'
     , 'minWordCount', 'maxWordCount', 'text', 'ignoreWordCount'
     , 'color', 'enable'
-    , 'rightLabeledIcon', 'leftLabeledIcon'],
+    , 'rightLabeledIcon', 'leftLabeledIcon',
+    , 'writeSomething'],
   data() {    
     this.$i18n.locale = this.locale
+    
+    let writeSomethingMessage = this.writeSomething
+    if (!this.writeSomething) {
+      writeSomethingMessage = this.$t('Write something')
+    }
+    
     return {
       remainingSeconds: 0,
-      awaitSubmit: false
+      awaitSubmit: false,
+      writeSomethingMessage
     }
   },
   computed: {

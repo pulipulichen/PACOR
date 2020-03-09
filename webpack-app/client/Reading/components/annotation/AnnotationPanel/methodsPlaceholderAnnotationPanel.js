@@ -1,10 +1,10 @@
-const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Reading.components.AnnotationManager.AnnotationPanel.'
+//const localStorageKeyPrefix = 'client.components.ReadingProgressesModuels.Reading.components.AnnotationManager.AnnotationPanel.'
 import $ from 'jquery'
 
 export default (AnnotationPanel) => {
 
   AnnotationPanel.methods._initHeightPX = function () {
-    let sizeRatio = localStorage.getItem(localStorageKeyPrefix + this.lib.auth.currentStep + '.sizeRatio')
+    let sizeRatio = localStorage.getItem(this.localStorageKeyPrefix + '.sizeRatio')
     if (sizeRatio === null) {
       if (this.lib.auth.currentStep === 'CollaborativeReading') {
         sizeRatio = 0.7
