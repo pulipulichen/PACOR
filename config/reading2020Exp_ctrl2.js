@@ -28,8 +28,11 @@ module.exports = {
 //        //types: ['MainIdea'],
 //      //},
 //    },
-//    'FreeReading': {
-//      //nextReadingPage: '/pretest/alpha.html'
-//    }
+    'FreeReading': {
+      permission: {
+        collaboration: false,
+      },
+      //nextReadingPage: '/pretest/alpha.html'
+    }
   }
 }
