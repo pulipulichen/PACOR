@@ -19,12 +19,12 @@ let EventAnnotationCommentRate = {
 
 EventAnnotationCommentRate.computed.action = function () {
   //return this.$t('Like your comment: "{0}"', [this.notification.summary.summary])
-  return this.$t('Like your comment')
+  return this.$t('like your suggestion')
 }
 
 EventAnnotationCommentRate.computed.summary = function () {
   if (!this.notification.summary) {
-    return
+    return false
   }
   let summary = this.notification.summary.summary
   return this.$t('"{0}"', [this.notification.summary.summary])

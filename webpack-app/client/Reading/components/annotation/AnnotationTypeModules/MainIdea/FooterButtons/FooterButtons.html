@@ -72,7 +72,8 @@
 
         v-on:click="$parent.addAnnotation"
         v-bind:class="$parent.computedSubmitButtonClassList"
-        v-bind:style="$parent.computedSubmitButtonStyle">
+        v-bind:style="$parent.computedSubmitButtonStyle"
+        v-bind:writeSometing="$t('WRITE NOTE')">
         {{ $t('ADD') }}  
       </validation-button>
     </template>

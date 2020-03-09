@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Reply your annotation":"回應了您的標註","Like your annotation":"覺得您的標註很讚","Like your comment":"覺得您的留言很讚","can be assisted now":"可以請您來協助了","Has read":"已讀"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"reply your annotation":"回應了您的標註","give a suggestion to you":"提供建議給您","like your annotation":"覺得您的標註很讚","like your comment":"覺得您的留言很讚","like your suggestion":"覺得您的建議很讚","can be assisted now":"可以請您來協助了","Has read":"已讀"}}')
   delete Component.options._Ctor
 }
 
@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Reply your annotation":"回應了您的標註","Like your annotation":"覺得您的標註很讚","Like your comment":"覺得您的留言很讚","can be assisted now":"可以請您來協助了","Has read":"已讀"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"reply your annotation":"回應了您的標註","give a suggestion to you":"提供建議給您","like your annotation":"覺得您的標註很讚","like your comment":"覺得您的留言很讚","like your suggestion":"覺得您的建議很讚","can be assisted now":"可以請您來協助了","Has read":"已讀"}}')
   delete Component.options._Ctor
 }
 
@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Reply your annotation":"回應了您的標註","Like your annotation":"覺得您的標註很讚","Like your comment":"覺得您的留言很讚","can be assisted now":"可以請您來協助了","Has read":"已讀"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"reply your annotation":"回應了您的標註","give a suggestion to you":"提供建議給您","like your annotation":"覺得您的標註很讚","like your comment":"覺得您的留言很讚","like your suggestion":"覺得您的建議很讚","can be assisted now":"可以請您來協助了","Has read":"已讀"}}')
   delete Component.options._Ctor
 }
 
@@ -57,7 +57,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Reply your annotation":"回應了您的標註","Like your annotation":"覺得您的標註很讚","Like your comment":"覺得您的留言很讚","can be assisted now":"可以請您來協助了","Has read":"已讀"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"reply your annotation":"回應了您的標註","give a suggestion to you":"提供建議給您","like your annotation":"覺得您的標註很讚","like your comment":"覺得您的留言很讚","like your suggestion":"覺得您的建議很讚","can be assisted now":"可以請您來協助了","Has read":"已讀"}}')
   delete Component.options._Ctor
 }
 
@@ -4719,7 +4719,7 @@ let EventAnnotationComment = {
 
 EventAnnotationComment.computed.action = function () {
   // @TODO 現在還沒有回覆指定標註的功能
-  return this.$t('Reply your annotation')
+  return this.$t('Give a suggestion to you')
 }
 
 EventAnnotationComment.computed.summary = function () {
@@ -4825,12 +4825,12 @@ let EventAnnotationCommentRate = {
 
 EventAnnotationCommentRate.computed.action = function () {
   //return this.$t('Like your comment: "{0}"', [this.notification.summary.summary])
-  return this.$t('Like your comment')
+  return this.$t('like your suggestion')
 }
 
 EventAnnotationCommentRate.computed.summary = function () {
   if (!this.notification.summary) {
-    return
+    return false
   }
   let summary = this.notification.summary.summary
   return this.$t('"{0}"', [this.notification.summary.summary])
@@ -4936,7 +4936,7 @@ let EventAnnotationRate = {
 
 EventAnnotationRate.computed.action = function () {
   //return this.$t('Like your annotation: "{0}"', [this.notification.summary.summary])
-  return this.$t('Like your annotation')
+  return this.$t('like your annotation')
 }
 
 EventAnnotationRate.computed.summary = function () {

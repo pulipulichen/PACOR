@@ -39,6 +39,19 @@ let TypeItem = {
     isOtherVisiable () {
       return (this.lib.auth.isEnableCollaboration 
               && !this.othersIsMe)
+    },
+    isEnabled () {
+      return  (this.typeData.myCount !== 0 
+              || this.typeData.othersCount !== 0)
+    },
+    computedTypeItemClassList () {
+      let classList = []
+      
+      if (this.isEnabled === false) {
+        classList.push('disabled')
+      }
+      
+      return classList.join(' ')
     }
   },
 //  watch: {
@@ -47,6 +60,10 @@ let TypeItem = {
 //  },
   methods: {
     selectType () {
+      if (this.isEnabled === false) {
+        return false
+      }
+      
       this.status.filter.findType = this.typeData.type
       this.lib.AnnotationTypeFilter.hide()
     }

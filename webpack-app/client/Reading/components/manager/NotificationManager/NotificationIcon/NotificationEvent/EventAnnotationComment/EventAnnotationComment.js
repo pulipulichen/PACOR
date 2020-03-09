@@ -19,7 +19,7 @@ let EventAnnotationComment = {
 
 EventAnnotationComment.computed.action = function () {
   // @TODO 現在還沒有回覆指定標註的功能
-  return this.$t('Reply your annotation')
+  return this.$t('Give a suggestion to you')
 }
 
 EventAnnotationComment.computed.summary = function () {

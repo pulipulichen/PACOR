@@ -19,7 +19,7 @@ let EventAnnotationRate = {
 
 EventAnnotationRate.computed.action = function () {
   //return this.$t('Like your annotation: "{0}"', [this.notification.summary.summary])
-  return this.$t('Like your annotation')
+  return this.$t('like your annotation')
 }
 
 EventAnnotationRate.computed.summary = function () {

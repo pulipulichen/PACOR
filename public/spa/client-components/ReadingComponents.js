@@ -233,7 +233,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"SAVE QUESTION":"記下「疑問」","SAVE ANSWER":"改為「已釐清」","WRITE LATER":"稍後解答","WRITE QUESTION":"請寫問題","WRITE ANSWER":"請寫答案"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"SAVE QUESTION":"記下「疑問」","SAVE ANSWER":"改為「已釐清」","WRITE LATER":"稍後再答","WRITE QUESTION":"請寫問題","WRITE ANSWER":"請寫解答"}}')
   delete Component.options._Ctor
 }
 
@@ -281,7 +281,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"ADD":"記下「關鍵字」","UPDATE":"更新「關鍵字」"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"ADD":"記下「關鍵字」","UPDATE":"更新「關鍵字」","WRITE NOTE":"請寫筆記"}}')
   delete Component.options._Ctor
 }
 
@@ -1053,7 +1053,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".TypeItem[data-v-28af1646] {\n  white-space: nowrap;\n  cursor: pointer;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  text-align: left;\n}\n.TypeItem[data-v-28af1646]:hover {\n  color: #1E70BF;\n}\n.column[data-v-28af1646] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.column.left[data-v-28af1646] {\n  text-align: right;\n}\n.column.right[data-v-28af1646] {\n  text-align: left;\n}\n.column.button[data-v-28af1646] {\n  margin-left: 0.5em !important;\n  margin-right: 0.5em !important;\n  width: 5rem;\n  text-align: left;\n}\nimg[data-v-28af1646] {\n  max-height: 1.5em;\n  width: auto;\n}\n.username[data-v-28af1646] {\n  font-weight: bold;\n}\n", "",{"version":3,"sources":["TypeItem.less?vue&type=style&index=0&id=28af1646&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,eAAe;EACf,iBAAiB;EACjB,oBAAoB;EACpB,gBAAgB;AAClB;AACA;EACE,cAAc;AAChB;AACA;EACE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,iBAAiB;AACnB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,6BAA6B;EAC7B,8BAA8B;EAC9B,WAAW;EACX,gBAAgB;AAClB;AACA;EACE,iBAAiB;EACjB,WAAW;AACb;AACA;EACE,iBAAiB;AACnB","file":"TypeItem.less?vue&type=style&index=0&id=28af1646&lang=less&scoped=true&","sourcesContent":[".TypeItem[data-v-28af1646] {\n  white-space: nowrap;\n  cursor: pointer;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  text-align: left;\n}\n.TypeItem[data-v-28af1646]:hover {\n  color: #1E70BF;\n}\n.column[data-v-28af1646] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.column.left[data-v-28af1646] {\n  text-align: right;\n}\n.column.right[data-v-28af1646] {\n  text-align: left;\n}\n.column.button[data-v-28af1646] {\n  margin-left: 0.5em !important;\n  margin-right: 0.5em !important;\n  width: 5rem;\n  text-align: left;\n}\nimg[data-v-28af1646] {\n  max-height: 1.5em;\n  width: auto;\n}\n.username[data-v-28af1646] {\n  font-weight: bold;\n}\n"]}]);
+exports.push([module.i, ".TypeItem[data-v-28af1646] {\n  white-space: nowrap;\n  cursor: pointer;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  text-align: left;\n  user-select: none;\n}\n.TypeItem[data-v-28af1646]:hover {\n  color: #1E70BF;\n}\n.TypeItem.disabled[data-v-28af1646] {\n  opacity: 0.5 !important;\n  cursor: default !important;\n}\n.TypeItem.disabled[data-v-28af1646]:hover {\n  color: inherit !important;\n}\n.column[data-v-28af1646] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.column.left[data-v-28af1646] {\n  text-align: right;\n}\n.column.right[data-v-28af1646] {\n  text-align: left;\n}\n.column.button[data-v-28af1646] {\n  margin-left: 0.5em !important;\n  margin-right: 0.5em !important;\n  width: 5rem;\n  text-align: left;\n}\nimg[data-v-28af1646] {\n  max-height: 1.5em;\n  width: auto;\n}\n.username[data-v-28af1646] {\n  font-weight: bold;\n}\n", "",{"version":3,"sources":["TypeItem.less?vue&type=style&index=0&id=28af1646&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,eAAe;EACf,iBAAiB;EACjB,oBAAoB;EACpB,gBAAgB;EAChB,iBAAiB;AACnB;AACA;EACE,cAAc;AAChB;AACA;EACE,uBAAuB;EACvB,0BAA0B;AAC5B;AACA;EACE,yBAAyB;AAC3B;AACA;EACE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,iBAAiB;AACnB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,6BAA6B;EAC7B,8BAA8B;EAC9B,WAAW;EACX,gBAAgB;AAClB;AACA;EACE,iBAAiB;EACjB,WAAW;AACb;AACA;EACE,iBAAiB;AACnB","file":"TypeItem.less?vue&type=style&index=0&id=28af1646&lang=less&scoped=true&","sourcesContent":[".TypeItem[data-v-28af1646] {\n  white-space: nowrap;\n  cursor: pointer;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  text-align: left;\n  user-select: none;\n}\n.TypeItem[data-v-28af1646]:hover {\n  color: #1E70BF;\n}\n.TypeItem.disabled[data-v-28af1646] {\n  opacity: 0.5 !important;\n  cursor: default !important;\n}\n.TypeItem.disabled[data-v-28af1646]:hover {\n  color: inherit !important;\n}\n.column[data-v-28af1646] {\n  display: inline-block;\n  vertical-align: middle;\n}\n.column.left[data-v-28af1646] {\n  text-align: right;\n}\n.column.right[data-v-28af1646] {\n  text-align: left;\n}\n.column.button[data-v-28af1646] {\n  margin-left: 0.5em !important;\n  margin-right: 0.5em !important;\n  width: 5rem;\n  text-align: left;\n}\nimg[data-v-28af1646] {\n  max-height: 1.5em;\n  width: auto;\n}\n.username[data-v-28af1646] {\n  font-weight: bold;\n}\n"]}]);
 
 
 /***/ }),
@@ -3442,7 +3442,8 @@ var render = function() {
                                 text: _vm.$parent.question,
                                 minWordCount: _vm.$parent.questionMinWords,
                                 locale: _vm.status.preference.locale,
-                                enable: _vm.$parent.isEnableSubmitQuestion
+                                enable: _vm.$parent.isEnableSubmitQuestion,
+                                writeSomething: _vm.$t("WRITE QUESTION")
                               },
                               on: { click: _vm.submitQuestion }
                             },
@@ -3508,7 +3509,8 @@ var render = function() {
                                 text: _vm.$parent.answer,
                                 minWordCount: _vm.$parent.answerMinWords,
                                 locale: _vm.status.preference.locale,
-                                enable: _vm.$parent.isEnableSubmitAnswer
+                                enable: _vm.$parent.isEnableSubmitAnswer,
+                                writeSomething: _vm.$t("WRITE ANSWER")
                               },
                               on: { click: _vm.submitAnswer }
                             },
@@ -3832,7 +3834,8 @@ var render = function() {
                           minWordCount: _vm.$parent.minWords,
                           text: _vm.$parent.note,
                           locale: _vm.status.preference.locale,
-                          enable: _vm.$parent.isEnableSubmitAdd
+                          enable: _vm.$parent.isEnableSubmitAdd,
+                          writeSometing: _vm.$t("WRITE NOTE")
                         },
                         on: { click: _vm.$parent.addAnnotation }
                       },
@@ -4752,7 +4755,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "type-item TypeItem", on: { click: _vm.selectType } },
+    {
+      staticClass: "type-item TypeItem",
+      class: _vm.computedTypeItemClassList,
+      on: { click: _vm.selectType }
+    },
     [
       _c(
         "span",
@@ -29088,6 +29095,19 @@ let TypeItem = {
     isOtherVisiable () {
       return (this.lib.auth.isEnableCollaboration 
               && !this.othersIsMe)
+    },
+    isEnabled () {
+      return  (this.typeData.myCount !== 0 
+              || this.typeData.othersCount !== 0)
+    },
+    computedTypeItemClassList () {
+      let classList = []
+      
+      if (this.isEnabled === false) {
+        classList.push('disabled')
+      }
+      
+      return classList.join(' ')
     }
   },
 //  watch: {
@@ -29096,6 +29116,10 @@ let TypeItem = {
 //  },
   methods: {
     selectType () {
+      if (this.isEnabled === false) {
+        return false
+      }
+      
       this.status.filter.findType = this.typeData.type
       this.lib.AnnotationTypeFilter.hide()
     }

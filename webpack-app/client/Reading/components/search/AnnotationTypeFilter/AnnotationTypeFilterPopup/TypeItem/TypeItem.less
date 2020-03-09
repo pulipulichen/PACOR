@@ -4,9 +4,19 @@
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   text-align: left;
+  user-select: none;
   
   &:hover {
     color: #1E70BF;
+  }
+  
+  &.disabled {
+    opacity: 0.5 !important;
+    cursor: default !important;
+     
+    &:hover {
+      color: inherit !important;
+    }
   }
 }
 
