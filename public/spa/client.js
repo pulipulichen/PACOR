@@ -504,6 +504,7 @@ let VueController = {
       
       auth: null,
       RangyManager: null,
+      AnnotationManager: null,
       AnnotationPanel: null,
       UserFilter: null,
       AnnotationTypeFilter: null,

@@ -151,10 +151,29 @@ class WebpageGroupUserFilter {
           return -1
         }
         
-        if (a.interactTime && b.interactTime) {
-          return b.interactTime - a.interactTime
+        if (a.interactTime || b.interactTime) {
+//          console.log({
+//            a: a.interactTime, 
+//            b: b.interactTime
+//          })
+          if (a.interactTime && b.interactTime) {
+            return b.interactTime - a.interactTime
+          }
+          else if (a.interactTime === null) {
+            return -1
+          }
+          else if (b.interactTime === null) {
+            return 1
+          }
         }
         else {
+          if (a.annotationsCount === 0) {
+            return 1
+          }
+          if (b.annotationsCount === 0) {
+            return -1
+          }
+          
           if (a.wordsCountNotUsed !== b.wordsCountNotUsed) {
             return b.wordsCountNotUsed - a.wordsCountNotUsed
           }
@@ -164,7 +183,7 @@ class WebpageGroupUserFilter {
         }
       })
       
-      //console.log(readersJSON)
+      console.log(readersJSON.map(r => r.interactTime))
     }
     
   } // register (Model) {

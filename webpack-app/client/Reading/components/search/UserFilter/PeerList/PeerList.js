@@ -17,7 +17,7 @@ let PeerList = {
 //  mounted() {
 //  },
   methods: {
-    loadInit: async function () {
+    loadInit: async function (callback) {
       let data = {
         //  好像也想不到要傳什麼資料...
       }
@@ -29,6 +29,11 @@ let PeerList = {
         this.checkTempSelectUserID(result)
         
         this.filterData.users = this.filterData.users.slice(0, 0).concat(result)
+      }
+      
+      if (typeof(callback) === 'function'
+              && this.filterData.users.length > 2) {
+        callback(this.filterData.users[0])
       }
       
       //console.log(this.filterData.selectUser)

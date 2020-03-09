@@ -34,7 +34,9 @@ let IndividualReading = {
     //console.log('退場了')
     this.lib.RangyManager = null
     this.lib.AnnotationPanel = null
+    this.lib.AnnotationManager = null
     this.lib.SectionManager = null
+    this.lib.AnnotationTypeFilter = null
   },
   methods: {
     initComponentToLib: async function () {
@@ -54,6 +56,11 @@ let IndividualReading = {
         await this.lib.VueHelper.sleep(100)
       }
       this.lib.AnnotationPanel = this.$refs.AnnotationPanel
+      
+      while (!this.$refs.AnnotationManager) {
+        await this.lib.VueHelper.sleep(100)
+      }
+      this.lib.AnnotationManager = this.$refs.AnnotationManager
       
       while (!this.$refs.SectionManager) {
         await this.lib.VueHelper.sleep(100)

@@ -5,7 +5,12 @@ export default function (UserFilter) {
     }
     //console.log(this.filterData.selectUser)
 
-    this.$refs.PeerList.loadInit()
+    this.$refs.PeerList.loadInit(peer => {
+      if (this.lib.auth.currentStepConfig.UserFilter 
+              && this.lib.auth.currentStepConfig.UserFilter.autoSelect) {
+        this.filterData.selectUser = peer
+      }
+    })
     this.$refs.UserChart.loadInit()
 
     this.$refs.Modal.show()

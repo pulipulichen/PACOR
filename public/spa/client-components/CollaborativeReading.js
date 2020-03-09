@@ -209,6 +209,7 @@ let CollaborativeReading = {
   destroyed () {
     //console.log('退場了')
     this.lib.RangyManager = null
+    this.lib.AnnotationManager = null
     this.lib.AnnotationPanel = null
     this.lib.SectionManager = null
     this.lib.UserFilter = null
@@ -233,6 +234,11 @@ let CollaborativeReading = {
         await this.lib.VueHelper.sleep(100)
       }
       this.lib.AnnotationPanel = this.$refs.AnnotationPanel
+      
+      while (!this.$refs.AnnotationManager) {
+        await this.lib.VueHelper.sleep(100)
+      }
+      this.lib.AnnotationManager = this.$refs.AnnotationManager
       
       while (!this.$refs.SectionManager) {
         await this.lib.VueHelper.sleep(100)

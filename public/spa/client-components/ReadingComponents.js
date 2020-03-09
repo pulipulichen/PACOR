@@ -7061,7 +7061,13 @@ let AnnotationManager = {
       //console.log('哈囉？', this.afterTime)
       this.loadHighlights()
     },
-    
+    hideFloatWidget () {
+      if (!this.$refs.AnnotationFloatWidget) {
+        return false
+      }
+      //console.log('AAA')
+      this.$refs.AnnotationFloatWidget.reset()
+    }
   } // methods
 }
 

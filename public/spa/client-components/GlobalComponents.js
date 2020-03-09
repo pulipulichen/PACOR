@@ -137,7 +137,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Please choose a reader, see how he / she reads the article, and give him / her some suggestions.":"請選擇一位讀者，看看他/她是怎麽閱讀文章，然後給他/她一些建議吧。"}}')
   delete Component.options._Ctor
 }
 
@@ -201,7 +201,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Viewing All":"觀看所有讀者","Asist":"協助","View":"觀看","Please select a peer":"選擇一位您想要協助的讀者吧","Only Show You":"只顯示您","Show All":"顯示所有讀者","Cancel":"待會再選","Start Tutorial":"顯示操作導覽","Select a peer to watch how his/her read article. And give him/her suggestions.":"您可以選擇一位讀者，看看他/她怎麽讀這篇文章，然後給他/她一些建議吧。","You can see the different of keywords between you can others.":"您可以在看到您與其他人使用關鍵字的差異。","Green words means you and others use the same keywords.":"綠色的字表示您與其他人使用了相同的關鍵字。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Viewing All":"觀看所有讀者","Asist":"協助","View":"觀看","Please select a peer":"選擇一位讀者來協助他/她","Please choose a reader, see how he / she reads the article, and give him / her some suggestions.":"請選擇一位讀者，看看他/她是怎麽閱讀文章，然後給他/她一些建議吧。","Only Show You":"只顯示您","Show All":"顯示所有讀者","Cancel":"待會再選","Start Tutorial":"顯示操作導覽","Select a peer to watch how his/her read article. And give him/her suggestions.":"您可以選擇一位讀者，看看他/她怎麽讀這篇文章，然後給他/她一些建議吧。","You can see the different of keywords between you can others.":"您可以在看到您與其他人使用關鍵字的差異。","Green words means you and others use the same keywords.":"綠色的字表示您與其他人使用了相同的關鍵字。"}}')
   delete Component.options._Ctor
 }
 
@@ -587,7 +587,7 @@ exports.push([module.i, ".NotificationFeed[data-v-b34777fe] {\n  overflow-y: aut
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-247e481a] {\n  user-select: none;\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem.selected[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem.selected[data-v-247e481a] {\n  background-color: #f8ffff !important;\n  box-shadow: 0 0 0 1px #a9d5de inset, 0 0 0 0 transparent;\n  color: #276f86;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content[data-v-247e481a] {\n  padding-left: 0.5em;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .header[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .header[data-v-247e481a] {\n  font-size: 1.1em;\n  vertical-align: middle;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .description[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .description[data-v-247e481a] {\n  margin-top: 0.1em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar .icon-container {\n  top: 2em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar .icon-container .icon {\n  margin-top: -0.3em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar img {\n  width: 3em;\n  height: auto;\n  max-height: inherit;\n}\n.PeerItem.disabled[data-v-247e481a] {\n  opacity: 0.6;\n  background-color: #DDD !important;\n  cursor: default !important;\n}\n.PeerItem.disabled .header .message[data-v-247e481a] {\n  font-size: 0.8em;\n  font-weight: normal;\n}\n.PeerItem.disabled:hover .header[data-v-247e481a] {\n  color: rgba(0, 0, 0, 0.85) !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-247e481a] {\n  text-align: right;\n  margin-left: 0.5em !important;\n}\n.ui.image .icon[data-v-247e481a] {\n  font-size: 25px;\n}\n.PeerItem[data-v-247e481a]  .AnnotationTypeButton {\n  /*  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;*/\n  padding: 0.5em !important;\n}\n@media only screen and (max-width: 767px) {\n.non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-247e481a] {\n    display: -webkit-box;\n    vertical-align: top;\n    margin: 0 !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .image[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .image[data-v-247e481a] {\n    width: 2.5em !important;\n    display: inline-block;\n    vertical-align: top;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .image > img[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .image > img[data-v-247e481a] {\n    width: 100% !important;\n    display: inline;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content[data-v-247e481a] {\n    padding-top: 0 !important;\n    width: calc(100% - 3.5em);\n    display: inline-block !important;\n    vertical-align: top;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .header[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .header[data-v-247e481a] {\n    text-overflow: ellipsis;\n    max-width: 100%;\n    white-space: nowrap;\n    overflow-x: hidden;\n    overflow-y: hidden;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .header .message[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .header .message[data-v-247e481a] {\n    margin-left: -0.7em;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .description[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .description[data-v-247e481a] {\n    padding: 0 !important;\n}\n}\n.group-label[data-v-247e481a] {\n  padding: 0.2em 0.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n}\n.group-label .icon[data-v-247e481a] {\n  margin-right: 0.2em !important;\n}\n.username[data-v-247e481a] {\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["PeerItem.less?vue&type=style&index=0&id=247e481a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;EAEE,iBAAiB;EACjB,6BAA6B;EAC7B,gCAAgC;AAClC;AACA;;EAEE,oCAAoC;EACpC,wDAAwD;EACxD,cAAc;AAChB;AACA;;EAEE,mBAAmB;AACrB;AACA;;EAEE,gBAAgB;EAChB,sBAAsB;AACxB;AACA;;EAEE,iBAAiB;AACnB;AACA;EACE,QAAQ;AACV;AACA;EACE,kBAAkB;AACpB;AACA;EACE,UAAU;EACV,YAAY;EACZ,mBAAmB;AACrB;AACA;EACE,YAAY;EACZ,iCAAiC;EACjC,0BAA0B;AAC5B;AACA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;AACA;EACE,qCAAqC;AACvC;AACA;;;EAGE;AACF;EACE,iBAAiB;EACjB,6BAA6B;AAC/B;AACA;EACE,eAAe;AACjB;AACA;EACE;mCACiC;EACjC,yBAAyB;AAC3B;AACA;AACA;;IAEI,oBAAoB;IACpB,mBAAmB;IACnB,oBAAoB;AACxB;AACA;;IAEI,uBAAuB;IACvB,qBAAqB;IACrB,mBAAmB;AACvB;AACA;;IAEI,sBAAsB;IACtB,eAAe;AACnB;AACA;;IAEI,yBAAyB;IACzB,yBAAyB;IACzB,gCAAgC;IAChC,mBAAmB;AACvB;AACA;;IAEI,uBAAuB;IACvB,eAAe;IACf,mBAAmB;IACnB,kBAAkB;IAClB,kBAAkB;AACtB;AACA;;IAEI,mBAAmB;AACvB;AACA;;IAEI,qBAAqB;AACzB;AACA;AACA;EACE,+BAA+B;EAC/B,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,sBAAsB;AACxB","file":"PeerItem.less?vue&type=style&index=0&id=247e481a&lang=less&scoped=true&","sourcesContent":[".non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-247e481a] {\n  user-select: none;\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem.selected[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem.selected[data-v-247e481a] {\n  background-color: #f8ffff !important;\n  box-shadow: 0 0 0 1px #a9d5de inset, 0 0 0 0 transparent;\n  color: #276f86;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content[data-v-247e481a] {\n  padding-left: 0.5em;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .header[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .header[data-v-247e481a] {\n  font-size: 1.1em;\n  vertical-align: middle;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .description[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .description[data-v-247e481a] {\n  margin-top: 0.1em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar .icon-container {\n  top: 2em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar .icon-container .icon {\n  margin-top: -0.3em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar img {\n  width: 3em;\n  height: auto;\n  max-height: inherit;\n}\n.PeerItem.disabled[data-v-247e481a] {\n  opacity: 0.6;\n  background-color: #DDD !important;\n  cursor: default !important;\n}\n.PeerItem.disabled .header .message[data-v-247e481a] {\n  font-size: 0.8em;\n  font-weight: normal;\n}\n.PeerItem.disabled:hover .header[data-v-247e481a] {\n  color: rgba(0, 0, 0, 0.85) !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-247e481a] {\n  text-align: right;\n  margin-left: 0.5em !important;\n}\n.ui.image .icon[data-v-247e481a] {\n  font-size: 25px;\n}\n.PeerItem[data-v-247e481a]  .AnnotationTypeButton {\n  /*  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;*/\n  padding: 0.5em !important;\n}\n@media only screen and (max-width: 767px) {\n.non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-247e481a] {\n    display: -webkit-box;\n    vertical-align: top;\n    margin: 0 !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .image[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .image[data-v-247e481a] {\n    width: 2.5em !important;\n    display: inline-block;\n    vertical-align: top;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .image > img[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .image > img[data-v-247e481a] {\n    width: 100% !important;\n    display: inline;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content[data-v-247e481a] {\n    padding-top: 0 !important;\n    width: calc(100% - 3.5em);\n    display: inline-block !important;\n    vertical-align: top;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .header[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .header[data-v-247e481a] {\n    text-overflow: ellipsis;\n    max-width: 100%;\n    white-space: nowrap;\n    overflow-x: hidden;\n    overflow-y: hidden;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .header .message[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .header .message[data-v-247e481a] {\n    margin-left: -0.7em;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .description[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .description[data-v-247e481a] {\n    padding: 0 !important;\n}\n}\n.group-label[data-v-247e481a] {\n  padding: 0.2em 0.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n}\n.group-label .icon[data-v-247e481a] {\n  margin-right: 0.2em !important;\n}\n.username[data-v-247e481a] {\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
+exports.push([module.i, ".non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-247e481a] {\n  user-select: none;\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem.selected[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem.selected[data-v-247e481a] {\n  background-color: rgba(255, 255, 0, 0.5) !important;\n  box-shadow: 0 0 0 1px #a9d5de inset, 0 0 0 0 transparent;\n  color: #276f86;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content[data-v-247e481a] {\n  padding-left: 0.5em;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .header[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .header[data-v-247e481a] {\n  font-size: 1.1em;\n  vertical-align: middle;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .description[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .description[data-v-247e481a] {\n  margin-top: 0.1em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar .icon-container {\n  top: 2em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar .icon-container .icon {\n  margin-top: -0.3em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar img {\n  width: 3em;\n  height: auto;\n  max-height: inherit;\n}\n.PeerItem.disabled[data-v-247e481a] {\n  opacity: 0.6;\n  background-color: #DDD !important;\n  cursor: default !important;\n}\n.PeerItem.disabled .header .message[data-v-247e481a] {\n  font-size: 0.8em;\n  font-weight: normal;\n}\n.PeerItem.disabled:hover .header[data-v-247e481a] {\n  color: rgba(0, 0, 0, 0.85) !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-247e481a] {\n  text-align: right;\n  margin-left: 0.5em !important;\n}\n.ui.image .icon[data-v-247e481a] {\n  font-size: 25px;\n}\n.PeerItem[data-v-247e481a]  .AnnotationTypeButton {\n  /*  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;*/\n  padding: 0.5em !important;\n}\n@media only screen and (max-width: 767px) {\n.non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-247e481a] {\n    display: -webkit-box;\n    vertical-align: top;\n    margin: 0 !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .image[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .image[data-v-247e481a] {\n    width: 2.5em !important;\n    display: inline-block;\n    vertical-align: top;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .image > img[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .image > img[data-v-247e481a] {\n    width: 100% !important;\n    display: inline;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content[data-v-247e481a] {\n    padding-top: 0 !important;\n    width: calc(100% - 3.5em);\n    display: inline-block !important;\n    vertical-align: top;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .header[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .header[data-v-247e481a] {\n    text-overflow: ellipsis;\n    max-width: 100%;\n    white-space: nowrap;\n    overflow-x: hidden;\n    overflow-y: hidden;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .header .message[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .header .message[data-v-247e481a] {\n    margin-left: -0.7em;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .description[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .description[data-v-247e481a] {\n    padding: 0 !important;\n}\n}\n.group-label[data-v-247e481a] {\n  padding: 0.2em 0.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n}\n.group-label .icon[data-v-247e481a] {\n  margin-right: 0.2em !important;\n}\n.username[data-v-247e481a] {\n  display: inline-block;\n  vertical-align: middle;\n}\n", "",{"version":3,"sources":["PeerItem.less?vue&type=style&index=0&id=247e481a&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;;EAEE,iBAAiB;EACjB,6BAA6B;EAC7B,gCAAgC;AAClC;AACA;;EAEE,mDAAmD;EACnD,wDAAwD;EACxD,cAAc;AAChB;AACA;;EAEE,mBAAmB;AACrB;AACA;;EAEE,gBAAgB;EAChB,sBAAsB;AACxB;AACA;;EAEE,iBAAiB;AACnB;AACA;EACE,QAAQ;AACV;AACA;EACE,kBAAkB;AACpB;AACA;EACE,UAAU;EACV,YAAY;EACZ,mBAAmB;AACrB;AACA;EACE,YAAY;EACZ,iCAAiC;EACjC,0BAA0B;AAC5B;AACA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;AACA;EACE,qCAAqC;AACvC;AACA;;;EAGE;AACF;EACE,iBAAiB;EACjB,6BAA6B;AAC/B;AACA;EACE,eAAe;AACjB;AACA;EACE;mCACiC;EACjC,yBAAyB;AAC3B;AACA;AACA;;IAEI,oBAAoB;IACpB,mBAAmB;IACnB,oBAAoB;AACxB;AACA;;IAEI,uBAAuB;IACvB,qBAAqB;IACrB,mBAAmB;AACvB;AACA;;IAEI,sBAAsB;IACtB,eAAe;AACnB;AACA;;IAEI,yBAAyB;IACzB,yBAAyB;IACzB,gCAAgC;IAChC,mBAAmB;AACvB;AACA;;IAEI,uBAAuB;IACvB,eAAe;IACf,mBAAmB;IACnB,kBAAkB;IAClB,kBAAkB;AACtB;AACA;;IAEI,mBAAmB;AACvB;AACA;;IAEI,qBAAqB;AACzB;AACA;AACA;EACE,+BAA+B;EAC/B,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,8BAA8B;AAChC;AACA;EACE,qBAAqB;EACrB,sBAAsB;AACxB","file":"PeerItem.less?vue&type=style&index=0&id=247e481a&lang=less&scoped=true&","sourcesContent":[".non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-247e481a] {\n  user-select: none;\n  padding-top: 0.5em !important;\n  padding-bottom: 0.5em !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem.selected[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem.selected[data-v-247e481a] {\n  background-color: rgba(255, 255, 0, 0.5) !important;\n  box-shadow: 0 0 0 1px #a9d5de inset, 0 0 0 0 transparent;\n  color: #276f86;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content[data-v-247e481a] {\n  padding-left: 0.5em;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .header[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .header[data-v-247e481a] {\n  font-size: 1.1em;\n  vertical-align: middle;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .content > .description[data-v-247e481a],\n.non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .content > .description[data-v-247e481a] {\n  margin-top: 0.1em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar .icon-container {\n  top: 2em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar .icon-container .icon {\n  margin-top: -0.3em;\n}\n.PeerItem[data-v-247e481a]  .UserAvatar img {\n  width: 3em;\n  height: auto;\n  max-height: inherit;\n}\n.PeerItem.disabled[data-v-247e481a] {\n  opacity: 0.6;\n  background-color: #DDD !important;\n  cursor: default !important;\n}\n.PeerItem.disabled .header .message[data-v-247e481a] {\n  font-size: 0.8em;\n  font-weight: normal;\n}\n.PeerItem.disabled:hover .header[data-v-247e481a] {\n  color: rgba(0, 0, 0, 0.85) !important;\n}\n/*.avatar {\n  max-width: 2em !important;\n  height: auto !important;\n}*/\n.ui.image[data-v-247e481a] {\n  text-align: right;\n  margin-left: 0.5em !important;\n}\n.ui.image .icon[data-v-247e481a] {\n  font-size: 25px;\n}\n.PeerItem[data-v-247e481a]  .AnnotationTypeButton {\n  /*  padding-left: 0.7em !important;\n  padding-right: 0.7em !important;*/\n  padding: 0.5em !important;\n}\n@media only screen and (max-width: 767px) {\n.non-invasive-web-style-framework .ui.items > .item.PeerItem[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem[data-v-247e481a] {\n    display: -webkit-box;\n    vertical-align: top;\n    margin: 0 !important;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .image[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .image[data-v-247e481a] {\n    width: 2.5em !important;\n    display: inline-block;\n    vertical-align: top;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem .image > img[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem .image > img[data-v-247e481a] {\n    width: 100% !important;\n    display: inline;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content[data-v-247e481a] {\n    padding-top: 0 !important;\n    width: calc(100% - 3.5em);\n    display: inline-block !important;\n    vertical-align: top;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .header[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .header[data-v-247e481a] {\n    text-overflow: ellipsis;\n    max-width: 100%;\n    white-space: nowrap;\n    overflow-x: hidden;\n    overflow-y: hidden;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .header .message[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .header .message[data-v-247e481a] {\n    margin-left: -0.7em;\n}\n.non-invasive-web-style-framework .ui.items > .item.PeerItem > .content > .description[data-v-247e481a],\n  .non-invasive-web-style-framework .ui.divided.items > .item.PeerItem > .content > .description[data-v-247e481a] {\n    padding: 0 !important;\n}\n}\n.group-label[data-v-247e481a] {\n  padding: 0.2em 0.5em !important;\n  display: inline-block;\n  vertical-align: middle;\n}\n.group-label .icon[data-v-247e481a] {\n  margin-right: 0.2em !important;\n}\n.username[data-v-247e481a] {\n  display: inline-block;\n  vertical-align: middle;\n}\n"]}]);
 
 
 /***/ }),
@@ -601,7 +601,7 @@ exports.push([module.i, ".non-invasive-web-style-framework .ui.items > .item.Pee
 
 exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".items-list[data-v-5935224c] {\n  overflow-y: auto;\n  max-height: calc(100% - 2.7rem);\n  padding-bottom: 1em !important;\n  margin-top: 0 !important;\n}\n.all-item[data-v-5935224c] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n  margin-bottom: 0 !important;\n  width: calc(100% - 10px);\n}\n", "",{"version":3,"sources":["PeerList.less?vue&type=style&index=0&id=5935224c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,+BAA+B;EAC/B,8BAA8B;EAC9B,wBAAwB;AAC1B;AACA;EACE,0DAA0D;EAC1D,2BAA2B;EAC3B,wBAAwB;AAC1B","file":"PeerList.less?vue&type=style&index=0&id=5935224c&lang=less&scoped=true&","sourcesContent":[".items-list[data-v-5935224c] {\n  overflow-y: auto;\n  max-height: calc(100% - 2.7rem);\n  padding-bottom: 1em !important;\n  margin-top: 0 !important;\n}\n.all-item[data-v-5935224c] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n  margin-bottom: 0 !important;\n  width: calc(100% - 10px);\n}\n"]}]);
+exports.push([module.i, ".items-list[data-v-5935224c] {\n  overflow-y: auto;\n  max-height: calc(100% - 5.7rem);\n  padding-bottom: 1em !important;\n  margin-top: 0 !important;\n}\n.all-item[data-v-5935224c] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n  margin-bottom: 0 !important;\n  width: calc(100% - 10px);\n  margin-top: 0 !important;\n}\n.info[data-v-5935224c] {\n  max-height: 3em;\n  overflow: hidden;\n  text-indent: -0.2em;\n}\n", "",{"version":3,"sources":["PeerList.less?vue&type=style&index=0&id=5935224c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,+BAA+B;EAC/B,8BAA8B;EAC9B,wBAAwB;AAC1B;AACA;EACE,0DAA0D;EAC1D,2BAA2B;EAC3B,wBAAwB;EACxB,wBAAwB;AAC1B;AACA;EACE,eAAe;EACf,gBAAgB;EAChB,mBAAmB;AACrB","file":"PeerList.less?vue&type=style&index=0&id=5935224c&lang=less&scoped=true&","sourcesContent":[".items-list[data-v-5935224c] {\n  overflow-y: auto;\n  max-height: calc(100% - 5.7rem);\n  padding-bottom: 1em !important;\n  margin-top: 0 !important;\n}\n.all-item[data-v-5935224c] {\n  border-bottom: 1px solid rgba(34, 36, 38, 0.15) !important;\n  margin-bottom: 0 !important;\n  width: calc(100% - 10px);\n  margin-top: 0 !important;\n}\n.info[data-v-5935224c] {\n  max-height: 3em;\n  overflow: hidden;\n  text-indent: -0.2em;\n}\n"]}]);
 
 
 /***/ }),
@@ -1842,6 +1842,18 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "PeerList content-full-height" }, [
+    _c("div", { staticClass: "info" }, [
+      _vm._v(
+        "\r\n    " +
+          _vm._s(
+            _vm.$t(
+              "Please choose a reader, see how he / she reads the article, and give him / her some suggestions."
+            )
+          ) +
+          "\r\n  "
+      )
+    ]),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "ui link items all-item" },
@@ -1988,53 +2000,51 @@ var render = function() {
           ]
         : _vm._e(),
       _vm._v(" "),
-      _c(
-        "span",
-        { staticClass: "chart-label my" },
-        [
-          _c("user-avatar", {
-            attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
-          }),
-          _vm._v(" "),
-          _c(
+      _vm.filterData.chart.hasMatched
+        ? _c(
             "span",
-            { staticClass: "username" },
+            { staticClass: "chart-label my" },
             [
-              _vm._v(
-                "\r\n      " +
-                  _vm._s(_vm.myUsername) +
-                  "\r\n      (" +
-                  _vm._s(_vm.$t("You")) +
-                  ")\r\n      "
-              ),
-              !_vm.otherIsMe
-                ? [
-                    _vm._v(
-                      "\r\n        " + _vm._s(_vm.$t("and")) + "\r\n        "
-                    ),
-                    _vm.otherIsAll
-                      ? [
-                          _vm._v(
-                            "\r\n          " +
-                              _vm._s(_vm.$t("All Readers")) +
-                              "\r\n        "
-                          )
-                        ]
-                      : [
-                          _vm._v(
-                            "\r\n          " +
-                              _vm._s(_vm.otherUsername) +
-                              "\r\n        "
-                          )
-                        ]
-                  ]
-                : _vm._e()
+              _c("user-avatar", {
+                attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                { staticClass: "username" },
+                [
+                  _vm._v("\r\n      " + _vm._s(_vm.$t("You")) + "\r\n      "),
+                  !_vm.otherIsMe
+                    ? [
+                        _vm._v(
+                          "\r\n        " +
+                            _vm._s(_vm.$t("and")) +
+                            "\r\n        "
+                        ),
+                        _vm.otherIsAll
+                          ? [
+                              _vm._v(
+                                "\r\n          " +
+                                  _vm._s(_vm.$t("All Readers")) +
+                                  "\r\n        "
+                              )
+                            ]
+                          : [
+                              _vm._v(
+                                "\r\n          " +
+                                  _vm._s(_vm.otherUsername) +
+                                  "\r\n        "
+                              )
+                            ]
+                      ]
+                    : _vm._e()
+                ],
+                2
+              )
             ],
-            2
+            1
           )
-        ],
-        1
-      )
+        : _vm._e()
     ],
     2
   )
@@ -6690,7 +6700,7 @@ let PeerList = {
 //  mounted() {
 //  },
   methods: {
-    loadInit: async function () {
+    loadInit: async function (callback) {
       let data = {
         //  好像也想不到要傳什麼資料...
       }
@@ -6702,6 +6712,11 @@ let PeerList = {
         this.checkTempSelectUserID(result)
         
         this.filterData.users = this.filterData.users.slice(0, 0).concat(result)
+      }
+      
+      if (typeof(callback) === 'function'
+              && this.filterData.users.length > 2) {
+        callback(this.filterData.users[0])
       }
       
       //console.log(this.filterData.selectUser)
@@ -7016,13 +7031,16 @@ let UserChart = {
       //let _this = this
       //console.log(typeof(initPopup))
       //console.log(words)
-      return Object.keys(words).map(text => {
+      
+      let hasMatched = false
+      let result = Object.keys(words).map(text => {
         let item = {
           text
         }
         item.weight = words[text]
         if (this.userWordsTextArray.indexOf(text) > -1) {
           item.color = '#690'
+          hasMatched = true
         }
         
         item.handlers = {
@@ -7035,6 +7053,10 @@ let UserChart = {
         }
         return item
       })
+      
+      this.filterData.chart.hasMatched = hasMatched
+      
+      return result
     },
     
     // ---------------------------------------------------------
@@ -8579,6 +8601,8 @@ __webpack_require__.r(__webpack_exports__);
           allJSON: null,
 
           othersJSONMap: null,
+          
+          hasMatched: false
         },
       },
       hasReadTutorial,
@@ -8662,7 +8686,12 @@ __webpack_require__.r(__webpack_exports__);
     }
     //console.log(this.filterData.selectUser)
 
-    this.$refs.PeerList.loadInit()
+    this.$refs.PeerList.loadInit(peer => {
+      if (this.lib.auth.currentStepConfig.UserFilter 
+              && this.lib.auth.currentStepConfig.UserFilter.autoSelect) {
+        this.filterData.selectUser = peer
+      }
+    })
     this.$refs.UserChart.loadInit()
 
     this.$refs.Modal.show()
@@ -11404,6 +11433,15 @@ let Modal = {
           
           this.initDropdown()
           this.isShow = true
+          
+          if (this.lib.RangyManager) {
+            this.lib.RangyManager.cancelSelection()
+          }
+          
+          //console.log(this.lib.AnnotationManager)
+          if (this.lib.AnnotationManager) {
+            this.lib.AnnotationManager.hideFloatWidget()
+          }
           
           if (typeof(callback) === 'function') {
             callback()

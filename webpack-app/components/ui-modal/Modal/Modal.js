@@ -135,6 +135,15 @@ let Modal = {
           this.initDropdown()
           this.isShow = true
           
+          if (this.lib.RangyManager) {
+            this.lib.RangyManager.cancelSelection()
+          }
+          
+          //console.log(this.lib.AnnotationManager)
+          if (this.lib.AnnotationManager) {
+            this.lib.AnnotationManager.hideFloatWidget()
+          }
+          
           if (typeof(callback) === 'function') {
             callback()
           }

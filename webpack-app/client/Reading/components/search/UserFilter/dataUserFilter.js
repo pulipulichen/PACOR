@@ -18,6 +18,8 @@ export default function (UserFilter) {
           allJSON: null,
 
           othersJSONMap: null,
+          
+          hasMatched: false
         },
       },
       hasReadTutorial,

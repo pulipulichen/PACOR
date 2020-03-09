@@ -189,6 +189,9 @@ module.exports = {
       features: {
         AnnotationTypeFilter: false
       },
+      UserFilter: {
+        autoSelect: true,
+      },
       debug: {
         countdownPause: false
       }
@@ -225,6 +228,9 @@ module.exports = {
       },
       features: {
         AnnotationTypeFilter: false
+      },
+      UserFilter: {
+        autoSelect: true,
       },
       showFinishMessage: true, // 顯示恭喜完成的訊息
       //keepShowInstructionMessage: true,

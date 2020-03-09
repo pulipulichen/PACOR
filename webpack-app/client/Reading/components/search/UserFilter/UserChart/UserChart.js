@@ -178,13 +178,16 @@ let UserChart = {
       //let _this = this
       //console.log(typeof(initPopup))
       //console.log(words)
-      return Object.keys(words).map(text => {
+      
+      let hasMatched = false
+      let result = Object.keys(words).map(text => {
         let item = {
           text
         }
         item.weight = words[text]
         if (this.userWordsTextArray.indexOf(text) > -1) {
           item.color = '#690'
+          hasMatched = true
         }
         
         item.handlers = {
@@ -197,6 +200,10 @@ let UserChart = {
         }
         return item
       })
+      
+      this.filterData.chart.hasMatched = hasMatched
+      
+      return result
     },
     
     // ---------------------------------------------------------

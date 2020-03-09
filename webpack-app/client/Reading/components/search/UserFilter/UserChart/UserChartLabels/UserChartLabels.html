@@ -16,7 +16,8 @@
     </span>
   </template>
 
-  <span class="chart-label my">
+  <span class="chart-label my"
+        v-if="filterData.chart.hasMatched">
     <!--
     <img v-bind:src="myAvatar" />
     -->
@@ -27,8 +28,8 @@
     </user-avatar>
     
     <span class="username">
-      {{ myUsername }}
-      ({{ $t('You') }})
+      <!-- {{ myUsername }} -->
+      {{ $t('You') }}
       <template v-if="!otherIsMe">
         {{ $t('and') }}
         <template v-if="otherIsAll">
