@@ -77,7 +77,7 @@ let Instruction = {
       if (this.lib.auth.enableCollaboration === false) {
         return false
       }
-      return this.$t('Think about why others <span class="highlight">read in different ways</span> with you, and then try to read the article from a different perspective.')
+      return this.$t('Think about <span class="highlight">why others read in different ways</span> with you, and then try to read the article from a different perspective.')
     }
   },
 //  watch: {

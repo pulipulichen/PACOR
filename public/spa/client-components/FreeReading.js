@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"In {0} step":"In {0} step"},"zh-TW":{"In {0} step":"在 {0} 階段","Collaborative Reading will end at count to 0.":"請注意，倒數計時到0的時候，協助閱讀階段就會結束。","You will get notifications from other readers here.":"您可以在這裡收到來自其他讀者的通知。","You can select a peer and watch what he/she read.":"您可以在這裡選擇要協助的同儕。","You can choose a type of annotations to read.":"您可以在這裡選擇要顯示的閱讀策略。","Article Information":"文章資訊","Select a reader, watch how he/she read the article, and give him/her suggestions.":"請在此選擇一位讀者，看他/她是怎麽讀這篇文章，然後給他/她一些建議吧。","Select an annotation type to watch how readers use it to read the article.":"選擇一種閱讀策略，看看其他讀者是怎麽用它來讀文章的。"}}')
+  Component.options.__i18n.push('{"en":{"In {0} step":"In {0} step"},"zh-TW":{"In {0} step":"在 {0} 階段","Collaborative Reading will end at count to 0.":"請注意，倒數計時到0的時候，協助閱讀階段就會結束。","You will get notifications from other readers here.":"如果其他讀者有跟您互動，您會在這裡收到通知。","You can select a peer and watch what he/she read.":"請從這裡選擇一位同學，看看他們怎麽閱讀文章吧。","You can choose a type of annotations to read.":"您可以在這裡選擇要顯示的閱讀策略。","Article Information":"文章資訊","Select a reader, watch how he/she read the article, and give him/her suggestions.":"請在此選擇一位讀者，看他/她是怎麽讀這篇文章，然後給他/她一些建議吧。","Select an annotation type to watch how readers use it to read the article.":"選擇一種閱讀策略，看看其他讀者是怎麽用它來讀文章的。"}}')
   delete Component.options._Ctor
 }
 

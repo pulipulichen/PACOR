@@ -187,6 +187,18 @@ export default function (AnnotationPanel) {
         return $(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first')
       },
       content: this.$t('Click here to read the instruction of this annotation type.'),
+      order: 218,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return (($(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+                && ($(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 0))
+      },
+      element: () => {
+        return $(this.$refs.panel).find('.AnnotationSingle.edit-mode .annotation-panel-buttons .ValidationButton:visible:first')
+      },
+      content: this.$t('Click "ADD" button to save it.'),
       order: 219,
     })
     
@@ -236,14 +248,36 @@ export default function (AnnotationPanel) {
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
         return (($(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
-                && ($(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1))
+                && ($(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1)
+                && (this.panelData.annotation.type === 'Confused' || this.panelData.annotation.type === 'Clarified'))
       },
       element: () => {
         return $(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first .demo-comment')
       },
       content: this.$t(`If you like other reader's suggestion, click "Like" to add the suggestion as your answer.`),
       afterClick: () => {
-        this.panelData.showDemoComment = false
+        if (this.panelData.annotation.type === 'Confused' || this.panelData.annotation.type === 'Clarified') {
+          this.panelData.showDemoComment = false
+        }
+      },
+      order: 243,
+    })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        //console.log(this.panelData.annotation.type)
+        return (($(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+                && ($(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1)
+                && (this.panelData.annotation.type !== 'Confused' && this.panelData.annotation.type !== 'Clarified'))
+      },
+      element: () => {
+        return $(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first .demo-comment')
+      },
+      content: this.$t(`If you like other reader's suggestion, click "Like" to thanks him / her.`),
+      afterClick: () => {
+        if ((this.panelData.annotation.type !== 'Confused' && this.panelData.annotation.type !== 'Clarified')) {
+          this.panelData.showDemoComment = false
+        }
       },
       order: 242,
     })
