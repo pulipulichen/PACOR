@@ -183,7 +183,7 @@ class WebpageGroupUserFilter {
         }
       })
       
-      console.log(readersJSON.map(r => r.interactTime))
+      //console.log(readersJSON.map(r => r.interactTime))
     }
     
   } // register (Model) {

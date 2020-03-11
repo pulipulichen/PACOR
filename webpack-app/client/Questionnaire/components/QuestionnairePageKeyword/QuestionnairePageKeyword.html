@@ -16,9 +16,11 @@
           v-bind:status="status"
           v-bind:lib="lib">
         </user-avatar>
-        {{ lib.auth.username }}
-        :
-        {{ header }}
+        <span class="questionnaire-header">
+          {{ lib.auth.username }}
+          :
+          {{ header }}
+        </span>
       </div>
     </template>
     <template v-slot:headerMenu
@@ -66,7 +68,7 @@
                        type="text" 
                        v-model="inputKeyword"
                        ref='SearchInputText'
-                       v-bind:placeholder="$t('Add keyword...')">
+                       v-bind:placeholder="$t('Add a keyword you think of based on the previous clues?')">
                 <i class="plus icon submit-button"
                    v-bind:class="{link: (inputKeyword.trim() !== '')}"
                    v-bind:title="$t('Add keyword...')"

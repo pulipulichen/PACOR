@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"\\"{0}\\"":"\\"{0}\\"","<span class=\\"highlight\\">\\"{0}\\"</span>":"<span class=\\"highlight\\">\\"{0}\\"</span>","and {0}":"and {0}","Please use {0} reading strategies to read this article.":"Please use {0} reading strategies to read this article.","When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.":"When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.","When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.":"When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.","Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant.":"Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant."},"zh-TW":{"Now please concentrate on reading this article!":"現在請您專心閱讀這篇文章囉！","\\"{0}\\"":"「{0}」","<span class=\\"highlight\\">\\"{0}\\"</span>":"<span class=\\"highlight\\">「{0}」</span>",", ":"、","and {0}":"以及{0}","Please use {0} reading strategies to read this article.":"請使用{0}閱讀策略來閱讀這篇文章。","When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.":"閱讀文章的時候要一併完成「檢核表」和撰寫「{0}」筆記。","When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.":"閱讀文章的時候要一併完成<span class=\\"highlight\\">「檢核表」</span>和撰寫<span class=\\"highlight\\">「{0}」</span>筆記。","Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant.":"限時<span class=\\"highlight\\">{0}分鐘</span>，現在開始計時。",". Please do your best to assist other readers.":"，請盡力去協助其他讀者吧。",". Please read the article carefully.":"，請仔細閱讀文章吧。"," and ":"及"}}')
+  Component.options.__i18n.push('{"en":{"\\"{0}\\"":"\\"{0}\\"","<span class=\\"highlight\\">\\"{0}\\"</span>":"<span class=\\"highlight\\">\\"{0}\\"</span>","and {0}":"and {0}","Please use {0} reading strategies to read this article.":"Please use {0} reading strategies to read this article.","When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.":"When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.","When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.":"When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.","Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant.":"Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant."},"zh-TW":{"Now please concentrate on reading this article!":"現在請您專心閱讀這篇文章囉！","\\"{0}\\"":"「{0}」","<span class=\\"highlight\\">\\"{0}\\"</span>":"<span class=\\"highlight\\">「{0}」</span>",", ":"、","and {0}":"以及{0}","Please use {0} reading strategies to read this article.":"請使用{0}閱讀策略來讀這篇文章。","When reading an article, complete both the \\"Checklist\\" and the \\"{0}\\" note.":"閱讀文章的時候要一併完成「檢核表」與「{0}」筆記。","When reading an article, complete both the <span class=\\"highlight\\">\\"Checklist\\"</span> and the <span class=\\"highlight\\">\\"{0}\\"</span> note.":"閱讀文章的時候要一併完成<span class=\\"highlight\\">「檢核表」</span>和撰寫<span class=\\"highlight\\">「{0}」</span>筆記。","Limited to <span class=\\"highlight\\">{0} minutes</span>, now it starts instant.":"限時<span class=\\"highlight\\">{0}分鐘</span>，現在開始計時。",". Please do your best to assist other readers.":"，請盡力去協助其他讀者吧。",". Please read the article carefully.":"，請仔細閱讀文章吧。"," and ":"及"}}')
   delete Component.options._Ctor
 }
 
@@ -42,6 +42,22 @@ module.exports = function (Component) {
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
   Component.options.__i18n.push('{"en":null,"zh-TW":{"When countdown to 0, you will go to next step.":"當剩餘時間倒數到0的時候，您將會前往下一個閱讀階段。"}}')
+  delete Component.options._Ctor
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/IndividualReading/NavigationItems/CompactNavigation/ReadingProgressIndicator/ReadingProgressIndicator.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5CIndividualReading%5CNavigationItems%5CCompactNavigation%5CReadingProgressIndicator%5CReadingProgressIndicator.vue&lang=yaml":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@kazupon/vue-i18n-loader/lib!./webpack-app/client/Reading/IndividualReading/NavigationItems/CompactNavigation/ReadingProgressIndicator/ReadingProgressIndicator.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5CIndividualReading%5CNavigationItems%5CCompactNavigation%5CReadingProgressIndicator%5CReadingProgressIndicator.vue&lang=yaml ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (Component) {
+  Component.options.__i18n = Component.options.__i18n || []
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Reading progress:":"閱讀進度："}}')
   delete Component.options._Ctor
 }
 
@@ -505,7 +521,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return this.display
     ? _c("span", { staticClass: "ReadingProgressIndicator" }, [
-        _vm._v("\r\n  " + _vm._s(_vm.percent) + "%\r\n")
+        _vm._v(
+          "\r\n  " +
+            _vm._s(_vm.$t("Reading progress:")) +
+            "\r\n  " +
+            _vm._s(_vm.percent) +
+            "%\r\n"
+        )
       ])
     : _vm._e()
 }
@@ -1616,6 +1638,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ReadingProgressIndicator_html_vue_type_template_id_64f8bd2d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ReadingProgressIndicator.html?vue&type=template&id=64f8bd2d& */ "./webpack-app/client/Reading/IndividualReading/NavigationItems/CompactNavigation/ReadingProgressIndicator/ReadingProgressIndicator.html?vue&type=template&id=64f8bd2d&");
 /* harmony import */ var _ReadingProgressIndicator_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ReadingProgressIndicator.js?vue&type=script&lang=js& */ "./webpack-app/client/Reading/IndividualReading/NavigationItems/CompactNavigation/ReadingProgressIndicator/ReadingProgressIndicator.js?vue&type=script&lang=js&?dabd");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _ReadingProgressIndicator_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CCompactNavigation_5CReadingProgressIndicator_5CReadingProgressIndicator_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ReadingProgressIndicator.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5CIndividualReading%5CNavigationItems%5CCompactNavigation%5CReadingProgressIndicator%5CReadingProgressIndicator.vue&lang=yaml */ "./webpack-app/client/Reading/IndividualReading/NavigationItems/CompactNavigation/ReadingProgressIndicator/ReadingProgressIndicator.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5CIndividualReading%5CNavigationItems%5CCompactNavigation%5CReadingProgressIndicator%5CReadingProgressIndicator.vue&lang=yaml");
 
 
 
@@ -1634,10 +1657,30 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   
 )
 
+/* custom blocks */
+
+if (typeof _ReadingProgressIndicator_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CCompactNavigation_5CReadingProgressIndicator_5CReadingProgressIndicator_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_3__["default"] === 'function') Object(_ReadingProgressIndicator_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CCompactNavigation_5CReadingProgressIndicator_5CReadingProgressIndicator_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_3__["default"])(component)
+
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "webpack-app/client/Reading/IndividualReading/NavigationItems/CompactNavigation/ReadingProgressIndicator/ReadingProgressIndicator.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/IndividualReading/NavigationItems/CompactNavigation/ReadingProgressIndicator/ReadingProgressIndicator.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5CIndividualReading%5CNavigationItems%5CCompactNavigation%5CReadingProgressIndicator%5CReadingProgressIndicator.vue&lang=yaml":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/IndividualReading/NavigationItems/CompactNavigation/ReadingProgressIndicator/ReadingProgressIndicator.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5CIndividualReading%5CNavigationItems%5CCompactNavigation%5CReadingProgressIndicator%5CReadingProgressIndicator.vue&lang=yaml ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_ReadingProgressIndicator_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CCompactNavigation_5CReadingProgressIndicator_5CReadingProgressIndicator_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/@kazupon/vue-i18n-loader/lib!./ReadingProgressIndicator.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5CIndividualReading%5CNavigationItems%5CCompactNavigation%5CReadingProgressIndicator%5CReadingProgressIndicator.vue&lang=yaml */ "./node_modules/@kazupon/vue-i18n-loader/lib/index.js!./webpack-app/client/Reading/IndividualReading/NavigationItems/CompactNavigation/ReadingProgressIndicator/ReadingProgressIndicator.yaml?vue&type=custom&index=0&blockType=i18n&issuerPath=D%3A%5Cxampp%5Chtdocs%5Cprojects-nodejs%5CPACOR%5Cwebpack-app%5Cclient%5CReading%5CIndividualReading%5CNavigationItems%5CCompactNavigation%5CReadingProgressIndicator%5CReadingProgressIndicator.vue&lang=yaml");
+/* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_ReadingProgressIndicator_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CCompactNavigation_5CReadingProgressIndicator_5CReadingProgressIndicator_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_ReadingProgressIndicator_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CCompactNavigation_5CReadingProgressIndicator_5CReadingProgressIndicator_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_ReadingProgressIndicator_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CCompactNavigation_5CReadingProgressIndicator_5CReadingProgressIndicator_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_ReadingProgressIndicator_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CCompactNavigation_5CReadingProgressIndicator_5CReadingProgressIndicator_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_ReadingProgressIndicator_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5CIndividualReading_5CNavigationItems_5CCompactNavigation_5CReadingProgressIndicator_5CReadingProgressIndicator_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

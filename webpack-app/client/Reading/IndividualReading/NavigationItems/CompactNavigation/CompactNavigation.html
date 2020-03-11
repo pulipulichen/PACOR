@@ -31,10 +31,11 @@
 
   <!-- ==================================== -->
   
-  <div class="overlay normal-menu-overlay"
-         v-on:click.self="normalMenuDisplay = false"
-         v-on:touch.self="normalMenuDisplay = false"
-         v-if="normalMenuDisplay"></div>
+  <div 
+    class="overlay normal-menu-overlay"
+    v-on:click.self="normalMenuDisplay = false"
+    v-on:touch.self="normalMenuDisplay = false"
+    v-if="normalMenuDisplay"></div>
   
   <navigation 
     ref="nav" 

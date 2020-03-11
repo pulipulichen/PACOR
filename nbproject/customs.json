@@ -157,6 +157,7 @@
     "inline-template": {
       "context": "template"
     },
+    "v-on:click.self": {},
     "v-on:update": {},
     "v-bind:src": {
       "context": "img"

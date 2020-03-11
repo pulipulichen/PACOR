@@ -3,7 +3,7 @@ module.exports = {
     flushCache: true,
     enable: true,
     enableRemoteConosleLog: false,
-    tutorialEnableTimeout: true,
+    tutorialEnableTimeout: false,
     //forceMaxTimeoutMinutes: 0.4
     //forceMaxTimeoutMinutes: 0.2
     forceMaxTimeoutMinutes: 1,

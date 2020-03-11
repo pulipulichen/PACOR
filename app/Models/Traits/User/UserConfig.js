@@ -64,8 +64,14 @@ class UserConfig {
         //throw new Error('config is undefined')
         let stepName = await this.getCurrentReadingProgressStepName(webpage)
         
+        let excludingList = [
+          'PostRecall',
+          'PostRecallKeyword',
+          'PreImaginary',
+          'PreImaginaryKeyword',
+        ]
         if (stepName === true 
-                || (stepName !== 'PostRecall' && stepName !== 'PostRecallKeyword')) {
+                || (excludingList.indexOf(stepName) !== -1)) {
           console.error('[User.getStepAnnotationTypes()] config is error: ' + stepName)
         }
         return []

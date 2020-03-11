@@ -1,7 +1,9 @@
 <section 
   class="instruction SectionPreImaginary"
   ref="SectionPreImaginary">
+  
   <h1>{{ $t('Please use the following clues to predict which keywords this article might mention.') }}</h1>
+  
   <ul>
     <li v-html="titleHTML"></li>
     <li v-if="headings.length > 0"
@@ -18,25 +20,28 @@
               v-bind:src="image.src" 
               v-bind:title="image.title"/></span>
     </li>
-    
-    <li class="divided">
-      {{ $t('When you click "Start Answer and Countdown" button, a keyword editor will appear like following image:') }}
+  </ul>
+  
+  <hr />
+  
+  <ul>
+    <li>
+      {{ $t('After you press the "Start answering and countdown instantly" button, please start the following operations:') }}
       <br />
       <img class="keyword-editor-thumbnail"
            v-bind:src="keywordEditorThumbnail"
            v-bind:title="$t('Keyword Editor')"/>
     </li>
-    
-    <li>
-      {{ $t('You can perform following actions:') }}
-      <ol>
-        <li>{{ $t('Add a keyword') }}</li>
-        <li>{{ $t('Remove a keyword from your list') }}</li>
-        <li>{{ $t('Restore a keyword to your list') }}</li>
-      </ol>
-    </li>
-    
-    <li class="divided"
-        v-html="timeLimitClickButtonStart"></li>
+  </ul>  
+  <ol>
+    <li>{{ $t('Add the keywords you think of based on the above clues.') }}</li>
+    <li>{{ $t('If you have misspelled a keyword, click on it to remove it.') }}</li>
+    <li>{{ $t('If you accidentally removed the keyword, click here to get it back.') }}</li>
+  </ol>
+  
+  <hr />
+  
+  <ul>
+    <li v-html="timeLimitClickButtonStart"></li>
   </ul>
 </section>
