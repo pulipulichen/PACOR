@@ -852,6 +852,14 @@ __webpack_require__.r(__webpack_exports__);
     if (this.lib.style.detectIsIOS) {
       return []
     }
+    else if (this.lib.auth.currentStepConfig.HTMLEditor 
+            && this.lib.auth.currentStepConfig.HTMLEditor.insertMultimedia === false) {
+      return [
+        // [groupName, [list of button]]
+        ['list', ['ul', 'ol', 'indent', 'outdent']],
+        ['insert', ['hr']]
+      ]
+    }
     else {
       return [
         // [groupName, [list of button]]

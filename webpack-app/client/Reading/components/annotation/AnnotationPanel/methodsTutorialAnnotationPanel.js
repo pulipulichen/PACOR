@@ -47,12 +47,17 @@ export default function (AnnotationPanel) {
     
   AnnotationPanel.methods.setupTutorialIndividualReading = function () {
     
+    let contentNote = this.$t('Please write down the reasons for choosing this keyword or other things you think of from this keyword. You can also insert pictures.')
+    if (this.lib.auth.currentStepConfig.HTMLEditor 
+            && this.lib.auth.currentStepConfig.HTMLEditor.insertMultimedia === false) {
+      contentNote = this.$t('Please write down the reasons for choosing this keyword or other things you think of from this keyword.')
+    }
     this.lib.TutorialManager.addAction({
       //backgroundFadeOut: true,
       element: () => {
         return this.$refs.panel
       },
-      content: this.$t('Please write down the reasons for choosing this keyword or other things you think of from this keyword. You can also insert pictures.'),
+      content: contentNote,
       order: 31
     })
     

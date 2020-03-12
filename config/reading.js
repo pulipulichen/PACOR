@@ -3,7 +3,7 @@ module.exports = {
     flushCache: true,
     enable: true,
     enableRemoteConosleLog: false,
-    tutorialEnableTimeout: false,
+    tutorialEnableTimeout: true,
     //forceMaxTimeoutMinutes: 0.4
     //forceMaxTimeoutMinutes: 0.2
     forceMaxTimeoutMinutes: 1,
@@ -150,7 +150,10 @@ module.exports = {
 //        updateInterval: 30000
       },
       features: {
-        AnnotationTypeFilter: false
+        AnnotationTypeFilter: true
+      },
+      HTMLEditor: {
+        insertMultimedia: false
       },
       debug: {
         countdownPause: false
@@ -187,7 +190,10 @@ module.exports = {
         updateInterval: 30000
       },
       features: {
-        AnnotationTypeFilter: false
+        AnnotationTypeFilter: true,
+      },
+      HTMLEditor: {
+        insertMultimedia: false
       },
       UserFilter: {
         autoSelect: true,
@@ -227,7 +233,10 @@ module.exports = {
         updateInterval: 30000
       },
       features: {
-        AnnotationTypeFilter: false
+        AnnotationTypeFilter: true
+      },
+      HTMLEditor: {
+        insertMultimedia: false
       },
       UserFilter: {
         autoSelect: true,
@@ -266,6 +275,10 @@ module.exports = {
         },
       ],
       'externalResourceSearches': [
+        {
+          'name': 'Find answers from Chinese dictionary',
+          'urlPattern': 'https://www.moedict.tw/{anchorText}'
+        },
         {
           'name': 'Find answers from Google',
           'urlPattern': 'https://www.google.com/search?q={question}'
