@@ -7029,7 +7029,7 @@ __webpack_require__.r(__webpack_exports__);
           await this.sleep(100)
           await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
             timeout: 3000,
-            errorMessage: '似乎不能儲存小節關鍵字，是不是沒有寫文字？'
+            errorMessage: '似乎不能儲存小節關鍵詞，是不是沒有寫文字？'
           })
         }
         catch (e) {
@@ -7063,11 +7063,11 @@ __webpack_require__.r(__webpack_exports__);
         let editButton = await this.waitForElementVisible('.SectionAnnotationList > .ui.fluid.button:last', {
           baseElement: panel,
           timeout: 10000,
-          errorMessage: '有看到撰寫小節關鍵字嗎？是不是送出小節checklist的時間太久了？'
+          errorMessage: '有看到撰寫小節關鍵詞嗎？是不是送出小節checklist的時間太久了？'
         })
         //PACORTestManager.log('editButton', editButton.text().trim())
-        if (editButton.text().indexOf('撰寫小節關鍵字') > -1) {
-          throw new Error('Should not be 撰寫小節關鍵字')
+        if (editButton.text().indexOf('撰寫小節關鍵詞') > -1) {
+          throw new Error('Should not be 撰寫小節關鍵詞')
         }
       }
     } // for (let i = 0; i < checklists.length; i++) {

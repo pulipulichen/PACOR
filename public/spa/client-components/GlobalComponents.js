@@ -201,7 +201,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Viewing All":"觀看所有讀者","Asist":"協助","View":"觀看","Please select a peer":"選擇一位讀者來協助他/她","Please choose a reader, see how he / she reads the article, and give him / her some suggestions.":"請選擇一位讀者，看看他/她是怎麽閱讀文章，然後給他/她一些建議吧。","Only Show You":"只顯示您","Show All":"顯示所有讀者","Cancel":"待會再選","Start Tutorial":"顯示操作導覽","Select a peer to watch how his/her read article. And give him/her suggestions.":"請選擇一位讀者。系統預設會幫您挑選其中一位，您可以直接看看他/她是怎麽讀這篇文章。","You can see the different of keywords between you can others.":"這裡是這位讀者所寫的筆記，跟您的有什麼不同呢？","Green words means you and others use the same keywords.":"如果看到綠色的字，這表示您與這位讀者筆記都有這些關鍵字。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Viewing All":"觀看所有讀者","Asist":"協助","View":"觀看","Please select a peer":"選擇一位讀者來協助他/她","Please choose a reader, see how he / she reads the article, and give him / her some suggestions.":"請選擇一位讀者，看看他/她是怎麽閱讀文章，然後給他/她一些建議吧。","Only Show You":"只顯示您","Show All":"顯示所有讀者","Cancel":"待會再選","Start Tutorial":"顯示操作導覽","Select a peer to watch how his/her read article. And give him/her suggestions.":"請選擇一位讀者。系統預設會幫您挑選其中一位，您可以直接看看他/她是怎麽讀這篇文章。","You can see the different of keywords between you can others.":"這裡是這位讀者所寫的筆記，跟您的有什麼不同呢？","Green words means you and others use the same keywords.":"如果看到綠色的字，這表示您與這位讀者筆記都提到了這些關鍵詞。"}}')
   delete Component.options._Ctor
 }
 

@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can read other\u0027s annotations.":"您可以看到其他讀者的標註了。","You can see the annotations of other readers. The bottom line is the annotation of other readers, and the background color is your annotation.":"請您看看您的閱讀方式與其他讀者有什麼不同。底線就是其他讀者的標註，底色則是您的標註。","Select text to highlight.":"請選擇一段文字。這可能是您認為的關鍵字，或是您看不懂的文字。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can read other\u0027s annotations.":"您可以看到其他讀者的標註了。","You can see the annotations of other readers. The bottom line is the annotation of other readers, and the background color is your annotation.":"請您看看您的閱讀方式與其他讀者有什麼不同。底線就是其他讀者的標註，底色則是您的標註。","Select text to highlight.":"請選擇一段文字。這可能是您認為的關鍵詞，或是您看不懂的文字。"}}')
   delete Component.options._Ctor
 }
 
@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"List Annotations":"列出標註","Quick Add":"快速新增","Select an annotation type to highlight the selected text.":"接著選擇一種閱讀策略類型。","For example, if you choose \\"Main Idea\\" type.":"舉例來說，如果您選擇「關鍵字」閱讀策略類型。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"List Annotations":"列出標註","Quick Add":"快速新增","Select an annotation type to highlight the selected text.":"接著選擇一種閱讀策略類型。","For example, if you choose \\"Main Idea\\" type.":"舉例來說，如果您選擇「關鍵詞」閱讀策略類型。"}}')
   delete Component.options._Ctor
 }
 
@@ -105,7 +105,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Please write down the reasons for choosing this keyword or other things you think of from this keyword. You can also insert pictures.":"請您用筆記寫下選擇這個關鍵字的理由，或是您從這個關鍵字聯想到的其他事情。您也可以插入圖片。","Please write down the reasons for choosing this keyword or other things you think of from this keyword.":"請您用筆記寫下選擇這個關鍵字的理由，或是您從這個關鍵字聯想到的其他事情。","Click \\"ADD\\" to save it.":"最後記得按下『記下「關鍵字」』來儲存喔。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該閱讀策略。","You can give a comment to any annotation.":"您可以為標註提供建議。","Try to give a suggestion for the reader.":"試著給這位讀者一些建議吧。","Here shows a summary of the list.":"這裡顯示了標註列表的摘要。","You can filter the list with keywords.":"您可以用指定文字來篩選列表。","Click here to see the detail of this annotation and give a suggestion.":"您可點選此處查看標註的詳細內容，並給予建議。","Here is the annotation wrote by other reader.":"這裡是其他讀者撰寫的標註。","Here is the annotation wrote by you. You can edit the annotation.":"這裡是您撰寫的標註，您可以編輯它。","Finding Answer":"找尋解答","You can use the \\"Finding Answer\\" tool to find the answer of the question.":"您可以用「找尋解答」功能來找尋這個問題的答案。","If you like this annotation, click \\"Like\\" button.":"如果您喜歡他/她寫的標註，請給他/她按個「讚」吧。","Click here to read the instruction of this annotation type.":"點此查看如何使用閱讀策略。","Write notes based on your reading strategy. Try to use notes to deepen your impression of the article.":"請依照閱讀策略來撰寫筆記。這些筆記可以加深對您文章的印象喔！","Question Template":"問題範本","Try to build your question with templates.":"如果您不知道要問什麼問題，請試著用「問題範本」來擬定問題吧！","Click \\"ADD\\" button to save it.":"最後記得按下「記下」按鈕來儲存喔。","If you like other reader\u0027s suggestion, click \\"Like\\" to add the suggestion as your answer.":"如果您覺得這位讀者的建議很好，按「讚」可以把建議加入您的答案中喔。","You can see the suggestions from other reader.":"您可以在這裡看到其他讀者的建議。","If you like other reader\u0027s suggestion, click \\"Like\\" to thanks him / her.":"如果您覺得這位讀者的建議很好，按「讚」感謝他/她。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Please write down the reasons for choosing this keyword or other things you think of from this keyword. You can also insert pictures.":"請您用筆記寫下選擇這個關鍵詞的理由，或是您從這個關鍵詞聯想到的其他事情。您也可以插入圖片。","Please write down the reasons for choosing this keyword or other things you think of from this keyword.":"請您用筆記寫下選擇這個關鍵詞的理由，或是您從這個關鍵詞聯想到的其他事情。","Click \\"ADD\\" to save it.":"最後記得按下『記下「關鍵詞」』來儲存喔。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該閱讀策略。","You can give a comment to any annotation.":"您可以為標註提供建議。","Try to give a suggestion for the reader.":"試著給這位讀者一些建議吧。","Here shows a summary of the list.":"這裡顯示了標註列表的摘要。","You can filter the list with keywords.":"您可以用指定文字來篩選列表。","Click here to see the detail of this annotation and give a suggestion.":"您可點選此處查看標註的詳細內容，並給予建議。","Here is the annotation wrote by other reader.":"這裡是其他讀者撰寫的標註。","Here is the annotation wrote by you. You can edit the annotation.":"這裡是您撰寫的標註，您可以編輯它。","Finding Answer":"找尋解答","You can use the \\"Finding Answer\\" tool to find the answer of the question.":"您可以用「找尋解答」功能來找尋這個問題的答案。","If you like this annotation, click \\"Like\\" button.":"如果您喜歡他/她寫的標註，請給他/她按個「讚」吧。","Click here to read the instruction of this annotation type.":"點此查看如何使用閱讀策略。","Write notes based on your reading strategy. Try to use notes to deepen your impression of the article.":"請依照閱讀策略來撰寫筆記。這些筆記可以加深對您文章的印象喔！","Question Template":"問題範本","Try to build your question with templates.":"如果您不知道要問什麼問題，請試著用「問題範本」來擬定問題吧！","Click \\"ADD\\" button to save it.":"最後記得按下「記下」按鈕來儲存喔。","If you like other reader\u0027s suggestion, click \\"Like\\" to add the suggestion as your answer.":"如果您覺得這位讀者的建議很好，按「讚」可以把建議加入您的答案中喔。","You can see the suggestions from other reader.":"您可以在這裡看到其他讀者的建議。","If you like other reader\u0027s suggestion, click \\"Like\\" to thanks him / her.":"如果您覺得這位讀者的建議很好，按「讚」感謝他/她。"}}')
   delete Component.options._Ctor
 }
 
@@ -185,7 +185,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Hint":"顯示說明","Highlight text you don\u0027t understand":"記下您看不懂或有疑問的片段","Write the answer to \\"questions\\"":"解答您的「疑問」","Highlight key keywords or concepts":"記下您對文章有印象的關鍵字","Highlight keywords or concepts in this section":"記下小節中的重點關鍵字","Highlight keywords or concepts in the article":"記下文章中的重點關鍵字"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Hint":"顯示說明","Highlight text you don\u0027t understand":"記下您看不懂或有疑問的片段","Write the answer to \\"questions\\"":"解答您的「疑問」","Highlight key keywords or concepts":"記下您對文章有印象的關鍵詞","Highlight keywords or concepts in this section":"記下小節中的重點關鍵詞","Highlight keywords or concepts in the article":"記下文章中的重點關鍵詞"}}')
   delete Component.options._Ctor
 }
 
@@ -281,7 +281,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"ADD":"記下「關鍵字」","UPDATE":"更新「關鍵字」","WRITE NOTE":"請寫筆記"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"ADD":"記下「關鍵詞」","UPDATE":"更新「關鍵詞」","WRITE NOTE":"請寫筆記"}}')
   delete Component.options._Ctor
 }
 
@@ -297,7 +297,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Why do you think it is a main idea?":"您為何覺得這裡是關鍵字？","Write something about the keyword...":"寫些跟這個關鍵字相關的事情吧..."}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Why do you think it is a main idea?":"您為何覺得這裡是關鍵詞？","Write something about the keyword...":"看到這個關鍵詞，您會想到什麼呢..."}}')
   delete Component.options._Ctor
 }
 
@@ -313,7 +313,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"ADD":"記下「小節關鍵字」","UPDATE":"更新「小節關鍵字」","What do you think are the main ideas of this section?":"您認為這個小節的關鍵字有那些？"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"ADD":"記下「小節關鍵詞」","UPDATE":"更新「小節關鍵詞」","What do you think are the main ideas of this section?":"您認為這個小節的關鍵詞有那些？"}}')
   delete Component.options._Ctor
 }
 
@@ -329,7 +329,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can see others\u0027 section main ideas.":"您可以看到別人撰寫的小節關鍵字了。","After reading a section of the article, you have to finish the section checklist.":"在讀完一個小節之後，請您完成這個小節的檢核單。","When you finish all section checklists, you will go to next step.":"當您完成所有小節檢核單之後，您將會前往下一個閱讀階段。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You can see others\u0027 section main ideas.":"您可以看到別人撰寫的小節關鍵詞了。","After reading a section of the article, you have to finish the section checklist.":"在讀完一個小節之後，請您完成這個小節的檢核單。","When you finish all section checklists, you will go to next step.":"當您完成所有小節檢核單之後，您將會前往下一個閱讀階段。"}}')
   delete Component.options._Ctor
 }
 
@@ -345,7 +345,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Write section main ideas":"撰寫小節關鍵字","Edit section main ideas":"編輯小節關鍵字","Write article main ideas":"撰寫文章關鍵字","Edit article main ideas":"編輯文章關鍵字"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Write section main ideas":"撰寫小節關鍵詞","Edit section main ideas":"編輯小節關鍵詞","Write article main ideas":"撰寫文章關鍵詞","Edit article main ideas":"編輯文章關鍵詞"}}')
   delete Component.options._Ctor
 }
 
@@ -377,7 +377,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Check list":"檢核單","Write section main ideas":"撰寫小節關鍵字","Edit section main ideas":"編輯小節關鍵字","I have already read this section.":"我已經讀完了這一節的內容。","I have already written annotations on a sentence I don\u0027t understand.":"讀到看不懂的文字時，我已經記下「疑問」了。","I have already written the main ideas of this section.":"我已經寫完小節關鍵字了。","Please finish checklist.":"請完成這份檢核單","I have read this section!":"我已經讀完這一節了！","Write article main ideas":"撰寫文章關鍵字","Edit article main ideas":"編輯文章關鍵字","I have already read this article.":"我已經讀完了這篇文章的內容。","I have already written the main ideas of this article.":"我已經寫完文章關鍵字了。","I have read this article!":"我已經讀完這篇文章了！"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Check list":"檢核單","Write section main ideas":"撰寫小節關鍵詞","Edit section main ideas":"編輯小節關鍵詞","I have already read this section.":"我已經讀完了這一節的內容。","I have already written annotations on a sentence I don\u0027t understand.":"讀到看不懂的文字時，我已經記下「疑問」，並嘗試找過解答了。","I have already written the main ideas of this section.":"我已經記下了小節關鍵詞了。","Please finish checklist.":"請完成這份檢核單","I have read this section!":"我已經讀完這一節了！","Write article main ideas":"撰寫文章關鍵詞","Edit article main ideas":"編輯文章關鍵詞","I have already read this article.":"我已經讀完了這篇文章的內容。","I have already written the main ideas of this article.":"我已經記下了文章關鍵詞了。","I have read this article!":"我已經讀完這篇文章了！"}}')
   delete Component.options._Ctor
 }
 
