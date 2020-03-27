@@ -10806,7 +10806,7 @@ let ValidationButton = {
   props: ['locale', 'lib', 'countdownSec'
     , 'minWordCount', 'maxWordCount', 'text', 'ignoreWordCount'
     , 'color', 'enable'
-    , 'rightLabeledIcon', 'leftLabeledIcon',
+    , 'rightLabeledIcon', 'leftLabeledIcon'
     , 'writeSomething'],
   data() {    
     this.$i18n.locale = this.locale

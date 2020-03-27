@@ -15280,8 +15280,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let FooterButtons = {
-  props: ['lib', 'status', 'config'
-    , 'annotation', 'panelData'],
+  props: ['lib', 'status', 'config', 'annotation', 'panelData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {

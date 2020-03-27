@@ -1,6 +1,5 @@
 let FooterButtons = {
-  props: ['lib', 'status', 'config'
-    , 'annotation', 'panelData'],
+  props: ['lib', 'status', 'config', 'annotation', 'panelData'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
