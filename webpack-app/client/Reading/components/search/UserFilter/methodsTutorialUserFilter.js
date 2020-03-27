@@ -32,6 +32,24 @@ export default function (UserFilter) {
       content: this.$t('Green words means you and others use the same keywords.'),
       order: 3
     })
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      element: async () => {
+        let element = $(this.$refs.Modal.$el).find('.tutorial-start:first')
+        return element
+      },
+      content: this.$t('You can watch tutorial again from here.'),
+      order: 999
+    })
+    
+  }
+  
+  UserFilter.methods.checkTutorialAutoStart = function () {
+    if (this.hasReadTutorial === false) {
+      setTimeout(() => {
+        this.startUserFilterTutorial()
+      }, 1000)
+    }
   }
     
   UserFilter.methods.startUserFilterTutorial = function () {

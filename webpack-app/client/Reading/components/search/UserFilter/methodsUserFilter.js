@@ -13,8 +13,11 @@ export default function (UserFilter) {
     })
     this.$refs.UserChart.loadInit()
 
-    this.$refs.Modal.show()
-    this.$emit('show')
+    this.$refs.Modal.show(() => {
+      this.checkTutorialAutoStart()
+      this.$emit('show')
+    })
+    
   }
   UserFilter.methods.selectUser = function (id) {
     //console.log(id)
