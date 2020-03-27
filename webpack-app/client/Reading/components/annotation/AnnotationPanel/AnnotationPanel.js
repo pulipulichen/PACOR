@@ -73,4 +73,7 @@ Resize(AnnotationPanel)
 import methodsTutorialAnnotationPanel from './methodsTutorialAnnotationPanel.js'
 methodsTutorialAnnotationPanel(AnnotationPanel)
 
+import methodsTutorialLocalAnnotationPanel from './methodsTutorialLocalAnnotationPanel.js'
+methodsTutorialLocalAnnotationPanel(AnnotationPanel)
+
 export default AnnotationPanel

@@ -17,6 +17,8 @@ export default (AnnotationPanel) => {
       if (this.$refs.AnnotationSingle) {
         this.$refs.AnnotationSingle.focusEditor()
       }
+      
+      this.checkStartLocalTutorial()
     }
     
     if (this.lib.style.isEnableAnimte) {

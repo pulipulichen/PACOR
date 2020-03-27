@@ -4684,7 +4684,6 @@ __webpack_require__.r(__webpack_exports__);
       return false
     }
     
-    
     //console.log(actions)
     this.guide = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.guide({
       vm: this,

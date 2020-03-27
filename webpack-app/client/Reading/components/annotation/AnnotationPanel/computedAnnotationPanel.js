@@ -52,4 +52,22 @@ export default (AnnotationPanel) => {
     }
   }
   
+  AnnotationPanel.computed.currentLocalTutorialKey = function () {
+    let keys = ['AnnotationPanel', 'localTutorial']
+    
+    if (this.panelData.annotation) {
+      keys.push('Single')
+      keys.push(this.panelData.annotation.type)
+      
+      //if (this.lib.AnnotationHelper.isEditable(this.panelData.annotation)) {
+      //  keys.push('editable')
+      //}
+    }
+    else {
+      keys.push('List')
+    }
+    
+    return keys.join('.')
+  }
+  
 }

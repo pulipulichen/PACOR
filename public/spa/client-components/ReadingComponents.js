@@ -2267,10 +2267,7 @@ var render = function() {
                   on: {
                     click: function($event) {
                       $event.stopPropagation()
-                      return _vm.lib.TutorialManager.start(
-                        "AnnotationPanel",
-                        false
-                      )
+                      return _vm.startLocalTutorial($event)
                     }
                   }
                 },
@@ -10388,6 +10385,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _methodsEventAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./methodsEventAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsEventAnnotationPanel.js");
 /* harmony import */ var _methodsResizeAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./methodsResizeAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsResizeAnnotationPanel.js");
 /* harmony import */ var _methodsTutorialAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./methodsTutorialAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsTutorialAnnotationPanel.js");
+/* harmony import */ var _methodsTutorialLocalAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./methodsTutorialLocalAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsTutorialLocalAnnotationPanel.js");
 //import VueDraggableResizable from 'vue-draggable-resizable'
 //import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
 
@@ -10462,6 +10460,9 @@ Object(_methodsResizeAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_12__["default"]
 
 
 Object(_methodsTutorialAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_13__["default"])(AnnotationPanel)
+
+
+Object(_methodsTutorialLocalAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_14__["default"])(AnnotationPanel)
 
 /* harmony default export */ __webpack_exports__["default"] = (AnnotationPanel);
 
@@ -12690,6 +12691,24 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
   
+  AnnotationPanel.computed.currentLocalTutorialKey = function () {
+    let keys = ['AnnotationPanel', 'localTutorial']
+    
+    if (this.panelData.annotation) {
+      keys.push('Single')
+      keys.push(this.panelData.annotation.type)
+      
+      //if (this.lib.AnnotationHelper.isEditable(this.panelData.annotation)) {
+      //  keys.push('editable')
+      //}
+    }
+    else {
+      keys.push('List')
+    }
+    
+    return keys.join('.')
+  }
+  
 });
 
 /***/ }),
@@ -12772,6 +12791,8 @@ const transitionMode = 'slide up'
       if (this.$refs.AnnotationSingle) {
         this.$refs.AnnotationSingle.focusEditor()
       }
+      
+      this.checkStartLocalTutorial()
     }
     
     if (this.lib.style.isEnableAnimte) {
@@ -13468,9 +13489,42 @@ __webpack_require__.r(__webpack_exports__);
     })
   }
   
+});
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsTutorialLocalAnnotationPanel.js":
+/*!*****************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsTutorialLocalAnnotationPanel.js ***!
+  \*****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (AnnotationPanel) {
+  let tutorialKey = 'AnnotationPanel'
+  
+  AnnotationPanel.methods.startLocalTutorial = function () {
+    localStorage.setItem(this.currentLocalTutorialKey, 1)
+    this.lib.TutorialManager.start(tutorialKey, false)
+  }
+  
+  AnnotationPanel.methods.checkStartLocalTutorial = function () {
+    localStorage.setItem(this.currentLocalTutorialKey, 1)
+    this.lib.TutorialManager.start(tutorialKey, false)
+  }
   
   AnnotationPanel.methods.setupLocalTutorial = function () {
-    let tutorialKey = 'AnnotationPanel'
+    this.setupLocalTutorialList()
+    this.setupLocalTutorialSingle()
+  }
+  
+  AnnotationPanel.methods.setupLocalTutorialList = function () {
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
@@ -13504,6 +13558,9 @@ __webpack_require__.r(__webpack_exports__);
       content: this.$t('Click here to see the detail of this annotation and give a suggestion.'),
       order: 103,
     })
+  }
+  
+  AnnotationPanel.methods.setupLocalTutorialSingle = function () {
     
     // ----------------------------------
     
@@ -13648,7 +13705,8 @@ __webpack_require__.r(__webpack_exports__);
       },
       content: this.$t(`If you like other reader's suggestion, click "Like" to add the suggestion as your answer.`),
       afterClick: () => {
-        if (this.panelData.annotation.type === 'Confused' || this.panelData.annotation.type === 'Clarified') {
+        if (this.panelData.annotation && 
+                (this.panelData.annotation.type === 'Confused' || this.panelData.annotation.type === 'Clarified')) {
           this.panelData.showDemoComment = false
         }
       },
@@ -13667,7 +13725,9 @@ __webpack_require__.r(__webpack_exports__);
       },
       content: this.$t(`If you like other reader's suggestion, click "Like" to thanks him / her.`),
       afterClick: () => {
-        if ((this.panelData.annotation.type !== 'Confused' && this.panelData.annotation.type !== 'Clarified')) {
+        if ((this.panelData.annotation 
+                && this.panelData.annotation.type !== 'Confused' 
+                && this.panelData.annotation.type !== 'Clarified')) {
           this.panelData.showDemoComment = false
         }
       },

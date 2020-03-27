@@ -4,7 +4,7 @@
   <div class="ui secondary segment form main-segment"
        v-bind:class="computedSegmentClass"
        v-bind:style="computedSegmentStyle"
-       ref="panel"">
+       ref="panel">
 
     <!--
     <div class="close-container floating ui black label"
@@ -25,7 +25,7 @@
         <i class="arrows alternate vertical icon"></i>
       </div>
       <div class="ui mini icon button"
-           v-on:click.stop="lib.TutorialManager.start('AnnotationPanel', false)">
+           v-on:click.stop="startLocalTutorial">
         <i class="question icon"></i>
       </div>
       <div class="ui mini icon button"

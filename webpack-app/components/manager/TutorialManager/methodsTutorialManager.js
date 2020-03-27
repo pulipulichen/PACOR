@@ -50,7 +50,6 @@ export default function (TutorialManager) {
       return false
     }
     
-    
     //console.log(actions)
     this.guide = $.guide({
       vm: this,
