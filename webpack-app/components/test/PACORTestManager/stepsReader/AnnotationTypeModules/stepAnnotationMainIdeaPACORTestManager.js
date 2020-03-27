@@ -8,10 +8,13 @@ export default function (PACORTestManager) {
     })
     if (button.hasClass('disabled') === false) {
       // 現在改成可以直接新增
-      //throw new Error('Add button should be disabled at default')
+      throw new Error('Add button should be disabled at default')
     }
     
     await this.sleep(1000)
+    
+    // 這邊要先確認是否有在導覽中
+    await this.waitTutorial()
     
     let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', {
       timeout: 3000

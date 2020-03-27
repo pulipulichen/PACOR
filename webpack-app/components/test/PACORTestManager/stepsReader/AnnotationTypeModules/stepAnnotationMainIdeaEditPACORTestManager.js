@@ -53,6 +53,9 @@ export default function (PACORTestManager) {
     if ($('.AnnotationPanel .html-editor-container.editable').length === 0
             || $('.AnnotationPanel .html-editor-container .note-editable').length === 0) {
       console.log('似乎是以列表的形式呈現，讓我點點看 stepAnnotationMainIdeaEditPACORTestManager')
+      // 這邊要先確認是否有在導覽中
+      await this.waitTutorial()
+      
       try {
         await this.waitForElementVisibleClick('.MainList .AnnotationItem.my-annotation[data-annotation-type="MainIdea"]:first .meta', {
           timeout: 3000
@@ -64,7 +67,8 @@ export default function (PACORTestManager) {
       }
     }
     else {
-      await this.sleep(5000)
+      // 這邊要先確認是否有在導覽中
+      await this.waitTutorial()
     }
     
     let editor

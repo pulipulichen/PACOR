@@ -39,17 +39,20 @@ export default function (PACORTestManager) {
     }
     catch (e) {
       console.log('Float widget is not visible... retry: ' + editSelector)
-      return await this.editMainIdeaAnnotation()
+      return await this.deleteMainIdeaAnnotation()
     }
     
     // 等待Summernote載入
     if ($('.AnnotationFloatWidget.show:visible > .segment').length > 0) {
       console.log('AnnotationFloatWidget還是開著 ', editSelector)
-      return await this.editMainIdeaAnnotation()
+      return await this.deleteMainIdeaAnnotation()
     }
     
     if ($('.AnnotationPanel .html-editor-container.editable').length === 0
             || $('.AnnotationPanel .annotation-panel-buttons .delete-button:visible').length === 0) {
+      // 這邊要先確認是否有在導覽中
+      await this.waitTutorial()
+      
       console.log('似乎是以列表的形式呈現，讓我點點看 stepAnnotationMainIdeaDeletePACORTestManager')
       try {
         await this.waitForElementVisibleClick('.MainList .AnnotationItem.my-annotation:first .meta', {
@@ -61,7 +64,9 @@ export default function (PACORTestManager) {
       }
     }
     else {
-      await this.sleep(3000)
+      //await this.sleep(3000)
+      // 這邊要先確認是否有在導覽中
+      await this.waitTutorial()
     }
     
     try {

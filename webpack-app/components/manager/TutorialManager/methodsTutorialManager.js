@@ -32,6 +32,10 @@ export default function (TutorialManager) {
       else if (contentWordCount > 20) {
         timeout = timeout * 1.5
       }
+      
+      // 測試用
+      timeout = 1000
+      
       action.timeout = timeout
     }
 

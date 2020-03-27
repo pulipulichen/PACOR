@@ -6,6 +6,8 @@ export default function (PACORTestManager) {
     
     //throw new Error('澄清 走錯路了！是誰？')
     
+    await this.waitTutorial()
+    
     await this.sleep(1000)
     
     let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', {

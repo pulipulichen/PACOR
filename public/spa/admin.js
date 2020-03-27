@@ -12030,6 +12030,8 @@ __webpack_require__.r(__webpack_exports__);
     
     //throw new Error('澄清 走錯路了！是誰？')
     
+    await this.waitTutorial()
+    
     await this.sleep(1000)
     
     let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', {
@@ -12097,6 +12099,7 @@ __webpack_require__.r(__webpack_exports__);
   PACORTestManager.methods.writeConfusedAnnotation = async function () {
     
     //throw new Error('困惑 走錯路了！是誰？')
+    await this.waitTutorial()
     
     await this.sleep(1000)
     
@@ -12188,17 +12191,20 @@ __webpack_require__.r(__webpack_exports__);
     }
     catch (e) {
       console.log('Float widget is not visible... retry: ' + editSelector)
-      return await this.editMainIdeaAnnotation()
+      return await this.deleteMainIdeaAnnotation()
     }
     
     // 等待Summernote載入
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationFloatWidget.show:visible > .segment').length > 0) {
       console.log('AnnotationFloatWidget還是開著 ', editSelector)
-      return await this.editMainIdeaAnnotation()
+      return await this.deleteMainIdeaAnnotation()
     }
     
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .html-editor-container.editable').length === 0
             || jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .annotation-panel-buttons .delete-button:visible').length === 0) {
+      // 這邊要先確認是否有在導覽中
+      await this.waitTutorial()
+      
       console.log('似乎是以列表的形式呈現，讓我點點看 stepAnnotationMainIdeaDeletePACORTestManager')
       try {
         await this.waitForElementVisibleClick('.MainList .AnnotationItem.my-annotation:first .meta', {
@@ -12210,7 +12216,9 @@ __webpack_require__.r(__webpack_exports__);
       }
     }
     else {
-      await this.sleep(3000)
+      //await this.sleep(3000)
+      // 這邊要先確認是否有在導覽中
+      await this.waitTutorial()
     }
     
     try {
@@ -12321,6 +12329,9 @@ __webpack_require__.r(__webpack_exports__);
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .html-editor-container.editable').length === 0
             || jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .html-editor-container .note-editable').length === 0) {
       console.log('似乎是以列表的形式呈現，讓我點點看 stepAnnotationMainIdeaEditPACORTestManager')
+      // 這邊要先確認是否有在導覽中
+      await this.waitTutorial()
+      
       try {
         await this.waitForElementVisibleClick('.MainList .AnnotationItem.my-annotation[data-annotation-type="MainIdea"]:first .meta', {
           timeout: 3000
@@ -12332,7 +12343,8 @@ __webpack_require__.r(__webpack_exports__);
       }
     }
     else {
-      await this.sleep(5000)
+      // 這邊要先確認是否有在導覽中
+      await this.waitTutorial()
     }
     
     let editor
@@ -12416,10 +12428,13 @@ __webpack_require__.r(__webpack_exports__);
     })
     if (button.hasClass('disabled') === false) {
       // 現在改成可以直接新增
-      //throw new Error('Add button should be disabled at default')
+      throw new Error('Add button should be disabled at default')
     }
     
     await this.sleep(1000)
+    
+    // 這邊要先確認是否有在導覽中
+    await this.waitTutorial()
     
     let editor = await this.waitForElementVisible('.AnnotationPanel .html-editor-container .note-editable', {
       timeout: 3000
@@ -12635,10 +12650,12 @@ __webpack_require__.r(__webpack_exports__);
       await this.waitForElementVisibleClick('.Navigation .SearchManager .ui.icon.button')
     }
     
-    await this.sleep(1000)
-    
+    // 這邊要先確認是否有在導覽中
+    await this.waitTutorial()
+      
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .MainList.List:visible').length > 0) {
       //console.log('似乎是列表')
+      
       if (excludedMyAnnotation === true) {
         let annotationItemCount = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .MainList.List:visible .AnnotationItem:not(.my-annotation)').length
         if (annotationItemCount === 0) {
@@ -12650,6 +12667,7 @@ __webpack_require__.r(__webpack_exports__);
         await this.waitForElementVisibleClick('.AnnotationPanel .MainList.List:visible .AnnotationItem:not(.my-annotation):eq(' + i + ') .meta .right.angle.icon')
       }
       else {
+        
         let annotationItemCount = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .MainList.List:visible .AnnotationItem').length
         let i = this.getRandomInt(annotationItemCount - 1)
         //console.log('點選標註 i = ' + i)
@@ -12687,6 +12705,9 @@ __webpack_require__.r(__webpack_exports__);
   PACORTestManager.methods.addAndEditComment = async function (i) {
     await this.selectAnnotationFromSearch()
     
+    // 這邊要先確認是否有在導覽中
+    await this.waitTutorial()
+    
     console.log('建議留言 i=' + i)
     await this.typeInput('.AnnotationDiscussionInput .ui.input input[type="text"]', this.createRandomText())
     await this.sleep(500)
@@ -12713,6 +12734,9 @@ __webpack_require__.r(__webpack_exports__);
   
   PACORTestManager.methods.likeAnnotation = async function () {
     await this.selectAnnotationFromSearch(true)
+    
+    // 這邊要先確認是否有在導覽中
+    await this.waitTutorial()
     
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.AnnotationPanel .annotation-editor:visible .AnnotationInteractive button.like:visible').length > 0) {
       console.log('喜愛標註')
@@ -12958,6 +12982,10 @@ __webpack_require__.r(__webpack_exports__);
             timeout: 3000,
             errorMessage: '有出現寫標註的地方嗎？'
           })
+          
+          // 等待導覽....
+          await this.waitTutorial()
+          
           //$('.html-editor-container .note-editable').html(this.createRandomHtml())
           await this.typeInput(editor, this.createRandomText())
           await this.sleep(500)
@@ -13029,15 +13057,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
   
-  PACORTestManager.methods.confirmInstructionMessage = async function () {
-    await this.sleep(5000)
-    
-    await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button.start-tutorial', {
-      timeout: 60 * 1000,
-      errorMessage: '是不是傳送給end花太多時間了？'
-    })
+  PACORTestManager.methods.waitTutorial = async function () {
     
     await this.sleep(3000)
+    
     let bg = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.jquery-guide-bg:visible')
     
     let tutorialWaitCount = 0
@@ -13048,7 +13071,18 @@ __webpack_require__.r(__webpack_exports__);
       await this.sleep(5000)
       bg = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.jquery-guide-bg:visible')
     }
+  }
+  
+  PACORTestManager.methods.confirmInstructionMessage = async function () {
+    await this.sleep(5000)
     
+    await this.waitForElementVisibleClick('.ui.modal.InstructionMessage .actions > .button.start-tutorial', {
+      timeout: 60 * 1000,
+      errorMessage: '是不是傳送給end花太多時間了？'
+    })
+    
+    
+    await this.waitTutorial()
     //await this.waitForElementVisibleClick('.finish-modal')
     
     await this.sleep(5000)

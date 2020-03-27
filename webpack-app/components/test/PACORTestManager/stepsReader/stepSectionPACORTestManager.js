@@ -57,6 +57,10 @@ export default function (PACORTestManager) {
             timeout: 3000,
             errorMessage: '有出現寫標註的地方嗎？'
           })
+          
+          // 等待導覽....
+          await this.waitTutorial()
+          
           //$('.html-editor-container .note-editable').html(this.createRandomHtml())
           await this.typeInput(editor, this.createRandomText())
           await this.sleep(500)

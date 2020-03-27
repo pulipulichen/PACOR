@@ -212,7 +212,7 @@ export default function (AnnotationPanel) {
       enable: () => {
         return (($(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
                 && ($(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1)
-                && (this.panelData.annotation.type === 'Confused' || this.panelData.annotation.type === 'Clarified'))
+                && (this.panelData.annotation && (this.panelData.annotation.type === 'Confused' || this.panelData.annotation.type === 'Clarified')))
       },
       element: () => {
         return $(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first .demo-comment')
@@ -232,7 +232,7 @@ export default function (AnnotationPanel) {
         //console.log(this.panelData.annotation.type)
         return (($(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
                 && ($(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1)
-                && (this.panelData.annotation.type !== 'Confused' && this.panelData.annotation.type !== 'Clarified'))
+                && (this.panelData.annotation && this.panelData.annotation.type !== 'Confused' && this.panelData.annotation.type !== 'Clarified'))
       },
       element: () => {
         return $(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first .demo-comment')

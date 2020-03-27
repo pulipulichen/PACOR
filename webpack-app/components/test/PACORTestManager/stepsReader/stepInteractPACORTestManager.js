@@ -23,10 +23,12 @@ export default function (PACORTestManager) {
       await this.waitForElementVisibleClick('.Navigation .SearchManager .ui.icon.button')
     }
     
-    await this.sleep(1000)
-    
+    // 這邊要先確認是否有在導覽中
+    await this.waitTutorial()
+      
     if ($('.AnnotationPanel .MainList.List:visible').length > 0) {
       //console.log('似乎是列表')
+      
       if (excludedMyAnnotation === true) {
         let annotationItemCount = $('.AnnotationPanel .MainList.List:visible .AnnotationItem:not(.my-annotation)').length
         if (annotationItemCount === 0) {
@@ -38,6 +40,7 @@ export default function (PACORTestManager) {
         await this.waitForElementVisibleClick('.AnnotationPanel .MainList.List:visible .AnnotationItem:not(.my-annotation):eq(' + i + ') .meta .right.angle.icon')
       }
       else {
+        
         let annotationItemCount = $('.AnnotationPanel .MainList.List:visible .AnnotationItem').length
         let i = this.getRandomInt(annotationItemCount - 1)
         //console.log('點選標註 i = ' + i)
@@ -75,6 +78,9 @@ export default function (PACORTestManager) {
   PACORTestManager.methods.addAndEditComment = async function (i) {
     await this.selectAnnotationFromSearch()
     
+    // 這邊要先確認是否有在導覽中
+    await this.waitTutorial()
+    
     console.log('建議留言 i=' + i)
     await this.typeInput('.AnnotationDiscussionInput .ui.input input[type="text"]', this.createRandomText())
     await this.sleep(500)
@@ -101,6 +107,9 @@ export default function (PACORTestManager) {
   
   PACORTestManager.methods.likeAnnotation = async function () {
     await this.selectAnnotationFromSearch(true)
+    
+    // 這邊要先確認是否有在導覽中
+    await this.waitTutorial()
     
     if ($('.AnnotationPanel .annotation-editor:visible .AnnotationInteractive button.like:visible').length > 0) {
       console.log('喜愛標註')
