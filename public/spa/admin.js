@@ -12423,6 +12423,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
   
   PACORTestManager.methods.writeMainIdeaAnnotation = async function () {
+    let mainIdeaConfig = this.lib.auth.mainIdeaConfig
+    let enableEditorAdd = mainIdeaConfig.enableEditorAdd
+    
+    if (enableEditorAdd === false) {
+      return false
+    }
+    
     let button = await this.waitForElementVisible('.AnnotationPanel .annotation-panel-buttons .ValidationButton', {
       timeout: 3000
     })

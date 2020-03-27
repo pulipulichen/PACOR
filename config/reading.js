@@ -21,7 +21,7 @@ module.exports = {
     //stayInReadingProgress: 'PreImaginaryKeyword'
     //stayInReadingProgress: 'PostRecallKeyword'
     //stayInReadingProgress: 'IndividualReading'
-    stayInReadingProgress: 'CollaborativeReading'
+    //stayInReadingProgress: 'CollaborativeReading'
     //stayInReadingProgress: 'FreeReading'
   },
   
@@ -338,6 +338,7 @@ module.exports = {
       }
     },
     'MainIdea': {
+      'enableEditorAdd': false,
       'enableQuickAdd': true,
       'addable': true,
       'minWords': 1,

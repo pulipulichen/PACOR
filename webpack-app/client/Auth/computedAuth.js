@@ -190,4 +190,8 @@ export default function (Auth) {
     
     return output
   }
+  
+  Auth.computed.mainIdeaConfig = function () {
+    return this.status.readingConfig.annotationTypeModules.MainIdea
+  }
 }

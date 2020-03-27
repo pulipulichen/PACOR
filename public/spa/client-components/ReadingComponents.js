@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"List Annotations":"列出標註","Quick Add":"快速新增","Select an annotation type to highlight the selected text.":"接著選擇一種閱讀策略類型。","For example, if you choose \\"Main Idea\\" type.":"舉例來說，如果您選擇「關鍵詞」閱讀策略類型。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"List Annotations":"列出標註","Quick Add":"快速新增","Select an annotation type to highlight the selected text.":"接著選擇一種閱讀策略類型。","For example, if you choose \\"Main Idea\\" type...":"舉例來說，如果您選擇「關鍵詞」閱讀策略類型...","For example, if you choose \\"Main Idea\\" type, the selected text will be highlighted instantly.":"舉例來說，如果您選擇「關鍵詞」閱讀策略類型，那您選擇的文字就會立即被標亮為「關鍵詞」。"}}')
   delete Component.options._Ctor
 }
 
@@ -7393,8 +7393,11 @@ __webpack_require__.r(__webpack_exports__);
             //console.log(module)
             if (typeof (module) === 'object'
                     && module.addable === true) {
+              
               module.type = type
-              modules.push(module)
+              if (module.enableEditorAdd !== false) {
+                modules.push(module)
+              }
 
               if (module.enableQuickAdd === true) {
                 let quickModule = this.buildQuickModule(module)
@@ -7638,12 +7641,29 @@ __webpack_require__.r(__webpack_exports__);
       scroll: false
     })
     
+    this.setupMainIdeaTutorial()
+    
+  }
+  
+  AnnotationTypeSelector.methods.setupMainIdeaTutorial = function () {
+    
+    let mainIdeaConfig = this.lib.auth.mainIdeaConfig
+    let enableEditorAdd = mainIdeaConfig.enableEditorAdd
+    
+    let $el = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$el)
+    
+    
+    let content = this.$t(`For example, if you choose "Main Idea" type...`)
+    if (enableEditorAdd === false) {
+      content = this.$t(`For example, if you choose "Main Idea" type, the selected text will be highlighted instantly.`)
+    }
+    
     this.lib.TutorialManager.addAction({
       element: async () => {
         if (this.lib.RangyManager.isSelecting() === false) {
           this.lib.RangyManager.restoreLastSelectDemoText()
         }
-        
+
         let element = $el.find('.fab-item.MainIdea:not(.quick-add)')
         //console.log({'MainIdea fabMask': element.length})
         /*
@@ -7656,15 +7676,19 @@ __webpack_require__.r(__webpack_exports__);
         element.css('border', '3px solid red')
         */
         await this.lib.TutorialManager.showClick(element)
-        
+
         let elements = $el.find(`.MainIdea:not(.quick-add) > .fabMask,.MainIdea:not(.quick-add) > .fab-item-title`)
         //console.log(element.length, element)
         //console.log('這時候好像就沒有選取了，為什麼呢？')
         return elements
       },
-      content: this.$t(`For example, if you choose "Main Idea" type.`),
+      content: content,
       order: 22,
       afterClick: async () => {
+        if (enableEditorAdd === false) {
+          return false
+        }
+        
         //console.log('有執行嗎？')
         if (this.lib.RangyManager.isSelecting() === false) {
           this.lib.RangyManager.restoreLastSelectDemoText()
@@ -7673,13 +7697,13 @@ __webpack_require__.r(__webpack_exports__);
         //await this.lib.VueHelper.sleep(1000)
         //this.lib.RangyManager.onselect()
         //console.log('有選取嗎？')
-        
-        
+
+
         //await this.lib.RangyManager.restoreLastSelectDemoText()
-        
+
         //await this.lib.RangyManager.restoreLastSelectDemoText()
         //await this.lib.VueHelper.sleep(1000)
-        
+
         //this.selection = selection
         //console.log(this.selection.anchorParagraphIds)
         //$el.find('.MainIdea > .fabMask:first').click()  // 這個的確有點到
@@ -7688,12 +7712,12 @@ __webpack_require__.r(__webpack_exports__);
         //await this.lib.VueHelper.sleep(500)
         //setTimeout(() => {
           this.isTutorialMode = false
-          
-        
+
+
         //}, 100)
       },
       scroll: false
-    })
+    })  // this.lib.TutorialManager.addAction({
   }
 });
 
@@ -7724,9 +7748,11 @@ __webpack_require__.r(__webpack_exports__);
   AnnotationTypeSelector.methods.getModuleTitle = function (module) {
     let title = this.$t('ANNOTATION_TYPE.' + module.type)
     
-    if (module.quickAdd === true) {
+    if (module.quickAdd === true
+            && module.enableEditorAdd === true) {
       title = title + ' (' + this.$t('Quick Add') + ')'
     }
+    //console.log(title)
     
     return title
   }
@@ -7734,7 +7760,8 @@ __webpack_require__.r(__webpack_exports__);
   AnnotationTypeSelector.methods.getModuleClassList = function (module) {
     let classList = [module.type]
     
-    if (module.quickAdd === true) {
+    if (module.quickAdd === true
+            && module.enableEditorAdd === true) {
       classList.push('quick-add')
     }
     
@@ -13489,12 +13516,19 @@ __webpack_require__.r(__webpack_exports__);
   }
     
   AnnotationPanel.methods.setupTutorialIndividualReading = function () {
+    let mainIdeaConfig = this.lib.auth.mainIdeaConfig
+    let enableEditorAdd = mainIdeaConfig.enableEditorAdd
+    
+    if (enableEditorAdd === false) {
+      return false
+    }
     
     let contentNote = this.$t('Please write down the reasons for choosing this keyword or other things you think of from this keyword. You can also insert pictures.')
     if (this.lib.auth.currentStepConfig.HTMLEditor 
             && this.lib.auth.currentStepConfig.HTMLEditor.insertMultimedia === false) {
       contentNote = this.$t('Please write down the reasons for choosing this keyword or other things you think of from this keyword.')
     }
+    
     this.lib.TutorialManager.addAction({
       //backgroundFadeOut: true,
       element: () => {

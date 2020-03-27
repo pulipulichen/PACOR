@@ -3,6 +3,13 @@ import $ from 'jquery'
 export default function (PACORTestManager) {
   
   PACORTestManager.methods.writeMainIdeaAnnotation = async function () {
+    let mainIdeaConfig = this.lib.auth.mainIdeaConfig
+    let enableEditorAdd = mainIdeaConfig.enableEditorAdd
+    
+    if (enableEditorAdd === false) {
+      return false
+    }
+    
     let button = await this.waitForElementVisible('.AnnotationPanel .annotation-panel-buttons .ValidationButton', {
       timeout: 3000
     })

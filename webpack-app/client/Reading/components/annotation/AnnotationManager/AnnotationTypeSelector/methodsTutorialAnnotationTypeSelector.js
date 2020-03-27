@@ -36,12 +36,29 @@ export default function (AnnotationTypeSelector) {
       scroll: false
     })
     
+    this.setupMainIdeaTutorial()
+    
+  }
+  
+  AnnotationTypeSelector.methods.setupMainIdeaTutorial = function () {
+    
+    let mainIdeaConfig = this.lib.auth.mainIdeaConfig
+    let enableEditorAdd = mainIdeaConfig.enableEditorAdd
+    
+    let $el = $(this.$el)
+    
+    
+    let content = this.$t(`For example, if you choose "Main Idea" type...`)
+    if (enableEditorAdd === false) {
+      content = this.$t(`For example, if you choose "Main Idea" type, the selected text will be highlighted instantly.`)
+    }
+    
     this.lib.TutorialManager.addAction({
       element: async () => {
         if (this.lib.RangyManager.isSelecting() === false) {
           this.lib.RangyManager.restoreLastSelectDemoText()
         }
-        
+
         let element = $el.find('.fab-item.MainIdea:not(.quick-add)')
         //console.log({'MainIdea fabMask': element.length})
         /*
@@ -54,15 +71,19 @@ export default function (AnnotationTypeSelector) {
         element.css('border', '3px solid red')
         */
         await this.lib.TutorialManager.showClick(element)
-        
+
         let elements = $el.find(`.MainIdea:not(.quick-add) > .fabMask,.MainIdea:not(.quick-add) > .fab-item-title`)
         //console.log(element.length, element)
         //console.log('這時候好像就沒有選取了，為什麼呢？')
         return elements
       },
-      content: this.$t(`For example, if you choose "Main Idea" type.`),
+      content: content,
       order: 22,
       afterClick: async () => {
+        if (enableEditorAdd === false) {
+          return false
+        }
+        
         //console.log('有執行嗎？')
         if (this.lib.RangyManager.isSelecting() === false) {
           this.lib.RangyManager.restoreLastSelectDemoText()
@@ -71,13 +92,13 @@ export default function (AnnotationTypeSelector) {
         //await this.lib.VueHelper.sleep(1000)
         //this.lib.RangyManager.onselect()
         //console.log('有選取嗎？')
-        
-        
+
+
         //await this.lib.RangyManager.restoreLastSelectDemoText()
-        
+
         //await this.lib.RangyManager.restoreLastSelectDemoText()
         //await this.lib.VueHelper.sleep(1000)
-        
+
         //this.selection = selection
         //console.log(this.selection.anchorParagraphIds)
         //$el.find('.MainIdea > .fabMask:first').click()  // 這個的確有點到
@@ -86,11 +107,11 @@ export default function (AnnotationTypeSelector) {
         //await this.lib.VueHelper.sleep(500)
         //setTimeout(() => {
           this.isTutorialMode = false
-          
-        
+
+
         //}, 100)
       },
       scroll: false
-    })
+    })  // this.lib.TutorialManager.addAction({
   }
 }

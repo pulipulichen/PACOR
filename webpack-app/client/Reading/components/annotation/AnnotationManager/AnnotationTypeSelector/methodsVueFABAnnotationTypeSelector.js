@@ -14,9 +14,11 @@ export default function (AnnotationTypeSelector) {
   AnnotationTypeSelector.methods.getModuleTitle = function (module) {
     let title = this.$t('ANNOTATION_TYPE.' + module.type)
     
-    if (module.quickAdd === true) {
+    if (module.quickAdd === true
+            && module.enableEditorAdd === true) {
       title = title + ' (' + this.$t('Quick Add') + ')'
     }
+    //console.log(title)
     
     return title
   }
@@ -24,7 +26,8 @@ export default function (AnnotationTypeSelector) {
   AnnotationTypeSelector.methods.getModuleClassList = function (module) {
     let classList = [module.type]
     
-    if (module.quickAdd === true) {
+    if (module.quickAdd === true
+            && module.enableEditorAdd === true) {
       classList.push('quick-add')
     }
     

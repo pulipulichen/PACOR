@@ -15,8 +15,11 @@ export default function (AnnotationTypeSelector) {
             //console.log(module)
             if (typeof (module) === 'object'
                     && module.addable === true) {
+              
               module.type = type
-              modules.push(module)
+              if (module.enableEditorAdd !== false) {
+                modules.push(module)
+              }
 
               if (module.enableQuickAdd === true) {
                 let quickModule = this.buildQuickModule(module)
