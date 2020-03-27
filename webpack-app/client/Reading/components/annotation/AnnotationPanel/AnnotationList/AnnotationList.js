@@ -31,6 +31,21 @@ let AnnotationList = {
       return false
     },
     
+    annotationType () {
+      let annotation
+      if (!this.isFiltering) {
+         annotation = this.$refs.MainList.annotation
+      }
+      else {
+         annotation = this.$refs.FilteredList.annotation
+      }
+      
+      if (annotation
+              && annotation.type) {
+        return annotation.type
+      }
+    }
+    
   },
 //  watch: {
 //  },

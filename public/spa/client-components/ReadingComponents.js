@@ -9104,6 +9104,21 @@ let AnnotationList = {
       return false
     },
     
+    annotationType () {
+      let annotation
+      if (!this.isFiltering) {
+         annotation = this.$refs.MainList.annotation
+      }
+      else {
+         annotation = this.$refs.FilteredList.annotation
+      }
+      
+      if (annotation
+              && annotation.type) {
+        return annotation.type
+      }
+    }
+    
   },
 //  watch: {
 //  },
@@ -10037,6 +10052,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((List) => {
   List.methods.viewAnnotation = function (annotation) {
     this.annotation = annotation
+    
+    if (this.lib.AnnotationPanel) {
+      setTimeout(() => {
+        this.lib.AnnotationPanel.checkStartLocalTutorial()
+      }, 500)
+    }
   }
   
   List.methods.viewAnnotationComment = function (annotation) {
@@ -12694,6 +12715,10 @@ __webpack_require__.r(__webpack_exports__);
   AnnotationPanel.computed.currentLocalTutorialKey = function () {
     let keys = ['AnnotationPanel', 'localTutorial']
     
+    //if (this.lib.auth.enableCollaboration) {
+    //  keys.push('collaboration')
+    //}
+    
     if (this.panelData.annotation) {
       keys.push('Single')
       keys.push(this.panelData.annotation.type)
@@ -12704,9 +12729,18 @@ __webpack_require__.r(__webpack_exports__);
     }
     else {
       keys.push('List')
+      
+      let type = this.$refs.AnnotationList.annotationType
+      if (type) {
+        keys.push(type)
+      }
     }
     
     return keys.join('.')
+  }
+  
+  AnnotationPanel.computed.hasReadLocalTutorial = function () {
+    return (localStorage.getItem(this.currentLocalTutorialKey) !== null)
   }
   
 });
@@ -13510,13 +13544,22 @@ __webpack_require__.r(__webpack_exports__);
   let tutorialKey = 'AnnotationPanel'
   
   AnnotationPanel.methods.startLocalTutorial = function () {
-    localStorage.setItem(this.currentLocalTutorialKey, 1)
-    this.lib.TutorialManager.start(tutorialKey, false)
+    this.lib.TutorialManager.start(tutorialKey, false, () => {
+      localStorage.setItem(this.currentLocalTutorialKey, 1)
+    })
   }
   
+  let autoStartTimer
   AnnotationPanel.methods.checkStartLocalTutorial = function () {
-    localStorage.setItem(this.currentLocalTutorialKey, 1)
-    this.lib.TutorialManager.start(tutorialKey, false)
+    console.log(this.hasReadLocalTutorial, this.currentLocalTutorialKey)
+    if (this.hasReadLocalTutorial === false) {
+      if (autoStartTimer) {
+        clearTimeout(autoStartTimer)
+      }
+      autoStartTimer = setTimeout(() => {
+        this.startLocalTutorial()
+      }, 1000)
+    }
   }
   
   AnnotationPanel.methods.setupLocalTutorial = function () {
@@ -13810,6 +13853,13 @@ __webpack_require__.r(__webpack_exports__);
 //    isHide () {
 //      
 //    }
+
+//  AnnotationPanel.watch['panelData.annotation'] = function (annotation) {
+//    if (annotation) {
+//      this.checkStartLocalTutorial()
+//    }
+//  }
+
 });
 
 /***/ }),
@@ -28459,7 +28509,7 @@ if (debugMockUpdate === true) {
     let result = checked.filter(c => c !== true)
 
     //this.$forceUpdate()
-    console.log(checked.length, checked, result)
+    //console.log(checked.length, checked, result)
     this.isChecklistCompleted = (result.length === 0)
   }
 });

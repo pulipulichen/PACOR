@@ -5,6 +5,12 @@ import $ from 'jquery'
 export default (List) => {
   List.methods.viewAnnotation = function (annotation) {
     this.annotation = annotation
+    
+    if (this.lib.AnnotationPanel) {
+      setTimeout(() => {
+        this.lib.AnnotationPanel.checkStartLocalTutorial()
+      }, 500)
+    }
   }
   
   List.methods.viewAnnotationComment = function (annotation) {

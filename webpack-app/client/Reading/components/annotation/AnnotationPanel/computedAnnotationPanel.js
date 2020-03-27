@@ -55,6 +55,10 @@ export default (AnnotationPanel) => {
   AnnotationPanel.computed.currentLocalTutorialKey = function () {
     let keys = ['AnnotationPanel', 'localTutorial']
     
+    //if (this.lib.auth.enableCollaboration) {
+    //  keys.push('collaboration')
+    //}
+    
     if (this.panelData.annotation) {
       keys.push('Single')
       keys.push(this.panelData.annotation.type)
@@ -65,9 +69,18 @@ export default (AnnotationPanel) => {
     }
     else {
       keys.push('List')
+      
+      let type = this.$refs.AnnotationList.annotationType
+      if (type) {
+        keys.push(type)
+      }
     }
     
     return keys.join('.')
+  }
+  
+  AnnotationPanel.computed.hasReadLocalTutorial = function () {
+    return (localStorage.getItem(this.currentLocalTutorialKey) !== null)
   }
   
 }

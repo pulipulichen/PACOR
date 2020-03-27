@@ -44,7 +44,7 @@ export default function (TutorialManager) {
     //console.log(this.actionLists)
   }
   
-  TutorialManager.methods.start = function (type, showFinishModel) {
+  TutorialManager.methods.start = function (type, showFinishModel, callback) {
     let actions = this.getActions(type)
     if (Array.isArray(actions) === false || this.isPlaying === true) {
       return false
@@ -56,6 +56,10 @@ export default function (TutorialManager) {
       enableTimeout: this.enableTimeout,
       actions,
       complete: () => {
+        if (typeof(callback) === 'function') {
+          callback()
+        }
+        
         this.isPlaying = false
         if (this.lib.RangyManager) {
           this.lib.RangyManager.selectionLock = false
@@ -83,6 +87,7 @@ export default function (TutorialManager) {
         setTimeout(() => {
           this.hideFinishModal()
         }, 3000)
+        
       }
     });
     this.isPlaying = true

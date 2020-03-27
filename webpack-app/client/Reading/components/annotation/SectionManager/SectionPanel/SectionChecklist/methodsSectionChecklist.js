@@ -114,7 +114,7 @@ export default (SectionChecklist) => {
     let result = checked.filter(c => c !== true)
 
     //this.$forceUpdate()
-    console.log(checked.length, checked, result)
+    //console.log(checked.length, checked, result)
     this.isChecklistCompleted = (result.length === 0)
   }
 }

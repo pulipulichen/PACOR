@@ -48,4 +48,11 @@ export default (AnnotationPanel) => {
 //    isHide () {
 //      
 //    }
+
+//  AnnotationPanel.watch['panelData.annotation'] = function (annotation) {
+//    if (annotation) {
+//      this.checkStartLocalTutorial()
+//    }
+//  }
+
 }

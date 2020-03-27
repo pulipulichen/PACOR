@@ -4678,7 +4678,7 @@ __webpack_require__.r(__webpack_exports__);
     //console.log(this.actionLists)
   }
   
-  TutorialManager.methods.start = function (type, showFinishModel) {
+  TutorialManager.methods.start = function (type, showFinishModel, callback) {
     let actions = this.getActions(type)
     if (Array.isArray(actions) === false || this.isPlaying === true) {
       return false
@@ -4690,6 +4690,10 @@ __webpack_require__.r(__webpack_exports__);
       enableTimeout: this.enableTimeout,
       actions,
       complete: () => {
+        if (typeof(callback) === 'function') {
+          callback()
+        }
+        
         this.isPlaying = false
         if (this.lib.RangyManager) {
           this.lib.RangyManager.selectionLock = false
@@ -4717,6 +4721,7 @@ __webpack_require__.r(__webpack_exports__);
         setTimeout(() => {
           this.hideFinishModal()
         }, 3000)
+        
       }
     });
     this.isPlaying = true

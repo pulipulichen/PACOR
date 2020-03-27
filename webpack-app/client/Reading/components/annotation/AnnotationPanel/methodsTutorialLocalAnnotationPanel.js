@@ -4,13 +4,22 @@ export default function (AnnotationPanel) {
   let tutorialKey = 'AnnotationPanel'
   
   AnnotationPanel.methods.startLocalTutorial = function () {
-    localStorage.setItem(this.currentLocalTutorialKey, 1)
-    this.lib.TutorialManager.start(tutorialKey, false)
+    this.lib.TutorialManager.start(tutorialKey, false, () => {
+      localStorage.setItem(this.currentLocalTutorialKey, 1)
+    })
   }
   
+  let autoStartTimer
   AnnotationPanel.methods.checkStartLocalTutorial = function () {
-    localStorage.setItem(this.currentLocalTutorialKey, 1)
-    this.lib.TutorialManager.start(tutorialKey, false)
+    console.log(this.hasReadLocalTutorial, this.currentLocalTutorialKey)
+    if (this.hasReadLocalTutorial === false) {
+      if (autoStartTimer) {
+        clearTimeout(autoStartTimer)
+      }
+      autoStartTimer = setTimeout(() => {
+        this.startLocalTutorial()
+      }, 1000)
+    }
   }
   
   AnnotationPanel.methods.setupLocalTutorial = function () {
