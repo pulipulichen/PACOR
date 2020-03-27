@@ -44,9 +44,12 @@ export default function (NavigationItems) {
      * 標註類型選取器
      * 全螢幕版本
      */
+    /*
     this.lib.TutorialManager.addAction({
       backgroundFadeOut: true,
       enable: () => {
+        return false  // 20200327 不使用
+        
         if (!this.lib.auth.featureEnable.AnnotationTypeFilter) {
           return false
         }
@@ -73,6 +76,7 @@ export default function (NavigationItems) {
       content: this.$t('Select an annotation type to watch how readers use it to read the article.'),
       order: 33
     })
+     */
 
     // ---------------------------
 
@@ -101,8 +105,14 @@ export default function (NavigationItems) {
       order: 35
     })
 
+    /**
+     * 標註篩選器，側邊欄版本
+     */
+    /*
     this.lib.TutorialManager.addAction({
       enable: () => {
+        return false  // 20200327 不使用
+        
         if (!this.lib.auth.featureEnable.AnnotationTypeFilter) {
           return false
         }
@@ -139,6 +149,7 @@ export default function (NavigationItems) {
       content: this.$t('Select an annotation type to watch how readers use it to read the article.'),
       order: 36
     })
+     */
     
     this.lib.TutorialManager.addAction({
       beforeCallback: async () => {

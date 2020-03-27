@@ -889,9 +889,12 @@ __webpack_require__.r(__webpack_exports__);
      * 標註類型選取器
      * 全螢幕版本
      */
+    /*
     this.lib.TutorialManager.addAction({
       backgroundFadeOut: true,
       enable: () => {
+        return false  // 20200327 不使用
+        
         if (!this.lib.auth.featureEnable.AnnotationTypeFilter) {
           return false
         }
@@ -907,7 +910,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       element: () => {
         //console.log($('.ui.popup.visible:visible').length)
-        return jquery__WEBPACK_IMPORTED_MODULE_0___default()('.ui.popup.visible:visible')
+        return $('.ui.popup.visible:visible')
       },
       afterClick: () => {
         if (this.$refs.AnnotationTypeFilter) {
@@ -918,6 +921,7 @@ __webpack_require__.r(__webpack_exports__);
       content: this.$t('Select an annotation type to watch how readers use it to read the article.'),
       order: 33
     })
+     */
 
     // ---------------------------
 
@@ -946,8 +950,14 @@ __webpack_require__.r(__webpack_exports__);
       order: 35
     })
 
+    /**
+     * 標註篩選器，側邊欄版本
+     */
+    /*
     this.lib.TutorialManager.addAction({
       enable: () => {
+        return false  // 20200327 不使用
+        
         if (!this.lib.auth.featureEnable.AnnotationTypeFilter) {
           return false
         }
@@ -984,6 +994,7 @@ __webpack_require__.r(__webpack_exports__);
       content: this.$t('Select an annotation type to watch how readers use it to read the article.'),
       order: 36
     })
+     */
     
     this.lib.TutorialManager.addAction({
       beforeCallback: async () => {
