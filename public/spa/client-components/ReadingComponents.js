@@ -105,7 +105,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Please write down the reasons for choosing this keyword or other things you think of from this keyword. You can also insert pictures.":"請您用筆記寫下選擇這個關鍵詞的理由，或是您從這個關鍵詞聯想到的其他事情。您也可以插入圖片。","Please write down the reasons for choosing this keyword or other things you think of from this keyword.":"請您用筆記寫下選擇這個關鍵詞的理由，或是您從這個關鍵詞聯想到的其他事情。","Click \\"ADD\\" to save it.":"最後記得按下『記下「關鍵詞」』來儲存喔。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該閱讀策略。","You can give a comment to any annotation.":"您可以為標註提供建議。","Try to give a suggestion for the reader.":"試著給這位讀者一些建議吧。","Here shows a summary of the list.":"這裡顯示了標註列表的摘要。","You can filter the list with keywords.":"您可以用指定文字來篩選列表。","Click here to see the detail of this annotation and give a suggestion.":"您可點選此處查看標註的詳細內容，並給予建議。","Here is the annotation wrote by other reader.":"這裡是其他讀者撰寫的標註。","Here is the annotation wrote by you. You can edit the annotation.":"這裡是您撰寫的標註，您可以編輯它。","Finding Answer":"找尋解答","You can use the \\"Finding Answer\\" tool to find the answer of the question.":"您可以用「找尋解答」功能來找尋這個問題的答案。","If you like this annotation, click \\"Like\\" button.":"如果您喜歡他/她寫的標註，請給他/她按個「讚」吧。","Click here to read the instruction of this annotation type.":"點此查看如何使用閱讀策略。","Write notes based on your reading strategy. Try to use notes to deepen your impression of the article.":"請依照閱讀策略來撰寫筆記。這些筆記可以加深對您文章的印象喔！","Question Template":"問題範本","Try to build your question with templates.":"如果您不知道要問什麼問題，請試著用「問題範本」來擬定問題吧！","Click \\"ADD\\" button to save it.":"最後記得按下「記下」按鈕來儲存喔。","If you like other reader\u0027s suggestion, click \\"Like\\" to add the suggestion as your answer.":"如果您覺得這位讀者的建議很好，按「讚」可以把建議加入您的答案中喔。","You can see the suggestions from other reader.":"您可以在這裡看到其他讀者的建議。","If you like other reader\u0027s suggestion, click \\"Like\\" to thanks him / her.":"如果您覺得這位讀者的建議很好，按「讚」感謝他/她。"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"You are still editing. Are you sure to discard changes?":"您還在編輯中。您確定要放棄嗎？","You can add note for the annotation.":"您可以為標註添增筆記。","Please write down the reasons for choosing this keyword or other things you think of from this keyword. You can also insert pictures.":"請您用筆記寫下選擇這個關鍵詞的理由，或是您從這個關鍵詞聯想到的其他事情。您也可以插入圖片。","Please write down the reasons for choosing this keyword or other things you think of from this keyword.":"請您用筆記寫下選擇這個關鍵詞的理由，或是您從這個關鍵詞聯想到的其他事情。","Click \\"ADD\\" to save it.":"最後記得按下『記下「關鍵詞」』來儲存喔。","Click \\"Hint\\" to read instruction of this type.":"點選「顯示說明」來查看如何使用該閱讀策略。","You can give a comment to any annotation.":"您可以為標註提供建議。","Try to give a suggestion for the reader.":"試著給這位讀者一些建議吧。","Here shows a summary of the list.":"這裡顯示了標註列表的摘要。","You can filter the list with keywords.":"您可以用指定文字來篩選列表。","Click here to see the detail of this annotation and give a suggestion.":"您可點選此處查看標註的詳細內容，並給予建議。","Here is the annotation wrote by other reader.":"這裡是其他讀者撰寫的標註。","Here is the annotation wrote by you. You can edit the annotation.":"這裡是您撰寫的標註，您可以編輯它。","Finding Answer":"找尋解答","You can use the \\"Finding Answer\\" tool to find the answer of the question.":"您可以用「找尋解答」功能來找尋這個問題的答案。","If you like this annotation, click \\"Like\\" button.":"如果您喜歡他/她寫的標註，請給他/她按個「讚」吧。","Click here to read the instruction of this annotation type.":"點此查看如何使用閱讀策略。","Write notes based on your reading strategy. Try to use notes to deepen your impression of the article.":"請依照閱讀策略來撰寫筆記。這些筆記可以加深對您文章的印象喔！","Question Template":"問題範本","Try to build your question with templates.":"如果您不知道要問什麼問題，請試著用「問題範本」來擬定問題吧！","Click \\"ADD\\" button to save it.":"最後記得按下「記下」按鈕來儲存喔。","If you like other reader\u0027s suggestion, click \\"Like\\" to add the suggestion as your answer.":"如果您覺得這位讀者的建議很好，按「讚」可以把建議加入您的答案中喔。","You can see the suggestions from other reader.":"您可以在這裡看到其他讀者的建議。","If you like other reader\u0027s suggestion, click \\"Like\\" to thanks him / her.":"如果您覺得這位讀者的建議很好，按「讚」感謝他/她。","You can watch tutorial again from here.":"如果您要再看一次操作導覽，請點選此處。"}}')
   delete Component.options._Ctor
 }
 
@@ -2263,6 +2263,7 @@ var render = function() {
               _c(
                 "div",
                 {
+                  ref: "LocalTutorialStart",
                   staticClass: "ui mini icon button",
                   on: {
                     click: function($event) {
@@ -13551,7 +13552,7 @@ __webpack_require__.r(__webpack_exports__);
   
   let autoStartTimer
   AnnotationPanel.methods.checkStartLocalTutorial = function () {
-    console.log(this.hasReadLocalTutorial, this.currentLocalTutorialKey)
+    //console.log(this.hasReadLocalTutorial, this.currentLocalTutorialKey)
     if (this.hasReadLocalTutorial === false) {
       if (autoStartTimer) {
         clearTimeout(autoStartTimer)
@@ -13565,6 +13566,17 @@ __webpack_require__.r(__webpack_exports__);
   AnnotationPanel.methods.setupLocalTutorial = function () {
     this.setupLocalTutorialList()
     this.setupLocalTutorialSingle()
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.LocalTutorialStart).length === 1)
+      },
+      element: () => {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.LocalTutorialStart)
+      },
+      content: this.$t('You can watch tutorial again from here.'),
+      order: 999,
+    })
   }
   
   AnnotationPanel.methods.setupLocalTutorialList = function () {

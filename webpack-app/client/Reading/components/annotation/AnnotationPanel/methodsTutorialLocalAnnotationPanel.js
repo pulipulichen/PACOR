@@ -11,7 +11,7 @@ export default function (AnnotationPanel) {
   
   let autoStartTimer
   AnnotationPanel.methods.checkStartLocalTutorial = function () {
-    console.log(this.hasReadLocalTutorial, this.currentLocalTutorialKey)
+    //console.log(this.hasReadLocalTutorial, this.currentLocalTutorialKey)
     if (this.hasReadLocalTutorial === false) {
       if (autoStartTimer) {
         clearTimeout(autoStartTimer)
@@ -25,6 +25,17 @@ export default function (AnnotationPanel) {
   AnnotationPanel.methods.setupLocalTutorial = function () {
     this.setupLocalTutorialList()
     this.setupLocalTutorialSingle()
+    
+    this.lib.TutorialManager.addAction(tutorialKey, {
+      enable: () => {
+        return ($(this.$refs.LocalTutorialStart).length === 1)
+      },
+      element: () => {
+        return $(this.$refs.LocalTutorialStart)
+      },
+      content: this.$t('You can watch tutorial again from here.'),
+      order: 999,
+    })
   }
   
   AnnotationPanel.methods.setupLocalTutorialList = function () {
