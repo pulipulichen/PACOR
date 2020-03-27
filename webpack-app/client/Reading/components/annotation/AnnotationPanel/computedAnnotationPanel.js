@@ -83,4 +83,9 @@ export default (AnnotationPanel) => {
     return (localStorage.getItem(this.currentLocalTutorialKey) !== null)
   }
   
+  AnnotationPanel.computed.annotationSingleHeightPX = function () {
+    let padding = 20
+    
+    return this.panelData.heightPX - padding
+  }
 }

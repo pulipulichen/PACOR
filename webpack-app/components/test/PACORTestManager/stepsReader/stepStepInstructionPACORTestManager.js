@@ -3,6 +3,7 @@ import $ from 'jquery'
 export default function (PACORTestManager) {
   
   PACORTestManager.methods.waitTutorial = async function () {
+    let timeout = this.status.readingConfig.readingProgressModules.reading.tutorialDefaultTimeout
     
     await this.sleep(3000)
     
@@ -13,7 +14,7 @@ export default function (PACORTestManager) {
       tutorialWaitCount++
       console.log('等待導覽結束... ' + tutorialWaitCount)
       await this.waitForElementHidden('.jquery-guide-bg')
-      await this.sleep(5000)
+      await this.sleep(timeout)
       bg = $('.jquery-guide-bg:visible')
     }
   }

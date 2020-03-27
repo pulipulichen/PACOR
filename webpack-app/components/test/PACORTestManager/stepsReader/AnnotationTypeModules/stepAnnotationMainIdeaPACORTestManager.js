@@ -6,6 +6,7 @@ export default function (PACORTestManager) {
     let mainIdeaConfig = this.lib.auth.mainIdeaConfig
     let enableEditorAdd = mainIdeaConfig.enableEditorAdd
     
+    console.log('writeMainIdeaAnnotation', enableEditorAdd)
     if (enableEditorAdd === false) {
       return false
     }

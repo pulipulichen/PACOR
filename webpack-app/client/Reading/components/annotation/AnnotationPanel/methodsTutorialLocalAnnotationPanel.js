@@ -11,6 +11,10 @@ export default function (AnnotationPanel) {
   
   let autoStartTimer
   AnnotationPanel.methods.checkStartLocalTutorial = function () {
+    if (this.isQuickAddMode === true) {
+      return false
+    }
+    
     //console.log(this.hasReadLocalTutorial, this.currentLocalTutorialKey)
     if (this.hasReadLocalTutorial === false) {
       if (autoStartTimer) {
@@ -26,9 +30,18 @@ export default function (AnnotationPanel) {
     this.setupLocalTutorialList()
     this.setupLocalTutorialSingle()
     
+    let hasReadEndHint = false
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return ($(this.$refs.LocalTutorialStart).length === 1)
+        if ($(this.$refs.LocalTutorialStart).length === 1) {
+          if (hasReadEndHint === false) {
+            hasReadEndHint = true
+            return true
+          }
+          else {
+            return false
+          }
+        }
       },
       element: () => {
         return $(this.$refs.LocalTutorialStart)

@@ -85,7 +85,7 @@ export default function (PACORTestManager) {
       return await this.deleteMainIdeaAnnotation()
     }
     
-    await this.sleep(3000)
+    await this.waitTutorial()
     
     await this.waitForElementVisibleClick('.ConfirmModal .ok.button')
     

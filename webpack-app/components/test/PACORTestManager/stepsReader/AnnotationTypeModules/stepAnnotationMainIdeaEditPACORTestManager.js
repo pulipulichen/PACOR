@@ -93,6 +93,9 @@ export default function (PACORTestManager) {
       }
       return await this.editMainIdeaAnnotation()
     }
+    
+    await this.waitTutorial()
+    
     //editor.html(this.createRandomHtml())
     await this.typeInput(editor, this.createRandomText())
     await this.sleep(500)

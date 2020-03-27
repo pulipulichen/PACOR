@@ -117,6 +117,7 @@ module.exports = {
      */
     'reading': {
       totalLimitMinutes: 60,
+      tutorialDefaultTimeout: 1000,
     },
     'IndividualReading': {
       //instruction: {

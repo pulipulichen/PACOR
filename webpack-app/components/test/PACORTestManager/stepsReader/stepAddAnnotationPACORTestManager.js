@@ -12,6 +12,11 @@ export default function (PACORTestManager) {
     
     await this.sleep(3000)
     
+    if (!this.lib.RangyManager) {
+      return false
+    }
+    await this.lib.RangyManager.cancelSelection()
+    
     //let min = 4
     //let max = 10
     
@@ -32,6 +37,10 @@ export default function (PACORTestManager) {
     
     for (let j = 0; j < iList.length; j++) {
       let i = iList[j]
+      if (j === 0) {
+        i = 2
+      }
+      
       await this.retry(3, async () => {
         await this.sleep(100)
         let t = (i % 4)
@@ -66,6 +75,8 @@ export default function (PACORTestManager) {
       return false
     }
     
+    await this.lib.RangyManager.cancelSelection()
+    
     await this.lib.RangyManager.selectRandomRange()
     
     //this.log('selectAnnotationType', 2)
@@ -87,7 +98,9 @@ export default function (PACORTestManager) {
     let t = i % 4
     let baseMargin = 0
     
-    if (this.status.readingConfig.annotationTypeModules.MainIdea.enableQuickAdd === true) {
+    let mainIdeaConfig = this.status.readingConfig.annotationTypeModules.MainIdea
+    if (mainIdeaConfig.enableQuickAdd === true
+            && mainIdeaConfig.enableEditorAdd === true) {
       baseMargin = 1
     }
     
@@ -96,14 +109,14 @@ export default function (PACORTestManager) {
       //typeItemSelector = typeItemSelector + `:eq(${0 + baseMargin})`
       typeItemSelector = typeItemSelector + `.MainIdea:not(.quick-add)`
     }
-    else if (t === 1) {
+    else if (t === 1 || t === 2) {
       //typeItemSelector = typeItemSelector + `:eq(${1 + baseMargin})`
       typeItemSelector = typeItemSelector + `.Confused`
     }
-    else if (t === 2) {
+    //else if (t === 2) {
       // 選擇已澄清
-      typeItemSelector = typeItemSelector + `:eq(${1 + baseMargin})`
-    }
+    //  typeItemSelector = typeItemSelector + `:eq(${1 + baseMargin})`
+    //}
     
     try {
       await this.waitForElementVisibleClick(typeItemSelector, {
@@ -118,6 +131,9 @@ export default function (PACORTestManager) {
       }
       return await this.selectAnnotationType(i, errorCount)
     }
+    
+    //console.log('有順利選擇嗎？')
+    //await this.sleep(3000)
     //this.log('selectAnnotationType', 3)
   }
   

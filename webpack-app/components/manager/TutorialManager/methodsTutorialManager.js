@@ -23,7 +23,7 @@ export default function (TutorialManager) {
     
     // 在這裡處理timeout的問題
     if (typeof(action.timeout) !== 'number') {
-      let timeout = 5000
+      let timeout = this.status.readingConfig.readingProgressModules.reading.tutorialDefaultTimeout
       let content = action.content
       let contentWordCount = this.lib.StringHelper.countWords(content)
       if (contentWordCount > 40) {

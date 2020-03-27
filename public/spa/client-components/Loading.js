@@ -4661,7 +4661,7 @@ __webpack_require__.r(__webpack_exports__);
     
     // 在這裡處理timeout的問題
     if (typeof(action.timeout) !== 'number') {
-      let timeout = 5000
+      let timeout = this.status.readingConfig.readingProgressModules.reading.tutorialDefaultTimeout
       let content = action.content
       let contentWordCount = this.lib.StringHelper.countWords(content)
       if (contentWordCount > 40) {
@@ -6107,8 +6107,6 @@ __webpack_require__.r(__webpack_exports__);
     
     await this.waitTutorial()
     
-    await this.sleep(1000)
-    
     let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', {
       timeout: 3000
     })
@@ -6125,7 +6123,7 @@ __webpack_require__.r(__webpack_exports__);
       errorMessage: 'writeConfusedClarifiedAnnotation 是不是沒有寫到QuestionEditor? 或是寫不夠長？'
     })
     
-    await this.sleep(100)
+    await this.waitTutorial()
     
     let answerEditor = await this.waitForElementVisible('.AnnotationPanel .AnswerEditor.html-editor-container .note-editable', {
       timeout: 6000,
@@ -6173,26 +6171,32 @@ __webpack_require__.r(__webpack_exports__);
   
   PACORTestManager.methods.writeConfusedAnnotation = async function () {
     
+    let p = this.lib.AnnotationPanel.panelData.anchorPositions
+    console.log('anchorPositions', this.lib.AnnotationPanel.panelData.anchorPositions)
+    
     //throw new Error('困惑 走錯路了！是誰？')
     await this.waitTutorial()
-    
-    await this.sleep(1000)
-    
+        
     let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', {
       timeout: 3000
     })
+    
     //questionEditor.html(this.createRandomHtml())
     await this.typeInput(questionEditor, this.createRandomText())
     await this.sleep(500)
     await this.typeInput(questionEditor, this.createRandomText())
     await this.sleep(100)
     
+    if (!this.lib.AnnotationPanel.panelData.anchorPositions) {
+      this.lib.AnnotationPanel.panelData.anchorPositions = p
+    }
+    
     await this.waitForElementVisibleClick('.AnnotationPanel .annotation-panel-buttons .ValidationButton:not(.disabled)', {
       timeout: 3000,
       errorMessage: 'writeConfusedAnnotation 是不是沒有寫到QuestionEditor? '
     })
     
-    await this.sleep(3000)
+    await this.waitTutorial()
     
     //await this.log('這邊我要確認一下'); await this.sleep(60 * 1000)
     
@@ -6312,7 +6316,7 @@ __webpack_require__.r(__webpack_exports__);
       return await this.deleteMainIdeaAnnotation()
     }
     
-    await this.sleep(3000)
+    await this.waitTutorial()
     
     await this.waitForElementVisibleClick('.ConfirmModal .ok.button')
     
@@ -6444,6 +6448,9 @@ __webpack_require__.r(__webpack_exports__);
       }
       return await this.editMainIdeaAnnotation()
     }
+    
+    await this.waitTutorial()
+    
     //editor.html(this.createRandomHtml())
     await this.typeInput(editor, this.createRandomText())
     await this.sleep(500)
@@ -6501,6 +6508,7 @@ __webpack_require__.r(__webpack_exports__);
     let mainIdeaConfig = this.lib.auth.mainIdeaConfig
     let enableEditorAdd = mainIdeaConfig.enableEditorAdd
     
+    console.log('writeMainIdeaAnnotation', enableEditorAdd)
     if (enableEditorAdd === false) {
       return false
     }
@@ -6576,6 +6584,11 @@ __webpack_require__.r(__webpack_exports__);
     
     await this.sleep(3000)
     
+    if (!this.lib.RangyManager) {
+      return false
+    }
+    await this.lib.RangyManager.cancelSelection()
+    
     //let min = 4
     //let max = 10
     
@@ -6596,6 +6609,10 @@ __webpack_require__.r(__webpack_exports__);
     
     for (let j = 0; j < iList.length; j++) {
       let i = iList[j]
+      if (j === 0) {
+        i = 2
+      }
+      
       await this.retry(3, async () => {
         await this.sleep(100)
         let t = (i % 4)
@@ -6630,6 +6647,8 @@ __webpack_require__.r(__webpack_exports__);
       return false
     }
     
+    await this.lib.RangyManager.cancelSelection()
+    
     await this.lib.RangyManager.selectRandomRange()
     
     //this.log('selectAnnotationType', 2)
@@ -6651,7 +6670,9 @@ __webpack_require__.r(__webpack_exports__);
     let t = i % 4
     let baseMargin = 0
     
-    if (this.status.readingConfig.annotationTypeModules.MainIdea.enableQuickAdd === true) {
+    let mainIdeaConfig = this.status.readingConfig.annotationTypeModules.MainIdea
+    if (mainIdeaConfig.enableQuickAdd === true
+            && mainIdeaConfig.enableEditorAdd === true) {
       baseMargin = 1
     }
     
@@ -6660,14 +6681,14 @@ __webpack_require__.r(__webpack_exports__);
       //typeItemSelector = typeItemSelector + `:eq(${0 + baseMargin})`
       typeItemSelector = typeItemSelector + `.MainIdea:not(.quick-add)`
     }
-    else if (t === 1) {
+    else if (t === 1 || t === 2) {
       //typeItemSelector = typeItemSelector + `:eq(${1 + baseMargin})`
       typeItemSelector = typeItemSelector + `.Confused`
     }
-    else if (t === 2) {
+    //else if (t === 2) {
       // 選擇已澄清
-      typeItemSelector = typeItemSelector + `:eq(${1 + baseMargin})`
-    }
+    //  typeItemSelector = typeItemSelector + `:eq(${1 + baseMargin})`
+    //}
     
     try {
       await this.waitForElementVisibleClick(typeItemSelector, {
@@ -6682,6 +6703,9 @@ __webpack_require__.r(__webpack_exports__);
       }
       return await this.selectAnnotationType(i, errorCount)
     }
+    
+    //console.log('有順利選擇嗎？')
+    //await this.sleep(3000)
     //this.log('selectAnnotationType', 3)
   }
   
@@ -7140,6 +7164,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (PACORTestManager) {
   
   PACORTestManager.methods.waitTutorial = async function () {
+    let timeout = this.status.readingConfig.readingProgressModules.reading.tutorialDefaultTimeout
     
     await this.sleep(3000)
     
@@ -7150,7 +7175,7 @@ __webpack_require__.r(__webpack_exports__);
       tutorialWaitCount++
       console.log('等待導覽結束... ' + tutorialWaitCount)
       await this.waitForElementHidden('.jquery-guide-bg')
-      await this.sleep(5000)
+      await this.sleep(timeout)
       bg = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.jquery-guide-bg:visible')
     }
   }

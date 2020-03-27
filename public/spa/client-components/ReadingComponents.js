@@ -2301,7 +2301,7 @@ var render = function() {
                     lib: _vm.lib,
                     panelData: _vm.panelData,
                     annotation: _vm.panelData.annotation,
-                    heightPX: _vm.panelData.heightPX
+                    heightPX: _vm.annotationSingleHeightPX
                   },
                   on: { update: _vm.hide, delete: _vm.hide }
                 })
@@ -12771,6 +12771,11 @@ __webpack_require__.r(__webpack_exports__);
     return (localStorage.getItem(this.currentLocalTutorialKey) !== null)
   }
   
+  AnnotationPanel.computed.annotationSingleHeightPX = function () {
+    let padding = 20
+    
+    return this.panelData.heightPX - padding
+  }
 });
 
 /***/ }),
@@ -12817,6 +12822,7 @@ __webpack_require__.r(__webpack_exports__);
   placeholder: null,
   resizeLocker: false,
   enableScrollToAnnotation: true,
+  isQuickAddMode: false,
   
   events: {}
 });
@@ -13122,6 +13128,7 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   AnnotationPanel.methods.setAnnotationQuickAdd = async function (annotation) {
+    this.isQuickAddMode = true
     this.enableScrollToAnnotation = false
     
     this.panelData.annotation = annotation
@@ -13132,6 +13139,7 @@ __webpack_require__.r(__webpack_exports__);
     await this.$refs.AnnotationSingle.quickAdd()
     
     this.enableScrollToAnnotation = true
+    this.isQuickAddMode = false
   }
   
   AnnotationPanel.methods.focusCommentInput = function (annotation) {
@@ -13586,6 +13594,10 @@ __webpack_require__.r(__webpack_exports__);
   
   let autoStartTimer
   AnnotationPanel.methods.checkStartLocalTutorial = function () {
+    if (this.isQuickAddMode === true) {
+      return false
+    }
+    
     //console.log(this.hasReadLocalTutorial, this.currentLocalTutorialKey)
     if (this.hasReadLocalTutorial === false) {
       if (autoStartTimer) {
@@ -13601,9 +13613,18 @@ __webpack_require__.r(__webpack_exports__);
     this.setupLocalTutorialList()
     this.setupLocalTutorialSingle()
     
+    let hasReadEndHint = false
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.LocalTutorialStart).length === 1)
+        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.LocalTutorialStart).length === 1) {
+          if (hasReadEndHint === false) {
+            hasReadEndHint = true
+            return true
+          }
+          else {
+            return false
+          }
+        }
       },
       element: () => {
         return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.LocalTutorialStart)

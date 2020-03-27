@@ -8,8 +8,6 @@ export default function (PACORTestManager) {
     
     await this.waitTutorial()
     
-    await this.sleep(1000)
-    
     let questionEditor = await this.waitForElementVisible('.AnnotationPanel .QuestionEditor.html-editor-container .note-editable', {
       timeout: 3000
     })
@@ -26,7 +24,7 @@ export default function (PACORTestManager) {
       errorMessage: 'writeConfusedClarifiedAnnotation 是不是沒有寫到QuestionEditor? 或是寫不夠長？'
     })
     
-    await this.sleep(100)
+    await this.waitTutorial()
     
     let answerEditor = await this.waitForElementVisible('.AnnotationPanel .AnswerEditor.html-editor-container .note-editable', {
       timeout: 6000,

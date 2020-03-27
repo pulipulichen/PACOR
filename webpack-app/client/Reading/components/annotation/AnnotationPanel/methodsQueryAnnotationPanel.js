@@ -30,6 +30,7 @@ export default (AnnotationPanel) => {
   }
   
   AnnotationPanel.methods.setAnnotationQuickAdd = async function (annotation) {
+    this.isQuickAddMode = true
     this.enableScrollToAnnotation = false
     
     this.panelData.annotation = annotation
@@ -40,6 +41,7 @@ export default (AnnotationPanel) => {
     await this.$refs.AnnotationSingle.quickAdd()
     
     this.enableScrollToAnnotation = true
+    this.isQuickAddMode = false
   }
   
   AnnotationPanel.methods.focusCommentInput = function (annotation) {

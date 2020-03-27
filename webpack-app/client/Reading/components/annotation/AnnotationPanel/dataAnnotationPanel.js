@@ -31,6 +31,7 @@ export default {
   placeholder: null,
   resizeLocker: false,
   enableScrollToAnnotation: true,
+  isQuickAddMode: false,
   
   events: {}
 }
