@@ -63,6 +63,10 @@ export default (AnnotationPanel) => {
       keys.push('Single')
       keys.push(this.panelData.annotation.type)
       
+      if (this.enableDiscussion) {
+        keys.push('discussion')
+      }
+      
       //if (this.lib.AnnotationHelper.isEditable(this.panelData.annotation)) {
       //  keys.push('editable')
       //}
@@ -79,12 +83,16 @@ export default (AnnotationPanel) => {
     return keys.join('.')
   }
   
-  AnnotationPanel.computed.hasReadLocalTutorial = function () {
-    return (localStorage.getItem(this.currentLocalTutorialKey) !== null)
-  }
+  //AnnotationPanel.computed.hasReadLocalTutorial = function () {
+  //  return (localStorage.getItem(this.currentLocalTutorialKey) !== null)
+  //}
   
   AnnotationPanel.computed.annotationSingleHeightPX = function () {
     let padding = 20
+    
+    if (this.enableDiscussion) {
+      padding = 0
+    }
     
     return this.panelData.heightPX - padding
   }

@@ -15,6 +15,7 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
     let $body = $('body')
     let completeCallback
     let vm
+    let highlightPadding = 10
     
     let guide
     let nextStepTimer
@@ -469,13 +470,14 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
               ? $window.innerHeight() - (actionElement.innerHeight() + bgScrollTop) : $window.innerHeight();
 
           let element = actionElement[0]
+          //let padding = 10
           let animateOption = {
-            width: element.clientWidth,
-            height: element.clientHeight + (bgScrollTop < 0 ? bgScrollTop : 0),
-            borderTopWidth: bgTopWidth,
-            borderRightWidth: $window.innerWidth() - actionElement.offset().left - element.clientWidth + 1,
-            borderBottomWidth: bgBottomWidth,
-            borderLeftWidth: actionElement.offset().left
+            width: element.clientWidth + (highlightPadding * 2),
+            height: element.clientHeight + (bgScrollTop < 0 ? bgScrollTop : 0) + (highlightPadding * 2),
+            borderTopWidth: bgTopWidth - highlightPadding,
+            borderRightWidth: $window.innerWidth() - actionElement.offset().left - element.clientWidth + 1 + (highlightPadding * 2),
+            borderBottomWidth: bgBottomWidth + (highlightPadding * 2),
+            borderLeftWidth: actionElement.offset().left - highlightPadding
           }
           
           //console.log(animateOption, actionElement[0].clientHeight, scrollIntoView)
@@ -532,10 +534,10 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
         */
         _this.layout.glow.fadeIn('fast')
         let cssConfig = {
-          'width': actionElement.innerWidth() + 'px',
-          'height': actionElement.innerHeight() + 'px',
-          'top': top,
-          'left': actionElement.offset().left
+          'width': actionElement.innerWidth() + (highlightPadding * 2) + 'px',
+          'height': actionElement.innerHeight() + (highlightPadding * 2) + 'px',
+          'top': top - highlightPadding,
+          'left': actionElement.offset().left - highlightPadding
         }
         //console.log(cssConfig)
         
@@ -592,10 +594,10 @@ import tippy from './../../../ui-button/tippy.js/tippy.webpack.js'
         this.layout.bg.css({
           width: actionElement.innerWidth(),
           height: actionElement.innerHeight() + (bgScrollTop < 0 ? bgScrollTop : 0),
-          borderTopWidth: bgTopWidth,
-          borderRightWidth: $window.innerWidth() - actionElement.offset().left - actionElement.innerWidth(),
-          borderBottomWidth: bgBottomWidth,
-          borderLeftWidth: actionElement.offset().left
+          borderTopWidth: bgTopWidth - highlightPadding,
+          borderRightWidth: $window.innerWidth() - actionElement.offset().left - actionElement.innerWidth() + (highlightPadding * 2),
+          borderBottomWidth: bgBottomWidth + (highlightPadding * 2), 
+          borderLeftWidth: actionElement.offset().left - highlightPadding
         });
         setupGlowPopup(this, action)
         return this.layout.content.css({

@@ -4686,54 +4686,58 @@ __webpack_require__.r(__webpack_exports__);
     //console.log(this.actionLists)
   }
   
-  TutorialManager.methods.start = function (type, showFinishModel, callback) {
-    let actions = this.getActions(type)
-    if (Array.isArray(actions) === false || this.isPlaying === true) {
-      return false
-    }
-    
-    //console.log(actions)
-    this.guide = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.guide({
-      vm: this,
-      enableTimeout: this.enableTimeout,
-      actions,
-      complete: () => {
-        if (typeof(callback) === 'function') {
-          callback()
-        }
-        
-        this.isPlaying = false
-        if (this.lib.RangyManager) {
-          this.lib.RangyManager.selectionLock = false
-        }
-        
-        if (!this.finishModal) {
-          this.finishModal = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.FinishModal)
-        }
-        
-        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.ui.dimmer.modals.visible.active').length > 0) {
-          console.log('Skip finish modal becase of other modal is opened.')
-          return false
-        }
-        
-        if (showFinishModel === false) {
-          return false
-        }
-        
-        this.finishModal.modal({
-          dimmerSettings: {
-            dimmerName: 'tutorial-modal'
-          }
-        }).modal('show')
-        
-        setTimeout(() => {
-          this.hideFinishModal()
-        }, 3000)
-        
+  TutorialManager.methods.start = async function (type, showFinishModel) {
+    return new Promise((resolve, reject) => {
+      let actions = this.getActions(type)
+      if (Array.isArray(actions) === false || this.isPlaying === true) {
+        reject(false)
+        return false
       }
-    });
-    this.isPlaying = true
-    //console.log(this.guide)
+
+      //console.log(actions)
+      this.guide = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.guide({
+        vm: this,
+        enableTimeout: this.enableTimeout,
+        actions,
+        complete: () => {
+          
+
+          this.isPlaying = false
+          if (this.lib.RangyManager) {
+            this.lib.RangyManager.selectionLock = false
+          }
+
+          if (!this.finishModal) {
+            this.finishModal = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.FinishModal)
+          }
+
+          if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.ui.dimmer.modals.visible.active').length > 0) {
+            console.log('Skip finish modal becase of other modal is opened.')
+            resolve(true)
+            return false
+          }
+
+          if (showFinishModel === false) {
+            resolve(true)
+            return false
+          }
+
+          this.finishModal.modal({
+            dimmerSettings: {
+              dimmerName: 'tutorial-modal'
+            }
+          }).modal('show')
+
+          setTimeout(() => {
+            this.hideFinishModal()
+            resolve(true)
+          }, 3000)
+
+        }
+      });
+      this.isPlaying = true
+      //console.log(this.guide)
+    })  // return new Promise((resolve, reject) => {
   }
   
   TutorialManager.methods.hideFinishModal = function () {

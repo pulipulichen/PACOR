@@ -12759,6 +12759,10 @@ __webpack_require__.r(__webpack_exports__);
       keys.push('Single')
       keys.push(this.panelData.annotation.type)
       
+      if (this.enableDiscussion) {
+        keys.push('discussion')
+      }
+      
       //if (this.lib.AnnotationHelper.isEditable(this.panelData.annotation)) {
       //  keys.push('editable')
       //}
@@ -12775,12 +12779,16 @@ __webpack_require__.r(__webpack_exports__);
     return keys.join('.')
   }
   
-  AnnotationPanel.computed.hasReadLocalTutorial = function () {
-    return (localStorage.getItem(this.currentLocalTutorialKey) !== null)
-  }
+  //AnnotationPanel.computed.hasReadLocalTutorial = function () {
+  //  return (localStorage.getItem(this.currentLocalTutorialKey) !== null)
+  //}
   
   AnnotationPanel.computed.annotationSingleHeightPX = function () {
     let padding = 20
+    
+    if (this.enableDiscussion) {
+      padding = 0
+    }
     
     return this.panelData.heightPX - padding
   }
@@ -13593,14 +13601,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (AnnotationPanel) {
   let tutorialKey = 'AnnotationPanel'
+  let readLocalTutorialKeys = []
+  let isAutoStart = false
+  let readHints = []
   
-  AnnotationPanel.methods.startLocalTutorial = function () {
+  AnnotationPanel.methods.startLocalTutorial = async function () {
     
+    //localStorage.setItem(this.currentLocalTutorialKey, 1)
+    await this.lib.TutorialManager.start(tutorialKey, false)
+    
+    //console.log('startLocalTutorial', this.currentLocalTutorialKey)
+    if (readLocalTutorialKeys.indexOf(this.currentLocalTutorialKey) > -1) {
+      // 已經讀過了
+      return false
+    }
+
     localStorage.setItem(this.currentLocalTutorialKey, 1)
-    this.lib.TutorialManager.start(tutorialKey, false, () => {
-      //console.log('startLocalTutorial', this.currentLocalTutorialKey)
-      //localStorage.setItem(this.currentLocalTutorialKey, 1)
-    })
+    readLocalTutorialKeys.push(this.currentLocalTutorialKey)
   }
   
   let autoStartTimer
@@ -13609,15 +13626,26 @@ __webpack_require__.r(__webpack_exports__);
       return false
     }
     
+    if (readLocalTutorialKeys.indexOf(this.currentLocalTutorialKey) > -1) {
+      // 已經讀過了
+      return false
+    }
+    else if (localStorage.getItem(this.currentLocalTutorialKey) !== null) {
+      readLocalTutorialKeys.push(this.currentLocalTutorialKey)
+      return false
+    }
+    
     //console.log(this.hasReadLocalTutorial, this.currentLocalTutorialKey)
-    if (this.hasReadLocalTutorial === false) {
+    //if (this.hasReadLocalTutorial === false) {
       if (autoStartTimer) {
         clearTimeout(autoStartTimer)
       }
-      autoStartTimer = setTimeout(() => {
-        this.startLocalTutorial()
+      autoStartTimer = setTimeout(async () => {
+        isAutoStart = true
+        await this.startLocalTutorial()
+        isAutoStart = false
       }, 1000)
-    }
+    //}
   }
   
   AnnotationPanel.methods.setupLocalTutorial = function () {
@@ -13628,6 +13656,11 @@ __webpack_require__.r(__webpack_exports__);
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
         if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.LocalTutorialStart).length === 1) {
+          if (isAutoStart === false) {
+            // 如果不是自動啟動，那就顯示完整的教學
+            return true
+          }
+          
           if (hasReadEndHint === false) {
             hasReadEndHint = true
             return true
@@ -13681,13 +13714,33 @@ __webpack_require__.r(__webpack_exports__);
     })
   }
   
+  let isHintNotRead = (key) => {
+    if (readHints.indexOf(key) === -1) {
+      readHints.push(key)
+      return true
+    }
+    else {
+      if (isAutoStart === false) {
+        return true
+      }
+      
+      return false
+    }
+  }
+  
   AnnotationPanel.methods.setupLocalTutorialSingle = function () {
     
     // ----------------------------------
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.display-mode .column.annotation-editor:visible:first').length === 1)
+        //return ($(this.$refs.panel).find('.AnnotationSingle.display-mode .column.annotation-editor:visible:first').length === 1)
+        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.display-mode .column.annotation-editor:visible:first').length === 1) {
+          return isHintNotRead('otherReader')
+        }
+        else {
+          return false
+        }
       },
       element: () => {
         return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.display-mode .column.annotation-editor:visible:first')
@@ -13698,8 +13751,13 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .column.annotation-editor:visible:first').length === 1)
-                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1))
+        if ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .column.annotation-editor:visible:first').length === 1)
+                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1)) {
+          return isHintNotRead('editNote')
+        }
+        else {
+          return false
+        }
       },
       element: () => {
         return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .column.annotation-editor:visible:first')
@@ -13712,8 +13770,13 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .AnnotaionInstruction:visible:first').length === 1)
-                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 0))
+        if ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .AnnotaionInstruction:visible:first').length === 1)
+                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 0)) {
+          return isHintNotRead('howToWriteNote')
+        }
+        else {
+          return false
+        }
       },
       element: () => {
         return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .html-editor-container:visible:first')
@@ -13748,10 +13811,23 @@ __webpack_require__.r(__webpack_exports__);
       order: 213,
     })
     
+    let readInstructionHint = false
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
-                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 0))
+//        if (readInstructionHint === false) {
+//          readInstructionHint = true
+//        }
+//        else {
+//          return false
+//        }
+//        
+        if ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 0)) {
+          return isHintNotRead('instruction')
+        }
+        else {
+          return false
+        }
       },
       element: () => {
         return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first')
@@ -13762,8 +13838,13 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
-                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 0))
+        if ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 0)) {
+          return isHintNotRead('saveButton')
+        }
+        else {
+          return false
+        }
       },
       element: () => {
         return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .annotation-panel-buttons .ValidationButton:visible:first')
@@ -13776,7 +13857,12 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .AnnotationInteractive .like.button:visible:first').length === 1)
+        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .AnnotationInteractive .like.button:visible:first').length === 1) {
+          return isHintNotRead('likeButton')
+        }
+        else {
+          return false
+        }
       },
       element: () => {
         return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .AnnotationInteractive .like.button:visible:first')
@@ -13789,8 +13875,13 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1)
-                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.display-mode .column.annotation-editor:visible:first').length === 1))
+        if ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1)
+                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.display-mode .column.annotation-editor:visible:first').length === 1)) {
+          return isHintNotRead('giveSuggestion')
+        }
+        else {
+          return false
+        }
       },
       element: () => {
         return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first')
@@ -13801,8 +13892,13 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
-                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1))
+        if ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+                && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1)) {
+          return isHintNotRead('viewSuggestion')
+        }
+        else {
+          return false
+        }
       },
       beforeCallback: async () => {
         this.panelData.showDemoComment = true
@@ -13817,9 +13913,14 @@ __webpack_require__.r(__webpack_exports__);
     
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
-        return ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+        if ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
                 && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1)
-                && (this.panelData.annotation && (this.panelData.annotation.type === 'Confused' || this.panelData.annotation.type === 'Clarified')))
+                && (this.panelData.annotation && (this.panelData.annotation.type === 'Confused' || this.panelData.annotation.type === 'Clarified'))) {
+          return isHintNotRead('likeSuggestionAsAnswer')
+        }
+        else {
+          return false
+        }
       },
       element: () => {
         return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first .demo-comment')
@@ -13837,9 +13938,14 @@ __webpack_require__.r(__webpack_exports__);
     this.lib.TutorialManager.addAction(tutorialKey, {
       enable: () => {
         //console.log(this.panelData.annotation.type)
-        return ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
+        if ((jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle.edit-mode .AnnotaionInstruction:visible:first').length === 1)
                 && (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first').length === 1)
-                && (this.panelData.annotation && this.panelData.annotation.type !== 'Confused' && this.panelData.annotation.type !== 'Clarified'))
+                && (this.panelData.annotation && this.panelData.annotation.type !== 'Confused' && this.panelData.annotation.type !== 'Clarified')) {
+          return isHintNotRead('likeSuggestion')
+        }
+        else {
+          return false
+        }
       },
       element: () => {
         return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.panel).find('.AnnotationSingle .column.annotation-discussion:visible:first .demo-comment')
@@ -30484,6 +30590,7 @@ __webpack_require__.r(__webpack_exports__);
     let $body = $('body')
     let completeCallback
     let vm
+    let highlightPadding = 10
     
     let guide
     let nextStepTimer
@@ -30938,13 +31045,14 @@ __webpack_require__.r(__webpack_exports__);
               ? $window.innerHeight() - (actionElement.innerHeight() + bgScrollTop) : $window.innerHeight();
 
           let element = actionElement[0]
+          //let padding = 10
           let animateOption = {
-            width: element.clientWidth,
-            height: element.clientHeight + (bgScrollTop < 0 ? bgScrollTop : 0),
-            borderTopWidth: bgTopWidth,
-            borderRightWidth: $window.innerWidth() - actionElement.offset().left - element.clientWidth + 1,
-            borderBottomWidth: bgBottomWidth,
-            borderLeftWidth: actionElement.offset().left
+            width: element.clientWidth + (highlightPadding * 2),
+            height: element.clientHeight + (bgScrollTop < 0 ? bgScrollTop : 0) + (highlightPadding * 2),
+            borderTopWidth: bgTopWidth - highlightPadding,
+            borderRightWidth: $window.innerWidth() - actionElement.offset().left - element.clientWidth + 1 + (highlightPadding * 2),
+            borderBottomWidth: bgBottomWidth + (highlightPadding * 2),
+            borderLeftWidth: actionElement.offset().left - highlightPadding
           }
           
           //console.log(animateOption, actionElement[0].clientHeight, scrollIntoView)
@@ -31001,10 +31109,10 @@ __webpack_require__.r(__webpack_exports__);
         */
         _this.layout.glow.fadeIn('fast')
         let cssConfig = {
-          'width': actionElement.innerWidth() + 'px',
-          'height': actionElement.innerHeight() + 'px',
-          'top': top,
-          'left': actionElement.offset().left
+          'width': actionElement.innerWidth() + (highlightPadding * 2) + 'px',
+          'height': actionElement.innerHeight() + (highlightPadding * 2) + 'px',
+          'top': top - highlightPadding,
+          'left': actionElement.offset().left - highlightPadding
         }
         //console.log(cssConfig)
         
@@ -31061,10 +31169,10 @@ __webpack_require__.r(__webpack_exports__);
         this.layout.bg.css({
           width: actionElement.innerWidth(),
           height: actionElement.innerHeight() + (bgScrollTop < 0 ? bgScrollTop : 0),
-          borderTopWidth: bgTopWidth,
-          borderRightWidth: $window.innerWidth() - actionElement.offset().left - actionElement.innerWidth(),
-          borderBottomWidth: bgBottomWidth,
-          borderLeftWidth: actionElement.offset().left
+          borderTopWidth: bgTopWidth - highlightPadding,
+          borderRightWidth: $window.innerWidth() - actionElement.offset().left - actionElement.innerWidth() + (highlightPadding * 2),
+          borderBottomWidth: bgBottomWidth + (highlightPadding * 2), 
+          borderLeftWidth: actionElement.offset().left - highlightPadding
         });
         setupGlowPopup(this, action)
         return this.layout.content.css({
