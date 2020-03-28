@@ -4,8 +4,11 @@ export default function (AnnotationPanel) {
   let tutorialKey = 'AnnotationPanel'
   
   AnnotationPanel.methods.startLocalTutorial = function () {
+    
+    localStorage.setItem(this.currentLocalTutorialKey, 1)
     this.lib.TutorialManager.start(tutorialKey, false, () => {
-      localStorage.setItem(this.currentLocalTutorialKey, 1)
+      //console.log('startLocalTutorial', this.currentLocalTutorialKey)
+      //localStorage.setItem(this.currentLocalTutorialKey, 1)
     })
   }
   

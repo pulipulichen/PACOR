@@ -12534,9 +12534,11 @@ __webpack_require__.r(__webpack_exports__);
     
     for (let j = 0; j < iList.length; j++) {
       let i = iList[j]
-      if (j === 0) {
-        i = 2
-      }
+      
+      //if (j === 0) {
+      //  // 測試用，我第一個就想要看到疑問
+      //  i = 2
+      //}
       
       await this.retry(3, async () => {
         await this.sleep(100)
@@ -12639,8 +12641,8 @@ __webpack_require__.r(__webpack_exports__);
 //    if (p === null) {
 //      throw new Error('AnnotationPanel.panelData.anchorPositions is null')
 //    }
-    
-    
+    //console.log('要確認是否有pinSelection')
+    //await this.sleep(1000 * 3000)
     //this.log('selectAnnotationType', 3)
   }
   

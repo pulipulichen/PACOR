@@ -7692,6 +7692,8 @@ __webpack_require__.r(__webpack_exports__);
       order: 22,
       afterClick: async () => {
         if (enableEditorAdd === false) {
+          this.lib.RangyManager.cancelSelection()
+          this.isTutorialMode = false
           return false
         }
         
@@ -13593,8 +13595,11 @@ __webpack_require__.r(__webpack_exports__);
   let tutorialKey = 'AnnotationPanel'
   
   AnnotationPanel.methods.startLocalTutorial = function () {
+    
+    localStorage.setItem(this.currentLocalTutorialKey, 1)
     this.lib.TutorialManager.start(tutorialKey, false, () => {
-      localStorage.setItem(this.currentLocalTutorialKey, 1)
+      //console.log('startLocalTutorial', this.currentLocalTutorialKey)
+      //localStorage.setItem(this.currentLocalTutorialKey, 1)
     })
   }
   
@@ -18125,6 +18130,9 @@ __webpack_require__.r(__webpack_exports__);
   
   RangyManager.methods.pinSelection = function () {
     this.unpinSelection()
+    
+    //console.log('pinSelection', 'start')
+    
     if (this.selection === null
             || Array.isArray(this.selection.anchorPositions) === false
             || Array.isArray(this.selection.anchorParagraphIds) === false) {
@@ -18187,7 +18195,7 @@ __webpack_require__.r(__webpack_exports__);
     //this.selection = null
 
 
-    console.log('pinSelection', this.selection.anchorPositions)
+    //console.log('pinSelection', this.selection.anchorPositions)
     return this.selection
   }
 
@@ -18222,7 +18230,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     }
     
-    console.trace('unpinSelection')
+    //console.trace('unpinSelection')
     return this
   }
 

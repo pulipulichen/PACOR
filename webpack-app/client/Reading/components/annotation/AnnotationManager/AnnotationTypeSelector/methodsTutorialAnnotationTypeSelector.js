@@ -81,6 +81,8 @@ export default function (AnnotationTypeSelector) {
       order: 22,
       afterClick: async () => {
         if (enableEditorAdd === false) {
+          this.lib.RangyManager.cancelSelection()
+          this.isTutorialMode = false
           return false
         }
         
