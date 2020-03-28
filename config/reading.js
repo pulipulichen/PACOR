@@ -20,7 +20,7 @@ module.exports = {
     
     //stayInReadingProgress: 'PreImaginaryKeyword'
     //stayInReadingProgress: 'PostRecallKeyword'
-    //stayInReadingProgress: 'IndividualReading'
+    stayInReadingProgress: 'IndividualReading'
     //stayInReadingProgress: 'CollaborativeReading'
     //stayInReadingProgress: 'FreeReading'
   },
@@ -117,7 +117,7 @@ module.exports = {
      */
     'reading': {
       totalLimitMinutes: 60,
-      tutorialDefaultTimeout: 1000,
+      tutorialDefaultTimeout: 500,
     },
     'IndividualReading': {
       //instruction: {

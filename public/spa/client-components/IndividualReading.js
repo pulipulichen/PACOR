@@ -2228,9 +2228,9 @@ __webpack_require__.r(__webpack_exports__);
     
     await this.lib.VueHelper.sleep(1000)
     
-    //$('.fab-cantainer.MainIdea .fabMask').click()
+    //$('.fab-container.MainIdea .fabMask').click()
     
-    //$('.fab-cantainer.MainIdea').click()
+    //$('.fab-container.MainIdea').click()
     //await this.lib.RangyManager.onselect()
   }
   

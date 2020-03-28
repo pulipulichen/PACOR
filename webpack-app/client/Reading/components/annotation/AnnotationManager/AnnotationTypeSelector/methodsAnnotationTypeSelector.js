@@ -76,6 +76,8 @@ export default function (AnnotationTypeSelector) {
     if (!this.selection) {
       return null
     }
+    
+    //console.log(this.isTutorialMode)
     if (this.isTutorialMode) {
       let demoAnnotation = {
         anchorPositions: [],
@@ -105,6 +107,7 @@ export default function (AnnotationTypeSelector) {
 
     this.lib.RangyManager.pinSelection(this.selection)
 
+    //console.log('clickItem', anchorPositions)
     if (isQuickAdd !== true) {
       this.lib.AnnotationPanel.setAnnotation(annotation, {
         'cancel': () => {
@@ -113,6 +116,9 @@ export default function (AnnotationTypeSelector) {
           this.lib.RangyManager.unpinSelection(true)
         }
       })
+      
+      //let p = this.lib.AnnotationPanel.panelData.anchorPositions
+      //console.log('anchorPositions', p)
     }
     else {
       this.lib.AnnotationPanel.setAnnotationQuickAdd(annotation)

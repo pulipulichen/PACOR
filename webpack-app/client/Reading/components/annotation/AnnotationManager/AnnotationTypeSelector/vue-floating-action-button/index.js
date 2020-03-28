@@ -1,6 +1,6 @@
 import FAB from './fab/fab.vue'
 import FABItem from './fab-item/fab-item.vue'
-import FABCantainer from './fab-cantainer/fab-cantainer.vue'
+import FABContainer from './fab-container/fab-container.vue'
 import util from './util'
 
 const testSafariBrower = util.testSafariBrower
@@ -13,7 +13,7 @@ function install (Vue, options) {
   }
   Vue.component(FAB.name, FAB)
   Vue.component(FABItem.name, FABItem)
-  Vue.component(FABCantainer.name, FABCantainer)
+  Vue.component(FABContainer.name, FABContainer)
   Vue.directive('click-outside', {
     bind: (el, binding, vnode) => {
       el.__clickOutside__ = listenClick

@@ -7,7 +7,7 @@
   <!-- 這個是主要的item -->
   <transition v-bind:name="transitionName"
               v-if="disablePrimaryActionButton === false">
-    <fab-cantainer
+    <fab-container
       v-on:click.native="openMenu" 
       v-if="visible"
       class="fab primary-action-button"
@@ -40,7 +40,7 @@
          v-bind:class="[active ? 'fab-active' : '', icon ]"
          data-outside="true">
       </i>
-    </fab-cantainer>
+    </fab-container>
   </transition>
   
   <!-- 下面這些是其他的items -->

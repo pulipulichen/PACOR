@@ -290,6 +290,8 @@ export default (RangyManager) => {
     this.selection.removeAllRanges()
     //this.selection = null
 
+
+    console.log('pinSelection', this.selection.anchorPositions)
     return this.selection
   }
 
@@ -323,6 +325,8 @@ export default (RangyManager) => {
         this.selectionSaved = null
       }
     }
+    
+    console.trace('unpinSelection')
     return this
   }
 

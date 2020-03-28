@@ -5535,7 +5535,7 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     let prefix = await window.PACORTestManagerTitlePrefix()
-    if (prefix) {
+    if (typeof(prefix) === 'string') {
       document.title = prefix + document.title
     }
   }
@@ -6647,7 +6647,7 @@ __webpack_require__.r(__webpack_exports__);
       return false
     }
     
-    await this.lib.RangyManager.cancelSelection()
+    //await this.lib.RangyManager.cancelSelection()
     
     await this.lib.RangyManager.selectRandomRange()
     
@@ -6664,7 +6664,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.selectAnnotationType(i, errorCount)
     }
       
-    let typeItemSelector = '.fab-main-container .fab-item-container .fab-cantainer'
+    let typeItemSelector = '.fab-main-container .fab-item-container .fab-container'
 
     //if (i % 2 === 0) {
     let t = i % 4
@@ -6690,6 +6690,8 @@ __webpack_require__.r(__webpack_exports__);
     //  typeItemSelector = typeItemSelector + `:eq(${1 + baseMargin})`
     //}
     
+    typeItemSelector = typeItemSelector + ' .icon'
+    
     try {
       await this.waitForElementVisibleClick(typeItemSelector, {
         timeout: 10 * 1000,
@@ -6705,7 +6707,15 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     //console.log('有順利選擇嗎？')
-    //await this.sleep(3000)
+    await this.sleep(3000)
+    
+//    let p = this.lib.AnnotationPanel.panelData.anchorPositions
+//    console.log('anchorPositions', p)
+//    if (p === null) {
+//      throw new Error('AnnotationPanel.panelData.anchorPositions is null')
+//    }
+    
+    
     //this.log('selectAnnotationType', 3)
   }
   

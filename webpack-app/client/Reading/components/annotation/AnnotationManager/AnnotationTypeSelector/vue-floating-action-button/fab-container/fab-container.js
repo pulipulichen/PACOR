@@ -3,7 +3,7 @@ import util from './../util.js'
 const Timeout = util.Timeout
 
 export default {
-  name: 'fab-cantainer',
+  name: 'fab-container',
   props: {
     hideOnStart: {
       type: Boolean,
