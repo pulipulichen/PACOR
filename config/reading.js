@@ -9,11 +9,11 @@ module.exports = {
     forceMaxTimeoutMinutes: 1,
     
     test: {
-      //minAnnotation: 4,
-      //maxAnnotation: 9
+      minAnnotation: 4,
+      maxAnnotation: 9
       
-      minAnnotation: 2,
-      maxAnnotation: 2
+      //minAnnotation: 2,
+      //maxAnnotation: 2
     },
     
     //onlyShowTutorialOrder: [62],

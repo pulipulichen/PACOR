@@ -1,7 +1,7 @@
 
 let TestOptions = {
-  threads: 1,
-  //threads: 3, // ok 完全運作正常
+  //threads: 1,
+  threads: 3, // ok 完全運作正常
   //threads: 5,  // ?個錯誤
   //threads: 9,  // ?個錯誤
   //threads: 15,  // 10個錯誤
