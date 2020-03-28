@@ -7,7 +7,8 @@ en:
 zh-TW:
   PreImaginary Instruction: 「閱讀前的預測」說明
   Please try to predict what this article might write.: 請預測這篇文章可能會寫什麼。
-  Please use the following clues to predict which keywords this article might mention.: 請根據以下線索，預測看看這篇文章可能會提到那些關鍵字。
+  Please use the following clues to predict which keywords this article might mention.: 請根據以下線索，預測看看這篇文章可能會提到那些關鍵詞
+  Any possible keywords are fine.: 任何關鍵詞都可以，請天馬星空地寫下您想到的關鍵詞吧。
   'This article is titled "{0}".': '這篇文章的標題是「{0}」。'
   "This article includes {0} headings:": "這篇文章包含了以下子標題："
   "This article includes {0} images:": "這篇文章包含了以下圖片："
@@ -19,26 +20,27 @@ zh-TW:
   
   PostRecall Instruction: 「閱讀後的回想」說明
   'Please recall the content of this article.': 請回想這篇文章的內容。
-  Please recall the keywords mentioned in this article based on the content of the article you just read and referring to the same tips.: 請根據您剛剛閱讀的文章內容，並參考同樣的提示，回想這篇文章提到的關鍵字。
+  Please recall the keywords mentioned in this article based on the content of the article you just read and referring to the same tips.: 請根據您剛剛閱讀的文章內容，並參考同樣的提示，回想這篇您從這篇文章中學到關鍵詞
+  It can be the content of the article, or it can be a new keyword you learned extra.: 關鍵詞可以是文章中的內容，也可以是您額外學到新的關鍵詞。
   
-  After reading, please recall the content of this article base on your previous answer.: 在閱讀之後，請回想閱讀中記得的關鍵字，並修改您之前的作答。
+  After reading, please recall the content of this article base on your previous answer.: 請回想您在閱讀中學到的關鍵詞，並修改您之前的作答
   After reading, please recall the content of this article.: 在閱讀之後，請回想這篇文章的內容。
   
   Don't worry about punctuation or typos, just write down what you read.: 請不用考慮標點符號或錯字，把您讀到的內容寫下來即可。
   
-  'When you click "Start Answer and Countdown" button, a keyword editor will appear like following image:': 當您按下「開始作答並且倒數計時」按鈕之後，就會看到以下的關鍵字編輯器：
-  Keyword Editor: 關鍵字編輯器
+  'When you click "Start Answer and Countdown" button, a keyword editor will appear like following image:': 當您按下「開始作答並且倒數計時」按鈕之後，就會看到以下的關鍵詞編輯器：
+  Keyword Editor: 關鍵詞編輯器
   "You can perform following actions:": 您可以進行以下操作：
-  Add a keyword: 新增關鍵字
-  Remove a keyword from your list: 從您目前作答的清單中移除關鍵字
-  Restore a keyword to your list: 將關鍵字加回到您的清單
+  Add a keyword: 新增關鍵詞
+  Remove a keyword from your list: 從您目前作答的清單中移除關鍵詞
+  Restore a keyword to your list: 將關鍵詞加回到您的清單
   
   
   You can referring to the same tips before.: 您可以參考與之前相同的提示。
-  Please recall the keywords mentioned in this article.: 請回想這篇文章中提到的關鍵字。
+  Please recall the keywords mentioned in this article.: 請回想這篇文章中提到的關鍵詞。
   
   'After you press the "Start answering and countdown instantly" button, please start the following operations:': "當您按下「開始作答並且倒數即時」按鈕之後，請開始下面的操作："
   "Please do the following:": "請進行以下操作："
-  "Add the keywords you think of based on the above clues.": "根據以上線索，把您想到的關鍵字加進去。"
-  "If you have misspelled a keyword, click on it to remove it.": "如果有寫錯的關鍵字，點選它就能移除。"
-  "If you accidentally removed the keyword, click here to get it back.": "如果不小心移除了關鍵字，點這裡把它拿回來。"
+  "Add the keywords you think of based on the above clues.": "根據以上線索，把您想到的關鍵詞加進去。"
+  "If you have misspelled a keyword, click on it to remove it.": "如果有寫錯的關鍵詞，點選它就能移除。"
+  "If you accidentally removed the keyword, click here to get it back.": "如果不小心移除了關鍵詞，點這裡把它拿回來。"

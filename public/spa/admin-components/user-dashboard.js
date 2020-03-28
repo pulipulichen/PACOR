@@ -73,7 +73,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"answeredList":"作答的關鍵字","removedList":"刪除的關鍵字","start_timestamp":"開始時間"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"answeredList":"作答的關鍵詞","removedList":"刪除的關鍵詞","start_timestamp":"開始時間"}}')
   delete Component.options._Ctor
 }
 
@@ -89,7 +89,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"answeredList":"作答的關鍵字","removedList":"刪除的關鍵字","start_timestamp":"開始時間"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"answeredList":"作答的關鍵詞","removedList":"刪除的關鍵詞","start_timestamp":"開始時間"}}')
   delete Component.options._Ctor
 }
 

@@ -10,8 +10,12 @@
 .non-invasive-web-style-framework *,
 .non-invasive-web-style-framework *:before,
 .non-invasive-web-style-framework *:after {
--webkit-box-sizing: inherit;
-box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  
+  &:not(.icon) {
+    font-family: 'Noto Sans CJK TC Light', 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  }
 }
 html .non-invasive-web-style-framework {
   -webkit-box-sizing: border-box;
@@ -288,8 +292,8 @@ margin-top: 0em;
 margin-bottom: 0em;
 }
 .non-invasive-web-style-framework p {
-margin: 0em 0em 1em;
-line-height: 1.4285em;
+  margin: 0em 0em 1em;
+  line-height: 1.4285em;
 }
 .non-invasive-web-style-framework p:first-child {
 margin-top: 0em;

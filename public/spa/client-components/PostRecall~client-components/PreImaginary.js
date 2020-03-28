@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Add keyword: {0}":"Add keyword: {0}","Remove keyword \\"{0}\\"":"Remove keyword \\"{0}\\"","Add keyword \\"{0}\\"":"Add keyword \\"{0}\\""},"zh-TW":{"Logout":"登出","Return to login":"回到登入表單","Show Instruction":"閱讀提示","Start Answer and Countdown":"開始作答並且倒數計時","Answer":"繼續作答","Show Answer":"顯示作答內容","Sort":"排序","Add keyword...":"新增關鍵字","Add keyword":"新增關鍵字","Add removed keyword":"回收關鍵字","Answered Keywords":"目前作答的關鍵字","Answered":"已經作答","Removed Keywords":"被移除的關鍵字","Removed":"已經移除","Add keyword: {0}":"新增關鍵字：{0}","Action":"操作","Remove keyword \\"{0}\\"":"移除關鍵字：{0}","Add keyword \\"{0}\\"":"新增關鍵字：{0}","Add a keyword you think of based on the previous clues?":"根據前面的提示，您想到什麼關鍵字呢？"}}')
+  Component.options.__i18n.push('{"en":{"Add keyword: {0}":"Add keyword: {0}","Remove keyword \\"{0}\\"":"Remove keyword \\"{0}\\"","Add keyword \\"{0}\\"":"Add keyword \\"{0}\\""},"zh-TW":{"Logout":"登出","Return to login":"回到登入表單","Show Instruction":"閱讀提示","Start Answer and Countdown":"開始作答並且倒數計時","Answer":"繼續作答","Show Answer":"顯示作答內容","Sort":"排序","Add keyword...":"新增關鍵詞","Add keyword":"新增關鍵詞","Add removed keyword":"回收關鍵詞","Answered Keywords":"目前作答的關鍵詞","Answered":"已經作答","Removed Keywords":"被移除的關鍵詞","Removed":"已經移除","Add keyword: {0}":"新增關鍵詞：{0}","Action":"操作","Remove keyword \\"{0}\\"":"移除關鍵詞：{0}","Add keyword \\"{0}\\"":"新增關鍵詞：{0}","Add a keyword you think of based on the previous clues?":"根據前面的提示，您想到什麼關鍵詞呢？"}}')
   delete Component.options._Ctor
 }
 

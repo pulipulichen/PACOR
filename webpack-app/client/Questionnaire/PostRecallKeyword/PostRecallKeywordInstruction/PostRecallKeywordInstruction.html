@@ -4,10 +4,13 @@
   
   <template v-if="isDiffMode">
     <h1>{{ $t('After reading, please recall the content of this article base on your previous answer.') }}</h1>
-    <p>{{ $t('You can referring to the same tips before.') }}</p>
+    <!-- <p class="subtitle">{{ $t('You can referring to the same tips before.') }}</p> -->
+    <p class="subtitle">{{ $t('It can be the content of the article, or it can be a new keyword you learned extra.') }}</p>
   </template>
-  
-  <h1 v-else>{{ $t('After reading, please recall the content of this article.') }}</h1>
+  <template v-else>
+    <h1>{{ $t('After reading, please recall the content of this article.') }}</h1>
+    <p class="subtitle">{{ $t('It can be the content of the article, or it can be a new keyword you learned extra.') }}</p>
+  </template>
   
   <ul>
     <li v-html="titleHTML"></li>
