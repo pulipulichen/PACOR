@@ -52,7 +52,7 @@ export default function (TutorialManager) {
     return new Promise((resolve, reject) => {
       let actions = this.getActions(type)
       if (Array.isArray(actions) === false || this.isPlaying === true) {
-        reject(false)
+        resolve(false)
         return false
       }
 
@@ -75,12 +75,12 @@ export default function (TutorialManager) {
 
           if ($('.ui.dimmer.modals.visible.active').length > 0) {
             console.log('Skip finish modal becase of other modal is opened.')
-            resolve(true)
+            resolve(false)
             return false
           }
 
           if (showFinishModel === false) {
-            resolve(true)
+            resolve(false)
             return false
           }
 

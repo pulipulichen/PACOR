@@ -2,6 +2,7 @@
 //import anno from './anno/anno.js'
 
 import $ from 'jquery'
+import './jquery-guide/jquery-guide.webpack.js'
 
 let TutorialManager = {
   props: ['lib', 'status', 'config'],
@@ -15,10 +16,10 @@ let TutorialManager = {
       clickFixed: false
     }
   },
-  created: async function () {
+  //created: async function () {
     // import './jquery-guide/jquery-guide.webpack.js'
-    await import (/* webpackChunkName: "client-components/ReadingComponents" */ './jquery-guide/jquery-guide.webpack.js')
-  },
+    //await import (/* webpackChunkName: "client-components/ReadingComponents" */ './jquery-guide/jquery-guide.webpack.js')
+  //},
 //  components: {
 //  },
   computed: {
