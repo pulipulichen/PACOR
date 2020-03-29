@@ -29,6 +29,9 @@ module.exports = {
       },
     },
     'FreeReading': {
+      highlightAnnotation: {
+        types: ['MainIdea'],
+      },
       //nextReadingPage: '/pretest/alpha.html'
     }
   }

@@ -60,11 +60,19 @@ module.exports = [
   // --------------------
   
   {
-    urlPrefix: '/demo/i/',
-    file: 'demoIndividual'
+    urlPrefix: '/demo/i/1',
+    file: 'demoIndividual1'
+  },
+  {
+    urlPrefix: '/demo/c/1',
+    file: 'demoCollaborative1'
+  },
+  {
+    urlPrefix: '/demo/i/2',
+    file: 'demoIndividual2'
   },
   {
     urlPrefix: '/demo/c/',
-    file: 'demoCollaborative'
+    file: 'demoCollaborative2'
   },
 ]

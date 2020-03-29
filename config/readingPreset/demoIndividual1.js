@@ -1,6 +1,6 @@
 module.exports = {
   debug: {
-    flushCache: false,
+    flushCache: true,
     enable: true,
     stayInReadingProgress: 'IndividualReading'
   },
@@ -21,8 +21,15 @@ module.exports = {
       limitMinutes: 10,
       goToNextStepOnChecklistComplete: false,
     },
-    FreeReading: {
-      nextReadingPage: '/pretest/beta.html'
+    'CollaborativeReading': {
+      highlightAnnotation: {
+        types: ['MainIdea'],
+      },
+    },
+    'FreeReading': {
+      highlightAnnotation: {
+        types: ['MainIdea'],
+      },
     }
   }
 }

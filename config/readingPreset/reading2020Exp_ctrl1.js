@@ -32,6 +32,9 @@ module.exports = {
       permission: {
         collaboration: false,
       },
+      highlightAnnotation: {
+        types: ['MainIdea'],
+      },
       //nextReadingPage: '/pretest/alpha.html'
     }
   }
