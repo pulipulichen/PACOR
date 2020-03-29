@@ -41,7 +41,13 @@ export default {
   },
   computed: {
     showItem: function () {
-      return (this.$parent.fabMenuAnimate === 'alive' || this.$parent.active) && this.$parent.visible
+//      console.log({
+//        fabMenuAnimate: this.$parent.fabMenuAnimate,
+//        active: this.$parent.active,
+//        visible: this.$parent.visible,
+//        childrenLength: this.$parent.$children.length,
+//      })
+      return ((this.$parent.fabMenuAnimate === 'alive' || this.$parent.active || (this.$parent.$children.length === 1)) && this.$parent.visible)
     },
     /**
      * 根据不同的动画模式处理不同的css
