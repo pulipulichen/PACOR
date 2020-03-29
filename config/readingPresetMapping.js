@@ -51,8 +51,20 @@ module.exports = [
     urlPrefix: '/pretest/beta/collaborative/',
     file: 'readingPretestBetaCollaborative'
   },
+  
   {
     urlPrefix: '/pretest/beta/individual/',
     file: 'readingPretestBetaIndividual'
+  },
+  
+  // --------------------
+  
+  {
+    urlPrefix: '/demo/i/',
+    file: 'demoIndividual'
+  },
+  {
+    urlPrefix: '/demo/c/',
+    file: 'demoCollaborative'
   },
 ]
