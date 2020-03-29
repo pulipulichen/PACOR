@@ -15,7 +15,11 @@ const Helpers = use('Helpers')
 
 const Profiler = use('Profiler')
 
-//const ReadingConfig = use('Config').get('reading')
+const ReadingConfig = Config.get('reading')
+const ReadingPresetMappingConfig = Config.get('readingPresetMapping')
+const BaseDomain = Env.get('PROTOCOL') + '//' 
+              + Env.get('PUBLIC_HOST') + ':' + Env.get('PORT')
+let ReadingPresetConfigs = {}
 
 class WebpageConfig {
 
@@ -69,9 +73,9 @@ class WebpageConfig {
       let doQuery = async () => {
         //console.log('getConfig, reloaded')
         
-        let output = Config.get('reading')
-        output = this._pretestConfig(output)
-        output = this._setup2020ExpConfig(output)
+        //output = this._pretestConfig(output)
+        //output = this._setup2020ExpConfig(output)
+        let output = this._getPresetConfig()
         
         profiler.before('get domain')
         let query = DomainModel
@@ -151,6 +155,27 @@ class WebpageConfig {
        */
     }
     
+    Model.prototype._getPresetConfig = function () {
+      let output = Object.assign({}, ReadingConfig)
+      
+      ReadingPresetMappingConfig.forEach(({urlPrefix, file}) => {
+        if (urlPrefix.startsWith('/')) {
+          urlPrefix = BaseDomain + urlPrefix
+        }
+        
+        if (this.url.startsWith(urlPrefix)) {
+          if (!ReadingPresetConfigs[file]) {
+            ReadingPresetConfigs[file] = Config.get('readingPreset.' + file)
+          }
+          
+          output = TypeHelper.mergeDeep(output, ReadingPresetConfigs[file])
+        }
+      })
+      
+      return output
+    }
+    
+    /*
     Model.prototype._pretestConfig = function (output) {
       // For pre-test
       let pretestConfig
@@ -184,8 +209,9 @@ class WebpageConfig {
       
       return output
     }
+    */
     
-    
+    /*
     Model.prototype._setup2020ExpConfig = function (output) {
       // For pre-test
       let pretestConfig
@@ -208,6 +234,7 @@ class WebpageConfig {
       
       return output
     }
+    */
 
     Model.prototype.getStepConfig = async function (stepName) {
       if (!stepName) {
