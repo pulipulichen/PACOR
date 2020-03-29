@@ -10088,6 +10088,11 @@ let DigitalCountdownTimer = {
     },
     timeup () {
       this.$emit('timeup')
+      
+      // 在結束之後，切換一個隨機的數字
+      setTimeout(() => {
+        this.dataRemainingSec = 10 + Math.floor(Math.random() * 150)
+      }, 3000)
     },
     pause () {
       this.dataPause = true
@@ -10280,6 +10285,11 @@ let CountdownTimer = {
     timeup () {
       //console.log('timeup')
       this.$emit('timeup')
+      
+      // 在結束之後，切換一個隨機的數字
+      setTimeout(() => {
+        this.dataRemainingSec = 10 + Math.floor(Math.random() * 150)
+      }, 3000)
     },
     pause () {
       this.dataPause = true
