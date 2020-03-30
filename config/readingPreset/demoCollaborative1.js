@@ -2,7 +2,9 @@ module.exports = {
   debug: {
     flushCache: true,
     enable: true,
-    stayInReadingProgress: 'CollaborativeReading'
+    //stayInReadingProgress: 'CollaborativeReading'
+    stayInReadingProgress: 'PreImaginaryKeyword'
+    //stayInReadingProgress: 'PostRecallKeyword'
   },
   readingProgressModules: {
     'reading': {
@@ -10,6 +12,9 @@ module.exports = {
     },
     'IndividualReading': {
       limitMinutes: 15,
+      highlightAnnotation: {
+        types: ['MainIdea'],
+      },
     },
     'CollaborativeReading': {
       highlightAnnotation: {

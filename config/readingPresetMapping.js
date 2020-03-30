@@ -72,7 +72,7 @@ module.exports = [
     file: 'demoIndividual2'
   },
   {
-    urlPrefix: '/demo/c/',
+    urlPrefix: '/demo/c/2',
     file: 'demoCollaborative2'
   },
 ]

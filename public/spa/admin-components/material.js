@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"Are you sure to remove {0}?":"Are you sure to remove {0}?"},"zh-TW":{"Are you sure to remove {0}?":"你確定要刪除{0}嗎？"}}')
+  Component.options.__i18n.push('{"en":{"Are you sure to remove {0}?":"Are you sure to remove {0}?"},"zh-TW":{"Are you sure to remove {0}?":"您確定要刪除{0}嗎？"}}')
   delete Component.options._Ctor
 }
 
