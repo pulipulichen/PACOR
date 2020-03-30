@@ -52,7 +52,11 @@
     <script src="../lib/bootstrap/popper.min.js"></script>
     <script src="../lib/bootstrap/bootstrap.min.js"></script>
     
-    <script src="http://pc.pulipuli.info:3333/spa/client-loader.js" async></script>
+    <!--
+    @author Pulipuli Chen 20200330
+    這是因為要做成CORS跨網域的測試，才用絕對連結開啟另一個port
+    -->
+    <script src="http://pc.pulipuli.info:443/spa/client-loader.js" async></script>
     <script>
       $ = 2
       jQuery = 2

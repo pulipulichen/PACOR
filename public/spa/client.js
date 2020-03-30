@@ -203,7 +203,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://pc.pulipuli.info:3333/spa/";
+/******/ 	__webpack_require__.p = "http://pc.pulipuli.info:443/spa/";
 /******/
 /******/ 	// on error function for async loading
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
@@ -402,8 +402,10 @@ let baseScript = document.currentScript
 if (baseScript) {
   
   //console.log(baseScript[0].src)
-  let testBaseURL = 'http://pc.pulipuli.info:3333'
-  let enableBrowserTest = true
+  //let testBaseURL = 'http://pc.pulipuli.info:3333'
+  let testBaseURL = 'http://pc.pulipuli.info:443'
+    
+  let enableBrowserTest = (location.href.endsWith('&t=pacorTest'))
   if (enableBrowserTest === true) {
     console.log('@TEST enableBrowserTest', enableBrowserTest)
     baseURL = testBaseURL

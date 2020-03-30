@@ -10092,7 +10092,7 @@ let DigitalCountdownTimer = {
       // 在結束之後，切換一個隨機的數字
       setTimeout(() => {
         this.dataRemainingSec = 10 + Math.floor(Math.random() * 150)
-      }, 3000)
+      }, 1000)
     },
     pause () {
       this.dataPause = true
@@ -10191,7 +10191,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "http://pc.pulipuli.info:3333/spa/asset/digital-7.ttf";
+module.exports = "http://pc.pulipuli.info:443/spa/asset/digital-7.ttf";
 
 /***/ }),
 
@@ -10289,7 +10289,7 @@ let CountdownTimer = {
       // 在結束之後，切換一個隨機的數字
       setTimeout(() => {
         this.dataRemainingSec = 10 + Math.floor(Math.random() * 150)
-      }, 3000)
+      }, 1000)
     },
     pause () {
       this.dataPause = true
