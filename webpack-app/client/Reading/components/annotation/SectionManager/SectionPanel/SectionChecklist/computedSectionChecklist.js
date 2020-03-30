@@ -101,7 +101,13 @@ export default (SectionChecklist) => {
       }
       else if (item === '{HighlightConfused}') {
         if (this.lib.auth.currentStepConfig.highlightAnnotation.types.indexOf('Confused') > -1) {
-          output.push(`I have already written annotations on a sentence I don't understand.`)
+          if (this.lib.auth.hasCollaborationStep === true) {
+            //output.push(`I have already written annotations on a sentence I don't understand.`)
+            output.push(`When I read incomprehensible text, I have written down "questions".`)
+          }
+          else {
+            output.push(`When I read incomprehensible text, I have written down "questions" and tried to find answers.`)
+          }
         }
       }
       else if (item === '{SectionMainIdea}') {

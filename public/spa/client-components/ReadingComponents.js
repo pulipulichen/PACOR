@@ -377,7 +377,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Check list":"檢核單","Write section main ideas":"撰寫小節關鍵詞","Edit section main ideas":"編輯小節關鍵詞","I have already read this section.":"我已經讀完了這一節的內容。","I have already written annotations on a sentence I don\u0027t understand.":"讀到看不懂的文字時，我已經記下「疑問」，並嘗試找過解答了。","I have already written the main ideas of this section.":"我已經記下了小節關鍵詞了。","Please finish checklist.":"請完成這份檢核單","I have read this section!":"我已經讀完這一節了！","Write article main ideas":"撰寫文章關鍵詞","Edit article main ideas":"編輯文章關鍵詞","I have already read this article.":"我已經讀完了這篇文章的內容。","I have already written the main ideas of this article.":"我已經記下了文章關鍵詞了。","I have read this article!":"我已經讀完這篇文章了！"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Check list":"檢核單","Write section main ideas":"撰寫小節關鍵詞","Edit section main ideas":"編輯小節關鍵詞","I have already read this section.":"我已經讀完了這一節的內容。","When I read incomprehensible text, I have written down \\"questions\\" and tried to find answers.":"讀到看不懂的文字時，我已經記下「疑問」，並嘗試找過解答了。","When I read incomprehensible text, I have written down \\"questions\\".":"讀到看不懂的文字時，我已經記下「疑問」了。","I have already written the main ideas of this section.":"我已經整理好小節關鍵詞了。","Please finish checklist.":"請完成這份檢核單","I have read this section!":"我已經讀完這一節了！","Write article main ideas":"撰寫文章關鍵詞","Edit article main ideas":"編輯文章關鍵詞","I have already read this article.":"我已經讀完了這篇文章的內容。","I have already written the main ideas of this article.":"我已經整理好文章關鍵詞了。","I have read this article!":"我已經讀完這篇文章了！"}}')
   delete Component.options._Ctor
 }
 
@@ -28467,7 +28467,13 @@ __webpack_require__.r(__webpack_exports__);
       }
       else if (item === '{HighlightConfused}') {
         if (this.lib.auth.currentStepConfig.highlightAnnotation.types.indexOf('Confused') > -1) {
-          output.push(`I have already written annotations on a sentence I don't understand.`)
+          if (this.lib.auth.hasCollaborationStep === true) {
+            //output.push(`I have already written annotations on a sentence I don't understand.`)
+            output.push(`When I read incomprehensible text, I have written down "questions".`)
+          }
+          else {
+            output.push(`When I read incomprehensible text, I have written down "questions" and tried to find answers.`)
+          }
         }
       }
       else if (item === '{SectionMainIdea}') {
