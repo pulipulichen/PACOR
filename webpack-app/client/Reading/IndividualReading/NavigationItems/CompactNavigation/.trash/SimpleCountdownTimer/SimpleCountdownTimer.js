@@ -10,7 +10,19 @@ let CountdownTimer = {
   },
   computed: {
     dataRemainingTime () {
-      return this.lib.DayJSHelper.formatHHMMSS(this.dataRemainingSec)
+      let t = this.lib.DayJSHelper.formatHHMMSS(this.dataRemainingSec)
+      
+      if (t === -1) {
+        t = '00:00'
+      }
+      else if (this.dataRemainingSec < 10) {
+        t = '00:0' + t
+      }
+      else if (this.dataRemainingSec < 60) {
+        t = '00:' + t
+      }
+      
+      return t
     }
   },
   watch: {
@@ -49,6 +61,13 @@ let CountdownTimer = {
     timeup () {
       //console.log('timeup')
       this.$emit('timeup')
+      
+      // 在結束之後，切換一個隨機的數字
+      //console.log('準備隨機切換數字')
+      setTimeout(() => {
+        this.dataRemainingSec = 10 + Math.floor(Math.random() * 150)
+        //console.log(this.dataRemainingSec)
+      }, 1000)
     },
     pause () {
       this.dataPause = true

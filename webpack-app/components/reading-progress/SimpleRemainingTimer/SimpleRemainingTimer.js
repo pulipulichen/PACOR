@@ -1,6 +1,6 @@
 let CountdownTimer = {
   props: ['lib', 'config'
-    , 'remainingSeconds', 'pauseAtStart'],
+    , 'remainingSeconds', 'pauseAtStart', 'showLabel'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -10,8 +10,9 @@ let CountdownTimer = {
   },
   computed: {
     dataRemainingTime () {
+      //console.log(this.dataRemainingSec)
       let t = this.lib.DayJSHelper.formatHHMMSS(this.dataRemainingSec)
-      
+      //console.log(t, typeof(t))
       if (t === -1) {
         t = '00:00'
       }
@@ -63,9 +64,11 @@ let CountdownTimer = {
       this.$emit('timeup')
       
       // 在結束之後，切換一個隨機的數字
+      //console.log('準備隨機切換數字')
       setTimeout(() => {
         this.dataRemainingSec = 10 + Math.floor(Math.random() * 150)
-      }, 1000)
+        //console.log(this.dataRemainingSec)
+      }, 3000)
     },
     pause () {
       this.dataPause = true

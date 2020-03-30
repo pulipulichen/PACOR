@@ -1,4 +1,6 @@
 <span class="SimpleRemainingTimer">
-  {{ $t('Remaining Time') }} 
+  <template v-if="showLabel">
+    {{ $t('Remaining Time') }} 
+  </template>
   {{ dataRemainingTime }}
 </span>

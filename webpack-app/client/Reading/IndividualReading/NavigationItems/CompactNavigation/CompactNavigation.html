@@ -5,15 +5,17 @@
     <div class="ui three column grid"
          ref="Menu">
       <div class="left column">
-        <simple-countdown-timer 
+        {{ $t('Remaining Time:') }}
+        <simple-remaining-timer
           v-bind:config="config"
           v-bind:status="status"
           v-bind:lib="lib"
+          v-bind:showLabel="false"
           ref="SimpleCountdownTimer"
           
           v-bind:pauseAtStart="pauseAtStart"
           v-on:timeup="$emit('timeup')">
-        </simple-countdown-timer>
+        </simple-remaining-timer>
       </div>
       <div class="center aligned column">
         <!--

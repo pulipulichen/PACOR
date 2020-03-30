@@ -131,7 +131,8 @@ var render = function() {
                   attrs: {
                     config: _vm.config,
                     status: _vm.status,
-                    lib: _vm.lib
+                    lib: _vm.lib,
+                    showLabel: true
                   }
                 }),
                 _vm._v(

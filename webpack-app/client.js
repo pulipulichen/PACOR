@@ -31,8 +31,8 @@ let baseScript = document.currentScript
 if (baseScript) {
   
   //console.log(baseScript[0].src)
-  let testBaseURL = 'http://pc.pulipuli.info:3333'
-  let enableBrowserTest = true
+  let testBaseURL = 'http://pc.pulipuli.info:443'
+  let enableBrowserTest = (location.href.endsWith('&t=pacorTest'))
   if (enableBrowserTest === true) {
     console.log('@TEST enableBrowserTest', enableBrowserTest)
     baseURL = testBaseURL
