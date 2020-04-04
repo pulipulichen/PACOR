@@ -94,11 +94,15 @@ let InstructionMessage = {
     hide() {
       this.$refs.Modal.hide()
     },
-    startTutorial () {
+    startTutorial: async function () {
       localStorage.setItem(this.localStorageKeyPrefix, 1)
       localStorage.setItem(this.localStorageUserKeyPrefix, 1)
       this.hasReadTutorial = true
       this.hide()
+      
+      while (!this.lib.TutorialManager) {
+        await this.lib.VueHelper.sleep(100)
+      }
       this.lib.TutorialManager.start()
     },
     show() {

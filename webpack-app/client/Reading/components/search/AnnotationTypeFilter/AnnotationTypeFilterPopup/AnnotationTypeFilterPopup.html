@@ -1,7 +1,8 @@
 <div class="AnnotationTypeFilterPopup">
   <type-item 
-    v-for="typeData in typeDataList"
+    v-for="(typeData, i) in typeDataList"
     v-bind:typeData="typeData"
+    v-bind:key="'typeData-' + i"
 
     v-bind:config="config"
     v-bind:status="status"

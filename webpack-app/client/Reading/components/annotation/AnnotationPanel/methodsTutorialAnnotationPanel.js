@@ -2,7 +2,11 @@ import $ from 'jquery'
 
 export default function (AnnotationPanel) {
   
-  AnnotationPanel.methods.setupTutorial = function () {
+  AnnotationPanel.methods.setupTutorial = async function () {
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
+    }
+    
     if (this.lib.auth.enableCollaboration) {
       this.setupTutorialCollaborativeReading()
     }

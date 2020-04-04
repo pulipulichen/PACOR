@@ -1,9 +1,13 @@
 import $ from 'jquery'
 
 export default function (AnnotationTypeSelector) {
-  AnnotationTypeSelector.methods.setupTutorial = function () {
+  AnnotationTypeSelector.methods.setupTutorial = async function () {
     if (this.lib.auth.enableCollaboration === true) {
       return false
+    }
+    
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
     }
     
     

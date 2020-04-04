@@ -8631,7 +8631,11 @@ __webpack_require__.r(__webpack_exports__);
 let tutorialKey = 'UserFilter'
 
 /* harmony default export */ __webpack_exports__["default"] = (function (UserFilter) {
-  UserFilter.methods.setupTutorial = function () {
+  UserFilter.methods.setupTutorial = async function () {
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
+    }
+    
     this.lib.TutorialManager.addAction(tutorialKey, {
       element: async () => {
         let element = this.$refs.PeerList.$el
@@ -8680,10 +8684,13 @@ let tutorialKey = 'UserFilter'
     }
   }
     
-  UserFilter.methods.startUserFilterTutorial = function () {
+  UserFilter.methods.startUserFilterTutorial = async function () {
     this.hasReadTutorial = true
     localStorage.setItem(this.localStorageKey, 1)
     
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
+    }
     this.lib.TutorialManager.start(tutorialKey)
   }
 });

@@ -24,7 +24,9 @@ export default function (NavigationItems) {
     while (!this.$refs.nav) {
       await this.lib.VueHelper.sleep(100)
     }
-    
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
+    }
     
     // UserFilter
     this.lib.TutorialManager.addAction({

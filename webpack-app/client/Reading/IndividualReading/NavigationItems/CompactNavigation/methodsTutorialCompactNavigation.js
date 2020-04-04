@@ -1,6 +1,10 @@
 export default function (CompactNavigation) {
-  CompactNavigation.methods.setupTutorial = function () {
+  CompactNavigation.methods.setupTutorial = async function () {
     if (this.lib.auth.currentStepConfig.goToNextStepOnChecklistComplete === false) {
+      while (!this.lib.TutorialManager) {
+        await this.lib.VueHelper.sleep(100)
+      }
+      
       this.lib.TutorialManager.addAction({
         //backgroundFadeOut: true,
         element: () => {

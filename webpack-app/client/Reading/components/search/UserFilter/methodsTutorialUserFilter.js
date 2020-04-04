@@ -3,7 +3,11 @@ import $ from 'jquery'
 let tutorialKey = 'UserFilter'
 
 export default function (UserFilter) {
-  UserFilter.methods.setupTutorial = function () {
+  UserFilter.methods.setupTutorial = async function () {
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
+    }
+    
     this.lib.TutorialManager.addAction(tutorialKey, {
       element: async () => {
         let element = this.$refs.PeerList.$el
@@ -52,10 +56,13 @@ export default function (UserFilter) {
     }
   }
     
-  UserFilter.methods.startUserFilterTutorial = function () {
+  UserFilter.methods.startUserFilterTutorial = async function () {
     this.hasReadTutorial = true
     localStorage.setItem(this.localStorageKey, 1)
     
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
+    }
     this.lib.TutorialManager.start(tutorialKey)
   }
 }

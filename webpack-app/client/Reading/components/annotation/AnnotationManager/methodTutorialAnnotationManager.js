@@ -1,11 +1,15 @@
 import $ from 'jquery'
 
 export default function (AnnotationManager) {
-  AnnotationManager.methods.setupTutorial = function () {
+  AnnotationManager.methods.setupTutorial = async function () {
     //console.log('setupTutorial', 1)
 
     if (this.tutorialInited === true) {
       return false
+    }
+    
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
     }
 
     this.tutorialInited = true

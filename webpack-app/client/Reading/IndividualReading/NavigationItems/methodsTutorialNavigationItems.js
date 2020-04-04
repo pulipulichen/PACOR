@@ -1,7 +1,11 @@
 import $ from 'jquery'
 
 export default function (NavigationItems) {
-  NavigationItems.methods.setupTutorial = function () {
+  NavigationItems.methods.setupTutorial = async function () {
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
+    }
+    
     this.lib.TutorialManager.addAction({
       backgroundFadeOut: true,
       beforeCallback: async () => {

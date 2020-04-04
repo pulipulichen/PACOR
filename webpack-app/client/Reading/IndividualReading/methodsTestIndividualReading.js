@@ -32,6 +32,9 @@ export default function (IndividualReading) {
     })
     
     await this.lib.VueHelper.sleep(1000)
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
+    }
     this.lib.TutorialManager.start()
   }
   

@@ -1617,8 +1617,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (CompactNavigation) {
-  CompactNavigation.methods.setupTutorial = function () {
+  CompactNavigation.methods.setupTutorial = async function () {
     if (this.lib.auth.currentStepConfig.goToNextStepOnChecklistComplete === false) {
+      while (!this.lib.TutorialManager) {
+        await this.lib.VueHelper.sleep(100)
+      }
+      
       this.lib.TutorialManager.addAction({
         //backgroundFadeOut: true,
         element: () => {
@@ -1834,7 +1838,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (NavigationItems) {
-  NavigationItems.methods.setupTutorial = function () {
+  NavigationItems.methods.setupTutorial = async function () {
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
+    }
+    
     this.lib.TutorialManager.addAction({
       backgroundFadeOut: true,
       beforeCallback: async () => {
@@ -1912,6 +1920,9 @@ __webpack_require__.r(__webpack_exports__);
     })
     
     await this.lib.VueHelper.sleep(1000)
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
+    }
     this.lib.TutorialManager.start()
   }
   

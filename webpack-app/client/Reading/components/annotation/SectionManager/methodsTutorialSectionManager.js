@@ -1,9 +1,11 @@
 import $ from 'jquery'
 
 export default function (SectionManager) {
-  SectionManager.methods.setupTutorial = function () {
+  SectionManager.methods.setupTutorial = async function () {
     //return console.log('@TEST')
-
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
+    }
 
     if (this.lib.auth.isEnableCollaboration) {
       this.setupTutorialCollaborativeReading()

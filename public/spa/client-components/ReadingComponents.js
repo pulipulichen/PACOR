@@ -4702,8 +4702,9 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "AnnotationTypeFilterPopup" },
-    _vm._l(_vm.typeDataList, function(typeData) {
+    _vm._l(_vm.typeDataList, function(typeData, i) {
       return _c("type-item", {
+        key: "typeData-" + i,
         attrs: {
           typeData: typeData,
           config: _vm.config,
@@ -7598,9 +7599,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (AnnotationTypeSelector) {
-  AnnotationTypeSelector.methods.setupTutorial = function () {
+  AnnotationTypeSelector.methods.setupTutorial = async function () {
     if (this.lib.auth.enableCollaboration === true) {
       return false
+    }
+    
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
     }
     
     
@@ -8965,11 +8970,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (AnnotationManager) {
-  AnnotationManager.methods.setupTutorial = function () {
+  AnnotationManager.methods.setupTutorial = async function () {
     //console.log('setupTutorial', 1)
 
     if (this.tutorialInited === true) {
       return false
+    }
+    
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
     }
 
     this.tutorialInited = true
@@ -13505,7 +13514,11 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (AnnotationPanel) {
   
-  AnnotationPanel.methods.setupTutorial = function () {
+  AnnotationPanel.methods.setupTutorial = async function () {
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
+    }
+    
     if (this.lib.auth.enableCollaboration) {
       this.setupTutorialCollaborativeReading()
     }
@@ -13617,6 +13630,9 @@ __webpack_require__.r(__webpack_exports__);
   AnnotationPanel.methods.startLocalTutorial = async function () {
     
     //localStorage.setItem(this.currentLocalTutorialKey, 1)
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
+    }
     await this.lib.TutorialManager.start(tutorialKey, false)
     
     //console.log('startLocalTutorial', this.currentLocalTutorialKey)
@@ -28907,9 +28923,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (SectionManager) {
-  SectionManager.methods.setupTutorial = function () {
+  SectionManager.methods.setupTutorial = async function () {
     //return console.log('@TEST')
-
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
+    }
 
     if (this.lib.auth.isEnableCollaboration) {
       this.setupTutorialCollaborativeReading()
@@ -30270,11 +30288,15 @@ let ReadingInstruction = {
     hide() {
       this.$refs.Modal.hide()
     },
-    startTutorial () {
+    startTutorial: async function () {
       localStorage.setItem(this.localStorageKeyPrefix, 1)
       localStorage.setItem(this.localStorageUserKeyPrefix, 1)
       this.hasReadTutorial = true
       this.hide()
+      
+      while (!this.lib.TutorialManager) {
+        await this.lib.VueHelper.sleep(100)
+      }
       this.lib.TutorialManager.start()
     },
     show() {

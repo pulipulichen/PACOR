@@ -9,6 +9,9 @@ export default function (AnnotationPanel) {
   AnnotationPanel.methods.startLocalTutorial = async function () {
     
     //localStorage.setItem(this.currentLocalTutorialKey, 1)
+    while (!this.lib.TutorialManager) {
+      await this.lib.VueHelper.sleep(100)
+    }
     await this.lib.TutorialManager.start(tutorialKey, false)
     
     //console.log('startLocalTutorial', this.currentLocalTutorialKey)
