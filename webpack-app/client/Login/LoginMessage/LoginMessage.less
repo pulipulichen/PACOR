@@ -5,3 +5,11 @@ h1 {
 .LoginMessage ::v-deep .highlight {
   background-color: yellow;
 }
+
+.LoginMessage {
+  @media only screen and (max-height: 700px) {
+    max-height: 9.2rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
