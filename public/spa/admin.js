@@ -8493,7 +8493,7 @@ let ErrorHandler = {
               && error.response.data
               && error.response.data.error) {
         let message = error.response.data.error.message
-        console.log(message)
+        console.error(message)
         if (message === 'Please login'
                 || message === `You don't have permission to access.`) {
           this.lib.auth.logoutAndReload()
@@ -8502,6 +8502,9 @@ let ErrorHandler = {
         else if (message === 'Network Error') {
           return null
         }
+        else if (message === `READONLY You can't write against a read only slave.`) {
+          error.response.data.error.message = `Please restart REDIS database. (${message})`
+        } 
       }
       this.errors.push(error)
     },
