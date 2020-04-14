@@ -34,7 +34,13 @@
         <div class="ui positive button"
              v-on:click="gotoNextReadingPage"
              v-if="lib.auth.currentStepConfig.nextReadingPage">
-          {{ $t('Move to next article') }}
+          <template v-if="lib.auth.currentStepConfig.nextReadingPageButton">
+            {{ $t(lib.auth.currentStepConfig.nextReadingPageButton) }}
+          </template>
+          <template v-else>
+            {{ $t('Move to next article') }}
+          </template>
+          
         </div>
         <div class="ui button"
              v-on:click="logout"
