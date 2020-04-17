@@ -31,6 +31,10 @@ module.exports = [
     urlPrefix: '/2020exp/exp/3/',
     file: 'reading2020Exp_exp3'
   },
+  {
+    urlPrefix: '/2020exp/exp/4/',
+    file: 'reading2020Exp_exp4'
+  },
 
   // ------------------------
 

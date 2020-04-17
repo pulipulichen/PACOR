@@ -1367,9 +1367,10 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
       let finishStep = this.status.readingConfig.readingProgressesFinish
-      
+      //console.log(finishStep, finishStep.startsWith('/'), this.lib.ValidateHelper.isURL(finishStep))
       if (finishStep.startsWith('/') 
-              || this.lib.ValidateHelper.isURL(finishStep)) {
+              || finishStep.startsWith('http://')
+              || finishStep.startsWith('https://')) {
         finishStep = this.lib.auth.filterURL(finishStep)
         this._redirect(finishStep)
         return false
@@ -5180,6 +5181,9 @@ __webpack_require__.r(__webpack_exports__);
   let _this, element
   let timer
   
+  let enableMouseHint = true
+  let debugTopPadding = 250
+  
   let onWindowScrollEvent = () => {
     isScrolling = true
     if (timer) {
@@ -5203,6 +5207,11 @@ __webpack_require__.r(__webpack_exports__);
   }
   
   TutorialManager.methods.showClick = async function (e, options) {
+    //if (this.enableMouseHint === false) {
+    if (enableMouseHint === false) {
+      return false
+    }
+    
     if (this.lib.style.detectIsIOS && window.innerWidth < 768) {
       // 太小了，不使用指標
       return false
@@ -5292,6 +5301,10 @@ __webpack_require__.r(__webpack_exports__);
     if (limitedRect 
             && (top > limitedRect.bottom || top < limitedRect.top) ) {
       top = top - window.scrollY
+    }
+    
+    if (this.clickFixed === false) {
+      top = top + debugTopPadding
     }
     
     if (typeof(width) !== 'number') {

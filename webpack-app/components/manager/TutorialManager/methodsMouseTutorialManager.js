@@ -10,6 +10,9 @@ export default function (TutorialManager) {
   let _this, element
   let timer
   
+  let enableMouseHint = true
+  let debugTopPadding = 250
+  
   let onWindowScrollEvent = () => {
     isScrolling = true
     if (timer) {
@@ -33,6 +36,11 @@ export default function (TutorialManager) {
   }
   
   TutorialManager.methods.showClick = async function (e, options) {
+    //if (this.enableMouseHint === false) {
+    if (enableMouseHint === false) {
+      return false
+    }
+    
     if (this.lib.style.detectIsIOS && window.innerWidth < 768) {
       // 太小了，不使用指標
       return false
@@ -122,6 +130,10 @@ export default function (TutorialManager) {
     if (limitedRect 
             && (top > limitedRect.bottom || top < limitedRect.top) ) {
       top = top - window.scrollY
+    }
+    
+    if (this.clickFixed === false) {
+      top = top + debugTopPadding
     }
     
     if (typeof(width) !== 'number') {

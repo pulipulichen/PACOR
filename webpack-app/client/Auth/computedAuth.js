@@ -44,9 +44,10 @@ export default function (Auth) {
         }
       }
       let finishStep = this.status.readingConfig.readingProgressesFinish
-      
+      //console.log(finishStep, finishStep.startsWith('/'), this.lib.ValidateHelper.isURL(finishStep))
       if (finishStep.startsWith('/') 
-              || this.lib.ValidateHelper.isURL(finishStep)) {
+              || finishStep.startsWith('http://')
+              || finishStep.startsWith('https://')) {
         finishStep = this.lib.auth.filterURL(finishStep)
         this._redirect(finishStep)
         return false
