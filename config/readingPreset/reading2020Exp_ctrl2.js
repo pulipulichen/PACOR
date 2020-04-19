@@ -8,17 +8,17 @@ module.exports = {
   readingProgressModules: {
     'PreImaginaryKeyword': {
       minKeywords: 3,
-      limitMinutes: 3,
+      limitMinutes: 2,
     },
     'PostRecallKeyword': {
       minKeywords: 3,
-      limitMinutes: 3,
+      limitMinutes: 2,
     },
     'reading': {
-      totalLimitMinutes: 10,
+      totalLimitMinutes: 11,
     },
     'IndividualReading': {
-      limitMinutes: 10,
+      limitMinutes: 11,
       //highlightAnnotation: {
         //types: ['MainIdea'],
       //},
@@ -32,6 +32,7 @@ module.exports = {
       permission: {
         collaboration: false,
       },
+      enableLogout: false,
       //nextReadingPage: '/pretest/alpha.html'
     }
   }

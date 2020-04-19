@@ -30,6 +30,7 @@ module.exports = {
     },
     'FreeReading': {
       //nextReadingPage: '/pretest/alpha.html'
+      enableLogout: false,
     }
   }
 }

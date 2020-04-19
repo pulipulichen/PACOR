@@ -30,8 +30,9 @@ module.exports = {
 //    },
     'FreeReading': {
       permission: {
-        collaboration: false,
+        collaboration: true,
       },
+      enableLogout: false,
       //nextReadingPage: '/pretest/alpha.html'
     }
   }

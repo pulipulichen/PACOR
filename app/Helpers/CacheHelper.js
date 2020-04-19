@@ -1,6 +1,7 @@
 'use strict'
 
 const Config = use('Config')
+const exec = use('child_process').exec
 
 /**
  * https://www.npmjs.com/package/adonis-cache
@@ -451,6 +452,30 @@ Cache.forgetWithTags = async function (tags, cacheKey) {
   }
   else {
     await cacheQuery.flush()
+    /*
+    try {
+      await cacheQuery.flush()
+    }
+    catch (e) {
+      console.log(e.message, (e.message === `READONLY You can't write against a read only slave.`))
+      if (e.message === `READONLY You can't write against a read only slave.`) {
+        // 重新啟動REDIS
+        //let command = `net stop Redis && net start Redis`
+        let command = `powershell -command "Restart-Service Redis -Force"`
+        //
+        //let command2 = `net start Redis`
+        exec(command, async function (error, stdout, stderr) {
+          console.log(error)
+          //exec(command2, async function (error, stdout, stderr) {
+            await Cache.forgetWithTags(tags, cacheKey) 
+          //})
+        });
+      }
+      else {
+        throw e
+      }
+    }
+     */
   }
 }
 
