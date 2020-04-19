@@ -2211,13 +2211,21 @@ let LoginMessage = {
       let modules = this.status.readingConfig.readingProgressModules
       let hasAddedReading = false
       
-      let instructionMinute = 2
+      let instructionMinute = 0 // 說明時間的偏移，不過算了，就這樣吧
+      if (Array.isArray(this.steps) === false) {
+        return 0
+      }
+      
       this.steps.forEach(step => {
         let module = modules[step]
         if (!module) {
           return false
         }
         
+//        if (step === 'IndividualReading') {
+//          time = time + modules['reading'].totalLimitMinutes
+//        }
+//        
         if (['IndividualReading', 'CollaborativeReading'].indexOf(step) > -1) {
           if (hasAddedReading === true) {
             return false
@@ -2230,7 +2238,7 @@ let LoginMessage = {
         
         //console.log('step', step, module.limitMinutes)
         time = time + module.limitMinutes + instructionMinute
-      })
+      })  // this.steps.forEach(step => {
       
       time = Math.ceil(time)
       
