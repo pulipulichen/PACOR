@@ -20,6 +20,7 @@ module.exports = {
     },
     'IndividualReading': {
       limitMinutes: 25,
+      forceTutorial: false,
       goToNextStepOnChecklistComplete: false,
       //highlightAnnotation: {
         //types: ['MainIdea'],
@@ -31,6 +32,7 @@ module.exports = {
 //      //},
 //    },
     'FreeReading': {
+      forceTutorial: false,
       permission: {
         collaboration: false,
       },

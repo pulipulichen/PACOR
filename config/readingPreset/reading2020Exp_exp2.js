@@ -18,17 +18,20 @@ module.exports = {
       totalLimitMinutes: 11,
     },
     'IndividualReading': {
+      forceTutorial: false,
       limitMinutes: 5,
       //highlightAnnotation: {
         //types: ['MainIdea'],
       //},
     },
     'CollaborativeReading': {
+      forceTutorial: false,
       //highlightAnnotation: {
         //types: ['MainIdea'],
       //},
     },
     'FreeReading': {
+      forceTutorial: false,
       //nextReadingPage: '/pretest/alpha.html'
     }
   }

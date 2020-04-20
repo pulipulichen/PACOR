@@ -13667,6 +13667,10 @@ __webpack_require__.r(__webpack_exports__);
       return false
     }
     
+    if (this.lib.auth.currentStepConfig.forceTutorial === false) {
+      // 如果不是強制啟動，那我們就不做這個處理
+      return false
+    }
     if (readLocalTutorialKeys.indexOf(this.currentLocalTutorialKey) > -1) {
       // 已經讀過了
       return false
