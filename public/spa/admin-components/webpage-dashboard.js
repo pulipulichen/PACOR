@@ -163,7 +163,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "h4[data-v-00c08e2d] {\n  margin-top: 1rem !important;\n}\n", "",{"version":3,"sources":["WebpageDashboardGroups.less?vue&type=style&index=0&id=00c08e2d&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,2BAA2B;AAC7B","file":"WebpageDashboardGroups.less?vue&type=style&index=0&id=00c08e2d&lang=less&scoped=true&","sourcesContent":["h4[data-v-00c08e2d] {\n  margin-top: 1rem !important;\n}\n"]}]);
+exports.push([module.i, "h4[data-v-00c08e2d] {\n  margin-top: 1rem !important;\n}\n.users-table[data-v-00c08e2d] {\n  max-height: 80vh;\n  min-height: 10rem;\n  overflow-y: auto;\n}\n.users-table .username[data-v-00c08e2d] {\n  cursor: pointer;\n}\n", "",{"version":3,"sources":["WebpageDashboardGroups.less?vue&type=style&index=0&id=00c08e2d&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,2BAA2B;AAC7B;AACA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,gBAAgB;AAClB;AACA;EACE,eAAe;AACjB","file":"WebpageDashboardGroups.less?vue&type=style&index=0&id=00c08e2d&lang=less&scoped=true&","sourcesContent":["h4[data-v-00c08e2d] {\n  margin-top: 1rem !important;\n}\n.users-table[data-v-00c08e2d] {\n  max-height: 80vh;\n  min-height: 10rem;\n  overflow-y: auto;\n}\n.users-table .username[data-v-00c08e2d] {\n  cursor: pointer;\n}\n"]}]);
 
 
 /***/ }),
@@ -668,6 +668,72 @@ var render = function() {
                 ],
                 2
               )
+            ])
+          ]
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.users.length > 0
+        ? [
+            _c("div", { staticClass: "ui divider" }),
+            _vm._v(" "),
+            _c("div", [
+              _c("h4", { attrs: { id: _vm.attrHeaderID("dashboard-users") } }, [
+                _vm._v(
+                  "\r\n        " +
+                    _vm._s(_vm.$t("Users")) +
+                    "\r\n        (" +
+                    _vm._s(_vm.users.length) +
+                    ")\r\n      "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "users-table" }, [
+                _c("table", { staticClass: "ui unstackable table" }, [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th", [_vm._v(_vm._s(_vm.$t("User")))]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(_vm._s(_vm.$t("Progress")))])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.users, function(user) {
+                      return _c("tr", [
+                        _c("td", [
+                          _c(
+                            "a",
+                            { attrs: { href: _vm.userDashboardLink(user.id) } },
+                            [
+                              _vm._v(
+                                "\r\n                  " +
+                                  _vm._s(user.username) +
+                                  "\r\n                "
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          [
+                            _c("step-progress-bar", {
+                              attrs: {
+                                lib: _vm.lib,
+                                config: _vm.config,
+                                progresses: user.readingProgresses
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ])
+                    }),
+                    0
+                  )
+                ])
+              ])
             ])
           ]
         : _vm._e()
@@ -1556,6 +1622,43 @@ let WebpageDashboardGroups = {
     'reader-card': _ReaderCard_ReaderCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   computed: {
+    users () {
+      let users = []
+      
+      this.groups.forEach(group => {
+        group.users.forEach(user => {
+          users.push({
+            id: user.id,
+            username: user.username,
+            readingProgresses: user.readingProgresses
+          })
+        })
+      })
+      
+      this.notInGroup.users.forEach(user => {
+        users.push({
+          id: user.id,
+          username: user.username,
+          readingProgresses: user.readingProgresses
+        })
+      })
+      
+      users.sort((a, b) => {
+        return (a.username > b.username)
+      })
+      
+      /*
+      return [{
+          name: 1,
+          progress: '3/4'
+      },
+      {
+          name: 2,
+          progress: '3/4'
+      }]
+       */
+      return users
+    }
   },
   watch: {
   },
@@ -1580,6 +1683,9 @@ let WebpageDashboardGroups = {
     },
     attrHeaderID: function (anchor) {
       return '/webpage-dashboard/' + this.$route.params.webpageID + '/' + anchor
+    },
+    userDashboardLink (id) {
+      return '#/user-dashboard/' + this.$route.params.webpageID + '/' + id
     }
   } // methods
 }

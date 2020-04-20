@@ -4,19 +4,24 @@
     {{ $t('Groups') }}
   </h3>
   
+  <!-- =============================================== -->
+  
   <div v-for="group in groups">
     <h4 v-bind:id="attrHeaderID('dashboard-group' + (group.group_seq_id+1))">
       {{ $t('Group') }} #{{ (group.group_seq_id + 1)  }}
     </h4>
     <div class="ui cards">
       <template v-for="user in group.users">
-        <reader-card v-bind:user="user"
-                     v-bind:lib="lib"
-                     v-bind:status="status"
-                     v-bind:config="config"></reader-card>
+        <reader-card 
+          v-bind:user="user"
+          v-bind:lib="lib"
+          v-bind:status="status"
+          v-bind:config="config"></reader-card>
       </template>
     </div>
   </div> <!-- <div v-for="group in groups"> -->
+  
+  <!-- =============================================== -->
   
   <template v-if="notInGroup.users.length > 0">
     <div class="ui divider"></div>
@@ -27,11 +32,50 @@
       </h4>
       <div class="ui cards">
         <template v-for="user in notInGroup.users">
-          <reader-card v-bind:user="user"
-                       v-bind:lib="lib"
-                       v-bind:status="status"
-                       v-bind:config="config"></reader-card>
+          <reader-card 
+            v-bind:user="user"
+            v-bind:lib="lib"
+            v-bind:status="status"
+            v-bind:config="config"></reader-card>
         </template>
+      </div>
+    </div> <!-- <div v-for="group in groups"> -->
+  </template>
+  
+  <!-- =============================================== -->
+  <template v-if="users.length > 0">
+    <div class="ui divider"></div>
+    
+    <div>
+      <h4 v-bind:id="attrHeaderID('dashboard-users')">
+        {{ $t('Users') }}
+        ({{ users.length }})
+      </h4>
+      <div class="users-table">
+        <table class="ui unstackable table">
+          <thead>
+            <tr>
+              <th>{{ $t('User') }}</th>
+              <th>{{ $t('Progress') }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(user) in users">
+              <td>
+                <a v-bind:href="userDashboardLink(user.id)">
+                  {{ user.username }}
+                </a>
+              </td>
+              <td>
+          <step-progress-bar 
+            v-bind:lib="lib"
+            v-bind:config="config"
+            v-bind:progresses="user.readingProgresses">
+          </step-progress-bar>
+          </td>
+          </tr>
+          </tbody>
+        </table>
       </div>
     </div> <!-- <div v-for="group in groups"> -->
   </template>

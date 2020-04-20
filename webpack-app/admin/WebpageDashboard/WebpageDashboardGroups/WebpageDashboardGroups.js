@@ -13,6 +13,43 @@ let WebpageDashboardGroups = {
     'reader-card': ReaderCard
   },
   computed: {
+    users () {
+      let users = []
+      
+      this.groups.forEach(group => {
+        group.users.forEach(user => {
+          users.push({
+            id: user.id,
+            username: user.username,
+            readingProgresses: user.readingProgresses
+          })
+        })
+      })
+      
+      this.notInGroup.users.forEach(user => {
+        users.push({
+          id: user.id,
+          username: user.username,
+          readingProgresses: user.readingProgresses
+        })
+      })
+      
+      users.sort((a, b) => {
+        return (a.username > b.username)
+      })
+      
+      /*
+      return [{
+          name: 1,
+          progress: '3/4'
+      },
+      {
+          name: 2,
+          progress: '3/4'
+      }]
+       */
+      return users
+    }
   },
   watch: {
   },
@@ -37,6 +74,9 @@ let WebpageDashboardGroups = {
     },
     attrHeaderID: function (anchor) {
       return '/webpage-dashboard/' + this.$route.params.webpageID + '/' + anchor
+    },
+    userDashboardLink (id) {
+      return '#/user-dashboard/' + this.$route.params.webpageID + '/' + id
     }
   } // methods
 }

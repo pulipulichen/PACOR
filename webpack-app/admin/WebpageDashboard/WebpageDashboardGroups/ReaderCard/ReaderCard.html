@@ -10,9 +10,11 @@
       </template>
     </a>
     <div class="meta">
-      <step-progress-bar v-bind:lib="lib"
-                         v-bind:config="config"
-                         v-bind:progresses="user.readingProgresses"></step-progress-bar>
+      <step-progress-bar 
+        v-bind:lib="lib"
+        v-bind:config="config"
+        v-bind:progresses="user.readingProgresses">
+      </step-progress-bar>
     </div>
     
     <!-- 這邊應該要隨著現在的進度顯示相關的摘要資訊 -->
