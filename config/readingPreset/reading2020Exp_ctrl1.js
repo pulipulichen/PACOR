@@ -22,6 +22,7 @@ module.exports = {
       highlightAnnotation: {
         types: ['MainIdea'],
       },
+      goToNextStepOnChecklistComplete: false,
     },
 //    'CollaborativeReading': {
 //      highlightAnnotation: {

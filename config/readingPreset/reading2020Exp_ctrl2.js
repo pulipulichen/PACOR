@@ -19,6 +19,7 @@ module.exports = {
     },
     'IndividualReading': {
       limitMinutes: 11,
+      goToNextStepOnChecklistComplete: false,
       //highlightAnnotation: {
         //types: ['MainIdea'],
       //},
