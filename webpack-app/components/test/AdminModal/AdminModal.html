@@ -14,22 +14,35 @@
     <template 
       v-slot:content>
 
-      <button 
-        type="button"
-        class="ui labeled icon button"
-        v-on:click="logout">
-        <i class="sign-out icon"></i>
-        {{ $t('Logout') }}:
-        {{ username }}
-      </button>
-      
-      <button 
-        type="button"
-        class="ui labeled icon button"
-        v-on:click="goToNextStep">
-        <i class="forward icon"></i>
-        {{ $t('Next Step') }}
-      </button>
+      <div class="ui fluid buttons">
+
+        <button 
+          type="button"
+          class="ui labeled icon button"
+          v-on:click="clearData">
+          <i class="fast backward icon"></i>
+          {{ $t('Clear Data') }}:
+          {{ username }}
+        </button>
+
+        <button 
+          type="button"
+          class="ui labeled icon button"
+          v-on:click="logout">
+          <i class="sign-out icon"></i>
+          {{ $t('Logout') }}:
+          {{ username }}
+        </button>
+
+        <button 
+          type="button"
+          class="ui labeled icon button"
+          v-on:click="goToNextStep">
+          <i class="forward icon"></i>
+          {{ $t('Next Step') }}
+        </button>
+
+      </div>
 
     </template>
   </modal>

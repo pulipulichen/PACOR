@@ -3,4 +3,9 @@ en:
 zh-TW:
   Admin Panel: 管理面版
   Logout: 登出
+  Are you sure to logout?: 您確定要登出嗎？
   Next Step: 進入下一階段
+  Are you sure to go to next step?: 您確定要直接進入下一階段嗎？
+  Clear Data: 清除資料
+  Are you sure to clear data?: 您確定要清除資料嗎？
+  

@@ -2,6 +2,7 @@
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
+const ReadingProgressModel = use ('App/Models/ReadingProgress')
 
 const Profiler = use('Profiler')
 
@@ -117,6 +118,23 @@ class ReadingProgress {
 //  async getRemainingSeconds({request, webpage, user}) {
 //    return await user.getRemainingSeconds(webpage)
 //  }
+
+  async clearReadingProgress({request, webpage, user}) {
+    //let profiler = new Profiler(0, 'Client/ReadingProgress.clearReadingProgress()')
+    
+    //console.log('ReadingProgress.end', 1)
+    //webpage.log(user, 'ReadingProgress.clearReadingProgress')
+    //profiler.after('webpage.log()')
+    
+    //console.log(webpage.primaryKeyValue, user.primaryKeyValue)
+    
+    await ReadingProgressModel.query()
+            .where('webpage_id', webpage.primaryKeyValue)
+            .where('user_id', user.primaryKeyValue)
+            .delete()
+    //console.log(2222)
+    return 1
+  }
 }
 
 module.exports = ReadingProgress

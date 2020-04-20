@@ -52,17 +52,32 @@ let AdminModal = {
       this.$refs.Modal.show()
     },
     logout () {
+      if (window.confirm(this.$t('Are you sure to logout?')) === false) {
+        return false
+      }
+      
       this.lib.auth.logoutAndReload()
     },
     goToNextStep: async function () {
+      if (window.confirm(this.$t('Are you sure to go to next step?')) === false) {
+        return false
+      }
+      
+      
       if (this.lib.Main.$refs.StepComponent.$refs.Questionnaire) {
         this.lib.Main.$refs.StepComponent.$refs.Questionnaire.nextStep()
       }
       else {
-        console.log('直接下一階段')
+        //console.log('直接下一階段')
         return await this.lib.auth.nextStep(false)
       }
-    }
+    },
+    clearData: async function () {
+      if (window.confirm(this.$t('Are you sure to clear data?')) === false) {
+        return false
+      }
+      await this.lib.auth.clearReadingProgress()
+    },
   } // methods
 }
 

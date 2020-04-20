@@ -89,7 +89,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Admin Panel":"管理面版","Logout":"登出","Next Step":"進入下一階段"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Admin Panel":"管理面版","Logout":"登出","Are you sure to logout?":"您確定要登出嗎？","Next Step":"進入下一階段","Are you sure to go to next step?":"您確定要直接進入下一階段嗎？","Clear Data":"清除資料","Are you sure to clear data?":"您確定要清除資料嗎？"}}')
   delete Component.options._Ctor
 }
 
@@ -1019,41 +1019,62 @@ var render = function() {
             key: "content",
             fn: function() {
               return [
-                _c(
-                  "button",
-                  {
-                    staticClass: "ui labeled icon button",
-                    attrs: { type: "button" },
-                    on: { click: _vm.logout }
-                  },
-                  [
-                    _c("i", { staticClass: "sign-out icon" }),
-                    _vm._v(
-                      "\r\n        " +
-                        _vm._s(_vm.$t("Logout")) +
-                        ":\r\n        " +
-                        _vm._s(_vm.username) +
-                        "\r\n      "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "ui labeled icon button",
-                    attrs: { type: "button" },
-                    on: { click: _vm.goToNextStep }
-                  },
-                  [
-                    _c("i", { staticClass: "forward icon" }),
-                    _vm._v(
-                      "\r\n        " +
-                        _vm._s(_vm.$t("Next Step")) +
-                        "\r\n      "
-                    )
-                  ]
-                )
+                _c("div", { staticClass: "ui fluid buttons" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "ui labeled icon button",
+                      attrs: { type: "button" },
+                      on: { click: _vm.clearData }
+                    },
+                    [
+                      _c("i", { staticClass: "fast backward icon" }),
+                      _vm._v(
+                        "\r\n          " +
+                          _vm._s(_vm.$t("Clear Data")) +
+                          ":\r\n          " +
+                          _vm._s(_vm.username) +
+                          "\r\n        "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "ui labeled icon button",
+                      attrs: { type: "button" },
+                      on: { click: _vm.logout }
+                    },
+                    [
+                      _c("i", { staticClass: "sign-out icon" }),
+                      _vm._v(
+                        "\r\n          " +
+                          _vm._s(_vm.$t("Logout")) +
+                          ":\r\n          " +
+                          _vm._s(_vm.username) +
+                          "\r\n        "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "ui labeled icon button",
+                      attrs: { type: "button" },
+                      on: { click: _vm.goToNextStep }
+                    },
+                    [
+                      _c("i", { staticClass: "forward icon" }),
+                      _vm._v(
+                        "\r\n          " +
+                          _vm._s(_vm.$t("Next Step")) +
+                          "\r\n        "
+                      )
+                    ]
+                  )
+                ])
               ]
             },
             proxy: true
@@ -1790,6 +1811,8 @@ __webpack_require__.r(__webpack_exports__);
     localStorage.removeItem('PostRecallKeyword.' + this.status.userID + '.log')
     localStorage.removeItem('PreImaginary.' + this.status.userID + '.log')
     localStorage.removeItem('PreImaginaryKeyword.' + this.status.userID + '.log')
+    
+    localStorage.clear()
   }
   
   Auth.methods.showLogin = function () {
@@ -1844,6 +1867,13 @@ __webpack_require__.r(__webpack_exports__);
       this.status.view = this.currentStep
     //}, 0)
     
+  }
+  
+  Auth.methods.clearReadingProgress = async function () {
+    await this.lib.AxiosHelper.get('/client/ReadingProgress/clearReadingProgress')
+    this.clearLocalStorage()
+    location.reload()
+    return false
   }
   
   Auth.methods.getHighlightAnnotationType = function (annotation) {
@@ -5855,17 +5885,32 @@ let AdminModal = {
       this.$refs.Modal.show()
     },
     logout () {
+      if (window.confirm(this.$t('Are you sure to logout?')) === false) {
+        return false
+      }
+      
       this.lib.auth.logoutAndReload()
     },
     goToNextStep: async function () {
+      if (window.confirm(this.$t('Are you sure to go to next step?')) === false) {
+        return false
+      }
+      
+      
       if (this.lib.Main.$refs.StepComponent.$refs.Questionnaire) {
         this.lib.Main.$refs.StepComponent.$refs.Questionnaire.nextStep()
       }
       else {
-        console.log('直接下一階段')
+        //console.log('直接下一階段')
         return await this.lib.auth.nextStep(false)
       }
-    }
+    },
+    clearData: async function () {
+      if (window.confirm(this.$t('Are you sure to clear data?')) === false) {
+        return false
+      }
+      await this.lib.auth.clearReadingProgress()
+    },
   } // methods
 }
 

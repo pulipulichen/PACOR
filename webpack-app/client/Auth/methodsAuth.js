@@ -108,6 +108,8 @@ export default function (Auth) {
     localStorage.removeItem('PostRecallKeyword.' + this.status.userID + '.log')
     localStorage.removeItem('PreImaginary.' + this.status.userID + '.log')
     localStorage.removeItem('PreImaginaryKeyword.' + this.status.userID + '.log')
+    
+    localStorage.clear()
   }
   
   Auth.methods.showLogin = function () {
@@ -162,6 +164,13 @@ export default function (Auth) {
       this.status.view = this.currentStep
     //}, 0)
     
+  }
+  
+  Auth.methods.clearReadingProgress = async function () {
+    await this.lib.AxiosHelper.get('/client/ReadingProgress/clearReadingProgress')
+    this.clearLocalStorage()
+    location.reload()
+    return false
   }
   
   Auth.methods.getHighlightAnnotationType = function (annotation) {
