@@ -6,17 +6,19 @@
       
       <div class="ui icon input search-input"
            v-if="annotation === null">
-        <input type="text" 
-               v-model="panelData.keyword"
-               v-bind:placeholder="$t('Filtering the list...')"
-               onfocus="this.select()">
+        <input 
+          type="text" 
+          v-model="panelData.keyword"
+          v-bind:placeholder="$t('Filtering the list...')"
+          onfocus="this.select()">
         <i class="search icon"></i>
       </div>
 
-      <button v-if="annotation"
-              type="button" 
-              class="ui mini labeled icon button back-button"
-              v-on:click.stop="backToList">
+      <button 
+        v-if="annotation"
+        type="button" 
+        class="ui mini labeled icon button back-button"
+        v-on:click.stop="backToList">
         <i class="angle left icon"></i>
         {{ $t('Back to list') }}
       </button>
@@ -91,6 +93,7 @@
       v-bind:findAnnotation="viewAnnotation"
       v-bind:findUser="findUser"
       v-bind:findType="findType"
+      v-bind:findNote="viewAnnotation"
       v-bind:searchKeyword="panelData.keyword"
       v-on:comment="viewAnnotationComment">
     </annotation-item>

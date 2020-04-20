@@ -1908,6 +1908,7 @@ var render = function() {
                 findAnnotation: _vm.viewAnnotation,
                 findUser: _vm.findUser,
                 findType: _vm.findType,
+                findNote: _vm.viewAnnotation,
                 searchKeyword: _vm.panelData.keyword
               },
               on: { comment: _vm.viewAnnotationComment }
@@ -2133,6 +2134,7 @@ var render = function() {
                 findAnnotation: _vm.viewAnnotation,
                 findUser: _vm.findUser,
                 findType: _vm.findType,
+                findNote: _vm.viewAnnotation,
                 searchKeyword: _vm.panelData.keyword
               },
               on: { comment: _vm.viewAnnotationComment }
