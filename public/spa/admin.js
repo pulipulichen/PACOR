@@ -13296,6 +13296,9 @@ let Modal = {
       }
       loop()
     },
+    open: function (callback) {
+      return this.show(callback)
+    },
     show: function (callback) {
       this._awaitInit((modal) => {
         let options = {}
@@ -13352,6 +13355,9 @@ let Modal = {
         //console.log('有hide嗎？')
         modal.modal('hide')
       })
+    },
+    close: function (callback) {
+      return this.hide(callback)
     },
     doReset: function () {
       for (let name in this.resetCache) {

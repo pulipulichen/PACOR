@@ -1,0 +1,20 @@
+<div class="non-invasive-web-style-framework">
+  <modal 
+    class="AdminModal"
+    ref="Modal"
+    v-bind:config="config"
+    v-bind:status="status"
+    v-bind:lib="lib"
+    v-bind:cancelable="true"
+    v-bind:cancelButtonText="$t('CLOSE')"
+    v-bind:disableOpenWindow="true"
+    v-on:hide="onHide">
+      <template v-slot:header>
+        {{ $t('Admin Panel') }}
+      </template>
+      <template 
+        v-slot:content>
+        2
+      </template>
+  </modal>
+</div>

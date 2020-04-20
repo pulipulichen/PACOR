@@ -31,6 +31,7 @@ let Loading = {
     'tutorial-manager': () => import(/* webpackChunkName: "client-components/Loading" */ './../../components/manager/TutorialManager/TutorialManager.vue'),
     
     PACORTestManager: () => import(/* webpackChunkName: "client-components/Loading" */ './../../components/test/PACORTestManager/PACORTestManager.vue'),
+    AdminModal: () => import(/* webpackChunkName: "client-components/Loading" */ './../../components/test/AdminModal/AdminModal.vue'),
     
     'PreImaginary': () => import(/* webpackChunkName: "client-components/PreImaginary" */ './../Questionnaire/PreImaginary/PreImaginary.vue'),
     'PostRecall': () => import(/* webpackChunkName: "client-components/PostRecall" */ './../Questionnaire/PostRecall/PostRecall.vue'),

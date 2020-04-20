@@ -296,6 +296,11 @@ var render = function() {
         attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
       }),
       _vm._v(" "),
+      _c("AdminModal", {
+        ref: "AdminModal",
+        attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
+      }),
+      _vm._v(" "),
       _c("error-handler", {
         ref: "ErrorHandler",
         attrs: { config: _vm.config, lib: _vm.lib, errors: _vm.errors }
@@ -622,6 +627,7 @@ let Loading = {
     'tutorial-manager': () => Promise.all(/*! import() | client-components/Loading */[__webpack_require__.e("vendors~client-components/Loading"), __webpack_require__.e("client-components/Loading")]).then(__webpack_require__.bind(null, /*! ./../../components/manager/TutorialManager/TutorialManager.vue */ "./webpack-app/components/manager/TutorialManager/TutorialManager.vue")),
     
     PACORTestManager: () => Promise.all(/*! import() | client-components/Loading */[__webpack_require__.e("vendors~client-components/Loading"), __webpack_require__.e("client-components/Loading")]).then(__webpack_require__.bind(null, /*! ./../../components/test/PACORTestManager/PACORTestManager.vue */ "./webpack-app/components/test/PACORTestManager/PACORTestManager.vue")),
+    AdminModal: () => Promise.all(/*! import() | client-components/Loading */[__webpack_require__.e("vendors~client-components/Loading"), __webpack_require__.e("client-components/Loading")]).then(__webpack_require__.bind(null, /*! ./../../components/test/AdminModal/AdminModal.vue */ "./webpack-app/components/test/AdminModal/AdminModal.vue")),
     
     'PreImaginary': () => Promise.all(/*! import() | client-components/PreImaginary */[__webpack_require__.e("client-components/PostRecall~client-components/PreImaginary"), __webpack_require__.e("client-components/PreImaginary")]).then(__webpack_require__.bind(null, /*! ./../Questionnaire/PreImaginary/PreImaginary.vue */ "./webpack-app/client/Questionnaire/PreImaginary/PreImaginary.vue")),
     'PostRecall': () => Promise.all(/*! import() | client-components/PostRecall */[__webpack_require__.e("client-components/PostRecall~client-components/PreImaginary"), __webpack_require__.e("client-components/PostRecall")]).then(__webpack_require__.bind(null, /*! ./../Questionnaire/PostRecall/PostRecall.vue */ "./webpack-app/client/Questionnaire/PostRecall/PostRecall.vue")),
@@ -1097,9 +1103,9 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('user-filter', () => {
   return Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors~client-components/GlobalComponents"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/search/UserFilter/UserFilter.vue */ "./webpack-app/client/Reading/components/search/UserFilter/UserFilter.vue"))
 })
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('user-filter', () => {
-  return Promise.all(/*! import() | client-components/GlobalComponents */[__webpack_require__.e("vendors~client-components/GlobalComponents"), __webpack_require__.e("client-components/GlobalComponents")]).then(__webpack_require__.bind(null, /*! ./Reading/components/search/UserFilter/UserFilter.vue */ "./webpack-app/client/Reading/components/search/UserFilter/UserFilter.vue"))
-})
+//Vue.component('user-filter', () => {
+//  return import(/* webpackChunkName: "client-components/GlobalComponents" */ './Reading/components/search/UserFilter/UserFilter.vue')
+//})
 
 /***/ })
 
