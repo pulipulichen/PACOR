@@ -318,6 +318,7 @@ var render = function() {
       _vm._v(" "),
       _vm.status.view !== "Loading"
         ? _c(_vm.status.view, {
+            ref: "StepComponent",
             tag: "component",
             attrs: {
               config: _vm.config,
@@ -521,6 +522,8 @@ let VueController = {
       style: null,
       tippy: null,
       //tippyUtils: null,
+      
+      Main: null,
     },
     errors: [],
     persistAttrs: [
@@ -530,10 +533,11 @@ let VueController = {
 //  watch: {},
   //created: function () {
   //},
-//  mounted: function () {
+  mounted: function () {
 //    
 //    //console.log(this.lib.auth.nextStep)
-//  },
+    this.lib.Main = this.$refs.Main
+  },
   
   //methods: { }, // methods: {
   
@@ -824,7 +828,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n  <Loading \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:errors=\"errors\">\r\n  </Loading>\r\n</div>";
+module.exports = "<div class=\"non-invasive-web-style-framework\">\r\n  <Loading \r\n    v-bind:config=\"config\"\r\n    v-bind:status=\"status\"\r\n    v-bind:lib=\"lib\"\r\n    v-bind:errors=\"errors\"\r\n    \r\n    ref=\"Main\">\r\n  </Loading>\r\n</div>";
 
 /***/ }),
 

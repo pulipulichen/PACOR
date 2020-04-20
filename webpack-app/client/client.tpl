@@ -3,6 +3,8 @@
     v-bind:config="config"
     v-bind:status="status"
     v-bind:lib="lib"
-    v-bind:errors="errors">
+    v-bind:errors="errors"
+    
+    ref="Main">
   </Loading>
 </div>

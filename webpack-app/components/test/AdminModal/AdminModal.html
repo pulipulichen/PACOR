@@ -7,14 +7,22 @@
     v-bind:lib="lib"
     v-bind:cancelable="true"
     v-bind:cancelButtonText="$t('CLOSE')"
-    v-bind:disableOpenWindow="true"
-    v-on:hide="onHide">
-      <template v-slot:header>
-        {{ $t('Admin Panel') }}
-      </template>
-      <template 
-        v-slot:content>
-        2
-      </template>
+    v-bind:disableOpenWindow="true">
+    <template v-slot:header>
+      {{ $t('Admin Panel') }}
+    </template>
+    <template 
+      v-slot:content>
+
+      <button 
+        type="button"
+        class="ui labeled icon button"
+        v-on:click="logout">
+        <i class="sign-out icon"></i>
+        {{ $t('Logout') }}:
+        {{ username }}
+      </button>
+
+    </template>
   </modal>
 </div>

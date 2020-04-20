@@ -18,8 +18,9 @@
       :
       {{ header }}
     </template>
-    <template v-slot:headerMenu
-              v-if="lib.auth.currentStep === 'PreImaginary'">
+    <template 
+      v-slot:headerMenu
+      v-if="lib.auth.currentStep === 'PreImaginary'">
       <a class="item"
          v-bind:title="$t('Logout')"
          v-on:click="logout">

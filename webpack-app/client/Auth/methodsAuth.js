@@ -88,7 +88,7 @@ export default function (Auth) {
   }
   Auth.methods.logout = async function () {
     await this.lib.AxiosHelper.get('/client/auth/logout')
-    localStorage.removeItem('PACOR.client.components.Login.login.username')
+    this.clearLocalStorage()
     return this.showLogin()
   }
   Auth.methods.logoutWithoutForget = async function () {
@@ -97,9 +97,17 @@ export default function (Auth) {
   }
   Auth.methods.logoutAndReload = async function () {
     await this.lib.AxiosHelper.get('/client/auth/logout')
-    localStorage.removeItem('PACOR.client.components.Login.login.username')
+    this.clearLocalStorage()
     location.reload()
     return false
+  }
+  
+  Auth.methods.clearLocalStorage = async function () {
+    localStorage.removeItem('PACOR.client.components.Login.login.username')
+    localStorage.removeItem('PostRecall.' + this.status.userID + '.log')
+    localStorage.removeItem('PostRecallKeyword.' + this.status.userID + '.log')
+    localStorage.removeItem('PreImaginary.' + this.status.userID + '.log')
+    localStorage.removeItem('PreImaginaryKeyword.' + this.status.userID + '.log')
   }
   
   Auth.methods.showLogin = function () {

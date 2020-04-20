@@ -89,7 +89,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Admin Panel":"管理面版"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Admin Panel":"管理面版","Logout":"登出"}}')
   delete Component.options._Ctor
 }
 
@@ -1003,14 +1003,13 @@ var render = function() {
           cancelButtonText: _vm.$t("CLOSE"),
           disableOpenWindow: true
         },
-        on: { hide: _vm.onHide },
         scopedSlots: _vm._u([
           {
             key: "header",
             fn: function() {
               return [
                 _vm._v(
-                  "\r\n        " + _vm._s(_vm.$t("Admin Panel")) + "\r\n      "
+                  "\r\n      " + _vm._s(_vm.$t("Admin Panel")) + "\r\n    "
                 )
               ]
             },
@@ -1019,7 +1018,26 @@ var render = function() {
           {
             key: "content",
             fn: function() {
-              return [_vm._v("\r\n        2\r\n      ")]
+              return [
+                _c(
+                  "button",
+                  {
+                    staticClass: "ui labeled icon button",
+                    attrs: { type: "button" },
+                    on: { click: _vm.logout }
+                  },
+                  [
+                    _c("i", { staticClass: "sign-out icon" }),
+                    _vm._v(
+                      "\r\n        " +
+                        _vm._s(_vm.$t("Logout")) +
+                        ":\r\n        " +
+                        _vm._s(_vm.username) +
+                        "\r\n      "
+                    )
+                  ]
+                )
+              ]
             },
             proxy: true
           }
@@ -1735,7 +1753,7 @@ __webpack_require__.r(__webpack_exports__);
   }
   Auth.methods.logout = async function () {
     await this.lib.AxiosHelper.get('/client/auth/logout')
-    localStorage.removeItem('PACOR.client.components.Login.login.username')
+    this.clearLocalStorage()
     return this.showLogin()
   }
   Auth.methods.logoutWithoutForget = async function () {
@@ -1744,9 +1762,17 @@ __webpack_require__.r(__webpack_exports__);
   }
   Auth.methods.logoutAndReload = async function () {
     await this.lib.AxiosHelper.get('/client/auth/logout')
-    localStorage.removeItem('PACOR.client.components.Login.login.username')
+    this.clearLocalStorage()
     location.reload()
     return false
+  }
+  
+  Auth.methods.clearLocalStorage = async function () {
+    localStorage.removeItem('PACOR.client.components.Login.login.username')
+    localStorage.removeItem('PostRecall.' + this.status.userID + '.log')
+    localStorage.removeItem('PostRecallKeyword.' + this.status.userID + '.log')
+    localStorage.removeItem('PreImaginary.' + this.status.userID + '.log')
+    localStorage.removeItem('PreImaginaryKeyword.' + this.status.userID + '.log')
   }
   
   Auth.methods.showLogin = function () {
@@ -5756,6 +5782,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
 let AdminModal = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -5766,15 +5796,50 @@ let AdminModal = {
 //  components: {
 //  },
   computed: {
+    username () {
+      if (!this.lib.auth) {
+        return undefined
+      }
+      return this.lib.auth.username
+    }
   },
   watch: {
   },
   mounted: function () {
     setTimeout(() => {
-      this.$refs.Modal.show()
+      //this.$refs.Modal.show()
     }, 3000)
+    
+    setTimeout(() => {
+      this.registerHotKey()
+    }, 1000)
   },
   methods: {
+    registerHotKey () {
+      //document.addEventListener('keydown', (event) => {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).keydown((event) => {
+        //console.log(event)
+        if(event.keyCode === 121 
+                && event.altKey) {
+        //if(event.keyCode === 121) {
+          this.show()
+        }
+      })
+    },
+    show () {
+      // 如果現在是Questionnaire階段，我們要先把Questionnaire的Modal關掉
+      //console.log(this.lib.Main.$refs.StepComponent.$refs.Questionnaire)
+      if (this.lib.Main.$refs.StepComponent.$refs.Questionnaire
+              && this.lib.Main.$refs.StepComponent.$refs.Questionnaire.$refs.Modal) {
+        this.lib.Main.$refs.StepComponent.$refs.Questionnaire.$refs.Modal.hide()
+      }
+      //console.log(this.lib.Main.$refs.StepComponent.$refs.Modal)
+      
+      this.$refs.Modal.show()
+    },
+    logout () {
+      this.lib.auth.logoutAndReload()
+    }
   } // methods
 }
 

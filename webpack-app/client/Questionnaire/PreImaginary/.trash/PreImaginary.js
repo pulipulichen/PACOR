@@ -21,7 +21,7 @@ let PreImaginary = {
       answer: '',
       start_timestamp: null
     }
-    data.persistKey = key + '.log'
+    data.persistKey = key + this.status.userID + '.log'
     data.remainingSeconds = null
     data.answer = ''
     data.header = this.$t('READING_PROGRESS.' + key)

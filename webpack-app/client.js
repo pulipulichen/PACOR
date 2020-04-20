@@ -145,6 +145,8 @@ let VueController = {
       style: null,
       tippy: null,
       //tippyUtils: null,
+      
+      Main: null,
     },
     errors: [],
     persistAttrs: [
@@ -154,10 +156,11 @@ let VueController = {
 //  watch: {},
   //created: function () {
   //},
-//  mounted: function () {
+  mounted: function () {
 //    
 //    //console.log(this.lib.auth.nextStep)
-//  },
+    this.lib.Main = this.$refs.Main
+  },
   
   //methods: { }, // methods: {
   
