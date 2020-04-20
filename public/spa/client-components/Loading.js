@@ -5190,7 +5190,8 @@ __webpack_require__.r(__webpack_exports__);
   let timer
   
   let enableMouseHint = true
-  let debugTopPadding = 250
+  //let debugTopPadding = 250
+  let debugTopPadding = 0
   
   let onWindowScrollEvent = () => {
     isScrolling = true

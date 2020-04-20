@@ -11,7 +11,8 @@ export default function (TutorialManager) {
   let timer
   
   let enableMouseHint = true
-  let debugTopPadding = 250
+  //let debugTopPadding = 250
+  let debugTopPadding = 0
   
   let onWindowScrollEvent = () => {
     isScrolling = true
