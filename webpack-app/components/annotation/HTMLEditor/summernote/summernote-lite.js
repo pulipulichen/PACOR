@@ -8191,7 +8191,7 @@ sel.addRange(range);
           this.context.memo('button.pastePlainText', function () {
               return _this.button({
                   className: 'note-btn-pastePlainText',
-                  contents: 'P',
+                  contents: '貼上: Ctrl+v',
                   tooltip: _this.lang.font.pastePlainText + _this.representShortcut('pastePlainText'),
                   click: _this.context.createInvokeHandlerAndUpdateState('editor.pastePlainText')
               }).render();
