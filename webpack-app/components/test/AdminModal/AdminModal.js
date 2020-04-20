@@ -53,6 +53,15 @@ let AdminModal = {
     },
     logout () {
       this.lib.auth.logoutAndReload()
+    },
+    goToNextStep: async function () {
+      if (this.lib.Main.$refs.StepComponent.$refs.Questionnaire) {
+        this.lib.Main.$refs.StepComponent.$refs.Questionnaire.nextStep()
+      }
+      else {
+        console.log('直接下一階段')
+        return await this.lib.auth.nextStep(false)
+      }
     }
   } // methods
 }

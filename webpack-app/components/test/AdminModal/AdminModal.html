@@ -22,6 +22,14 @@
         {{ $t('Logout') }}:
         {{ username }}
       </button>
+      
+      <button 
+        type="button"
+        class="ui labeled icon button"
+        v-on:click="goToNextStep">
+        <i class="forward icon"></i>
+        {{ $t('Next Step') }}
+      </button>
 
     </template>
   </modal>

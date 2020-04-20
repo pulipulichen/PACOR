@@ -60,6 +60,11 @@ export default function (Questionnaire) {
      */
     //console.log(data)
     this.isWaitingLoading = true
+    
+    let inputKeyword = this.inputKeyword.trim()
+    if (inputKeyword !== '') {
+      this.addAnswerKeyword(inputKeyword)
+    }
 
     await this.lib.AxiosHelper.post('/client/ReadingProgress/end', this.log)
     localStorage.removeItem(this.persistKey)

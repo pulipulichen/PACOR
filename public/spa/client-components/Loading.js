@@ -89,7 +89,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Admin Panel":"管理面版","Logout":"登出"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Admin Panel":"管理面版","Logout":"登出","Next Step":"進入下一階段"}}')
   delete Component.options._Ctor
 }
 
@@ -1033,6 +1033,23 @@ var render = function() {
                         _vm._s(_vm.$t("Logout")) +
                         ":\r\n        " +
                         _vm._s(_vm.username) +
+                        "\r\n      "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "ui labeled icon button",
+                    attrs: { type: "button" },
+                    on: { click: _vm.goToNextStep }
+                  },
+                  [
+                    _c("i", { staticClass: "forward icon" }),
+                    _vm._v(
+                      "\r\n        " +
+                        _vm._s(_vm.$t("Next Step")) +
                         "\r\n      "
                     )
                   ]
@@ -5839,6 +5856,15 @@ let AdminModal = {
     },
     logout () {
       this.lib.auth.logoutAndReload()
+    },
+    goToNextStep: async function () {
+      if (this.lib.Main.$refs.StepComponent.$refs.Questionnaire) {
+        this.lib.Main.$refs.StepComponent.$refs.Questionnaire.nextStep()
+      }
+      else {
+        console.log('直接下一階段')
+        return await this.lib.auth.nextStep(false)
+      }
     }
   } // methods
 }
