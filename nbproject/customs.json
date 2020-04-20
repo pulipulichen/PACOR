@@ -51,6 +51,7 @@
       "attributes": {
         "v-bind:title": {},
         "v-bind:data-user-id": {},
+        "v-bind:data-annotation-type": {},
         "v-bind:data-section-id": {},
         "v-click-outside": {},
         "v-bind:data-annotation-id": {},

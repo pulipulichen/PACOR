@@ -2,7 +2,8 @@ let AnnotationItem = {
   props: ['lib', 'status', 'config'
     , 'annotation', 'mode'
     , 'searchKeyword'
-    , 'findUser', 'findType', 'findAnnotation', 'assistUser'],
+    , 'findUser', 'findType', 'findAnnotation', 'assistUser'
+    , 'findNote'],
   data() {    
     this.$i18n.locale = this.config.locale
     
@@ -51,6 +52,13 @@ let AnnotationItem = {
       }
       
       return classNames
+    },
+    computedNoteClassList () {
+      let classList = []
+      if (this.findNote) {
+        classList.push('enable-find-note')
+      }
+      return classList.join(' ')
     },
     note () {
       //console.log(this.annotation.notes)
@@ -116,6 +124,11 @@ let AnnotationItem = {
         this.findType(data)
       }
     },
+    onFindNote () {
+      if (typeof(this.findNote) === 'function') {
+        this.findNote(this.annotation)
+      }
+    },
     onClick () {
       if (this.lib.RangyManager) {
         this.lib.RangyManager.hoverIn(this.annotation)
@@ -134,7 +147,7 @@ let AnnotationItem = {
       }
       this.$emit('mouseout', this.annotation)
     },
-    onlike: async function () {
+    onLike: async function () {
       let data = {
         annotationID: this.annotation.id
       }

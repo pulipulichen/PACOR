@@ -25,9 +25,9 @@
       </template>
     </button>
   </span>
-  
+
   <!-- ==================================== -->
-  
+
   <span 
     class="button-column"
     v-if="!isNotMe && likes > 0">
@@ -44,16 +44,17 @@
       </template>
     </button>
   </span>
-  
+
   <!-- ==================================== -->
-  
+
   <span 
     class="button-column"
     v-if="!enableComment && enableComment !== false">
-    <button type="button"
-            class="comments ui compact button"
-            v-bind:class="computedCommentsButtonClass"
-            v-on:click.stop="comment">
+    <button 
+      type="button"
+      class="comments ui compact button"
+      v-bind:class="computedCommentsButtonClass"
+      v-on:click.stop="comment">
       <i class="comment outline icon"></i>
       <template v-if="showLabel">
         <template v-if="likes > 0">

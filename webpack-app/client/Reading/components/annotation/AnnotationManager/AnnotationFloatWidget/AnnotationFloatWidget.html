@@ -27,8 +27,9 @@
       mode="full"
       v-bind:annotation="annotation"
       v-bind:findAnnotation="viewAnnotation"
-      v-bind:findUser="findUser"
-      v-bind:findType="findType"
+      v-bind:findUser="viewAnnotation"
+      v-bind:findType="viewAnnotation"
+      v-on:click="viewAnnotation"
       v-on:comment="viewAnnotationComment">
     </annotation-item>
     

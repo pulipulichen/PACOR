@@ -28,8 +28,8 @@
       v-bind:lib="lib"
       
       v-bind:annotation="annotation"
-      v-on:like="onlike"
-      v-on:unlike="onlike"
+      v-on:like="onLike"
+      v-on:unlike="onLike"
       v-on:comment="$emit('comment', annotation)"
       size="mini">
     </annotation-item-interactive>
@@ -76,7 +76,11 @@
 
     </span>
 
-    <div class="note text-container" v-if="note" v-html="note"></div>
+    <div class="note text-container" 
+         v-on:click="onFindNote"
+         v-bind:class="computedNoteClassList"
+         v-if="note" 
+         v-html="note"></div>
   </div>
     
 </div>
