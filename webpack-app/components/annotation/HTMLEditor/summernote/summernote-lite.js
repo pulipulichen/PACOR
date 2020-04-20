@@ -3857,6 +3857,7 @@ import $ from 'jquery'
                   'font-uncomment': document.queryCommandState('uncomment') ? 'uncomment' : 'normal',
                   'font-htmlify': document.queryCommandState('htmlify') ? 'htmlify' : 'normal',
                   'font-textify': document.queryCommandState('textify') ? 'textify' : 'normal',
+                  'font-paste': document.queryCommandState('paste') ? 'paste' : 'normal',
                   'font-iframe': document.queryCommandState('iframe') ? 'iframe' : 'normal',
                   'font-family': document.queryCommandValue('fontname') || styleInfo['font-family']
               });
@@ -5056,6 +5057,27 @@ import $ from 'jquery'
                 _this.context.triggerEvent('change', _this.$editable.html());
               }
             }
+            return this
+          }
+          
+          /**
+           * @author Pulipuli Chen 20200421
+           * @returns {Editor.Editor}
+           */
+          this.pastePlainText = function () {
+            if (!navigator.clipboard) {
+              console.error('Only work in HTTPS!')
+              return false
+            }
+            
+            navigator.clipboard.readText()
+            .then(text => {
+              //resultsEl.innerText = text;
+              console.log(text)
+            })
+            .catch(err => {
+              console.log('Something went wrong', err);
+            })
             return this
           }
           
@@ -8164,6 +8186,14 @@ sel.addRange(range);
                   contents: 'T',
                   tooltip: _this.lang.font.textify + _this.representShortcut('textify'),
                   click: _this.context.createInvokeHandlerAndUpdateState('editor.textify')
+              }).render();
+          });
+          this.context.memo('button.pastePlainText', function () {
+              return _this.button({
+                  className: 'note-btn-pastePlainText',
+                  contents: 'P',
+                  tooltip: _this.lang.font.pastePlainText + _this.representShortcut('pastePlainText'),
+                  click: _this.context.createInvokeHandlerAndUpdateState('editor.pastePlainText')
               }).render();
           });
           this.context.memo('button.iframe', function () {
