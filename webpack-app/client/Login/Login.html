@@ -31,14 +31,16 @@
     </template>
     <template v-slot:content>
       <div class="ui middle aligned grid">
-        <media v-bind:query="{minWidth: compactWidth}"
-               v-on:media-enter="isCompactMode = false"
-               v-on:media-leave="isCompactMode = true">
+        <media 
+          v-bind:query="{minWidth: compactWidth}"
+          v-on:media-enter="isCompactMode = false"
+          v-on:media-leave="isCompactMode = true">
           <div class="content-full-height logo-column six wide column"
                v-if="!isCompactMode">
-            <img v-bind:src="logoURL"
-                 class="ui image"
-                 v-on:dblclick="createMockupUsername" />
+            <img 
+              v-bind:src="logoURL"
+              class="ui image"
+              v-on:dblclick="createMockupUsername" />
           </div>
 
         </media>

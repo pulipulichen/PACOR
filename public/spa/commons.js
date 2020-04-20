@@ -9,7 +9,7 @@
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] img {\n  max-width: 100%;\n  height: auto;\n}\n", "",{"version":3,"sources":["global-article.less"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,YAAY;AACd","file":"global-article.less","sourcesContent":["[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] img {\n  max-width: 100%;\n  height: auto;\n}\n"]}]);
+exports.push([module.i, "/**\n * 這個是整篇文章的style\n */\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] img {\n  max-width: 100%;\n  height: auto;\n  -webkit-user-drag: none;\n  -khtml-user-drag: none;\n  -moz-user-drag: none;\n  -o-user-drag: none;\n  user-drag: none;\n}\n", "",{"version":3,"sources":["global-article.less"],"names":[],"mappings":"AAAA;;EAEE;AACF;EACE,eAAe;EACf,YAAY;EACZ,uBAAuB;EACvB,sBAAsB;EACtB,oBAAoB;EACpB,kBAAkB;EAClB,eAAe;AACjB","file":"global-article.less","sourcesContent":["/**\n * 這個是整篇文章的style\n */\n[data-pacor-section-seq-id] [data-pacor-paragraph-seq-id] img {\n  max-width: 100%;\n  height: auto;\n  -webkit-user-drag: none;\n  -khtml-user-drag: none;\n  -moz-user-drag: none;\n  -o-user-drag: none;\n  user-drag: none;\n}\n"]}]);
 
 
 /***/ }),

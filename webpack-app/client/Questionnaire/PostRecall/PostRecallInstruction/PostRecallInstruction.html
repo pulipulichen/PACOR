@@ -16,9 +16,10 @@
     <li v-if="images.length > 0"
         >{{ $t(`This article includes {0} images:`, [headings.length]) }}
       <br />
-      <span v-for="image in images"
-            class="image-container"
-            ><img v-bind:src="image.src" 
+      <span 
+        v-for="image in images"
+        class="image-container"
+        ><img v-bind:src="image.src" 
             v-bind:title="image.title" /></span>
     </li>
     <li>{{ $t(`Don't worry about punctuation or typos, just write down what you read.`) }}</li>

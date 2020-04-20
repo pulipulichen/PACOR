@@ -1,20 +1,24 @@
-<span class="UserAvatar"
-      v-if="dataUser">
-  <img v-bind:src="avatarURL"
-       class="avatar user-avatar"
-       v-bind:title="username" />
-  
-  <span class="floating-label" 
-        v-if="isYou"
-        v-bind:title="$t('You')">
+<span 
+  class="UserAvatar"
+  v-if="dataUser">
+  <img 
+    v-bind:src="avatarURL"
+    class="avatar user-avatar"
+    v-bind:title="username" />
+
+  <span 
+    class="floating-label" 
+    v-if="isYou"
+    v-bind:title="$t('You')">
     <span class="icon-container user-self-badge">
       <i class="green id badge icon"></i>
     </span>
   </span>
-  
-  <span class="floating-label" 
-        v-if="isAdmin"
-        v-bind:title="$t('You')">
+
+  <span 
+    class="floating-label" 
+    v-if="isAdmin"
+    v-bind:title="$t('You')">
     <span class="icon-container admin-badge">
       <i class="yellow chess king icon"></i>
     </span>
