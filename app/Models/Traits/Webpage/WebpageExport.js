@@ -139,6 +139,7 @@ class WebpageExport {
               .fetch()
       
       let output = []
+      //console.log(annotations.size(), this.primaryKeyValue)
       
       for (let i = 0; i < annotations.size(); i++) {
         let annotation = annotations.nth(i)

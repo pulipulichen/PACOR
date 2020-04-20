@@ -62,7 +62,7 @@ let AdminModal = {
       if (window.confirm(this.$t('Are you sure to go to next step?')) === false) {
         return false
       }
-      
+      this.$refs.Modal.hide()
       
       if (this.lib.Main.$refs.StepComponent.$refs.Questionnaire) {
         this.lib.Main.$refs.StepComponent.$refs.Questionnaire.nextStep()

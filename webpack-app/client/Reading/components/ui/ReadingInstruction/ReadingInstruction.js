@@ -9,7 +9,8 @@ let ReadingInstruction = {
               + this.status.userID + '.' 
               + this.lib.auth.currentStep
     let hasReadTutorial = (localStorage.getItem(localStorageUserKeyPrefix) !== null)
-    if (this.lib.auth.currentStep === 'FreeReading') {
+    if (this.lib.auth.currentStep === 'FreeReading'
+            || this.lib.auth.currentStepConfig.forceTutorial === false) {
       hasReadTutorial = true
     }
     
