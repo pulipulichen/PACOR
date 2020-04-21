@@ -81,6 +81,10 @@ export default function (Questionnaire) {
   Questionnaire.methods.startAnswer = function () {
     this.page = 'Answer'
     this.persist()
+    //this.$refs.SearchInputText.focus()
+    setTimeout(() => {
+      $('.SearchInputText').focus()
+    }, 100)
   }
   
   Questionnaire.methods.detectNextStep = function () {

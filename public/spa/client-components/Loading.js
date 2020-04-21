@@ -1009,7 +1009,11 @@ var render = function() {
             fn: function() {
               return [
                 _vm._v(
-                  "\r\n      " + _vm._s(_vm.$t("Admin Panel")) + "\r\n    "
+                  "\r\n      " +
+                    _vm._s(_vm.$t("Admin Panel")) +
+                    "\r\n      :\r\n      " +
+                    _vm._s(_vm.username) +
+                    "\r\n    "
                 )
               ]
             },
@@ -1032,8 +1036,6 @@ var render = function() {
                       _vm._v(
                         "\r\n          " +
                           _vm._s(_vm.$t("Clear Data")) +
-                          ":\r\n          " +
-                          _vm._s(_vm.username) +
                           "\r\n        "
                       )
                     ]
@@ -1051,8 +1053,6 @@ var render = function() {
                       _vm._v(
                         "\r\n          " +
                           _vm._s(_vm.$t("Logout")) +
-                          ":\r\n          " +
-                          _vm._s(_vm.username) +
                           "\r\n        "
                       )
                     ]

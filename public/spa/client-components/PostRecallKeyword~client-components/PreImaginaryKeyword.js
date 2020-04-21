@@ -242,7 +242,7 @@ var render = function() {
                                         }
                                       ],
                                       ref: "SearchInputText",
-                                      staticClass: "prompt",
+                                      staticClass: "prompt SearchInputText",
                                       attrs: {
                                         type: "text",
                                         placeholder: _vm.$t(
@@ -1667,6 +1667,10 @@ __webpack_require__.r(__webpack_exports__);
   Questionnaire.methods.startAnswer = function () {
     this.page = 'Answer'
     this.persist()
+    //this.$refs.SearchInputText.focus()
+    setTimeout(() => {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.SearchInputText').focus()
+    }, 100)
   }
   
   Questionnaire.methods.detectNextStep = function () {
