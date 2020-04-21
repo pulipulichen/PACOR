@@ -50,6 +50,7 @@ export default function (Questionnaire) {
     data.minWords = data.minKeywords
     data.noResult = false
     data.inputKeyword = ""
+    data.inputKeywordComposition = ""
     
     data.nextStepClickCounter = 0
     data.nextStepClickTimer = null

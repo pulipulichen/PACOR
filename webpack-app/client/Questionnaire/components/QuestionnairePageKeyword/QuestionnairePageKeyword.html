@@ -63,16 +63,29 @@
             <div class="ui search"
                  ref="SearchInput"
                  v-bind:class="{'disabled': isTimeUp}">
-              <div class="ui icon input">
-                <input class="prompt SearchInputText" 
-                       type="text" 
-                       v-model="inputKeyword"
-                       ref='SearchInputText'
-                       v-bind:placeholder="$t('Add a keyword you think of based on the previous clues?')">
+              <div class="ui right labeled input">
+                <input 
+                  class="prompt SearchInputText" 
+                  type="text" 
+                  v-model="inputKeyword"
+                  ref='SearchInputText'
+                  v-on:compositionstart="onCompositionStart"
+                  v-on:compositionupdate="onCompositionStart"
+                  v-on:compositionend="onCompositionEnd"
+                  v-bind:placeholder="$t('Add a keyword you think of based on the previous clues?')">
+                <!--
                 <i class="plus icon submit-button"
                    v-bind:class="{link: (inputKeyword.trim() !== '')}"
                    v-bind:title="$t('Add keyword...')"
                    v-on:click="onSubmit"></i>
+                -->
+                <div
+                  class="ui label add-keyword-button"
+                  v-bind:class="{ green: (inputKeyword.trim() !== '' || inputKeywordComposition !== '')}"
+                  v-bind:title="$t('Add keyword...')"
+                  v-on:click="onSubmit">
+                  {{ $t(`Type "Enter" to Add Keyword`) }}
+                </div>
               </div>
               <div class="results"></div>
             </div>

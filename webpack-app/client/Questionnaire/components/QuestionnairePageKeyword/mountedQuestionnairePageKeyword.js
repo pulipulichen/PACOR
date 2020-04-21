@@ -19,6 +19,11 @@ export default function (Questionnaire) {
         setTimeout(() => {
           this.persist()
         }, 1000)
+        
+        console.log(this.isTimeUp)
+        if (this.isTimeUp === true) {
+          return false
+        }
       }
     })
   }

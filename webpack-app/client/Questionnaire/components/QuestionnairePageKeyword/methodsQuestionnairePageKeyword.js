@@ -82,6 +82,10 @@ export default function (Questionnaire) {
     this.page = 'Answer'
     this.persist()
     //this.$refs.SearchInputText.focus()
+    console.log(this.isTimeUp)
+    if (this.isTimeUp === true) {
+      return false
+    }
     setTimeout(() => {
       $('.SearchInputText').focus()
     }, 100)
@@ -102,4 +106,16 @@ export default function (Questionnaire) {
     }, 3000)
   }
   
+  
+  Questionnaire.methods.onCompositionStart = function (event) {
+    //console.log(event)
+    if (event.data.trim() !== '') {
+      this.inputKeywordComposition =  event.data.trim()
+    }
+  }
+  
+  Questionnaire.methods.onCompositionEnd = function (event) {
+    //console.log(event)
+    this.inputKeywordComposition = ''
+  }
 }
