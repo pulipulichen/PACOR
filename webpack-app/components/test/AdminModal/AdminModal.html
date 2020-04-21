@@ -16,14 +16,20 @@
     <template 
       v-slot:content>
 
-      <div class="ui fluid buttons">
-
         <button 
           type="button"
           class="ui labeled icon button"
-          v-on:click="clearData">
+          v-on:click="backToFirstStep">
           <i class="fast backward icon"></i>
-          {{ $t('Clear Data') }}
+          {{ $t('Back to First Step') }}
+        </button>
+      
+        <button 
+          type="button"
+          class="ui labeled icon button"
+          v-on:click="backToPreviousStep">
+          <i class="backward icon"></i>
+          {{ $t('Back to Previous Step') }}
         </button>
 
         <button 
@@ -42,7 +48,6 @@
           {{ $t('Next Step') }}
         </button>
 
-      </div>
 
     </template>
   </modal>

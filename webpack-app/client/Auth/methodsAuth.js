@@ -166,8 +166,15 @@ export default function (Auth) {
     
   }
   
-  Auth.methods.clearReadingProgress = async function () {
-    await this.lib.AxiosHelper.get('/client/ReadingProgress/clearReadingProgress')
+  Auth.methods.backToFirstStep = async function () {
+    await this.lib.AxiosHelper.get('/client/ReadingProgress/backToFirstStep')
+    this.clearLocalStorage()
+    location.reload()
+    return false
+  }
+  
+  Auth.methods.backToPreviousStep = async function () {
+    await this.lib.AxiosHelper.get('/client/ReadingProgress/backToPreviousStep')
     this.clearLocalStorage()
     location.reload()
     return false

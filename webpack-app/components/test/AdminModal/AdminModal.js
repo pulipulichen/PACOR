@@ -72,11 +72,17 @@ let AdminModal = {
         return await this.lib.auth.nextStep(false)
       }
     },
-    clearData: async function () {
-      if (window.confirm(this.$t('Are you sure to clear data?')) === false) {
+    backToFirstStep: async function () {
+      if (window.confirm(this.$t('Are you sure to back to the first step?')) === false) {
         return false
       }
-      await this.lib.auth.clearReadingProgress()
+      await this.lib.auth.backToFirstStep()
+    },
+    backToPreviousStep: async function () {
+      if (window.confirm(this.$t('Are you sure to back to previous step?')) === false) {
+        return false
+      }
+      await this.lib.auth.backToPreviousStep()
     },
   } // methods
 }

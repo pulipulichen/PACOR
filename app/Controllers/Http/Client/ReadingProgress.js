@@ -119,20 +119,23 @@ class ReadingProgress {
 //    return await user.getRemainingSeconds(webpage)
 //  }
 
-  async clearReadingProgress({request, webpage, user}) {
-    //let profiler = new Profiler(0, 'Client/ReadingProgress.clearReadingProgress()')
-    
-    //console.log('ReadingProgress.end', 1)
-    //webpage.log(user, 'ReadingProgress.clearReadingProgress')
-    //profiler.after('webpage.log()')
-    
-    //console.log(webpage.primaryKeyValue, user.primaryKeyValue)
-    
+  async backToFirstStep({request, webpage, user}) {
+    webpage.log(user, 'ReadingProgress.backToFirstStep')
     await ReadingProgressModel.query()
             .where('webpage_id', webpage.primaryKeyValue)
             .where('user_id', user.primaryKeyValue)
             .delete()
-    //console.log(2222)
+    return 1
+  }
+  
+  async backToPreviousStep({request, webpage, user}) {
+    webpage.log(user, 'ReadingProgress.backToPreviousStep')
+    await ReadingProgressModel.query()
+            .where('webpage_id', webpage.primaryKeyValue)
+            .where('user_id', user.primaryKeyValue)
+            .orderBy('start_timestamp', 'desc')
+            .limit(1)
+            .delete()
     return 1
   }
 }
