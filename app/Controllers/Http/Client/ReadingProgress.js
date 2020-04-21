@@ -130,12 +130,28 @@ class ReadingProgress {
   
   async backToPreviousStep({request, webpage, user}) {
     webpage.log(user, 'ReadingProgress.backToPreviousStep')
-    await ReadingProgressModel.query()
+    let result = await ReadingProgressModel.query()
             .where('webpage_id', webpage.primaryKeyValue)
             .where('user_id', user.primaryKeyValue)
-            .orderBy('start_timestamp', 'desc')
+            .orderBy('id', 'desc')
             .limit(1)
-            .delete()
+            .fetch()
+    //console.log(result.size())
+    await result.first().delete()
+    
+    // ----------------------------
+    
+    let lastStep = await ReadingProgressModel.query()
+            .where('webpage_id', webpage.primaryKeyValue)
+            .where('user_id', user.primaryKeyValue)
+            .orderBy('id', 'desc')
+            .limit(1)
+            .fetch()
+    if (lastStep.size() > 0) {
+      lastStep = lastStep.first()
+      lastStep.end_timestamp = null
+      await lastStep.save()
+    }
     return 1
   }
 }

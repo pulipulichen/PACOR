@@ -175,7 +175,6 @@ export default function (Auth) {
   
   Auth.methods.backToPreviousStep = async function () {
     await this.lib.AxiosHelper.get('/client/ReadingProgress/backToPreviousStep')
-    this.clearLocalStorage()
     location.reload()
     return false
   }

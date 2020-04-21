@@ -1893,7 +1893,6 @@ __webpack_require__.r(__webpack_exports__);
   
   Auth.methods.backToPreviousStep = async function () {
     await this.lib.AxiosHelper.get('/client/ReadingProgress/backToPreviousStep')
-    this.clearLocalStorage()
     location.reload()
     return false
   }
@@ -5924,7 +5923,7 @@ let AdminModal = {
       }
       else {
         //console.log('直接下一階段')
-        return await this.lib.auth.nextStep(false)
+        return await this.lib.auth.nextStep(true)
       }
     },
     backToFirstStep: async function () {

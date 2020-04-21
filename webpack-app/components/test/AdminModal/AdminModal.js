@@ -69,7 +69,7 @@ let AdminModal = {
       }
       else {
         //console.log('直接下一階段')
-        return await this.lib.auth.nextStep(false)
+        return await this.lib.auth.nextStep(true)
       }
     },
     backToFirstStep: async function () {
