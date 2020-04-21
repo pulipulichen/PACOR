@@ -282,6 +282,8 @@ var render = function() {
         attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
       }),
       _vm._v(" "),
+      _vm.enableConfirmExit ? _c("block-exit") : _vm._e(),
+      _vm._v(" "),
       _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
       _vm._v(" "),
       _c("notification-manager", {
@@ -1586,8 +1588,15 @@ let CollaborativeReading = {
     //'notification-manager': NotificationManager
     'reading-instruction-message': _CollaborativeReadingInstruction_CollaborativeReadingInstruction_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-//  computed: {
-//  },
+  computed: {
+    enableConfirmExit () {
+      if (this.lib.auth
+              && this.lib.auth.currentStepConfig.confirmExit) {
+        return true
+      }
+      return false
+    }
+  },
 //  watch: {
 //  },
   mounted: async function () {

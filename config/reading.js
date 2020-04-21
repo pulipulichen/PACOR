@@ -101,14 +101,14 @@ module.exports = {
       limitMinutes: 3,
       //limitMinutes: 0.03,
       countdownAtStart: false,
-      preloadPreImaginary: true  // 是否顯示前面撰寫的內容
+      preloadPreImaginary: true,  // 是否顯示前面撰寫的內容
     },
     'PostRecallKeyword': {
       //instruction: '/instruction/questionnaire/PostRecall.html',
       minKeywords: 10,
       limitMinutes: 3,
       //limitMinutes: 0.2,
-      preloadPreImaginary: true  // 是否顯示前面撰寫的內容
+      preloadPreImaginary: true,  // 是否顯示前面撰寫的內容
     },
     
     // ---------------------------
@@ -159,7 +159,8 @@ module.exports = {
       },
       debug: {
         countdownPause: false
-      }
+      },
+      confirmExit: true,
     },
     'CollaborativeReading': {
       //instruction: '/instruction/reading/CollaborativeReading.html',
@@ -202,7 +203,8 @@ module.exports = {
       },
       debug: {
         countdownPause: false
-      }
+      },
+      confirmExit: true,
     },
     
     'FreeReading': {
@@ -246,6 +248,7 @@ module.exports = {
       showFinishMessage: true, // 顯示恭喜完成的訊息
       //keepShowInstructionMessage: true,
       enableLogout: true,
+      confirmExit: true,
       /**
        * 顯示下一個要閱讀網頁
        * {user_id} {username} {display_name} {referrer}

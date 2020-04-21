@@ -84,7 +84,10 @@
     ref="SearchManager">
   </search-manager>
 
-  <!-- <block-exit></block-exit> -->
+  <block-exit
+    v-if="enableConfirmExit">
+  </block-exit>
+  
   <activity-timer 
     v-bind:config="config"
     v-bind:lib="lib">

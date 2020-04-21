@@ -223,6 +223,8 @@ var render = function() {
         on: { complete: _vm.onChecklistComplete }
       }),
       _vm._v(" "),
+      _vm.enableConfirmExit ? _c("block-exit") : _vm._e(),
+      _vm._v(" "),
       _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
     ],
     1
@@ -812,8 +814,15 @@ let IndividualReading = {
     'navigation-items': _NavigationItems_NavigationItems_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     'individual-reading-instruction': _IndividualReadingInstruction_IndividualReadingInstruction_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
   },
-//  computed: {
-//  },
+  computed: {
+    enableConfirmExit () {
+      if (this.lib.auth
+              && this.lib.auth.currentStepConfig.confirmExit) {
+        return true
+      }
+      return false
+    }
+  },
 //  watch: {
 //  },
   mounted() {

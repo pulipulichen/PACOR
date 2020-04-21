@@ -12,8 +12,15 @@ let IndividualReading = {
     'navigation-items': NavigationItems,
     'individual-reading-instruction': IndividualReadingInstruction,
   },
-//  computed: {
-//  },
+  computed: {
+    enableConfirmExit () {
+      if (this.lib.auth
+              && this.lib.auth.currentStepConfig.confirmExit) {
+        return true
+      }
+      return false
+    }
+  },
 //  watch: {
 //  },
   mounted() {

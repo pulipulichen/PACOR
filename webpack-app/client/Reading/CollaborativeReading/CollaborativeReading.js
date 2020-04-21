@@ -15,8 +15,15 @@ let CollaborativeReading = {
     //'notification-manager': NotificationManager
     'reading-instruction-message': CollaborativeReadingInstruction
   },
-//  computed: {
-//  },
+  computed: {
+    enableConfirmExit () {
+      if (this.lib.auth
+              && this.lib.auth.currentStepConfig.confirmExit) {
+        return true
+      }
+      return false
+    }
+  },
 //  watch: {
 //  },
   mounted: async function () {
