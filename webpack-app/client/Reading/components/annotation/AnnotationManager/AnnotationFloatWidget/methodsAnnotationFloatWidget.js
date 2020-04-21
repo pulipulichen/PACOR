@@ -55,6 +55,17 @@ export default function (AnnotationFloatWidget) {
 
     this.reset()
   }
+  
+  AnnotationFloatWidget.methods.viewAnnotationByFind = function () {
+    //(annotation) => {$emit('findAnnotation', annotation)}
+
+    this.lib.AnnotationPanel.setAnnotation(this.annotation)
+
+    //console.log('test this.lib.AnnotationPanel.focusCommentInput(2)')
+    //this.lib.AnnotationPanel.focusCommentInput(2)
+
+    this.reset()
+  }
 
   AnnotationFloatWidget.methods.viewAnnotationComment = function (annotation) {
     this.lib.AnnotationPanel.setAnnotation(annotation)

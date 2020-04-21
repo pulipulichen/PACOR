@@ -1171,8 +1171,8 @@ var render = function() {
                   mode: "full",
                   annotation: _vm.annotation,
                   findAnnotation: _vm.viewAnnotation,
-                  findUser: _vm.viewAnnotation,
-                  findType: _vm.viewAnnotation
+                  findUser: _vm.viewAnnotationByFind,
+                  findType: _vm.viewAnnotationByFind
                 },
                 on: {
                   click: _vm.viewAnnotation,
@@ -6584,6 +6584,17 @@ __webpack_require__.r(__webpack_exports__);
     //(annotation) => {$emit('findAnnotation', annotation)}
 
     this.lib.AnnotationPanel.setAnnotation(annotation)
+
+    //console.log('test this.lib.AnnotationPanel.focusCommentInput(2)')
+    //this.lib.AnnotationPanel.focusCommentInput(2)
+
+    this.reset()
+  }
+  
+  AnnotationFloatWidget.methods.viewAnnotationByFind = function () {
+    //(annotation) => {$emit('findAnnotation', annotation)}
+
+    this.lib.AnnotationPanel.setAnnotation(this.annotation)
 
     //console.log('test this.lib.AnnotationPanel.focusCommentInput(2)')
     //this.lib.AnnotationPanel.focusCommentInput(2)
