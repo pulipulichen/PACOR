@@ -18,7 +18,7 @@ module.exports = {
     
     //onlyShowTutorialOrder: [62],
     
-    stayInReadingProgress: 'PreImaginaryKeyword'
+    //stayInReadingProgress: 'PreImaginaryKeyword'
     //stayInReadingProgress: 'PostRecallKeyword'
     //stayInReadingProgress: 'IndividualReading'
     //stayInReadingProgress: 'CollaborativeReading'
