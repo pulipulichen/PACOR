@@ -84,6 +84,9 @@ let AdminModal = {
       }
       await this.lib.auth.backToPreviousStep()
     },
+    reload () {
+      location.reload()
+    }
   } // methods
 }
 

@@ -856,7 +856,7 @@ __webpack_require__.r(__webpack_exports__);
             && this.lib.auth.currentStepConfig.HTMLEditor.insertMultimedia === false) {
       return [
         // [groupName, [list of button]]
-        ['action', ['pastePlainText']],
+        ['action', ['pastePlainTextHint']],
         ['list', ['ul', 'ol', 'indent', 'outdent']],
         ['insert', ['hr']]
       ]
@@ -9536,12 +9536,12 @@ sel.addRange(range);
                   click: _this.context.createInvokeHandlerAndUpdateState('editor.textify')
               }).render();
           });
-          this.context.memo('button.pastePlainText', function () {
+          this.context.memo('button.pastePlainTextHint', function () {
               return _this.button({
-                  className: 'note-btn-pastePlainText',
-                  contents: '貼上: Ctrl+v',
-                  tooltip: _this.lang.font.pastePlainText + _this.representShortcut('pastePlainText'),
-                  click: _this.context.createInvokeHandlerAndUpdateState('editor.pastePlainText')
+                  className: 'note-btn-pastePlainTextHint',
+                  contents: '貼上: Ctrl+Shift+v',
+                  tooltip: _this.lang.font.pastePlainText + _this.representShortcut('pastePlainTextHint'),
+                  click: () => {}
               }).render();
           });
           this.context.memo('button.iframe', function () {

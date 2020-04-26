@@ -48,7 +48,13 @@
           {{ $t('Next Step') }}
         </button>
 
-
+        <button 
+          type="button"
+          class="ui labeled icon button"
+          v-on:click="reload">
+          <i class="undo alternate icon"></i>
+          {{ $t('Reload') }}
+        </button>
     </template>
   </modal>
 </div>

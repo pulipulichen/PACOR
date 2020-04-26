@@ -1089,6 +1089,23 @@ var render = function() {
                         "\r\n        "
                     )
                   ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "ui labeled icon button",
+                    attrs: { type: "button" },
+                    on: { click: _vm.reload }
+                  },
+                  [
+                    _c("i", { staticClass: "undo alternate icon" }),
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(_vm.$t("Reload")) +
+                        "\r\n        "
+                    )
+                  ]
                 )
               ]
             },
@@ -5939,6 +5956,9 @@ let AdminModal = {
       }
       await this.lib.auth.backToPreviousStep()
     },
+    reload () {
+      location.reload()
+    }
   } // methods
 }
 

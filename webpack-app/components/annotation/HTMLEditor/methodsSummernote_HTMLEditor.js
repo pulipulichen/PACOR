@@ -27,7 +27,7 @@ export default function (HTMLEditor) {
             && this.lib.auth.currentStepConfig.HTMLEditor.insertMultimedia === false) {
       return [
         // [groupName, [list of button]]
-        ['action', ['pastePlainText']],
+        ['action', ['pastePlainTextHint']],
         ['list', ['ul', 'ol', 'indent', 'outdent']],
         ['insert', ['hr']]
       ]
