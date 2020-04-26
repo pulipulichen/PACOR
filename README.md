@@ -11,6 +11,10 @@ https://github.com/pulipulichen/PACOR/issues
 
 https://peter.sh/experiments/chromium-command-line-switches/
 
+````
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --app=https://github.com/pulipulichen/PACOR --window-size="1920,1040" --window-position="0,0" --user-data-dir="D:/Test/Chrome-Profiles/1"
+````
+
 ----
 
 # Setup
