@@ -290,7 +290,7 @@ module.exports = {
         },
         {
           'name': 'Find answers from Wikipedia',
-          'urlPattern': 'https://zh.wikipedia.org/w/index.php?search={anchorText}&title=Special%3A搜索&go=執行&ns0=1'
+          'urlPattern': 'https://zh.wikipedia.org/w/index.php?search={anchorText}&ns0=1'
         }
       ],
     },

@@ -7,6 +7,10 @@
 
 https://github.com/pulipulichen/PACOR/issues
 
+## Chrome Switches (Command Line)
+
+https://peter.sh/experiments/chromium-command-line-switches/
+
 ----
 
 # Setup

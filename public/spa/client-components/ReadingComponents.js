@@ -15042,11 +15042,39 @@ let ResourceSearch = {
       features.push('left=' + left);
       features.push('top=' + right);
       features.push('scrollbars=1');
+      //console.log(features)
+      //url = 'http://pc.pulipuli.info:443/demo-articles/test-lorem-ipsum-1section.html'
+      
+      var newWindow = window.open('', title, features.join(','))
+      window.nw = newWindow
 
-      var newWindow = window.open(url, title, features.join(','));
+      newWindow.document.body.addEventListener('DOMContentLoaded', () => {
+        console.log('go')
+      })
+      //console.log(documentTitle)
+      //newWindow.document.write(`<iframe src="${url}" frameborder="0" style="width: 100vw; height: 100vh"></iframe>`)
+      newWindow.document.write(`<script>window.moveTo(${left}, ${right});window.resizeTo(${targetWidth}, ${targetHeight})</script>`)
+      newWindow.document.write(`<script>location.href="${url}"</script>`)
+      /*
+      setTimeout(() => {
+        //console.log(newWindow.screenX)
+        if (newWindow.screenX === 0) {
+          console.log({
+            left,
+            right,
+            targetWidth,
+            targetHeight
+          })
+          //newWindow.moveTo(left, right)
+          newWindow.resizeTo(targetWidth, targetHeight)
+        }
+      }, 100)
+      */
+      //newWindow.document.body.style.margin = 0
+      //newWindow.document.title = documentTitle
 
       if (window.focus) {
-        newWindow.focus();
+        newWindow.focus()
       }
     },
     focus() {
@@ -15206,6 +15234,14 @@ __webpack_require__.r(__webpack_exports__);
 
     return this.resources[this.selectIndexInteger].urlPattern
   }
+  
+//  ResourceSearch.computed.useIframe = function () {
+//    if (this.selectIndexInteger === null) {
+//      return false
+//    }
+//
+//    return this.resources[this.selectIndexInteger].useIframe
+//  }
   
   ResourceSearch.computed.anchorTextQuery = function () {
     let q = this.anchorText

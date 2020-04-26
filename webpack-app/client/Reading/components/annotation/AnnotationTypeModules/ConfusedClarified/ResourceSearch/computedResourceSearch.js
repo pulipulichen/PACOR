@@ -44,6 +44,14 @@ export default function (ResourceSearch) {
     return this.resources[this.selectIndexInteger].urlPattern
   }
   
+//  ResourceSearch.computed.useIframe = function () {
+//    if (this.selectIndexInteger === null) {
+//      return false
+//    }
+//
+//    return this.resources[this.selectIndexInteger].useIframe
+//  }
+  
   ResourceSearch.computed.anchorTextQuery = function () {
     let q = this.anchorText
     q = q.split(' ').join('')
