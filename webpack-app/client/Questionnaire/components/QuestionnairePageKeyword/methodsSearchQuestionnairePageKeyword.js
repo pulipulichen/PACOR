@@ -1,10 +1,13 @@
+/* global inputKeyword */
+
 import $ from 'jquery'
 
 export default function (Questionnaire) {
-
+  let search
+    
   Questionnaire.methods.initSearch = function () {
     let _this = this
-    $(this.$refs.SearchInput).search({
+    search = $(this.$refs.SearchInput).search({
       type: 'category',
       source: this.localSearch,
       cache: false,
@@ -120,5 +123,25 @@ export default function (Questionnaire) {
   
   Questionnaire.methods.labelTitleAdd = function (keyword) {
     return this.$t('Add keyword "{0}"', [keyword])
+  }
+  
+  
+  Questionnaire.methods.onCompositionStart = function (event) {
+    //console.log(event)
+    if (event.data.trim() !== '') {
+      this.inputKeywordComposition =  event.data.trim()
+      
+      //let e = new Event('keydown');
+      //this.$refs.SearchInput.dispatchEvent(e)
+      //setTimeout(() => {
+        this.inputKeyword = this.inputKeywordComposition
+      //}, 0)
+      //search.search('get result', this.inputKeywordComposition)
+    }
+  }
+  
+  Questionnaire.methods.onCompositionEnd = function (event) {
+    //console.log(event)
+    this.inputKeywordComposition = ''
   }
 }

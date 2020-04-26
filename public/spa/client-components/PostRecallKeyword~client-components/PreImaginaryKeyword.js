@@ -1695,7 +1695,7 @@ __webpack_require__.r(__webpack_exports__);
   Questionnaire.methods.startAnswer = function () {
     this.page = 'Answer'
     this.persist()
-    //this.$refs.SearchInputText.focus()
+    //this.$refs.SearchInputText.focus() 
     console.log(this.isTimeUp)
     if (this.isTimeUp === true) {
       return false
@@ -1719,19 +1719,6 @@ __webpack_require__.r(__webpack_exports__);
       clearTimeout(this.nextStepClickTimer)
     }, 3000)
   }
-  
-  
-  Questionnaire.methods.onCompositionStart = function (event) {
-    //console.log(event)
-    if (event.data.trim() !== '') {
-      this.inputKeywordComposition =  event.data.trim()
-    }
-  }
-  
-  Questionnaire.methods.onCompositionEnd = function (event) {
-    //console.log(event)
-    this.inputKeywordComposition = ''
-  }
 });
 
 /***/ }),
@@ -1747,13 +1734,16 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* global inputKeyword */
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (Questionnaire) {
-
+  let search
+    
   Questionnaire.methods.initSearch = function () {
     let _this = this
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.SearchInput).search({
+    search = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.SearchInput).search({
       type: 'category',
       source: this.localSearch,
       cache: false,
@@ -1869,6 +1859,26 @@ __webpack_require__.r(__webpack_exports__);
   
   Questionnaire.methods.labelTitleAdd = function (keyword) {
     return this.$t('Add keyword "{0}"', [keyword])
+  }
+  
+  
+  Questionnaire.methods.onCompositionStart = function (event) {
+    //console.log(event)
+    if (event.data.trim() !== '') {
+      this.inputKeywordComposition =  event.data.trim()
+      
+      //let e = new Event('keydown');
+      //this.$refs.SearchInput.dispatchEvent(e)
+      //setTimeout(() => {
+        this.inputKeyword = this.inputKeywordComposition
+      //}, 0)
+      //search.search('get result', this.inputKeywordComposition)
+    }
+  }
+  
+  Questionnaire.methods.onCompositionEnd = function (event) {
+    //console.log(event)
+    this.inputKeywordComposition = ''
   }
 });
 
