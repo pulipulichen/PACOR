@@ -14407,6 +14407,10 @@ let ValidateHelper = {
 __webpack_require__.r(__webpack_exports__);
 let VueHelper = {
   sleep: function (ms) {
+    if (typeof(ms) !== 'number') {
+      ms = 1
+    }
+    
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(true)
