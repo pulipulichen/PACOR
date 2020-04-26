@@ -9726,7 +9726,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let listener = function (event) {
+let preventExit = function (event) {
   //var message = 'Important: Please click on \'Save\' button to leave this page.';
   /*
   if (typeof (event) === 'undefined') {
@@ -9740,6 +9740,16 @@ let listener = function (event) {
   event.returnValue = ''
 }
 
+let preventFunctionKeysList = ['F1', 'F3', 'F6', 'F12']
+let preventFunctionKeys = function (event) {
+  //console.log(event)
+  //console.log(event.key)
+  if (preventFunctionKeysList.indexOf(event.key) > -1) {
+    event.preventDefault()
+    return false
+  }
+}
+
 let BlockExit = {
   data() {
     return {
@@ -9747,10 +9757,12 @@ let BlockExit = {
   },
   created: function () {
     //return // for test
-    window.addEventListener('beforeunload', listener, true)
+    window.addEventListener('beforeunload', preventExit, true)
+    document.body.addEventListener('keydown', preventFunctionKeys, true)
   },
   destroyed: function () {
-    window.removeEventListener('beforeunload', listener, true)
+    window.removeEventListener('beforeunload', preventExit, true)
+    document.body.removeEventListener('keydown', preventFunctionKeys, true)
     //console.log('destroyed')
   }
 }
