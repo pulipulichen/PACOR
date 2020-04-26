@@ -12,50 +12,7 @@ let ResourceSearch = {
   },
 //  components: {
 //  },
-  computed: {
-    resources() {
-      return this.status.readingConfig.annotationTypeModules['ConfusedClarified'].externalResourceSearches
-    },
-    computedButtonClass() {
-      if (this.anchorText === '') {
-        return 'disabled'
-      }
-
-      let i = this.selectIndex
-      if (i === null || i === undefined) {
-        return 'disabled'
-      }
-
-      if (isNaN(i) === false && typeof (i) === 'string') {
-        i = parseInt(i, 10)
-      }
-      if (!(i > -1 && i < this.resources.length)) {
-        return 'disabled'
-      }
-    },
-    selectIndexInteger() {
-      let i = this.selectIndex
-      if (i === null || i === undefined) {
-        return null
-      }
-
-      if (isNaN(i) === false && typeof (i) === 'string') {
-        i = parseInt(i, 10)
-      }
-      if (i > -1 && i < this.resources.length) {
-        return i
-      } else {
-        return null
-      }
-    },
-    urlPattern() {
-      if (this.selectIndexInteger === null) {
-        return null
-      }
-
-      return this.resources[this.selectIndexInteger].urlPattern
-    }
-  },
+  computed: {}, // computedResourceSearch.js
   watch: {
     propSelectIndex(propSelectIndex) {
       this.selectIndex = propSelectIndex
@@ -78,7 +35,7 @@ let ResourceSearch = {
       
       this.question = this.lib.StringHelper.htmlToText(this.propQuestion)
       
-      let url = this.urlPattern.replace('{anchorText}', this.anchorText)
+      let url = this.urlPattern.replace('{anchorText}', this.anchorTextQuery)
       url = url.replace('{question}', this.question)
 
       //window.open(url, '_blank')
@@ -126,5 +83,8 @@ let ResourceSearch = {
     }
   } // methods
 }
+
+import computedResourceSearch from './computedResourceSearch.js'
+computedResourceSearch(ResourceSearch)
 
 export default ResourceSearch

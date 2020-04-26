@@ -14816,6 +14816,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _computedResourceSearch_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./computedResourceSearch.js */ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/ResourceSearch/computedResourceSearch.js");
 let ResourceSearch = {
   props: ['lib', 'status', 'config'
     , 'propSelectIndex', 'propAnchorText', 'propQuestion'],
@@ -14830,50 +14831,7 @@ let ResourceSearch = {
   },
 //  components: {
 //  },
-  computed: {
-    resources() {
-      return this.status.readingConfig.annotationTypeModules['ConfusedClarified'].externalResourceSearches
-    },
-    computedButtonClass() {
-      if (this.anchorText === '') {
-        return 'disabled'
-      }
-
-      let i = this.selectIndex
-      if (i === null || i === undefined) {
-        return 'disabled'
-      }
-
-      if (isNaN(i) === false && typeof (i) === 'string') {
-        i = parseInt(i, 10)
-      }
-      if (!(i > -1 && i < this.resources.length)) {
-        return 'disabled'
-      }
-    },
-    selectIndexInteger() {
-      let i = this.selectIndex
-      if (i === null || i === undefined) {
-        return null
-      }
-
-      if (isNaN(i) === false && typeof (i) === 'string') {
-        i = parseInt(i, 10)
-      }
-      if (i > -1 && i < this.resources.length) {
-        return i
-      } else {
-        return null
-      }
-    },
-    urlPattern() {
-      if (this.selectIndexInteger === null) {
-        return null
-      }
-
-      return this.resources[this.selectIndexInteger].urlPattern
-    }
-  },
+  computed: {}, // computedResourceSearch.js
   watch: {
     propSelectIndex(propSelectIndex) {
       this.selectIndex = propSelectIndex
@@ -14896,7 +14854,7 @@ let ResourceSearch = {
       
       this.question = this.lib.StringHelper.htmlToText(this.propQuestion)
       
-      let url = this.urlPattern.replace('{anchorText}', this.anchorText)
+      let url = this.urlPattern.replace('{anchorText}', this.anchorTextQuery)
       url = url.replace('{question}', this.question)
 
       //window.open(url, '_blank')
@@ -14944,6 +14902,9 @@ let ResourceSearch = {
     }
   } // methods
 }
+
+
+Object(_computedResourceSearch_js__WEBPACK_IMPORTED_MODULE_0__["default"])(ResourceSearch)
 
 /* harmony default export */ __webpack_exports__["default"] = (ResourceSearch);
 
@@ -15036,6 +14997,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_ResourceSearch_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CResourceSearch_5CResourceSearch_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_ResourceSearch_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CResourceSearch_5CResourceSearch_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_ResourceSearch_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CResourceSearch_5CResourceSearch_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_ResourceSearch_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CResourceSearch_5CResourceSearch_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_ResourceSearch_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cclient_5CReading_5Ccomponents_5Cannotation_5CAnnotationTypeModules_5CConfusedClarified_5CResourceSearch_5CResourceSearch_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/ResourceSearch/computedResourceSearch.js":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationTypeModules/ConfusedClarified/ResourceSearch/computedResourceSearch.js ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (ResourceSearch) {
+  ResourceSearch.computed.resources = function () {
+    return this.status.readingConfig.annotationTypeModules['ConfusedClarified'].externalResourceSearches
+  }
+
+  ResourceSearch.computed.computedButtonClass = function () {
+    if (this.anchorText === '') {
+      return 'disabled'
+    }
+
+    let i = this.selectIndex
+    if (i === null || i === undefined) {
+      return 'disabled'
+    }
+
+    if (isNaN(i) === false && typeof (i) === 'string') {
+      i = parseInt(i, 10)
+    }
+    if (!(i > -1 && i < this.resources.length)) {
+      return 'disabled'
+    }
+  }
+  ResourceSearch.computed.selectIndexInteger = function () {
+    let i = this.selectIndex
+    if (i === null || i === undefined) {
+      return null
+    }
+
+    if (isNaN(i) === false && typeof (i) === 'string') {
+      i = parseInt(i, 10)
+    }
+    if (i > -1 && i < this.resources.length) {
+      return i
+    } else {
+      return null
+    }
+  }
+  
+  ResourceSearch.computed.urlPattern = function () {
+    if (this.selectIndexInteger === null) {
+      return null
+    }
+
+    return this.resources[this.selectIndexInteger].urlPattern
+  }
+  
+  ResourceSearch.computed.anchorTextQuery = function () {
+    let q = this.anchorText
+    q = q.split(' ').join('')
+    if (q.length > 20) {
+      q = q.slice(0, 20)
+    }
+    
+    return q
+  }
+});
 
 /***/ }),
 
