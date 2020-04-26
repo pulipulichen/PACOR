@@ -107,6 +107,12 @@ let List = {
         this.lib.AnnotationPanel.hide()
       }
     },
+    onItemDelete (annotation) {
+      this.annotaitons = this.annotations.filter(a => (a.id !== annotation.id))
+      if (this.annotations.length === 0) {
+        this.lib.AnnotationPanel.hide()
+      }
+    },
     onDelete() {
       this.annotation = null
       if (this.annotations.length < 2) {

@@ -30,7 +30,7 @@ let SearchInput = {
       
       // 再來顯示
       this.lib.AnnotationPanel.setAnchorPositions({
-        'delete' () {
+        'delete': () => {
           this.status.search.count--
         }
       })

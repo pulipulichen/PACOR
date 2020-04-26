@@ -95,7 +95,8 @@
       v-bind:findType="findType"
       v-bind:findNote="viewAnnotation"
       v-bind:searchKeyword="panelData.keyword"
-      v-on:comment="viewAnnotationComment">
+      v-on:comment="viewAnnotationComment"
+      v-on:deleteAnnotation="onItemDelete(annotation)">
     </annotation-item>
 
     <div class="ui secondary segment no-more"

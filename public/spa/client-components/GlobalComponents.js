@@ -2460,6 +2460,7 @@ var render = function() {
                       status: _vm.status,
                       lib: _vm.lib,
                       annotation: _vm.annotation,
+                      showDelete: _vm.showDelete,
                       size: "mini"
                     },
                     on: {
@@ -2467,6 +2468,9 @@ var render = function() {
                       unlike: _vm.onLike,
                       comment: function($event) {
                         return _vm.$emit("comment", _vm.annotation)
+                      },
+                      deleteAnnotation: function($event) {
+                        return _vm.$emit("deleteAnnotation", _vm.annotation)
                       }
                     }
                   })
@@ -2681,6 +2685,25 @@ var render = function() {
                         ]
                   ],
                   2
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.isNotMe && _vm.showDelete !== false
+            ? _c("span", { staticClass: "button-column" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "delete ui icon compact mini button",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        $event.stopPropagation()
+                        return _vm.deleteAnnotation($event)
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "trash alternate outline icon" })]
                 )
               ])
             : _vm._e(),
@@ -8807,7 +8830,7 @@ let AnnotationItem = {
     , 'annotation', 'mode'
     , 'searchKeyword'
     , 'findUser', 'findType', 'findAnnotation', 'assistUser'
-    , 'findNote'],
+    , 'findNote', 'showDelete'],
   data() {    
     this.$i18n.locale = this.config.locale
     
@@ -9116,7 +9139,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let AnnotationInteractive = {
   props: ['lib', 'status', 'config'
-    , 'annotation', 'size', 'showLabel', 'enableComment'],
+    , 'annotation', 'size', 'showLabel', 'enableComment', 'showDelete'],
   data() {    
     this.$i18n.locale = this.config.locale
     
@@ -9239,6 +9262,12 @@ let AnnotationInteractive = {
     comment: async function () {
       this.$emit('comment')
     },
+    deleteAnnotation: async function () {
+      let result = await this.lib.AnnotationPanel.deleteAnnotation(this.annotation)
+      if (result === true) {
+        this.$emit('deleteAnnotation')
+      }
+    }
   } // methods
 }
 

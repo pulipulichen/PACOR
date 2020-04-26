@@ -3,7 +3,7 @@ let AnnotationItem = {
     , 'annotation', 'mode'
     , 'searchKeyword'
     , 'findUser', 'findType', 'findAnnotation', 'assistUser'
-    , 'findNote'],
+    , 'findNote', 'showDelete'],
   data() {    
     this.$i18n.locale = this.config.locale
     

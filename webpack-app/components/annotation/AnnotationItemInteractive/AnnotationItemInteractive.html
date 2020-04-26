@@ -49,6 +49,19 @@
 
   <span 
     class="button-column"
+    v-if="!isNotMe && showDelete !== false">
+    <button 
+      type="button" 
+      class="delete ui icon compact mini button"
+      v-on:click.stop="deleteAnnotation">
+      <i class="trash alternate outline icon"></i>
+    </button>
+  </span>
+
+  <!-- ==================================== -->
+  
+  <span 
+    class="button-column"
     v-if="!enableComment && enableComment !== false">
     <button 
       type="button"

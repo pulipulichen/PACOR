@@ -22,7 +22,8 @@
 
       v-bind:annotation="annotation"
       v-if="panelData.enableDiscussion"
-      v-on:comment="onComment">
+      v-on:comment="onComment"
+      v-bind:showDelete="false">
     </annotation-item-interactive>
 
     <checkbox-toggle 

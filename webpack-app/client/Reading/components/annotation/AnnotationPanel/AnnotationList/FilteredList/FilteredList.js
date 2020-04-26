@@ -164,6 +164,14 @@ let List = {
       })
       this.annotation = null
     },
+    onItemDelete (annotation) {
+      this.annotaitons = this.annotations.filter(a => (a.id !== annotation.id))
+      if (this.annotations.length === 0) {
+        //this.clearFilter()
+        //this.$emit('exit')
+        this.exit()
+      }
+    },
     onDelete() {
       // 從annotations中刪去該項
       this.annotaitons = this.annotations.filter(annotation => (annotation.id !== this.annotation.id))

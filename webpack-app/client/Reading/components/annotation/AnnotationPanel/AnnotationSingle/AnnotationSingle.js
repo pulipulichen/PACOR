@@ -253,26 +253,7 @@ let AnnotationEditorModules = {
               && typeof(this.annotation.id) !== 'number') {
         throw new Error('Annotation ID is not existed.')
       }
-      
-      let title = this.$t('Are you sure to delete this annotation?')
-      let confirm = await this.lib.ConfirmModal.show(title)
-      if (confirm === false) {
-        return null
-      }
-      
-      let data = {
-        id: this.annotation.id
-      }
-
-      await this.lib.AxiosHelper.get('/client/AnnotationSave/destroy', data)
-
-      await this.reloadMyHighlights()
-
-      this.scrollToAnnotation()
-
-      this.lib.AnnotationPanel.triggerEvent('delete')
-      this.$emit('delete')
-
+      await this.lib.AnnotationPanel.deleteAnnotation(this.annotation)
     },
     onAnnotationLike: async function () {
       let data = {

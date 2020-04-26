@@ -96,4 +96,12 @@ export default function (AnnotationFloatWidget) {
       this.isFixedMouseout = false
     //}, 500)
   }
+  
+  AnnotationFloatWidget.methods.hide = function () {
+    this.annotation = null
+    this.lastPosition = null
+    this.reset()
+    
+    console.log(this.isFixed)
+  }
 }

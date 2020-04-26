@@ -31,6 +31,8 @@
       v-on:like="onLike"
       v-on:unlike="onLike"
       v-on:comment="$emit('comment', annotation)"
+      v-on:deleteAnnotation="$emit('deleteAnnotation', annotation)"
+      v-bind:showDelete="showDelete"
       size="mini">
     </annotation-item-interactive>
       

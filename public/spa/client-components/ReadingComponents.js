@@ -1176,7 +1176,8 @@ var render = function() {
                 },
                 on: {
                   click: _vm.viewAnnotation,
-                  comment: _vm.viewAnnotationComment
+                  comment: _vm.viewAnnotationComment,
+                  deleteAnnotation: _vm.hide
                 }
               }),
               _vm._v(" "),
@@ -1911,7 +1912,12 @@ var render = function() {
                 findNote: _vm.viewAnnotation,
                 searchKeyword: _vm.panelData.keyword
               },
-              on: { comment: _vm.viewAnnotationComment }
+              on: {
+                comment: _vm.viewAnnotationComment,
+                deleteAnnotation: function($event) {
+                  return _vm.onItemDelete(annotation)
+                }
+              }
             })
           }),
           _vm._v(" "),
@@ -2137,7 +2143,12 @@ var render = function() {
                 findNote: _vm.viewAnnotation,
                 searchKeyword: _vm.panelData.keyword
               },
-              on: { comment: _vm.viewAnnotationComment }
+              on: {
+                comment: _vm.viewAnnotationComment,
+                deleteAnnotation: function($event) {
+                  return _vm.onItemDelete(annotation)
+                }
+              }
             })
           }),
           _vm._v(" "),
@@ -3407,7 +3418,8 @@ var render = function() {
                             config: _vm.config,
                             status: _vm.status,
                             lib: _vm.lib,
-                            annotation: _vm.annotation
+                            annotation: _vm.annotation,
+                            showDelete: false
                           },
                           on: { comment: _vm.onComment }
                         })
@@ -3795,7 +3807,8 @@ var render = function() {
                       config: _vm.config,
                       status: _vm.status,
                       lib: _vm.lib,
-                      annotation: _vm.annotation
+                      annotation: _vm.annotation,
+                      showDelete: false
                     },
                     on: { comment: _vm.onComment }
                   })
@@ -4276,7 +4289,8 @@ var render = function() {
               annotation: _vm.myAnnotation,
               findAnnotation: _vm.findAnnotation,
               findNote: _vm.findAnnotation,
-              assistUser: true
+              assistUser: true,
+              showDelete: false
             },
             on: { comment: _vm.findAnnotation }
           })
@@ -6680,6 +6694,14 @@ __webpack_require__.r(__webpack_exports__);
       this.isFixed = false
       this.isFixedMouseout = false
     //}, 500)
+  }
+  
+  AnnotationFloatWidget.methods.hide = function () {
+    this.annotation = null
+    this.lastPosition = null
+    this.reset()
+    
+    console.log(this.isFixed)
   }
 });
 
@@ -9598,6 +9620,14 @@ let List = {
       })
       this.annotation = null
     },
+    onItemDelete (annotation) {
+      this.annotaitons = this.annotations.filter(a => (a.id !== annotation.id))
+      if (this.annotations.length === 0) {
+        //this.clearFilter()
+        //this.$emit('exit')
+        this.exit()
+      }
+    },
     onDelete() {
       // 從annotations中刪去該項
       this.annotaitons = this.annotations.filter(annotation => (annotation.id !== this.annotation.id))
@@ -9857,6 +9887,12 @@ let List = {
     onUpdate () {
       this.annotation = null
       if (this.annotations.length < 2) {
+        this.lib.AnnotationPanel.hide()
+      }
+    },
+    onItemDelete (annotation) {
+      this.annotaitons = this.annotations.filter(a => (a.id !== annotation.id))
+      if (this.annotations.length === 0) {
         this.lib.AnnotationPanel.hide()
       }
     },
@@ -10543,8 +10579,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _methodsQueryAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./methodsQueryAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsQueryAnnotationPanel.js");
 /* harmony import */ var _methodsEventAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./methodsEventAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsEventAnnotationPanel.js");
 /* harmony import */ var _methodsResizeAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./methodsResizeAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsResizeAnnotationPanel.js");
-/* harmony import */ var _methodsTutorialAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./methodsTutorialAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsTutorialAnnotationPanel.js");
-/* harmony import */ var _methodsTutorialLocalAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./methodsTutorialLocalAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsTutorialLocalAnnotationPanel.js");
+/* harmony import */ var _methodsManageAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./methodsManageAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsManageAnnotationPanel.js");
+/* harmony import */ var _methodsTutorialAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./methodsTutorialAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsTutorialAnnotationPanel.js");
+/* harmony import */ var _methodsTutorialLocalAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./methodsTutorialLocalAnnotationPanel.js */ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsTutorialLocalAnnotationPanel.js");
 //import VueDraggableResizable from 'vue-draggable-resizable'
 //import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
 
@@ -10618,10 +10655,13 @@ Object(_methodsEventAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_11__["default"])
 Object(_methodsResizeAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_12__["default"])(AnnotationPanel)
 
 
-Object(_methodsTutorialAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_13__["default"])(AnnotationPanel)
+Object(_methodsManageAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_13__["default"])(AnnotationPanel)
 
 
-Object(_methodsTutorialLocalAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_14__["default"])(AnnotationPanel)
+Object(_methodsTutorialAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_14__["default"])(AnnotationPanel)
+
+
+Object(_methodsTutorialLocalAnnotationPanel_js__WEBPACK_IMPORTED_MODULE_15__["default"])(AnnotationPanel)
 
 /* harmony default export */ __webpack_exports__["default"] = (AnnotationPanel);
 
@@ -12685,26 +12725,7 @@ let AnnotationEditorModules = {
               && typeof(this.annotation.id) !== 'number') {
         throw new Error('Annotation ID is not existed.')
       }
-      
-      let title = this.$t('Are you sure to delete this annotation?')
-      let confirm = await this.lib.ConfirmModal.show(title)
-      if (confirm === false) {
-        return null
-      }
-      
-      let data = {
-        id: this.annotation.id
-      }
-
-      await this.lib.AxiosHelper.get('/client/AnnotationSave/destroy', data)
-
-      await this.reloadMyHighlights()
-
-      this.scrollToAnnotation()
-
-      this.lib.AnnotationPanel.triggerEvent('delete')
-      this.$emit('delete')
-
+      await this.lib.AnnotationPanel.deleteAnnotation(this.annotation)
     },
     onAnnotationLike: async function () {
       let data = {
@@ -13117,6 +13138,75 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 
+
+/***/ }),
+
+/***/ "./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsManageAnnotationPanel.js":
+/*!**********************************************************************************************************!*\
+  !*** ./webpack-app/client/Reading/components/annotation/AnnotationPanel/methodsManageAnnotationPanel.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ((AnnotationPanel) => {
+    
+  AnnotationPanel.methods.deleteAnnotation = async function (annotation) {
+    if (!annotation || typeof(annotation.id) !== 'number') {
+      throw new Error('Annotation ID is not existed.')
+    }
+
+    let title = this.$t('Are you sure to delete this annotation?')
+    let confirm = await this.lib.ConfirmModal.show(title)
+    if (confirm === false) {
+      return false
+    }
+
+    let data = {
+      id: annotation.id
+    }
+
+    await this.lib.AxiosHelper.get('/client/AnnotationSave/destroy', data)
+
+    await this.reloadMyHighlights(annotation)
+
+    this.scrollToAnnotation(annotation)
+
+    this.lib.AnnotationPanel.triggerEvent('delete')
+    this.$emit('delete')
+    
+    return true
+  }
+  
+  AnnotationPanel.methods.reloadMyHighlights = async function (annotation) {
+    if (!this.lib.RangyManager) {
+      return null
+    }
+
+    if (annotation.anchorPositions[0].type !== 'textContent') {
+      // 如果不是網頁上的，則不重新整理
+      return false
+    }
+
+    await this.lib.RangyManager.reloadMyHighlights()
+  }
+  
+  AnnotationPanel.methods.scrollToAnnotation = async function (annotation) {
+    let rect
+    if (this.lib.AnnotationHelper.isPublicSectionAnnotation(annotation)) {
+      rect = this.lib.RangyManager.getRectFromSectionAnnotation(annotation)
+      //console.log('是', rect)
+    }
+    else {
+      rect = this.lib.RangyManager.getRectFromAnchorPositions(annotation.anchorPositions)
+      //console.log('不是', rect)
+    }
+
+    //console.log(rect)
+    this.lib.AnnotationPanel.scrollToRect(rect)
+  }
+});
 
 /***/ }),
 
@@ -29786,7 +29876,7 @@ let SearchInput = {
       
       // 再來顯示
       this.lib.AnnotationPanel.setAnchorPositions({
-        'delete' () {
+        'delete': () => {
           this.status.search.count--
         }
       })

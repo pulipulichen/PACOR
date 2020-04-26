@@ -2,7 +2,7 @@
 
 let AnnotationInteractive = {
   props: ['lib', 'status', 'config'
-    , 'annotation', 'size', 'showLabel', 'enableComment'],
+    , 'annotation', 'size', 'showLabel', 'enableComment', 'showDelete'],
   data() {    
     this.$i18n.locale = this.config.locale
     
@@ -125,6 +125,12 @@ let AnnotationInteractive = {
     comment: async function () {
       this.$emit('comment')
     },
+    deleteAnnotation: async function () {
+      let result = await this.lib.AnnotationPanel.deleteAnnotation(this.annotation)
+      if (result === true) {
+        this.$emit('deleteAnnotation')
+      }
+    }
   } // methods
 }
 
