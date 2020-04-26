@@ -1,5 +1,6 @@
 <div class="ui one column grid annotation-panel-buttons"
      v-if="$parent.isEditable">
+  
   <block-exit
     v-if="$parent.isNoteEdited">
   </block-exit>
@@ -23,6 +24,8 @@
         v-bind:enable="!$parent.awaitSubmit">
       </checkbox-toggle>
 
+      <!-- ======================================== -->
+      
       <template v-if="!$parent.annotation.id">
         <!--
         <button type="button"
@@ -41,10 +44,24 @@
           v-bind:enable="$parent.isEnableSubmitQuestion"
 
           v-on:click="submitQuestion"
-          v-bind:class="$parent.computedSubmitButtonClassList"
           v-bind:style="computedSubmitQuestionStyle"
           v-bind:writeSomething="$t('WRITE QUESTION')">
           {{ $t('SAVE QUESTION') }}  
+        </validation-button>
+        
+        <validation-button 
+          v-bind:lib="lib"
+
+          v-bind:text="$parent.question"
+          v-bind:minWordCount="$parent.questionMinWords"
+          v-bind:locale="status.preference.locale"
+          v-bind:enable="$parent.isEnableSubmitQuestion"
+
+          v-on:click="submitQuestionAndKeepReading"
+          v-bind:class="$parent.computedSubmitButtonClassList"
+          v-bind:style="computedSubmitQuestionAndReadingStyle"
+          v-bind:writeSomething="$t('WRITE QUESTION')">
+          {{ $t('SAVE QUESTION AND KEEP READING') }}  
         </validation-button>
       </template>
 
@@ -156,9 +173,23 @@
 
           v-on:click="submitQuestion"
           v-bind:class="$parent.computedSubmitButtonClassList"
-          v-bind:style="computedSubmitQuestionStyle"
           v-bind:writeSomething="$t('WRITE QUESTION')">
           {{ $t('SAVE QUESTION') }}  
+        </validation-button>
+        
+        <validation-button 
+          v-bind:lib="lib"
+
+          v-bind:text="$parent.question"
+          v-bind:minWordCount="$parent.questionMinWords"
+          v-bind:locale="status.preference.locale"
+          v-bind:enable="$parent.isEnableSubmitQuestion"
+
+          v-on:click="submitQuestionAndKeepReading"
+          v-bind:class="$parent.computedSubmitButtonClassList"
+          v-bind:style="computedSubmitQuestionAndReadingStyle"
+          v-bind:writeSomething="$t('WRITE QUESTION')">
+          {{ $t('SAVE QUESTION AND KEEP READING') }}  
         </validation-button>
       </template>
 

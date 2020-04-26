@@ -233,7 +233,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"SAVE QUESTION":"記下「疑問」","SAVE ANSWER":"改為「已釐清」","WRITE LATER":"稍後再答","WRITE QUESTION":"請寫問題","WRITE ANSWER":"請寫解答"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"SAVE QUESTION":"記下「疑問」","SAVE QUESTION AND KEEP READING":"記下「疑問」並繼續閱讀","SAVE ANSWER":"改為「已釐清」","WRITE LATER":"稍後再答","WRITE QUESTION":"請寫問題","WRITE ANSWER":"請寫解答"}}')
   delete Component.options._Ctor
 }
 
@@ -3271,7 +3271,6 @@ var render = function() {
                           _c(
                             "validation-button",
                             {
-                              class: _vm.$parent.computedSubmitButtonClassList,
                               style: _vm.computedSubmitQuestionStyle,
                               attrs: {
                                 lib: _vm.lib,
@@ -3287,6 +3286,32 @@ var render = function() {
                               _vm._v(
                                 "\r\n          " +
                                   _vm._s(_vm.$t("SAVE QUESTION")) +
+                                  "  \r\n        "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "validation-button",
+                            {
+                              class: _vm.$parent.computedSubmitButtonClassList,
+                              style: _vm.computedSubmitQuestionAndReadingStyle,
+                              attrs: {
+                                lib: _vm.lib,
+                                text: _vm.$parent.question,
+                                minWordCount: _vm.$parent.questionMinWords,
+                                locale: _vm.status.preference.locale,
+                                enable: _vm.$parent.isEnableSubmitQuestion,
+                                writeSomething: _vm.$t("WRITE QUESTION")
+                              },
+                              on: { click: _vm.submitQuestionAndKeepReading }
+                            },
+                            [
+                              _vm._v(
+                                "\r\n          " +
+                                  _vm._s(
+                                    _vm.$t("SAVE QUESTION AND KEEP READING")
+                                  ) +
                                   "  \r\n        "
                               )
                             ]
@@ -3425,7 +3450,6 @@ var render = function() {
                             "validation-button",
                             {
                               class: _vm.$parent.computedSubmitButtonClassList,
-                              style: _vm.computedSubmitQuestionStyle,
                               attrs: {
                                 lib: _vm.lib,
                                 text: _vm.$parent.question,
@@ -3440,6 +3464,32 @@ var render = function() {
                               _vm._v(
                                 "\r\n          " +
                                   _vm._s(_vm.$t("SAVE QUESTION")) +
+                                  "  \r\n        "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "validation-button",
+                            {
+                              class: _vm.$parent.computedSubmitButtonClassList,
+                              style: _vm.computedSubmitQuestionAndReadingStyle,
+                              attrs: {
+                                lib: _vm.lib,
+                                text: _vm.$parent.question,
+                                minWordCount: _vm.$parent.questionMinWords,
+                                locale: _vm.status.preference.locale,
+                                enable: _vm.$parent.isEnableSubmitQuestion,
+                                writeSomething: _vm.$t("WRITE QUESTION")
+                              },
+                              on: { click: _vm.submitQuestionAndKeepReading }
+                            },
+                            [
+                              _vm._v(
+                                "\r\n          " +
+                                  _vm._s(
+                                    _vm.$t("SAVE QUESTION AND KEEP READING")
+                                  ) +
                                   "  \r\n        "
                               )
                             ]
@@ -14385,6 +14435,14 @@ let FooterButtons = {
         'background-color': buttonStyle.backgroundColor,
       }
     },
+    computedSubmitQuestionAndReadingStyle () {
+      let type = 'Confused'
+      let buttonStyle = this.status.readingConfig.annotationTypeModules[type].style.button
+      return {
+        color: buttonStyle.color,
+        'background-color': buttonStyle.backgroundColor,
+      }
+    },
     computedSubmitAnswerStyle () {
       let type = 'Clarified'
       let buttonStyle = this.status.readingConfig.annotationTypeModules[type].style.button
@@ -14468,7 +14526,11 @@ let FooterButtons = {
 //      }, 100)
       this.$parent.awaitSubmit = false
     },
-    
+    submitQuestionAndKeepReading: async function () {
+      await this.submitQuestion()
+      //this.lib.AnnotationPanel.hide()
+      await this.writeLater()
+    },
     submitAnswer: async function () {
       this.$parent.setWaitSubmit()
       let type = 'Clarified'
