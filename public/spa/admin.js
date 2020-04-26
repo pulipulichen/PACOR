@@ -3592,11 +3592,11 @@ var render = function() {
                     [
                       _vm.cancelButtonText
                         ? [
-                            _vm._v(
-                              "\r\n        " +
-                                _vm._s(_vm.$t(_vm.cancelButtonText)) +
-                                "\r\n      "
-                            )
+                            _c("span", {
+                              domProps: {
+                                innerHTML: _vm._s(_vm.$t(_vm.cancelButtonText))
+                              }
+                            })
                           ]
                         : [
                             _vm._v(

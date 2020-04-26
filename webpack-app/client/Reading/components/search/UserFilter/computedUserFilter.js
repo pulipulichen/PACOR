@@ -119,4 +119,22 @@ export default function (UserFilter) {
     return (this.status.filter.focusUser
       && this.status.filter.focusUser.id === this.status.userID)
   }
+  
+  UserFilter.computed.cancelButtonText = function () {
+    return this.$t('Cancel')
+    /*
+    if (!this.status.filter.focusUser) {
+      return this.$t('Cancel')
+    }
+    else {
+      return `<span class="username-header">
+            ${this.$t('Asist')}:
+            ${this.selectUsername}
+            </span>
+            <img src="${this.selectPeerAvatarURL}"
+                 title="${this.selectUsername}"
+                 class="user-avatar" />`
+    }
+     */
+  }
 }

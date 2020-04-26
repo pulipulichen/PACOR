@@ -56,9 +56,10 @@
         {{ $t('(Finished)') }}
       </span>
       
-      <template v-if="user && annotationTypes.length === 0">
+      <span v-if="user && annotationTypes.length === 0"
+            class="message">
         {{ $t('(No annotation)') }}
-      </template>
+      </span>
     </div>
     <div class="description"
          v-if="user">

@@ -33,7 +33,20 @@ let PeerList = {
       
       if (typeof(callback) === 'function'
               && this.filterData.users.length > 2) {
-        callback(this.filterData.users[0])
+        let autoSelectUser
+        for (let i = 0; i < this.filterData.users.length; i++) {
+          let u = this.filterData.users[i]
+          //console.log(u)
+          if (u.annotationsCount > 0) {
+            autoSelectUser = u
+            //console.log(u)
+            break
+          }
+        }
+        
+        if (autoSelectUser) {
+          callback(autoSelectUser)
+        }
       }
       
       //console.log(this.filterData.selectUser)

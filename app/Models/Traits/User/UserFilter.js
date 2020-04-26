@@ -27,6 +27,7 @@ class UserFilter {
                 builder.where('webpage_id', webpage.primaryKeyValue)
                         //.whereNot('type', 'SectionMainIdea')
                         .whereIn('type', types)
+                        .where('deleted', false)
               })
               .setVisible(['id', 'username', 'display_name', 'role', 'avatar_url'])
 
@@ -73,7 +74,7 @@ class UserFilter {
     }
     
     Model.prototype.getStepAnnotationTypeCounts = async function (webpage) {
-      let cacheKey = Cache.key('getStepAnnotationTypeCounts')
+      let cacheKey = Cache.key('getStepAnnotationTypeCounts', this.primaryKeyValue)
       
       let tags = []
       if (webpage) {
@@ -89,14 +90,21 @@ class UserFilter {
         // 包含小節重點
         //let types = await this.getStepHighlightAnnotationTypes(webpage)
         let types = await this.getStepAnnotationTypes(webpage)
+//        if (this.primaryKeyValue === 516) {
+//          console.log(types)
+//        }
         query.whereIn('type', types)
         
         if (webpage) {
           query.groupBy('webpage_id')
                .where('webpage_id', webpage.primaryKeyValue)
         }
-              
-        return query.count('id as count')
+        
+//        if (this.primaryKeyValue === 516) {
+//          console.log(await query.count('id as count'))
+//        }
+        
+        return await query.count('id as count')
       })
     }
     

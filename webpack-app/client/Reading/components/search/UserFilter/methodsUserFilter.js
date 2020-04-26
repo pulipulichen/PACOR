@@ -8,6 +8,7 @@ export default function (UserFilter) {
     this.$refs.PeerList.loadInit(peer => {
       if (this.lib.auth.currentStepConfig.UserFilter 
               && this.lib.auth.currentStepConfig.UserFilter.autoSelect) {
+        //console.log(peer)
         this.filterData.selectUser = peer
       }
     })

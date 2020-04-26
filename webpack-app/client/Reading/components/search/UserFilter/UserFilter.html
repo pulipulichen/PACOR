@@ -31,8 +31,8 @@
     ref="Modal"
     v-bind:config="config"
     v-bind:status="status"
-    cancelable="true"
-    v-bind:cancelButtonText="$t('Cancel')"
+    cancelable="false"
+    v-bind:cancelButtonText="cancelButtonText"
     v-bind:lib="lib">
       <template v-slot:header>
         {{ $t('Please select a peer') }}
@@ -79,7 +79,7 @@
         </div>
         
         <div class="ui button submit-button"
-             v-if="isSelectAnotherUser && (peerIsMe || filterData.selectUser)"
+             v-if="(peerIsMe || filterData.selectUser)"
              v-bind:class="computedSubmitButtonClassList"
              v-on:click="submit">
           <template v-if="peerIsMe">

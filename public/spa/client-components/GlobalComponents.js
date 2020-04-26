@@ -1746,55 +1746,48 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "content" }, [
-        _c(
-          "div",
-          { staticClass: "header" },
-          [
-            typeof _vm.group === "number"
-              ? _c(
-                  "span",
-                  { staticClass: "ui basic blue mini label group-label" },
-                  [
-                    _c("i", { staticClass: "users icon" }),
-                    _vm._v("\r\n        " + _vm._s(_vm.group) + "\r\n      ")
-                  ]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _c("span", { staticClass: "username" }, [
-              _vm._v("\r\n        " + _vm._s(_vm.username) + "\r\n      ")
-            ]),
-            _vm._v(" "),
-            !_vm.isReady
-              ? _c("span", { staticClass: "message" }, [
-                  _vm._v(
-                    "\r\n        " +
-                      _vm._s(_vm.$t("(Reading...)")) +
-                      "\r\n      "
-                  )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.isExited
-              ? _c("span", { staticClass: "message" }, [
-                  _vm._v(
-                    "\r\n        " + _vm._s(_vm.$t("(Finished)")) + "\r\n      "
-                  )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.user && _vm.annotationTypes.length === 0
-              ? [
-                  _vm._v(
-                    "\r\n        " +
-                      _vm._s(_vm.$t("(No annotation)")) +
-                      "\r\n      "
-                  )
+        _c("div", { staticClass: "header" }, [
+          typeof _vm.group === "number"
+            ? _c(
+                "span",
+                { staticClass: "ui basic blue mini label group-label" },
+                [
+                  _c("i", { staticClass: "users icon" }),
+                  _vm._v("\r\n        " + _vm._s(_vm.group) + "\r\n      ")
                 ]
-              : _vm._e()
-          ],
-          2
-        ),
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c("span", { staticClass: "username" }, [
+            _vm._v("\r\n        " + _vm._s(_vm.username) + "\r\n      ")
+          ]),
+          _vm._v(" "),
+          !_vm.isReady
+            ? _c("span", { staticClass: "message" }, [
+                _vm._v(
+                  "\r\n        " + _vm._s(_vm.$t("(Reading...)")) + "\r\n      "
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.isExited
+            ? _c("span", { staticClass: "message" }, [
+                _vm._v(
+                  "\r\n        " + _vm._s(_vm.$t("(Finished)")) + "\r\n      "
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.user && _vm.annotationTypes.length === 0
+            ? _c("span", { staticClass: "message" }, [
+                _vm._v(
+                  "\r\n        " +
+                    _vm._s(_vm.$t("(No annotation)")) +
+                    "\r\n      "
+                )
+              ])
+            : _vm._e()
+        ]),
         _vm._v(" "),
         _vm.user
           ? _c(
@@ -2224,8 +2217,8 @@ var render = function() {
         attrs: {
           config: _vm.config,
           status: _vm.status,
-          cancelable: "true",
-          cancelButtonText: _vm.$t("Cancel"),
+          cancelable: "false",
+          cancelButtonText: _vm.cancelButtonText,
           lib: _vm.lib
         },
         scopedSlots: _vm._u([
@@ -2325,8 +2318,7 @@ var render = function() {
                     )
                   : _vm._e(),
                 _vm._v(" "),
-                _vm.isSelectAnotherUser &&
-                (_vm.peerIsMe || _vm.filterData.selectUser)
+                _vm.peerIsMe || _vm.filterData.selectUser
                   ? _c(
                       "div",
                       {
@@ -3392,11 +3384,11 @@ var render = function() {
                     [
                       _vm.cancelButtonText
                         ? [
-                            _vm._v(
-                              "\r\n        " +
-                                _vm._s(_vm.$t(_vm.cancelButtonText)) +
-                                "\r\n      "
-                            )
+                            _c("span", {
+                              domProps: {
+                                innerHTML: _vm._s(_vm.$t(_vm.cancelButtonText))
+                              }
+                            })
                           ]
                         : [
                             _vm._v(
@@ -6743,7 +6735,20 @@ let PeerList = {
       
       if (typeof(callback) === 'function'
               && this.filterData.users.length > 2) {
-        callback(this.filterData.users[0])
+        let autoSelectUser
+        for (let i = 0; i < this.filterData.users.length; i++) {
+          let u = this.filterData.users[i]
+          //console.log(u)
+          if (u.annotationsCount > 0) {
+            autoSelectUser = u
+            //console.log(u)
+            break
+          }
+        }
+        
+        if (autoSelectUser) {
+          callback(autoSelectUser)
+        }
       }
       
       //console.log(this.filterData.selectUser)
@@ -8595,6 +8600,24 @@ __webpack_require__.r(__webpack_exports__);
     return (this.status.filter.focusUser
       && this.status.filter.focusUser.id === this.status.userID)
   }
+  
+  UserFilter.computed.cancelButtonText = function () {
+    return this.$t('Cancel')
+    /*
+    if (!this.status.filter.focusUser) {
+      return this.$t('Cancel')
+    }
+    else {
+      return `<span class="username-header">
+            ${this.$t('Asist')}:
+            ${this.selectUsername}
+            </span>
+            <img src="${this.selectPeerAvatarURL}"
+                 title="${this.selectUsername}"
+                 class="user-avatar" />`
+    }
+     */
+  }
 });
 
 /***/ }),
@@ -8741,6 +8764,7 @@ __webpack_require__.r(__webpack_exports__);
     this.$refs.PeerList.loadInit(peer => {
       if (this.lib.auth.currentStepConfig.UserFilter 
               && this.lib.auth.currentStepConfig.UserFilter.autoSelect) {
+        //console.log(peer)
         this.filterData.selectUser = peer
       }
     })
