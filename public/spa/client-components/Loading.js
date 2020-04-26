@@ -1893,6 +1893,7 @@ __webpack_require__.r(__webpack_exports__);
   
   Auth.methods.backToPreviousStep = async function () {
     await this.lib.AxiosHelper.get('/client/ReadingProgress/backToPreviousStep')
+    this.clearLocalStorage()
     location.reload()
     return false
   }
