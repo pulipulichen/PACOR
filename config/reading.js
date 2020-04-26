@@ -262,7 +262,7 @@ module.exports = {
       'questionPlaceholder': 'Write your question here...',
       'answerPlaceholder': 'Write your answer here...',
       'questionMinWords': 3,
-      'answerMinWords': 5,
+      'answerMinWords': 3,
       /**
        * {anchorText}
        * {questionText}
