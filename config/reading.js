@@ -137,7 +137,7 @@ module.exports = {
         defaultPermission: 'public',
       },
       highlightAnnotation: {
-        types: ['Clarified', 'Confused', 'MainIdea'],
+        types: ['Confused', 'Clarified', 'MainIdea'],
         //types: ['MainIdea'],
       },
       sectionAnnotation: {
@@ -174,7 +174,7 @@ module.exports = {
         updateInterval: 30000
       },
       highlightAnnotation: {
-        types: ['Clarified', 'Confused', 'MainIdea'],
+        types: ['Confused', 'Clarified', 'MainIdea'],
         
         /**
          * 每次讀取其他人highlight的數量限制
@@ -218,7 +218,7 @@ module.exports = {
         updateInterval: 30000
       },
       highlightAnnotation: {
-        types: ['Clarified', 'Confused', 'MainIdea'],
+        types: ['Confused', 'Clarified', 'MainIdea'],
         
         /**
          * 每次讀取其他人highlight的數量限制
