@@ -2,8 +2,9 @@ module.exports = {
   debug: {
     flushCache: true,
     enable: true,
-    //stayInReadingProgress: 'CollaborativeReading'
-    stayInReadingProgress: 'PreImaginaryKeyword'
+    //stayInReadingProgress: 'IndividualReading'
+    stayInReadingProgress: 'CollaborativeReading'
+    //stayInReadingProgress: 'PreImaginaryKeyword'
     //stayInReadingProgress: 'PostRecallKeyword'
   },
   readingProgressModules: {

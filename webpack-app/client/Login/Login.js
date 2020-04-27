@@ -176,7 +176,9 @@ let Login = {
       localStorage.setItem(this.key + 'login.password', this.password)
       
       this.reset()
-      this.$refs.LoginModal.hide()
+      if (this.$refs.LoginModal) {
+        this.$refs.LoginModal.hide()
+      }
       
       this.status.needLogin = false
       this.waiting = false

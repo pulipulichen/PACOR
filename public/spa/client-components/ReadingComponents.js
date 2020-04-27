@@ -137,7 +137,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Give a comment for this annotation...":"您要給這篇標註什麼意見呢？","Give a suggestion!":"給個建議吧！"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Give a comment for this annotation...":"您要給這篇標註什麼意見呢？","Give a suggestion!":"給個建議吧！(或是按Ctrl+V貼上建議)"}}')
   delete Component.options._Ctor
 }
 

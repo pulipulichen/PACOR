@@ -89,7 +89,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Admin Panel":"管理面版","Logout":"登出","Are you sure to logout?":"您確定要登出嗎？","Next Step":"進入下一階段","Are you sure to go to next step?":"您確定要直接進入下一階段嗎？","Clear Data":"清除資料","Are you sure to clear data?":"您確定要清除資料嗎？","Are you sure to back to the first step?":"您確定要回到第一階段嗎？","Are you sure to back to previous step?":"您確定要回到上一個階段嗎？","Back to First Step":"回到第一階段","Back to Previous Step":"回到上一個階段"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Admin Panel":"管理面版","Logout":"登出","Are you sure to logout?":"您確定要登出嗎？","Next Step":"進入下一階段","Are you sure to go to next step?":"您確定要直接進入下一階段嗎？","Clear Data":"清除資料","Are you sure to clear data?":"您確定要清除資料嗎？","Are you sure to back to the first step?":"您確定要回到第一階段嗎？","Are you sure to back to previous step?":"您確定要回到上一個階段嗎？","Back to First Step":"回到第一階段","Back to Previous Step":"回到上一個階段","Reload":"重新載入"}}')
   delete Component.options._Ctor
 }
 
@@ -2280,7 +2280,9 @@ let Login = {
       localStorage.setItem(this.key + 'login.password', this.password)
       
       this.reset()
-      this.$refs.LoginModal.hide()
+      if (this.$refs.LoginModal) {
+        this.$refs.LoginModal.hide()
+      }
       
       this.status.needLogin = false
       this.waiting = false
