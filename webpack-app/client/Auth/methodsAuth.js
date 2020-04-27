@@ -93,13 +93,14 @@ export default function (Auth) {
   }
   Auth.methods.logoutWithoutForget = async function () {
     await this.lib.AxiosHelper.get('/client/auth/logout')
-    location.reload()
+    this.reload()
+    return true
   }
   Auth.methods.logoutAndReload = async function () {
     await this.lib.AxiosHelper.get('/client/auth/logout')
     this.clearLocalStorage()
-    location.reload()
-    return false
+    this.reload()
+    return true
   }
   
   Auth.methods.clearLocalStorage = async function () {
@@ -169,14 +170,21 @@ export default function (Auth) {
   Auth.methods.backToFirstStep = async function () {
     await this.lib.AxiosHelper.get('/client/ReadingProgress/backToFirstStep')
     this.clearLocalStorage()
-    location.reload()
+    this.reload()
     return false
+  }
+  
+  Auth.methods.reload = function () {
+    this.forceExit = true
+    setTimeout(() => {
+      location.reload()
+    }, 0)
   }
   
   Auth.methods.backToPreviousStep = async function () {
     await this.lib.AxiosHelper.get('/client/ReadingProgress/backToPreviousStep')
     this.clearLocalStorage()
-    location.reload()
+    this.reload()
     return false
   }
   

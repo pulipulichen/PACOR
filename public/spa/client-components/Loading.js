@@ -1353,7 +1353,9 @@ __webpack_require__.r(__webpack_exports__);
 let Auth = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {
-    return {}
+    return {
+      forceExit: false
+    }
   },
   watch: {},  // watchAuth.js
   computed: {}, // computedAuth.js
@@ -1828,13 +1830,14 @@ __webpack_require__.r(__webpack_exports__);
   }
   Auth.methods.logoutWithoutForget = async function () {
     await this.lib.AxiosHelper.get('/client/auth/logout')
-    location.reload()
+    this.reload()
+    return true
   }
   Auth.methods.logoutAndReload = async function () {
     await this.lib.AxiosHelper.get('/client/auth/logout')
     this.clearLocalStorage()
-    location.reload()
-    return false
+    this.reload()
+    return true
   }
   
   Auth.methods.clearLocalStorage = async function () {
@@ -1904,14 +1907,21 @@ __webpack_require__.r(__webpack_exports__);
   Auth.methods.backToFirstStep = async function () {
     await this.lib.AxiosHelper.get('/client/ReadingProgress/backToFirstStep')
     this.clearLocalStorage()
-    location.reload()
+    this.reload()
     return false
+  }
+  
+  Auth.methods.reload = function () {
+    this.forceExit = true
+    setTimeout(() => {
+      location.reload()
+    }, 0)
   }
   
   Auth.methods.backToPreviousStep = async function () {
     await this.lib.AxiosHelper.get('/client/ReadingProgress/backToPreviousStep')
     this.clearLocalStorage()
-    location.reload()
+    this.reload()
     return false
   }
   

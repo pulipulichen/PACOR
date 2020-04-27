@@ -1,7 +1,9 @@
 let Auth = {
   props: ['lib', 'status', 'config', 'progress', 'error'],
   data() {
-    return {}
+    return {
+      forceExit: false
+    }
   },
   watch: {},  // watchAuth.js
   computed: {}, // computedAuth.js

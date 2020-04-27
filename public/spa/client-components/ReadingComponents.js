@@ -3249,7 +3249,9 @@ var render = function() {
         "div",
         { staticClass: "ui one column grid annotation-panel-buttons" },
         [
-          _vm.$parent.isNoteEdited ? _c("block-exit") : _vm._e(),
+          _vm.$parent.isNoteEdited && _vm.lib.auth.forceExit === false
+            ? _c("block-exit")
+            : _vm._e(),
           _vm._v(" "),
           _vm.panelData.enableDiscussion
             ? _c("div", { class: _vm.$parent.computedButtonsClass }, [
@@ -3785,7 +3787,9 @@ var render = function() {
         "div",
         { staticClass: "ui one column grid annotation-panel-buttons" },
         [
-          _vm.$parent.isNoteDifferent ? _c("block-exit") : _vm._e(),
+          _vm.$parent.isNoteDifferent && _vm.lib.auth.forceExit === false
+            ? _c("block-exit")
+            : _vm._e(),
           _vm._v(" "),
           _c(
             "div",

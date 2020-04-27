@@ -2,7 +2,7 @@
      v-if="$parent.isEditable">
   
   <block-exit
-    v-if="$parent.isNoteEdited">
+    v-if="$parent.isNoteEdited && lib.auth.forceExit === false">
   </block-exit>
 
   <div v-bind:class="$parent.computedButtonsClass"

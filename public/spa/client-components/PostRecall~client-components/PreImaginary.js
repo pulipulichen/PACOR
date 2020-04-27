@@ -374,7 +374,10 @@ var render = function() {
         ? _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
         : _vm._e(),
       _vm._v(" "),
-      _vm.hasStarted && _vm.answer !== "" && !_vm.isTimeUp
+      _vm.hasStarted &&
+      _vm.answer !== "" &&
+      !_vm.isTimeUp &&
+      _vm.lib.auth.forceExit === false
         ? _c("block-exit")
         : _vm._e()
     ],

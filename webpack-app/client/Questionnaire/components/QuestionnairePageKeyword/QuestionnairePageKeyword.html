@@ -238,5 +238,5 @@
     v-if="hasStarted && !isTimeUp">
   </activity-timer>
   <block-exit
-    v-if="hasStarted && inputKeyword.trim() !== '' && !isTimeUp"></block-exit>
+    v-if="hasStarted && inputKeyword.trim() !== '' && !isTimeUp && lib.auth.forceExit === false"></block-exit>
 </div>

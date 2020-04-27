@@ -102,7 +102,9 @@ var render = function() {
         attrs: { config: _vm.config, status: _vm.status, lib: _vm.lib }
       }),
       _vm._v(" "),
-      _vm.enableConfirmExit ? _c("block-exit") : _vm._e(),
+      _vm.enableConfirmExit && _vm.lib.auth.forceExit === false
+        ? _c("block-exit")
+        : _vm._e(),
       _vm._v(" "),
       _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
       _vm._v(" "),

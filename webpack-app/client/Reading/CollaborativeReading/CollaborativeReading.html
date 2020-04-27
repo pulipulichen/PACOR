@@ -85,7 +85,7 @@
   </search-manager>
 
   <block-exit
-    v-if="enableConfirmExit">
+    v-if="enableConfirmExit && lib.auth.forceExit === false">
   </block-exit>
   
   <activity-timer 

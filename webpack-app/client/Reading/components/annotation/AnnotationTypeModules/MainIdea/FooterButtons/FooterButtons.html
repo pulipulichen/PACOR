@@ -1,7 +1,7 @@
 <div class="ui one column grid annotation-panel-buttons"
      v-if="$parent.isEditable">
   <block-exit
-    v-if="$parent.isNoteDifferent">
+    v-if="$parent.isNoteDifferent && lib.auth.forceExit === false">
   </block-exit>
 
   <div v-bind:class="$parent.computedButtonsClass">

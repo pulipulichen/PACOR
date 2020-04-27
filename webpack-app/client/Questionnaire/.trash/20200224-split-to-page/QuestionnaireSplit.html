@@ -116,5 +116,5 @@
     v-bind:lib="lib">
   </activity-timer>
   <block-exit
-    v-if="answer !== ''"></block-exit>
+    v-if="answer !== '' && lib.auth.forceExit === false"></block-exit>
 </div>
