@@ -2217,7 +2217,7 @@ var render = function() {
         attrs: {
           config: _vm.config,
           status: _vm.status,
-          cancelable: "false",
+          cancelable: "true",
           cancelButtonText: _vm.cancelButtonText,
           lib: _vm.lib
         },
@@ -8725,6 +8725,11 @@ let tutorialKey = 'UserFilter'
   }
   
   UserFilter.methods.checkTutorialAutoStart = function () {
+    if (this.lib.auth.currentStepConfig.forceTutorial === false) {
+      // 如果不是強制啟動，那我們就不做這個處理
+      return false
+    }
+    
     if (this.hasReadTutorial === false) {
       setTimeout(() => {
         this.startUserFilterTutorial()

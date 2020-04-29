@@ -113,7 +113,7 @@ class UserExport {
         if (notes.size() > 0) {
           item.note = notes.first().note
           //console.log(item.note)
-          item.note = StringHelper.htmlToText(item.note, true)
+          //item.note = StringHelper.htmlToText(item.note, true)
         }
         else {
           continue

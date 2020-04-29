@@ -15043,14 +15043,13 @@ let ResourceSearch = {
       if (targetHeight !== null) {
         features.push('height=' + targetHeight);
       }
-      features.push('left=' + left);
-      features.push('top=' + right);
-      features.push('scrollbars=1');
+      features.push('left=' + left)
+      features.push('top=' + right)
+      features.push('scrollbars=1')
       //console.log(features)
       //url = 'http://pc.pulipuli.info:443/demo-articles/test-lorem-ipsum-1section.html'
       
       var newWindow = window.open('', title, features.join(','))
-      window.nw = newWindow
 
       newWindow.document.body.addEventListener('DOMContentLoaded', () => {
         console.log('go')

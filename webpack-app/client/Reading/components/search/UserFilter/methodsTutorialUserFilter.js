@@ -49,6 +49,11 @@ export default function (UserFilter) {
   }
   
   UserFilter.methods.checkTutorialAutoStart = function () {
+    if (this.lib.auth.currentStepConfig.forceTutorial === false) {
+      // 如果不是強制啟動，那我們就不做這個處理
+      return false
+    }
+    
     if (this.hasReadTutorial === false) {
       setTimeout(() => {
         this.startUserFilterTutorial()
