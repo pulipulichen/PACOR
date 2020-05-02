@@ -82,7 +82,7 @@ export default function (Questionnaire) {
     this.page = 'Answer'
     this.persist()
     //this.$refs.SearchInputText.focus() 
-    console.log(this.isTimeUp)
+    //console.log(this.isTimeUp)
     if (this.isTimeUp === true) {
       return false
     }

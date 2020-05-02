@@ -593,7 +593,7 @@ var render = function() {
                       enable: _vm.isTimeUp,
                       isWaitingLoading: _vm.isWaitingLoading,
                       ignoreWordCount: true,
-                      autoClickSeconds: 5
+                      autoClickSeconds: _vm.autoClickSeconds
                     },
                     on: { click: _vm.nextStep, timeup: _vm.onTimeup },
                     scopedSlots: _vm._u([
@@ -1527,6 +1527,12 @@ __webpack_require__.r(__webpack_exports__);
     countList () {
       return this.answeredList.length + this.removedList.length
     },
+    
+    autoClickSeconds () {
+      if (this.lib.auth.currentStepConfig.forceNextStep === true) {
+        return 5
+      }
+    },
   }
 });
 
@@ -1699,7 +1705,7 @@ __webpack_require__.r(__webpack_exports__);
     this.page = 'Answer'
     this.persist()
     //this.$refs.SearchInputText.focus() 
-    console.log(this.isTimeUp)
+    //console.log(this.isTimeUp)
     if (this.isTimeUp === true) {
       return false
     }

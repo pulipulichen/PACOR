@@ -215,7 +215,7 @@
         v-bind:enable="isTimeUp"
         v-bind:isWaitingLoading="isWaitingLoading"
         v-bind:ignoreWordCount="true"
-        v-bind:autoClickSeconds="5"
+        v-bind:autoClickSeconds="autoClickSeconds"
         v-on:click="nextStep"
         v-on:timeup="onTimeup">
         <template 

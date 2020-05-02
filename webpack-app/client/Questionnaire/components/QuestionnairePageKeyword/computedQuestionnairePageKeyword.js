@@ -115,5 +115,11 @@ export default function (Questionnaire) {
     countList () {
       return this.answeredList.length + this.removedList.length
     },
+    
+    autoClickSeconds () {
+      if (this.lib.auth.currentStepConfig.forceNextStep === true) {
+        return 5
+      }
+    },
   }
 }

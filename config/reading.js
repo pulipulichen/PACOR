@@ -88,12 +88,14 @@ module.exports = {
       limitMinutes: 3,
       //limitMinutes: 0.03,
       countdownAtStart: false,
+      forceNextStep: false,
     },
     'PreImaginaryKeyword': {
       //instruction: '/instruction/questionnaire/PreImaginary.html',
       minKeywords: 10,
-      limitMinutes: 3,
+      limitMinutes: 0.6,
       //limitMinutes: 0.2,
+      forceNextStep: false,
     },
     'PostRecall': {
       //instruction: '/instruction/questionnaire/PostRecall.html',
@@ -102,6 +104,7 @@ module.exports = {
       //limitMinutes: 0.03,
       countdownAtStart: false,
       preloadPreImaginary: true,  // 是否顯示前面撰寫的內容
+      forceNextStep: false,
     },
     'PostRecallKeyword': {
       //instruction: '/instruction/questionnaire/PostRecall.html',
@@ -109,6 +112,7 @@ module.exports = {
       limitMinutes: 3,
       //limitMinutes: 0.2,
       preloadPreImaginary: true,  // 是否顯示前面撰寫的內容
+      forceNextStep: false,
     },
     
     // ---------------------------
