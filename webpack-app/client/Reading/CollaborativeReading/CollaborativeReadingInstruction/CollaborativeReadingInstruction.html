@@ -16,7 +16,7 @@
         <li v-html="computedAssistingReaderTool"></li>
         <li v-html="computedSuggestion"></li>
         <li v-html="computedReadDifferently"></li>
-        <li>
+        <li v-if="countdownAtStart">
           <simple-remaining-timer
             class="highlight"
             v-bind:config="config"

@@ -129,6 +129,7 @@ module.exports = {
       //  countdown: '/instruction/reading/IndividualReading-endsByCountdown.html',
       //  checklist: '/instruction/reading/IndividualReading-endsByChecklist.html',
       //},
+      countdownAtStart: false,
       forceTutorial: true,
       limitMinutes: 30,
       goToNextStepOnChecklistComplete: true,
@@ -169,6 +170,7 @@ module.exports = {
     'CollaborativeReading': {
       //instruction: '/instruction/reading/CollaborativeReading.html',
       forceTutorial: true,
+      countdownAtStart: false,
       permission: {
         collaboration: true,
         control: false,
@@ -249,6 +251,7 @@ module.exports = {
       UserFilter: {
         autoSelect: true,
       },
+      countdownAtStart: false,
       showFinishMessage: true, // 顯示恭喜完成的訊息
       //keepShowInstructionMessage: true,
       enableLogout: true,

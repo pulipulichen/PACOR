@@ -61,6 +61,9 @@ let Instruction = {
     },
     computedLimitTime () {
       return this.$t('Limited to <span class="highlight">{0} minutes</span>, now it starts instant.', [this.limitMinutes])
+    },
+    countdownAtStart () {
+      return this.lib.auth.currentStepConfig.countdownAtStart
     }
   },
 //  watch: {

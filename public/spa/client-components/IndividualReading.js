@@ -288,26 +288,28 @@ var render = function() {
                 })
               : _vm._e(),
             _vm._v(" "),
-            _c(
-              "li",
-              [
-                _c("simple-remaining-timer", {
-                  staticClass: "highlight",
-                  attrs: {
-                    config: _vm.config,
-                    status: _vm.status,
-                    lib: _vm.lib,
-                    showLabel: true
-                  }
-                }),
-                _vm._v(
-                  "\r\n          " +
-                    _vm._s(_vm.$t(". Please read the article carefully.")) +
-                    "\r\n        "
+            _vm.countdownAtStart
+              ? _c(
+                  "li",
+                  [
+                    _c("simple-remaining-timer", {
+                      staticClass: "highlight",
+                      attrs: {
+                        config: _vm.config,
+                        status: _vm.status,
+                        lib: _vm.lib,
+                        showLabel: true
+                      }
+                    }),
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(_vm.$t(". Please read the article carefully.")) +
+                        "\r\n        "
+                    )
+                  ],
+                  1
                 )
-              ],
-              1
-            )
+              : _vm._e()
           ])
         ])
       ])
@@ -1102,6 +1104,9 @@ let Instruction = {
     },
     computedLimitTime () {
       return this.$t('Limited to <span class="highlight">{0} minutes</span>, now it starts instant.', [this.limitMinutes])
+    },
+    countdownAtStart () {
+      return this.lib.auth.currentStepConfig.countdownAtStart
     }
   },
 //  watch: {
@@ -1701,6 +1706,9 @@ let NavigationItems = {
     this.$i18n.locale = this.config.locale
     
     let pauseAtStart = this.lib.auth.currentStepConfig.debug.countdownPause
+    if (this.lib.auth.currentStepConfig.countdownAtStart === false) {
+      pauseAtStart = true
+    }
 
     if (pauseAtStart === true) {
       console.log('@test pauseAtStart')

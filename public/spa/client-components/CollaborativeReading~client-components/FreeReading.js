@@ -123,28 +123,32 @@ var render = function() {
               domProps: { innerHTML: _vm._s(_vm.computedReadDifferently) }
             }),
             _vm._v(" "),
-            _c(
-              "li",
-              [
-                _c("simple-remaining-timer", {
-                  staticClass: "highlight",
-                  attrs: {
-                    config: _vm.config,
-                    status: _vm.status,
-                    lib: _vm.lib,
-                    showLabel: true
-                  }
-                }),
-                _vm._v(
-                  "\r\n          " +
-                    _vm._s(
-                      _vm.$t(". Please do your best to assist other readers.")
-                    ) +
-                    "\r\n        "
+            _vm.countdownAtStart
+              ? _c(
+                  "li",
+                  [
+                    _c("simple-remaining-timer", {
+                      staticClass: "highlight",
+                      attrs: {
+                        config: _vm.config,
+                        status: _vm.status,
+                        lib: _vm.lib,
+                        showLabel: true
+                      }
+                    }),
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(
+                          _vm.$t(
+                            ". Please do your best to assist other readers."
+                          )
+                        ) +
+                        "\r\n        "
+                    )
+                  ],
+                  1
                 )
-              ],
-              1
-            )
+              : _vm._e()
           ])
         ])
       ])
@@ -513,6 +517,9 @@ let Instruction = {
         return false
       }
       return this.$t('Think about <span class="highlight">why others read in different ways</span> with you, and then try to read the article from a different perspective.')
+    },
+    countdownAtStart () {
+      return this.lib.auth.currentStepConfig.countdownAtStart
     }
   },
 //  watch: {
