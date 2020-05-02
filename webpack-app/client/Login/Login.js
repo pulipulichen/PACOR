@@ -143,6 +143,9 @@ let Login = {
       
       //console.log('login 1')
       this.waiting = true
+      if (typeof(this.username) === 'string') {
+        this.username = this.username.toLowerCase()
+      }
       let data = {
         username: this.username,
       }
