@@ -16,7 +16,7 @@
         <li v-html="computedAssistingReaderTool"></li>
         <li v-html="computedSuggestion"></li>
         <li v-html="computedReadDifferently"></li>
-        <li v-if="countdownAtStart">
+        <li v-if="status.progress.countdownPause === false">
           <simple-remaining-timer
             class="highlight"
             v-bind:config="config"
@@ -24,7 +24,18 @@
             v-bind:lib="lib"
             v-bind:showLabel="true">
           </simple-remaining-timer>
-          {{ $t('. Please do your best to assist other readers.') }}
+          {{ $t('. Please read the article carefully.') }}
+        </li>
+        <li v-else>
+          <simple-remaining-timer
+            class="highlight"
+            v-bind:config="config"
+            v-bind:status="status"
+            v-bind:lib="lib"
+            v-bind:remainingSeconds="limitSeconds"
+            v-bind:isStatic="true">
+          </simple-remaining-timer>
+          {{ $t('. Please read the article carefully.') }}
         </li>
       </ul>
     </div>

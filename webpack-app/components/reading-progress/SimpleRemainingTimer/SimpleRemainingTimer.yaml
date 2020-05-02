@@ -1,5 +1,7 @@
 en:
+  "You must complete this stage within {0} minutes": "You must complete this stage within {0} minute | You must complete this stage within {0} minutes"
   
 zh-TW:
   # 這是註解
   Remaining Time: 剩餘時間
+  "You must complete this stage within {0} minutes": "這個階段限時{0}分鐘 "

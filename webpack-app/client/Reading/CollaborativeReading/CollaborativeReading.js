@@ -89,6 +89,7 @@ let CollaborativeReading = {
       
       //console.log(this.lib.AnnotationPanel)
       await this.initNavComponentToLib()
+      this.setupCountdown()
       
       this.status.progress.initComponents = true
     },
@@ -118,6 +119,14 @@ let CollaborativeReading = {
       //throw new Error('Wait')
       this.lib.auth.nextStep()
     },
+    setupCountdown () {
+      if (this.lib.auth.currentStepConfig.countdownAtStart === false) {
+        this.status.progress.countdownPause = true
+      }
+      else {
+        this.status.progress.countdownPause = false
+      }
+    }
     
    } // methods
 }

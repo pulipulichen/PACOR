@@ -123,7 +123,7 @@ var render = function() {
               domProps: { innerHTML: _vm._s(_vm.computedReadDifferently) }
             }),
             _vm._v(" "),
-            _vm.countdownAtStart
+            _vm.status.progress.countdownPause === false
               ? _c(
                   "li",
                   [
@@ -138,17 +138,33 @@ var render = function() {
                     }),
                     _vm._v(
                       "\r\n          " +
-                        _vm._s(
-                          _vm.$t(
-                            ". Please do your best to assist other readers."
-                          )
-                        ) +
+                        _vm._s(_vm.$t(". Please read the article carefully.")) +
                         "\r\n        "
                     )
                   ],
                   1
                 )
-              : _vm._e()
+              : _c(
+                  "li",
+                  [
+                    _c("simple-remaining-timer", {
+                      staticClass: "highlight",
+                      attrs: {
+                        config: _vm.config,
+                        status: _vm.status,
+                        lib: _vm.lib,
+                        remainingSeconds: _vm.limitSeconds,
+                        isStatic: true
+                      }
+                    }),
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(_vm.$t(". Please read the article carefully.")) +
+                        "\r\n        "
+                    )
+                  ],
+                  1
+                )
           ])
         ])
       ])
@@ -497,6 +513,9 @@ let Instruction = {
       }
       return m
     },
+    limitSeconds () {
+      return this.limitMinutes * 60
+    },
     computedLimitTime () {
       return this.$t('Limited to <span class="highlight">{0} minutes</span>, now it starts instant.', [this.limitMinutes])
     },
@@ -518,9 +537,6 @@ let Instruction = {
       }
       return this.$t('Think about <span class="highlight">why others read in different ways</span> with you, and then try to read the article from a different perspective.')
     },
-    countdownAtStart () {
-      return this.lib.auth.currentStepConfig.countdownAtStart
-    }
   },
 //  watch: {
 //  },

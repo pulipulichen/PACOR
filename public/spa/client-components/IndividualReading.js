@@ -288,7 +288,7 @@ var render = function() {
                 })
               : _vm._e(),
             _vm._v(" "),
-            _vm.countdownAtStart
+            _vm.status.progress.countdownPause === false
               ? _c(
                   "li",
                   [
@@ -309,7 +309,27 @@ var render = function() {
                   ],
                   1
                 )
-              : _vm._e()
+              : _c(
+                  "li",
+                  [
+                    _c("simple-remaining-timer", {
+                      staticClass: "highlight",
+                      attrs: {
+                        config: _vm.config,
+                        status: _vm.status,
+                        lib: _vm.lib,
+                        remainingSeconds: _vm.limitSeconds,
+                        isStatic: true
+                      }
+                    }),
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(_vm.$t(". Please read the article carefully.")) +
+                        "\r\n        "
+                    )
+                  ],
+                  1
+                )
           ])
         ])
       ])
@@ -896,6 +916,8 @@ let IndividualReading = {
         this.lib.AnnotationTypeFilter = null
       }
       
+      this.setupCountdown()
+      
       this.status.progress.initComponents = true
     },
     onChecklistComplete () {
@@ -913,6 +935,15 @@ let IndividualReading = {
     
     showInstruction() {
       this.$refs.ReadingInstruction.show()
+    },
+    
+    setupCountdown () {
+      if (this.lib.auth.currentStepConfig.countdownAtStart === false) {
+        this.status.progress.countdownPause = true
+      }
+      else {
+        this.status.progress.countdownPause = false
+      }
     }
   } // methods
 }
@@ -1102,11 +1133,11 @@ let Instruction = {
     limitMinutes () {
       return this.lib.auth.currentStepConfig.limitMinutes
     },
+    limitSeconds () {
+      return this.limitMinutes * 60
+    },
     computedLimitTime () {
       return this.$t('Limited to <span class="highlight">{0} minutes</span>, now it starts instant.', [this.limitMinutes])
-    },
-    countdownAtStart () {
-      return this.lib.auth.currentStepConfig.countdownAtStart
     }
   },
 //  watch: {

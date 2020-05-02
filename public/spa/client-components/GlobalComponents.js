@@ -297,7 +297,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Remaining Time":"剩餘時間"}}')
+  Component.options.__i18n.push('{"en":{"You must complete this stage within {0} minutes":"You must complete this stage within {0} minute | You must complete this stage within {0} minutes"},"zh-TW":{"Remaining Time":"剩餘時間","You must complete this stage within {0} minutes":"這個階段限時{0}分鐘 "}}')
   delete Component.options._Ctor
 }
 
@@ -2976,10 +2976,30 @@ var render = function() {
     "span",
     { staticClass: "SimpleRemainingTimer" },
     [
-      _vm.showLabel
-        ? [_vm._v("\r\n    " + _vm._s(_vm.$t("Remaining Time")) + " \r\n  ")]
-        : _vm._e(),
-      _vm._v("\r\n  " + _vm._s(_vm.dataRemainingTime) + "\r\n")
+      _vm.isStatic
+        ? [
+            _vm._v(
+              "\r\n    " +
+                _vm._s(
+                  _vm.$t("You must complete this stage within {0} minutes", [
+                    _vm.dataMinutes
+                  ])
+                ) +
+                "\r\n  "
+            )
+          ]
+        : [
+            _vm.showLabel
+              ? [
+                  _vm._v(
+                    "\r\n      " +
+                      _vm._s(_vm.$t("Remaining Time")) +
+                      " \r\n    "
+                  )
+                ]
+              : _vm._e(),
+            _vm._v("\r\n    " + _vm._s(_vm.dataRemainingTime) + "\r\n  ")
+          ]
     ],
     2
   )
@@ -10318,12 +10338,15 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 let CountdownTimer = {
   props: ['lib', 'config'
-    , 'remainingSeconds', 'pauseAtStart', 'showLabel'],
+    , 'remainingSeconds', 'pauseAtStart', 'showLabel', 'isStatic'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
+    let dataPause = (this.pauseAtStart || this.isStatic)
+    //console.log(dataPause)
     return {
       dataRemainingSec: this.remainingSeconds,
-      dataPause: this.pauseAtStart
+      dataPause: dataPause
     }
   },
   computed: {
@@ -10342,6 +10365,9 @@ let CountdownTimer = {
       }
       
       return t
+    },
+    dataMinutes () {
+      return this.remainingSeconds / 60
     }
   },
   watch: {
@@ -10353,6 +10379,9 @@ let CountdownTimer = {
     }
   },
   mounted() {
+    if (this.isStatic) {
+      return false
+    }
     this.start()
   },
   methods: {
@@ -10363,9 +10392,12 @@ let CountdownTimer = {
       }
       
       //console.log(this.pauseAtStart)
-      if (this.dataPause === true) {
+      //console.log(this.isStatic, this.dataPause)
+      if (this.dataPause === true || this.isStatic 
+              || (this.dataPause === undefined && this.isStatic === undefined)) {
         return null
       }
+      
       setTimeout(() => {
         this.dataRemainingSec--
         

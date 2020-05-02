@@ -114,7 +114,8 @@ let ReadingInstruction = {
       while (!this.lib.TutorialManager) {
         await this.lib.VueHelper.sleep(100)
       }
-      this.lib.TutorialManager.start()
+      await this.lib.TutorialManager.start()
+      this.status.progress.countdownPause = false
     },
     show() {
       if (!this.$refs.Modal) {

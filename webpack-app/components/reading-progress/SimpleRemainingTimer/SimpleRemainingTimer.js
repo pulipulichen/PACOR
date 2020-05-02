@@ -1,11 +1,14 @@
 let CountdownTimer = {
   props: ['lib', 'config'
-    , 'remainingSeconds', 'pauseAtStart', 'showLabel'],
+    , 'remainingSeconds', 'pauseAtStart', 'showLabel', 'isStatic'],
   data() {    
     this.$i18n.locale = this.config.locale
+    
+    let dataPause = (this.pauseAtStart || this.isStatic)
+    //console.log(dataPause)
     return {
       dataRemainingSec: this.remainingSeconds,
-      dataPause: this.pauseAtStart
+      dataPause: dataPause
     }
   },
   computed: {
@@ -24,6 +27,9 @@ let CountdownTimer = {
       }
       
       return t
+    },
+    dataMinutes () {
+      return this.remainingSeconds / 60
     }
   },
   watch: {
@@ -35,6 +41,9 @@ let CountdownTimer = {
     }
   },
   mounted() {
+    if (this.isStatic) {
+      return false
+    }
     this.start()
   },
   methods: {
@@ -45,9 +54,12 @@ let CountdownTimer = {
       }
       
       //console.log(this.pauseAtStart)
-      if (this.dataPause === true) {
+      //console.log(this.isStatic, this.dataPause)
+      if (this.dataPause === true || this.isStatic 
+              || (this.dataPause === undefined && this.isStatic === undefined)) {
         return null
       }
+      
       setTimeout(() => {
         this.dataRemainingSec--
         

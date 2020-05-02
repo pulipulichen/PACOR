@@ -489,7 +489,8 @@ let VueController = {
       },
       progress: {
         initComponents: false,
-        highlights: false
+        highlights: false,
+        countdownPause: false
       },
       sessionToken: null
     },

@@ -90,6 +90,8 @@ let IndividualReading = {
         this.lib.AnnotationTypeFilter = null
       }
       
+      this.setupCountdown()
+      
       this.status.progress.initComponents = true
     },
     onChecklistComplete () {
@@ -107,6 +109,15 @@ let IndividualReading = {
     
     showInstruction() {
       this.$refs.ReadingInstruction.show()
+    },
+    
+    setupCountdown () {
+      if (this.lib.auth.currentStepConfig.countdownAtStart === false) {
+        this.status.progress.countdownPause = true
+      }
+      else {
+        this.status.progress.countdownPause = false
+      }
     }
   } // methods
 }

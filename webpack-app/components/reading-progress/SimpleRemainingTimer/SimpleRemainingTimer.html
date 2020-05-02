@@ -1,6 +1,11 @@
 <span class="SimpleRemainingTimer">
-  <template v-if="showLabel">
-    {{ $t('Remaining Time') }} 
+  <template v-if="isStatic">
+    {{ $t('You must complete this stage within {0} minutes', [dataMinutes]) }}
   </template>
-  {{ dataRemainingTime }}
+  <template v-else>
+    <template v-if="showLabel">
+      {{ $t('Remaining Time') }} 
+    </template>
+    {{ dataRemainingTime }}
+  </template>    
 </span>
