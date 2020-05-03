@@ -3,6 +3,8 @@ const Drive = use('Drive')
 const Helpers = use('Helpers')
 const fs = use('fs')
 
+const DateHelper = use('App/Helpers/DateHelper')
+
 let logManager = {
   logs: [],
   useThreads: true,
@@ -255,7 +257,7 @@ let logManager = {
   basename: null,
   getBasename (index) {
     if (!this.basename) {
-      this.basename = (new Date()).getTime().toString(36)
+      this.basename = DateHelper.getTime().toString(36)
     }
     
     let name

@@ -106,11 +106,12 @@ let ReadingInstruction = {
     hide() {
       this.$refs.Modal.hide()
     },
-    hideAndStartCountdown () {
+    hideAndStartCountdown: async function () {
+      await this.lib.auth.resetRemainingSeconds()
       this.hide()
       setTimeout(() => {
         this.status.progress.countdownPause = false
-      }, 1000)
+      }, 0)
     },
     startTutorial: async function () {
       localStorage.setItem(this.localStorageKeyPrefix, 1)

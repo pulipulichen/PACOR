@@ -4,6 +4,7 @@ const Helpers = use('Helpers')
 const Env = use('Env')
 
 const User = use('App/Models/User')
+const DateHelper = use('App/Helpers/DateHelper')
 //const Message = use('App/Models/Message')
 
 class File {
@@ -27,7 +28,7 @@ class File {
       return 0
     }
 
-    var name = `${new Date().getTime()}.${profilePic.subtype}`
+    var name = `${DateHelper.getTime()}.${profilePic.subtype}`
     await profilePic.move(Helpers.publicPath(`uploads/${webpage.primaryKeyValue}/${userId}`), {
       name: name,
       overwrite: true,

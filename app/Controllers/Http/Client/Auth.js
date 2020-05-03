@@ -11,6 +11,7 @@ const DatabaseHelper = use('App/Helpers/DatabaseHelper')
 
 const Config = use('Config')
 let flushCache = Config.get('reading.debug.flushCache') // for test
+const DateHelper = use('App/Helpers/DateHelper')
 
 /**
  * 登入
@@ -130,7 +131,7 @@ class Auth {
     let readingProgresses = await user.getReadingProgressStatus(webpage)
     let userJSON = user.toJSON()
     
-    let sessionToken = Math.floor((new Date()).getTime() / 1000).toString(36)
+    let sessionToken = Math.floor(DateHelper.getTime() / 1000).toString(36)
     
     //let notificationUnreadCount = await user.getNotificationUnreadCount(webpage)
     //notificationUnreadCount = 20  // for test 20191122

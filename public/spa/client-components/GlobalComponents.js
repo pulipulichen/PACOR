@@ -9648,7 +9648,7 @@ let checkActed = function () {
   if (acted === false) {
     acted = true
     let d = (new Date())
-    lastTime = d.getTime() + (d.getTimezoneOffset() * 1000)
+    lastTime = d.getTime() + (d.getTimezoneOffset() * 60 * 1000)
   }
 }
 
@@ -9673,12 +9673,17 @@ let ActivityTimer = {
   },
   computed: {
     seconds () {
-      return this.config.detectActivitySeconds
+      if (this.timer) {
+        return this.config.detectActivitySeconds
+      }
+      else {
+        return 3
+      }
     }
   },
   destroyed: async function () {
     clearInterval(this.timer)
-    this.send()
+    this.sendLastStep()
   },
   watch: {
     'status.status.progress.countdownPause': function (countdownPause) {
@@ -9687,8 +9692,7 @@ let ActivityTimer = {
   },
   methods: {
     toNow: function () {
-      let d = (new Date())
-      let currentMS = d.getTime() + (d.getTimezoneOffset() * 1000)
+      let currentMS = this.lib.DayJSHelepr.time()
       return Math.round((currentMS - lastTime) / 1000)
     },
     send: async function () {
@@ -9700,8 +9704,38 @@ let ActivityTimer = {
       //return
       
       if (acted === true) {
-        await this.lib.AxiosHelper.get('/client/ReadingProgress/activityTimer', {
-          seconds: this.toNow()
+        let seconds = this.toNow()
+        if (seconds > 0) {
+          await this.lib.AxiosHelper.get('/client/ReadingProgress/activityTimer', {
+            seconds: this.toNow()
+          }, (error) => {
+            this.enable = false
+            if (this.lib.TestManager.isTesting === true) {
+              console.error('Get error from server: ' + error)
+              return null
+            }
+
+            //console.error('Get error from server, force logout: ' + error)
+            //this.lib.auth.logout()
+          })
+          
+          acted = false
+        }
+        
+        this.timer = setTimeout(() => {
+          this.send()
+        }, this.seconds * 1000)
+      }
+    },
+    sendLastStep: async function () {
+      let seconds = this.toNow()
+      if (seconds === 0) {
+        return false
+      }
+      
+      if (acted === true) {
+        await this.lib.AxiosHelper.get('/client/ReadingProgress/activityTimerLastStep', {
+          seconds: seconds
         }, (error) => {
           this.enable = false
           if (this.lib.TestManager.isTesting === true) {
@@ -9713,9 +9747,6 @@ let ActivityTimer = {
           //this.lib.auth.logout()
         })
         acted = false
-        this.timer = setTimeout(() => {
-          this.send()
-        }, this.seconds * 1000)
       }
     }
   }

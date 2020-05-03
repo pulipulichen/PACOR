@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
     offset () {
       if (typeof(this._offset) !== 'number') {
         let d = (new Date())
-        this._offset = d.getTimezoneOffset() * 1000
+        this._offset = d.getTimezoneOffset() * 60 * 1000
       }
       return this._offset
     },

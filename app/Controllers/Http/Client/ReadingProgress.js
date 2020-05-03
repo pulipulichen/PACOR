@@ -67,6 +67,15 @@ class ReadingProgress {
     return 1
   }
   
+  async activityTimerLastStep({request, webpage, user}) {
+    //throw new HttpException('For Test', 403)
+    
+    const { seconds } = request.all()
+    //console.log(seconds)
+    await user.addActivitySecondsLastStep(webpage, seconds)
+    return 1
+  }
+  
   async setLog({request, webpage, user}) {
     let log = request.all()
     webpage.log(user, 'ReadingProgress.setLog', log)

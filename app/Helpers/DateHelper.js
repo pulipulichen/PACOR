@@ -6,7 +6,7 @@ let DateHelper = {
   },
   getTime () {
     let d = (new Date())
-    return d.getTime() + (d.getTimezoneOffset() * 1000)
+    return d.getTime() + (d.getTimezoneOffset() * 60 * 1000)
   }
 }
 

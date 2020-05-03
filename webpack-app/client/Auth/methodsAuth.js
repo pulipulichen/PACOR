@@ -152,6 +152,7 @@ export default function (Auth) {
     }
     
     this.status.readingProgresses = this.status.readingProgresses.slice(0, this.status.readingProgresses.length)
+    console.log(this.status.readingProgresses)
     
     //this.$forceUpdate()
 

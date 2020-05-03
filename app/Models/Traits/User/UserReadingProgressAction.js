@@ -233,6 +233,46 @@ class UserReadingProgressAction {
       // ------------------------------
       // 偵查現在的時間
       
+      let start_timestamp = step.start_timestamp
+      if (isNaN(start_timestamp) === false) {
+        start_timestamp = Number(start_timestamp)
+      }
+      //console.log([start_timestamp, seconds * 1000, (DateHelper.getTime() - start_timestamp)])
+      if (start_timestamp 
+              && (seconds * 1000 > DateHelper.getTime() - start_timestamp )) {
+        step = await this.getPreviousReadingProgress(webpage)
+        //console.log(['step_name', step.step_name])
+      }
+      
+      // ------------------------------
+
+      //console.log(step.activity_seconds, typeof(step.activity_seconds))
+      if (isNaN(step.activity_seconds) === false) {
+        step.activity_seconds = parseInt(step.activity_seconds, 10)
+      }
+      if (typeof (step.activity_seconds) !== 'number') {
+        step.activity_seconds = 0
+      }
+      step.activity_seconds = step.activity_seconds + seconds
+      await step.save()
+      return step
+    }
+    
+    Model.prototype.addActivitySecondsLastStep = async function (webpage, seconds) {
+      //console.log('addActivitySeconds', seconds, typeof(seconds))
+      if (isNaN(seconds) === false) {
+        seconds = parseInt(seconds, 10)
+      }
+      if (typeof (seconds) !== 'number') {
+        return false
+      }
+
+      let step = await this.getPreviousReadingProgress(webpage)
+      //console.log(activity_seconds)
+      if (step === null) {
+        return null
+      }
+      
       // ------------------------------
 
       //console.log(step.activity_seconds, typeof(step.activity_seconds))

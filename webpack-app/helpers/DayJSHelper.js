@@ -34,7 +34,7 @@ export default async () => {
     offset () {
       if (typeof(this._offset) !== 'number') {
         let d = (new Date())
-        this._offset = d.getTimezoneOffset() * 1000
+        this._offset = d.getTimezoneOffset() * 60 * 1000
       }
       return this._offset
     },

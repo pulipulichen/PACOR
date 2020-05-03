@@ -4,6 +4,8 @@
 ////const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
 
 const AnnotationModel = use('App/Models/Annotation')
+
+const DateHelper = use('App/Helpers/DateHelper')
 //const AnnotationNoteModel = use('App/Models/AnnotationNote')
 //
 //const Cache = use('Cache')
@@ -62,9 +64,9 @@ class Highlight {
    * @returns {token}
    */
   async testSessionToken({request, session}) {
-    let token = (new Date).getTime().toString(36)
+    let token = DateHelper.getTime().toString(36)
     let time = {
-      time: (new Date).getTime()
+      time: DateHelper.getTime()
     }
     let key = 'time.' + token
     console.log(key)

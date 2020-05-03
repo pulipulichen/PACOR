@@ -1923,6 +1923,7 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     this.status.readingProgresses = this.status.readingProgresses.slice(0, this.status.readingProgresses.length)
+    console.log(this.status.readingProgresses)
     
     //this.$forceUpdate()
 
@@ -2404,8 +2405,7 @@ let Login = {
       this.password = ''
     },
     createMockupUsername () {
-      let d = (new Date())
-      let currentMS = d.getTime() + (d.getTimezoneOffset() * 1000)
+      let currentMS = this.lib.DayJSHelepr.time()
       
       //this.username = 'Anon.' + currentMS.toString(36)
       this.username = '睨鳴' + currentMS.toString(36)
@@ -11677,8 +11677,7 @@ let AnnotationHelper = {
     }
     
     if (annotation.id && !annotation.updated_at_unixms) {
-      let d = (new Date())
-      annotation.updated_at_unixms = d.getTime() + (d.getTimezoneOffset() * 1000)
+      annotation.updated_at_unixms = this.lib.DayJSHelepr.time()
     }
   },
   isPublicSectionAnnotation (annotation) {
@@ -11924,7 +11923,7 @@ __webpack_require__.r(__webpack_exports__);
     offset () {
       if (typeof(this._offset) !== 'number') {
         let d = (new Date())
-        this._offset = d.getTimezoneOffset() * 1000
+        this._offset = d.getTimezoneOffset() * 60 * 1000
       }
       return this._offset
     },
