@@ -2109,6 +2109,7 @@ __webpack_require__.r(__webpack_exports__);
   Auth.methods.resetRemainingSeconds = async function () {
     // 先給伺服器設定重置時間，回傳整個流程的重置時間
     this.status.readingProgresses = await await this.lib.AxiosHelper.get('/client/ReadingProgress/resetRemainingSeconds')
+    this.status.progress.countdownPause = false
     return this.getRemainingSeconds()
   }
   

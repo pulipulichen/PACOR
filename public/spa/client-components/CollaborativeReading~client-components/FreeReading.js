@@ -153,8 +153,8 @@ var render = function() {
                         config: _vm.config,
                         status: _vm.status,
                         lib: _vm.lib,
-                        pauseAtStart: true,
-                        showLabel: true
+                        remainingSeconds: _vm.limitSeconds,
+                        isStatic: true
                       }
                     }),
                     _vm._v(
@@ -517,7 +517,8 @@ let Instruction = {
       return m
     },
     limitSeconds () {
-      return this.limitMinutes * 60
+      //return this.limitMinutes * 60
+      return this.lib.auth.getPausedRemainingSeconds()
     },
     computedLimitTime () {
       return this.$t('Limited to <span class="highlight">{0} minutes</span>, now it starts instant.', [this.limitMinutes])

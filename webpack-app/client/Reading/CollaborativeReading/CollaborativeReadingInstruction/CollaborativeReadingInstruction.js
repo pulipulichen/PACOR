@@ -59,7 +59,8 @@ let Instruction = {
       return m
     },
     limitSeconds () {
-      return this.limitMinutes * 60
+      //return this.limitMinutes * 60
+      return this.lib.auth.getPausedRemainingSeconds()
     },
     computedLimitTime () {
       return this.$t('Limited to <span class="highlight">{0} minutes</span>, now it starts instant.', [this.limitMinutes])

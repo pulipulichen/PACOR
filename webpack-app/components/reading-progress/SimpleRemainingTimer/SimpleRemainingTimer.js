@@ -30,7 +30,7 @@ let CountdownTimer = {
       return t
     },
     dataMinutes () {
-      return this.remainingSeconds / 60
+      return Math.ceil(this.remainingSeconds / 60)
     }
   },
   watch: {

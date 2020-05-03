@@ -30557,9 +30557,9 @@ let ReadingInstruction = {
       if (this.status.progress.countdownPause === true) {
         await this.lib.auth.resetRemainingSeconds()
         
-        setTimeout(() => {
-          this.status.progress.countdownPause = false
-        }, 0)
+//        setTimeout(() => {
+//          this.status.progress.countdownPause = false
+//        }, 0)
       }
       
       this.hide()
@@ -30574,7 +30574,10 @@ let ReadingInstruction = {
         await this.lib.VueHelper.sleep(100)
       }
       await this.lib.TutorialManager.start()
-      this.status.progress.countdownPause = false
+      if (this.status.progress.countdownPause === true) {
+        await this.lib.auth.resetRemainingSeconds()
+      }
+      //this.status.progress.countdownPause = false
     },
     show() {
       if (!this.$refs.Modal) {

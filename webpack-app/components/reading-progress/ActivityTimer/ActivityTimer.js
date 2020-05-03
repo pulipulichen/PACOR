@@ -71,6 +71,11 @@ let ActivityTimer = {
       let toNow = Math.ceil((lastTime - firstTime) / 1000)
       firstTime = null
       lastTime = null
+      
+      if (toNow > this.seconds) {
+        toNow = this.seconds
+      }
+      
       return toNow
     },
     send: async function () {
@@ -108,10 +113,6 @@ let ActivityTimer = {
       let seconds = this.toNow()
       if (seconds === 0) {
         return false
-      }
-      
-      if (seconds > this.seconds) {
-        seconds = this.seconds
       }
       
       if (acted === true) {

@@ -32,8 +32,8 @@
             v-bind:config="config"
             v-bind:status="status"
             v-bind:lib="lib"
-            v-bind:pauseAtStart="true"
-            v-bind:showLabel="true">
+            v-bind:remainingSeconds="limitSeconds"
+            v-bind:isStatic="true">
           </simple-remaining-timer>
           {{ $t('. Please read the article carefully.') }}
         </li>
