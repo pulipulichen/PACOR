@@ -227,7 +227,9 @@ var render = function() {
         ? _c("block-exit")
         : _vm._e(),
       _vm._v(" "),
-      _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
+      !_vm.status.progress.countdownPause
+        ? _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
+        : _vm._e()
     ],
     1
   )
@@ -938,7 +940,8 @@ let IndividualReading = {
     },
     
     setupCountdown () {
-      if (this.lib.auth.currentStepConfig.countdownAtStart === false) {
+      if (this.lib.auth.currentStepConfig.countdownAtStart === false
+        && this.lib.auth.isCurrentStepActived === false) {
         this.status.progress.countdownPause = true
       }
       else {

@@ -112,7 +112,8 @@ let IndividualReading = {
     },
     
     setupCountdown () {
-      if (this.lib.auth.currentStepConfig.countdownAtStart === false) {
+      if (this.lib.auth.currentStepConfig.countdownAtStart === false
+        && this.lib.auth.isCurrentStepActived === false) {
         this.status.progress.countdownPause = true
       }
       else {

@@ -133,7 +133,6 @@ class UserReadingProgressConfig {
         if (Array.isArray(webpage) === true
                 || typeof (webpage.primaryKeyValue) !== 'number') {
           throw new Error('webpage is incorrect: \n' + JSON.stringify(webpage, null, 2))
-          
         }
         
         profiler.before('await webpage.getReadingProgresses()')
@@ -162,6 +161,7 @@ class UserReadingProgressConfig {
               output.start_timestamp = s.start_timestamp
               output.end_timestamp = s.end_timestamp
               output.duration = s.duration
+              output.activity_seconds = Number(s.activity_seconds)
               output.isCompleted = s.isCompleted
               if (showDetails === true) {
                 output.activity_seconds = s.activity_seconds

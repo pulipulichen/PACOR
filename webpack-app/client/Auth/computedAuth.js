@@ -195,4 +195,21 @@ export default function (Auth) {
   Auth.computed.mainIdeaConfig = function () {
     return this.status.readingConfig.annotationTypeModules.MainIdea
   }
+  
+  Auth.computed.currentStepStatus = function () {
+    let stepName = this.currentStep
+    for (let i = 0; i < this.status.readingProgresses.length; i++) {
+      if (this.status.readingProgresses[i].step_name === stepName) {
+        return this.status.readingProgresses[i]
+      }
+    }
+  }
+  
+  Auth.computed.isCurrentStepActived = function () {
+    let stepStatus = this.currentStepStatus
+    if (stepStatus) {
+      return (stepStatus.activity_seconds > 0)
+    }
+    return false
+  }
 }

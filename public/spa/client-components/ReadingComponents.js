@@ -5347,7 +5347,12 @@ var render = function() {
                         "div",
                         {
                           staticClass: "ui button close-button",
-                          on: { click: _vm.hide }
+                          on: {
+                            click: function($event) {
+                              $event.stopPropagation()
+                              return _vm.hideAndStartCountdown($event)
+                            }
+                          }
                         },
                         [
                           _vm._v(
@@ -30546,6 +30551,12 @@ let ReadingInstruction = {
     },
     hide() {
       this.$refs.Modal.hide()
+    },
+    hideAndStartCountdown () {
+      this.hide()
+      setTimeout(() => {
+        this.status.progress.countdownPause = false
+      }, 1000)
     },
     startTutorial: async function () {
       localStorage.setItem(this.localStorageKeyPrefix, 1)

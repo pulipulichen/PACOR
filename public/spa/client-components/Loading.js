@@ -1062,6 +1062,23 @@ var render = function() {
                   {
                     staticClass: "ui labeled icon button",
                     attrs: { type: "button" },
+                    on: { click: _vm.lib.auth.resetRemainingSeconds }
+                  },
+                  [
+                    _c("i", { staticClass: "undo icon" }),
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(_vm.$t("Reset Time")) +
+                        "\r\n        "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "ui labeled icon button",
+                    attrs: { type: "button" },
                     on: { click: _vm.logout }
                   },
                   [
@@ -1722,6 +1739,23 @@ __webpack_require__.r(__webpack_exports__);
   Auth.computed.mainIdeaConfig = function () {
     return this.status.readingConfig.annotationTypeModules.MainIdea
   }
+  
+  Auth.computed.currentStepStatus = function () {
+    let stepName = this.currentStep
+    for (let i = 0; i < this.status.readingProgresses.length; i++) {
+      if (this.status.readingProgresses[i].step_name === stepName) {
+        return this.status.readingProgresses[i]
+      }
+    }
+  }
+  
+  Auth.computed.isCurrentStepActived = function () {
+    let stepStatus = this.currentStepStatus
+    if (stepStatus) {
+      return (stepStatus.activity_seconds > 0)
+    }
+    return false
+  }
 });
 
 /***/ }),
@@ -1781,6 +1815,8 @@ __webpack_require__.r(__webpack_exports__);
 
     //console.log(result)
     //console.log(result.needLogin)
+    //console.log(this.status.readingProgresses)
+    
     if (result.needLogin === false) {
       this.status.needLogin = false
     } else {
@@ -2074,6 +2110,14 @@ __webpack_require__.r(__webpack_exports__);
       this.status.view = view
     }
   }
+  
+  Auth.watch['status.status.progress.countdownPause'] = function (countdownPause) {
+    if (countdownPause === false) {
+      // 由true轉false的瞬間
+      console.log('countdownPause true to false')
+      this.resetRemainingSeconds()
+    }
+  }
 });
 
 /***/ }),
@@ -2280,6 +2324,7 @@ let Login = {
         this.status[name] = result[name]
       }
       this.status.username = this.username
+      //console.log(this.status.readingProgresses)
       
       if (this.adminMode === false) {
         this.password = ''

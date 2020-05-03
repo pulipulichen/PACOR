@@ -68,7 +68,7 @@
         </div>
         <div class="ui button close-button"
              v-if="showCloseButton"
-             v-on:click="hide">
+             v-on:click.stop="hideAndStartCountdown">
           {{ $t('Close') }}
         </div>
       </template>

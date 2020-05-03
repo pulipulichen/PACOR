@@ -170,6 +170,7 @@ let Login = {
         this.status[name] = result[name]
       }
       this.status.username = this.username
+      //console.log(this.status.readingProgresses)
       
       if (this.adminMode === false) {
         this.password = ''

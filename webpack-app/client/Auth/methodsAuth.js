@@ -44,6 +44,8 @@ export default function (Auth) {
 
     //console.log(result)
     //console.log(result.needLogin)
+    //console.log(this.status.readingProgresses)
+    
     if (result.needLogin === false) {
       this.status.needLogin = false
     } else {

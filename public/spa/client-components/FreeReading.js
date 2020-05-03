@@ -286,7 +286,9 @@ var render = function() {
         ? _c("block-exit")
         : _vm._e(),
       _vm._v(" "),
-      _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } }),
+      !_vm.status.progress.countdownPause
+        ? _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
+        : _vm._e(),
       _vm._v(" "),
       _c("notification-manager", {
         ref: "NotificationManager",
@@ -1695,7 +1697,8 @@ let CollaborativeReading = {
       this.lib.auth.nextStep()
     },
     setupCountdown () {
-      if (this.lib.auth.currentStepConfig.countdownAtStart === false) {
+      if (this.lib.auth.currentStepConfig.countdownAtStart === false
+        && this.lib.auth.isCurrentStepActived === false) {
         this.status.progress.countdownPause = true
       }
       else {

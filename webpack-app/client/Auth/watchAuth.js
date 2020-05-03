@@ -9,4 +9,12 @@ export default function (Auth) {
       this.status.view = view
     }
   }
+  
+  Auth.watch['status.status.progress.countdownPause'] = function (countdownPause) {
+    if (countdownPause === false) {
+      // 由true轉false的瞬間
+      console.log('countdownPause true to false')
+      this.resetRemainingSeconds()
+    }
+  }
 }

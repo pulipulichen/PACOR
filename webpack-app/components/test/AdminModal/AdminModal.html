@@ -31,6 +31,14 @@
           <i class="backward icon"></i>
           {{ $t('Back to Previous Step') }}
         </button>
+      
+        <button 
+          type="button"
+          class="ui labeled icon button"
+          v-on:click="lib.auth.resetRemainingSeconds">
+          <i class="undo icon"></i>
+          {{ $t('Reset Time') }}
+        </button>
 
         <button 
           type="button"
