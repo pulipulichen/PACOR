@@ -117,3 +117,11 @@ Run the following command to run startup migrations.
 ```js
 adonis migration:run
 ```
+
+# REDIS
+
+````
+slave-read-only no
+````
+
+https://blog.csdn.net/zhangpeterx/article/details/88856073
