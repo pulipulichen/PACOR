@@ -154,6 +154,29 @@ class ReadingProgress {
     }
     return 1
   }
+  
+  async resetRemainingSeconds({request, webpage, user}) {
+    webpage.log(user, 'ReadingProgress.resetRemainingSeconds')
+    
+    let result = await ReadingProgressModel.query()
+            .where('webpage_id', webpage.primaryKeyValue)
+            .where('user_id', user.primaryKeyValue)
+            .orderBy('id', 'desc')
+            .limit(1)
+            .fetch()
+    //console.log(result.size())
+    let step = result.first()
+    step.start_timestamp = (new Date()).getTime()
+    step.end_timestamp = null
+    step.activity_seconds = 0
+    await step.save()
+    
+    // ----------------------------
+    // 然後回傳readingProgress資料
+    let readingProgresses = await user.getReadingProgressStatus(webpage)
+    
+    return readingProgresses
+  }
 }
 
 module.exports = ReadingProgress

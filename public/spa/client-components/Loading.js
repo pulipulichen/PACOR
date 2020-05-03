@@ -2007,6 +2007,12 @@ __webpack_require__.r(__webpack_exports__);
     return Math.ceil(remaining_ms / 1000)
   }
   
+  Auth.methods.resetRemainingSeconds = async function () {
+    // 先給伺服器設定重置時間，回傳整個流程的重置時間
+    this.status.readingProgresses = await await this.lib.AxiosHelper.get('/client/ReadingProgress/resetRemainingSeconds')
+    return this.getRemainingSeconds()
+  }
+  
   Auth.methods.filterURL = function (url) {
 //    console.log(url, this.lib.ValidateHelper.isURL(url))
 //    if (this.lib.ValidateHelper.isURL(url) === false) {
