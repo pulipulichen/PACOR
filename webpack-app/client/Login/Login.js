@@ -195,7 +195,7 @@ let Login = {
       this.password = ''
     },
     createMockupUsername () {
-      let currentMS = this.lib.DayJSHelepr.time()
+      let currentMS = this.lib.DayJSHelper.time()
       
       //this.username = 'Anon.' + currentMS.toString(36)
       this.username = '睨鳴' + currentMS.toString(36)

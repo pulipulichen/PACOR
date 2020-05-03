@@ -95,9 +95,11 @@ __webpack_require__.r(__webpack_exports__);
         return n
       }
     },
-    shortTime: function (millisecond) {
+    shortTime: function (millisecond, useOffset) {
       //let intervalTimestamp = (new Date()).getTime() - timestamp
-      millisecond = millisecond - this.offset()
+      if (useOffset === true) {
+        millisecond = millisecond - this.offset()
+      }
 
       let year = 0
       let month = 0

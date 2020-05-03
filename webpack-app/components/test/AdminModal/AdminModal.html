@@ -16,6 +16,9 @@
     <template 
       v-slot:content>
 
+      <div class="ui equal width centered grid">
+        
+      <div class="row">
         <button 
           type="button"
           class="ui labeled icon button"
@@ -31,12 +34,23 @@
           <i class="backward icon"></i>
           {{ $t('Back to Previous Step') }}
         </button>
+      </div>
       
+      <div class="row">
+        
+        <button 
+          type="button"
+          class="ui labeled icon button"
+          v-on:click="reload">
+          <i class="undo alternate icon"></i>
+          {{ $t('Reload') }}
+        </button>
+        
         <button 
           type="button"
           class="ui labeled icon button"
           v-on:click="resetRemainingSeconds">
-          <i class="undo icon"></i>
+          <i class="stopwatch icon"></i>
           {{ $t('Reset Time') }}
         </button>
 
@@ -48,6 +62,10 @@
           {{ $t('Logout') }}
         </button>
 
+      </div>
+      
+      <div class="row">
+        
         <button 
           type="button"
           class="ui labeled icon button"
@@ -56,13 +74,12 @@
           {{ $t('Next Step') }}
         </button>
 
-        <button 
-          type="button"
-          class="ui labeled icon button"
-          v-on:click="reload">
-          <i class="undo alternate icon"></i>
-          {{ $t('Reload') }}
-        </button>
+      </div>
+        
+        
+      </div>
+      
+        
     </template>
   </modal>
 </div>

@@ -1023,107 +1023,115 @@ var render = function() {
             key: "content",
             fn: function() {
               return [
-                _c(
-                  "button",
-                  {
-                    staticClass: "ui labeled icon button",
-                    attrs: { type: "button" },
-                    on: { click: _vm.backToFirstStep }
-                  },
-                  [
-                    _c("i", { staticClass: "fast backward icon" }),
-                    _vm._v(
-                      "\r\n          " +
-                        _vm._s(_vm.$t("Back to First Step")) +
-                        "\r\n        "
+                _c("div", { staticClass: "ui equal width centered grid" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "ui labeled icon button",
+                        attrs: { type: "button" },
+                        on: { click: _vm.backToFirstStep }
+                      },
+                      [
+                        _c("i", { staticClass: "fast backward icon" }),
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(_vm.$t("Back to First Step")) +
+                            "\r\n        "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "ui labeled icon button",
+                        attrs: { type: "button" },
+                        on: { click: _vm.backToPreviousStep }
+                      },
+                      [
+                        _c("i", { staticClass: "backward icon" }),
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(_vm.$t("Back to Previous Step")) +
+                            "\r\n        "
+                        )
+                      ]
                     )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "ui labeled icon button",
-                    attrs: { type: "button" },
-                    on: { click: _vm.backToPreviousStep }
-                  },
-                  [
-                    _c("i", { staticClass: "backward icon" }),
-                    _vm._v(
-                      "\r\n          " +
-                        _vm._s(_vm.$t("Back to Previous Step")) +
-                        "\r\n        "
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "ui labeled icon button",
+                        attrs: { type: "button" },
+                        on: { click: _vm.reload }
+                      },
+                      [
+                        _c("i", { staticClass: "undo alternate icon" }),
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(_vm.$t("Reload")) +
+                            "\r\n        "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "ui labeled icon button",
+                        attrs: { type: "button" },
+                        on: { click: _vm.resetRemainingSeconds }
+                      },
+                      [
+                        _c("i", { staticClass: "stopwatch icon" }),
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(_vm.$t("Reset Time")) +
+                            "\r\n        "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "ui labeled icon button",
+                        attrs: { type: "button" },
+                        on: { click: _vm.logout }
+                      },
+                      [
+                        _c("i", { staticClass: "sign-out icon" }),
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(_vm.$t("Logout")) +
+                            "\r\n        "
+                        )
+                      ]
                     )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "ui labeled icon button",
-                    attrs: { type: "button" },
-                    on: { click: _vm.resetRemainingSeconds }
-                  },
-                  [
-                    _c("i", { staticClass: "undo icon" }),
-                    _vm._v(
-                      "\r\n          " +
-                        _vm._s(_vm.$t("Reset Time")) +
-                        "\r\n        "
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "ui labeled icon button",
+                        attrs: { type: "button" },
+                        on: { click: _vm.goToNextStep }
+                      },
+                      [
+                        _c("i", { staticClass: "forward icon" }),
+                        _vm._v(
+                          "\r\n          " +
+                            _vm._s(_vm.$t("Next Step")) +
+                            "\r\n        "
+                        )
+                      ]
                     )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "ui labeled icon button",
-                    attrs: { type: "button" },
-                    on: { click: _vm.logout }
-                  },
-                  [
-                    _c("i", { staticClass: "sign-out icon" }),
-                    _vm._v(
-                      "\r\n          " +
-                        _vm._s(_vm.$t("Logout")) +
-                        "\r\n        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "ui labeled icon button",
-                    attrs: { type: "button" },
-                    on: { click: _vm.goToNextStep }
-                  },
-                  [
-                    _c("i", { staticClass: "forward icon" }),
-                    _vm._v(
-                      "\r\n          " +
-                        _vm._s(_vm.$t("Next Step")) +
-                        "\r\n        "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "ui labeled icon button",
-                    attrs: { type: "button" },
-                    on: { click: _vm.reload }
-                  },
-                  [
-                    _c("i", { staticClass: "undo alternate icon" }),
-                    _vm._v(
-                      "\r\n          " +
-                        _vm._s(_vm.$t("Reload")) +
-                        "\r\n        "
-                    )
-                  ]
-                )
+                  ])
+                ])
               ]
             },
             proxy: true
@@ -1815,7 +1823,7 @@ __webpack_require__.r(__webpack_exports__);
 
     //console.log(result)
     //console.log(result.needLogin)
-    console.log(this.status.readingProgresses)
+    //console.log(this.status.readingProgresses)
     
     if (result.needLogin === false) {
       this.status.needLogin = false
@@ -2405,7 +2413,7 @@ let Login = {
       this.password = ''
     },
     createMockupUsername () {
-      let currentMS = this.lib.DayJSHelepr.time()
+      let currentMS = this.lib.DayJSHelper.time()
       
       //this.username = 'Anon.' + currentMS.toString(36)
       this.username = '睨鳴' + currentMS.toString(36)
@@ -11677,7 +11685,7 @@ let AnnotationHelper = {
     }
     
     if (annotation.id && !annotation.updated_at_unixms) {
-      annotation.updated_at_unixms = this.lib.DayJSHelepr.time()
+      annotation.updated_at_unixms = this.lib.DayJSHelper.time()
     }
   },
   isPublicSectionAnnotation (annotation) {
@@ -11973,9 +11981,11 @@ __webpack_require__.r(__webpack_exports__);
         return n
       }
     },
-    shortTime: function (millisecond) {
+    shortTime: function (millisecond, useOffset) {
       //let intervalTimestamp = (new Date()).getTime() - timestamp
-      millisecond = millisecond - this.offset()
+      if (useOffset === true) {
+        millisecond = millisecond - this.offset()
+      }
 
       let year = 0
       let month = 0

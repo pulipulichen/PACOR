@@ -34,6 +34,8 @@ class UserReadingProgressAction {
       }
       //console.log('startReadingProgress', stepName)
       
+      console.log('startReadingProgress', stepName, time)
+      
       //console.log('startReadingProgress', 4, dayjs().format('mm:ss'))
       
       profiler.before('await ReadingProgress.findOrCreate()')
@@ -146,7 +148,8 @@ class UserReadingProgressAction {
 
       //console.log('endReadingProgress', 4.5)
 //      console.log(step.toJSON())
-
+      
+      console.log('endReadingProgress', stepName, time)
 
       if (typeof (step.end_timestamp) !== 'number') {
         if (!step.start_timestamp) {
@@ -269,8 +272,8 @@ class UserReadingProgressAction {
 
       let step = await this.getPreviousReadingProgress(webpage)
       //console.log(activity_seconds)
-      if (step === null) {
-        return null
+      if (!step) {
+        step = await this.startReadingProgress(webpage)
       }
       
       // ------------------------------

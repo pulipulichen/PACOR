@@ -5,6 +5,7 @@ let checkActed = function () {
     acted = true
     let d = (new Date())
     lastTime = d.getTime() + (d.getTimezoneOffset() * 60 * 1000)
+    //console.log('acted')
   }
 }
 
@@ -48,7 +49,14 @@ let ActivityTimer = {
   },
   methods: {
     toNow: function () {
-      let currentMS = this.lib.DayJSHelepr.time()
+      let currentMS
+      if (this.lib.DayJSHelper) {
+        currentMS = this.lib.DayJSHelper.time()
+      }
+      else {
+        let d = (new Date())
+        currentMS =  d.getTime() + d.getTimezoneOffset() * 60 * 1000
+      }
       return Math.round((currentMS - lastTime) / 1000)
     },
     send: async function () {
@@ -63,7 +71,7 @@ let ActivityTimer = {
         let seconds = this.toNow()
         if (seconds > 0) {
           await this.lib.AxiosHelper.get('/client/ReadingProgress/activityTimer', {
-            seconds: this.toNow()
+            seconds: seconds
           }, (error) => {
             this.enable = false
             if (this.lib.TestManager.isTesting === true) {
@@ -87,6 +95,10 @@ let ActivityTimer = {
       let seconds = this.toNow()
       if (seconds === 0) {
         return false
+      }
+      
+      if (seconds > this.seconds) {
+        seconds = this.seconds
       }
       
       if (acted === true) {
