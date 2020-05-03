@@ -18,7 +18,8 @@
     </navigation-header-item>
     
     
-    <div class="fitted item">
+    <div class="fitted item"
+         v-if="status.progress.countdownPause === false">
       <digital-countdown-timer 
         v-bind:config="config"
         v-bind:status="status"

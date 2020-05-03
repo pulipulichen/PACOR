@@ -26,7 +26,8 @@
       v-on:click="showInstruction">
     </navigation-header-item>
     
-    <div class="fitted item DigitalCountdownTimer-wrapper">
+    <div class="fitted item DigitalCountdownTimer-wrapper"
+         v-if="status.progress.countdownPause === false">
       <digital-countdown-timer 
         v-bind:config="config"
         v-bind:status="status"

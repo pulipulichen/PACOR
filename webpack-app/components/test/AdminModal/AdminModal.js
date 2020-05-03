@@ -86,6 +86,13 @@ let AdminModal = {
     },
     reload () {
       location.reload()
+    },
+    resetRemainingSeconds () {
+      if (window.confirm(this.$t('Are you sure to reset remaining time?')) === false) {
+        return false
+      }
+      this.lib.auth.resetRemainingSeconds()
+      this.lib.auth.reload()
     }
   } // methods
 }

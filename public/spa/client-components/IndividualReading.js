@@ -388,28 +388,32 @@ var render = function() {
               "div",
               { staticClass: "left column" },
               [
-                _vm._v(
-                  "\r\n        " +
-                    _vm._s(_vm.$t("Remaining Time:")) +
-                    "\r\n        "
-                ),
-                _c("simple-remaining-timer", {
-                  ref: "SimpleCountdownTimer",
-                  attrs: {
-                    config: _vm.config,
-                    status: _vm.status,
-                    lib: _vm.lib,
-                    showLabel: false,
-                    pauseAtStart: _vm.pauseAtStart
-                  },
-                  on: {
-                    timeup: function($event) {
-                      return _vm.$emit("timeup")
-                    }
-                  }
-                })
+                _vm.status.progress.countdownPause === false
+                  ? [
+                      _vm._v(
+                        "\r\n          " +
+                          _vm._s(_vm.$t("Remaining Time:")) +
+                          "\r\n          "
+                      ),
+                      _c("simple-remaining-timer", {
+                        ref: "SimpleCountdownTimer",
+                        attrs: {
+                          config: _vm.config,
+                          status: _vm.status,
+                          lib: _vm.lib,
+                          showLabel: false,
+                          pauseAtStart: _vm.pauseAtStart
+                        },
+                        on: {
+                          timeup: function($event) {
+                            return _vm.$emit("timeup")
+                          }
+                        }
+                      })
+                    ]
+                  : _vm._e()
               ],
-              1
+              2
             ),
             _vm._v(" "),
             _c("div", { staticClass: "center aligned column" }, [
@@ -589,21 +593,23 @@ var render = function() {
                     on: { click: _vm.showInstruction }
                   }),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "fitted item" },
-                    [
-                      _c("digital-countdown-timer", {
-                        attrs: {
-                          config: _vm.config,
-                          status: _vm.status,
-                          lib: _vm.lib,
-                          pauseAtStart: _vm.pauseAtStart
-                        }
-                      })
-                    ],
-                    1
-                  )
+                  _vm.status.progress.countdownPause === false
+                    ? _c(
+                        "div",
+                        { staticClass: "fitted item" },
+                        [
+                          _c("digital-countdown-timer", {
+                            attrs: {
+                              config: _vm.config,
+                              status: _vm.status,
+                              lib: _vm.lib,
+                              pauseAtStart: _vm.pauseAtStart
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    : _vm._e()
                 ]
               },
               proxy: true
@@ -665,7 +671,7 @@ var render = function() {
           ],
           null,
           false,
-          881435680
+          392146005
         )
       })
     : _vm._e()
@@ -947,6 +953,7 @@ let IndividualReading = {
       else {
         this.status.progress.countdownPause = false
       }
+      //console.log(this.status.progress.countdownPause)
     }
   } // methods
 }
@@ -1740,9 +1747,9 @@ let NavigationItems = {
     this.$i18n.locale = this.config.locale
     
     let pauseAtStart = this.lib.auth.currentStepConfig.debug.countdownPause
-    if (this.lib.auth.currentStepConfig.countdownAtStart === false) {
-      pauseAtStart = true
-    }
+    //if (this.lib.auth.currentStepConfig.countdownAtStart === false) {
+    //  pauseAtStart = true
+    //}
 
     if (pauseAtStart === true) {
       console.log('@test pauseAtStart')

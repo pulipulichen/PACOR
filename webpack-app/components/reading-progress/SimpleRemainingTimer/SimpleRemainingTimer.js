@@ -1,11 +1,11 @@
 let CountdownTimer = {
-  props: ['lib', 'config'
+  props: ['lib', 'config', 'status'
     , 'remainingSeconds', 'pauseAtStart', 'showLabel', 'isStatic'],
   data() {    
     this.$i18n.locale = this.config.locale
     
-    let dataPause = (this.pauseAtStart || this.isStatic)
-    //console.log(dataPause)
+    let dataPause = (this.pauseAtStart || (this.isStatic === true && this.status.progress.countdownPause === true ))
+    //console.log(dataPause, this.pauseAtStart, this.isStatic , this.status.progress.countdownPause)
     return {
       dataRemainingSec: this.remainingSeconds,
       dataPause: dataPause
@@ -38,6 +38,11 @@ let CountdownTimer = {
     },
     pauseAtStart (pause) {
       this.dataPause = pause
+    },
+    'status.progress.countdownPause' (countdownPause) {
+      if (countdownPause === false) {
+        this.dataPause = false
+      }
     }
   },
   mounted() {
@@ -55,8 +60,8 @@ let CountdownTimer = {
       
       //console.log(this.pauseAtStart)
       //console.log(this.isStatic, this.dataPause)
-      if (this.dataPause === true || this.isStatic 
-              || (this.dataPause === undefined && this.isStatic === undefined)) {
+      if (this.dataPause === true || (this.isStatic === true && this.status.progress.countdownPause === true )) {
+        console.log(this.dataPause, this.isStatic, this.status.progress.countdownPause)
         return null
       }
       

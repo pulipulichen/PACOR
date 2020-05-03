@@ -237,29 +237,32 @@ var render = function() {
                     on: { click: _vm.showInstruction }
                   }),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "fitted item DigitalCountdownTimer-wrapper"
-                    },
-                    [
-                      _c("digital-countdown-timer", {
-                        ref: "DigitalCountdownTimer",
-                        attrs: {
-                          config: _vm.config,
-                          status: _vm.status,
-                          lib: _vm.lib,
-                          pauseAtStart: _vm.pauseAtStart
+                  _vm.status.progress.countdownPause === false
+                    ? _c(
+                        "div",
+                        {
+                          staticClass:
+                            "fitted item DigitalCountdownTimer-wrapper"
                         },
-                        on: {
-                          timeup: function($event) {
-                            return _vm.$emit("timeup")
-                          }
-                        }
-                      })
-                    ],
-                    1
-                  )
+                        [
+                          _c("digital-countdown-timer", {
+                            ref: "DigitalCountdownTimer",
+                            attrs: {
+                              config: _vm.config,
+                              status: _vm.status,
+                              lib: _vm.lib,
+                              pauseAtStart: _vm.pauseAtStart
+                            },
+                            on: {
+                              timeup: function($event) {
+                                return _vm.$emit("timeup")
+                              }
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    : _vm._e()
                 ]
               },
               proxy: true
@@ -372,7 +375,7 @@ var render = function() {
           ],
           null,
           false,
-          1577943048
+          2563831581
         )
       })
     : _vm._e()

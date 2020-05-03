@@ -119,6 +119,7 @@ let IndividualReading = {
       else {
         this.status.progress.countdownPause = false
       }
+      //console.log(this.status.progress.countdownPause)
     }
   } // methods
 }

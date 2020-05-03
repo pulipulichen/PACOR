@@ -30545,7 +30545,8 @@ let ReadingInstruction = {
       }
       
       //console.log(localStorage.getItem(this.localStorageKeyPrefix))
-      if (localStorage.getItem(this.localStorageKeyPrefix) === null) {
+      //if (localStorage.getItem(this.localStorageKeyPrefix) === null) {
+      if (this.lib.auth.isCurrentStepActived === false) {
         this.show()
       }
     },
