@@ -27703,10 +27703,10 @@ let SectionManager = {
   watch: {
     'status.filter.focusUser' () {
       //console.log('有換人嗎？')
-      this.loadAnnotation()
+      this.reloadAnnotation()
     },
     'lib.auth.currentStep' () {
-      this.loadAnnotation()
+      this.reloadAnnotation()
     }
   },
   mounted() {
@@ -27815,6 +27815,10 @@ let SectionManager = {
       }
       
       this.afterTime = this.lib.DayJSHelper.time()
+    },
+    reloadAnnotation: async function () {
+      this.afterTime = null
+      return await this.loadAnnotation()
     },
     setRefreshInterval: async function () {
       if (this.lib.auth.isEnableCollaboration === false) {

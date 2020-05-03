@@ -9,6 +9,9 @@ export default function (UserFilter) {
       if (this.lib.auth.currentStepConfig.UserFilter 
               && this.lib.auth.currentStepConfig.UserFilter.autoSelect) {
         //console.log(peer)
+        if (this.status.filter.focusUser) {
+          peer = this.status.filter.focusUser
+        }
         this.filterData.selectUser = peer
       }
     })
@@ -29,8 +32,10 @@ export default function (UserFilter) {
     this.$refs.Modal.hide()
     //console.log('有hide嗎？')
   }
+  
   UserFilter.methods.submit = function () {
-    if (this.filterData.selectUser) {
+    if (this.filterData.selectUser 
+            && this.filterData.selectUser !== this.status.filter.focusUser) {
       this.status.filter.focusUser = this.filterData.selectUser
     } else {
       this.status.filter.focusUser = null

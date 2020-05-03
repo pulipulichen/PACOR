@@ -32,9 +32,7 @@ class UserReadingProgressAction {
         profiler.finish()
         return null
       }
-      //console.log('startReadingProgress', stepName)
-      
-      console.log('startReadingProgress', stepName, time)
+      //console.log('startReadingProgress', stepName, time)
       
       //console.log('startReadingProgress', 4, dayjs().format('mm:ss'))
       
@@ -149,7 +147,7 @@ class UserReadingProgressAction {
       //console.log('endReadingProgress', 4.5)
 //      console.log(step.toJSON())
       
-      console.log('endReadingProgress', stepName, time)
+      //console.log('endReadingProgress', stepName, time)
 
       if (typeof (step.end_timestamp) !== 'number') {
         if (!step.start_timestamp) {

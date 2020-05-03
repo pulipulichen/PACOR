@@ -31,10 +31,10 @@ module.exports = {
       countdownAtStart: true,
       forceTutorial: true,
       notification: {
-        updateInterval: 3000
+        updateInterval: 1000
       },
       highlightAnnotation: {
-        otherHighlightBatchInterval: 3000
+        otherHighlightBatchInterval: 1000
       },
       sectionAnnotation: {
         updateInterval: 3000
