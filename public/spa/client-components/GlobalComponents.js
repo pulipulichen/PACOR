@@ -2990,15 +2990,9 @@ var render = function() {
           ]
         : [
             _vm.showLabel
-              ? [
-                  _vm._v(
-                    "\r\n      " +
-                      _vm._s(_vm.$t("Remaining Time")) +
-                      " \r\n    "
-                  )
-                ]
+              ? _c("span", [_vm._v(_vm._s(_vm.$t("Remaining Time")))])
               : _vm._e(),
-            _vm._v("\r\n    " + _vm._s(_vm.dataRemainingTime) + "\r\n  ")
+            _vm._v(_vm._s(_vm.dataRemainingTime) + "\r\n  ")
           ]
     ],
     2
@@ -10384,7 +10378,7 @@ let CountdownTimer = {
     }
   },
   mounted() {
-    if (this.isStatic) {
+    if (this.isStatic || this.pauseAtStart === true) {
       return false
     }
     this.start()
@@ -10393,17 +10387,34 @@ let CountdownTimer = {
     start: function () {
       if (!this.dataRemainingSec) {
         //this.dataRemainingSec = await this.lib.AxiosHelper.get('/client/ReadingProgress/getRemainingSeconds')
-        this.dataRemainingSec = this.lib.auth.getRemainingSeconds()
+        //console.log(this.status.progress.countdownPause)
+        if (this.status.progress.countdownPause === false && this.pauseAtStart === false) {
+          this.dataRemainingSec = this.lib.auth.getRemainingSeconds()
+        }
+        else {
+          this.dataRemainingSec = this.lib.auth.getPausedRemainingSeconds()
+        }
       }
       
       //console.log(this.pauseAtStart)
       //console.log(this.isStatic, this.dataPause)
       if (this.dataPause === true || (this.isStatic === true && this.status.progress.countdownPause === true )) {
-        console.log(this.dataPause, this.isStatic, this.status.progress.countdownPause)
+        //console.log(this.dataPause, this.isStatic, this.status.progress.countdownPause)
         return null
       }
+      //else {
+        //console.log(this.dataPause, this.isStatic, this.status.progress.countdownPause)
+      //}
       
       setTimeout(() => {
+        if (this.dataPause === true || (this.isStatic === true && this.status.progress.countdownPause === true )) {
+          //console.log(this.dataPause, this.isStatic, this.status.progress.countdownPause)
+          return null
+        }
+        //else {
+        //  console.log(this.dataPause, this.isStatic, this.status.progress.countdownPause)
+        //}
+        
         this.dataRemainingSec--
         
         if (this.dataRemainingSec > 0) {

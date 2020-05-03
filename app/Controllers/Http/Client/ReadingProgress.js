@@ -166,7 +166,9 @@ class ReadingProgress {
             .fetch()
     //console.log(result.size())
     let step = result.first()
-    step.start_timestamp = (new Date()).getTime()
+    
+    let d = (new Date())
+    step.start_timestamp = d.getTime() + (d.getTimezoneOffset() * 1000)
     step.end_timestamp = null
     step.activity_seconds = 0
     await step.save()

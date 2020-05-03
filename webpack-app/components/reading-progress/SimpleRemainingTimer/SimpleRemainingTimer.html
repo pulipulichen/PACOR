@@ -3,9 +3,6 @@
     {{ $t('You must complete this stage within {0} minutes', [dataMinutes]) }}
   </template>
   <template v-else>
-    <template v-if="showLabel">
-      {{ $t('Remaining Time') }} 
-    </template>
-    {{ dataRemainingTime }}
+    <span v-if="showLabel">{{ $t('Remaining Time') }}</span>{{ dataRemainingTime }}
   </template>    
 </span>

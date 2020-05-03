@@ -269,7 +269,62 @@ export default function (Auth) {
     if (remaining_ms < 0) {
       return 0
     }
-    return Math.ceil(remaining_ms / 1000)
+    
+    remaining_ms = Math.ceil(remaining_ms / 1000)
+    //console.log(remaining_ms)
+    return remaining_ms
+  }
+  
+  Auth.methods.getPausedRemainingSeconds = function () {
+    if (!this.status 
+            || Array.isArray(this.status.readingProgresses) === false) {
+      return 0
+    }
+    
+    let start_timestamp
+    let last_start_timestamp
+    let last_end_timestamp
+    for (let i = 0; i < this.status.readingProgresses.length; i++) {
+      let s = this.status.readingProgresses[i]
+      if (s.step_name === 'IndividualReading') {
+        start_timestamp = s.start_timestamp
+        last_end_timestamp = s.end_timestamp
+        break
+      }
+    }
+    
+    if (!start_timestamp) {
+      return 0
+    }
+    
+    let config = this.status.readingConfig
+    let limit_minutes
+    if (this.currentStep === 'IndividualReading') {
+      limit_minutes = config.readingProgressModules.IndividualReading.limitMinutes
+    }
+    else if (this.currentStep === 'CollaborativeReading') {
+      limit_minutes = config.readingProgressModules.reading.totalLimitMinutes
+    }
+    
+    if (!limit_minutes) {
+      return 0
+    }
+    
+    let limit_ms = limit_minutes * 60 * 1000
+    
+    if (!last_end_timestamp) {
+      return limit_ms
+    }
+    
+    let remaining_ms = limit_ms - ( last_end_timestamp - start_timestamp)
+    //console.log(remaining_ms, limit_ms, last_end_timestamp, start_timestamp, ( last_end_timestamp - start_timestamp), this.status.readingProgresses)
+    if (remaining_ms < 0) {
+      return 0
+    }
+    
+    remaining_ms = Math.ceil(remaining_ms / 1000)
+    //console.log(remaining_ms, limit_ms, this.status.readingProgresses)
+    return remaining_ms
   }
   
   Auth.methods.resetRemainingSeconds = async function () {
