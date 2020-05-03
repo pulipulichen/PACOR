@@ -6,22 +6,30 @@ module.exports = {
   readingProgressModules: {
     'PreImaginary': {
       limitMinutes: 0.05,
+      forceNextStep: true,
     },
     'PostRecall': {
       limitMinutes: 0.05,
+      forceNextStep: true,
     },
     'PreImaginaryKeyword': {
       limitMinutes: 0.05,
+      forceNextStep: true,
     },
     'PostRecallKeyword': {
       limitMinutes: 0.05,
+      forceNextStep: true,
     },
     'IndividualReading': {
+      countdownAtStart: true,
+      forceTutorial: true,
       debug: {
-        countdownPause: true
+        countdownPause: false
       }
     },
     'CollaborativeReading': {
+      countdownAtStart: true,
+      forceTutorial: true,
       notification: {
         updateInterval: 3000
       },
@@ -32,7 +40,7 @@ module.exports = {
         updateInterval: 3000
       },
       debug: {
-        countdownPause: true
+        countdownPause: false
       }
     },
     'FreeReading': {
