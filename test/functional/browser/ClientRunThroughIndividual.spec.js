@@ -47,10 +47,11 @@ const ReadingActivityLog = use('App/Models/ReadingActivityLog')
 
 const Sleep = use('Sleep')
 const RandomTextHelper = use('App/Helpers/RandomTextHelper')
+const TestServerHelper = use('App/Helpers/Test/TestServerHelper')
 
 //const url = 'http://blog.pulipuli.info/'
 //const url = 'http://localhost/projects-nodejs/PACOR/website-cors/public/index.html'
-
+/*
 const Env = use('Env')
 
 //const uri = '/test-lorem-ipsum?r=' + (new Date()).getTime().toString(36)
@@ -62,7 +63,7 @@ const uri = '/demo-articles/test-lorem-ipsum-2sections-cors.html?r=' + (new Date
 //const url = Env.get('PROTOCOL') + '//' + Env.get('HOST') + ':' + 3333 + uri
 //const url = 'http://blog.pulipuli.info'
 const url = Env.get('CORS_URL') + uri
-
+*/
 //console.log(url)
 
 let webpage
@@ -172,7 +173,10 @@ let config = {
   },
 }
 
-TestBrowser(title, url, config, TestOptions)
+TestServerHelper('individual', (url) => {
+  TestBrowser(title, url, config, TestOptions)
+})
+//TestBrowser(title, url, config, TestOptions)
 
 // Reset database
 //trait('DatabaseTransactions')
