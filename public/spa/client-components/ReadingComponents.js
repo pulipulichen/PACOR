@@ -30554,11 +30554,15 @@ let ReadingInstruction = {
       this.$refs.Modal.hide()
     },
     hideAndStartCountdown: async function () {
-      await this.lib.auth.resetRemainingSeconds()
+      if (this.status.progress.countdownPause === true) {
+        await this.lib.auth.resetRemainingSeconds()
+        
+        setTimeout(() => {
+          this.status.progress.countdownPause = false
+        }, 0)
+      }
+      
       this.hide()
-      setTimeout(() => {
-        this.status.progress.countdownPause = false
-      }, 0)
     },
     startTutorial: async function () {
       localStorage.setItem(this.localStorageKeyPrefix, 1)

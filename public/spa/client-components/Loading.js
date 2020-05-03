@@ -2092,7 +2092,7 @@ __webpack_require__.r(__webpack_exports__);
     let limit_ms = limit_minutes * 60 * 1000
     
     if (!last_end_timestamp) {
-      return limit_ms
+      return Math.ceil(limit_ms / 1000)
     }
     
     let remaining_ms = limit_ms - ( last_end_timestamp - start_timestamp)

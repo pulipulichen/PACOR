@@ -15,7 +15,7 @@ let CountdownTimer = {
     dataRemainingTime () {
       //console.log(this.dataRemainingSec)
       let t = this.lib.DayJSHelper.formatHHMMSS(this.dataRemainingSec)
-      //console.log(t, typeof(t))
+      //console.log(this.dataRemainingSec, t, typeof(t))
       if (t === -1) {
         t = '00:00'
       }
@@ -56,11 +56,17 @@ let CountdownTimer = {
       if (!this.dataRemainingSec) {
         //this.dataRemainingSec = await this.lib.AxiosHelper.get('/client/ReadingProgress/getRemainingSeconds')
         //console.log(this.status.progress.countdownPause)
-        if (this.status.progress.countdownPause === false && this.pauseAtStart === false) {
+        //console.log(this.status.progress.countdownPause, this.pauseAtStart)
+        if (this.status.progress.countdownPause === false) {
           this.dataRemainingSec = this.lib.auth.getRemainingSeconds()
+//          if (this.dataRemainingSec === 0) {
+//            throw new Error('dataRemainingSec is 0')
+//          }
+          //console.log('getRemainingSeconds', this.dataRemainingSec)
         }
         else {
           this.dataRemainingSec = this.lib.auth.getPausedRemainingSeconds()
+          //console.log('getPausedRemainingSeconds', this.dataRemainingSec)
         }
       }
       
