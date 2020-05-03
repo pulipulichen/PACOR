@@ -9,7 +9,7 @@ let checkActed = function () {
 }
 
 let ActivityTimer = {
-  props: ['config', 'lib'],
+  props: ['config', 'lib', 'status'],
   data() {
     return {
       timer: null,
@@ -35,6 +35,11 @@ let ActivityTimer = {
   destroyed: async function () {
     clearInterval(this.timer)
     this.send()
+  },
+  watch: {
+    'status.status.progress.countdownPause': function (countdownPause) {
+      this.enable = (countdownPause === false)
+    }
   },
   methods: {
     toNow: function () {

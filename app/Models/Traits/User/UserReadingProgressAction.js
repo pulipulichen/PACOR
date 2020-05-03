@@ -7,6 +7,7 @@ const dayjs = use('dayjs')
 const ExceptionHelper = use('App/Helpers/ExceptionHelper')
 
 const Profiler = use('Profiler')
+const DateHelper = use('App/Helpers/DateHelper')
 
 class UserReadingProgressAction {
 
@@ -15,8 +16,7 @@ class UserReadingProgressAction {
     Model.prototype.startReadingProgress = async function (webpage, stepName) {
       let profiler = new Profiler(1, 'User/UserReadingProgressAction.startReadingProgress()', this, stepName)
       
-      let d = (new Date())
-      let time = d.getTime() + (d.getTimezoneOffset() * 1000)
+      let time = DateHelper.getTime()
       //console.log('startReadingProgress', 1, dayjs().format('mm:ss'), ExceptionHelper.getStackTraceString())
       if (typeof (stepName) !== 'string') {
         //console.log('startReadingProgress', 2, dayjs().format('mm:ss'))
@@ -89,6 +89,27 @@ class UserReadingProgressAction {
       return step
     } // Model.prototype.startReadingProgress = async function (webpage, stepName) {
 
+    Model.prototype.getPreviousReadingProgress = async function (webpage) {
+      let result = await ReadingProgress.query()
+            .where('webpage_id', webpage.primaryKeyValue)
+            .where('user_id', this.primaryKeyValue)
+            .orderBy('id', 'desc')
+            .limit(2)
+            .fetch()
+    
+      if (result.size() < 2) {
+        return undefined
+      }
+      else {
+        return result.last()
+      }
+        
+      //console.log(result.size())
+      
+      //await result.first().delete()
+      
+    }
+
     /**
      * 結束某個階段
      * 
@@ -99,8 +120,7 @@ class UserReadingProgressAction {
     Model.prototype.endReadingProgress = async function (webpage, stepName) {
       let profiler = new Profiler(0, 'User/UserReadingProgressAction.endReadingProgress()', this, stepName)
       
-      let d = (new Date())
-      let time = d.getTime() + (d.getTimezoneOffset() * 1000)
+      let time = DateHelper.getTime()
 
       let step
       if (typeof (stepName) === 'string') {
@@ -209,6 +229,11 @@ class UserReadingProgressAction {
       if (step === null) {
         return null
       }
+      
+      // ------------------------------
+      // 偵查現在的時間
+      
+      // ------------------------------
 
       //console.log(step.activity_seconds, typeof(step.activity_seconds))
       if (isNaN(step.activity_seconds) === false) {

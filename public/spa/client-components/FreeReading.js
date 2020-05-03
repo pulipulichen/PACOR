@@ -287,7 +287,9 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       !_vm.status.progress.countdownPause
-        ? _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
+        ? _c("activity-timer", {
+            attrs: { config: _vm.config, lib: _vm.lib, status: _vm.status }
+          })
         : _vm._e(),
       _vm._v(" "),
       _c("notification-manager", {

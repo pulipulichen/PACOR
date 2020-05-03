@@ -44,7 +44,7 @@ export default function (Auth) {
 
     //console.log(result)
     //console.log(result.needLogin)
-    //console.log(this.status.readingProgresses)
+    console.log(this.status.readingProgresses)
     
     if (result.needLogin === false) {
       this.status.needLogin = false
@@ -52,7 +52,7 @@ export default function (Auth) {
       //console.log('Prepare this.showLogin()')
       this.showLogin()
     }
-//this.status.username = result
+    //this.status.username = result
   }
 //  Auth.methods.getCurrentStep = function () {
 //    //console.log(JSON.stringify(this.status.readingProgresses, null, ' '))

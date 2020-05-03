@@ -3,6 +3,7 @@
 const Cache = use('Cache')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 const ReadingActivityLog = use('App/Models/ReadingActivityLog')
+const DateHelper = use('App/Helpers/DateHelper')
 
 class UserInteract {
 
@@ -31,8 +32,7 @@ class UserInteract {
         //console.log(logs)
         
         let logsMap = {}
-        let d = (new Date())
-        let currentTime = d.getTime() + (d.getTimezoneOffset() * 1000)
+        let currentTime = DateHelper.getTime()
         logs.forEach(row => {
           logsMap[row.user_id] = currentTime - row.last_unixms
         })

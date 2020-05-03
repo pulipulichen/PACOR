@@ -130,7 +130,7 @@ module.exports = {
       //  checklist: '/instruction/reading/IndividualReading-endsByChecklist.html',
       //},
       countdownAtStart: false,
-      forceTutorial: true,
+      forceTutorial: false,
       limitMinutes: 30,
       goToNextStepOnChecklistComplete: true,
 //      notification: {
@@ -169,7 +169,7 @@ module.exports = {
     },
     'CollaborativeReading': {
       //instruction: '/instruction/reading/CollaborativeReading.html',
-      forceTutorial: true,
+      forceTutorial: false,
       countdownAtStart: false,
       permission: {
         collaboration: true,

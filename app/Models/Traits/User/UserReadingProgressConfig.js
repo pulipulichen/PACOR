@@ -5,6 +5,7 @@ const HttpException = use('HttpException')
 
 const Profiler = use('Profiler')
 const ReadingProgress = use('App/Models/ReadingProgress')
+const DateHelper = use('App/Helpers/DateHelper')
 
 class UserReadingProgressConfig {
 
@@ -312,8 +313,7 @@ class UserReadingProgressConfig {
         limitMunites = config.readingProgressModules['reading'].totalLimitMinutes
       }
       
-      let d = (new Date())
-      let nowMS = d.getTime() + (d.getTimezoneOffset() * 1000)
+      let nowMS = DateHelper.getTime()
       let limitMS = limitMunites * 60 * 1000
       let remainingMS = limitMS - (nowMS - start_time)
       //console.log(limitMS, start_time, nowMS)

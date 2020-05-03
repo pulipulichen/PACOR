@@ -1,6 +1,7 @@
 'use strict'
 
 const Config = use('Config')
+const DateHelper = use('App/Helpers/DateHelper')
 
 /**
  * 
@@ -16,18 +17,13 @@ class DateUnixMS {
     
     // --------------------------
     
-    let getTime = () => {
-      let d = (new Date())
-      return d.getTime() + (d.getTimezoneOffset() * 1000)
-    }
-    
     Model.addHook('beforeCreate', async (instance) => {
-      instance[createdAtColumn] = getTime()
-      instance[updatedAtColumn] = getTime()
+      instance[createdAtColumn] = DateHelper.getTime()
+      instance[updatedAtColumn] = DateHelper.getTime()
     })
     
     Model.addHook('beforeUpdate', async (instance) => {
-      instance[updatedAtColumn] = getTime()
+      instance[updatedAtColumn] = DateHelper.getTime()
     })
   }
 }

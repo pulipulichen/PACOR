@@ -371,7 +371,9 @@ var render = function() {
       }),
       _vm._v(" "),
       _vm.hasStarted && !_vm.isTimeUp
-        ? _c("activity-timer", { attrs: { config: _vm.config, lib: _vm.lib } })
+        ? _c("activity-timer", {
+            attrs: { config: _vm.config, lib: _vm.lib, status: _vm.status }
+          })
         : _vm._e(),
       _vm._v(" "),
       _vm.hasStarted &&

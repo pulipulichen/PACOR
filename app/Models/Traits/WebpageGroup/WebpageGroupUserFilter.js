@@ -5,6 +5,7 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 
 const UserModel = use('App/Models/User')
 const AnnotationNoteModel = use('App/Models/AnnotationNote')
+const DateHelper = use('App/Helpers/DateHelper')
 
 class WebpageGroupUserFilter {
 
@@ -35,8 +36,7 @@ class WebpageGroupUserFilter {
         let admins = []
 
         // -----------------
-        let d = (new Date())
-        let currentTime = d.getTime() + (d.getTimezoneOffset() * 1000)
+        let currentTime = DateHelper.getTime()
 
         for (let i = 0; i < users.size(); i++) {
           let u = users.nth(i)

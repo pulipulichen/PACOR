@@ -113,7 +113,8 @@
 
   <activity-timer 
     v-bind:config="config"
-    v-bind:lib="lib">
+    v-bind:lib="lib"
+    v-bind:status="status">
   </activity-timer>
   <block-exit
     v-if="answer !== '' && lib.auth.forceExit === false"></block-exit>

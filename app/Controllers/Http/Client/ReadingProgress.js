@@ -3,6 +3,7 @@
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 const ReadingActivityLog = use ('App/Models/ReadingActivityLog')
 const ReadingProgressModel = use ('App/Models/ReadingProgress')
+const DateHelper = use('App/Helpers/DateHelper')
 
 const Profiler = use('Profiler')
 
@@ -167,8 +168,7 @@ class ReadingProgress {
     //console.log(result.size())
     let step = result.first()
     
-    let d = (new Date())
-    step.start_timestamp = d.getTime() + (d.getTimezoneOffset() * 1000)
+    step.start_timestamp = DateHelper.getTime()
     step.end_timestamp = null
     step.activity_seconds = 0
     await step.save()
