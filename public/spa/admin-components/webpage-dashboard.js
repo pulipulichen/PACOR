@@ -872,7 +872,7 @@ var render = function() {
           "a",
           {
             staticClass: "ui fluid button",
-            attrs: { href: _vm.exportAllData, target: "_blank" }
+            attrs: { href: _vm.exportAllData }
           },
           [
             _vm._v(
