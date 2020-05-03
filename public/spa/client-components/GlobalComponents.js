@@ -10401,7 +10401,8 @@ let CountdownTimer = {
     //console.log(dataPause, this.pauseAtStart, this.isStatic , this.status.progress.countdownPause)
     return {
       dataRemainingSec: this.remainingSeconds,
-      dataPause: dataPause
+      dataPause: dataPause,
+      timer: null
     }
   },
   computed: {
@@ -10431,10 +10432,22 @@ let CountdownTimer = {
     },
     pauseAtStart (pause) {
       this.dataPause = pause
+      if (this.dataPause === false) {
+        this.dataRemainingSec = undefined
+        this.start()
+      }
+      else {
+        clearTimeout(this.timer)
+      }
     },
     'status.progress.countdownPause' (countdownPause) {
       if (countdownPause === false) {
         this.dataPause = false
+        this.dataRemainingSec = undefined
+        this.start()
+      }
+      else {
+        clearTimeout(this.timer)
       }
     }
   },
@@ -10473,7 +10486,7 @@ let CountdownTimer = {
         //console.log(this.dataPause, this.isStatic, this.status.progress.countdownPause)
       //}
       
-      setTimeout(() => {
+      this.timer = setTimeout(() => {
         if (this.dataPause === true || (this.isStatic === true && this.status.progress.countdownPause === true )) {
           //console.log(this.dataPause, this.isStatic, this.status.progress.countdownPause)
           return null
