@@ -10125,7 +10125,7 @@ if (debugDisable === true) {
 }
 
 let DigitalCountdownTimer = {
-  props: ['lib', 'config'
+  props: ['lib', 'config', 'status'
     , 'remainingSeconds', 'pauseAtStart'],
   data() {
     //console.log(this.remainingSeconds)
@@ -10139,7 +10139,8 @@ let DigitalCountdownTimer = {
       dataRemainingSec: dataRemainingSec,
       dataPause: this.pauseAtStart,
       timerEle: null,
-      isEnableGlow: false
+      isEnableGlow: false,
+      timer: null
     }
   },
   computed: {
@@ -10211,6 +10212,16 @@ let DigitalCountdownTimer = {
     },
     pauseAtStart (pause) {
       this.dataPause = pause
+    },
+    'status.progress.countdownPause' (countdownPause) {
+      if (countdownPause === false) {
+        this.dataPause = false
+        this.dataRemainingSec = undefined
+        this.start()
+      }
+      else {
+        clearTimeout(this.timer)
+      }
     }
   },
   mounted() {
@@ -10218,14 +10229,26 @@ let DigitalCountdownTimer = {
       this.timerEle = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$refs.timer).find('.minutes,.seconds')
     }
     
-    this.start()
+    //console.log('Start')
+    setTimeout(() => {
+      this.start()
+    }, 0)
   },
   methods: {
     start: function () {
       
       if (!this.dataRemainingSec) {
         //this.dataRemainingSec = await this.lib.AxiosHelper.get('/client/ReadingProgress/getRemainingSeconds')
-        this.dataRemainingSec = this.lib.auth.getRemainingSeconds()
+        //this.dataRemainingSec = this.lib.auth.getRemainingSeconds()
+        
+        if (this.status.progress.countdownPause === false) {
+          this.dataRemainingSec = this.lib.auth.getRemainingSeconds()
+          //console.log('getRemainingSeconds', this.dataRemainingSec)
+        }
+        else {
+          this.dataRemainingSec = this.lib.auth.getPausedRemainingSeconds()
+          //console.log('getPausedRemainingSeconds', this.dataRemainingSec)
+        }
       }
       
       if ((this.dataRemainingSec === 60
@@ -10245,7 +10268,7 @@ let DigitalCountdownTimer = {
         return null
       }
       
-      setTimeout(() => {
+      this.timer = setTimeout(() => {
         this.dataRemainingSec--
         
         if (this.dataRemainingSec > 0) {

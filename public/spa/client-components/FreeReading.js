@@ -1706,7 +1706,7 @@ let CollaborativeReading = {
       else {
         this.status.progress.countdownPause = false
       }
-      console.log(this.status.progress.countdownPause, this.lib.auth.currentStepConfig.countdownAtStart, this.lib.auth.isCurrentStepActived)
+      //console.log(this.status.progress.countdownPause, this.lib.auth.currentStepConfig.countdownAtStart, this.lib.auth.isCurrentStepActived)
     }
     
    } // methods

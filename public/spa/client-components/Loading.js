@@ -2014,18 +2014,7 @@ __webpack_require__.r(__webpack_exports__);
       return 0
     }
     
-    let start_timestamp
-    for (let i = 0; i < this.status.readingProgresses.length; i++) {
-      let s = this.status.readingProgresses[i]
-      if (s.step_name === 'IndividualReading') {
-        start_timestamp = s.start_timestamp
-        break
-      }
-    }
-    
-    if (!start_timestamp) {
-      return 0
-    }
+    // ----------------------
     
     let config = this.status.readingConfig
     let limit_minutes
@@ -2042,16 +2031,40 @@ __webpack_require__.r(__webpack_exports__);
     
     let limit_ms = limit_minutes * 60 * 1000
     
-    let currentMS = this.lib.DayJSHelper.time()
+    // ----------------------
     
-    let remaining_ms = limit_ms - ( currentMS -  start_timestamp)
-    if (remaining_ms < 0) {
+    //let start_timestamp
+    //console.log('getRemainingSeconds', this.status.readingProgresses)
+    let currentMS = this.lib.DayJSHelper.time()
+    for (let i = 0; i < this.status.readingProgresses.length; i++) {
+      let s = this.status.readingProgresses[i]
+      if (s.step_name === 'IndividualReading') {
+        //start_timestamp = s.start_timestamp
+        if (typeof(s.end_timestamp) === 'number' && typeof(s.start_timestamp) === 'number') {
+          limit_ms = limit_ms - (s.end_timestamp - s.start_timestamp)
+        }
+        else if (typeof(s.start_timestamp) === 'number') {
+          limit_ms = limit_ms - (currentMS - s.start_timestamp)
+        }
+      }
+      else if (s.step_name === 'CollaborativeReading') {
+        if (typeof(s.start_timestamp) === 'number') {
+          limit_ms = limit_ms - (currentMS - s.start_timestamp)
+        }
+      }
+      if (isNaN(limit_ms)) {
+        console.error(s)
+      }
+    }
+    
+    //console.log(limit_ms)
+    if (limit_ms < 0) {
       return 0
     }
     
-    remaining_ms = Math.ceil(remaining_ms / 1000)
+    limit_ms = Math.ceil(limit_ms / 1000)
     //console.log(remaining_ms)
-    return remaining_ms
+    return limit_ms
   }
   
   Auth.methods.getPausedRemainingSeconds = function () {

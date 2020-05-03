@@ -93,8 +93,9 @@ module.exports = {
     'PreImaginaryKeyword': {
       //instruction: '/instruction/questionnaire/PreImaginary.html',
       minKeywords: 10,
-      limitMinutes: 0.6,
+      //limitMinutes: 0.6,
       //limitMinutes: 0.2,
+      limitMinutes: 3,
       forceNextStep: false,
     },
     'PostRecall': {
@@ -109,6 +110,7 @@ module.exports = {
     'PostRecallKeyword': {
       //instruction: '/instruction/questionnaire/PostRecall.html',
       minKeywords: 10,
+      //limitMinutes: 0.6,
       limitMinutes: 3,
       //limitMinutes: 0.2,
       preloadPreImaginary: true,  // 是否顯示前面撰寫的內容
@@ -121,7 +123,8 @@ module.exports = {
      * include 'individual-reading' and 'collaborative-reading'
      */
     'reading': {
-      totalLimitMinutes: 60,
+      //totalLimitMinutes: 2,
+      totalLimitMinutes: 30,
       tutorialDefaultTimeout: 5000, // 測試的時候使用500
     },
     'IndividualReading': {
@@ -131,7 +134,8 @@ module.exports = {
       //},
       countdownAtStart: false,
       forceTutorial: false,
-      limitMinutes: 30,
+      //limitMinutes: 1,
+      limitMinutes: 15,
       goToNextStepOnChecklistComplete: true,
 //      notification: {
 //        updateInterval: 30000
