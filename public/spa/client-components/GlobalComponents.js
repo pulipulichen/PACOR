@@ -9643,14 +9643,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 let acted = false
+let firstTime
 let lastTime
 let checkActed = function () {
-  if (acted === false) {
+  //if (acted === false) {
     acted = true
+    
     let d = (new Date())
-    lastTime = d.getTime() + (d.getTimezoneOffset() * 60 * 1000)
-    //console.log('acted')
-  }
+    let currentTime = d.getTime() + (d.getTimezoneOffset() * 60 * 1000)
+    if (!firstTime) {
+      firstTime = currentTime
+    }
+    lastTime = currentTime
+  //}
 }
 
 let ActivityTimer = {
@@ -9693,15 +9698,24 @@ let ActivityTimer = {
   },
   methods: {
     toNow: function () {
+      if (!firstTime) {
+        return 0
+      }
+      /*
       let currentMS
       if (this.lib.DayJSHelper) {
         currentMS = this.lib.DayJSHelper.time()
       }
       else {
         let d = (new Date())
-        currentMS =  d.getTime() + d.getTimezoneOffset() * 60 * 1000
+        currentMS =  d.getTime() + (d.getTimezoneOffset() * 60 * 1000)
       }
-      return Math.round((currentMS - lastTime) / 1000)
+      */
+      //console.log(lastTime, firstTime)
+      let toNow = Math.ceil((lastTime - firstTime) / 1000)
+      firstTime = null
+      lastTime = null
+      return toNow
     },
     send: async function () {
       if (this.enable === false) {
@@ -9726,7 +9740,6 @@ let ActivityTimer = {
             //console.error('Get error from server, force logout: ' + error)
             //this.lib.auth.logout()
           })
-          
           acted = false
         }
         

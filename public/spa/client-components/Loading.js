@@ -1931,7 +1931,7 @@ __webpack_require__.r(__webpack_exports__);
     }
     
     this.status.readingProgresses = this.status.readingProgresses.slice(0, this.status.readingProgresses.length)
-    console.log(this.status.readingProgresses)
+    //console.log(this.status.readingProgresses)
     
     //this.$forceUpdate()
 
@@ -2042,8 +2042,7 @@ __webpack_require__.r(__webpack_exports__);
     
     let limit_ms = limit_minutes * 60 * 1000
     
-    let d = (new Date())
-    let currentMS = d.getTime() + (d.getTimezoneOffset() * 1000)
+    let currentMS = this.lib.DayJSHelper.time()
     
     let remaining_ms = limit_ms - ( currentMS -  start_timestamp)
     if (remaining_ms < 0) {

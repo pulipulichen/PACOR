@@ -527,7 +527,7 @@ var render = function() {
                         {
                           staticClass: "ui button open-answer-page",
                           attrs: { type: "button" },
-                          on: { click: _vm.startAnswer }
+                          on: { click: _vm.startAnswerAndCountdown }
                         },
                         [
                           _vm._v(
@@ -1714,6 +1714,11 @@ __webpack_require__.r(__webpack_exports__);
     setTimeout(() => {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('.SearchInputText').focus()
     }, 100)
+  }
+  
+  Questionnaire.methods.startAnswerAndCountdown = async function () {
+    await this.lib.auth.resetRemainingSeconds()
+    this.startAnswer()
   }
   
   Questionnaire.methods.detectNextStep = function () {

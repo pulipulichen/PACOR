@@ -91,6 +91,11 @@ export default function (Questionnaire) {
     }, 100)
   }
   
+  Questionnaire.methods.startAnswerAndCountdown = async function () {
+    await this.lib.auth.resetRemainingSeconds()
+    this.startAnswer()
+  }
+  
   Questionnaire.methods.detectNextStep = function () {
     this.nextStepClickCounter++
     if (this.nextStepClickCounter > 2) {

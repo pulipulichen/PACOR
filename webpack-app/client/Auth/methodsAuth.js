@@ -152,7 +152,7 @@ export default function (Auth) {
     }
     
     this.status.readingProgresses = this.status.readingProgresses.slice(0, this.status.readingProgresses.length)
-    console.log(this.status.readingProgresses)
+    //console.log(this.status.readingProgresses)
     
     //this.$forceUpdate()
 
@@ -263,8 +263,7 @@ export default function (Auth) {
     
     let limit_ms = limit_minutes * 60 * 1000
     
-    let d = (new Date())
-    let currentMS = d.getTime() + (d.getTimezoneOffset() * 1000)
+    let currentMS = this.lib.DayJSHelper.time()
     
     let remaining_ms = limit_ms - ( currentMS -  start_timestamp)
     if (remaining_ms < 0) {
