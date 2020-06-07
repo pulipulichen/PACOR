@@ -60,6 +60,15 @@
       </StepUsersRatesCount>
     </template>
     
+    <template v-else-if="item.name === 'rated'">
+      <StepUsersRatesCount 
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:item="item">
+      </StepUsersRatesCount>
+    </template>
+    
     <!-- ==================================================== -->
     
     <template v-else-if="item.name === 'section_notes'">

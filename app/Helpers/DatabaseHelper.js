@@ -12,6 +12,9 @@ let DatabaseHelper = {
     })
     
     return sql
+  },
+  consoleSQL: function (query) {
+    console.log(this.toSQL(query))
   }
 }
 

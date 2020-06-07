@@ -9,6 +9,8 @@ const AnnotationCommentModel = use('App/Models/AnnotationComment')
 const AnnotationRateModel = use('App/Models/AnnotationRate')
 const AnnotationCommentRateModel = use('App/Models/AnnotationCommentRate')
 
+const DatabaseHelper = use('App/Helpers/DatabaseHelper')
+
 class UserDashboard {
 
   register(Model) {
@@ -262,7 +264,7 @@ class UserDashboard {
                 .query()
                 .whereHas('annotation', (builder) => {
                   builder.where('deleted', false)
-                         .where('user_id', this.primaryKeyValue)
+                         //.where('user_id', this.primaryKeyValue)
                          .where('webpage_id', webpage.primaryKeyValue)
                 }, '>', 0)
                 .with('annotation', (builder) => {
@@ -274,14 +276,17 @@ class UserDashboard {
                 
                 //.where('webpage_id', webpage.primaryKeyValue)
 
+        let offset = ((new Date()).getTimezoneOffset()) * 60 * 1000
         if (typeof(start_timestamp) === 'number') {
-          query.whereRaw('EXTRACT(EPOCH FROM created_at) >= ?', [start_timestamp])
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) >= ?`, [start_timestamp])
         }
 
         if (typeof(end_timestamp) === 'number') {
           //query.where('EXTRACT(EPOCH FROM created_at)', '<=', end_timestamp)
-          query.whereRaw('EXTRACT(EPOCH FROM created_at) <= ?', [end_timestamp])
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) <= ?`, [end_timestamp])
         }
+
+        //DatabaseHelper.consoleSQL(query)
 
         let result = await query.fetch()
         return result.toJSON()
@@ -297,7 +302,7 @@ class UserDashboard {
                 .query()
                 .whereHas('comment', (builder) => {
                   builder.where('deleted', false)
-                         .where('user_id', this.primaryKeyValue)
+                         //.where('user_id', this.primaryKeyValue)
                          .whereHas('annotation', (builder) => {
                            builder.where('webpage_id', webpage.primaryKeyValue)
                          }, '>', 0)
@@ -310,13 +315,14 @@ class UserDashboard {
                 //.select('EXTRACT(EPOCH FROM created_at) as created_at_unixms')
                 //.where('webpage_id', webpage.primaryKeyValue)
 
+        let offset = ((new Date()).getTimezoneOffset()) * 60 * 1000
         if (typeof(start_timestamp) === 'number') {
-          query.whereRaw('EXTRACT(EPOCH FROM created_at) >= ?', [start_timestamp])
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) >= ?`, [start_timestamp])
         }
 
         if (typeof(end_timestamp) === 'number') {
           //query.where('EXTRACT(EPOCH FROM created_at)', '<=', end_timestamp)
-          query.whereRaw('EXTRACT(EPOCH FROM created_at) <= ?', [end_timestamp])
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) <= ?`, [end_timestamp])
         }
 
         let result = await query.fetch()
@@ -334,6 +340,7 @@ class UserDashboard {
         let commentRates = {}
         
         rates = await this.getAnnotationRatesInStep(webpage, start_timestamp, end_timestamp)
+        //console.log(rates.length)
         rates.forEach((rate) => {
           //console.log(JSON.stringify(comment, null, 2))
           let type = rate.type
@@ -343,7 +350,9 @@ class UserDashboard {
             annotationRates[type] = {}
           }
           
-          if (typeof(annotationRates[type][user.id]) !== 'number') {
+          //console.log(type, user.id)
+          
+          if (!annotationRates[type][user.id]) {
             annotationRates[type][user.id] = {
               avatar_url: user.avatar_url,
               name: user.display_name,
@@ -352,6 +361,7 @@ class UserDashboard {
           }
           annotationRates[type][user.id].count++
         })
+        //console.log(JSON.stringify(annotationRates, null, 2))
         
         // --------------------------------------------------------------
         
@@ -360,12 +370,157 @@ class UserDashboard {
           //console.log(JSON.stringify(comment, null, 2))
           let type = rate.type
           let user = rate.comment.user
+          let userID = user.id + ''
           
           if (!commentRates[type]) {
             commentRates[type] = {}
           }
           
-          if (typeof(commentRates[type][user.id]) !== 'number') {
+          console.log(type, userID)
+          if (!commentRates[type][userID]) {
+            commentRates[type][userID] = {
+              avatar_url: user.avatar_url,
+              name: user.display_name,
+              count: 0
+            }
+          }
+          commentRates[type][userID].count++
+        })
+        // --------------------------------------------------------------
+        
+        return {
+          annotation: annotationRates,
+          comment: commentRates
+        }
+      })
+      return output
+    }
+    
+    
+    // -----------------------------------------------------------------
+    
+    Model.prototype.getAnnotationRatedInStep = async function (webpage, start_timestamp, end_timestamp) {
+      let cacheKey = Cache.key(`User.getAnnotationRatedInStep`, start_timestamp, end_timestamp)
+      
+      let output = await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        let query = AnnotationRateModel
+                .query()
+                .whereHas('annotation', (builder) => {
+                  builder.where('deleted', false)
+                         .where('user_id', this.primaryKeyValue)
+                         .where('webpage_id', webpage.primaryKeyValue)
+                }, '>', 0)
+                //.with('annotation', (builder) => {
+                //  builder.with('user')
+                //})
+                .with('rater')
+                //.where('user_id', this.primaryKeyValue)
+                .where('deleted', false)
+                //.select('EXTRACT(EPOCH FROM created_at) as created_at_unixms')
+                
+                //.where('webpage_id', webpage.primaryKeyValue)
+
+        let offset = ((new Date()).getTimezoneOffset()) * 60 * 1000
+        if (typeof(start_timestamp) === 'number') {
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) >= ?`, [start_timestamp])
+        }
+
+        if (typeof(end_timestamp) === 'number') {
+          //query.where('EXTRACT(EPOCH FROM created_at)', '<=', end_timestamp)
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) <= ?`, [end_timestamp])
+        }
+
+        //DatabaseHelper.consoleSQL(query)
+
+        let result = await query.fetch()
+        return result.toJSON()
+      })
+      return output
+    }
+    
+    Model.prototype.getAnnotationCommentRatedInStep = async function (webpage, start_timestamp, end_timestamp) {
+      let cacheKey = Cache.key(`User.getAnnotationCommentRatedInStep`, start_timestamp, end_timestamp)
+      
+      let output = await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        let query = AnnotationCommentRateModel
+                .query()
+                .whereHas('comment', (builder) => {
+                  builder.where('deleted', false)
+                         .where('user_id', this.primaryKeyValue)
+                         .whereHas('annotation', (builder) => {
+                           builder.where('webpage_id', webpage.primaryKeyValue)
+                         }, '>', 0)
+                }, '>', 0)
+                //.with('comment', (builder) => {
+                //  builder.with('user')
+                //})
+                .where('user_id', this.primaryKeyValue)
+                .with('user')
+                .where('deleted', false)
+                //.select('EXTRACT(EPOCH FROM created_at) as created_at_unixms')
+                //.where('webpage_id', webpage.primaryKeyValue)
+
+        let offset = ((new Date()).getTimezoneOffset()) * 60 * 1000
+        if (typeof(start_timestamp) === 'number') {
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) >= ?`, [start_timestamp])
+        }
+
+        if (typeof(end_timestamp) === 'number') {
+          //query.where('EXTRACT(EPOCH FROM created_at)', '<=', end_timestamp)
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) <= ?`, [end_timestamp])
+        }
+
+        let result = await query.fetch()
+        return result.toJSON()
+      })
+      return output
+    }
+    
+    Model.prototype.getRated = async function (webpage, start_timestamp, end_timestamp) {
+      let cacheKey = Cache.key(`User.getRated`, start_timestamp, end_timestamp)
+      let output = await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        let rates
+        
+        let annotationRates = {}
+        let commentRates = {}
+        
+        rates = await this.getAnnotationRatedInStep(webpage, start_timestamp, end_timestamp)
+        //console.log(rates.length)
+        rates.forEach((rate) => {
+          //console.log(JSON.stringify(comment, null, 2))
+          let type = rate.type
+          let user = rate.rater
+          
+          if (!annotationRates[type]) {
+            annotationRates[type] = {}
+          }
+          
+          //console.log(type, user.id)
+          
+          if (!annotationRates[type][user.id]) {
+            annotationRates[type][user.id] = {
+              avatar_url: user.avatar_url,
+              name: user.display_name,
+              count: 0
+            }
+          }
+          annotationRates[type][user.id].count++
+        })
+        //console.log(JSON.stringify(annotationRates, null, 2))
+        
+        // --------------------------------------------------------------
+        
+        rates = await this.getAnnotationCommentRatedInStep(webpage, start_timestamp, end_timestamp)
+        rates.forEach((rate) => {
+          //console.log(JSON.stringify(comment, null, 2))
+          let type = rate.type
+          let user = rate.user
+          
+          if (!commentRates[type]) {
+            commentRates[type] = {}
+          }
+          
+          if (!commentRates[type][user.id]) {
             commentRates[type][user.id] = {
               avatar_url: user.avatar_url,
               name: user.display_name,

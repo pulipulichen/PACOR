@@ -12,7 +12,7 @@ class AnnotationRate extends Model {
   // --------------------
   
   rater () {
-    return this.user()
+    return this.belongsTo('App/Models/User')
   }
   
   annotation () {

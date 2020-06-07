@@ -233,7 +233,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"rates":"給其他同儕評價","rated":"被同儕評價"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"rates":"給其他同儕評價","rated":"被同儕評價","annotation":"標註","like":"喜愛","comment":"建議"}}')
   delete Component.options._Ctor
 }
 
@@ -445,7 +445,7 @@ exports.push([module.i, ".user-count-container .user-avatar[data-v-55108f98] {\n
 
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".user-count-container .user-avatar[data-v-15f18e2c] {\n  max-height: 1rem;\n  width: auto;\n  margin-right: 0.5rem;\n}\n.user-count-container .user-name[data-v-15f18e2c] {\n  font-weight: bold;\n}\n.user-count-container .user-avatar[data-v-15f18e2c],\n.user-count-container .user-name[data-v-15f18e2c],\n.user-count-container .user-count[data-v-15f18e2c] {\n  display: inline-block;\n  vertical-align: middle;\n}\nlabel[data-v-15f18e2c] {\n  display: inline-block !important;\n}\n", "",{"version":3,"sources":["StepUsersRatesCount.less?vue&type=style&index=0&id=15f18e2c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,WAAW;EACX,oBAAoB;AACtB;AACA;EACE,iBAAiB;AACnB;AACA;;;EAGE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,gCAAgC;AAClC","file":"StepUsersRatesCount.less?vue&type=style&index=0&id=15f18e2c&lang=less&scoped=true&","sourcesContent":[".user-count-container .user-avatar[data-v-15f18e2c] {\n  max-height: 1rem;\n  width: auto;\n  margin-right: 0.5rem;\n}\n.user-count-container .user-name[data-v-15f18e2c] {\n  font-weight: bold;\n}\n.user-count-container .user-avatar[data-v-15f18e2c],\n.user-count-container .user-name[data-v-15f18e2c],\n.user-count-container .user-count[data-v-15f18e2c] {\n  display: inline-block;\n  vertical-align: middle;\n}\nlabel[data-v-15f18e2c] {\n  display: inline-block !important;\n}\n"]}]);
+exports.push([module.i, ".user-count-container .user-avatar[data-v-15f18e2c] {\n  max-height: 1rem;\n  width: auto;\n  margin-right: 0.5rem;\n}\n.user-count-container .user-name[data-v-15f18e2c] {\n  font-weight: bold;\n}\n.user-count-container .user-avatar[data-v-15f18e2c],\n.user-count-container .user-name[data-v-15f18e2c],\n.user-count-container .user-count[data-v-15f18e2c] {\n  display: inline-block;\n  vertical-align: middle;\n}\nlabel[data-v-15f18e2c] {\n  display: inline-block !important;\n}\n.header[data-v-15f18e2c] {\n  margin: 0em 0em 0.28571429rem 0em;\n  color: rgba(0, 0, 0, 0.87);\n  font-size: 0.92857143em;\n  font-weight: bold;\n  text-transform: none;\n}\n.anchor-type-container[data-v-15f18e2c] {\n  margin-bottom: 0.5rem;\n}\n", "",{"version":3,"sources":["StepUsersRatesCount.less?vue&type=style&index=0&id=15f18e2c&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,WAAW;EACX,oBAAoB;AACtB;AACA;EACE,iBAAiB;AACnB;AACA;;;EAGE,qBAAqB;EACrB,sBAAsB;AACxB;AACA;EACE,gCAAgC;AAClC;AACA;EACE,iCAAiC;EACjC,0BAA0B;EAC1B,uBAAuB;EACvB,iBAAiB;EACjB,oBAAoB;AACtB;AACA;EACE,qBAAqB;AACvB","file":"StepUsersRatesCount.less?vue&type=style&index=0&id=15f18e2c&lang=less&scoped=true&","sourcesContent":[".user-count-container .user-avatar[data-v-15f18e2c] {\n  max-height: 1rem;\n  width: auto;\n  margin-right: 0.5rem;\n}\n.user-count-container .user-name[data-v-15f18e2c] {\n  font-weight: bold;\n}\n.user-count-container .user-avatar[data-v-15f18e2c],\n.user-count-container .user-name[data-v-15f18e2c],\n.user-count-container .user-count[data-v-15f18e2c] {\n  display: inline-block;\n  vertical-align: middle;\n}\nlabel[data-v-15f18e2c] {\n  display: inline-block !important;\n}\n.header[data-v-15f18e2c] {\n  margin: 0em 0em 0.28571429rem 0em;\n  color: rgba(0, 0, 0, 0.87);\n  font-size: 0.92857143em;\n  font-weight: bold;\n  text-transform: none;\n}\n.anchor-type-container[data-v-15f18e2c] {\n  margin-bottom: 0.5rem;\n}\n"]}]);
 
 
 /***/ }),
@@ -1010,6 +1010,17 @@ var render = function() {
                   }
                 })
               ]
+            : item.name === "rated"
+            ? [
+                _c("StepUsersRatesCount", {
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib,
+                    item: item
+                  }
+                })
+              ]
             : item.name === "section_notes"
             ? [
                 item.value.length > 0
@@ -1166,6 +1177,17 @@ var render = function() {
                   }
                 })
               ]
+            : item.name === "rated"
+            ? [
+                _c("StepUsersRatesCount", {
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib,
+                    item: item
+                  }
+                })
+              ]
             : item.name === "section_notes"
             ? [
                 item.value.length > 0
@@ -1297,16 +1319,22 @@ var render = function() {
     [
       _vm.isShow
         ? [
-            _c("div", [_vm._v(_vm._s(_vm.$t(_vm.item.name)))]),
+            _c("div", { staticClass: "header" }, [
+              _vm._v(_vm._s(_vm.$t(_vm.item.name)))
+            ]),
             _vm._v(" "),
             _vm._l(Object.keys(_vm.item.value), function(anchor) {
-              return [
-                _vm._l(Object.keys(_vm.item.value[anchor]), function(type) {
-                  return [
+              return _vm._l(Object.keys(_vm.item.value[anchor]), function(
+                type
+              ) {
+                return _c(
+                  "div",
+                  { staticClass: "anchor-type-container" },
+                  [
                     _c("label", [
                       _vm._v(
                         _vm._s(_vm.$t(anchor)) +
-                          " " +
+                          " - " +
                           _vm._s(_vm.$t(type)) +
                           " "
                       )
@@ -1349,9 +1377,10 @@ var render = function() {
                         ]
                       )
                     })
-                  ]
-                })
-              ]
+                  ],
+                  2
+                )
+              })
             })
           ]
         : _vm._e()
