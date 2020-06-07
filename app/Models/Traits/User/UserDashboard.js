@@ -4,6 +4,7 @@ const Cache = use('Cache')
 
 const AnnotationModel = use('App/Models/Annotation')
 const StringHelper = use('App/Helpers/StringHelper')
+const AnnotationCommentModel = use('App/Models/AnnotationComment')
 
 class UserDashboard {
 
@@ -125,6 +126,62 @@ class UserDashboard {
         })
         
         return notes
+      })
+      return output
+    }
+    
+    Model.prototype.getCommentsInStep = async function (webpage, start_timestamp, end_timestamp) {
+      let cacheKey = Cache.key(`User.getCommentsInStep`, start_timestamp, end_timestamp)
+      
+      let output = await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        let query = AnnotationCommentModel
+                .query()
+                .whereHas('annotation', (builder) => {
+                  builder.where('deleted', false)
+                         .where('webpage_id', webpage.primaryKeyValue)
+                }, '>', 0)
+                .with('annotation', (builder) => {
+                  builder.with('user')
+                })
+                .where('deleted', false)
+                .where('user_id', this.primaryKeyValue)
+                //.where('webpage_id', webpage.primaryKeyValue)
+
+        if (typeof(start_timestamp) === 'number') {
+          query.where('created_at_unixms', '>=', start_timestamp)
+        }
+
+        if (typeof(end_timestamp) === 'number') {
+          query.where('created_at_unixms', '<=', end_timestamp)
+        }
+
+        let result = await query.fetch()
+        return result.toJSON()
+      })
+      return output
+    }
+    
+    Model.prototype.getComments = async function (webpage, start_timestamp, end_timestamp) {
+      let cacheKey = Cache.key(`User.getComments`, start_timestamp, end_timestamp)
+      let output = await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        let commentTo = {}
+        
+        let comments = await this.getCommentsInStep(webpage, start_timestamp, end_timestamp)
+        comments.forEach((comment) => {
+          //console.log(JSON.stringify(comment, null, 2))
+          let user = comment.annotation.user
+          
+          if (typeof(commentTo[user.id]) !== 'number') {
+            commentTo[user.id] = {
+              avatar_url: user.avatar_url,
+              name: user.display_name,
+              count: 0
+            }
+          }
+          commentTo[user.id].count++
+        })
+        
+        return commentTo
       })
       return output
     }

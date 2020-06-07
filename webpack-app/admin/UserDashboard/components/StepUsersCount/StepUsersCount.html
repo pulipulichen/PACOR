@@ -1,0 +1,14 @@
+<fragment>
+  <label>{{ $t(item.name) }} </label>: 
+  <span class="ui mini button user-count-container"
+        v-for="userID in Object.keys(item.value)">
+    <img v-bind:src="item.value[userID].avatar_url" class="user-avatar" />
+    <span class="user-name">
+      {{ item.value[userID].name }}
+      :
+    </span>
+    <span class="user-count">
+      {{ item.value[userID].count }}
+    </span>
+  </span>
+</fragment>
