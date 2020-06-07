@@ -130,6 +130,9 @@ class UserDashboard {
       return output
     }
     
+    
+    // -----------------------------------------
+    
     Model.prototype.getCommentsInStep = async function (webpage, start_timestamp, end_timestamp) {
       let cacheKey = Cache.key(`User.getCommentsInStep`, start_timestamp, end_timestamp)
       
@@ -182,6 +185,66 @@ class UserDashboard {
         })
         
         return commentTo
+      })
+      return output
+    }
+    
+    // -----------------------------------------
+    
+    Model.prototype.getCommentedInStep = async function (webpage, start_timestamp, end_timestamp) {
+      let cacheKey = Cache.key(`User.getCommentedInStep`, start_timestamp, end_timestamp)
+      
+      let output = await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        let query = AnnotationCommentModel
+                .query()
+                .whereHas('annotation', (builder) => {
+                  builder.where('deleted', false)
+                         .where('user_id', this.primaryKeyValue)
+                         .where('webpage_id', webpage.primaryKeyValue)
+                }, '>', 0)
+                .with('annotation', (builder) => {
+                  //builder.with('user')
+                })
+                .with('user')
+                .where('deleted', false)
+                
+                //.where('webpage_id', webpage.primaryKeyValue)
+
+        if (typeof(start_timestamp) === 'number') {
+          query.where('created_at_unixms', '>=', start_timestamp)
+        }
+
+        if (typeof(end_timestamp) === 'number') {
+          query.where('created_at_unixms', '<=', end_timestamp)
+        }
+
+        let result = await query.fetch()
+        return result.toJSON()
+      })
+      return output
+    }
+    
+    Model.prototype.getCommented = async function (webpage, start_timestamp, end_timestamp) {
+      let cacheKey = Cache.key(`User.getCommented`, start_timestamp, end_timestamp)
+      let output = await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        let output = {}
+        
+        let comments = await this.getCommentedInStep(webpage, start_timestamp, end_timestamp)
+        comments.forEach((comment) => {
+          //console.log(JSON.stringify(comment, null, 2))
+          let user = comment.user
+          
+          if (typeof(output[user.id]) !== 'number') {
+            output[user.id] = {
+              avatar_url: user.avatar_url,
+              name: user.display_name,
+              count: 0
+            }
+          }
+          output[user.id].count++
+        })
+        
+        return output
       })
       return output
     }

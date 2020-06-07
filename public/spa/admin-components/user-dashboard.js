@@ -121,7 +121,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單","annotation_count":"標註數量","word_count":"字數統計","type_count":"標註類型統計","section_notes":"小節重點","No note":"沒有標註","comments":"建議"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單","annotation_count":"標註數量","word_count":"字數統計","type_count":"標註類型統計","section_notes":"小節重點","No note":"沒有標註"}}')
   delete Component.options._Ctor
 }
 
@@ -137,7 +137,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單","annotation_count":"標註數量","word_count":"字數統計","type_count":"標註類型統計","section_notes":"小節重點","No note":"沒有標註","comments":"建議"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單","annotation_count":"標註數量","word_count":"字數統計","type_count":"標註類型統計","section_notes":"小節重點","No note":"沒有標註"}}')
   delete Component.options._Ctor
 }
 
@@ -153,7 +153,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單","annotation_count":"標註數量","word_count":"字數統計","type_count":"標註類型統計","section_notes":"小節重點","No note":"沒有標註","comments":"建議"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單","annotation_count":"標註數量","word_count":"字數統計","type_count":"標註類型統計","section_notes":"小節重點","No note":"沒有標註"}}')
   delete Component.options._Ctor
 }
 
@@ -169,7 +169,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單","annotation_count":"標註數量","word_count":"字數統計","type_count":"標註類型統計","section_notes":"小節重點","No note":"沒有標註","comments":"建議"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單","annotation_count":"標註數量","word_count":"字數統計","type_count":"標註類型統計","section_notes":"小節重點","No note":"沒有標註"}}')
   delete Component.options._Ctor
 }
 
@@ -185,7 +185,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單","annotation_count":"標註數量","word_count":"字數統計","type_count":"標註類型統計","section_notes":"小節重點","No note":"沒有標註","comments":"建議"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單","annotation_count":"標註數量","word_count":"字數統計","type_count":"標註類型統計","section_notes":"小節重點","No note":"沒有標註"}}')
   delete Component.options._Ctor
 }
 
@@ -201,7 +201,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單","annotation_count":"標註數量","word_count":"字數統計","type_count":"標註類型統計","section_notes":"小節重點","No note":"沒有標註","comments":"建議"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"checklist":"查核單","annotation_count":"標註數量","word_count":"字數統計","type_count":"標註類型統計","section_notes":"小節重點","No note":"沒有標註"}}')
   delete Component.options._Ctor
 }
 
@@ -217,7 +217,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"comments":"建議"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"comments":"建議給其他同儕","commented":"被提供建議"}}')
   delete Component.options._Ctor
 }
 
@@ -921,27 +921,44 @@ var render = function() {
                   0
                 )
               ]
-            : item.name === "type_count" && Object.keys(item.value).length > 0
+            : item.name === "type_count"
             ? [
-                _c("label", [_vm._v(_vm._s(_vm.$t(item.name)))]),
-                _vm._v(": \r\n        "),
-                _vm._l(Object.keys(item.value), function(typeName) {
-                  return _c(
-                    "span",
-                    { staticClass: "ui mini button AnnotationTypeButton" },
-                    [
-                      _vm._v(
-                        "\r\n          " +
-                          _vm._s(_vm.$t("ANNOTATION_TYPE." + typeName)) +
-                          ": " +
-                          _vm._s(item.value[typeName]) +
-                          "\r\n        "
-                      )
+                Object.keys(item.value).length > 0
+                  ? [
+                      _c("label", [_vm._v(_vm._s(_vm.$t(item.name)))]),
+                      _vm._v(": \r\n        "),
+                      _vm._l(Object.keys(item.value), function(typeName) {
+                        return _c(
+                          "span",
+                          {
+                            staticClass: "ui mini button AnnotationTypeButton"
+                          },
+                          [
+                            _vm._v(
+                              "\r\n          " +
+                                _vm._s(_vm.$t("ANNOTATION_TYPE." + typeName)) +
+                                ": " +
+                                _vm._s(item.value[typeName]) +
+                                "\r\n        "
+                            )
+                          ]
+                        )
+                      })
                     ]
-                  )
+                  : _vm._e()
+              ]
+            : item.name === "comments"
+            ? [
+                _c("StepUsersCount", {
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib,
+                    item: item
+                  }
                 })
               ]
-            : item.name === "comments" && Object.keys(item.value).length > 0
+            : item.name === "commented"
             ? [
                 _c("StepUsersCount", {
                   attrs: {
@@ -1049,27 +1066,44 @@ var render = function() {
                   0
                 )
               ]
-            : item.name === "type_count" && Object.keys(item.value).length > 0
+            : item.name === "type_count"
             ? [
-                _c("label", [_vm._v(_vm._s(_vm.$t(item.name)))]),
-                _vm._v(": \r\n        "),
-                _vm._l(Object.keys(item.value), function(typeName) {
-                  return _c(
-                    "span",
-                    { staticClass: "ui mini button AnnotationTypeButton" },
-                    [
-                      _vm._v(
-                        "\r\n          " +
-                          _vm._s(_vm.$t("ANNOTATION_TYPE." + typeName)) +
-                          ": " +
-                          _vm._s(item.value[typeName]) +
-                          "\r\n        "
-                      )
+                Object.keys(item.value).length > 0
+                  ? [
+                      _c("label", [_vm._v(_vm._s(_vm.$t(item.name)))]),
+                      _vm._v(": \r\n        "),
+                      _vm._l(Object.keys(item.value), function(typeName) {
+                        return _c(
+                          "span",
+                          {
+                            staticClass: "ui mini button AnnotationTypeButton"
+                          },
+                          [
+                            _vm._v(
+                              "\r\n          " +
+                                _vm._s(_vm.$t("ANNOTATION_TYPE." + typeName)) +
+                                ": " +
+                                _vm._s(item.value[typeName]) +
+                                "\r\n        "
+                            )
+                          ]
+                        )
+                      })
                     ]
-                  )
+                  : _vm._e()
+              ]
+            : item.name === "comments"
+            ? [
+                _c("StepUsersCount", {
+                  attrs: {
+                    config: _vm.config,
+                    status: _vm.status,
+                    lib: _vm.lib,
+                    item: item
+                  }
                 })
               ]
-            : item.name === "comments" && Object.keys(item.value).length > 0
+            : item.name === "commented"
             ? [
                 _c("StepUsersCount", {
                   attrs: {
@@ -1146,34 +1180,40 @@ var render = function() {
   return _c(
     "fragment",
     [
-      _c("label", [_vm._v(_vm._s(_vm.$t(_vm.item.name)) + " ")]),
-      _vm._v(": \r\n  "),
-      _vm._l(Object.keys(_vm.item.value), function(userID) {
-        return _c(
-          "span",
-          { staticClass: "ui mini button user-count-container" },
-          [
-            _c("img", {
-              staticClass: "user-avatar",
-              attrs: { src: _vm.item.value[userID].avatar_url }
-            }),
-            _vm._v(" "),
-            _c("span", { staticClass: "user-name" }, [
-              _vm._v(
-                "\r\n      " +
-                  _vm._s(_vm.item.value[userID].name) +
-                  "\r\n      :\r\n    "
+      Object.keys(_vm.item.value).length > 0
+        ? [
+            _c("label", [_vm._v(_vm._s(_vm.$t(_vm.item.name)))]),
+            _vm._v(": \r\n    "),
+            _vm._l(Object.keys(_vm.item.value), function(userID) {
+              return _c(
+                "span",
+                { staticClass: "ui mini button user-count-container" },
+                [
+                  _c("img", {
+                    staticClass: "user-avatar",
+                    attrs: { src: _vm.item.value[userID].avatar_url }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "user-name" }, [
+                    _vm._v(
+                      "\r\n        " +
+                        _vm._s(_vm.item.value[userID].name) +
+                        "\r\n        :\r\n      "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "user-count" }, [
+                    _vm._v(
+                      "\r\n        " +
+                        _vm._s(_vm.item.value[userID].count) +
+                        "\r\n      "
+                    )
+                  ])
+                ]
               )
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "user-count" }, [
-              _vm._v(
-                "\r\n      " + _vm._s(_vm.item.value[userID].count) + "\r\n    "
-              )
-            ])
+            })
           ]
-        )
-      })
+        : _vm._e()
     ],
     2
   )
@@ -1628,10 +1668,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_propStepModule_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../components/propStepModule.js */ "./webpack-app/admin/UserDashboard/components/propStepModule.js");
-/* harmony import */ var _components_computedStepModule_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../components/computedStepModule.js */ "./webpack-app/admin/UserDashboard/components/computedStepModule.js");
-/* harmony import */ var _components_mountedStepModule_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../components/mountedStepModule.js */ "./webpack-app/admin/UserDashboard/components/mountedStepModule.js");
-/* harmony import */ var _components_methodsStepModule_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../components/methodsStepModule.js */ "./webpack-app/admin/UserDashboard/components/methodsStepModule.js");
+/* harmony import */ var _components_StepUsersCount_StepUsersCount_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../components/StepUsersCount/StepUsersCount.vue */ "./webpack-app/admin/UserDashboard/components/StepUsersCount/StepUsersCount.vue");
+/* harmony import */ var _components_propStepModule_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../components/propStepModule.js */ "./webpack-app/admin/UserDashboard/components/propStepModule.js");
+/* harmony import */ var _components_computedStepModule_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../components/computedStepModule.js */ "./webpack-app/admin/UserDashboard/components/computedStepModule.js");
+/* harmony import */ var _components_mountedStepModule_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../components/mountedStepModule.js */ "./webpack-app/admin/UserDashboard/components/mountedStepModule.js");
+/* harmony import */ var _components_methodsStepModule_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../components/methodsStepModule.js */ "./webpack-app/admin/UserDashboard/components/methodsStepModule.js");
+
+
 let StepModule = {
   data() {    
     this.$i18n.locale = this.config.locale
@@ -1639,22 +1682,25 @@ let StepModule = {
       stepName: 'IndividualReading'
     }
   },
+  components: {
+    StepUsersCount: _components_StepUsersCount_StepUsersCount_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+  },
   computed: {}, // 轉移到computedStepModule
   // mounted() {},  // 轉移到mountedStepModule
   methods: {} // 轉移到methodsStepModule
 }
 
 
-Object(_components_propStepModule_js__WEBPACK_IMPORTED_MODULE_0__["default"])(StepModule)
+Object(_components_propStepModule_js__WEBPACK_IMPORTED_MODULE_1__["default"])(StepModule)
 
 
-Object(_components_computedStepModule_js__WEBPACK_IMPORTED_MODULE_1__["default"])(StepModule)
+Object(_components_computedStepModule_js__WEBPACK_IMPORTED_MODULE_2__["default"])(StepModule)
 
 
-Object(_components_mountedStepModule_js__WEBPACK_IMPORTED_MODULE_2__["default"])(StepModule)
+Object(_components_mountedStepModule_js__WEBPACK_IMPORTED_MODULE_3__["default"])(StepModule)
 
 
-Object(_components_methodsStepModule_js__WEBPACK_IMPORTED_MODULE_3__["default"])(StepModule)
+Object(_components_methodsStepModule_js__WEBPACK_IMPORTED_MODULE_4__["default"])(StepModule)
  
 /* harmony default export */ __webpack_exports__["default"] = (StepModule);
 

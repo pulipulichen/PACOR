@@ -12,31 +12,41 @@
           <i v-for="(checked, i) in checklist"
              class="square outline icon"
              v-bind:class="{'check': checked}"
-             v-bind:title="displayChecklistItem(i)"/>
+             v-bind:title="displayChecklistItem(i)"></i>
         </li>
       </ol>
     </template>
     
     <!-- ==================================================== -->
     
-    <template v-else-if="item.name === 'type_count' && Object.keys(item.value).length > 0">
+    <template v-else-if="item.name === 'type_count'">
+      <template v-if="Object.keys(item.value).length > 0">
         <label>{{ $t(item.name) }}</label>: 
         <span class="ui mini button AnnotationTypeButton"
               v-for="typeName in Object.keys(item.value)">
           {{ $t('ANNOTATION_TYPE.' + typeName) }}: {{ item.value[typeName] }}
         </span>
+      </template>
     </template>
-    
     
     <!-- ==================================================== -->
     
-    <template v-else-if="item.name === 'comments' && Object.keys(item.value).length > 0">
-        <StepUsersCount 
-          v-bind:config="config"
-          v-bind:status="status"
-          v-bind:lib="lib"
-          v-bind:item="item">
-        </StepUsersCount>
+    <template v-else-if="item.name === 'comments'">
+      <StepUsersCount 
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:item="item">
+      </StepUsersCount>
+    </template>
+    
+    <template v-else-if="item.name === 'commented'">
+      <StepUsersCount 
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:item="item">
+      </StepUsersCount>
     </template>
     
     <!-- ==================================================== -->

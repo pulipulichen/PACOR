@@ -70,13 +70,15 @@ class UserDashboard {
     let type_count = await user.countAnnotationTypes(webpage, start_timestamp, end_timestamp)
     let section_notes = await user.getSectionNotes(webpage, start_timestamp, end_timestamp)
     let comments = await user.getComments(webpage, start_timestamp, end_timestamp)
-    
+    let commented = await user.getCommented(webpage, start_timestamp, end_timestamp)
+    //console.log(commented)
     return {
       annotation_count,
       type_count,
       word_count,
       section_notes,
-      comments
+      comments,
+      commented
     }
   }
   

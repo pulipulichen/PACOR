@@ -1,9 +1,14 @@
+import StepUsersCount from './../components/StepUsersCount/StepUsersCount.vue'
+
 let StepModule = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
       stepName: 'IndividualReading'
     }
+  },
+  components: {
+    StepUsersCount: StepUsersCount,
   },
   computed: {}, // 轉移到computedStepModule
   // mounted() {},  // 轉移到mountedStepModule
