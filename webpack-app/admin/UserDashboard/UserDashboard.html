@@ -46,6 +46,24 @@
     ref='toc'></table-of-contents>
 
   <div class="ui segment">
+    <h3 v-bind:id="attrHeaderID('groupMembers')">
+      {{ $t('Group') }} #{{ (group.group_seq_id + 1)  }} ({{ $t('{0} users', group.users.length, [group.users.length]) }})
+    </h3>
+    
+    <div class="ui cards">
+      <reader-card 
+        v-for="groupUser in group.users"
+        v-bind:class="{'is-me': (user.id === groupUser.id)}"
+        v-bind:user="groupUser"
+        v-bind:lib="lib"
+        v-bind:status="status"
+        v-bind:config="config"></reader-card>
+    </div>
+    
+    
+  </div>
+  
+  <div class="ui segment">
     <h3 v-bind:id="attrHeaderID('steps')">
       {{ $t('Reading Progresses') }}
     </h3>

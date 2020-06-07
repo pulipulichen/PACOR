@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="content">
+    <img v-bind:src="user.avatar_url"
+         class="right floated mini ui image"/>
+    <a class="header"
+       v-bind:href="userDashboardLink">
+      {{ user.username }}
+      <template v-if="user.username !== user.display_name">
+        ({{ user.display_name }})
+      </template>
+    </a>
+    <div class="meta">
+      <step-progress-bar 
+        v-bind:lib="lib"
+        v-bind:config="config"
+        v-bind:progresses="user.readingProgresses">
+      </step-progress-bar>
+    </div>
+    
+    <!-- 這邊應該要隨著現在的進度顯示相關的摘要資訊 -->
+    <div class="description"
+         v-if="user.currentReadingSummary">
+      {{ user.currentReadingSummary }}
+    </div>
+    
+    <div class="extra content">
+      <div class="ui fluid buttons">
+        <a class="ui button"
+           v-bind:href="userDashboardLink">
+          {{ $t('VIEW') }}
+        </a>
+      </div>
+      <!--
+      <div class="ui two buttons">
+        <div class="ui basic green button">Button 1</div>
+        <div class="ui basic red button">Button 2</div>
+      </div>
+      -->
+    </div>
+  </div> <!-- <div class="content"> -->
+</div>

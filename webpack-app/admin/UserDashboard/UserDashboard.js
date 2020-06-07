@@ -6,6 +6,8 @@ import PostRecall from './PostRecall/PostRecall.vue'
 import PreImaginaryKeyword from './PreImaginaryKeyword/PreImaginaryKeyword.vue'
 import PostRecallKeyword from './PostRecallKeyword/PostRecallKeyword.vue'
 
+import ReaderCard from './ReaderCard/ReaderCard.vue'
+
 let UserDashboard = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
   data() {    
@@ -14,6 +16,10 @@ let UserDashboard = {
       toc: null,
       user: {
         readingProgresses: []
+      },
+      group: {
+        group_seq_id: null,
+        users: []
       }
     }
   },
@@ -23,7 +29,8 @@ let UserDashboard = {
     CollaborativeReading: CollaborativeReading,
     PostRecall: PostRecall,
     PreImaginaryKeyword: PreImaginaryKeyword,
-    PostRecallKeyword: PostRecallKeyword
+    PostRecallKeyword: PostRecallKeyword,
+    'reader-card': ReaderCard
   },
   computed: {
     'webpagePath': function () {
@@ -62,6 +69,10 @@ let UserDashboard = {
       let result = await this.lib.AxiosHelper.get('/admin/UserDashboard/info', data)
       this.user = result.user
       //console.log(this.user)
+      
+      this.group = result.group
+      console.log(this.group)
+      
       this.status.webpageURL = result.webpageURL
       this.status.title = this.$t('Dashboard') + ' ' + this.username
     },

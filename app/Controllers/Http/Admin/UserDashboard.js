@@ -10,6 +10,7 @@ const Config = use('Config')
 const Cache = use('Cache')
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
+const dayjs = use('dayjs')
 
 class UserDashboard {
   
@@ -51,15 +52,50 @@ class UserDashboard {
         
         //console.log(stepName)
       }
+      
+      // -----------------------------
+      
+      let group = {
+        group_seq_id: await user.getGroupSeqID(webpage),
+        users: await this._getGroupReaderCard(webpage, user)
+      }
+      
+      //console.log(group.group_seq_id)
+      
+      // -----------------------------
 
       let webpageURL = webpage.url
       let output = {
         user: userJSON,
-        webpageURL: webpageURL
+        webpageURL: webpageURL,
+        group
       }
       Cache.put(cacheKey, output, 0.5)
       return output
     })
+  }
+  
+  async _getGroupReaderCard (webpage, user) {
+    let output = []
+    let users = await user.getUsersInGroup(webpage, false)
+    for (let u = 0; u < users.length; u++) {
+      let userJSON = users[u]
+      //let userJSON = user.toJSON()
+      userJSON.readingProgresses = await user.getReadingProgressStatus(webpage)
+
+      userJSON.created_at = dayjs(user.created_at).unix()
+      userJSON.latest_log_unixms = await user.getLatestLogUnixMS(webpage)
+
+      // For test
+      //userJSON.readingProgresses[0].isCompleted = true
+      //userJSON.readingProgresses[0].start_timestamp = 1
+      //userJSON.readingProgresses[0].end_timestamp = 10000
+      //userJSON.readingProgresses[1].start_timestamp = 10001
+
+      output.push(userJSON)
+    }
+    
+    return output
   }
   
   async _getAnnotationStatistic(webpage, user, step) {

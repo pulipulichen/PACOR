@@ -9,6 +9,15 @@ class UserGroup {
 
   register(Model) {
 
+    Model.prototype.getGroupSeqID = async function (webpage) {
+      let group = await this.group()
+                .select('group_seq_id')
+                .where('webpage_id', webpage.primaryKeyValue)
+                .first()
+        
+      return group.toJSON().group_seq_id
+    }
+
     /**
      * 取得使用者群組裡面的使用者
      * 
