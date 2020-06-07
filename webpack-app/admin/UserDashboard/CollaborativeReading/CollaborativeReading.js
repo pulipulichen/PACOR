@@ -1,4 +1,5 @@
 import StepUsersCount from './../components/StepUsersCount/StepUsersCount.vue'
+import StepUsersRatesCount from './../components/StepUsersRatesCount/StepUsersRatesCount.vue'
 
 let StepModule = {
   data() {    
@@ -9,6 +10,7 @@ let StepModule = {
   },
   components: {
     StepUsersCount: StepUsersCount,
+    StepUsersRatesCount: StepUsersRatesCount,
   },
   computed: {}, // 轉移到computedStepModule
   // mounted() {},  // 轉移到mountedStepModule

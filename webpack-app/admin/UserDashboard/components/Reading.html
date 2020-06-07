@@ -51,6 +51,17 @@
     
     <!-- ==================================================== -->
     
+    <template v-else-if="item.name === 'rates'">
+      <StepUsersRatesCount 
+        v-bind:config="config"
+        v-bind:status="status"
+        v-bind:lib="lib"
+        v-bind:item="item">
+      </StepUsersRatesCount>
+    </template>
+    
+    <!-- ==================================================== -->
+    
     <template v-else-if="item.name === 'section_notes'">
       <template v-if="item.value.length > 0">
         <label>{{ $t(item.name) }}</label>

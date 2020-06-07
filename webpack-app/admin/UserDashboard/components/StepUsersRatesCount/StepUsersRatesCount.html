@@ -1,0 +1,23 @@
+<fragment>
+  <template v-if="isShow">
+    <div>{{ $t(item.name) }}</div>
+    
+    <template v-for="anchor in Object.keys(item.value)">
+      <template v-for="type in Object.keys(item.value[anchor])">
+        <label>{{ $t(anchor) }} {{ $t(type) }} </label>: 
+        <span class="ui mini button user-count-container"
+              v-for="userID in Object.keys(item.value[anchor][type])">
+          <img v-bind:src="item.value[anchor][type][userID].avatar_url" class="user-avatar" />
+          <span class="user-name">
+            {{ item.value[anchor][type][userID].name }}
+            :
+          </span>
+          <span class="user-count">
+            {{ item.value[anchor][type][userID].count }}
+          </span>
+        </span>
+      </template>
+    </template>
+    
+  </template>
+</fragment>

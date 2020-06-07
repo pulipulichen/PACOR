@@ -6,6 +6,9 @@ const AnnotationModel = use('App/Models/Annotation')
 const StringHelper = use('App/Helpers/StringHelper')
 const AnnotationCommentModel = use('App/Models/AnnotationComment')
 
+const AnnotationRateModel = use('App/Models/AnnotationRate')
+const AnnotationCommentRateModel = use('App/Models/AnnotationCommentRate')
+
 class UserDashboard {
 
   register(Model) {
@@ -249,6 +252,137 @@ class UserDashboard {
       return output
     }
     
+    // -----------------------------------------------------------------
+    
+    Model.prototype.getAnnotationRatesInStep = async function (webpage, start_timestamp, end_timestamp) {
+      let cacheKey = Cache.key(`User.getAnnotationRatesInStep`, start_timestamp, end_timestamp)
+      
+      let output = await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        let query = AnnotationRateModel
+                .query()
+                .whereHas('annotation', (builder) => {
+                  builder.where('deleted', false)
+                         .where('user_id', this.primaryKeyValue)
+                         .where('webpage_id', webpage.primaryKeyValue)
+                }, '>', 0)
+                .with('annotation', (builder) => {
+                  builder.with('user')
+                })
+                .where('user_id', this.primaryKeyValue)
+                .where('deleted', false)
+                //.select('EXTRACT(EPOCH FROM created_at) as created_at_unixms')
+                
+                //.where('webpage_id', webpage.primaryKeyValue)
+
+        if (typeof(start_timestamp) === 'number') {
+          query.whereRaw('EXTRACT(EPOCH FROM created_at) >= ?', [start_timestamp])
+        }
+
+        if (typeof(end_timestamp) === 'number') {
+          //query.where('EXTRACT(EPOCH FROM created_at)', '<=', end_timestamp)
+          query.whereRaw('EXTRACT(EPOCH FROM created_at) <= ?', [end_timestamp])
+        }
+
+        let result = await query.fetch()
+        return result.toJSON()
+      })
+      return output
+    }
+    
+    Model.prototype.getAnnotationCommentRatesInStep = async function (webpage, start_timestamp, end_timestamp) {
+      let cacheKey = Cache.key(`User.getAnnotationCommentRatesInStep`, start_timestamp, end_timestamp)
+      
+      let output = await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        let query = AnnotationCommentRateModel
+                .query()
+                .whereHas('comment', (builder) => {
+                  builder.where('deleted', false)
+                         .where('user_id', this.primaryKeyValue)
+                         .whereHas('annotation', (builder) => {
+                           builder.where('webpage_id', webpage.primaryKeyValue)
+                         }, '>', 0)
+                }, '>', 0)
+                .with('comment', (builder) => {
+                  builder.with('user')
+                })
+                .where('user_id', this.primaryKeyValue)
+                .where('deleted', false)
+                //.select('EXTRACT(EPOCH FROM created_at) as created_at_unixms')
+                //.where('webpage_id', webpage.primaryKeyValue)
+
+        if (typeof(start_timestamp) === 'number') {
+          query.whereRaw('EXTRACT(EPOCH FROM created_at) >= ?', [start_timestamp])
+        }
+
+        if (typeof(end_timestamp) === 'number') {
+          //query.where('EXTRACT(EPOCH FROM created_at)', '<=', end_timestamp)
+          query.whereRaw('EXTRACT(EPOCH FROM created_at) <= ?', [end_timestamp])
+        }
+
+        let result = await query.fetch()
+        return result.toJSON()
+      })
+      return output
+    }
+    
+    Model.prototype.getRates = async function (webpage, start_timestamp, end_timestamp) {
+      let cacheKey = Cache.key(`User.getRates`, start_timestamp, end_timestamp)
+      let output = await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        let rates
+        
+        let annotationRates = {}
+        let commentRates = {}
+        
+        rates = await this.getAnnotationRatesInStep(webpage, start_timestamp, end_timestamp)
+        rates.forEach((rate) => {
+          //console.log(JSON.stringify(comment, null, 2))
+          let type = rate.type
+          let user = rate.annotation.user
+          
+          if (!annotationRates[type]) {
+            annotationRates[type] = {}
+          }
+          
+          if (typeof(annotationRates[type][user.id]) !== 'number') {
+            annotationRates[type][user.id] = {
+              avatar_url: user.avatar_url,
+              name: user.display_name,
+              count: 0
+            }
+          }
+          annotationRates[type][user.id].count++
+        })
+        
+        // --------------------------------------------------------------
+        
+        rates = await this.getAnnotationCommentRatesInStep(webpage, start_timestamp, end_timestamp)
+        rates.forEach((rate) => {
+          //console.log(JSON.stringify(comment, null, 2))
+          let type = rate.type
+          let user = rate.comment.user
+          
+          if (!commentRates[type]) {
+            commentRates[type] = {}
+          }
+          
+          if (typeof(commentRates[type][user.id]) !== 'number') {
+            commentRates[type][user.id] = {
+              avatar_url: user.avatar_url,
+              name: user.display_name,
+              count: 0
+            }
+          }
+          commentRates[type][user.id].count++
+        })
+        // --------------------------------------------------------------
+        
+        return {
+          annotation: annotationRates,
+          comment: commentRates
+        }
+      })
+      return output
+    }
     
   } // register (Model) {
 }

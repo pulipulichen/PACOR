@@ -71,6 +71,8 @@ class UserDashboard {
     let section_notes = await user.getSectionNotes(webpage, start_timestamp, end_timestamp)
     let comments = await user.getComments(webpage, start_timestamp, end_timestamp)
     let commented = await user.getCommented(webpage, start_timestamp, end_timestamp)
+    let rates = await user.getRates(webpage, start_timestamp, end_timestamp)
+    
     //console.log(commented)
     return {
       annotation_count,
@@ -78,7 +80,8 @@ class UserDashboard {
       word_count,
       section_notes,
       comments,
-      commented
+      commented,
+      rates
     }
   }
   
