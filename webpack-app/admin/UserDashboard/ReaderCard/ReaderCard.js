@@ -17,6 +17,16 @@ let ReaderCard = {
   mounted() {
   },
   methods: {
+    /*
+    moveToUserDashboard(event) {
+      event.preventDefault()
+      //event.stopPropagation()
+      
+      //console.log(this.userDashboardLink)
+      this.$router.replace('/user-dashboard/' + this.$route.params.webpageID + '/' + this.user.id)
+      //location.href = this.userDashboardLink
+    }
+    */
   } // methods
 }
 

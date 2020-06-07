@@ -737,7 +737,7 @@ var render = function() {
             "a",
             {
               staticClass: "ui button",
-              attrs: { href: _vm.userDashboardLink }
+              attrs: { target: "_blank", href: _vm.userDashboardLink }
             },
             [_vm._v("\r\n          " + _vm._s(_vm.$t("VIEW")) + "\r\n        ")]
           )
@@ -2815,6 +2815,16 @@ let ReaderCard = {
   mounted() {
   },
   methods: {
+    /*
+    moveToUserDashboard(event) {
+      event.preventDefault()
+      //event.stopPropagation()
+      
+      //console.log(this.userDashboardLink)
+      this.$router.replace('/user-dashboard/' + this.$route.params.webpageID + '/' + this.user.id)
+      //location.href = this.userDashboardLink
+    }
+    */
   } // methods
 }
 
