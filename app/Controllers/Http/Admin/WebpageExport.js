@@ -38,6 +38,8 @@ class WebpageExport {
     data.Questionnaire = await webpage.exportQuestionnaire()
     data.SectionNote = await webpage.exportSectionNote()
     data.Annotation = await webpage.exportAnnotation()
+    data.Comment = await webpage.exportComment()
+    data.Rate = await webpage.exportRate()
     //console.log(data.Annotation)
     
     let filename = `webpage_` + webpageID + `_all_${dayjs().format('YYYYMMDD-HHmm')}.ods`

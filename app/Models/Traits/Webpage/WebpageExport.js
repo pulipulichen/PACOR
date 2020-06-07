@@ -9,6 +9,13 @@ const ReadingProgressModel = use('App/Models/ReadingProgress')
 const StringHelper = use('App/Helpers/StringHelper')
 const DateHelper = use('App/Helpers/DateHelper')
 
+const AnnotationCommentModel = use('App/Models/AnnotationComment')
+
+const AnnotationRateModel = use('App/Models/AnnotationRate')
+const AnnotationCommentRateModel = use('App/Models/AnnotationCommentRate')
+
+const DatabaseHelper = use('App/Helpers/DatabaseHelper')
+
 //const WebpageGroupModel = use('App/Models/WebpageGroup')
 
 class WebpageExport {
@@ -134,6 +141,7 @@ class WebpageExport {
               .query()
               .where('webpage_id', this.primaryKeyValue)
               .whereNot('type', 'SectionMainIdea')
+              .with('user')
               .with('notes')
               .orderBy('created_at_unixms')
               .fetch()
@@ -143,9 +151,12 @@ class WebpageExport {
       
       for (let i = 0; i < annotations.size(); i++) {
         let annotation = annotations.nth(i)
+        let annotationJSON = annotation.toJSON()
         
         let item = {
+          annotation_id: annotation.primaryKeyValue,
           user_id: annotation.user_id,
+          username: annotationJSON.user.username,
           deleted: annotation.deleted,
           type: annotation.type,
         }
@@ -170,6 +181,153 @@ class WebpageExport {
         
         output.push(item)
       }
+      
+      return output
+    }
+    
+    Model.prototype.exportComment = async function () {
+      let comments = await AnnotationCommentModel
+              .query()
+              .whereHas('annotation', (builder) => {
+                  builder.where('webpage_id', this.primaryKeyValue)
+                         //.where('deleted', false)
+                }, '>', 0)
+              .with('annotation', (builder) => {
+                  builder.with('user')
+              })
+              .with('user')
+              .orderBy('created_at_unixms')
+              .fetch()
+      
+      let output = []
+      //console.log(annotations.size(), this.primaryKeyValue)
+      
+      for (let i = 0; i < comments.size(); i++) {
+        let comment = comments.nth(i)
+        let json = comment.toJSON()
+        
+        let item = {
+          user_id: comment.user_id,
+          username: json.user.username,
+          annotation_id: json.annotation.id,
+          annotation_user_id: json.annotation.user_id,
+          annotation_username: json.annotation.user.username,
+          deleted: comment.deleted,
+          note: comment.note,
+        }
+        
+        item.created_at = DateHelper.parseAtUnixms(comment.created_at_unixms).format('YYYY-MMDD-HH:mm:ss')
+        item.updated_at = DateHelper.parseAtUnixms(comment.updated_at_unixms).format('YYYY-MMDD-HH:mm:ss')
+        if (item.created_at !== item.updated_at) {
+          item.is_updated = true
+        }
+        
+        output.push(item)
+      }
+      
+      return output
+    }
+    
+    Model.prototype.exportRate = async function () {
+      let output = []
+      
+      let annotationRates = await AnnotationRateModel
+              .query()
+              .whereHas('annotation', (builder) => {
+                  builder.where('webpage_id', this.primaryKeyValue)
+                         //.where('deleted', false)
+                }, '>', 0)
+              .with('annotation', (builder) => {
+                  builder.with('user')
+              })
+              .with('user')
+              .orderBy('id')
+              .fetch()
+      
+      
+      //console.log(annotations.size(), this.primaryKeyValue)
+      
+      for (let i = 0; i < annotationRates.size(); i++) {
+        let rate = annotationRates.nth(i)
+        let json = rate.toJSON()
+        
+        let item = {
+          user_id: rate.user_id,
+          username: json.user.username,
+          type: rate.type,
+          anchor: 'annotation',
+          anchor_id: json.annotation.id,
+          anchor_user_id: json.annotation.user_id,
+          anchor_username: json.annotation.user.username,
+          deleted: rate.deleted,
+          created_at: json.created_at,
+          updated_at: json.updated_at,
+          unix: dayjs(rate.created_at).unix()
+        }
+        
+        
+        if (item.created_at !== item.updated_at) {
+          item.is_updated = true
+        }
+        
+        output.push(item)
+      }
+      
+      // -----------------------------------
+      
+      let commentRates = await AnnotationCommentRateModel
+              .query()
+              .whereHas('comment', (builder) => {
+                  builder.whereHas('annotation', (builder) => {
+                           builder.where('webpage_id', this.primaryKeyValue)
+                         }, '>', 0)
+                         //.where('deleted', false)
+                }, '>', 0)
+              .with('comment', (builder) => {
+                  builder.with('user')
+              })
+              .with('user')
+              .orderBy('id')
+              .fetch()
+      
+      
+      //console.log(annotations.size(), this.primaryKeyValue)
+      
+      for (let i = 0; i < commentRates.size(); i++) {
+        let rate = commentRates.nth(i)
+        let json = rate.toJSON()
+        
+        let item = {
+          user_id: rate.user_id,
+          username: json.user.username,
+          anchor: 'comment',
+          type: rate.type,
+          anchor_id: json.comment.id,
+          anchor_user_id: json.comment.user_id,
+          anchor_username: json.comment.user.username,
+          deleted: rate.deleted,
+          created_at: json.created_at,
+          updated_at: json.updated_at,
+          unix: dayjs(rate.created_at).unix()
+        }
+        
+        if (item.created_at !== item.updated_at) {
+          item.is_updated = true
+        }
+        
+        output.push(item)
+      }
+      
+      output.sort((a, b) => {
+        return (a.unix - b.unix)
+      })
+      
+      output = output.map(item => {
+        delete item.unix
+        return item
+      })
+      
+      // -----------------------------------
       
       return output
     }

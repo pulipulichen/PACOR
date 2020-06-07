@@ -10,7 +10,11 @@ class AnnotationCommentRate extends Model {
   } // static boot () {
   
   rater () {
-    return this.user()
+    return this.belongsTo('App/Models/User')
+  }
+  
+  user () {
+    return this.belongsTo('App/Models/User')
   }
   
   comment () {
