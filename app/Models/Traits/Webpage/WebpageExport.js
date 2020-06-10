@@ -212,6 +212,7 @@ class WebpageExport {
           annotation_id: json.annotation.id,
           annotation_user_id: json.annotation.user_id,
           annotation_username: json.annotation.user.username,
+          annotation_type: json.annotation.type,
           deleted: comment.deleted,
           note: comment.note,
         }
@@ -251,11 +252,14 @@ class WebpageExport {
         let rate = annotationRates.nth(i)
         let json = rate.toJSON()
         
+        
+        
         let item = {
           user_id: rate.user_id,
           username: json.user.username,
           type: rate.type,
           anchor: 'annotation',
+          anchor_type: json.annotation.type,
           anchor_id: json.annotation.id,
           anchor_user_id: json.annotation.user_id,
           anchor_username: json.annotation.user.username,
@@ -285,6 +289,7 @@ class WebpageExport {
                 }, '>', 0)
               .with('comment', (builder) => {
                   builder.with('user')
+                         .with('annotation')
               })
               .with('user')
               .orderBy('id')
@@ -301,6 +306,7 @@ class WebpageExport {
           user_id: rate.user_id,
           username: json.user.username,
           anchor: 'comment',
+          anchor_type: json.comment.annotation.type,
           type: rate.type,
           anchor_id: json.comment.id,
           anchor_user_id: json.comment.user_id,
