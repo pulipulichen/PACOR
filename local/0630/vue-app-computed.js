@@ -112,7 +112,13 @@ var appComputed = {
         max = target
       }
       
-      let direct = (cells[2] === "TRUE")
+      let direct = true
+      if (cells[2].length === 1) {
+        direct = (cells[2] === "1")
+      }
+      else {
+        direct = (cells[2] === "TRUE")
+      }
       
       //console.log(target)
       
