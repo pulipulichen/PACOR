@@ -113,12 +113,19 @@ var appComputed = {
       }
       
       let direct = true
-      if (cells[2].length === 1) {
-        direct = (cells[2] === "1")
+      if (cells[2] === "1") {
+        direct = true
+      }
+      else if (cells[2] === "0" || cells[2] === "-1") {
+        direct = false
       }
       else {
         direct = (cells[2] === "TRUE")
       }
+      
+      let conf = Number(cells[3])
+      let sup = Number(cells[4])
+      
       
       //console.log(target)
       
@@ -131,7 +138,9 @@ var appComputed = {
       
       data[label][attr] = {
         target,
-        direct
+        direct,
+        conf,
+        sup
       }
     })
     
@@ -146,11 +155,19 @@ var appComputed = {
     
     let rows = []
     
-    rows.push(["Attributes"].concat(labels.map(l => "Label " + l)).join("\t"))
+    let labelsRow = ["Attributes"].concat(labels.map(l => "Label " + l))
+            .concat(["Fit Avg.","Conf Avg.", "Sup Avg.", ""])
+            .concat(labels.map(l => "Label " + l + " Conf"))
+            .concat([""])
+            .concat(labels.map(l => "Label " + l + " Sup"))
+    
+    rows.push(labelsRow.join("\t"))
     
     attrs.forEach(attr => {
       let row = [attr]
       
+      let sum = 0
+      let count = 0
       labels.forEach(label => {
         if (data[label] 
                 && typeof(data[label][attr]) === "object") {
@@ -161,6 +178,9 @@ var appComputed = {
           target = 1 - target
           //target = Math.log(target)
           
+          sum = sum + target
+          count++
+          
           target = Math.round(target * 1000000) / 10000
           
           if (direct === false) {
@@ -169,6 +189,99 @@ var appComputed = {
           
           //console.log(target)
           row.push(target)
+        }
+        else {
+          row.push("")
+        }
+      })
+      
+      if (count > 0) {
+        let avg = sum / count
+        avg = Math.round(avg * 10000) / 10000
+        row.push(avg)
+      }
+      else {
+        row.push(0)
+      }
+      
+      // 再來計算平均conf
+      sum = 0
+      count = 0
+      labels.forEach(label => {
+        if (data[label] 
+                && typeof(data[label][attr]) === "object") {
+          
+          let { conf } = data[label][attr]
+          
+          if (typeof(conf) === 'number') {
+            sum = sum + conf
+            count++
+          }
+        }
+      })
+      
+      if (count > 0) {
+        let avg = sum / count
+        avg = Math.round(avg * 10000) / 10000
+        row.push(avg)
+      }
+      else {
+        row.push(0)
+      }
+      
+      // 再來計算平均sup
+      sum = 0
+      count = 0
+      labels.forEach(label => {
+        if (data[label] 
+                && typeof(data[label][attr]) === "object") {
+          
+          let { sup } = data[label][attr]
+          
+          if (typeof(sup) === 'number') {
+            sum = sum + sup
+            count++
+          }
+        }
+      })
+      
+      if (count > 0) {
+        let avg = sum / count
+        avg = Math.round(avg * 10000) / 10000
+        row.push(avg)
+      }
+      else {
+        row.push(0)
+      }
+      
+      row.push("")
+      
+      // 再來取得conf
+      labels.forEach(label => {
+        if (data[label] 
+                && typeof(data[label][attr]) === "object") {
+          
+          let { conf } = data[label][attr]
+          conf = Math.round(conf * 1000) / 1000
+          //console.log(target)
+          row.push(conf)
+        }
+        else {
+          row.push("")
+        }
+      })
+      
+      row.push("")
+      
+      // 再來取得conf
+      labels.forEach(label => {
+        if (data[label] 
+                && typeof(data[label][attr]) === "object") {
+          
+          let { sup } = data[label][attr]
+          sup = Math.round(sup * 1000) / 1000
+          //console.log(target)
+          row.push(sup)
         }
         else {
           row.push("")
