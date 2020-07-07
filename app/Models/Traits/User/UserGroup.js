@@ -14,8 +14,13 @@ class UserGroup {
                 .select('group_seq_id')
                 .where('webpage_id', webpage.primaryKeyValue)
                 .first()
-        
-      return group.toJSON().group_seq_id
+      
+      if (typeof(group) === "object" && group) {
+        return group.toJSON().group_seq_id
+      }
+      else {
+        return null
+      }
     }
 
     /**
