@@ -23,11 +23,13 @@
   <body>
     <div id="app" class="ui form">
       <h1>Input</h1>
-      <div class="grid columns">
-        <div class="column">
+      <div class="two fields">
+        <div class="field">
+          <label>Node</label>
           <textarea v-model="inputTextareaNode"></textarea>
         </div>
-        <div class="column">
+        <div class="field">
+          <label>Edge</label>
           <textarea v-model="inputTextareaEdge"></textarea>
         </div>
       </div>
@@ -35,8 +37,6 @@
       
       
       <h1>Output</h1>
-      <div id="social-network-output">
-      </div>
     </div>
 
     <!-- ======================================================= -->
@@ -44,83 +44,17 @@
     <div id="container"></div>
     
     <script src="vendors/sigma.js/min/sigma.min.js"></script>
+    <script src="vendors/sigma.js/plugins/sigma.layout.forceAtlas2/supervisor.js"></script>
+    <script src="vendors/sigma.js/plugins/sigma.layout.forceAtlas2/worker.js"></script>
+    
     <script src="vendors/sigma.js/plugins/sigma.layout.noverlap/sigma.layout.noverlap.js"></script>
     <script src="vendors/sigma.js/plugins/sigma.plugins.animate/sigma.plugins.animate.js"></script>
+    <script src="vendors/sigma.js/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js"></script>
     
+    <script src="vendors/sigma.js/plugins/sigma.renderers.parallelEdges/sigma.canvas.edges.curve.js"></script>
+    <script src="vendors/sigma.js/plugins/sigma.renderers.parallelEdges/sigma.canvas.edges.curvedArrow.js"></script>
+    <script src="vendors/sigma.js/plugins/sigma.renderers.parallelEdges/sigma.canvas.edges.labels.curve.js"></script>
 
-    <script>
-    // Let's first initialize sigma:
-    var s = new sigma('container');
-
-    // Then, let's add some data to display:
-    s.graph.addNode({
-      // Main attributes:
-      id: 'n0',
-      label: 'Hello',
-      // Display attributes:
-      x: 0,
-      y: 0,
-      size: 1,
-      color: '#f00'
-    }).addNode({
-      // Main attributes:
-      id: 'n1',
-      label: 'World !',
-      // Display attributes:
-      x: 1,
-      y: 1,
-      size: 1,
-      color: '#00f'
-    }).addNode({
-      // Main attributes:
-      id: 'n3',
-      label: 'OK',
-      // Display attributes:
-      x: 1,
-      y: 0,
-      size: 1,
-      color: '#00f'
-    }).addNode({
-      // Main attributes:
-      id: 'n5',
-      label: 'not OK',
-      // Display attributes:
-      x: 0,
-      y: 1,
-      size: 1,
-      color: '#00f'
-    }).addEdge({
-      id: 'e0',
-      // Reference extremities:
-      source: 'n0',
-      target: 'n1'
-    }).addEdge({
-      id: 'e2',
-      // Reference extremities:
-      source: 'n3',
-      target: 'n1'
-    }).addEdge({
-      id: 'e3',
-      // Reference extremities:
-      source: 'n3',
-      target: 'n5'
-    })
-
-    var noverlapListener = s.configNoverlap({
-      nodeMargin: 1,
-      scaleNodes: 1.05,
-      gridSize: 75,
-      easing: 'quadraticInOut', // animation transition function
-      duration: 1000,
-    });
-
-    // Finally, let's ask our sigma instance to refresh:
-      s.refresh();
-      s.startNoverlap();
-      console.log('aaa')
-      
-    </script>
-    
     
     <script src="vue-app-data.js"></script>
     <script src="vue-app-computed.js"></script>
