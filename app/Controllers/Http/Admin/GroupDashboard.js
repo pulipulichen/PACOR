@@ -145,14 +145,18 @@ class GroupDashboard {
     let collaborativeReadingTimes = this._calcCollaborativeReadingTimes(users)
     let timelist = this._calcTimeList(collaborativeReadingTimes)
     
-    let socialNetworks = await Promise.all(timelist.map(async (timestamps) => {
-      let {startTimestamp, endTimestamp} = timestamps
+    //let socialNetworks = await Promise.all(timelist.map(async (timestamps) => {
+    let socialNetworks = []
+    for (let i = 0; i < timelist.length; i++) {
+      let {startTimestamp, endTimestamp} = timelist[i]
       
       
       let nodes = []
       let edges = []
-      await Promise.all(users.map(async (userJSON) => {
-        let {id, username, display_name} = userJSON
+      
+      //await Promise.all(users.map(async (userJSON) => {
+      for (let j = 0; j < users.length; j++) {
+        let {id, username, display_name} = users[j]
         let user = await UserModel.find(id)
         
         if (!display_name) {
@@ -211,15 +215,15 @@ class GroupDashboard {
         })
         
         //return
-      }))
+      }
       
-      return {
+      socialNetworks.push({
         startTimestamp,
         endTimestamp,
         nodes,
         edges
-      }
-    }))
+      })
+    }
     
     return socialNetworks
   }

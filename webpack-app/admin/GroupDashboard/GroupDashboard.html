@@ -87,10 +87,21 @@
         </div>
       </div>
       
+    </div>
+  </div>
+  
+  <div v-for="(sn, i) in group.socialNetworks"
+         class="period-graph-container">
+      <h4 v-bind:id="attrHeaderID('socialNetworksGraphs' + i)">
+        {{ $t("Graphs") }} {{ (i+1) }}:
+        {{ sn.startTimestamp }}
+        - 
+        {{ sn.endTimestamp }}
+      </h4>
+      
       <div class="graph-container"
            v-bind:id="'graph_container_' + i"></div>
       
-    </div>
   </div>
     
 </div>

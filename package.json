@@ -56,6 +56,7 @@
     "serve-favicon": "^2.5.0",
     "sigma": "^2.0.0-alpha32",
     "sigma-js": "^1.1.5",
+    "sigma-webpack": "^1.2.0-1",
     "type-of-is": "^3.5.1",
     "vue-media": "^1.1.1",
     "webpack-bundle-analyzer": "^3.6.0",
