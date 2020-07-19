@@ -29,9 +29,10 @@ let GroupDashboard = {
   methods: {
     initDashboard: async function () {
       // 先跟伺服器取得webpage的資訊
+      let groupID = Number(this.$route.params.groupID)
       let data = {
         webpageID: this.$route.params.webpageID,
-        userID: this.$route.params.userID,
+        groupID,
       }
       
       let result = await this.lib.AxiosHelper.get('/admin/GroupDashboard/info', data)

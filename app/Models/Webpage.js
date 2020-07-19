@@ -68,6 +68,11 @@ class Webpage extends Model {
             .with('users')
             .orderBy('group_seq_id', 'asc')
     
+    if (typeof(group_seq_id) === 'string' 
+            && isNaN(group_seq_id) === false) {
+      group_seq_id = Number(group_seq_id)
+    }
+    
     if (typeof(group_seq_id) === 'number') {
       groups.where('group_seq_id', group_seq_id)
               .limit(1)

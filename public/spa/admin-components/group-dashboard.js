@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Group Members":"小組成員","Group Dashboard":"小組儀表板","Collaborative Reading Times":"協助閱讀時間","Social Networks":"互動分析"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Group Members":"小組成員","Group Dashboard":"小組儀表板","Collaborative Reading Times":"協助閱讀時間","Social Networks":"互動分析","Period":"時期"}}')
   delete Component.options._Ctor
 }
 
@@ -169,6 +169,10 @@ var render = function() {
                 [
                   _vm._v(
                     "\r\n        " +
+                      _vm._s(_vm.$t("Period")) +
+                      " " +
+                      _vm._s(i + 1) +
+                      ":\r\n        " +
                       _vm._s(sn.startTimestamp) +
                       "\r\n        - \r\n        " +
                       _vm._s(sn.endTimestamp) +
@@ -323,9 +327,10 @@ let GroupDashboard = {
   methods: {
     initDashboard: async function () {
       // 先跟伺服器取得webpage的資訊
+      let groupID = Number(this.$route.params.groupID)
       let data = {
         webpageID: this.$route.params.webpageID,
-        userID: this.$route.params.userID,
+        groupID,
       }
       
       let result = await this.lib.AxiosHelper.get('/admin/GroupDashboard/info', data)

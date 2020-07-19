@@ -21,7 +21,7 @@ class GroupDashboard {
   async info ({request, auth}) {
     let {webpageID, groupID} = request.all()
     let webpage = await AuthHelper.checkDomainAdmin(auth, webpageID)
-    
+    //console.log([webpageID, groupID])
     let cacheKey = Cache.key('GroupDashboard', 'info', webpageID, groupID)
     
     return await Cache.get(cacheKey, async () => {
@@ -188,20 +188,16 @@ class GroupDashboard {
         
         //console.log(JSON.stringify(rates, null, '\t'))
         
-        Object.keys(rates.annotation).forEach(targetID => {
-          let rate = rates.annotation[targetID]
-          if (typeof(interactTo[rate.name]) !== 'number') {
-            interactTo[rate.name] = 0
-          }
-          interactTo[rate.name] = interactTo[rate.name] + rate.count
-        })
-        
-        Object.keys(rates.comment).forEach(targetID => {
-          let rate = rates.comment[targetID]
-          if (typeof(interactTo[rate.name]) !== 'number') {
-            interactTo[rate.name] = 0
-          }
-          interactTo[rate.name] = interactTo[rate.name] + rate.count
+        Object.keys(rates).forEach(anchor => {
+          Object.keys(rates[anchor]).forEach(type => {
+            Object.keys(rates[anchor][type]).forEach(targetID => {
+              let rate = rates[anchor][type][targetID]
+              if (typeof(interactTo[rate.name]) !== 'number') {
+                interactTo[rate.name] = 0
+              }
+              interactTo[rate.name] = interactTo[rate.name] + rate.count
+            })
+          })
         })
         
         // -------------------------------

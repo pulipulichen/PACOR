@@ -64,6 +64,7 @@
     
     <div v-for="(sn, i) in group.socialNetworks">
       <h4 v-bind:id="attrHeaderID('socialNetworks' + i)">
+        {{ $t("Period") }} {{ (i+1) }}:
         {{ sn.startTimestamp }}
         - 
         {{ sn.endTimestamp }}
