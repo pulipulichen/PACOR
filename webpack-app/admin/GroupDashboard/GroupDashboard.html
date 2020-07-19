@@ -1,4 +1,68 @@
-<div>
+<div class="ui form UserDashboard">
+  <div class="ui secondary menu">
+    <a class="icon item"
+       v-bind:href="'#/webpage-dashboard/' + $route.params.webpageID">
+      <i class="angle left icon"></i>
+    </a>
+    <a class="icon item">
+      <img v-bind:src="user.avatar_url" />
+    </a>
+    <div class="item">
+      <div class="ui header">
+        <div class="content">
+          <div class="sub header">{{ webpagePath }}</div>
+          <h2>
+            {{ user.username }}
+            <template v-if="user.username !== user.display_name">
+              ({{ user.display_name }})
+            </template>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="right menu">
+      <a v-bind:href="status.webpageURL"
+         class="ui item"
+         target="_blank">
+        <i class="external link icon"></i>
+        {{ $t('Open Webpage') }}
+      </a>
+      <a href="/admin/Database/admin?table=reading_progresses"
+         class="ui item"
+         target="_blank"
+         v-if="status.role='global_admin'">
+        <i class="database icon"></i>
+        {{ $t('Database') }}
+      </a>
+    </div>
+  </div>
+
+  <!-- ======================================== -->
+
+  <table-of-contents 
+    v-bind:config="config"
+    v-bind:lib="lib"
+    headings="h3, h4"
+    ref='toc'></table-of-contents>
+
+  <div class="ui segment">
+    <h3 v-bind:id="attrHeaderID('groupMembers')">
+      {{ $t('Group') }} #{{ (group.group_seq_id + 1)  }} ({{ $t('{0} users', group.users.length, [group.users.length]) }})
+    </h3>
+    
+    <div class="ui cards">
+      <reader-card 
+        v-for="groupUser in group.users"
+        v-bind:class="{'is-me': (user.id === groupUser.id)}"
+        v-bind:user="groupUser"
+        v-bind:lib="lib"
+        v-bind:status="status"
+        v-bind:config="config"></reader-card>
+    </div>
+    
+    
+  </div>
+  
   <div>
     #BackToPrevious
   </div>

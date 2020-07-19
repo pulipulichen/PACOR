@@ -1,4 +1,4 @@
-import ReaderCard from './ReaderCard/ReaderCard.vue'
+//import ReaderCard from './ReaderCard/ReaderCard.vue'
 
 let WebpageDashboardGroups = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'toc'],
@@ -10,7 +10,7 @@ let WebpageDashboardGroups = {
     }
   },
   components: {
-    'reader-card': ReaderCard
+    //'reader-card': ReaderCard
   },
   computed: {
     users () {

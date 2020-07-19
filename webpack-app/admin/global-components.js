@@ -26,3 +26,6 @@ Vue.component('webpage-config-editor', WebpageConfigEditor)
 
 import WebpageGroupEditor from './../components/admin/WebpageGroupEditor/WebpageGroupEditor.vue'
 Vue.component('webpage-group-editor', WebpageGroupEditor)
+
+import ReaderCard from './../components/admin/ReaderCard/ReaderCard.vue'
+Vue.component('reader-card', ReaderCard)

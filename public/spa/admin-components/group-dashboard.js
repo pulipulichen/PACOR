@@ -45,14 +45,133 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
+  return _c(
+    "div",
+    { staticClass: "ui form UserDashboard" },
+    [
+      _c("div", { staticClass: "ui secondary menu" }, [
+        _c(
+          "a",
+          {
+            staticClass: "icon item",
+            attrs: {
+              href: "#/webpage-dashboard/" + _vm.$route.params.webpageID
+            }
+          },
+          [_c("i", { staticClass: "angle left icon" })]
+        ),
+        _vm._v(" "),
+        _c("a", { staticClass: "icon item" }, [
+          _c("img", { attrs: { src: _vm.user.avatar_url } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "item" }, [
+          _c("div", { staticClass: "ui header" }, [
+            _c("div", { staticClass: "content" }, [
+              _c("div", { staticClass: "sub header" }, [
+                _vm._v(_vm._s(_vm.webpagePath))
+              ]),
+              _vm._v(" "),
+              _c(
+                "h2",
+                [
+                  _vm._v(
+                    "\r\n            " +
+                      _vm._s(_vm.user.username) +
+                      "\r\n            "
+                  ),
+                  _vm.user.username !== _vm.user.display_name
+                    ? [
+                        _vm._v(
+                          "\r\n              (" +
+                            _vm._s(_vm.user.display_name) +
+                            ")\r\n            "
+                        )
+                      ]
+                    : _vm._e()
+                ],
+                2
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "right menu" }, [
+          _c(
+            "a",
+            {
+              staticClass: "ui item",
+              attrs: { href: _vm.status.webpageURL, target: "_blank" }
+            },
+            [
+              _c("i", { staticClass: "external link icon" }),
+              _vm._v(
+                "\r\n        " + _vm._s(_vm.$t("Open Webpage")) + "\r\n      "
+              )
+            ]
+          ),
+          _vm._v(" "),
+          (_vm.status.role = "global_admin")
+            ? _c(
+                "a",
+                {
+                  staticClass: "ui item",
+                  attrs: {
+                    href: "/admin/Database/admin?table=reading_progresses",
+                    target: "_blank"
+                  }
+                },
+                [
+                  _c("i", { staticClass: "database icon" }),
+                  _vm._v(
+                    "\r\n        " + _vm._s(_vm.$t("Database")) + "\r\n      "
+                  )
+                ]
+              )
+            : _vm._e()
+        ])
+      ]),
+      _vm._v(" "),
+      _c("table-of-contents", {
+        ref: "toc",
+        attrs: { config: _vm.config, lib: _vm.lib, headings: "h3, h4" }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "ui segment" }, [
+        _c("h3", { attrs: { id: _vm.attrHeaderID("groupMembers") } }, [
+          _vm._v(
+            "\r\n      " +
+              _vm._s(_vm.$t("Group")) +
+              " #" +
+              _vm._s(_vm.group.group_seq_id + 1) +
+              " (" +
+              _vm._s(
+                _vm.$t("{0} users", _vm.group.users.length, [
+                  _vm.group.users.length
+                ])
+              ) +
+              ")\r\n    "
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "ui cards" },
+          _vm._l(_vm.group.users, function(groupUser) {
+            return _c("reader-card", {
+              class: { "is-me": _vm.user.id === groupUser.id },
+              attrs: {
+                user: groupUser,
+                lib: _vm.lib,
+                status: _vm.status,
+                config: _vm.config
+              }
+            })
+          }),
+          1
+        )
+      ]),
+      _vm._v(" "),
       _c("div", [_vm._v("\r\n    #BackToPrevious\r\n  ")]),
       _vm._v(" "),
       _c("div", [_vm._v("\r\n    #Group ID\r\n  ")]),
@@ -63,14 +182,23 @@ var staticRenderFns = [
         _vm._v("\r\n    Time: Coll First, Coll Middle, Coll Last\r\n  ")
       ]),
       _vm._v(" "),
-      _c("div", [
-        _vm._v("\r\n    Loop\r\n    "),
-        _c("div", [_vm._v("\r\n      Coll Node Tables\r\n    ")]),
-        _vm._v(" "),
-        _c("div", [_vm._v("\r\n      Coll Edge Tables\r\n    ")]),
-        _vm._v(" "),
-        _c("div", [_vm._v("\r\n      Coll Social Network\r\n    ")])
-      ])
+      _vm._m(0)
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _vm._v("\r\n    Loop\r\n    "),
+      _c("div", [_vm._v("\r\n      Coll Node Tables\r\n    ")]),
+      _vm._v(" "),
+      _c("div", [_vm._v("\r\n      Coll Edge Tables\r\n    ")]),
+      _vm._v(" "),
+      _c("div", [_vm._v("\r\n      Coll Social Network\r\n    ")])
     ])
   }
 ]

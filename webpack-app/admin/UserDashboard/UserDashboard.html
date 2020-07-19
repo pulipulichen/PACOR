@@ -43,7 +43,8 @@
     v-bind:config="config"
     v-bind:lib="lib"
     headings="h3, h4"
-    ref='toc'></table-of-contents>
+    ref='toc'>
+  </table-of-contents>
 
   <div class="ui segment">
     <h3 v-bind:id="attrHeaderID('groupMembers')">
@@ -57,7 +58,9 @@
         v-bind:user="groupUser"
         v-bind:lib="lib"
         v-bind:status="status"
-        v-bind:config="config"></reader-card>
+        v-bind:config="config"
+        v-bind:viewOnNewWindow="true">
+      </reader-card>
     </div>
     
     

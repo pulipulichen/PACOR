@@ -1,5 +1,5 @@
 let ReaderCard = {
-  props: ['lib', 'status', 'config', 'user'],
+  props: ['lib', 'status', 'config', 'user', 'viewOnNewWindow'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
@@ -10,6 +10,11 @@ let ReaderCard = {
   computed: {
     userDashboardLink: function () {
       return '#/user-dashboard/' + this.$route.params.webpageID + '/' + this.user.id
+    },
+    computedViewTarget: function () {
+      if (this.viewOnNewWindow === true) {
+        return '_blank'
+      } 
     }
   },
   watch: {
@@ -17,16 +22,6 @@ let ReaderCard = {
   mounted() {
   },
   methods: {
-    /*
-    moveToUserDashboard(event) {
-      event.preventDefault()
-      //event.stopPropagation()
-      
-      //console.log(this.userDashboardLink)
-      this.$router.replace('/user-dashboard/' + this.$route.params.webpageID + '/' + this.user.id)
-      //location.href = this.userDashboardLink
-    }
-    */
   } // methods
 }
 

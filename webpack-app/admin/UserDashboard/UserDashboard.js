@@ -6,7 +6,7 @@ import PostRecall from './PostRecall/PostRecall.vue'
 import PreImaginaryKeyword from './PreImaginaryKeyword/PreImaginaryKeyword.vue'
 import PostRecallKeyword from './PostRecallKeyword/PostRecallKeyword.vue'
 
-import ReaderCard from './ReaderCard/ReaderCard.vue'
+//import ReaderCard from './ReaderCard/ReaderCard.vue'
 
 let UserDashboard = {
   props: ['lib', 'status', 'config', 'progress', 'error', 'view'],
@@ -30,7 +30,7 @@ let UserDashboard = {
     PostRecall: PostRecall,
     PreImaginaryKeyword: PreImaginaryKeyword,
     PostRecallKeyword: PostRecallKeyword,
-    'reader-card': ReaderCard
+    //'reader-card': ReaderCard
   },
   computed: {
     'webpagePath': function () {
