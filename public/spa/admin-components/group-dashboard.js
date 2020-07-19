@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Group Members":"小組成員","Collaborative Reading Times":"協助閱讀時間"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Group Members":"小組成員","Group Dashboard":"小組儀表板","Collaborative Reading Times":"協助閱讀時間","Social Networks":"互動分析"}}')
   delete Component.options._Ctor
 }
 
@@ -151,20 +151,40 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "ui segment" }, [
-        _vm._v(
-          "\r\n    " +
-            _vm._s(_vm.$t("Collaborative Reading Times")) +
-            "\r\n    \r\n    "
-        ),
-        _c(
-          "ol",
-          _vm._l(_vm.group.collaborativeReadingTimes, function(time) {
-            return _c("li", [_vm._v(_vm._s(time))])
-          }),
-          0
-        )
-      ]),
+      _c(
+        "div",
+        { staticClass: "ui segment" },
+        [
+          _c("h3", { attrs: { id: _vm.attrHeaderID("socialNetworks") } }, [
+            _vm._v(
+              "\r\n      " + _vm._s(_vm.$t("Social Networks")) + "\r\n    "
+            )
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.group.socialNetworks, function(sn, i) {
+            return _c("div", [
+              _c(
+                "h4",
+                { attrs: { id: _vm.attrHeaderID("socialNetworks" + i) } },
+                [
+                  _vm._v(
+                    "\r\n        " +
+                      _vm._s(sn.startTimestamp) +
+                      "\r\n        - \r\n        " +
+                      _vm._s(sn.endTimestamp) +
+                      "\r\n      "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("textarea", {
+                domProps: { innerHTML: _vm._s(_vm.nodesTable(sn.nodes)) }
+              })
+            ])
+          })
+        ],
+        2
+      ),
       _vm._v(" "),
       _c("div", [
         _vm._v("\r\n    Time: Coll First, Coll Middle, Coll Last\r\n  ")
@@ -252,7 +272,7 @@ let GroupDashboard = {
       toc: null,
       group: {
         group_seq_id: null,
-        collaborativeReadingTimes: [],
+        socialNetworks: [],
         users: []
       }
     }
@@ -283,15 +303,27 @@ let GroupDashboard = {
       let result = await this.lib.AxiosHelper.get('/admin/GroupDashboard/info', data)
       
       this.group = result.group
-      this.group.group_seq_id = this.$route.params.groupID
-      console.log(this.group.users)
+      this.group.group_seq_id = Number(this.$route.params.groupID)
+      console.log(this.group.users[0])
+      //console.log(this.group.socialNetworks)
       
       this.status.webpageURL = result.webpageURL
-      this.status.title = this.$t('Dashboard') + ' ' + this.username
+      this.status.title = this.$t('Group Dashboard') 
+              + ' #' + (this.group.group_seq_id+1)
+              + ' (' + this.$t('{0} users', this.group.users.length, [this.group.users.length]) + ')'
     },
     attrHeaderID: function (anchor) {
       return '/group-dashboard/' + this.$route.params.webpageID + '/' + this.$route.params.groupID + '/' + anchor
     },
+    nodesTable: function (nodes) {
+      let lines = [
+        ['id', 'size'].join('\t')
+      ]
+      
+      lines = lines.concat(nodes.map(({id, size}) => [id, size].join('\t')))
+      
+      return lines.join("\n")
+    }
   } // methods
 }
 

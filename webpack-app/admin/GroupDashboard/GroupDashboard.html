@@ -57,11 +57,21 @@
   </div>
   
   <div class="ui segment">
-    {{ $t('Collaborative Reading Times') }}
+    <h3 v-bind:id="attrHeaderID('socialNetworks')">
+      {{ $t('Social Networks') }}
+    </h3>
     
-    <ol>
-      <li v-for="time in group.collaborativeReadingTimes">{{ time }}</li>
-    </ol>
+    
+    <div v-for="(sn, i) in group.socialNetworks">
+      <h4 v-bind:id="attrHeaderID('socialNetworks' + i)">
+        {{ sn.startTimestamp }}
+        - 
+        {{ sn.endTimestamp }}
+      </h4>
+      
+      <textarea v-html="nodesTable(sn.nodes)"></textarea>
+      
+    </div>
   </div>
   
   <div>

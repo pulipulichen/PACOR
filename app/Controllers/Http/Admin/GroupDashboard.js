@@ -1,3 +1,5 @@
+/* global Promise */
+
 'use strict'
 
 const DomainModel = use('App/Models/Domain')
@@ -25,10 +27,11 @@ class GroupDashboard {
     return await Cache.get(cacheKey, async () => {
       
       let users = await this._getGroupReaderCard(webpage, groupID)
-      let collaborativeReadingTimes = this._calcCollaborativeReadingTimes(users)
+      let socialNetworks = await this.getSocialNetworks(webpage, users)
+      
       let group = {
         users,
-        collaborativeReadingTimes
+        socialNetworks
       }
       
       //console.log(group.group_seq_id)
@@ -72,7 +75,7 @@ class GroupDashboard {
   }
   
   _calcCollaborativeReadingTimes (users) {
-    let firstTimestamp, lastTimestamp
+    let baseTimestamp, firstTimestamp, lastTimestamp
     
     users.forEach(user => {
       if (Array.isArray(user.readingProgresses) === false) {
@@ -82,11 +85,14 @@ class GroupDashboard {
       for (let i = 0; i < user.readingProgresses.length; i++) {
         let step = user.readingProgresses[i]
         
+        let {start_timestamp, end_timestamp} = step
+        if (!baseTimestamp || baseTimestamp > start_timestamp) {
+          baseTimestamp = start_timestamp
+        }
+        
         if (step.step_name !== "CollaborativeReading") {
           continue
         }
-        
-        let {start_timestamp, end_timestamp} = step
         if (!firstTimestamp || firstTimestamp > start_timestamp) {
           firstTimestamp = start_timestamp
         }
@@ -100,10 +106,64 @@ class GroupDashboard {
     let middleTimestamp = Math.round((firstTimestamp + lastTimestamp) / 2)
     
     return [
+      baseTimestamp,
       firstTimestamp,
       middleTimestamp,
       lastTimestamp
     ]
+  }
+  
+  _calcTimeList (collaborativeReadingTimes) {
+    let timelist = []
+    
+    let firstTimestamp = collaborativeReadingTimes[0]
+    for (let i = 1; i < collaborativeReadingTimes.length; i++) {
+      timelist.push({
+        startTimestamp: firstTimestamp,
+        endTimestamp: collaborativeReadingTimes[i]
+      })
+    }
+    
+    return timelist
+  }
+  
+  async getSocialNetworks (webpage, users) {
+    
+    let collaborativeReadingTimes = this._calcCollaborativeReadingTimes(users)
+    let timelist = this._calcTimeList(collaborativeReadingTimes)
+    
+    let socialNetworks = await Promise.all(timelist.map(async (timestamps) => {
+      let {startTimestamp, endTimestamp} = timestamps
+      
+      
+      let nodes = []
+      let edges = []
+      await Promise.all(users.map(async (userJSON) => {
+        let {id, username, display_name} = userJSON
+        let user = await UserModel.find(id)
+        
+        if (!display_name) {
+          display_name = username
+        }
+        
+        //
+        nodes.push({
+          id: display_name,
+          size: await user.countAnnotations(webpage, startTimestamp, endTimestamp)
+        })
+        
+        //return
+      }))
+      
+      return {
+        startTimestamp,
+        endTimestamp,
+        nodes,
+        edges
+      }
+    }))
+    
+    return socialNetworks
   }
 }
 

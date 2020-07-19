@@ -6,7 +6,7 @@ let GroupDashboard = {
       toc: null,
       group: {
         group_seq_id: null,
-        collaborativeReadingTimes: [],
+        socialNetworks: [],
         users: []
       }
     }
@@ -37,15 +37,27 @@ let GroupDashboard = {
       let result = await this.lib.AxiosHelper.get('/admin/GroupDashboard/info', data)
       
       this.group = result.group
-      this.group.group_seq_id = this.$route.params.groupID
-      console.log(this.group.users)
+      this.group.group_seq_id = Number(this.$route.params.groupID)
+      console.log(this.group.users[0])
+      //console.log(this.group.socialNetworks)
       
       this.status.webpageURL = result.webpageURL
-      this.status.title = this.$t('Dashboard') + ' ' + this.username
+      this.status.title = this.$t('Group Dashboard') 
+              + ' #' + (this.group.group_seq_id+1)
+              + ' (' + this.$t('{0} users', this.group.users.length, [this.group.users.length]) + ')'
     },
     attrHeaderID: function (anchor) {
       return '/group-dashboard/' + this.$route.params.webpageID + '/' + this.$route.params.groupID + '/' + anchor
     },
+    nodesTable: function (nodes) {
+      let lines = [
+        ['id', 'size'].join('\t')
+      ]
+      
+      lines = lines.concat(nodes.map(({id, size}) => [id, size].join('\t')))
+      
+      return lines.join("\n")
+    }
   } // methods
 }
 
