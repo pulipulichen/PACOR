@@ -179,7 +179,7 @@ class UserDashboard {
           //console.log(JSON.stringify(comment, null, 2))
           let user = comment.annotation.user
           
-          if (typeof(commentTo[user.id]) !== 'number') {
+          if (!commentTo[user.id]) {
             commentTo[user.id] = {
               avatar_url: user.avatar_url,
               name: user.display_name,
@@ -207,9 +207,9 @@ class UserDashboard {
                          .where('user_id', this.primaryKeyValue)
                          .where('webpage_id', webpage.primaryKeyValue)
                 }, '>', 0)
-                .with('annotation', (builder) => {
+                //.with('annotation', (builder) => {
                   //builder.with('user')
-                })
+                //})
                 .with('user')
                 .where('deleted', false)
                 
@@ -239,7 +239,7 @@ class UserDashboard {
           //console.log(JSON.stringify(comment, null, 2))
           let user = comment.user
           
-          if (typeof(output[user.id]) !== 'number') {
+          if (!output[user.id]) {
             output[user.id] = {
               avatar_url: user.avatar_url,
               name: user.display_name,
@@ -376,7 +376,7 @@ class UserDashboard {
             commentRates[type] = {}
           }
           
-          console.log(type, userID)
+          //console.log(type, userID)
           if (!commentRates[type][userID]) {
             commentRates[type][userID] = {
               avatar_url: user.avatar_url,

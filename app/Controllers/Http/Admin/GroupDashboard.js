@@ -27,6 +27,19 @@ class GroupDashboard {
     return await Cache.get(cacheKey, async () => {
       
       let users = await this._getGroupReaderCard(webpage, groupID)
+      users.sort((a, b) => {
+        var nameA = a.display_name.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.display_name.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+
+        // names must be equal
+        return 0;
+      })
       let socialNetworks = await this.getSocialNetworks(webpage, users)
       
       let group = {
@@ -150,6 +163,55 @@ class GroupDashboard {
         nodes.push({
           id: display_name,
           size: await user.countAnnotations(webpage, startTimestamp, endTimestamp)
+        })
+        
+        // -------------------------------
+        
+        let interactTo = {}
+        
+        // -------------------------------
+        
+        let comments = await user.getComments(webpage, startTimestamp, endTimestamp)
+        
+        Object.keys(comments).forEach(targetID => {
+          let comment = comments[targetID]
+          if (typeof(interactTo[comment.name]) !== 'number') {
+            interactTo[comment.name] = 0
+          }
+          
+          interactTo[comment.name] = interactTo[comment.name] + comment.count
+        })
+        
+        // -------------------------------
+        
+        let rates = await user.getRates(webpage, startTimestamp, endTimestamp)
+        
+        //console.log(JSON.stringify(rates, null, '\t'))
+        
+        Object.keys(rates.annotation).forEach(targetID => {
+          let rate = rates.annotation[targetID]
+          if (typeof(interactTo[rate.name]) !== 'number') {
+            interactTo[rate.name] = 0
+          }
+          interactTo[rate.name] = interactTo[rate.name] + rate.count
+        })
+        
+        Object.keys(rates.comment).forEach(targetID => {
+          let rate = rates.comment[targetID]
+          if (typeof(interactTo[rate.name]) !== 'number') {
+            interactTo[rate.name] = 0
+          }
+          interactTo[rate.name] = interactTo[rate.name] + rate.count
+        })
+        
+        // -------------------------------
+        
+        Object.keys(interactTo).forEach(target => {
+          edges.push({
+            source: display_name,
+            target,
+            size: interactTo[target]
+          })
         })
         
         //return

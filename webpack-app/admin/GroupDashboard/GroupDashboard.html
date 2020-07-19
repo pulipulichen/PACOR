@@ -69,7 +69,23 @@
         {{ sn.endTimestamp }}
       </h4>
       
-      <textarea v-html="nodesTable(sn.nodes)"></textarea>
+      <div class="ui form">
+        <div class="two fields">
+          <div class="field">
+            <label>
+              {{ $t('Nodes') }}
+            </label>
+            <textarea v-html="nodesTable(sn.nodes)"></textarea>
+          </div>
+          <div class="field">
+            <label>
+              {{ $t('Edges') }}
+            </label>
+            <textarea v-html="edgesTable(sn.edges)"></textarea>
+          </div>
+        </div>
+      </div>
+      
       
     </div>
   </div>

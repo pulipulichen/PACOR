@@ -57,6 +57,15 @@ let GroupDashboard = {
       lines = lines.concat(nodes.map(({id, size}) => [id, size].join('\t')))
       
       return lines.join("\n")
+    },
+    edgesTable: function (edges) {
+      let lines = [
+        ['source', 'target', 'size'].join('\t')
+      ]
+      
+      lines = lines.concat(edges.map(({source, target, size}) => [source, target, size].join('\t')))
+      
+      return lines.join("\n")
     }
   } // methods
 }

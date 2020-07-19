@@ -177,9 +177,37 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c("textarea", {
-                domProps: { innerHTML: _vm._s(_vm.nodesTable(sn.nodes)) }
-              })
+              _c("div", { staticClass: "ui form" }, [
+                _c("div", { staticClass: "two fields" }, [
+                  _c("div", { staticClass: "field" }, [
+                    _c("label", [
+                      _vm._v(
+                        "\r\n              " +
+                          _vm._s(_vm.$t("Nodes")) +
+                          "\r\n            "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      domProps: { innerHTML: _vm._s(_vm.nodesTable(sn.nodes)) }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "field" }, [
+                    _c("label", [
+                      _vm._v(
+                        "\r\n              " +
+                          _vm._s(_vm.$t("Edges")) +
+                          "\r\n            "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      domProps: { innerHTML: _vm._s(_vm.edgesTable(sn.edges)) }
+                    })
+                  ])
+                ])
+              ])
             ])
           })
         ],
@@ -321,6 +349,15 @@ let GroupDashboard = {
       ]
       
       lines = lines.concat(nodes.map(({id, size}) => [id, size].join('\t')))
+      
+      return lines.join("\n")
+    },
+    edgesTable: function (edges) {
+      let lines = [
+        ['source', 'target', 'size'].join('\t')
+      ]
+      
+      lines = lines.concat(edges.map(({source, target, size}) => [source, target, size].join('\t')))
       
       return lines.join("\n")
     }
