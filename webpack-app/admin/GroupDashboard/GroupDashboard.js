@@ -6,6 +6,7 @@ let GroupDashboard = {
       toc: null,
       group: {
         group_seq_id: null,
+        collaborativeReadingTimes: [],
         users: []
       }
     }
@@ -17,7 +18,7 @@ let GroupDashboard = {
       if (typeof(this.status.webpageURL) === 'string') {
         return '/' + this.status.webpageURL.split('/').slice(3).join('/')
       }
-    },
+    }
   },
   watch: {
   },
@@ -37,7 +38,7 @@ let GroupDashboard = {
       
       this.group = result.group
       this.group.group_seq_id = this.$route.params.groupID
-      //console.log(this.group)
+      console.log(this.group.users)
       
       this.status.webpageURL = result.webpageURL
       this.status.title = this.$t('Dashboard') + ' ' + this.username

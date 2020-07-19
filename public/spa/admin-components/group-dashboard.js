@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Group Members":"小組成員"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Group Members":"小組成員","Collaborative Reading Times":"協助閱讀時間"}}')
   delete Component.options._Ctor
 }
 
@@ -151,11 +151,20 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", [_vm._v("\r\n    #BackToPrevious\r\n  ")]),
-      _vm._v(" "),
-      _c("div", [_vm._v("\r\n    #Group ID\r\n  ")]),
-      _vm._v(" "),
-      _c("div", [_vm._v("\r\n    #Members\r\n  ")]),
+      _c("div", { staticClass: "ui segment" }, [
+        _vm._v(
+          "\r\n    " +
+            _vm._s(_vm.$t("Collaborative Reading Times")) +
+            "\r\n    \r\n    "
+        ),
+        _c(
+          "ol",
+          _vm._l(_vm.group.collaborativeReadingTimes, function(time) {
+            return _c("li", [_vm._v(_vm._s(time))])
+          }),
+          0
+        )
+      ]),
       _vm._v(" "),
       _c("div", [
         _vm._v("\r\n    Time: Coll First, Coll Middle, Coll Last\r\n  ")
@@ -243,6 +252,7 @@ let GroupDashboard = {
       toc: null,
       group: {
         group_seq_id: null,
+        collaborativeReadingTimes: [],
         users: []
       }
     }
@@ -254,7 +264,7 @@ let GroupDashboard = {
       if (typeof(this.status.webpageURL) === 'string') {
         return '/' + this.status.webpageURL.split('/').slice(3).join('/')
       }
-    },
+    }
   },
   watch: {
   },
@@ -274,7 +284,7 @@ let GroupDashboard = {
       
       this.group = result.group
       this.group.group_seq_id = this.$route.params.groupID
-      //console.log(this.group)
+      console.log(this.group.users)
       
       this.status.webpageURL = result.webpageURL
       this.status.title = this.$t('Dashboard') + ' ' + this.username

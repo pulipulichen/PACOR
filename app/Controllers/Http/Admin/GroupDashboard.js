@@ -24,9 +24,11 @@ class GroupDashboard {
     
     return await Cache.get(cacheKey, async () => {
       
-      
+      let users = await this._getGroupReaderCard(webpage, groupID)
+      let collaborativeReadingTimes = this._calcCollaborativeReadingTimes(users)
       let group = {
-        users: await this._getGroupReaderCard(webpage, groupID)
+        users,
+        collaborativeReadingTimes
       }
       
       //console.log(group.group_seq_id)
@@ -67,6 +69,41 @@ class GroupDashboard {
     }
     
     return output
+  }
+  
+  _calcCollaborativeReadingTimes (users) {
+    let firstTimestamp, lastTimestamp
+    
+    users.forEach(user => {
+      if (Array.isArray(user.readingProgresses) === false) {
+        return false
+      }
+      
+      for (let i = 0; i < user.readingProgresses.length; i++) {
+        let step = user.readingProgresses[i]
+        
+        if (step.step_name !== "CollaborativeReading") {
+          continue
+        }
+        
+        let {start_timestamp, end_timestamp} = step
+        if (!firstTimestamp || firstTimestamp > start_timestamp) {
+          firstTimestamp = start_timestamp
+        }
+        if (!lastTimestamp || lastTimestamp < end_timestamp) {
+          lastTimestamp = end_timestamp
+        }
+        break
+      }
+    })
+    
+    let middleTimestamp = Math.round((firstTimestamp + lastTimestamp) / 2)
+    
+    return [
+      firstTimestamp,
+      middleTimestamp,
+      lastTimestamp
+    ]
   }
 }
 

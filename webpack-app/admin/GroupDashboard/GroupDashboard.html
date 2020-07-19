@@ -54,19 +54,16 @@
         v-bind:viewOnNewWindow="true"
       ></reader-card>
     </div>
-    
-    
   </div>
   
-  <div>
-    #BackToPrevious
+  <div class="ui segment">
+    {{ $t('Collaborative Reading Times') }}
+    
+    <ol>
+      <li v-for="time in group.collaborativeReadingTimes">{{ time }}</li>
+    </ol>
   </div>
-  <div>
-    #Group ID
-  </div>
-  <div>
-    #Members
-  </div>
+  
   <div>
     Time: Coll First, Coll Middle, Coll Last
   </div>
