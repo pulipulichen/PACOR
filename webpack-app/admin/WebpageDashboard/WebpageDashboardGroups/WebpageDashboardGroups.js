@@ -77,6 +77,9 @@ let WebpageDashboardGroups = {
     },
     userDashboardLink (id) {
       return '#/user-dashboard/' + this.$route.params.webpageID + '/' + id
+    },
+    groupDashboardLink (id) {
+      return '#/group-dashboard/' + this.$route.params.webpageID + '/' + id
     }
   } // methods
 }

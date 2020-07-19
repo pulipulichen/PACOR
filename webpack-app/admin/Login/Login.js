@@ -12,8 +12,8 @@ let Login = {
       
       domain: '',
       username: 'admin',
-      //password: 'password',
-      password: '',
+      password: 'password',
+      //password: '',
     }
   },
   computed: {

@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"admin-components/Loading":"admin-components/Loading","admin-components/domain":"admin-components/domain","admin-components/material":"admin-components/material","admin-components/referer":"admin-components/referer","admin-components/remote-console-log":"admin-components/remote-console-log","admin-components/user-dashboard":"admin-components/user-dashboard","admin-components/webpage":"admin-components/webpage","admin-components/webpage-dashboard":"admin-components/webpage-dashboard","vendors/HTMLEditor":"vendors/HTMLEditor","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf","vendors~client-components/GlobalComponents":"vendors~client-components/GlobalComponents","client-components/GlobalComponents":"client-components/GlobalComponents"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"admin-components/Loading":"admin-components/Loading","admin-components/domain":"admin-components/domain","admin-components/group-dashboard":"admin-components/group-dashboard","admin-components/material":"admin-components/material","admin-components/referer":"admin-components/referer","admin-components/remote-console-log":"admin-components/remote-console-log","admin-components/user-dashboard":"admin-components/user-dashboard","admin-components/webpage":"admin-components/webpage","admin-components/webpage-dashboard":"admin-components/webpage-dashboard","vendors/HTMLEditor":"vendors/HTMLEditor","vendors/semantic-ui-niwsf":"vendors/semantic-ui-niwsf","vendors~client-components/GlobalComponents":"vendors~client-components/GlobalComponents","client-components/GlobalComponents":"client-components/GlobalComponents"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -7430,8 +7430,8 @@ let Login = {
       
       domain: '',
       username: 'admin',
-      //password: 'password',
-      password: '',
+      password: 'password',
+      //password: '',
     }
   },
   computed: {
@@ -7831,6 +7831,7 @@ const routes = [
   { path: '/webpage/:domainID?/:action?/:page?', component: () => __webpack_require__.e(/*! import() | admin-components/webpage */ "admin-components/webpage").then(__webpack_require__.bind(null, /*! ./Webpage/Webpage.vue */ "./webpack-app/admin/Webpage/Webpage.vue")) },
   { path: '/webpage-dashboard/:webpageID/:action?/:page?', component: () => __webpack_require__.e(/*! import() | admin-components/webpage-dashboard */ "admin-components/webpage-dashboard").then(__webpack_require__.bind(null, /*! ./WebpageDashboard/WebpageDashboard.vue */ "./webpack-app/admin/WebpageDashboard/WebpageDashboard.vue")) },
   { path: '/user-dashboard/:webpageID/:userID/:action?/:page?', component: () => __webpack_require__.e(/*! import() | admin-components/user-dashboard */ "admin-components/user-dashboard").then(__webpack_require__.bind(null, /*! ./UserDashboard/UserDashboard.vue */ "./webpack-app/admin/UserDashboard/UserDashboard.vue")) },
+  { path: '/group-dashboard/:webpageID/:groupID', component: () => __webpack_require__.e(/*! import() | admin-components/group-dashboard */ "admin-components/group-dashboard").then(__webpack_require__.bind(null, /*! ./GroupDashboard/GroupDashboard.vue */ "./webpack-app/admin/GroupDashboard/GroupDashboard.vue")) },
   { path: '/remote-console-log/', component: () => __webpack_require__.e(/*! import() | admin-components/remote-console-log */ "admin-components/remote-console-log").then(__webpack_require__.bind(null, /*! ./RemoteConsoleLog/RemoteConsoleLog.vue */ "./webpack-app/admin/RemoteConsoleLog/RemoteConsoleLog.vue")) },
 ]
 

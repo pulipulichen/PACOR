@@ -57,7 +57,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Groups":"小組資訊","Group":"小組"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Groups":"小組資訊","Group":"小組","Group Dashboard":"小組儀表板"}}')
   delete Component.options._Ctor
 }
 
@@ -163,7 +163,7 @@ exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "h4[data-v-00c08e2d] {\n  margin-top: 1rem !important;\n}\n.users-table[data-v-00c08e2d] {\n  max-height: 80vh;\n  min-height: 10rem;\n  overflow-y: auto;\n}\n.users-table .username[data-v-00c08e2d] {\n  cursor: pointer;\n}\n", "",{"version":3,"sources":["WebpageDashboardGroups.less?vue&type=style&index=0&id=00c08e2d&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,2BAA2B;AAC7B;AACA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,gBAAgB;AAClB;AACA;EACE,eAAe;AACjB","file":"WebpageDashboardGroups.less?vue&type=style&index=0&id=00c08e2d&lang=less&scoped=true&","sourcesContent":["h4[data-v-00c08e2d] {\n  margin-top: 1rem !important;\n}\n.users-table[data-v-00c08e2d] {\n  max-height: 80vh;\n  min-height: 10rem;\n  overflow-y: auto;\n}\n.users-table .username[data-v-00c08e2d] {\n  cursor: pointer;\n}\n"]}]);
+exports.push([module.i, "h4[data-v-00c08e2d] {\n  margin-top: 1rem !important;\n}\n.users-table[data-v-00c08e2d] {\n  max-height: 80vh;\n  min-height: 10rem;\n  overflow-y: auto;\n}\n.users-table .username[data-v-00c08e2d] {\n  cursor: pointer;\n}\n.group-dashboard-link[data-v-00c08e2d] {\n  margin-left: 1rem !important;\n}\n/*\n.ui.cards {\n  border-bottom: 1px dotted gray;\n  margin-bottom: 0.5rem;\n  \n  &:not(:last-of-type) {\n    border-bottom-width: 0;\n    margin-bottom: 0;\n  }\n}\n*/\n", "",{"version":3,"sources":["WebpageDashboardGroups.less?vue&type=style&index=0&id=00c08e2d&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,2BAA2B;AAC7B;AACA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,gBAAgB;AAClB;AACA;EACE,eAAe;AACjB;AACA;EACE,4BAA4B;AAC9B;AACA;;;;;;;;;;CAUC","file":"WebpageDashboardGroups.less?vue&type=style&index=0&id=00c08e2d&lang=less&scoped=true&","sourcesContent":["h4[data-v-00c08e2d] {\n  margin-top: 1rem !important;\n}\n.users-table[data-v-00c08e2d] {\n  max-height: 80vh;\n  min-height: 10rem;\n  overflow-y: auto;\n}\n.users-table .username[data-v-00c08e2d] {\n  cursor: pointer;\n}\n.group-dashboard-link[data-v-00c08e2d] {\n  margin-left: 1rem !important;\n}\n/*\n.ui.cards {\n  border-bottom: 1px dotted gray;\n  margin-bottom: 0.5rem;\n  \n  &:not(:last-of-type) {\n    border-bottom-width: 0;\n    margin-bottom: 0;\n  }\n}\n*/\n"]}]);
 
 
 /***/ }),
@@ -600,12 +600,29 @@ var render = function() {
               }
             },
             [
-              _vm._v(
-                "\r\n      " +
-                  _vm._s(_vm.$t("Group")) +
-                  " #" +
-                  _vm._s(group.group_seq_id + 1) +
-                  "\r\n    "
+              _c("span", [
+                _vm._v(
+                  "\r\n        " +
+                    _vm._s(_vm.$t("Group")) +
+                    " #" +
+                    _vm._s(group.group_seq_id + 1) +
+                    "\r\n      "
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "ui inline button group-dashboard-link",
+                  attrs: { href: _vm.groupDashboardLink(group.group_seq_id) }
+                },
+                [
+                  _vm._v(
+                    "\r\n       " +
+                      _vm._s(_vm.$t("Group Dashboard")) +
+                      "\r\n    "
+                  )
+                ]
               )
             ]
           ),
@@ -1686,6 +1703,9 @@ let WebpageDashboardGroups = {
     },
     userDashboardLink (id) {
       return '#/user-dashboard/' + this.$route.params.webpageID + '/' + id
+    },
+    groupDashboardLink (id) {
+      return '#/group-dashboard/' + this.$route.params.webpageID + '/' + id
     }
   } // methods
 }

@@ -8,7 +8,15 @@
   
   <div v-for="group in groups">
     <h4 v-bind:id="attrHeaderID('dashboard-group' + (group.group_seq_id+1))">
-      {{ $t('Group') }} #{{ (group.group_seq_id + 1)  }}
+      <span>
+        {{ $t('Group') }} #{{ (group.group_seq_id + 1)  }}
+      </span>
+      
+    <a class="ui inline button group-dashboard-link"
+        v-bind:href="groupDashboardLink(group.group_seq_id)">
+       {{ $t('Group Dashboard') }}
+    </a>
+      
     </h4>
     <div class="ui cards">
       <template v-for="user in group.users">
