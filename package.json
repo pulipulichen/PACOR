@@ -54,6 +54,8 @@
     "read-excel-file": "^4.0.5",
     "require-all": "^3.0.0",
     "serve-favicon": "^2.5.0",
+    "sigma": "^2.0.0-alpha32",
+    "sigma-js": "^1.1.5",
     "type-of-is": "^3.5.1",
     "vue-media": "^1.1.1",
     "webpack-bundle-analyzer": "^3.6.0",

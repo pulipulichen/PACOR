@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".gruop-seq-id-header[data-v-38ec61a3] {\n  margin-top: 0 !important;\n}\n", "",{"version":3,"sources":["GroupDashboard.less?vue&type=style&index=0&id=38ec61a3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;AAC1B","file":"GroupDashboard.less?vue&type=style&index=0&id=38ec61a3&lang=less&scoped=true&","sourcesContent":[".gruop-seq-id-header[data-v-38ec61a3] {\n  margin-top: 0 !important;\n}\n"]}]);
+exports.push([module.i, ".gruop-seq-id-header[data-v-38ec61a3] {\n  margin-top: 0 !important;\n}\n.graph-container[data-v-38ec61a3] {\n  width: 500px;\n  height: 500px;\n  border: 1px solid gray;\n}\n.period-container[data-v-38ec61a3]:not(:last-of-type) {\n  border-bottom: 1px solid #CCC;\n  margin-bottom: 1rem;\n  padding-bottom: 1rem;\n}\n", "",{"version":3,"sources":["GroupDashboard.less?vue&type=style&index=0&id=38ec61a3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;AAC1B;AACA;EACE,YAAY;EACZ,aAAa;EACb,sBAAsB;AACxB;AACA;EACE,6BAA6B;EAC7B,mBAAmB;EACnB,oBAAoB;AACtB","file":"GroupDashboard.less?vue&type=style&index=0&id=38ec61a3&lang=less&scoped=true&","sourcesContent":[".gruop-seq-id-header[data-v-38ec61a3] {\n  margin-top: 0 !important;\n}\n.graph-container[data-v-38ec61a3] {\n  width: 500px;\n  height: 500px;\n  border: 1px solid gray;\n}\n.period-container[data-v-38ec61a3]:not(:last-of-type) {\n  border-bottom: 1px solid #CCC;\n  margin-bottom: 1rem;\n  padding-bottom: 1rem;\n}\n"]}]);
 
 
 /***/ }),
@@ -162,7 +162,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _vm._l(_vm.group.socialNetworks, function(sn, i) {
-            return _c("div", [
+            return _c("div", { staticClass: "period-container" }, [
               _c(
                 "h4",
                 { attrs: { id: _vm.attrHeaderID("socialNetworks" + i) } },
@@ -211,37 +211,22 @@ var render = function() {
                     })
                   ])
                 ])
-              ])
+              ]),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "graph-container",
+                attrs: { id: "graph_container_" + i }
+              })
             ])
           })
         ],
         2
-      ),
-      _vm._v(" "),
-      _c("div", [
-        _vm._v("\r\n    Time: Coll First, Coll Middle, Coll Last\r\n  ")
-      ]),
-      _vm._v(" "),
-      _vm._m(0)
+      )
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _vm._v("\r\n    Loop\r\n    "),
-      _c("div", [_vm._v("\r\n      Coll Node Tables\r\n    ")]),
-      _vm._v(" "),
-      _c("div", [_vm._v("\r\n      Coll Edge Tables\r\n    ")]),
-      _vm._v(" "),
-      _c("div", [_vm._v("\r\n      Coll Social Network\r\n    ")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -296,6 +281,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+const sigma = __webpack_require__(/*! sigma */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\sigma\\endpoint.js")
+console.log(sigma)
+
 let GroupDashboard = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -323,6 +311,7 @@ let GroupDashboard = {
   mounted() {
     this.initDashboard()
     this.toc = this.$refs.toc
+    
   },
   methods: {
     initDashboard: async function () {
@@ -337,7 +326,7 @@ let GroupDashboard = {
       
       this.group = result.group
       this.group.group_seq_id = Number(this.$route.params.groupID)
-      console.log(this.group.users[0])
+      //console.log(this.group.users[0])
       //console.log(this.group.socialNetworks)
       
       this.status.webpageURL = result.webpageURL

@@ -61,8 +61,8 @@
       {{ $t('Social Networks') }}
     </h3>
     
-    
-    <div v-for="(sn, i) in group.socialNetworks">
+    <div v-for="(sn, i) in group.socialNetworks"
+         class="period-container">
       <h4 v-bind:id="attrHeaderID('socialNetworks' + i)">
         {{ $t("Period") }} {{ (i+1) }}:
         {{ sn.startTimestamp }}
@@ -87,23 +87,9 @@
         </div>
       </div>
       
+      <div class="graph-container"
+           v-bind:id="'graph_container_' + i"></div>
       
-    </div>
-  </div>
-  
-  <div>
-    Time: Coll First, Coll Middle, Coll Last
-  </div>
-  <div>
-    Loop
-    <div>
-      Coll Node Tables
-    </div>
-    <div>
-      Coll Edge Tables
-    </div>
-    <div>
-      Coll Social Network
     </div>
   </div>
     

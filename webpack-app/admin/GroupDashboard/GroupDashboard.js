@@ -1,3 +1,6 @@
+const sigma = require('sigma')
+console.log(sigma)
+
 let GroupDashboard = {
   props: ['lib', 'status', 'config'],
   data() {    
@@ -25,6 +28,7 @@ let GroupDashboard = {
   mounted() {
     this.initDashboard()
     this.toc = this.$refs.toc
+    
   },
   methods: {
     initDashboard: async function () {
@@ -39,7 +43,7 @@ let GroupDashboard = {
       
       this.group = result.group
       this.group.group_seq_id = Number(this.$route.params.groupID)
-      console.log(this.group.users[0])
+      //console.log(this.group.users[0])
       //console.log(this.group.socialNetworks)
       
       this.status.webpageURL = result.webpageURL
