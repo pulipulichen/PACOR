@@ -71,7 +71,7 @@ let UserDashboard = {
       //console.log(this.user)
       
       this.group = result.group
-      console.log(this.group)
+      //console.log(this.group)
       
       this.status.webpageURL = result.webpageURL
       this.status.title = this.$t('Dashboard') + ' ' + this.username

@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Group Members":"小組成員"}}')
   delete Component.options._Ctor
 }
 
@@ -72,26 +72,21 @@ var render = function() {
                 _vm._v(_vm._s(_vm.webpagePath))
               ]),
               _vm._v(" "),
-              _c(
-                "h2",
-                [
-                  _vm._v(
-                    "\r\n            " +
-                      _vm._s(_vm.user.username) +
-                      "\r\n            "
-                  ),
-                  _vm.user.username !== _vm.user.display_name
-                    ? [
-                        _vm._v(
-                          "\r\n              (" +
-                            _vm._s(_vm.user.display_name) +
-                            ")\r\n            "
-                        )
-                      ]
-                    : _vm._e()
-                ],
-                2
-              )
+              _c("h2", [
+                _vm._v(
+                  "\r\n            " +
+                    _vm._s(_vm.$t("Group")) +
+                    " #" +
+                    _vm._s(_vm.group.group_seq_id + 1) +
+                    " (" +
+                    _vm._s(
+                      _vm.$t("{0} users", _vm.group.users.length, [
+                        _vm.group.users.length
+                      ])
+                    ) +
+                    ")\r\n          "
+                )
+              ])
             ])
           ])
         ]),
@@ -139,19 +134,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "ui segment" }, [
         _c("h3", { attrs: { id: _vm.attrHeaderID("groupMembers") } }, [
-          _vm._v(
-            "\r\n      " +
-              _vm._s(_vm.$t("Group")) +
-              " #" +
-              _vm._s(_vm.group.group_seq_id + 1) +
-              " (" +
-              _vm._s(
-                _vm.$t("{0} users", _vm.group.users.length, [
-                  _vm.group.users.length
-                ])
-              ) +
-              ")\r\n    "
-          )
+          _vm._v("\r\n      " + _vm._s(_vm.$t("Group Members")) + "\r\n    ")
         ]),
         _vm._v(" "),
         _c(
@@ -164,7 +147,8 @@ var render = function() {
                 user: groupUser,
                 lib: _vm.lib,
                 status: _vm.status,
-                config: _vm.config
+                config: _vm.config,
+                viewOnNewWindow: true
               }
             })
           }),
@@ -256,26 +240,57 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let Template = {
+let GroupDashboard = {
   props: ['lib', 'status', 'config'],
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      toc: null,
+      group: {
+        group_seq_id: null,
+        users: []
+      }
     }
   },
 //  components: {
 //  },
   computed: {
+    'webpagePath': function () {
+      if (typeof(this.status.webpageURL) === 'string') {
+        return '/' + this.status.webpageURL.split('/').slice(3).join('/')
+      }
+    },
   },
   watch: {
   },
   mounted() {
+    this.initDashboard()
+    this.toc = this.$refs.toc
   },
   methods: {
+    initDashboard: async function () {
+      // 先跟伺服器取得webpage的資訊
+      let data = {
+        webpageID: this.$route.params.webpageID,
+        userID: this.$route.params.userID,
+      }
+      
+      let result = await this.lib.AxiosHelper.get('/admin/GroupDashboard/info', data)
+      
+      this.group = result.group
+      this.group.group_seq_id = this.$route.params.groupID
+      //console.log(this.group)
+      
+      this.status.webpageURL = result.webpageURL
+      this.status.title = this.$t('Dashboard') + ' ' + this.username
+    },
+    attrHeaderID: function (anchor) {
+      return '/group-dashboard/' + this.$route.params.webpageID + '/' + this.$route.params.groupID + '/' + anchor
+    },
   } // methods
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Template);
+/* harmony default export */ __webpack_exports__["default"] = (GroupDashboard);
 
 /***/ }),
 

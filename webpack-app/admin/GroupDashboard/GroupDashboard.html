@@ -12,10 +12,7 @@
         <div class="content">
           <div class="sub header">{{ webpagePath }}</div>
           <h2>
-            {{ user.username }}
-            <template v-if="user.username !== user.display_name">
-              ({{ user.display_name }})
-            </template>
+            {{ $t('Group') }} #{{ (group.group_seq_id + 1)  }} ({{ $t('{0} users', group.users.length, [group.users.length]) }})
           </h2>
         </div>
       </div>
@@ -47,7 +44,7 @@
 
   <div class="ui segment">
     <h3 v-bind:id="attrHeaderID('groupMembers')">
-      {{ $t('Group') }} #{{ (group.group_seq_id + 1)  }} ({{ $t('{0} users', group.users.length, [group.users.length]) }})
+      {{ $t("Group Members") }}
     </h3>
     
     <div class="ui cards">
@@ -57,7 +54,9 @@
         v-bind:user="groupUser"
         v-bind:lib="lib"
         v-bind:status="status"
-        v-bind:config="config"></reader-card>
+        v-bind:config="config"
+        v-bind:viewOnNewWindow="true"
+      ></reader-card>
     </div>
     
     

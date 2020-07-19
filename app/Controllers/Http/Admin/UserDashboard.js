@@ -75,11 +75,12 @@ class UserDashboard {
     })
   }
   
-  async _getGroupReaderCard (webpage, user) {
+  async _getGroupReaderCard (webpage, anchorUser) {
     let output = []
-    let users = await user.getUsersInGroup(webpage, false)
+    let users = await anchorUser.getUsersInGroup(webpage, false)
     for (let u = 0; u < users.length; u++) {
       let userJSON = users[u]
+      let user = await UserModel.find(userJSON.id)
       //let userJSON = user.toJSON()
       userJSON.readingProgresses = await user.getReadingProgressStatus(webpage)
 
