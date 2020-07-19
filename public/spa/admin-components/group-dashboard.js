@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "", "",{"version":3,"sources":[],"names":[],"mappings":"","file":"GroupDashboard.less?vue&type=style&index=0&id=38ec61a3&lang=less&scoped=true&"}]);
+exports.push([module.i, ".gruop-seq-id-header[data-v-38ec61a3] {\n  margin-top: 0 !important;\n}\n", "",{"version":3,"sources":["GroupDashboard.less?vue&type=style&index=0&id=38ec61a3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;AAC1B","file":"GroupDashboard.less?vue&type=style&index=0&id=38ec61a3&lang=less&scoped=true&","sourcesContent":[".gruop-seq-id-header[data-v-38ec61a3] {\n  margin-top: 0 !important;\n}\n"]}]);
 
 
 /***/ }),
@@ -61,10 +61,6 @@ var render = function() {
           [_c("i", { staticClass: "angle left icon" })]
         ),
         _vm._v(" "),
-        _c("a", { staticClass: "icon item" }, [
-          _c("img", { attrs: { src: _vm.user.avatar_url } })
-        ]),
-        _vm._v(" "),
         _c("div", { staticClass: "item" }, [
           _c("div", { staticClass: "ui header" }, [
             _c("div", { staticClass: "content" }, [
@@ -72,7 +68,7 @@ var render = function() {
                 _vm._v(_vm._s(_vm.webpagePath))
               ]),
               _vm._v(" "),
-              _c("h2", [
+              _c("h2", { staticClass: "gruop-seq-id-header" }, [
                 _vm._v(
                   "\r\n            " +
                     _vm._s(_vm.$t("Group")) +
@@ -142,7 +138,6 @@ var render = function() {
           { staticClass: "ui cards" },
           _vm._l(_vm.group.users, function(groupUser) {
             return _c("reader-card", {
-              class: { "is-me": _vm.user.id === groupUser.id },
               attrs: {
                 user: groupUser,
                 lib: _vm.lib,

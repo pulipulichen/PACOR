@@ -6,6 +6,7 @@ const ADMIN_ROLES = [
 ]
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
+const WebpageModel = use('App/Models/Webpage')
 
 let AuthHelper = {
   chackAdmin: async function (auth) {
@@ -14,6 +15,15 @@ let AuthHelper = {
     if (ADMIN_ROLES.indexOf(role) === -1) {
       throw new HttpException(`You don't have permisssion to access.`, 403)
     }
+  },
+  checkDomainAdmin: async function (auth, webpageID) {
+    let webpage = await WebpageModel
+              .query()
+              .where('id', webpageID)
+              .pick(1)
+    webpage = webpage.first()
+    await auth.checkDomainAdmin(webpage.domain_id)
+    return webpage
   }
 }
 

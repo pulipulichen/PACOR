@@ -33,7 +33,8 @@ let i18nGlobal = {
     "ANNOTATION_TYPE.ArticleMainIdea": "Article Main Idea",
     '{0}0K': '{0}0K',
     '{0}K': '{0}K',
-    '.{0}K': '.{0}K'
+    '.{0}K': '.{0}K',
+    '{0} users': '{0} user | {0} users'
   },
   "zh-TW": {
     "LOGIN": "登入",
@@ -112,6 +113,10 @@ let i18nGlobal = {
     
     'Assisting Reader Tool': '協助讀者工具',
     'Annotation Type Selector': '閱讀策略篩選器',
+    
+    
+    '{0} users': '{0}人'
+
   }
 }
 

@@ -6,6 +6,8 @@ const WebpageGroupModel = use('App/Models/WebpageGroup')
 const ReadingProgressModel = use('App/Models/ReadingProgress')
 const UserModel = use('App/Models/User')
 
+const AuthHelper = use('App/Helpers/AuthHelper')
+
 const Config = use('Config')
 const Cache = use('Cache')
 
@@ -16,7 +18,7 @@ class UserDashboard {
   
   async info ({request, auth}) {
     let {webpageID, userID} = request.all()
-    let webpage = await this._checkDomainAdmin(auth, webpageID)
+    let webpage = await AuthHelper.checkDomainAdmin(auth, webpageID)
     
     let cacheKey = Cache.key('UserDashboard', 'info', webpageID, userID)
     

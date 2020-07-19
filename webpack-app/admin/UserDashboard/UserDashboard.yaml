@@ -1,8 +1,6 @@
 en:
-  '{0} users': '{0} user | {0} users'
   
 zh-TW:
   # 這是註解
   Duration: 活動期間
   Activity seconds: 活躍時間
-  '{0} users': '{0}人'

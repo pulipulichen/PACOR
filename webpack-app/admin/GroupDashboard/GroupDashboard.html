@@ -4,14 +4,11 @@
        v-bind:href="'#/webpage-dashboard/' + $route.params.webpageID">
       <i class="angle left icon"></i>
     </a>
-    <a class="icon item">
-      <img v-bind:src="user.avatar_url" />
-    </a>
     <div class="item">
       <div class="ui header">
         <div class="content">
           <div class="sub header">{{ webpagePath }}</div>
-          <h2>
+          <h2 class="gruop-seq-id-header">
             {{ $t('Group') }} #{{ (group.group_seq_id + 1)  }} ({{ $t('{0} users', group.users.length, [group.users.length]) }})
           </h2>
         </div>
@@ -50,7 +47,6 @@
     <div class="ui cards">
       <reader-card 
         v-for="groupUser in group.users"
-        v-bind:class="{'is-me': (user.id === groupUser.id)}"
         v-bind:user="groupUser"
         v-bind:lib="lib"
         v-bind:status="status"

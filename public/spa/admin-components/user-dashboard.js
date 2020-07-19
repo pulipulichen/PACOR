@@ -105,7 +105,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"{0} users":"{0} user | {0} users"},"zh-TW":{"Duration":"活動期間","Activity seconds":"活躍時間","{0} users":"{0}人"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Duration":"活動期間","Activity seconds":"活躍時間"}}')
   delete Component.options._Ctor
 }
 
