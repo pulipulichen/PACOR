@@ -28,19 +28,6 @@ class GroupDashboard {
     return await Cache.get(cacheKey, async () => {
       
       let users = await this._getGroupReaderCard(webpage, groupID)
-      users.sort((a, b) => {
-        var nameA = a.display_name.toUpperCase(); // ignore upper and lowercase
-        var nameB = b.display_name.toUpperCase(); // ignore upper and lowercase
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
-
-        // names must be equal
-        return 0;
-      })
       let socialNetworks = await this.getSocialNetworks(webpage, users)
       
       let group = {
@@ -84,6 +71,20 @@ class GroupDashboard {
 
       output.push(userJSON)
     }
+    
+    output.sort((a, b) => {
+      var nameA = a.display_name.toUpperCase(); // ignore upper and lowercase
+      var nameB = b.display_name.toUpperCase(); // ignore upper and lowercase
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+
+      // names must be equal
+      return 0;
+    })
     
     return output
   }
@@ -257,6 +258,7 @@ class GroupDashboard {
     
     let data = {
       // We will make a Workbook contains 2 Worksheets
+      /*
       'animals': [
                   {"name": "cat", "category": "animal"}
                   ,{"name": "dog", "category": "animal"}
@@ -267,7 +269,18 @@ class GroupDashboard {
                   ,{"name": "Arbok", "category": "pokemon"}
                   ,{"name": "Eevee", "category": "pokemon"}
                 ]
+      */
     }
+    
+    // ------------------
+    
+    let users = await this._getGroupReaderCard(webpage, groupID)
+    let socialNetworks = await this.getSocialNetworks(webpage, users)
+    
+    // ------------------
+    data.Members = this._buildSheetGroupMember(users)
+    this._buildSheetsSocialNetworks(data, socialNetworks)
+    
     /*
     data.Questionnaire = await webpage.exportQuestionnaire()
     data.SectionNote = await webpage.exportSectionNote()
@@ -277,8 +290,31 @@ class GroupDashboard {
     */
     //console.log(data.Annotation)
     
-    let filename = `webpage_` + webpageID + `_all_${dayjs().format('YYYYMMDD-HHmm')}.ods`
+    let filename = `group_` + webpageID + '_' + groupID + `_${dayjs().format('YYYYMMDD-HHmm')}.ods`
     return SpreadsheetHelper.download(data, filename, response)
+  }
+  
+  _buildSheetGroupMember ( users ) {
+    return users.map(user => {
+      return {
+        id: user.id,
+        username: user.username,
+        display_name: user.display_name
+      }
+    })
+  } 
+  
+  _buildSheetsSocialNetworks ( data, socialNetworks ) {
+    socialNetworks.forEach( (sn, i) => {
+      let header = 'P' + (i+1) + '_'
+      
+      if (sn.nodes.length > 0) {
+        data[header + 'nodes'] = sn.nodes
+      }
+      if (sn.edges.length > 0) {
+        data[header + 'edges'] = sn.edges
+      }
+    })
   }
 }
 
