@@ -10,7 +10,7 @@ const Cache = use('Cache')
 
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 const dayjs = use('dayjs')
-const XLSX = use('xlsx')
+const SpreadsheetHelper = use('App/Helpers/SpreadsheetHelper')
 
 class WebpageExport {
   
@@ -43,37 +43,8 @@ class WebpageExport {
     //console.log(data.Annotation)
     
     let filename = `webpage_` + webpageID + `_all_${dayjs().format('YYYYMMDD-HHmm')}.ods`
-    return this._downloadSpreadsheet(data, filename, response)
+    return SpreadsheetHelper.download(data, filename, response)
   }
-  
-  _downloadSpreadsheet (data, filename, response) {
-    // A workbook is the name given to an Excel file
-    var wb = XLSX.utils.book_new() // make Workbook of Excel
-
-    // add Worksheet to Workbook
-    // Workbook contains one or more worksheets
-    Object.keys(data).forEach(key => {
-      let sheet = XLSX.utils.json_to_sheet(data[key])
-      XLSX.utils.book_append_sheet(wb, sheet, key) // sheetAName is name of Worksheet
-    })
-    
-    // export Excel file
-    //XLSX.writeFile(wb, './book.xlsx') // name of the file is 'book.xlsx'
-    
-    var wbbuf = XLSX.write(wb, {
-      bookType: 'ods',
-      type: 'base64'
-    });
-    //response.writeHead(200, [['Content-Type',  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']]);
-    
-    response.header('Content-Disposition', `attachment; filename="${filename}"`)
-    response.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-    //response.end( new Buffer(wbbuf, 'base64') );
-    
-    //return webpageID
-    return Buffer.from(wbbuf, 'base64')
-  }
-  
 }
 
 module.exports = WebpageExport

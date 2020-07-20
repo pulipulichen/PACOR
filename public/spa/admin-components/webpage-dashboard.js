@@ -1445,7 +1445,7 @@ let WebpageDashboardGroups = {
       return '#/group-dashboard/' + this.$route.params.webpageID + '/' + id
     },
     groupExportLink (id) {
-      return '/admin/GroupDashboard/export?webpageID=' + this.$route.params.webpageID + '&groupID=' + id
+      return '/admin/GroupDashboard/exportGroupData?webpageID=' + this.$route.params.webpageID + '&groupID=' + id
     }
   } // methods
 }

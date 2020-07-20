@@ -374,7 +374,7 @@ let GroupDashboard = {
       }
     },
     groupExportLink () {
-      return '/admin/GroupDashboard/export?webpageID=' + this.$route.params.webpageID + '&groupID=' + this.$route.params.groupID
+      return '/admin/GroupDashboard/exportGroupData?webpageID=' + this.$route.params.webpageID + '&groupID=' + this.$route.params.groupID
     }
   },
   watch: {
