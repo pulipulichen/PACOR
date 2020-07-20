@@ -25,6 +25,9 @@ let GroupDashboard = {
       if (typeof(this.status.webpageURL) === 'string') {
         return '/' + this.status.webpageURL.split('/').slice(3).join('/')
       }
+    },
+    groupExportLink () {
+      return '/admin/GroupDashboard/export?webpageID=' + this.$route.params.webpageID + '&groupID=' + this.$route.params.groupID
     }
   },
   watch: {
@@ -186,7 +189,7 @@ let GroupDashboard = {
           color: "#666"
         })
       });
-    }
+    },
   } // methods
 }
 

@@ -57,8 +57,8 @@
   </div>
   
   <div class="ui segment">
-    <h3 v-bind:id="attrHeaderID('socialNetworks')">
-      {{ $t('Social Networks') }}
+    <h3 v-bind:id="attrHeaderID('socialNetworksData')">
+      {{ $t('Social Networks Data') }}
     </h3>
     
     <div v-for="(sn, i) in group.socialNetworks"
@@ -90,18 +90,37 @@
     </div>
   </div>
   
-  <div v-for="(sn, i) in group.socialNetworks"
-         class="period-graph-container">
-      <h4 v-bind:id="attrHeaderID('socialNetworksGraphs' + i)">
-        {{ $t("Graphs") }} {{ (i+1) }}:
-        {{ sn.startTimestamp }}
-        - 
-        {{ sn.endTimestamp }}
-      </h4>
-      
-      <div class="graph-container"
-           v-bind:id="'graph_container_' + i"></div>
-      
+  <div class="ui segment">
+    <h3 v-bind:id="attrHeaderID('socialNetworksGraph')">
+      {{ $t('Social Networks Graph') }}
+    </h3>
+    
+    <div v-for="(sn, i) in group.socialNetworks"
+           class="period-graph-container">
+        <h4 v-bind:id="attrHeaderID('socialNetworksGraphs' + i)">
+          {{ $t("Graphs") }} {{ (i+1) }}:
+          {{ sn.startTimestamp }}
+          - 
+          {{ sn.endTimestamp }}
+        </h4>
+
+        <div class="graph-container"
+             v-bind:id="'graph_container_' + i"></div>
+
+    </div>
   </div>
     
+  <div class="ui segment">
+    <h3 v-bind:id="attrHeaderID('export')">
+      {{ $t('Export') }}
+    </h3>
+    
+    <form class="ui form">
+      <a class="ui fluid button"
+         v-bind:href="groupExportLink">
+        <i class="download icon"></i>
+        {{ $t('Export Group Data') }}
+      </a>
+    </form>
+  </div>
 </div>

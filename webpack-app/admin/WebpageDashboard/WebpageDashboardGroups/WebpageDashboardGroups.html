@@ -17,6 +17,12 @@
        {{ $t('Group Dashboard') }}
     </a>
       
+    <a class="ui inline button group-dashboard-link"
+        v-bind:href="groupExportLink(group.group_seq_id)">
+      <i class="download icon"></i>
+      {{ $t('Export Group Data') }}
+    </a>
+      
     </h4>
     <div class="ui cards">
       <template v-for="user in group.users">

@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Group Members":"小組成員","Group Dashboard":"小組儀表板","Collaborative Reading Times":"協助閱讀時間","Social Networks":"互動分析","Period":"時期","Graphs":"互動圖"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Group Members":"小組成員","Group Dashboard":"小組儀表板","Collaborative Reading Times":"協助閱讀時間","Social Networks":"互動分析","Period":"時期","Graphs":"互動圖","Social Networks Data":"互動資料","Social Networks Graph":"互動圖","Export Group Data":"匯出小組資料","Export":"匯出"}}')
   delete Component.options._Ctor
 }
 
@@ -25,7 +25,7 @@ module.exports = function (Component) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".gruop-seq-id-header[data-v-38ec61a3] {\n  margin-top: 0 !important;\n}\n.graph-container[data-v-38ec61a3] {\n  width: 400px;\n  height: 400px;\n  border: 1px solid #CCC;\n}\n.period-container[data-v-38ec61a3]:not(:last-of-type) {\n  border-bottom: 1px solid #CCC;\n  margin-bottom: 1rem;\n  padding-bottom: 1rem;\n}\n.period-graph-container[data-v-38ec61a3] {\n  display: inline-block;\n  margin-right: 0.5rem;\n}\n", "",{"version":3,"sources":["GroupDashboard.less?vue&type=style&index=0&id=38ec61a3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;AAC1B;AACA;EACE,YAAY;EACZ,aAAa;EACb,sBAAsB;AACxB;AACA;EACE,6BAA6B;EAC7B,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE,qBAAqB;EACrB,oBAAoB;AACtB","file":"GroupDashboard.less?vue&type=style&index=0&id=38ec61a3&lang=less&scoped=true&","sourcesContent":[".gruop-seq-id-header[data-v-38ec61a3] {\n  margin-top: 0 !important;\n}\n.graph-container[data-v-38ec61a3] {\n  width: 400px;\n  height: 400px;\n  border: 1px solid #CCC;\n}\n.period-container[data-v-38ec61a3]:not(:last-of-type) {\n  border-bottom: 1px solid #CCC;\n  margin-bottom: 1rem;\n  padding-bottom: 1rem;\n}\n.period-graph-container[data-v-38ec61a3] {\n  display: inline-block;\n  margin-right: 0.5rem;\n}\n"]}]);
+exports.push([module.i, ".gruop-seq-id-header[data-v-38ec61a3] {\n  margin-top: 0 !important;\n}\n.graph-container[data-v-38ec61a3] {\n  width: 400px;\n  height: 400px;\n  border: 1px solid #CCC;\n}\n.period-container[data-v-38ec61a3]:not(:last-of-type) {\n  border-bottom: 1px solid #CCC;\n  margin-bottom: 1rem;\n  padding-bottom: 1rem;\n}\n.period-graph-container[data-v-38ec61a3] {\n  display: inline-block;\n  margin-right: 0.5rem;\n  margin-bottom: 1rem;\n}\n", "",{"version":3,"sources":["GroupDashboard.less?vue&type=style&index=0&id=38ec61a3&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,wBAAwB;AAC1B;AACA;EACE,YAAY;EACZ,aAAa;EACb,sBAAsB;AACxB;AACA;EACE,6BAA6B;EAC7B,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE,qBAAqB;EACrB,oBAAoB;EACpB,mBAAmB;AACrB","file":"GroupDashboard.less?vue&type=style&index=0&id=38ec61a3&lang=less&scoped=true&","sourcesContent":[".gruop-seq-id-header[data-v-38ec61a3] {\n  margin-top: 0 !important;\n}\n.graph-container[data-v-38ec61a3] {\n  width: 400px;\n  height: 400px;\n  border: 1px solid #CCC;\n}\n.period-container[data-v-38ec61a3]:not(:last-of-type) {\n  border-bottom: 1px solid #CCC;\n  margin-bottom: 1rem;\n  padding-bottom: 1rem;\n}\n.period-graph-container[data-v-38ec61a3] {\n  display: inline-block;\n  margin-right: 0.5rem;\n  margin-bottom: 1rem;\n}\n"]}]);
 
 
 /***/ }),
@@ -155,9 +155,9 @@ var render = function() {
         "div",
         { staticClass: "ui segment" },
         [
-          _c("h3", { attrs: { id: _vm.attrHeaderID("socialNetworks") } }, [
+          _c("h3", { attrs: { id: _vm.attrHeaderID("socialNetworksData") } }, [
             _vm._v(
-              "\r\n      " + _vm._s(_vm.$t("Social Networks")) + "\r\n    "
+              "\r\n      " + _vm._s(_vm.$t("Social Networks Data")) + "\r\n    "
             )
           ]),
           _vm._v(" "),
@@ -218,34 +218,73 @@ var render = function() {
         2
       ),
       _vm._v(" "),
-      _vm._l(_vm.group.socialNetworks, function(sn, i) {
-        return _c("div", { staticClass: "period-graph-container" }, [
+      _c(
+        "div",
+        { staticClass: "ui segment" },
+        [
+          _c("h3", { attrs: { id: _vm.attrHeaderID("socialNetworksGraph") } }, [
+            _vm._v(
+              "\r\n      " +
+                _vm._s(_vm.$t("Social Networks Graph")) +
+                "\r\n    "
+            )
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.group.socialNetworks, function(sn, i) {
+            return _c("div", { staticClass: "period-graph-container" }, [
+              _c(
+                "h4",
+                { attrs: { id: _vm.attrHeaderID("socialNetworksGraphs" + i) } },
+                [
+                  _vm._v(
+                    "\r\n          " +
+                      _vm._s(_vm.$t("Graphs")) +
+                      " " +
+                      _vm._s(i + 1) +
+                      ":\r\n          " +
+                      _vm._s(sn.startTimestamp) +
+                      "\r\n          - \r\n          " +
+                      _vm._s(sn.endTimestamp) +
+                      "\r\n        "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "graph-container",
+                attrs: { id: "graph_container_" + i }
+              })
+            ])
+          })
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "ui segment" }, [
+        _c("h3", { attrs: { id: _vm.attrHeaderID("export") } }, [
+          _vm._v("\r\n      " + _vm._s(_vm.$t("Export")) + "\r\n    ")
+        ]),
+        _vm._v(" "),
+        _c("form", { staticClass: "ui form" }, [
           _c(
-            "h4",
-            { attrs: { id: _vm.attrHeaderID("socialNetworksGraphs" + i) } },
+            "a",
+            {
+              staticClass: "ui fluid button",
+              attrs: { href: _vm.groupExportLink }
+            },
             [
+              _c("i", { staticClass: "download icon" }),
               _vm._v(
                 "\r\n        " +
-                  _vm._s(_vm.$t("Graphs")) +
-                  " " +
-                  _vm._s(i + 1) +
-                  ":\r\n        " +
-                  _vm._s(sn.startTimestamp) +
-                  "\r\n        - \r\n        " +
-                  _vm._s(sn.endTimestamp) +
+                  _vm._s(_vm.$t("Export Group Data")) +
                   "\r\n      "
               )
             ]
-          ),
-          _vm._v(" "),
-          _c("div", {
-            staticClass: "graph-container",
-            attrs: { id: "graph_container_" + i }
-          })
+          )
         ])
-      })
+      ])
     ],
-    2
+    1
   )
 }
 var staticRenderFns = []
@@ -333,6 +372,9 @@ let GroupDashboard = {
       if (typeof(this.status.webpageURL) === 'string') {
         return '/' + this.status.webpageURL.split('/').slice(3).join('/')
       }
+    },
+    groupExportLink () {
+      return '/admin/GroupDashboard/export?webpageID=' + this.$route.params.webpageID + '&groupID=' + this.$route.params.groupID
     }
   },
   watch: {
@@ -494,7 +536,7 @@ let GroupDashboard = {
           color: "#666"
         })
       });
-    }
+    },
   } // methods
 }
 

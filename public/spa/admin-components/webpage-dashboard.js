@@ -41,7 +41,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Groups":"小組資訊","Group":"小組","Group Dashboard":"小組儀表板"}}')
+  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"Groups":"小組資訊","Group":"小組","Group Dashboard":"小組儀表板","Export Group Data":"匯出小組資料"}}')
   delete Component.options._Ctor
 }
 
@@ -508,6 +508,22 @@ var render = function() {
                       "\r\n    "
                   )
                 ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "ui inline button group-dashboard-link",
+                  attrs: { href: _vm.groupExportLink(group.group_seq_id) }
+                },
+                [
+                  _c("i", { staticClass: "download icon" }),
+                  _vm._v(
+                    "\r\n      " +
+                      _vm._s(_vm.$t("Export Group Data")) +
+                      "\r\n    "
+                  )
+                ]
               )
             ]
           ),
@@ -777,6 +793,7 @@ var render = function() {
             attrs: { href: _vm.exportAllData }
           },
           [
+            _c("i", { staticClass: "download icon" }),
             _vm._v(
               "\r\n      " + _vm._s(_vm.$t("Export all data")) + "\r\n    "
             )
@@ -1426,6 +1443,9 @@ let WebpageDashboardGroups = {
     },
     groupDashboardLink (id) {
       return '#/group-dashboard/' + this.$route.params.webpageID + '/' + id
+    },
+    groupExportLink (id) {
+      return '/admin/GroupDashboard/export?webpageID=' + this.$route.params.webpageID + '&groupID=' + id
     }
   } // methods
 }
