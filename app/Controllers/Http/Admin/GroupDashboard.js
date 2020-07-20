@@ -282,6 +282,7 @@ class GroupDashboard {
     this._buildSheetsSocialNetworks(data, socialNetworks)
     
     data.Annotations = await this._buildSheetAnnotations(webpage, users)
+    data.Comments = await this._buildSheetComments(webpage, users)
     
     /*
     data.Questionnaire = await webpage.exportQuestionnaire()
@@ -322,15 +323,7 @@ class GroupDashboard {
   async _buildSheetAnnotations (webpage, users) {
     let annotations = await webpage.exportAnnotation(users.map(u => u.id))
     
-    let userNameList = users.map(u => {
-      let displayName = u.display_name
-      if (!displayName) {
-        displayName = u.username
-      }
-      //displayName = 'to_' + displayName
-      return displayName
-    })
-    userNameList.sort()
+    let userNameList = this._parseUserNameList(users)
     
     annotations.forEach(a => {
       let authorID = a.user_id
@@ -363,6 +356,56 @@ class GroupDashboard {
     })
     
     return annotations
+  }
+  
+  _parseUserNameList (users) {
+    let userNameList = users.map(u => {
+      let displayName = u.display_name
+      if (!displayName) {
+        displayName = u.username
+      }
+      //displayName = 'to_' + displayName
+      return displayName
+    })
+    userNameList.sort()
+    return userNameList
+  }
+  
+  async _buildSheetComments (webpage, users) {
+    let comments = await webpage.exportComment(users.map(u => u.id))
+    let userNameList = this._parseUserNameList(users)
+    
+    comments.forEach(c => {
+      let authorID = c.user_id
+      
+      userNameList.forEach(displayName => {
+        
+        let isMe = (c.username === displayName)
+        let value = ''
+        if (isMe === true) {
+          value = '-'
+        }
+        c['to_' + displayName] = value
+      })
+    })
+    
+    comments.sort((a, b) => {
+      if (a.username !== b.username) {
+        let nameA = a.username.toLowerCase()
+        let nameB = b.username.toLowerCase()
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+      }
+      else {
+        return a.comment_id - b.comment_id
+      }
+    })
+    
+    return comments
   }
 }
 

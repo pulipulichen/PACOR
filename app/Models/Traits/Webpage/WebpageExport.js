@@ -222,8 +222,8 @@ class WebpageExport {
       return output
     }
     
-    Model.prototype.exportComment = async function () {
-      let comments = await AnnotationCommentModel
+    Model.prototype.exportComment = async function (findUserIDList) {
+      let query = AnnotationCommentModel
               .query()
               .whereHas('annotation', (builder) => {
                   builder.where('webpage_id', this.primaryKeyValue)
@@ -234,7 +234,12 @@ class WebpageExport {
               })
               .with('user')
               .orderBy('created_at_unixms')
-              .fetch()
+      
+      if (Array.isArray(findUserIDList)) {
+        query.whereIn('user_id', findUserIDList)
+      }
+      
+      let comments = await query.fetch()
       
       let output = []
       //console.log(annotations.size(), this.primaryKeyValue)
@@ -244,6 +249,7 @@ class WebpageExport {
         let json = comment.toJSON()
         
         let item = {
+          comment_id: comment.id,
           user_id: comment.user_id,
           username: json.user.username,
           annotation_id: json.annotation.id,
