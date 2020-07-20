@@ -1,3 +1,5 @@
+/* global sigma */
+
 import { sigma } from 'sigma-webpack'
 
 ;(function(undefined) {

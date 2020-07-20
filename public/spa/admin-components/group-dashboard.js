@@ -448,8 +448,26 @@ let GroupDashboard = {
     drawSocialNetworkNodes: function (s, nodes) {
       
       nodes.forEach(function(node, i, a) {
-        node.x = Math.cos(Math.PI * 2 * i / a.length);
-        node.y = Math.sin(Math.PI * 2 * i / a.length);
+        
+        // i 的位置要做重新定位
+        if (i > 0) {
+          if (i % 4 === 1) {
+            // 這是第幾個？
+            i = Math.floor(i / 2) + 1
+          }
+          else if (i % 4 === 2) {
+            i = a.length - Math.floor(i / 2)
+          }
+          else if (i % 4 === 3) {
+            i = a.length - Math.floor(i / 2) - 1
+          }
+          else {
+            i = Math.floor(i / 2)
+          }
+        }
+        
+        node.x = Math.sin(Math.PI * 2 * i / a.length);
+        node.y = Math.cos(Math.PI * 2 * i / a.length) * -1;
 
         s.graph.addNode({
           // Main attributes:

@@ -1,3 +1,5 @@
+/* global sigma */
+
 ;(function() {
   'use strict';
 

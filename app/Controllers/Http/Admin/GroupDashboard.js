@@ -215,7 +215,7 @@ class GroupDashboard {
         })
         
         //return
-      }
+      } // for (let j = 0; j < users.length; j++) {
       
       socialNetworks.push({
         startTimestamp,
@@ -223,7 +223,28 @@ class GroupDashboard {
         nodes,
         edges
       })
-    }
+    } // for (let i = 0; i < timelist.length; i++) {
+    
+    // ---------------------------------
+    // 取得最後一次的node，重新排序
+    
+    let lastNodes = socialNetworks.slice(-1)[0].nodes
+    lastNodes.sort((a, b) => {
+      return b.size - a.size
+    })
+    
+    let idToRank = {}
+    lastNodes.forEach((node, i) => {
+      idToRank[node.id] = i
+    })
+    
+    socialNetworks.slice(0, -1).forEach(sn => {
+      sn.nodes.sort((a, b) => {
+        return idToRank[a.id] - idToRank[b.id]
+      })
+    })
+    
+    // ---------------------------------
     
     return socialNetworks
   }
