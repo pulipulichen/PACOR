@@ -136,15 +136,28 @@ class WebpageExport {
       return output
     }
     
-    Model.prototype.exportAnnotation = async function () {
-      let annotations = await AnnotationModel
+    /**
+     * 
+     * @param {Array} findUserIDList = [1, 2, 3] UserID
+     * @returns {Array}
+     */
+    Model.prototype.exportAnnotation = async function (findUserIDList) {
+      let query = AnnotationModel
               .query()
               .where('webpage_id', this.primaryKeyValue)
               .whereNot('type', 'SectionMainIdea')
               .with('user')
               .with('notes')
+              .with('anchorPositions', builder => {
+                builder.setVisible(['seq_id', 'anchor_text'])
+              })
               .orderBy('created_at_unixms')
-              .fetch()
+      
+      if (Array.isArray(findUserIDList)) {
+        query.whereIn('user_id', findUserIDList)
+      }
+      
+      let annotations = await query.fetch()
       
       let output = []
       //console.log(annotations.size(), this.primaryKeyValue)
@@ -152,6 +165,7 @@ class WebpageExport {
       for (let i = 0; i < annotations.size(); i++) {
         let annotation = annotations.nth(i)
         let annotationJSON = annotation.toJSON()
+        //console.log(JSON.stringify(annotationJSON, null, 4))
         
         let item = {
           annotation_id: annotation.primaryKeyValue,
@@ -160,6 +174,9 @@ class WebpageExport {
           deleted: annotation.deleted,
           type: annotation.type,
         }
+        
+        // ------------------------
+        // 取得Note
         
         let noteInstances = annotation.getRelated('notes')
         let notes = []
@@ -172,6 +189,26 @@ class WebpageExport {
           }
         }
         item.note = notes.join(' / ')
+        
+        // -----------------------
+        // 取得AnchorText跟Position資料
+        if (Array.isArray(annotationJSON.anchorPositions)) {
+          let firstSeqID
+          let anchorTextList = []
+          
+          annotationJSON.anchorPositions.forEach(anchorPosition => {
+            if (!firstSeqID || firstSeqID > anchorPosition.seq_id) {
+              firstSeqID = anchorPosition.seq_id
+            }
+            
+            anchorTextList.push(anchorPosition.anchor_text)
+          })
+          
+          item.first_para_id = firstSeqID
+          item.anchor_text = anchorTextList.join(' ')
+        }
+        
+        // ------------------------
         
         item.created_at = DateHelper.parseAtUnixms(annotation.created_at_unixms).format('YYYY-MMDD-HH:mm:ss')
         item.updated_at = DateHelper.parseAtUnixms(annotation.updated_at_unixms).format('YYYY-MMDD-HH:mm:ss')

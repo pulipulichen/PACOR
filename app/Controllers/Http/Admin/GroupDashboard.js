@@ -281,6 +281,8 @@ class GroupDashboard {
     data.Members = this._buildSheetGroupMember(users)
     this._buildSheetsSocialNetworks(data, socialNetworks)
     
+    data.Annotations = await this._buildSheetAnnotations(webpage, users)
+    
     /*
     data.Questionnaire = await webpage.exportQuestionnaire()
     data.SectionNote = await webpage.exportSectionNote()
@@ -305,7 +307,7 @@ class GroupDashboard {
   } 
   
   _buildSheetsSocialNetworks ( data, socialNetworks ) {
-    socialNetworks.forEach( (sn, i) => {
+    socialNetworks.forEach( (sn, i) => {  
       let header = 'P' + (i+1) + '_'
       
       if (sn.nodes.length > 0) {
@@ -315,6 +317,52 @@ class GroupDashboard {
         data[header + 'edges'] = sn.edges
       }
     })
+  }
+  
+  async _buildSheetAnnotations (webpage, users) {
+    let annotations = await webpage.exportAnnotation(users.map(u => u.id))
+    
+    let userNameList = users.map(u => {
+      let displayName = u.display_name
+      if (!displayName) {
+        displayName = u.username
+      }
+      //displayName = 'to_' + displayName
+      return displayName
+    })
+    userNameList.sort()
+    
+    annotations.forEach(a => {
+      let authorID = a.user_id
+      
+      userNameList.forEach(displayName => {
+        
+        let isMe = (a.username === displayName)
+        let value = ''
+        if (isMe === true) {
+          value = '-'
+        }
+        a['to_' + displayName] = value
+      })
+    })
+    
+    annotations.sort((a, b) => {
+      if (a.username !== b.username) {
+        let nameA = a.username.toLowerCase()
+        let nameB = b.username.toLowerCase()
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+      }
+      else {
+        return a.first_para_id - b.first_para_id
+      }
+    })
+    
+    return annotations
   }
 }
 
