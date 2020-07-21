@@ -327,7 +327,7 @@ class GroupDashboard {
     
     annotations.forEach(a => {
       let authorID = a.user_id
-      
+      a['from_username'] = a.username
       userNameList.forEach(displayName => {
         
         let isMe = (a.username === displayName)
@@ -340,7 +340,10 @@ class GroupDashboard {
     })
     
     annotations.sort((a, b) => {
-      if (a.username !== b.username) {
+      if (a.first_para_id !== b.first_para_id) {
+        return a.first_para_id - b.first_para_id
+      }
+      else if (a.username !== b.username) {
         let nameA = a.username.toLowerCase()
         let nameB = b.username.toLowerCase()
         if (nameA < nameB) {
@@ -349,9 +352,6 @@ class GroupDashboard {
         if (nameA > nameB) {
           return 1;
         }
-      }
-      else {
-        return a.first_para_id - b.first_para_id
       }
     })
     
@@ -377,6 +377,14 @@ class GroupDashboard {
     
     comments.forEach(c => {
       let authorID = c.user_id
+      c['annotator'] = c.annotation_username
+      c['commentor'] = c.username
+      
+      let comment_self = 'false'
+      if (c.username === c.annotation_username) {
+        comment_self = 'true'
+      }
+      c['comment_self'] = comment_self
       
       userNameList.forEach(displayName => {
         
@@ -389,16 +397,23 @@ class GroupDashboard {
       })
     })
     
+    let sortName = (nameA, nameB) => {
+      nameA = nameA.toLowerCase()
+      nameB = nameB.toLowerCase()
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+    }
+    
     comments.sort((a, b) => {
-      if (a.username !== b.username) {
-        let nameA = a.username.toLowerCase()
-        let nameB = b.username.toLowerCase()
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
+      if (a.annotator !== b.annotator) {
+        return sortName(a.annotator, b.annotator)
+      }
+      else if (a.username !== b.username) {
+        return sortName(a.username, b.username)
       }
       else {
         return a.comment_id - b.comment_id

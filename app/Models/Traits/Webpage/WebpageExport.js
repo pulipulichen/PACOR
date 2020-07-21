@@ -178,17 +178,7 @@ class WebpageExport {
         // ------------------------
         // 取得Note
         
-        let noteInstances = annotation.getRelated('notes')
-        let notes = []
-        for (let j = 0; j < noteInstances.size(); j++) {
-          let noteInstance = noteInstances.nth(j)
-          let n = StringHelper.htmlToText(noteInstance.note, true)
-          n = n.trim()
-          if (n !== '') {
-            notes.push(n)
-          }
-        }
-        item.note = notes.join(' / ')
+        item.note = annotation.getAllNote()
         
         // -----------------------
         // 取得AnchorText跟Position資料
@@ -204,8 +194,9 @@ class WebpageExport {
             anchorTextList.push(anchorPosition.anchor_text)
           })
           
-          item.first_para_id = firstSeqID
+          
           item.anchor_text = anchorTextList.join(' ')
+          item.first_para_id = firstSeqID
         }
         
         // ------------------------
@@ -231,6 +222,7 @@ class WebpageExport {
                 }, '>', 0)
               .with('annotation', (builder) => {
                   builder.with('user')
+                         .with('notes')
               })
               .with('user')
               .orderBy('created_at_unixms')
@@ -257,7 +249,8 @@ class WebpageExport {
           annotation_username: json.annotation.user.username,
           annotation_type: json.annotation.type,
           deleted: comment.deleted,
-          note: comment.note,
+          annotation_note: comment.getRelated('annotation').getAllNote(),
+          comment: comment.note,
         }
         
         item.created_at = DateHelper.parseAtUnixms(comment.created_at_unixms).format('YYYY-MMDD-HH:mm:ss')

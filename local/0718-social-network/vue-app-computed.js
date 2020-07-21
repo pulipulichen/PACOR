@@ -41,9 +41,9 @@ var appComputed = {
           size = Number(size)
           let target = toList[j]
           
-          if (source === target) {
-            return false
-          }
+          //if (source === target) {
+          //  return false
+          //}
           
           edges.push({
             source,
