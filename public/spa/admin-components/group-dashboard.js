@@ -207,7 +207,9 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("textarea", {
-                      domProps: { innerHTML: _vm._s(_vm.edgesTable(sn.edges)) }
+                      domProps: {
+                        innerHTML: _vm._s(_vm.edgesTable(sn.nodes, sn.edges))
+                      }
                     })
                   ])
                 ])
@@ -345,11 +347,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sigma_webpack__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sigma-webpack */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\sigma-webpack\\build\\sigma.require.js");
 /* harmony import */ var sigma_webpack__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sigma_webpack__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _sigma_js_plugins_sigma_plugins_dragNodes_sigma_plugins_dragNodes_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sigma.js/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js */ "./webpack-app/admin/GroupDashboard/sigma.js/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js");
-
+/* harmony import */ var _sigma_js_plugins_sigma_exporters_svg_sigma_exporters_svg_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sigma.js/plugins/sigma.exporters.svg/sigma.exporters.svg.js */ "./webpack-app/admin/GroupDashboard/sigma.js/plugins/sigma.exporters.svg/sigma.exporters.svg.js");
+/* harmony import */ var _sigma_js_plugins_sigma_exporters_svg_sigma_exporters_svg_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_sigma_js_plugins_sigma_exporters_svg_sigma_exporters_svg_js__WEBPACK_IMPORTED_MODULE_2__);
+//import sigmaWebpack from 'sigma-webpack'
 //console.log(Object.keys(sigmaWebpack))
 
 
 //import './sigma.js/plugins/sigma.layout.forceAtlas2/sigma.layout.forceAtlas2.webpack.js'
+
 
 
 let GroupDashboard = {
@@ -421,7 +426,8 @@ let GroupDashboard = {
       
       return lines.join("\n")
     },
-    edgesTable: function (edges) {
+    edgesTable: function (nodes, edges) {
+      /*
       let lines = [
         ['source', 'target', 'size'].join('\t')
       ]
@@ -429,6 +435,36 @@ let GroupDashboard = {
       lines = lines.concat(edges.map(({source, target, size}) => [source, target, size].join('\t')))
       
       return lines.join("\n")
+      */
+      let nodesList = nodes.map(({id}) => id)
+     
+      let data = {}
+      nodes.forEach(sourceNode => {
+        data[sourceNode.id] = {}
+        nodes.forEach(targetNode => {
+          data[sourceNode.id][targetNode.id] = 0
+        })
+      })
+      
+      edges.forEach(({source, target, size}) => {
+        data[source][target] = size
+      })
+      
+      let lines = [
+        '\t' + nodesList.join('\t')
+      ]
+      
+      nodesList.forEach(source => {
+        let line = [source]
+        
+        nodesList.forEach(target => {
+          line.push(data[source][target])
+        })
+        
+        lines.push(line.join('\t'))
+      })
+      
+      return lines.join('\n')
     },
     drawGraphs: function () {
       this.group.socialNetworks.forEach((socialNetwork, i) => {
@@ -455,6 +491,14 @@ let GroupDashboard = {
           //s.stopForceAtlas2()
           
           let dragListener = sigma_webpack__WEBPACK_IMPORTED_MODULE_0__["sigma"].plugins.dragNodes(s, s.renderers[0])
+          
+          s.toSVG({
+            labels: true,
+            classes: false,
+            data: true,
+            download: true,
+            filename: 'hello.svg'
+          });
         }, 1000)
         //console.log(socialNetwork.nodes)
         //console.log('畫完了...?' + i)
@@ -472,6 +516,7 @@ let GroupDashboard = {
         renderer: {
           container: document.getElementById(containerID),
           type: sigma_webpack__WEBPACK_IMPORTED_MODULE_0__["sigma"].renderers.canvas
+          //type: sigma.renderers.svg
         }
       })
 
@@ -631,6 +676,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_GroupDashboard_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cadmin_5CGroupDashboard_5CGroupDashboard_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_GroupDashboard_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cadmin_5CGroupDashboard_5CGroupDashboard_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_GroupDashboard_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cadmin_5CGroupDashboard_5CGroupDashboard_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_GroupDashboard_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cadmin_5CGroupDashboard_5CGroupDashboard_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_GroupDashboard_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cadmin_5CGroupDashboard_5CGroupDashboard_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/admin/GroupDashboard/sigma.js/plugins/sigma.exporters.svg/sigma.exporters.svg.js":
+/*!******************************************************************************************************!*\
+  !*** ./webpack-app/admin/GroupDashboard/sigma.js/plugins/sigma.exporters.svg/sigma.exporters.svg.js ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "http://pc.pulipuli.info:443/spa/asset/sigma.exporters.svg.js";
 
 /***/ }),
 

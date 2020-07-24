@@ -83,22 +83,63 @@ let StringHelper = {
     else {
       let children = $(s).children()
       output = []
+      
       children.each((i, ele) => {
+        //console.log(ele.children.length)
+        /*
         if (!Array.isArray(ele.children)
                 || ele.children.length === 0) {
           return false
         }
-        let text = ele.children[0].data
-        if (typeof(text) !== 'string') {
-          return false
+        */
+        /*
+        for (let j = 0; j < ele.children.length; j++) {
+          if (Array.isArray(ele.children[j].children)) {
+            
+          }
+          else {
+            let text = ele.children[j].data
+            console.log(typeof(text), typeof(ele.children[j].children))
+            if (typeof(text) !== 'string') {
+              return false
+            }
+            output.push(text.trim())
+          }
+            
         }
-        output.push(text.trim())
+        */
+        output.push(this.getTextFromChildren(ele))
       })
       output = output.join(' ').trim()
     }
     
     output = output.split('\n').join(' ')
+    while (output.indexOf('  ') > -1) {
+      output = output.split('  ').join(' ')
+    }
+    //console.log('[', output, ']', s.split('\n').join(' '))
     return output
+  },
+  getTextFromChildren: function (ele) {
+    //console.log(ele.children.length)
+    let output = []
+    if (!Array.isArray(ele.children)
+            || ele.children.length === 0) {
+      return ''
+    }
+    for (let j = 0; j < ele.children.length; j++) {
+      if (Array.isArray(ele.children[j].children)) {
+        return this.getTextFromChildren(ele.children[j])
+      }
+      else {
+        let text = ele.children[j].data
+        //console.log(typeof(text), typeof(ele.children[j].children))
+        if (typeof(text) === 'string') {
+          output.push(text.trim())
+        }
+      }
+    }
+    return output.join(' ')
   },
   isURL (s) {
     if (typeof(s) !== 'string') {

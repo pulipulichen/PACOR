@@ -145,7 +145,7 @@ class WebpageExport {
       let query = AnnotationModel
               .query()
               .where('webpage_id', this.primaryKeyValue)
-              .whereNot('type', 'SectionMainIdea')
+              //.whereNot('type', 'SectionMainIdea')
               .with('user')
               .with('notes')
               .with('anchorPositions', builder => {
@@ -262,6 +262,15 @@ class WebpageExport {
         output.push(item)
       }
       
+      output.sort((a, b) => {
+        if (a.annotation_id !== b.annotation_id) {
+          return a.annotation_id - b.annotation_id
+        }
+        else {
+          return a.comment_id - b.comment_id
+        }
+      })
+      
       return output
     }
     
@@ -280,7 +289,6 @@ class WebpageExport {
               .with('user')
               .orderBy('id')
               .fetch()
-      
       
       //console.log(annotations.size(), this.primaryKeyValue)
       

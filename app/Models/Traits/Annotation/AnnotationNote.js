@@ -37,7 +37,8 @@ class AnnotationNote {
       let notes = []
       for (let j = 0; j < noteInstances.size(); j++) {
         let noteInstance = noteInstances.nth(j)
-        let n = StringHelper.htmlToText(noteInstance.note, true)
+        let n = noteInstance.note
+        n = StringHelper.htmlToText(n, true)
         n = n.trim()
         if (n !== '') {
           notes.push({

@@ -38,13 +38,69 @@
    * @param  {number} a    Modifier to the loop size.
    * @return {x1,y1,x2,y2} The coordinates of the two control points.
    */
-  sigma.utils.getSelfLoopControlPoints = function(x , y, size, a) {
+  sigma.utils.getSelfLoopControlPoints = function(x , y, size, a, labelPosition = 1) {
     a = a || 0;
-    return {
+    
+    if (size < 5) {
+      size = 10
+    }
+    
+    let points = {
       x1: x - (size + a) * 7,
       y1: y,
       x2: x,
       y2: y + (size + a) * 7
-    };
+    }
+    
+    if (labelPosition === 8) {
+      points = {
+        x1: x - (size + a) * 7,
+        y1: y - (size + a) * 6.5,
+        x2: x + (size + a) * 10,
+        y2: y - (size + a) * 7
+      }
+    }
+    else if (labelPosition === 6) {
+      points = {
+        x1: x + (size + a) * 10,
+        y1: y - (size + a) * 6.5,
+        x2: x + (size + a) * 7,
+        y2: y + (size + a) * 10
+      }
+    }
+    else if (labelPosition === 4) {
+      points = {
+        x1: x - (size + a) * 10,
+        y1: y - (size + a) * 6.5,
+        x2: x - (size + a) * 7,
+        y2: y + (size + a) * 10
+      }
+    }
+    else if (labelPosition === 2) {
+      points = {
+        x1: x - (size + a) * 7,
+        y1: y + (size + a) * 6.5,
+        x2: x + (size + a) * 10,
+        y2: y + (size + a) * 7
+      }
+    }
+    else if (labelPosition === 1) {
+      points = {
+        x1: x - (size + a) * 12,
+        y1: y + (size + a) * 10,
+        x2: x + (size + a) * 10,
+        y2: y + (size + a) * 10
+      }
+    }
+    else if (labelPosition === 3) {
+      points = {
+        x1: x - (size + a) * 10,
+        y1: y + (size + a) * 10,
+        x2: x + (size + a) * 15,
+        y2: y + (size + a) * 10
+      }
+    }
+    
+    return points
   };
 }).call(this);

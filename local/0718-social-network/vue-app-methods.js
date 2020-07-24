@@ -22,6 +22,7 @@ var appMethods = {
       maxNodeSize: 20,
       maxEdgeSize: 10,
       defaultEdgeColor: "#00F",
+      //fontStyle: 'Arial Rounded MT Bold'
     });
 
     this.drawSocialNetwork()
@@ -41,6 +42,17 @@ var appMethods = {
         //s.stopForceAtlas2()
         console.log('ok')
         let dragListener = sigma.plugins.dragNodes(s, s.renderers[0])
+        /*
+        setTimeout(() => {
+          s.toSVG({
+            labels: true,
+            classes: false,
+            data: true,
+            download: true,
+            filename: 'hello.svg'
+          });
+        }, 3000)
+         */
       }, 0)
   },
   drawSocialNetworkNodes: function () {
@@ -52,7 +64,8 @@ var appMethods = {
       return b.size - a.size
     })
     
-    nodes.forEach(function(node, i, a) {
+    nodes.forEach((node, i, a) => {
+      
       // i 的位置要做重新定位
       if (i > 0) {
         if (i % 4 === 1) {
@@ -73,6 +86,36 @@ var appMethods = {
       node.x = Math.sin(Math.PI * 2 * i / a.length);
       node.y = Math.cos(Math.PI * 2 * i / a.length) * -1;
       
+      let angle = this.calcAngleDegrees(node.x, node.y)
+      
+      let labelPosition = 6
+      if (angle <= 22.5 || angle > 337.5) {
+        labelPosition = 6
+      }
+      else if (angle >= 22.5 && angle < 67.5) {
+        labelPosition = 3
+      }
+      else if (angle >= 67.5 && angle < 112.5) {
+        labelPosition = 2
+      }
+      else if (angle >= 112.5 && angle < 157.5) {
+        labelPosition = 1
+      }
+      else if (angle >= 157.5 && angle < 202.5) {
+        labelPosition = 4
+      }
+      else if (angle >= 202.5 && angle < 247.5) {
+        labelPosition = 7
+      }
+      else if (angle >= 247.5 && angle < 292.5) {
+        labelPosition = 8
+      }
+      else if (angle >= 292.5 && angle < 337.5) {
+        labelPosition = 9
+      }
+      
+      console.log(node.id, labelPosition)
+      
       s.graph.addNode({
         // Main attributes:
         id: node.id,
@@ -81,9 +124,18 @@ var appMethods = {
         x: node.x,
         y: node.y,
         size: node.size,
+        labelPosition 
         //count: node.size,
       })
     });
+  },
+  calcAngleDegrees: function (x, y) {
+    let a = Math.atan2(y, x) * 180 / Math.PI;
+    if (a < 0) {
+      a = 360 + a
+    }
+
+    return a
   },
   drawSocialNetworkEdges: function () {
     let s = this.sigmaInstance

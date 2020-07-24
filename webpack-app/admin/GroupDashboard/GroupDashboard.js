@@ -1,9 +1,10 @@
-import sigmaWebpack from 'sigma-webpack'
+//import sigmaWebpack from 'sigma-webpack'
 //console.log(Object.keys(sigmaWebpack))
 
 import { sigma } from 'sigma-webpack'
 //import './sigma.js/plugins/sigma.layout.forceAtlas2/sigma.layout.forceAtlas2.webpack.js'
 import './sigma.js/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js'
+import './sigma.js/plugins/sigma.exporters.svg/sigma.exporters.svg.js'
 
 let GroupDashboard = {
   props: ['lib', 'status', 'config'],
@@ -74,7 +75,8 @@ let GroupDashboard = {
       
       return lines.join("\n")
     },
-    edgesTable: function (edges) {
+    edgesTable: function (nodes, edges) {
+      /*
       let lines = [
         ['source', 'target', 'size'].join('\t')
       ]
@@ -82,6 +84,36 @@ let GroupDashboard = {
       lines = lines.concat(edges.map(({source, target, size}) => [source, target, size].join('\t')))
       
       return lines.join("\n")
+      */
+      let nodesList = nodes.map(({id}) => id)
+     
+      let data = {}
+      nodes.forEach(sourceNode => {
+        data[sourceNode.id] = {}
+        nodes.forEach(targetNode => {
+          data[sourceNode.id][targetNode.id] = 0
+        })
+      })
+      
+      edges.forEach(({source, target, size}) => {
+        data[source][target] = size
+      })
+      
+      let lines = [
+        '\t' + nodesList.join('\t')
+      ]
+      
+      nodesList.forEach(source => {
+        let line = [source]
+        
+        nodesList.forEach(target => {
+          line.push(data[source][target])
+        })
+        
+        lines.push(line.join('\t'))
+      })
+      
+      return lines.join('\n')
     },
     drawGraphs: function () {
       this.group.socialNetworks.forEach((socialNetwork, i) => {
@@ -108,6 +140,14 @@ let GroupDashboard = {
           //s.stopForceAtlas2()
           
           let dragListener = sigma.plugins.dragNodes(s, s.renderers[0])
+          
+          s.toSVG({
+            labels: true,
+            classes: false,
+            data: true,
+            download: true,
+            filename: 'hello.svg'
+          });
         }, 1000)
         //console.log(socialNetwork.nodes)
         //console.log('畫完了...?' + i)
@@ -125,6 +165,7 @@ let GroupDashboard = {
         renderer: {
           container: document.getElementById(containerID),
           type: sigma.renderers.canvas
+          //type: sigma.renderers.svg
         }
       })
 

@@ -35,18 +35,21 @@
         vY;
 
     cp = (source.id === target.id) ?
-      sigma.utils.getSelfLoopControlPoints(sX, sY, tSize, count) :
+      sigma.utils.getSelfLoopControlPoints(sX, sY, tSize, count, source.labelPosition) :
       sigma.utils.getQuadraticControlPoint(sX, sY, tX, tY, count);
 
     if (source.id === target.id) {
-      d = Math.sqrt(Math.pow(tX - cp.x1, 2) + Math.pow(tY - cp.y1, 2));
+      //console.log(cp)
+      
+      //cp.x1 = cp.x1 + 20
+      d = Math.sqrt(Math.pow((tX - cp.x1) * 0.7, 2) + Math.pow((tY - cp.y1) * 0.7, 2));
       aX = cp.x1 + (tX - cp.x1) * (d - aSize - tSize) / d;
       aY = cp.y1 + (tY - cp.y1) * (d - aSize - tSize) / d;
       vX = (tX - cp.x1) * aSize / d;
       vY = (tY - cp.y1) * aSize / d;
     }
     else {
-      d = Math.sqrt(Math.pow(tX - cp.x, 2) + Math.pow(tY - cp.y, 2));
+      d = Math.sqrt(Math.pow((tX - cp.x) * 0.7, 2) + Math.pow((tY - cp.y) * 0.7, 2));
       aX = cp.x + (tX - cp.x) * (d - aSize - tSize) / d;
       aY = cp.y + (tY - cp.y) * (d - aSize - tSize) / d;
       vX = (tX - cp.x) * aSize / d;
@@ -66,8 +69,19 @@
           break;
       }
 
-    context.strokeStyle = color;
+    context.strokeStyle = '#FFF';
     context.lineWidth = size;
+    context.beginPath();
+    context.moveTo(sX, sY);
+    if (source.id === target.id) {
+      context.bezierCurveTo(cp.x2, cp.y2, cp.x1, cp.y1, aX, aY);
+    } else {
+      context.quadraticCurveTo(cp.x, cp.y, aX, aY);
+    }
+    context.stroke();
+    
+    context.strokeStyle = color;
+    context.lineWidth = size - 2;
     context.beginPath();
     context.moveTo(sX, sY);
     if (source.id === target.id) {
@@ -85,5 +99,10 @@
     context.lineTo(aX + vX, aY + vY);
     context.closePath();
     context.fill();
+    
+    context.strokeStyle = '#FFF';
+    context.lineWidth = 2;
+    context.stroke()
+    
   };
 })();
