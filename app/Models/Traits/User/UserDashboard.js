@@ -164,7 +164,88 @@ class UserDashboard {
         }
 
         let result = await query.fetch()
-        return result.toJSON()
+        let resultJSON = result.toJSON()
+        
+        resultJSON.sort((a, b) => {
+          if (a.annotation.id !== b.annotation.id) {
+            return a.annotation.id - b.annotation.id
+          }
+        })
+        
+        return resultJSON
+      })
+      return output
+    }
+    
+    Model.prototype.getInteracts = async function (webpage, start_timestamp, end_timestamp) {
+      let cacheKey = Cache.key(`User.getInteracts`, start_timestamp, end_timestamp)
+      let output = await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        let interactTo = {}
+        
+        let initUser = (user) => {
+          if (!interactTo[user.id]) {
+            interactTo[user.id] = {
+              avatar_url: user.avatar_url,
+              name: user.display_name,
+              count: 0,
+              annotationIDList: []
+            }
+          }
+        }
+        
+        // ----------------------------------------------
+        
+        let comments = await this.getCommentsInStep(webpage, start_timestamp, end_timestamp)
+        
+        let lastAnnotationID
+        
+        comments.forEach((comment) => {
+          let annotationID = comment.annotation.id
+          if (!lastAnnotationID || lastAnnotationID !== annotationID) {
+            lastAnnotationID = annotationID
+          }
+          else {
+            return false
+          }
+          
+          //console.log(JSON.stringify(comment, null, 2))
+          let user = comment.annotation.user
+          
+          initUser(user)
+          if (interactTo[user.id].annotationIDList.indexOf(annotationID) === -1) {
+            interactTo[user.id].count++
+            interactTo[user.id].annotationIDList.push(annotationID)
+          }
+        })
+        
+        // ------------------------------------------
+        
+        let annotationRates = await this.getAnnotationRatesInStep(webpage, start_timestamp, end_timestamp)
+        console.log(annotationRates)
+        annotationRates.forEach((rate) => {
+          let user = rate.annotation.user
+          let annotationID = rate.annotation.id
+
+          initUser(user)
+          if (interactTo[user.id].annotationIDList.indexOf(annotationID) === -1) {
+            interactTo[user.id].count++
+            interactTo[user.id].annotationIDList.push(annotationID)
+          }
+        })
+        
+        // ------------------------------------------
+        
+        let commentRates = await this.getAnnotationCommentRatesInStep(webpage, start_timestamp, end_timestamp)
+        //console.log(commentRates)
+        commentRates.forEach((rate) => {
+          let user = rate.comment.user
+          initUser(user)
+          interactTo[user.id].count++
+        })
+        
+        // ------------------------------------------
+        
+        return interactTo
       })
       return output
     }
@@ -175,7 +256,18 @@ class UserDashboard {
         let commentTo = {}
         
         let comments = await this.getCommentsInStep(webpage, start_timestamp, end_timestamp)
+        
+        let lastAnnotationID
+        
         comments.forEach((comment) => {
+          let annotationID = comment.annotation.id
+          if (!lastAnnotationID || annotationID !== comment.annotation.id) {
+            lastAnnotationID = comment.annotation.id
+          }
+          else {
+            return false
+          }
+          
           //console.log(JSON.stringify(comment, null, 2))
           let user = comment.annotation.user
           
@@ -224,7 +316,15 @@ class UserDashboard {
         }
 
         let result = await query.fetch()
-        return result.toJSON()
+        let resultJSON = result.toJSON()
+        
+        resultJSON.sort((a, b) => {
+          if (a.annotation.id !== b.annotation.id) {
+            return a.annotation.id - b.annotation.id
+          }
+        })
+        
+        return resultJSON
       })
       return output
     }
@@ -279,11 +379,13 @@ class UserDashboard {
         let offset = ((new Date()).getTimezoneOffset()) * 60 * 1000
         if (typeof(start_timestamp) === 'number') {
           query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) >= ?`, [start_timestamp])
+          //query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000) >= ?`, [start_timestamp])
         }
 
         if (typeof(end_timestamp) === 'number') {
           //query.where('EXTRACT(EPOCH FROM created_at)', '<=', end_timestamp)
           query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) <= ?`, [end_timestamp])
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000) <= ?`, [end_timestamp])
         }
 
         //DatabaseHelper.consoleSQL(query)
@@ -305,6 +407,7 @@ class UserDashboard {
                          //.where('user_id', this.primaryKeyValue)
                          .whereHas('annotation', (builder) => {
                            builder.where('webpage_id', webpage.primaryKeyValue)
+                                  .where('deleted', false)
                          }, '>', 0)
                 }, '>', 0)
                 .with('comment', (builder) => {
@@ -317,13 +420,19 @@ class UserDashboard {
 
         let offset = ((new Date()).getTimezoneOffset()) * 60 * 1000
         if (typeof(start_timestamp) === 'number') {
-          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) >= ?`, [start_timestamp])
+          //query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset} ) >= ?`, [start_timestamp])
+          
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ) >= ?`, [start_timestamp])
         }
 
         if (typeof(end_timestamp) === 'number') {
           //query.where('EXTRACT(EPOCH FROM created_at)', '<=', end_timestamp)
-          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) <= ?`, [end_timestamp])
+          
+          //query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) <= ?`, [end_timestamp])
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000) <= ?`, [end_timestamp])
         }
+
+        DatabaseHelper.consoleSQL(query)
 
         let result = await query.fetch()
         return result.toJSON()

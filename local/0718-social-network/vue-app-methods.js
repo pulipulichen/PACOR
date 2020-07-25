@@ -14,10 +14,11 @@ var appMethods = {
     })
     
     this.sigmaInstance.settings({
+      autoResize: false,
       labelThreshold : 0,
       sideMargin: 1,
       minArrowSize: 10,
-      minEdgeSize: 1,
+      minEdgeSize: 3,
       minNodeSize: 3,
       maxNodeSize: 20,
       maxEdgeSize: 10,

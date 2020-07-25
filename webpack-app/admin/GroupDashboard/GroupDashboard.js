@@ -141,6 +141,7 @@ let GroupDashboard = {
           
           let dragListener = sigma.plugins.dragNodes(s, s.renderers[0])
           
+          /*
           s.toSVG({
             labels: true,
             classes: false,
@@ -148,6 +149,7 @@ let GroupDashboard = {
             download: true,
             filename: 'hello.svg'
           });
+          */
         }, 1000)
         //console.log(socialNetwork.nodes)
         //console.log('畫完了...?' + i)

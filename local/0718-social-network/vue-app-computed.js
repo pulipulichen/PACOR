@@ -24,11 +24,11 @@ var appComputed = {
     let edges = []
     
     let toList
-    this.inputTextareaEdge.trim().split("\n").forEach((line, i) => {
+    this.inputTextareaEdge.split("\n").forEach((line, i) => {
       let parts = line.split("\t")
       
       if (i === 0) {
-        toList = parts.slice(0)
+        toList = parts.slice(1)
         //console.log(toList)
       }
       else {
@@ -54,7 +54,7 @@ var appComputed = {
       }
     })
     
-    console.log(edges)
+    //console.log(edges)
     
     return edges
   }

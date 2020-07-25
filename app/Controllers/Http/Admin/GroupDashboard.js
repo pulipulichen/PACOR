@@ -173,46 +173,15 @@ class GroupDashboard {
         
         // -------------------------------
         
-        let interactTo = {}
-        
-        // -------------------------------
-        
-        let comments = await user.getComments(webpage, startTimestamp, endTimestamp)
-        
-        Object.keys(comments).forEach(targetID => {
-          let comment = comments[targetID]
-          if (typeof(interactTo[comment.name]) !== 'number') {
-            interactTo[comment.name] = 0
-          }
-          
-          interactTo[comment.name] = interactTo[comment.name] + comment.count
-        })
-        
-        // -------------------------------
-        
-        let rates = await user.getRates(webpage, startTimestamp, endTimestamp)
-        
-        //console.log(JSON.stringify(rates, null, '\t'))
-        
-        Object.keys(rates).forEach(anchor => {
-          Object.keys(rates[anchor]).forEach(type => {
-            Object.keys(rates[anchor][type]).forEach(targetID => {
-              let rate = rates[anchor][type][targetID]
-              if (typeof(interactTo[rate.name]) !== 'number') {
-                interactTo[rate.name] = 0
-              }
-              interactTo[rate.name] = interactTo[rate.name] + rate.count
-            })
-          })
-        })
-        
+        let interactTo = await user.getInteracts(webpage, startTimestamp, endTimestamp)
+        //console.log(interactTo)
         // -------------------------------
         
         Object.keys(interactTo).forEach(target => {
           edges.push({
             source: display_name,
-            target,
-            size: interactTo[target]
+            target: interactTo[target].name,
+            size: interactTo[target].count
           })
         })
         
@@ -315,9 +284,47 @@ class GroupDashboard {
         data[header + 'nodes'] = sn.nodes
       }
       if (sn.edges.length > 0) {
-        data[header + 'edges'] = sn.edges
+        data[header + 'edges'] = this._buildEdgeArray(sn.nodes, sn.edges)
       }
     })
+  }
+  
+  _buildEdgeArray (nodes, edges) {
+    let nodeList = nodes.map(({id}) => id)
+    
+    // -----------------
+    
+    let data = {}
+    nodeList.forEach(s => {
+      data[s] = {}
+      nodeList.forEach(t => {
+        data[s][t] = 0
+      })
+    })
+    
+    
+    // --------------
+    edges.forEach(({source, target, size}) => {
+      data[source][target] = size
+    })
+    
+    // --------------
+    
+    let lines = []
+    
+    nodeList.forEach(s => {
+      let line = {
+        id: s
+      }
+      
+      nodeList.forEach(t => {
+        line[t] = data[s][t]
+      })
+      
+      lines.push(line)
+    })
+    
+    return lines
   }
   
   async _buildSheetAnnotations (webpage, users) {
