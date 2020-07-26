@@ -221,7 +221,7 @@ class UserDashboard {
         // ------------------------------------------
         
         let annotationRates = await this.getAnnotationRatesInStep(webpage, start_timestamp, end_timestamp)
-        console.log(annotationRates)
+        //console.log(annotationRates)
         annotationRates.forEach((rate) => {
           let user = rate.annotation.user
           let annotationID = rate.annotation.id
@@ -377,6 +377,12 @@ class UserDashboard {
                 //.where('webpage_id', webpage.primaryKeyValue)
 
         let offset = ((new Date()).getTimezoneOffset()) * 60 * 1000
+        //console.log(start_timestamp)
+        if (start_timestamp < 1588077090978) {
+          // 對應程式錯誤 #507
+          offset = ''
+        }
+        
         if (typeof(start_timestamp) === 'number') {
           query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) >= ?`, [start_timestamp])
           //query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000) >= ?`, [start_timestamp])
@@ -385,7 +391,7 @@ class UserDashboard {
         if (typeof(end_timestamp) === 'number') {
           //query.where('EXTRACT(EPOCH FROM created_at)', '<=', end_timestamp)
           query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) <= ?`, [end_timestamp])
-          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000) <= ?`, [end_timestamp])
+          //query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000) <= ?`, [end_timestamp])
         }
 
         //DatabaseHelper.consoleSQL(query)
@@ -419,20 +425,25 @@ class UserDashboard {
                 //.where('webpage_id', webpage.primaryKeyValue)
 
         let offset = ((new Date()).getTimezoneOffset()) * 60 * 1000
+        //console.log(start_timestamp)
+        if (start_timestamp < 1588077090978) {
+          // 對應程式錯誤 #507
+          offset = ''
+        }
+        
         if (typeof(start_timestamp) === 'number') {
-          //query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset} ) >= ?`, [start_timestamp])
-          
-          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ) >= ?`, [start_timestamp])
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset} ) >= ?`, [start_timestamp])
+          //query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ) >= ?`, [start_timestamp])
         }
 
         if (typeof(end_timestamp) === 'number') {
           //query.where('EXTRACT(EPOCH FROM created_at)', '<=', end_timestamp)
           
-          //query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) <= ?`, [end_timestamp])
-          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000) <= ?`, [end_timestamp])
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) <= ?`, [end_timestamp])
+          //query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000) <= ?`, [end_timestamp])
         }
 
-        DatabaseHelper.consoleSQL(query)
+        //DatabaseHelper.consoleSQL(query)
 
         let result = await query.fetch()
         return result.toJSON()
