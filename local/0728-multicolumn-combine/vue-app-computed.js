@@ -8,7 +8,11 @@ var appComputed = {
     
     for (let c = 0; c < columnCount; c++) {
       for (let r = 0; r < cells.length; r++) {
-        output.push(cells[r][c])
+        let cell = cells[r][c]
+        if (cell === '') {
+          cell = '-'
+        }
+        output.push(cell)
       }
     }
     
