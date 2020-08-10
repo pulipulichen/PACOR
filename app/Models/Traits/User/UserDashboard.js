@@ -376,21 +376,22 @@ class UserDashboard {
                 
                 //.where('webpage_id', webpage.primaryKeyValue)
 
-        let offset = ((new Date()).getTimezoneOffset()) * 60 * 1000
+        let startOffset = ((new Date()).getTimezoneOffset()) * 60 * 1000
+        let endOffset = startOffset
         //console.log(start_timestamp)
         if (start_timestamp < 1588077090978) {
           // 對應程式錯誤 #507
-          offset = ''
+          startOffset = ''
         }
         
         if (typeof(start_timestamp) === 'number') {
-          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) >= ?`, [start_timestamp])
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${startOffset}) >= ?`, [start_timestamp])
           //query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000) >= ?`, [start_timestamp])
         }
 
         if (typeof(end_timestamp) === 'number') {
           //query.where('EXTRACT(EPOCH FROM created_at)', '<=', end_timestamp)
-          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) <= ?`, [end_timestamp])
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${endOffset}) <= ?`, [end_timestamp])
           //query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000) <= ?`, [end_timestamp])
         }
 
@@ -424,22 +425,27 @@ class UserDashboard {
                 //.select('EXTRACT(EPOCH FROM created_at) as created_at_unixms')
                 //.where('webpage_id', webpage.primaryKeyValue)
 
-        let offset = ((new Date()).getTimezoneOffset()) * 60 * 1000
+        let startOffset = ((new Date()).getTimezoneOffset()) * 60 * 1000
+        let endOffset = startOffset
         //console.log(start_timestamp)
         if (start_timestamp < 1588077090978) {
           // 對應程式錯誤 #507
-          offset = ''
+          startOffset = ''
+          //endOffset = ''
         }
+        //offset = offset * -1
+        //offset = '+' + offset
+        //console.log(this.display_name, startOffset, endOffset)
         
         if (typeof(start_timestamp) === 'number') {
-          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset} ) >= ?`, [start_timestamp])
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${startOffset} ) >= ?`, [start_timestamp])
           //query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ) >= ?`, [start_timestamp])
         }
 
         if (typeof(end_timestamp) === 'number') {
           //query.where('EXTRACT(EPOCH FROM created_at)', '<=', end_timestamp)
           
-          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${offset}) <= ?`, [end_timestamp])
+          query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000 ${endOffset}) <= ?`, [end_timestamp])
           //query.whereRaw(`(EXTRACT(EPOCH FROM created_at) * 1000) <= ?`, [end_timestamp])
         }
 

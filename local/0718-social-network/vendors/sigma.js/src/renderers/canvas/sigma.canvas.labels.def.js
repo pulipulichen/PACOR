@@ -45,16 +45,23 @@
     
     //console.log(node.label, labelPosition)
     
+    // 7 8 9
+    // 4 5 6
+    // 1 2 3
+    
     if (labelPosition === 9 
             || labelPosition === 6
             || labelPosition === 3) {
-      labelX = Math.round(node[prefix + 'x'] + size + 3)
+      labelX = Math.round(node[prefix + 'x'] + size * 1.5)
     }
     
     if (labelPosition === 7
-            || labelPosition === 4
-            || labelPosition === 1) {
-      labelX = Math.round(node[prefix + 'x'] - (size * 3.5))
+            || labelPosition === 4) {
+      labelX = Math.round(node[prefix + 'x'] - (size * 3.5) - (node.label.length * fontSize / 4))
+    }
+    
+    if (labelPosition === 1) {
+      labelX = Math.round(node[prefix + 'x'] - (size * 3.5) - (node.label.length * fontSize / 1.7))
     }
     
     if (labelPosition === 7
@@ -66,7 +73,7 @@
     if (labelPosition === 1
             || labelPosition === 2
             || labelPosition === 3) {
-      labelY = Math.round(node[prefix + 'y'] + (fontSize * 1.5))
+      labelY = Math.round(node[prefix + 'y'] + (fontSize * 2))
     }
     
     context.strokeStyle = '#FFF'
