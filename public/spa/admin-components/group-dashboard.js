@@ -596,6 +596,7 @@ let GroupDashboard = {
     reset: function () {
       this.group.socialNetworks = []
       this.group.users = []
+      this.groupIndicators = {}
     },
     nodesTable: function (nodes) {
       let lines = [

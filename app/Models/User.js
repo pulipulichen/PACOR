@@ -66,6 +66,7 @@ class User extends Model {
     this.addTrait('User/UserReadingActivityLog')
     this.addTrait('User/UserDashboard')
     this.addTrait('User/UserExport')
+    this.addTrait('User/UserIndicatorAnnotation')
     
   } // static boot () {
   

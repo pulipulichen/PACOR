@@ -212,6 +212,19 @@ class WebpageGroupUserFilter {
       return users
     }
     
+    Model.prototype.getUsersIDList = async function (onlyCompleted = false) {
+      if (onlyCompleted === true) {
+        return await this.getCompletedUsersIDList()
+      }
+      else {
+        let users = await this.users().fetch()
+        let usersJSON = users.toJSON()
+        let usersIDList = usersJSON.map(user => user.id)
+        return usersIDList
+      }
+    }
+    
+    
   } // register (Model) {
 }
 

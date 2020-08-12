@@ -279,6 +279,27 @@ class UserReadingProgressConfig {
       return log
     } // Model.prototype.getReadingProgressLog = async function (webpage) {
     
+    Model.prototype.getReadingProgressTimestamp = async function (webpage, stepName) {
+      let cacheKey = Cache.key('User.getReadingProgressTimestamp', stepName)
+      
+      return await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        let step = await this.getReadingProgress(webpage, stepName)
+        
+        let startTimestamp, endTimestamp
+        if (isNaN(step.start_timestamp) === false) {
+          startTimestamp = Number(step.start_timestamp)
+        }
+        if (isNaN(step.end_timestamp) === false) {
+          endTimestamp = Number(step.end_timestamp)
+        }
+        
+        return {
+          startTimestamp,
+          endTimestamp
+        }
+      })
+    }
+    
     Model.prototype.getCurrentReadingProgressStepStartTime = async function (webpage) {
       let step = await this.getCurrentReadingProgressStep(webpage)
       //console.log(step)
