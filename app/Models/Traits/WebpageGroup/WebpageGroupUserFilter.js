@@ -224,7 +224,27 @@ class WebpageGroupUserFilter {
       }
     }
     
-    
+    Model.prototype.getUsersDisplayName = async function (onlyCompleted = false) {
+      let cacheKey = Cache.key('getUsersDisplayName', onlyCompleted)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        let displayNames = []
+        
+        let users = await UserModel.query()
+                .whereIn('id', usersIDList)
+                .orderBy('display_name')
+                .orderBy('username')
+                .fetch()
+        for (let i = 0; i < users.size(); i++) {
+          let user = users.nth(i)
+          let displayName = user.display_name
+          displayNames.push(displayName)
+        }
+        
+        displayNames.sort()
+        return displayNames
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    }
   } // register (Model) {
 }
 

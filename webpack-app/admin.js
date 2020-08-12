@@ -23,6 +23,7 @@ import StringHelper from './helpers/StringHelper'
 import ValidateHelper from './helpers/ValidateHelper'
 import VueHelper from './helpers/VueHelper'
 import URLHelper from './helpers/URLHelper'
+import ClipboardHelper from './helpers/ClipboardHelper'
 
 // --------------------
 // Components
@@ -87,6 +88,7 @@ let VueController = {
       ValidateHelper: ValidateHelper,
       VueHelper: VueHelper,
       URLHelper: URLHelper,
+      ClipboardHelper: ClipboardHelper,
       //toc: TOCHelper,
     },
     //view: 'Loading',

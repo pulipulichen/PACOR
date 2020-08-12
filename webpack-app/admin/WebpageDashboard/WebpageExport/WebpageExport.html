@@ -8,10 +8,30 @@
   </WepbageDashboardSubHeader>
 
   <form class="ui form">
-    <a class="ui fluid button"
-       v-bind:href="exportAllData">
-      <i class="download icon"></i>
-      {{ $t('Export all data') }}
-    </a>
+    <div class="field">
+      <a class="ui fluid button"
+         v-bind:href="exportAllData">
+        <i class="download icon"></i>
+        {{ $t('Export all data') }}
+      </a>
+    </div>
+
+    <div class="field">
+
+      <div class="ui fluid buttons">
+        <a class="ui button"
+           v-on:click="loadGroupIndicators">
+          <i class="redo icon"></i>
+          {{ $t('Reload') }}
+        </a>
+        <a class="ui button"
+           v-on:click="copyGroupIndicatorsTSV">
+          <i class="copy icon"></i>
+          {{ $t('Copy') }}
+        </a>
+      </div>
+        
+      <textarea v-model="groupIndicatorsTSV"></textarea>
+    </div>
   </form>
 </div>

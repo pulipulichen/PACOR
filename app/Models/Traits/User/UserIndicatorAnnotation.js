@@ -52,7 +52,7 @@ class getAnnotationIndicator {
         if (options.stepName) {
           let {startTimestamp, endTimestamp} = await this.getReadingProgressTimestamp(webpage, options.stepName)
           
-          console.log(startTimestamp, endTimestamp)
+          //console.log(startTimestamp, endTimestamp)
           
           if (typeof(startTimestamp) === 'number') {
             query.where('created_at_unixms', '>=', startTimestamp)

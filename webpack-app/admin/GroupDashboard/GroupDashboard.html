@@ -102,6 +102,11 @@
     </table>
     
     <form class="ui form">
+      <a class="ui fluid button"
+          v-on:click="lib.ClipboardHelper.copy(groupIndicatorsTSV)">
+         <i class="copy icon"></i>
+         {{ $t('Copy') }}
+       </a>
       <textarea v-model="groupIndicatorsTSV"></textarea>
     </form>
   </div>

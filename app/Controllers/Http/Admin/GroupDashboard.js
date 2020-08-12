@@ -237,10 +237,7 @@ class GroupDashboard {
       userFilter: dashboardFilterMode
     }
     
-    return {
-      //'test': 'ok',
-      'clamDegree': await group.calcClamDegree(options)
-    }
+    return await group.calcIndicators(options)
   }
   
   async exportGroupData ({request, response, auth}) {

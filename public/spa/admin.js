@@ -7209,12 +7209,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./helpers/ValidateHelper */ "./webpack-app/helpers/ValidateHelper.js");
 /* harmony import */ var _helpers_VueHelper__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./helpers/VueHelper */ "./webpack-app/helpers/VueHelper.js");
 /* harmony import */ var _helpers_URLHelper__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./helpers/URLHelper */ "./webpack-app/helpers/URLHelper.js");
-/* harmony import */ var _admin_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin/Auth/Auth.vue */ "./webpack-app/admin/Auth/Auth.vue");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./admin/admin.tpl */ "./webpack-app/admin/admin.tpl");
-/* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_admin_admin_tpl__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
+/* harmony import */ var _helpers_ClipboardHelper__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./helpers/ClipboardHelper */ "./webpack-app/helpers/ClipboardHelper.js");
+/* harmony import */ var _admin_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./admin/Auth/Auth.vue */ "./webpack-app/admin/Auth/Auth.vue");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./admin/admin.tpl */ "./webpack-app/admin/admin.tpl");
+/* harmony import */ var _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_admin_admin_tpl__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./config.js */ "./webpack-app/config.js");
 
 
 // ----------------------------------
@@ -7241,6 +7242,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 // --------------------
 // Components
 
@@ -7256,8 +7258,8 @@ __webpack_require__.r(__webpack_exports__);
 // 確認 baseURL
 
 let baseURL = ''
-let baseScript = jquery__WEBPACK_IMPORTED_MODULE_13___default()(document.currentScript)
-_config_js__WEBPACK_IMPORTED_MODULE_15__["default"].baseURL = baseURL
+let baseScript = jquery__WEBPACK_IMPORTED_MODULE_14___default()(document.currentScript)
+_config_js__WEBPACK_IMPORTED_MODULE_16__["default"].baseURL = baseURL
 baseScript.before(`<div id="app"></div>`)
 
 // ---------------
@@ -7280,7 +7282,7 @@ let VueController = {
   data: {
 //    message: 'Hello, world.', // for test
     users: [],
-    config: _config_js__WEBPACK_IMPORTED_MODULE_15__["default"],
+    config: _config_js__WEBPACK_IMPORTED_MODULE_16__["default"],
     status: {
       role: '',
       username: '',
@@ -7304,6 +7306,7 @@ let VueController = {
       ValidateHelper: _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_9__["default"],
       VueHelper: _helpers_VueHelper__WEBPACK_IMPORTED_MODULE_10__["default"],
       URLHelper: _helpers_URLHelper__WEBPACK_IMPORTED_MODULE_11__["default"],
+      ClipboardHelper: _helpers_ClipboardHelper__WEBPACK_IMPORTED_MODULE_17__["default"],
       //toc: TOCHelper,
     },
     //view: 'Loading',
@@ -7383,13 +7386,13 @@ let VueController = {
   el: '#app',
   i18n: _plugins_i18n__WEBPACK_IMPORTED_MODULE_3__["default"],
   
-  template: _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_14___default.a,
+  template: _admin_admin_tpl__WEBPACK_IMPORTED_MODULE_15___default.a,
   router: _admin_routes__WEBPACK_IMPORTED_MODULE_6__["default"],
   components: _admin_local_components__WEBPACK_IMPORTED_MODULE_5__["default"],
 }
 
 if (typeof(baseURL) === 'string') {
-  jquery__WEBPACK_IMPORTED_MODULE_13___default()(() => {
+  jquery__WEBPACK_IMPORTED_MODULE_14___default()(() => {
     new vue__WEBPACK_IMPORTED_MODULE_0__["default"](VueController)
   })
 }
@@ -14407,6 +14410,35 @@ let AxiosHelper = {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (AxiosHelper);
+
+/***/ }),
+
+/***/ "./webpack-app/helpers/ClipboardHelper.js":
+/*!************************************************!*\
+  !*** ./webpack-app/helpers/ClipboardHelper.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let ClipboardHelper = {
+  /**
+   * https://www.30secondsofcode.org/blog/s/copy-text-to-clipboard-with-javascript
+   * @param {type} str
+   * @returns {undefined}
+   */
+  copy: function (str) {
+    const el = document.createElement('textarea');
+    el.value = str;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+  },
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (ClipboardHelper);
 
 /***/ }),
 

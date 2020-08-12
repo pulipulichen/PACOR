@@ -1,6 +1,5 @@
 en:
-  TEST_MESSAGE: Test Message
   
 zh-TW:
-  # 這是註解
-  TEST_MESSAGE: 測試訊息
+  Webpage Export: 網頁資料匯出
+  Export all data: 匯出所有資料

@@ -15143,8 +15143,9 @@ let i18nGlobal = {
     
     'Export': '匯出',
     'Configuration': '設定',
-    'Indicators': '指標'
-
+    'Indicators': '指標',
+    'Reload': '重新載入',
+    'Copy': '複製'
   }
 }
 

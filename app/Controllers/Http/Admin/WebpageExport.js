@@ -15,7 +15,7 @@ const SpreadsheetHelper = use('App/Helpers/SpreadsheetHelper')
 class WebpageExport {
   
   async allData ({request, response, auth}) {
-    let { webpageID, ideaUnits } = request.all()
+    let { webpageID } = request.all()
     
     let webpage = await WebpageModel.find(webpageID)
     
@@ -138,6 +138,26 @@ class WebpageExport {
     }) 
     //console.log(users)
     return output
+  }
+  
+  async groupIndicators ({request, response, auth}) {
+    let { webpageID } = request.all()
+    
+    let webpage = await WebpageModel.find(webpageID)
+    let groups = await webpage.groups().fetch()
+    
+    let options = {
+      userFilter: 'onlyCompleted'
+    }
+    
+    let indicators = []
+    for (let i = 0; i < groups.size(); i++) {
+      let group = groups.nth(i)
+      let indicator = await group.calcIndicators(options)
+      indicators.push(indicator)
+    }
+    
+    return indicators
   }
 }
 

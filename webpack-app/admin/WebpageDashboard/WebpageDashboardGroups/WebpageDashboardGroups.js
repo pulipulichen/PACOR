@@ -9,9 +9,9 @@ let WebpageDashboardGroups = {
       notInGroup: { users: [] }
     }
   },
-  components: {
-    //'reader-card': ReaderCard
-  },
+//  components: {
+//    //'reader-card': ReaderCard
+//  },
   computed: {
     users () {
       let users = []
@@ -51,8 +51,8 @@ let WebpageDashboardGroups = {
       return users
     }
   },
-  watch: {
-  },
+//  watch: {
+//  },
   mounted() {
     this.initGroups()
   },

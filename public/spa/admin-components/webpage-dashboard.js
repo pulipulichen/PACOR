@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Article Analysis":"文本分析"}}')
   delete Component.options._Ctor
 }
 
@@ -73,7 +73,7 @@ module.exports = function (Component) {
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":{"TEST_MESSAGE":"Test Message"},"zh-TW":{"TEST_MESSAGE":"測試訊息"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Webpage Export":"網頁資料匯出","Export all data":"匯出所有資料"}}')
   delete Component.options._Ctor
 }
 
@@ -133,7 +133,7 @@ exports.push([module.i, ".header h2[data-v-3efc5eba],\n.header h3[data-v-3efc5eb
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, "h4[data-v-00c08e2d] {\n  margin-top: 1rem !important;\n}\n.users-table[data-v-00c08e2d] {\n  max-height: 80vh;\n  min-height: 10rem;\n  overflow-y: auto;\n}\n.users-table .username[data-v-00c08e2d] {\n  cursor: pointer;\n}\n.group-dashboard-link[data-v-00c08e2d] {\n  margin-left: 1rem !important;\n}\n/*\n.ui.cards {\n  border-bottom: 1px dotted gray;\n  margin-bottom: 0.5rem;\n  \n  &:not(:last-of-type) {\n    border-bottom-width: 0;\n    margin-bottom: 0;\n  }\n}\n*/\n", "",{"version":3,"sources":["WebpageDashboardGroups.less?vue&type=style&index=0&id=00c08e2d&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,2BAA2B;AAC7B;AACA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,gBAAgB;AAClB;AACA;EACE,eAAe;AACjB;AACA;EACE,4BAA4B;AAC9B;AACA;;;;;;;;;;CAUC","file":"WebpageDashboardGroups.less?vue&type=style&index=0&id=00c08e2d&lang=less&scoped=true&","sourcesContent":["h4[data-v-00c08e2d] {\n  margin-top: 1rem !important;\n}\n.users-table[data-v-00c08e2d] {\n  max-height: 80vh;\n  min-height: 10rem;\n  overflow-y: auto;\n}\n.users-table .username[data-v-00c08e2d] {\n  cursor: pointer;\n}\n.group-dashboard-link[data-v-00c08e2d] {\n  margin-left: 1rem !important;\n}\n/*\n.ui.cards {\n  border-bottom: 1px dotted gray;\n  margin-bottom: 0.5rem;\n  \n  &:not(:last-of-type) {\n    border-bottom-width: 0;\n    margin-bottom: 0;\n  }\n}\n*/\n"]}]);
+exports.push([module.i, "h4[data-v-00c08e2d] {\n  margin-top: 1rem !important;\n  display: inline-block;\n}\n.users-table[data-v-00c08e2d] {\n  max-height: 80vh;\n  min-height: 10rem;\n  overflow-y: auto;\n}\n.users-table .username[data-v-00c08e2d] {\n  cursor: pointer;\n}\n.group-dashboard-link[data-v-00c08e2d] {\n  margin-left: 1rem !important;\n}\n/*\n.ui.cards {\n  border-bottom: 1px dotted gray;\n  margin-bottom: 0.5rem;\n  \n  &:not(:last-of-type) {\n    border-bottom-width: 0;\n    margin-bottom: 0;\n  }\n}\n*/\n", "",{"version":3,"sources":["WebpageDashboardGroups.less?vue&type=style&index=0&id=00c08e2d&lang=less&scoped=true&"],"names":[],"mappings":"AAAA;EACE,2BAA2B;EAC3B,qBAAqB;AACvB;AACA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,gBAAgB;AAClB;AACA;EACE,eAAe;AACjB;AACA;EACE,4BAA4B;AAC9B;AACA;;;;;;;;;;CAUC","file":"WebpageDashboardGroups.less?vue&type=style&index=0&id=00c08e2d&lang=less&scoped=true&","sourcesContent":["h4[data-v-00c08e2d] {\n  margin-top: 1rem !important;\n  display: inline-block;\n}\n.users-table[data-v-00c08e2d] {\n  max-height: 80vh;\n  min-height: 10rem;\n  overflow-y: auto;\n}\n.users-table .username[data-v-00c08e2d] {\n  cursor: pointer;\n}\n.group-dashboard-link[data-v-00c08e2d] {\n  margin-left: 1rem !important;\n}\n/*\n.ui.cards {\n  border-bottom: 1px dotted gray;\n  margin-bottom: 0.5rem;\n  \n  &:not(:last-of-type) {\n    border-bottom-width: 0;\n    margin-bottom: 0;\n  }\n}\n*/\n"]}]);
 
 
 /***/ }),
@@ -478,6 +478,7 @@ var render = function() {
           _c(
             "h4",
             {
+              staticClass: "dashboard-group-header",
               attrs: {
                 id: _vm.attrHeaderID(
                   "dashboard-group" + (group.group_seq_id + 1)
@@ -493,37 +494,33 @@ var render = function() {
                     _vm._s(group.group_seq_id + 1) +
                     "\r\n      "
                 )
-              ]),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "ui inline button group-dashboard-link",
-                  attrs: { href: _vm.groupDashboardLink(group.group_seq_id) }
-                },
-                [
-                  _vm._v(
-                    "\r\n       " +
-                      _vm._s(_vm.$t("Group Dashboard")) +
-                      "\r\n    "
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "ui inline button group-dashboard-link",
-                  attrs: { href: _vm.groupExportLink(group.group_seq_id) }
-                },
-                [
-                  _c("i", { staticClass: "download icon" }),
-                  _vm._v(
-                    "\r\n      " +
-                      _vm._s(_vm.$t("Export Group Data")) +
-                      "\r\n    "
-                  )
-                ]
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "ui inline button group-dashboard-link",
+              attrs: { href: _vm.groupDashboardLink(group.group_seq_id) }
+            },
+            [
+              _vm._v(
+                "\r\n       " + _vm._s(_vm.$t("Group Dashboard")) + "\r\n    "
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "ui inline button group-dashboard-link",
+              attrs: { href: _vm.groupExportLink(group.group_seq_id) }
+            },
+            [
+              _c("i", { staticClass: "download icon" }),
+              _vm._v(
+                "\r\n      " + _vm._s(_vm.$t("Export Group Data")) + "\r\n    "
               )
             ]
           ),
@@ -786,19 +783,75 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("form", { staticClass: "ui form" }, [
-        _c(
-          "a",
-          {
-            staticClass: "ui fluid button",
-            attrs: { href: _vm.exportAllData }
-          },
-          [
-            _c("i", { staticClass: "download icon" }),
-            _vm._v(
-              "\r\n      " + _vm._s(_vm.$t("Export all data")) + "\r\n    "
+        _c("div", { staticClass: "field" }, [
+          _c(
+            "a",
+            {
+              staticClass: "ui fluid button",
+              attrs: { href: _vm.exportAllData }
+            },
+            [
+              _c("i", { staticClass: "download icon" }),
+              _vm._v(
+                "\r\n        " +
+                  _vm._s(_vm.$t("Export all data")) +
+                  "\r\n      "
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "field" }, [
+          _c("div", { staticClass: "ui fluid buttons" }, [
+            _c(
+              "a",
+              {
+                staticClass: "ui button",
+                on: { click: _vm.loadGroupIndicators }
+              },
+              [
+                _c("i", { staticClass: "redo icon" }),
+                _vm._v(
+                  "\r\n          " + _vm._s(_vm.$t("Reload")) + "\r\n        "
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "ui button",
+                on: { click: _vm.copyGroupIndicatorsTSV }
+              },
+              [
+                _c("i", { staticClass: "copy icon" }),
+                _vm._v(
+                  "\r\n          " + _vm._s(_vm.$t("Copy")) + "\r\n        "
+                )
+              ]
             )
-          ]
-        )
+          ]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.groupIndicatorsTSV,
+                expression: "groupIndicatorsTSV"
+              }
+            ],
+            domProps: { value: _vm.groupIndicatorsTSV },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.groupIndicatorsTSV = $event.target.value
+              }
+            }
+          })
+        ])
       ])
     ],
     1
@@ -1372,9 +1425,9 @@ let WebpageDashboardGroups = {
       notInGroup: { users: [] }
     }
   },
-  components: {
-    //'reader-card': ReaderCard
-  },
+//  components: {
+//    //'reader-card': ReaderCard
+//  },
   computed: {
     users () {
       let users = []
@@ -1414,8 +1467,8 @@ let WebpageDashboardGroups = {
       return users
     }
   },
-  watch: {
-  },
+//  watch: {
+//  },
   mounted() {
     this.initGroups()
   },
@@ -1740,6 +1793,7 @@ let WebpageExport = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
+      groupIndicators: []
     }
   },
   components: {
@@ -1748,16 +1802,62 @@ let WebpageExport = {
   computed: {
     exportAllData () {
       return '/admin/WebpageExport/allData?webpageID=' + this.$route.params.webpageID
+    },
+    groupIndicatorsTSV () {
+      let keys = []
+      
+      this.groupIndicators.forEach(group => {
+        let groupKeys = Object.keys(group)
+        
+        groupKeys.forEach(key => {
+          if (keys.indexOf(key) === -1) {
+            keys.push(key)
+          }
+        })
+      })
+      
+      // --------------------------------
+      
+      let lines = [
+        keys.join('\t')
+      ]
+      
+      this.groupIndicators.forEach(group => {
+        let line = keys.map(key => {
+          return group[key]
+        }).join('\t')
+        lines.push(line)
+      })
+      
+      return lines.join('\n')
+      //return ''
     }
   },
-  watch: {
-  },
+//  watch: {
+//  },
   mounted() {
+    this.loadGroupIndicators()
   },
   methods: {
     attrHeaderID: function (anchor) {
       return '/webpage-dashboard/' + this.$route.params.webpageID + '/' + anchor
     },
+    loadGroupIndicators: async function () {
+      this.groupIndicators = []
+      
+      let data = {
+        webpageID: this.$route.params.webpageID
+      }
+      
+      let result = await this.lib.AxiosHelper.get('/admin/WebpageExport/groupIndicators', data)
+      //console.log(result)
+      if (Array.isArray(result)) {
+        this.groupIndicators = result
+      }
+    },
+    copyGroupIndicatorsTSV () {
+      this.lib.ClipboardHelper.copy(this.groupIndicatorsTSV)
+    }
   } // methods
 }
 
