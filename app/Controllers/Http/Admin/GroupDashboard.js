@@ -52,7 +52,8 @@ class GroupDashboard {
   async _getGroupReaderCard (webpage, groupID) {
     let output = []
     let group = await webpage.getGroup(groupID)
-    let users = await group.users().fetch()
+    //let users = await group.users().fetch()
+    let users = await group.getCompletedUsers()
     let usersJSON = users.toJSON()
     for (let u = 0; u < usersJSON.length; u++) {
       let user = users.nth(u)

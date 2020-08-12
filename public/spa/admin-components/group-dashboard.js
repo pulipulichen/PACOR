@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Group Members":"小組成員","Group Dashboard":"小組儀表板","Collaborative Reading Times":"協助閱讀時間","Social Networks":"互動分析","Period":"時期","Graphs":"互動圖","Social Networks Data":"互動資料","Social Networks Graph":"互動圖","Export Group Data":"匯出小組資料","Export":"匯出"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Group Members":"小組成員","Group Dashboard":"小組儀表板","Collaborative Reading Times":"協助閱讀時間","Social Networks":"互動分析","Period":"時期","Graphs":"互動圖","Social Networks Data":"互動資料","Social Networks Graph":"互動圖","Export Group Data":"匯出小組資料","Dashboard Mode":"儀表板設定"}}')
   delete Component.options._Ctor
 }
 
@@ -127,6 +127,72 @@ var render = function() {
         ref: "toc",
         attrs: { config: _vm.config, lib: _vm.lib, headings: "h3, h4" }
       }),
+      _vm._v(" "),
+      _c("div", { staticClass: "ui segment" }, [
+        _c("h3", { attrs: { id: _vm.attrHeaderID("configuration") } }, [
+          _vm._v("\r\n      " + _vm._s(_vm.$t("Configuration")) + "\r\n    ")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "ui form" }, [
+          _c("div", { staticClass: "grouped fields" }, [
+            _c("label", [_vm._v(_vm._s(_vm.$t("Dashboard Mode")))]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field" }, [
+              _c("div", { staticClass: "ui radio checkbox" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.dashboardFilterMode,
+                      expression: "dashboardFilterMode"
+                    }
+                  ],
+                  attrs: {
+                    type: "radio",
+                    name: "dashboardMode",
+                    value: "onlyCompleted"
+                  },
+                  domProps: {
+                    checked: _vm._q(_vm.dashboardFilterMode, "onlyCompleted")
+                  },
+                  on: {
+                    change: function($event) {
+                      _vm.dashboardFilterMode = "onlyCompleted"
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", [_vm._v(_vm._s(_vm.$t("Only Completed")))])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field" }, [
+              _c("div", { staticClass: "ui radio checkbox" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.dashboardFilterMode,
+                      expression: "dashboardFilterMode"
+                    }
+                  ],
+                  attrs: { type: "radio", name: "dashboardMode", value: "all" },
+                  domProps: { checked: _vm._q(_vm.dashboardFilterMode, "all") },
+                  on: {
+                    change: function($event) {
+                      _vm.dashboardFilterMode = "all"
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", [_vm._v(_vm._s(_vm.$t("All")))])
+              ])
+            ])
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "ui segment" }, [
         _c("h3", { attrs: { id: _vm.attrHeaderID("groupMembers") } }, [
@@ -367,7 +433,8 @@ let GroupDashboard = {
         group_seq_id: null,
         socialNetworks: [],
         users: []
-      }
+      },
+      dashboardFilterMode: 'onlyCompleted' // 'all' || 'onlyCompleted'
     }
   },
 //  components: {

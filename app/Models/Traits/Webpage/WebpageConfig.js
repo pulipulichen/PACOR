@@ -264,6 +264,16 @@ class WebpageConfig {
       //})  // return await Cache.get(cacheKey, async () => {
     } // Model.prototype.getStepConfig = async function (stepName) {
 
+    Model.prototype.getLastStepName = async function () {
+      let cacheKey = Cache.key('getLastStepName')
+      return await Cache.rememberWait([this, 'Webpage'], cacheKey, async () => {
+        let progresses = await this.getReadingProgresses()
+        if (Array.isArray(progresses) && progresses.length > 0) {
+          return progresses[(progresses.length - 1)]
+        }
+      })
+    }
+
   } // register (Model) {
 }
 

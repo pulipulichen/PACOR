@@ -16,7 +16,7 @@ module.exports = {
   | using this caching library. This store is used when another is
   | not explicitly specified when executing a given caching function.
   |
-  | "object", "database", "redis"
+  | "object", "database", "redis", "null"
   | 
   */
 

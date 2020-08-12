@@ -14,8 +14,8 @@ class WebpageGroupUserFilter {
     Model.getPeerList = async function (webpage, user, options) {
       //throw new Error('getInit')
       
-      //let cacheKey = Cache.key('getInit', options)
-      //return await Cache.rememberWait([webpage, user, 'WebpageGroup'], cacheKey, async () => {
+      let cacheKey = Cache.key('getPeerList', options)
+      return await Cache.rememberWait([webpage, user, 'WebpageGroup'], cacheKey, async () => {
         // 取得這一組裡面的成員
         
         //console.log('getInit', 0)
@@ -113,7 +113,7 @@ class WebpageGroupUserFilter {
         users = users.concat(me)
 
         return users
-      //})  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
     
     let sortAlreadyReaders = async function (webpage, user, readersJSON, readersInstance) {
@@ -184,6 +184,30 @@ class WebpageGroupUserFilter {
       })
       
       //console.log(readersJSON.map(r => r.interactTime))
+    }
+    
+    Model.prototype.getCompletedUsersIDList = async function () {
+      let cacheKey = Cache.key('getCompletedUsersIDList')
+      let webpage = await this.webpage().fetch()
+      return await Cache.rememberWait([webpage, this, 'WebpageGroup'], cacheKey, async () => {
+        let allUsers = await this.users().fetch()
+        let idList = []
+        for (let i = 0; i < allUsers.size(); i++) {
+          let user = allUsers.nth(i)
+          //console.log(user.primaryKeyValue)
+          let isCompleted = await user.isReadingProgressCompleted(webpage)
+          if (isCompleted === true) {
+            idList.push(user.primaryKeyValue)
+          }
+        }
+        return idList
+      })
+    }
+    
+    Model.prototype.getCompletedUsers = async function () {
+      let idList = await this.getCompletedUsersIDList()
+      let users = await UserModel.query().whereIn('id', idList).fetch()
+      return users
     }
     
   } // register (Model) {

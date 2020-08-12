@@ -16,7 +16,8 @@ let GroupDashboard = {
         group_seq_id: null,
         socialNetworks: [],
         users: []
-      }
+      },
+      dashboardFilterMode: 'onlyCompleted' // 'all' || 'onlyCompleted'
     }
   },
 //  components: {

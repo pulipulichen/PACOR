@@ -115,7 +115,10 @@ let i18nGlobal = {
     'Annotation Type Selector': '閱讀策略篩選器',
     
     
-    '{0} users': '{0}人'
+    '{0} users': '{0}人',
+    
+    'Export': '匯出'
+    'Configuration': '設定'
 
   }
 }

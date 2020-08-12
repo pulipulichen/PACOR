@@ -39,6 +39,38 @@
     headings="h3, h4"
     ref='toc'></table-of-contents>
 
+  <!-- ======================================== -->
+  
+  <div class="ui segment">
+    <h3 v-bind:id="attrHeaderID('configuration')">
+      {{ $t("Configuration") }}
+    </h3>
+    
+    <div class="ui form">
+      <div class="grouped fields">
+        <label>{{ $t("Dashboard Mode") }}</label>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" 
+                   name="dashboardMode" 
+                   v-model="dashboardFilterMode"
+                   value="onlyCompleted">
+            <label>{{ $t('Only Completed') }}</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" 
+                   name="dashboardMode" 
+                   v-model="dashboardFilterMode"
+                   value="all">
+            <label>{{ $t('All') }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <div class="ui segment">
     <h3 v-bind:id="attrHeaderID('groupMembers')">
       {{ $t("Group Members") }}

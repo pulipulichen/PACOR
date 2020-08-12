@@ -187,6 +187,14 @@ class UserReadingProgressConfig {
       
     } //  Model.prototype.getReadingProgressStatus = async function (webpage, showDetails) {
     
+    Model.prototype.isReadingProgressCompleted = async function (webpage) {
+      let cacheKey = Cache.key('isReadingProgressFinished')
+      return await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        let step = await this.getCurrentReadingProgressStepName(webpage)
+        return (step === true)
+      })
+    } // Model.prototype.isReadingProgressFinished = async function () {
+    
     Model.prototype.setReadingProgressLog = async function (webpage, log) {
       
       if (typeof(log) !== 'object' || JSON.stringify(log) === '{}') {
