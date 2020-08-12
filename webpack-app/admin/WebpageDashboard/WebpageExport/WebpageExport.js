@@ -14,7 +14,8 @@ let WebpageExport = {
         'nn11 nn20 nn22 nn7',
       ],
       excludeGroups: [
-        'nn23 nn25 nn999'
+        'nn23 nn25 nn999',
+        'sz18 sz23 sz6 sz999'
       ]
     }
   },
