@@ -821,7 +821,13 @@ var render = function() {
               "a",
               {
                 staticClass: "ui button",
-                on: { click: _vm.copyGroupIndicatorsTSV }
+                on: {
+                  click: function($event) {
+                    return _vm.lib.ClipboardHelper.copy(
+                      _vm.groupIndicatorsEMMTSV
+                    )
+                  }
+                }
               },
               [
                 _c("i", { staticClass: "copy icon" }),
@@ -837,17 +843,17 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.groupIndicatorsTSV,
-                expression: "groupIndicatorsTSV"
+                value: _vm.groupIndicatorsEMMTSV,
+                expression: "groupIndicatorsEMMTSV"
               }
             ],
-            domProps: { value: _vm.groupIndicatorsTSV },
+            domProps: { value: _vm.groupIndicatorsEMMTSV },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.groupIndicatorsTSV = $event.target.value
+                _vm.groupIndicatorsEMMTSV = $event.target.value
               }
             }
           })
@@ -1793,7 +1799,17 @@ let WebpageExport = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      groupIndicators: []
+      groupIndicators: [],
+      
+      // 要挑那些組別，請看這裡
+      // https://drive.google.com/drive/u/0/folders/17_P9Lm20Vx2_NA9lbWf4Fw3NeRefYSoe
+      targetGroups: [
+        'nn1 nn12 nn27 nn4 nn9',
+        'nn11 nn20 nn22 nn7',
+      ],
+      excludeGroups: [
+        'nn23 nn25 nn999'
+      ]
     }
   },
   components: {
@@ -1803,7 +1819,7 @@ let WebpageExport = {
     exportAllData () {
       return '/admin/WebpageExport/allData?webpageID=' + this.$route.params.webpageID
     },
-    groupIndicatorsTSV () {
+    groupIndicatorsKeys () {
       let keys = []
       
       this.groupIndicators.forEach(group => {
@@ -1816,6 +1832,11 @@ let WebpageExport = {
         })
       })
       
+      return keys
+    },
+    groupIndicatorsTSV () {
+      let keys = this.groupIndicatorsKeys
+      
       // --------------------------------
       
       let lines = [
@@ -1827,6 +1848,40 @@ let WebpageExport = {
           return group[key]
         }).join('\t')
         lines.push(line)
+      })
+      
+      return lines.join('\n')
+      //return ''
+    },
+    groupIndicatorsEMMTSV () {
+      let keys = ['model'].concat(this.groupIndicatorsKeys)
+      
+      // --------------------------------
+      
+      let lines = [
+        keys.join('\t')
+      ]
+      
+      this.groupIndicators.forEach(group => {
+        if (this.excludeGroups.indexOf(group.users) > -1) {
+          return false
+        }
+        
+        let line = keys.map(key => {
+          return group[key]
+        }).join('\t')
+        lines.push(1 + line)
+      })
+      
+      this.groupIndicators.forEach(group => {
+        if (this.targetGroups.indexOf(group.users) === -1) {
+          return false
+        }
+        
+        let line = keys.map(key => {
+          return group[key]
+        }).join('\t')
+        lines.push(2 + line)
       })
       
       return lines.join('\n')
@@ -1855,9 +1910,6 @@ let WebpageExport = {
         this.groupIndicators = result
       }
     },
-    copyGroupIndicatorsTSV () {
-      this.lib.ClipboardHelper.copy(this.groupIndicatorsTSV)
-    }
   } // methods
 }
 

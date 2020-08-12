@@ -25,13 +25,13 @@
           {{ $t('Reload') }}
         </a>
         <a class="ui button"
-           v-on:click="copyGroupIndicatorsTSV">
+           v-on:click="lib.ClipboardHelper.copy(groupIndicatorsEMMTSV)">
           <i class="copy icon"></i>
           {{ $t('Copy') }}
         </a>
       </div>
         
-      <textarea v-model="groupIndicatorsTSV"></textarea>
+      <textarea v-model="groupIndicatorsEMMTSV"></textarea>
     </div>
   </form>
 </div>
