@@ -117,7 +117,7 @@ let i18nGlobal = {
     
     '{0} users': '{0}人',
     
-    'Export': '匯出'
+    'Export': '匯出',
     'Configuration': '設定'
 
   }

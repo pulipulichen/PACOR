@@ -1,6 +1,6 @@
 module.exports = {
   debug: {
-    flushCache: true,
+    flushCache: false,
     enable: true,
     enableRemoteConosleLog: false,
     tutorialEnableTimeout: true,

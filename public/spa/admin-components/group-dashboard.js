@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Group Members":"小組成員","Group Dashboard":"小組儀表板","Collaborative Reading Times":"協助閱讀時間","Social Networks":"互動分析","Period":"時期","Graphs":"互動圖","Social Networks Data":"互動資料","Social Networks Graph":"互動圖","Export Group Data":"匯出小組資料","Dashboard Mode":"儀表板設定"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Group Members":"小組成員","Group Dashboard":"小組儀表板","Collaborative Reading Times":"協助閱讀時間","Social Networks":"互動分析","Period":"時期","Graphs":"互動圖","Social Networks Data":"互動資料","Social Networks Graph":"互動圖","Export Group Data":"匯出小組資料","Dashboard Mode":"儀表板設定","Completed":"完成的成員","All":"所有成員"}}')
   delete Component.options._Ctor
 }
 
@@ -163,7 +163,7 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _c("label", [_vm._v(_vm._s(_vm.$t("Only Completed")))])
+                _c("label", [_vm._v(_vm._s(_vm.$t("Completed")))])
               ])
             ]),
             _vm._v(" "),

@@ -7,6 +7,8 @@ const UserModel = use('App/Models/User')
 const AnnotationNoteModel = use('App/Models/AnnotationNote')
 const DateHelper = use('App/Helpers/DateHelper')
 
+const Env = use('Env')
+
 class WebpageGroupUserFilter {
 
   register(Model) {
@@ -194,7 +196,7 @@ class WebpageGroupUserFilter {
         let idList = []
         for (let i = 0; i < allUsers.size(); i++) {
           let user = allUsers.nth(i)
-          //console.log(user.primaryKeyValue)
+          //console.log(user.primaryKeyValue) 
           let isCompleted = await user.isReadingProgressCompleted(webpage)
           if (isCompleted === true) {
             idList.push(user.primaryKeyValue)
