@@ -20,14 +20,14 @@ const SpreadsheetHelper = use('App/Helpers/SpreadsheetHelper')
 class GroupDashboard {
   
   async info ({request, auth}) {
-    let {webpageID, groupID} = request.all()
+    let {webpageID, groupID, dashboardFilterMode} = request.all()
     let webpage = await AuthHelper.checkDomainAdmin(auth, webpageID)
     //console.log([webpageID, groupID])
-    let cacheKey = Cache.key('GroupDashboard', 'info', webpageID, groupID)
+    let cacheKey = Cache.key('GroupDashboard', 'info', webpageID, groupID, dashboardFilterMode)
     
     return await Cache.get(cacheKey, async () => {
       
-      let users = await this._getGroupReaderCard(webpage, groupID)
+      let users = await this._getGroupReaderCard(webpage, groupID, dashboardFilterMode)
       let socialNetworks = await this.getSocialNetworks(webpage, users)
       
       let group = {
@@ -49,11 +49,18 @@ class GroupDashboard {
     })
   }
   
-  async _getGroupReaderCard (webpage, groupID) {
+  async _getGroupReaderCard (webpage, groupID, dashboardFilterMode) {
     let output = []
     let group = await webpage.getGroup(groupID)
+    let users
+    if (dashboardFilterMode === 'onlyCompleted') {
+      users = await group.getCompletedUsers()
+    }
+    else {
+      users = await group.users().fetch()
+    }
     //let users = await group.users().fetch()
-    let users = await group.getCompletedUsers()
+    
     let usersJSON = users.toJSON()
     for (let u = 0; u < usersJSON.length; u++) {
       let user = users.nth(u)

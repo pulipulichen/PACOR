@@ -33,6 +33,9 @@ let GroupDashboard = {
     }
   },
   watch: {
+    dashboardFilterMode () {
+      this.initDashboard()
+    }
   },
   mounted() {
     this.initDashboard()
@@ -42,10 +45,13 @@ let GroupDashboard = {
   methods: {
     initDashboard: async function () {
       // 先跟伺服器取得webpage的資訊
+      this.reset()
+      
       let groupID = Number(this.$route.params.groupID)
       let data = {
         webpageID: this.$route.params.webpageID,
         groupID,
+        dashboardFilterMode: this.dashboardFilterMode
       }
       
       let result = await this.lib.AxiosHelper.get('/admin/GroupDashboard/info', data)
@@ -66,6 +72,10 @@ let GroupDashboard = {
     },
     attrHeaderID: function (anchor) {
       return '/group-dashboard/' + this.$route.params.webpageID + '/' + this.$route.params.groupID + '/' + anchor
+    },
+    reset: function () {
+      this.group.socialNetworks = []
+      this.group.users = []
     },
     nodesTable: function (nodes) {
       let lines = [
