@@ -190,8 +190,8 @@ class WebpageGroupUserFilter {
     
     Model.prototype.getCompletedUsersIDList = async function () {
       let cacheKey = Cache.key('getCompletedUsersIDList')
-      let webpage = await this.webpage().fetch()
-      return await Cache.rememberWait([webpage, this, 'WebpageGroup'], cacheKey, async () => {
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
         let allUsers = await this.users().fetch()
         let idList = []
         for (let i = 0; i < allUsers.size(); i++) {

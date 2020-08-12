@@ -77,6 +77,35 @@
     </div>
   </div>
   
+  <div class="ui segment" v-if="groupIndicatorsKeys.length > 0">
+    <h3 v-bind:id="attrHeaderID('indicators')">
+      {{ $t("Group Indicators") }}
+    </h3>
+    
+    <table class="ui table">
+      <thead>
+        <tr>
+          <th>
+            {{ $t('Indicator') }}
+          </th>
+          <th>
+            {{ $t('Value') }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="key in groupIndicatorsKeys">
+          <td>{{ $t('indicator_' + key) }}</td>
+          <td>{{ groupIndicators[key] }}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <form class="ui form">
+      <textarea v-model="groupIndicatorsTSV"></textarea>
+    </form>
+  </div>
+  
   <div class="ui segment">
     <h3 v-bind:id="attrHeaderID('groupMembers')">
       {{ $t("Group Members") }}

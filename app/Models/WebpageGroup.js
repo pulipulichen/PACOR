@@ -18,6 +18,7 @@ class WebpageGroup extends Model {
   static boot () {
     super.boot()
     this.addTrait('WebpageGroup/WebpageGroupUserFilter')
+    this.addTrait('WebpageGroup/WebpageGroupIndicatorAnnotation')
   } // static boot () {
   
   webpage () {

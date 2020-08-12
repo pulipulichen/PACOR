@@ -15142,7 +15142,8 @@ let i18nGlobal = {
     '{0} users': '{0}人',
     
     'Export': '匯出',
-    'Configuration': '設定'
+    'Configuration': '設定',
+    'Indicators': '指標'
 
   }
 }

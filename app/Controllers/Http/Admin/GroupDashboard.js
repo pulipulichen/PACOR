@@ -29,6 +29,7 @@ class GroupDashboard {
       
       let users = await this._getGroupReaderCard(webpage, groupID, dashboardFilterMode)
       let socialNetworks = await this.getSocialNetworks(webpage, users)
+      let groupIndicators = await this.calcGroupIndicators(webpage, users)
       
       let group = {
         users,
@@ -42,7 +43,8 @@ class GroupDashboard {
       let webpageURL = webpage.url
       let output = {
         webpageURL: webpageURL,
-        group
+        group,
+        groupIndicators
       }
       Cache.put(cacheKey, output, 0.5)
       return output
@@ -226,6 +228,12 @@ class GroupDashboard {
     // ---------------------------------
     
     return socialNetworks
+  }
+  
+  async calcGroupIndicators (webpage, users) {
+    return {
+      'test': 'ok'
+    }
   }
   
   async exportGroupData ({request, response, auth}) {

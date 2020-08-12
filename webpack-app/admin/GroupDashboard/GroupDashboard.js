@@ -17,7 +17,8 @@ let GroupDashboard = {
         socialNetworks: [],
         users: []
       },
-      dashboardFilterMode: 'onlyCompleted' // 'all' || 'onlyCompleted'
+      dashboardFilterMode: 'onlyCompleted', // 'all' || 'onlyCompleted'
+      groupIndicators: {}
     }
   },
 //  components: {
@@ -30,6 +31,18 @@ let GroupDashboard = {
     },
     groupExportLink () {
       return '/admin/GroupDashboard/exportGroupData?webpageID=' + this.$route.params.webpageID + '&groupID=' + this.$route.params.groupID
+    },
+    groupIndicatorsTSV () {
+      let keys = this.groupIndicatorsKeys
+      let values = keys.map(key => this.groupIndicators[key])
+      
+      return [
+        keys.join('\t'),
+        values.join('\t')
+      ].join('\n')
+    },
+    groupIndicatorsKeys () {
+      return Object.keys(this.groupIndicators)
     }
   },
   watch: {
@@ -58,6 +71,8 @@ let GroupDashboard = {
       
       this.group = result.group
       this.group.group_seq_id = Number(this.$route.params.groupID)
+      this.groupIndicators = result.groupIndicators
+      
       //console.log(this.group.users[0])
       //console.log(this.group.socialNetworks)
       

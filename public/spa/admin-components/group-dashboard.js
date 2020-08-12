@@ -9,7 +9,7 @@
 
 module.exports = function (Component) {
   Component.options.__i18n = Component.options.__i18n || []
-  Component.options.__i18n.push('{"en":null,"zh-TW":{"Group Members":"小組成員","Group Dashboard":"小組儀表板","Collaborative Reading Times":"協助閱讀時間","Social Networks":"互動分析","Period":"時期","Graphs":"互動圖","Social Networks Data":"互動資料","Social Networks Graph":"互動圖","Export Group Data":"匯出小組資料","Dashboard Mode":"儀表板設定","Completed":"完成的成員","All":"所有成員"}}')
+  Component.options.__i18n.push('{"en":null,"zh-TW":{"Group Members":"小組成員","Group Dashboard":"小組儀表板","Collaborative Reading Times":"協助閱讀時間","Social Networks":"互動分析","Period":"時期","Graphs":"互動圖","Social Networks Data":"互動資料","Social Networks Graph":"互動圖","Export Group Data":"匯出小組資料","Dashboard Mode":"儀表板設定","Completed":"完成的成員","All":"所有成員","Group Indicators":"小組指標","Indicator":"指標","Value":"值","indicator_test":"測試指標"}}')
   delete Component.options._Ctor
 }
 
@@ -215,6 +215,72 @@ var render = function() {
           ])
         ])
       ]),
+      _vm._v(" "),
+      _vm.groupIndicatorsKeys.length > 0
+        ? _c("div", { staticClass: "ui segment" }, [
+            _c("h3", { attrs: { id: _vm.attrHeaderID("indicators") } }, [
+              _vm._v(
+                "\r\n      " + _vm._s(_vm.$t("Group Indicators")) + "\r\n    "
+              )
+            ]),
+            _vm._v(" "),
+            _c("table", { staticClass: "ui table" }, [
+              _c("thead", [
+                _c("tr", [
+                  _c("th", [
+                    _vm._v(
+                      "\r\n            " +
+                        _vm._s(_vm.$t("Indicator")) +
+                        "\r\n          "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("th", [
+                    _vm._v(
+                      "\r\n            " +
+                        _vm._s(_vm.$t("Value")) +
+                        "\r\n          "
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.groupIndicatorsKeys, function(key) {
+                  return _c("tr", [
+                    _c("td", [_vm._v(_vm._s(_vm.$t("indicator_" + key)))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(_vm.groupIndicators[key]))])
+                  ])
+                }),
+                0
+              )
+            ]),
+            _vm._v(" "),
+            _c("form", { staticClass: "ui form" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.groupIndicatorsTSV,
+                    expression: "groupIndicatorsTSV"
+                  }
+                ],
+                domProps: { value: _vm.groupIndicatorsTSV },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.groupIndicatorsTSV = $event.target.value
+                  }
+                }
+              })
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "ui segment" }, [
         _c("h3", { attrs: { id: _vm.attrHeaderID("groupMembers") } }, [
@@ -456,7 +522,8 @@ let GroupDashboard = {
         socialNetworks: [],
         users: []
       },
-      dashboardFilterMode: 'onlyCompleted' // 'all' || 'onlyCompleted'
+      dashboardFilterMode: 'onlyCompleted', // 'all' || 'onlyCompleted'
+      groupIndicators: {}
     }
   },
 //  components: {
@@ -469,6 +536,18 @@ let GroupDashboard = {
     },
     groupExportLink () {
       return '/admin/GroupDashboard/exportGroupData?webpageID=' + this.$route.params.webpageID + '&groupID=' + this.$route.params.groupID
+    },
+    groupIndicatorsTSV () {
+      let keys = this.groupIndicatorsKeys
+      let values = keys.map(key => this.groupIndicators[key])
+      
+      return [
+        keys.join('\t'),
+        values.join('\t')
+      ].join('\n')
+    },
+    groupIndicatorsKeys () {
+      return Object.keys(this.groupIndicators)
     }
   },
   watch: {
@@ -497,6 +576,8 @@ let GroupDashboard = {
       
       this.group = result.group
       this.group.group_seq_id = Number(this.$route.params.groupID)
+      this.groupIndicators = result.groupIndicators
+      
       //console.log(this.group.users[0])
       //console.log(this.group.socialNetworks)
       
