@@ -35,6 +35,7 @@ class WebpageGroupIndicatorAnnotation {
         let countList = []
         for (let i = 0; i < usersIDList.length; i++) {
           let user = await UserModel.find(usersIDList[i])
+          user.getAttribute('evaluation')
           let c = await user.getAnnotationIndicator(webpage, {
             includeDeleted: false,
             stepName: 'IndividualReading',

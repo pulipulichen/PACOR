@@ -69,6 +69,8 @@ class User extends Model {
     this.addTrait('User/UserIndicatorAnnotation')
     this.addTrait('User/UserIndicatorInteraction')
     
+    this.addTrait('User/UserAttributes')
+    
   } // static boot () {
   
   async validatePassword (queryPassword) {
