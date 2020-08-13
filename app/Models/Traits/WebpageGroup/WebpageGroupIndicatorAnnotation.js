@@ -140,6 +140,50 @@ class WebpageGroupIndicatorAnnotation {
     }
     
     /**
+     * https://github.com/pulipulichen/PACOR/issues/520
+     * 有能力的示範者程度
+     * 
+     * 標註數量跟閱讀能力成正比的程度
+     * 每組可以計算出一個r值
+     * 
+     * 數字越大，表示這個團體中，有能力的人示範更多，導致觀察學習的效果提升
+     * 數字越小，表示這個團體中，有能力的人跟示範次數無關
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all'
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcSkilledDemonstrationDegree = async function (options) {
+      let cacheKey = Cache.key('calcSkilledDemonstrationDegree', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let annotationCountList = []
+        let readCompList = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          try {
+            let readComp = user.getAttribute('read_comp')
+            readCompList.push(readComp)
+
+            let c = await user.getAnnotationIndicator(webpage, {
+              includeDeleted: false,
+            })
+            annotationCountList.push(c.length)
+          }
+          catch (e) {}
+        }
+        
+        let r = StatisticHelper.correlationCoefficientR(annotationCountList, readCompList)
+        return StatisticHelper.round(r, 4)
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    }
+    
+    /**
      * https://github.com/pulipulichen/PACOR/issues/517
      * 單向展示程度 monologues
      * 

@@ -26,7 +26,7 @@ class UserAttributes {
       })
     } // let initUserAttributes = function () {
     
-    Model.prototype.getCCCAttribute = function (attributeName, defaultValue) {
+    Model.prototype.getAttribute = function (attributeName, defaultValue) {
       initUserAttributes()
       
       if (!userAttributes[this.username]) {

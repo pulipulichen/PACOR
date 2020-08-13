@@ -36,7 +36,7 @@ class WebpageGroupIndicatorUserAttributes {
           let user = await UserModel.find(usersIDList[i])
           
           try {
-            let c = user.getCCCAttribute('evaluation')
+            let c = user.getAttribute('evaluation')
             countList.push(c)
           }
           catch (e) {

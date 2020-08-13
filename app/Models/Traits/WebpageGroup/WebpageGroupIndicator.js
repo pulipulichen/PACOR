@@ -47,6 +47,7 @@ class WebpageGroupIndicator {
         
         output.MonologuesDegree = await this.calcMonologuesDegree(options)
         output.EvaluationDegree = await this.calcEvaluationDegree(options)
+        output.SkilledDemonstrationDegree = await this.calcSkilledDemonstrationDegree(options)
         
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
