@@ -3,6 +3,7 @@
 const Cache = use('Cache')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 const UserModel = use('App/Models/User')
+const StatisticHelper = use('App/Helpers/StatisticHelper')
 
 class WebpageGroupIndicatorAnnotation {
 
@@ -135,6 +136,50 @@ class WebpageGroupIndicatorAnnotation {
         }
         
         return countList
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    }
+    
+    /**
+     * https://github.com/pulipulichen/PACOR/issues/517
+     * 單向展示程度 monologues
+     * 
+     * 如果小組內標註數量差異很大
+     * 那表示可能被教者很有機會會看到教人者的示範
+     * 因此提高他們的學習成效
+     * 
+     * 最大值max
+     * 最小值是0
+     * 
+     * 數字越大，表示可能被教者很有機會會看到教人者的示範
+     * 數字越小，表示可能被教者沒有機會會看到教人者的示範
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all'
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcMonologuesDegree = async function (options) {
+      let cacheKey = Cache.key('calcMonologuesDegree', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let countList = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          let c = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: false,
+            stepName: 'IndividualReading',
+            //stepName: 'CollaborativeReading',
+            //type: ['Confused', 'Clarified'] // 不限類型
+            //type: ['MainIdea']
+          })
+          countList.push(c.length)
+        }
+        
+        return StatisticHelper.iqr(countList)
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
     

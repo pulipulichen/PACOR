@@ -45,6 +45,8 @@ class WebpageGroupIndicator {
         output.TotalAnnotationTotal = StatisticHelepr.sum(TotalAnnotationVector)
         output.TotalAnnotationMedian = StatisticHelepr.median(TotalAnnotationVector)
         
+        output.MonologuesDegree = await this.calcMonologuesDegree(options)
+        
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
