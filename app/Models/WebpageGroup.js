@@ -19,6 +19,8 @@ class WebpageGroup extends Model {
     super.boot()
     this.addTrait('WebpageGroup/WebpageGroupUserFilter')
     this.addTrait('WebpageGroup/WebpageGroupTimestamp')
+    this.addTrait('WebpageGroup/WebpageGroupAttributes')
+    
     this.addTrait('WebpageGroup/WebpageGroupIndicator')
     this.addTrait('WebpageGroup/WebpageGroupIndicatorAnnotation')
     this.addTrait('WebpageGroup/WebpageGroupIndicatorInteraction')

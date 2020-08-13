@@ -2,35 +2,37 @@
 
 const SpreadsheetHelper = use('App/Helpers/SpreadsheetHelper')
 
-class UserAttributes {
+class WebpageGroupAttributes {
 
   register(Model) {
     
-    let userAttributes
+    let groupAttributes
     
-    let initUserAttributes = function () {
-      if (userAttributes) {
+    let initGroupAttributes = function () {
+      if (groupAttributes) {
         return true
       }
       
-      let sheetJSON = SpreadsheetHelper.parseFileToJSON('./config/attributesData/userAttributes.ods')
+      let sheetJSON = SpreadsheetHelper.parseFileToJSON('./config/attributesData/groupAttributes.ods')
       
       if (sheetJSON.length === 0) {
         return false
       }
       //console.log(sheetJSON)
-      userAttributes = {}
+      groupAttributes = {}
       sheetJSON.forEach(line => {
-        let username = line.username
-        userAttributes[username] = line
+        let users = line.users
+        groupAttributes[users] = line
       })
     } // let initUserAttributes = function () {
     
-    Model.prototype.getAttribute = function (attributeName, defaultValue) {
-      initUserAttributes()
+    Model.prototype.getAttribute = async function (attributeName, defaultValue) {
+      initGroupAttributes()
+      let users = await this.getUsersDisplayName(true)
+      users = users.join(' ')
       
-      if (typeof(userAttributes[this.username]) === 'undefined') {
-        let errorMessage = 'username is not found: ' + this.username
+      if (typeof(groupAttributes[users]) === 'undefined') {
+        let errorMessage = 'users is not found: ' + users
         //console.log(defaultValue, typeof(defaultValue))
         if (typeof(defaultValue) !== 'undefined') {
           console.log(errorMessage)
@@ -40,8 +42,8 @@ class UserAttributes {
         throw new Error(errorMessage)
         return undefined
       }
-      else if (typeof(userAttributes[this.username][attributeName]) === 'undefined') {
-        let errorMessage = 'attributeName is not found: ' + this.username + ' ' + attributeName
+      else if (typeof(groupAttributes[users][attributeName]) === 'undefined') {
+        let errorMessage = 'attributeName is not found: ' + users + ': ' + attributeName
         if (typeof(defaultValue) !== 'undefined') {
           console.log(errorMessage)
           return defaultValue
@@ -52,10 +54,7 @@ class UserAttributes {
         return defaultValue
       }
       else {
-        let value = userAttributes[this.username][attributeName]
-        if (isNaN(value) === false) {
-          value = Number(value)
-        }
+        let value = groupAttributes[users][attributeName]
         return value
       }
     }
@@ -65,4 +64,4 @@ class UserAttributes {
   
 }
 
-module.exports = UserAttributes
+module.exports = WebpageGroupAttributes

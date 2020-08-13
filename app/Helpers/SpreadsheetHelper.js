@@ -41,6 +41,35 @@ let SpreadsheetHelper = {
 
     //console.log(sheet['A999'])
     let sheetJSON = XLSX.utils.sheet_to_json(sheet)
+    
+    // 把類別轉換一下
+    sheetJSON = sheetJSON.map(lineJSON => {
+      Object.keys(lineJSON).forEach(key => {
+        let value = lineJSON[key]
+        
+        if (isNaN(value) === false) {
+          lineJSON[key] = Number(value)
+          return true
+        }
+        
+        value = value.toLowerCase()
+        if (value === 'false') {
+          lineJSON[key] = false
+          return true
+        }
+        else if (value === 'true') {
+          lineJSON[key] = true
+          return true
+        }
+        else if (value === 'null') {
+          lineJSON[key] = null
+          return true
+        }
+      })
+      
+      return lineJSON
+    })
+    
     return sheetJSON
   }
 }

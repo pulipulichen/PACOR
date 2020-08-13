@@ -1807,10 +1807,12 @@ let WebpageExport = {
         'nn1 nn12 nn27 nn4 nn9',
         'nn11 nn20 nn22 nn7',
       ],
+      /*
       excludeGroups: [
         'nn23 nn25 nn999',
         'sz18 sz23 sz6 sz999'
       ]
+      */
     }
   },
   components: {
@@ -1864,9 +1866,9 @@ let WebpageExport = {
       ]
       
       this.groupIndicators.forEach(group => {
-        if (this.excludeGroups.indexOf(group.users) > -1) {
-          return false
-        }
+//        if (this.excludeGroups.indexOf(group.users) > -1) {
+//          return false
+//        }
         
         let line = keys.map(key => {
           return group[key]

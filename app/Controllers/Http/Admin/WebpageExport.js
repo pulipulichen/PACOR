@@ -153,6 +153,12 @@ class WebpageExport {
     let indicators = []
     for (let i = 0; i < groups.size(); i++) {
       let group = groups.nth(i)
+      
+      let excluded = await group.getAttribute('excluded', true)
+      if (excluded === true) {
+        continue
+      }
+      
       let indicator = await group.calcIndicators(options)
       indicators.push(indicator)
     }
