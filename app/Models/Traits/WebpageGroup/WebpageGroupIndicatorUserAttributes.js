@@ -34,12 +34,17 @@ class WebpageGroupIndicatorUserAttributes {
         let countList = []
         for (let i = 0; i < usersIDList.length; i++) {
           let user = await UserModel.find(usersIDList[i])
-          let c = user.getAttribute('evaluation')
-          //console.log(c, typeof(c))
-          countList.push(c)
+          
+          try {
+            let c = user.getCCCAttribute('evaluation')
+            countList.push(c)
+          }
+          catch (e) {
+            // do nothing
+          }
         }
         
-        return StatisticHelper.median(countList)
+        return StatisticHelper.round(StatisticHelper.median(countList), 4)
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
     

@@ -106,7 +106,20 @@ let StatisticHelper = {
     // [3] Round up to the next index:
     id = Math.ceil(id);
     return arr[ id ];
-  } // end FUNCTION quantile()
+  }, // end FUNCTION quantile()
+  round: function (float, length = 0) {
+    if (isNaN(float) === false) {
+      float = Number(float)
+    }
+    
+    if (typeof(float) !== 'number') {
+      return float
+    }
+    
+    let base = Math.pow(10, length)
+    
+    return Math.round(float * base) / base
+  }
 }
 
 module.exports = StatisticHelper

@@ -1,6 +1,6 @@
 'use strict'
 
-const XLSX = use('js-xlsx')
+const SpreadsheetHelper = use('App/Helpers/SpreadsheetHelper')
 
 class UserAttributes {
 
@@ -13,32 +13,42 @@ class UserAttributes {
         return true
       }
       
-      let workbook = XLSX.readFile('./config/userAttributes/userAttributes.ods');
-      let sheet_name_list = workbook.SheetNames
-      let sheet = workbook.Sheets[sheet_name_list[0]]
-      let sheetJSON = XLSX.utils.sheet_to_json(sheet)
+      let sheetJSON = SpreadsheetHelper.parseFileToJSON('./config/userAttributes/userAttributes.ods')
       
       if (sheetJSON.length === 0) {
         return false
       }
-      console.log(sheetJSON)
+      //console.log(sheetJSON)
       userAttributes = {}
       sheetJSON.forEach(line => {
         let username = line.username
         userAttributes[username] = line
       })
-    }
+    } // let initUserAttributes = function () {
     
-    Model.prototype.getAttribute = function (attributeName, defaultValue) {
+    Model.prototype.getCCCAttribute = function (attributeName, defaultValue) {
       initUserAttributes()
       
       if (!userAttributes[this.username]) {
-        throw new Error('username is not found: ' + this.username)
+        let errorMessage = 'username is not found: ' + this.username
+        //console.log(defaultValue, typeof(defaultValue))
+        if (typeof(defaultValue) !== 'undefined') {
+          console.log(errorMessage)
+          return defaultValue
+        }
+        
+        throw new Error(errorMessage)
         return undefined
       }
       else if (typeof(userAttributes[this.username][attributeName]) === 'undefined') {
-        console.log(userAttributes[this.username])
-        throw new Error('attributeName is not found: ' + this.username + ' ' + attributeName)
+        let errorMessage = 'attributeName is not found: ' + this.username + ' ' + attributeName
+        if (typeof(defaultValue) !== 'undefined') {
+          console.log(errorMessage)
+          return defaultValue
+        }
+        
+        //console.log(userAttributes[this.username])
+        throw new Error(errorMessage)
         return defaultValue
       }
       else {

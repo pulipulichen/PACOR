@@ -29,6 +29,19 @@ let SpreadsheetHelper = {
     
     //return webpageID
     return Buffer.from(wbbuf, 'base64')
+  },
+  parseFileToJSON: function (filePath) {
+
+    let workbook = XLSX.readFile(filePath);
+    let sheet_name_list = workbook.SheetNames
+    let sheet = workbook.Sheets[sheet_name_list[0]]
+
+    // -------------------------------
+    //let keys = parseAttributes(sheet)
+
+    //console.log(sheet['A999'])
+    let sheetJSON = XLSX.utils.sheet_to_json(sheet)
+    return sheetJSON
   }
 }
 
