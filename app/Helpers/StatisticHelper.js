@@ -1,3 +1,4 @@
+const correlationCoefficientR = use('correlation-coefficient-r')
 
 let StatisticHelper = {
   /**
@@ -119,6 +120,13 @@ let StatisticHelper = {
     let base = Math.pow(10, length)
     
     return Math.round(float * base) / base
+  },
+  /**
+   * https://www.npmjs.com/package/correlation-coefficient-r
+   * https://github.com/diversen/correlation-coefficient-r/blob/HEAD/test.js
+   */
+  correlationCoefficientR: function (x, y) {
+    return correlationCoefficientR(x, y)
   }
 }
 
