@@ -4,6 +4,8 @@ const Cache = use('Cache')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 const UserModel = use('App/Models/User')
 
+const StatisticHelepr = use('App/Helpers/StatisticHelepr')
+
 class WebpageGroupIndicator {
 
   register(Model) {
@@ -23,12 +25,16 @@ class WebpageGroupIndicator {
         
         let users = await this.getUsersDisplayName( (options.userFilter === 'onlyCompleted') ) 
         
+        let clamDegree = await this.calcClamDegree(options)
+        let peerAsistDegree = await this.calcPeerAsistDegree(options)
+        
         return {
           //'test': 'ok',
           'users': users.join(' '),
-          'ClamDegree': await this.calcClamDegree(options),
-          'SuggestionTotal': await this.calcSuggestionTotal(options),
-          'SuggestionMedian': await this.calcSuggestionMedian(options),
+          'ClamTotal': StatisticHelepr.sum(clamDegree),
+          'ClamMedian': StatisticHelepr.median(clamDegree),
+          'PeerAsistTotal': StatisticHelepr.sum(peerAsistDegree),
+          'PeerAsistMedian': StatisticHelepr.median(peerAsistDegree),
         }
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
