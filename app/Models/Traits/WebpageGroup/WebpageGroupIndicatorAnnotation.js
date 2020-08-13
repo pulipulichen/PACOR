@@ -23,8 +23,8 @@ class WebpageGroupIndicatorAnnotation {
      * }
      * @returns {Number}
      */
-    Model.prototype.calcClamDegree = async function (options) {
-      let cacheKey = Cache.key('calcClamDegree', options)
+    Model.prototype.calcNoConfusionVector = async function (options) {
+      let cacheKey = Cache.key('calcNoConfusionDegree', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let webpage = await this.webpage().fetch()
         
@@ -73,32 +73,28 @@ class WebpageGroupIndicatorAnnotation {
      * }
      * @returns {Number}
      */
-    Model.prototype.calcAnnotationInCollaborationTotal = async function (options) {
-      let cacheKey = Cache.key('calcClamDegree', options)
+    Model.prototype.calcDeeperAnnotationVector = async function (options) {
+      let cacheKey = Cache.key('calcDeeperAnnotationDegree', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let webpage = await this.webpage().fetch()
         
         let onlyCompleted = (options.userFilter === 'onlyCompleted')
         let usersIDList = await this.getUsersIDList(onlyCompleted)
         
-        let count = 0
+        let countList = []
         for (let i = 0; i < usersIDList.length; i++) {
           let user = await UserModel.find(usersIDList[i])
           let c = await user.getAnnotationIndicator(webpage, {
-            includeDeleted: false,
-            stepName: 'IndividualReading',
-            //stepName: 'CollaborativeReading',
-            type: ['Confused', 'Clarified']
+            includeDeleted: true, // 沒錯，包括刪除，因為我們要算的是他被影響的程度
+            //stepName: 'IndividualReading',
+            stepName: 'CollaborativeReading',
+            //type: ['Confused', 'Clarified'] // 不限類型
             //type: ['MainIdea']
           })
-          count = count + c.length
+          countList.push(c.length)
         }
         
-        return count * -1
-        //let startTimestamp = await this.getStartTimestamp(onlyCompleted)
-        //let endTimestamp = await this.getEndTimestamp(onlyCompleted)
-        //return usersIDList.join(',')
-        //return endTimestamp
+        return countList
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
     

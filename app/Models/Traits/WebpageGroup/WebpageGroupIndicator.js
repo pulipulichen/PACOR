@@ -4,7 +4,7 @@ const Cache = use('Cache')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 const UserModel = use('App/Models/User')
 
-const StatisticHelepr = use('App/Helpers/StatisticHelepr')
+const StatisticHelepr = use('App/Helpers/StatisticHelper')
 
 class WebpageGroupIndicator {
 
@@ -25,17 +25,23 @@ class WebpageGroupIndicator {
         
         let users = await this.getUsersDisplayName( (options.userFilter === 'onlyCompleted') ) 
         
-        let clamDegree = await this.calcClamDegree(options)
-        let peerAsistDegree = await this.calcPeerAsistDegree(options)
-        
-        return {
-          //'test': 'ok',
-          'users': users.join(' '),
-          'ClamTotal': StatisticHelepr.sum(clamDegree),
-          'ClamMedian': StatisticHelepr.median(clamDegree),
-          'PeerAsistTotal': StatisticHelepr.sum(peerAsistDegree),
-          'PeerAsistMedian': StatisticHelepr.median(peerAsistDegree),
+        let output = {
+          'users': users.join(' ')
         }
+        
+        let NoConfusionVector = await this.calcNoConfusionVector(options)
+        output.NoConfusionTotal = StatisticHelepr.sum(NoConfusionVector)
+        output.NoConfusionMedian = StatisticHelepr.median(NoConfusionVector)
+        
+        let PeerAsistVector = await this.calcPeerAsistVector(options)
+        output.PeerAsistTotal = StatisticHelepr.sum(PeerAsistVector)
+        output.PeerAsistMedian = StatisticHelepr.median(PeerAsistVector)
+        
+        let DeeperAnnotationVector = await this.calcDeeperAnnotationVector(options)
+        output.DeeperAnnotationTotal = StatisticHelepr.sum(DeeperAnnotationVector)
+        output.DeeperAnnotationMedian = StatisticHelepr.median(DeeperAnnotationVector)
+        
+        return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
     

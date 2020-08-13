@@ -20,12 +20,13 @@ class WebpageGroupIndicatorInteraction {
      * 
      * @returns {Number}
      */
-    Model.prototype.calcPeerAsistDegree = async function () {
-      let cacheKey = Cache.key('calcPeerAsistDegree')
+    Model.prototype.calcPeerAsistVector = async function (options) {
+      let cacheKey = Cache.key('calcPeerAsistDegree', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let webpage = await this.webpage().fetch()
         
-        let usersIDList = await this.getUsersIDList()
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
         
         let countList = []
         for (let i = 0; i < usersIDList.length; i++) {
