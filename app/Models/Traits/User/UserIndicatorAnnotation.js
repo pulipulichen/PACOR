@@ -5,7 +5,7 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 const UserModel = use('App/Models/User')
 const AnnotationModel = use('App/Models/Annotation')
 
-class getAnnotationIndicator {
+class UserIndicatorAnnotation {
 
   register(Model) {
     
@@ -72,4 +72,4 @@ class getAnnotationIndicator {
   } // register (Model) {
 }
 
-module.exports = getAnnotationIndicator
+module.exports = UserIndicatorAnnotation
