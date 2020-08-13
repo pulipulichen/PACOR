@@ -53,6 +53,10 @@ class WebpageGroupIndicator {
         output.ModifyInCollaborationTotal = StatisticHelepr.sum(ModifyInCollaborationVector)
         output.ModifyInCollaborationMedian = StatisticHelepr.median(ModifyInCollaborationVector)
         
+        let ObserverPeerVector = await this.calcObserverPeerVector(options)
+        output.ObserverPeerTotal = StatisticHelepr.sum(ObserverPeerVector)
+        output.ObserverPeerMedian = StatisticHelepr.median(ObserverPeerVector)
+        
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
