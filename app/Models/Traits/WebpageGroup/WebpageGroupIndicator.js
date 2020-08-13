@@ -41,6 +41,10 @@ class WebpageGroupIndicator {
         output.DeeperAnnotationTotal = StatisticHelepr.sum(DeeperAnnotationVector)
         output.DeeperAnnotationMedian = StatisticHelepr.median(DeeperAnnotationVector)
         
+        let TotalAnnotationVector = await this.calcTotalAnnotationVector(options)
+        output.TotalAnnotationTotal = StatisticHelepr.sum(TotalAnnotationVector)
+        output.TotalAnnotationMedian = StatisticHelepr.median(TotalAnnotationVector)
+        
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }

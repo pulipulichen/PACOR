@@ -98,6 +98,46 @@ class WebpageGroupIndicatorAnnotation {
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
     
+    /**
+     * https://github.com/pulipulichen/PACOR/issues/519
+     * 整體標註次數
+     * 
+     * 不論階段
+     * 如果標註次數越多
+     * 表示這個團體更有機會看到別人的標註
+     * 
+     * 最小值max
+     * 最小值是0
+     * 
+     * 數字越大，表示這個團體更有機會看到別人的標註
+     * 數字越小，表示這個團體更沒機會看到別人的標註
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all'
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcTotalAnnotationVector = async function (options) {
+      let cacheKey = Cache.key('calcTotalAnnotationVector', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let countList = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          let c = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: false,
+          })
+          countList.push(c.length)
+        }
+        
+        return countList
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    }
+    
   } // register (Model) {
 }
 
