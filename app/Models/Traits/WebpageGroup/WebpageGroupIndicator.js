@@ -49,6 +49,10 @@ class WebpageGroupIndicator {
         output.EvaluationDegree = await this.calcEvaluationDegree(options)
         output.SkilledDemonstrationDegree = await this.calcSkilledDemonstrationDegree(options)
         
+        let ModifyInCollaborationVector = await this.calcModifyInCollaborationVector(options)
+        output.ModifyInCollaborationTotal = StatisticHelepr.sum(ModifyInCollaborationVector)
+        output.ModifyInCollaborationMedian = StatisticHelepr.median(ModifyInCollaborationVector)
+        
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }

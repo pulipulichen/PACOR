@@ -68,6 +68,7 @@ class User extends Model {
     this.addTrait('User/UserExport')
     this.addTrait('User/UserIndicatorAnnotation')
     this.addTrait('User/UserIndicatorInteraction')
+    this.addTrait('User/UserIndicatorReadingActivityLog')
     
     this.addTrait('User/UserAttributes')
     

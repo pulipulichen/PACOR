@@ -23,6 +23,7 @@ class WebpageGroup extends Model {
     this.addTrait('WebpageGroup/WebpageGroupIndicatorAnnotation')
     this.addTrait('WebpageGroup/WebpageGroupIndicatorInteraction')
     this.addTrait('WebpageGroup/WebpageGroupIndicatorUserAttributes')
+    this.addTrait('WebpageGroup/WebpageGroupIndicatorReadingActivityLog')
   } // static boot () {
   
   webpage () {
