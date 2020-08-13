@@ -21,6 +21,7 @@ class WebpageGroup extends Model {
     this.addTrait('WebpageGroup/WebpageGroupTimestamp')
     this.addTrait('WebpageGroup/WebpageGroupIndicator')
     this.addTrait('WebpageGroup/WebpageGroupIndicatorAnnotation')
+    this.addTrait('WebpageGroup/WebpageGroupIndicatorInteraction')
   } // static boot () {
   
   webpage () {

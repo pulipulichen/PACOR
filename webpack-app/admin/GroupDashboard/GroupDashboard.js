@@ -69,6 +69,10 @@ let GroupDashboard = {
       
       let result = await this.lib.AxiosHelper.get('/admin/GroupDashboard/info', data)
       
+      if (!result) {
+        throw new Error('GroupDahboard/info got error')
+      }
+      
       this.group = result.group
       this.group.group_seq_id = Number(this.$route.params.groupID)
       this.groupIndicators = result.groupIndicators

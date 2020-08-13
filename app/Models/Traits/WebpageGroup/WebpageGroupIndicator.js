@@ -26,7 +26,9 @@ class WebpageGroupIndicator {
         return {
           //'test': 'ok',
           'users': users.join(' '),
-          'clamDegree': await this.calcClamDegree(options)
+          'ClamDegree': await this.calcClamDegree(options),
+          'SuggestionTotal': await this.calcSuggestionTotal(options),
+          'SuggestionMedian': await this.calcSuggestionMedian(options),
         }
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }

@@ -21,6 +21,7 @@ class GroupDashboard {
   
   async info ({request, auth}) {
     let {webpageID, groupID, dashboardFilterMode} = request.all()
+    //console.log(webpageID)
     let webpage = await AuthHelper.checkDomainAdmin(auth, webpageID)
     //console.log([webpageID, groupID])
     let cacheKey = Cache.key('GroupDashboard', 'info', webpageID, groupID, dashboardFilterMode)

@@ -36,11 +36,11 @@ class UserIndicatorInteraction {
                   builder.where('webpage_id', webpage.primaryKeyValue)
           
                   if (options.includeAnnotationDeleted === false) {
-                    query.where('deleted', false)
+                    builder.where('deleted', false)
                   }
                   
                   if (options.includeMyself === false) {
-                    query.whereNot('user_id', this.primaryKeyValue)
+                    builder.whereNot('user_id', this.primaryKeyValue)
                   }
                 }, '>', 0)
         
