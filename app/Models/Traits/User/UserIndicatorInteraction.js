@@ -5,12 +5,15 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 const UserModel = use('App/Models/User')
 const AnnotationCommentModel = use('App/Models/AnnotationComment')
 
+const AnnotationRateModel = use('App/Models/AnnotationRate')
+const AnnotationCommentRateModel = use('App/Models/AnnotationCommentRate')
+
 class UserIndicatorInteraction {
 
   register(Model) {
     
     /**
-     * 計算各種互動相關的指標
+     * 計算各種建議的指標
      * 這個不是為了顯示用的，純粹是為了分析用的
      * 
      * @param {Webpage} webpage
@@ -93,6 +96,129 @@ class UserIndicatorInteraction {
         
         resultJSON = Object.keys(threadMap).map(annotationID => threadMap[annotationID])
         return resultJSON
+      })
+    }
+    
+    /**
+     * 計算各種喜愛的指標
+     * 這個不是為了顯示用的，純粹是為了分析用的
+     * 
+     * @param {Webpage} webpage
+     * @param {Object} options = {
+     *  includeRateDeleted: false
+     *  includeAnchorDeleted: true,
+     *  anchorType: ['annotation', 'comment'],
+     *  stepName: 'IndividualReading',
+     *  type: ['like']
+     * }
+     * @type {JSON}
+     */
+    Model.prototype.getRateIndicator = async function (webpage, options = {}) {
+      let cacheKey = Cache.key('User.getRateIndicator', options)
+      
+      return await Cache.rememberWait([webpage, this], cacheKey, async () => {
+        
+        let output = []
+        
+        // ----------------------
+        
+        let anchorType = options.anchorType
+        if (!anchorType) {
+          anchorType = ['annotation', 'comment']
+        }
+        else if (typeof(anchorType) === 'string') {
+          anchorType = [anchorType]
+        }
+        
+        // ----------------------
+        let type
+        if (options.type) {
+          type = options.type
+        }
+        
+        // ----------------------
+        let startTimestamp, endTimestamp
+        if (options.stepName) {
+          // 不行，現在timestamp不能運作，請不要考慮他
+          throw new Error('options.stepName for rate is not work')
+          
+          let timestamps = await this.getReadingProgressTimestamp(webpage, options.stepName)
+          startTimestamp = timestamps.startTimestamp
+          endTimestamp = timestamps.endTimestamp
+        }
+        
+        // ----------------------
+        
+        if (anchorType.indexOf('annotation') > -1) {
+          let query = AnnotationRateModel.query()
+                  .where('user_id', this.primaryKeyValue)
+                  .whereHas('annotation', (builder) => {
+                    builder.where('webpage_id', webpage.primaryKeyValue)
+
+                    if (options.includeAnchorDeleted === false) {
+                      builder.where('deleted', false)
+                    }
+
+                  }, '>', 0)
+                  
+          if (options.includeRateDeleted === false) {
+            query.where('deleted', false)
+          }
+          
+          if (Array.isArray(type)) {
+            query.whereIn('type', type)
+          }
+          else if (typeof(type) === 'string') {
+            query.where('type', type)
+          }
+          
+          // ---------------------------
+          let result = await query.fetch()
+          let resultJSON = result.toJSON()
+          output = output.concat(resultJSON)
+        } // if (anchorType.indexOf('annotation') > -1) {
+        
+        // -----------------------
+        
+        if (anchorType.indexOf('comment') > -1) {
+          let query = AnnotationCommentRateModel.query()
+                  .where('user_id', this.primaryKeyValue)
+                  .whereHas('comment', (commentBuilder) => {
+                    
+                    if (options.includeAnchorDeleted === false) {
+                      commentBuilder.where('deleted', false)
+                    }
+                    
+                    commentBuilder.whereHas('annotation', (annotationBuilder) => {
+                      annotationBuilder.where('webpage_id', webpage.primaryKeyValue)
+                      
+                      if (options.includeAnchorDeleted === false) {
+                        annotationBuilder.where('deleted', false)
+                      }
+                    }, '>', 0)
+                  }, '>', 0)
+                  
+          if (options.includeRateDeleted === false) {
+            query.where('deleted', false)
+          }
+          
+          if (Array.isArray(type)) {
+            query.whereIn('type', type)
+          }
+          else if (typeof(type) === 'string') {
+            query.where('type', type)
+          }
+          
+          // ---------------------------
+          let result = await query.fetch()
+          let resultJSON = result.toJSON()
+          output = output.concat(resultJSON)
+        } // if (anchorType.indexOf('annotation') > -1) {
+        
+        
+        // -----------------------
+        
+        return output
       })
     }
     

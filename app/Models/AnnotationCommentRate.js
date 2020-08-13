@@ -6,6 +6,8 @@ class AnnotationCommentRate extends Model {
   static boot () {
     super.boot()
     
+    this.addTrait('DateUnixMS')
+    
     this.addTrait('AnnotationCommentRate/AnnotationCommentRateLike')
   } // static boot () {
   

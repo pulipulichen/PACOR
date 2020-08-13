@@ -6,6 +6,8 @@ class AnnotationRate extends Model {
   static boot () {
     super.boot()
     
+    this.addTrait('DateUnixMS')
+    
     this.addTrait('AnnotationRate/AnnotationRateLike')
   } // static boot () {
   

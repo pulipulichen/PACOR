@@ -14,6 +14,9 @@ class AnnotationRateSchema extends Schema {
       table.integer('user_id').notNullable().unsigned().references('id').inTable('users').onDelete('cascade')
       table.string('type', 60).defaultTo('like')  // like null dislike
       table.boolean('deleted').defaultTo(false)
+      
+      table.bigInteger('created_at_unixms')
+      table.bigInteger('updated_at_unixms')
       table.timestamps()
     })
   }
