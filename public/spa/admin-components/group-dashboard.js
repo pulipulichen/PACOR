@@ -259,25 +259,45 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("form", { staticClass: "ui form" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "ui fluid button",
-                  on: {
-                    click: function($event) {
-                      return _vm.lib.ClipboardHelper.copy(
-                        _vm.groupIndicatorsTSV
-                      )
+              _c("div", { staticClass: "ui fluid buttons" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "ui button",
+                    on: { click: _vm.initDashboard }
+                  },
+                  [
+                    _c("i", { staticClass: "redo icon" }),
+                    _vm._v(
+                      "\r\n          " +
+                        _vm._s(_vm.$t("Reload")) +
+                        "\r\n        "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "ui button",
+                    on: {
+                      click: function($event) {
+                        return _vm.lib.ClipboardHelper.copy(
+                          _vm.groupIndicatorsTSV
+                        )
+                      }
                     }
-                  }
-                },
-                [
-                  _c("i", { staticClass: "copy icon" }),
-                  _vm._v(
-                    "\r\n         " + _vm._s(_vm.$t("Copy")) + "\r\n       "
-                  )
-                ]
-              ),
+                  },
+                  [
+                    _c("i", { staticClass: "copy icon" }),
+                    _vm._v(
+                      "\r\n           " +
+                        _vm._s(_vm.$t("Copy")) +
+                        "\r\n        "
+                    )
+                  ]
+                )
+              ]),
               _vm._v(" "),
               _c("textarea", {
                 directives: [

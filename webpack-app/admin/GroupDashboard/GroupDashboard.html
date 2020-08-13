@@ -102,11 +102,19 @@
     </table>
     
     <form class="ui form">
-      <a class="ui fluid button"
-          v-on:click="lib.ClipboardHelper.copy(groupIndicatorsTSV)">
-         <i class="copy icon"></i>
-         {{ $t('Copy') }}
-       </a>
+      <div class="ui fluid buttons">
+        <a class="ui button"
+           v-on:click="initDashboard">
+          <i class="redo icon"></i>
+          {{ $t('Reload') }}
+        </a>
+        <a class="ui button"
+            v-on:click="lib.ClipboardHelper.copy(groupIndicatorsTSV)">
+           <i class="copy icon"></i>
+           {{ $t('Copy') }}
+        </a>
+      </div>
+          
       <textarea v-model="groupIndicatorsTSV"></textarea>
     </form>
   </div>
