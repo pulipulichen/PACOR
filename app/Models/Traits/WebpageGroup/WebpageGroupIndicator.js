@@ -57,6 +57,13 @@ class WebpageGroupIndicator {
         output.ObserverPeerTotal = StatisticHelepr.sum(ObserverPeerVector)
         output.ObserverPeerMedian = StatisticHelepr.median(ObserverPeerVector)
         
+        let InvertActivityVector = await this.calcInvertActivityVector(options)
+        output.InvertActivityTotal = StatisticHelepr.sum(InvertActivityVector)
+        output.InvertActivityMedian = StatisticHelepr.median(InvertActivityVector)
+        
+        let ActivityVector = await this.calcActivityVector(options)
+        output.ActivityMedian = StatisticHelepr.median(ActivityVector)
+        
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }

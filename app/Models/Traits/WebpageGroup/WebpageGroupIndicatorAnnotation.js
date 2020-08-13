@@ -225,8 +225,66 @@ class WebpageGroupIndicatorAnnotation {
         
         return StatisticHelper.iqr(countList)
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
-    }
+    } // Model.prototype.calcMonologuesDegree = async function (options) {
     
+    /**
+     * https://github.com/pulipulichen/PACOR/issues/533
+     * 整體表現次數
+     * 
+     * 標註次數 + 建議次數 + 喜愛
+     * 
+     * 最大值max
+     * 最小值是0
+     * 
+     * 數字越大，表示
+     * 數字越小，表示
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all'
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcActivityVector = async function (options) {
+      let cacheKey = Cache.key('calcActivityVector', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let countList = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          let count = 0
+          
+          let annotations = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: false
+          })
+          count = count + annotations.length
+          
+          let comments = await user.getCommentIndicator(webpage, {
+            includeCommentDeleted: false,
+            includeAnnotationDeleted: false,
+          })
+          count = count + comments.length
+          
+          let rates = await user.getRateIndicator(webpage, {
+            includeRateDeleted: false,
+            includeAnchorDeleted: true,
+          })
+          count = count + rates.length
+          
+          countList.push(count)
+        }
+        
+        return countList
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    } // Model.prototype.calcMonologuesDegree = async function (options) {
+    
+    Model.prototype.calcInvertActivityVector = async function (options) {
+      let vector = await this.calcActivityVector(options)
+      return vector.map(v => v * -1)
+    }
   } // register (Model) {
 }
 
