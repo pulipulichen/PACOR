@@ -17,9 +17,6 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 const dayjs = use('dayjs')
 const SpreadsheetHelper = use('App/Helpers/SpreadsheetHelper')
 
-
-const KrippendorffHelper = use('App/Helpers/venders/krippendorff-alpha/KrippendorffHelper')
-
 class GroupDashboard {
   
   async info ({request, auth}) {

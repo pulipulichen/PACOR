@@ -1,4 +1,5 @@
 const correlationCoefficientR = use('correlation-coefficient-r')
+const KrippendorffHelper = use('./venders/krippendorff-alpha/KrippendorffHelper.js')
 
 let StatisticHelper = {
   /**
@@ -127,6 +128,9 @@ let StatisticHelper = {
    */
   correlationCoefficientR: function (x, y) {
     return correlationCoefficientR(x, y)
+  },
+  krippendorffAlpha: function (arrayData, dataType = 4) {
+    return KrippendorffHelper.calcAlpha(arrayData, dataType)
   }
 }
 
