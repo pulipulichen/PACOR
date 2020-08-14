@@ -47,6 +47,7 @@
     "express-session": "^1.17.0",
     "iframe-resizer": "^4.2.8",
     "jquery": "^3.4.1",
+    "mathjs": "^7.1.0",
     "merge-descriptors": "^1.0.1",
     "morgan": "^1.9.1",
     "node-stream-zip": "^1.8.2",
