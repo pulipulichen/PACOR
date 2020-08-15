@@ -120,6 +120,15 @@ let parseSequenceArray = function (sequenceArray) {
     return [sequenceArray]
   }
   else {
+    sequenceArray = sequenceArray.forEach(seq => {
+      if (typeof(seq) === 'string') {
+        return seq.split('')
+      }
+      else {
+        return seq
+      }
+    })
+    
     return sequenceArray
   }
 }

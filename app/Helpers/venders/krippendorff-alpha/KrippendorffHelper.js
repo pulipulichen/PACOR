@@ -42,6 +42,10 @@ let KrippendorffHelper = {
     }
     return alpha
   },
+  calcAlphaByRater: function (arrayByRater, dataType = 4) {
+    let arrayByItem = this.convertArrayPivot(arrayByRater)
+    return this.calcAlpha(arrayByItem, dataType)
+  },
   convertArrayPivot: function (arrayByRater) {
     let arrayByItem = []
     

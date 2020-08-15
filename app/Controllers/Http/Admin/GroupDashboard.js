@@ -23,7 +23,7 @@ const KrippendorffHelper = use('App/Helpers/venders/krippendorff-alpha/Krippendo
 class GroupDashboard {
   
   async info ({request, auth}) {
-    this._testSequenceHelper()
+    //this._testSequenceHelper()
     
     let {webpageID, groupID, dashboardFilterMode} = request.all()
     //console.log(webpageID)
@@ -477,7 +477,6 @@ class GroupDashboard {
     let arrayByItem = KrippendorffHelper.convertArrayPivot(arrayByRater)
     console.log(KrippendorffHelper.calcAlpha(arrayByItem))
     //console.log(KrippendorffHelper.convertArrayPivot(resultList))
-    
   }
 }
 
