@@ -468,9 +468,11 @@ class GroupDashboard {
       let result = SequenceHelper(data, {
         mergeRepeat: true,
         //exportMode: 'nest-json'
-        exportMode: 'array'
+        exportMode: 'array',
+        lag: [1, 2]
       })
       
+      console.log(result)
       arrayByRater.push(result)
     }
     

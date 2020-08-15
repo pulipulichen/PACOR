@@ -16,6 +16,12 @@
     }))
  */
 const SequenceHelper = function (sequenceArray, options = {}) {
+  if (Array.isArray(options.lag) 
+          && options.lag.length > 0
+          && typeof(options.lag[0]) === 'number') {
+    return mergeLagSequenceHelper(sequenceArray, options)
+  }
+  
   sequenceArray = parseSequenceArray(sequenceArray)
   
   let fixedCode = false
@@ -253,5 +259,33 @@ let buildCodesLagList = function (codes, bufferMaxLength = 2) {
   return output
 }
 
+let mergeLagSequenceHelper = function (sequenceArray, options) {
+  let output
+  
+  options.lag.forEach(l => {
+    let o = JSON.parse(JSON.stringify(options))
+    o.lag = l
+    
+    let result = SequenceHelper(sequenceArray, o)
+    
+    if (o.exportMode === 'flat-json') {
+      if (!output) {
+        output = {}
+      }
+      Object.keys(result).forEach(key => {
+        output[key] = result[key]
+      })
+    }
+    else {
+      if (!output) {
+        output = []
+      }
+      
+      output = output.concat(result)
+    }
+  })
+  
+  return output
+}
 
 module.exports = SequenceHelper
