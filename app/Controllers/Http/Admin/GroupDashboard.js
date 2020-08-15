@@ -18,6 +18,7 @@ const dayjs = use('dayjs')
 const SpreadsheetHelper = use('App/Helpers/SpreadsheetHelper')
 
 const SequenceHelper = use('App/Helpers/SequenceHelper')
+const KrippendorffHelper = use('App/Helpers/venders/krippendorff-alpha/KrippendorffHelper')
 
 class GroupDashboard {
   
@@ -459,12 +460,24 @@ class GroupDashboard {
   // -------------------------
   
   _testSequenceHelper () {
-    let data = [1, 2, 2, 1]
+    let arrayByRater = []
     
-    console.log(SequenceHelper(data, {
-      mergeRepeat: true,
-      exportMode: 'nest-json'
-    }))
+    for (let i = 0; i < 3; i++) {
+      let data = [1, 2, 2, 1]
+
+      let result = SequenceHelper(data, {
+        mergeRepeat: true,
+        //exportMode: 'nest-json'
+        exportMode: 'array'
+      })
+      
+      arrayByRater.push(result)
+    }
+    
+    let arrayByItem = KrippendorffHelper.convertArrayPivot(arrayByRater)
+    console.log(KrippendorffHelper.calcAlpha(arrayByItem))
+    //console.log(KrippendorffHelper.convertArrayPivot(resultList))
+    
   }
 }
 

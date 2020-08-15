@@ -32,15 +32,32 @@ let KrippendorffHelper = {
    * 
    * @returns {Krippendorff._KrAlpha}
    */
-  calcAlpha: function (arrayData, dataType = 4) {
+  calcAlpha: function (arrayByItem, dataType = 4) {
     let kripCal = new Krippendorff();
-    kripCal.setArrayData(arrayData, dataType);
+    kripCal.setArrayData(arrayByItem, dataType);
     kripCal.calculate();
     let alpha = kripCal._KrAlpha
     if (isNaN(alpha)) {
       alpha = 1
     }
     return alpha
+  },
+  convertArrayPivot: function (arrayByRater) {
+    let arrayByItem = []
+    
+    for (let i = 0; i < arrayByRater.length; i++) {
+      let list = arrayByRater[i]
+      for (let j = 0; j < list.length; j++) {
+        let score = list[j]
+        
+        if (Array.isArray(arrayByItem[j]) === false) {
+          arrayByItem[j] = []
+        }
+        arrayByItem[j].push(score)
+      }
+    }
+    
+    return arrayByItem
   }
 }
 
