@@ -17,7 +17,8 @@ class UserIndicatorAnnotation {
      * @param {Object} options = {
      *  includeDeleted: true
      *  stepName: 'IndividualReading',
-     *  type: ['Confused']
+     *  type: ['Confused'],
+     *  withAnchorPositions: true
      * }
      * @type {JSON}
      */
@@ -28,6 +29,7 @@ class UserIndicatorAnnotation {
         let query = AnnotationModel.query()
                 .where('webpage_id', webpage.primaryKeyValue)
                 .where('user_id', this.primaryKeyValue)
+                .orderBy('created_at_unixms', 'asc')
         
         // -------------------------
         
@@ -45,6 +47,10 @@ class UserIndicatorAnnotation {
         
         if (options.includeDeleted === false) {
           query.where('deleted', false)
+        }
+        
+        if (options.withAnchorPositions === true) {
+          query.with('anchorPositions')
         }
         
         // -------------------------

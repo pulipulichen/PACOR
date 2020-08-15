@@ -64,6 +64,8 @@ class WebpageGroupIndicator {
         let ActivityVector = await this.calcActivityVector(options)
         output.ActivityMedian = StatisticHelepr.median(ActivityVector)
         
+        output.ReadingStyleSimilarity = await this.calcReadingStyleSimilarity(options)
+        
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }

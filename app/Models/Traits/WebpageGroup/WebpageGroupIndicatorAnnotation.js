@@ -5,6 +5,9 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 const UserModel = use('App/Models/User')
 const StatisticHelper = use('App/Helpers/StatisticHelper')
 
+const SequenceHelper = use('App/Helpers/SequenceHelper')
+const KrippendorffHelper = use('App/Helpers/venders/krippendorff-alpha/KrippendorffHelper')
+
 class WebpageGroupIndicatorAnnotation {
 
   register(Model) {
@@ -284,6 +287,86 @@ class WebpageGroupIndicatorAnnotation {
     Model.prototype.calcInvertActivityVector = async function (options) {
       let vector = await this.calcActivityVector(options)
       return vector.map(v => v * -1)
+    }
+    
+    /**
+     * https://github.com/pulipulichen/PACOR/issues/528
+     * 計算組內閱讀順序的相似性
+     * 最大值是1
+     * 最小值-max
+     * 
+     * 數字越大 (越接近0)，表示該組閱讀方式很相似
+     * 數字越小 (負數越大)，表示該組閱讀方式差很多
+     * 
+     * 注意，時間點要是在個人閱讀的階段
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all'
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcReadingStyleSimilarity = async function (options) {
+      let cacheKey = Cache.key('calcReadingStyleSimilarity', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        /*
+        return KrippendorffHelper.calcAlphaByRater([
+          [1, 2, 2, 1, 0],
+          [0, 1, 2, 1, 0],
+        ])
+        */
+        
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let codes = await webpage.getSeqCodes()
+        
+        let arrayByRater = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          let annotations = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: true,
+            stepName: 'IndividualReading',
+            //stepName: 'CollaborativeReading',
+            //type: ['Confused', 'Clarified']
+            //type: ['MainIdea']
+            withAnchorPositions: true
+          })
+          
+          
+          let seqList = []
+          annotations.forEach(annotation => {
+            if (Array.isArray(annotation.anchorPositions) === false) {
+              return false
+            }
+            
+            annotation.anchorPositions.forEach(anchorPosition => {
+              let seq_id = anchorPosition.seq_id
+              seqList.push(seq_id)
+            })
+          })
+          
+          
+          let seqTable = SequenceHelper(seqList, {
+            mergeRepeat: false,
+            exportMode: 'array',
+            //exportMode: 'flat-json',
+            codes,
+            lag: [1, 2]
+            //lag: 2
+          })
+
+          //console.log(result)
+          //return 1
+          arrayByRater.push(seqTable)
+          //countList.push(c.length * -1)
+        }
+        
+        //console.log(arrayByRater)
+        let alpha = KrippendorffHelper.calcAlphaByRater(arrayByRater, 'interval')
+        return StatisticHelper.round(alpha, 4)
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
   } // register (Model) {
 }

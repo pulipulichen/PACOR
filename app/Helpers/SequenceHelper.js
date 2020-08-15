@@ -117,9 +117,12 @@ let parseSequenceArray = function (sequenceArray) {
   if (typeof(sequenceArray) === 'string') {
     return [sequenceArray.split('')]
   }
-  else if (Array.isArray(sequenceArray) === false || sequenceArray.length === 0) {
+  else if (Array.isArray(sequenceArray) === false) {
     throw new Error('sequenceArray should be array:' + sequenceArray)
     return false
+  }
+  else if (sequenceArray.length === 0) {
+    return [[]]
   }
   
   if (Array.isArray(sequenceArray[0]) === false) {

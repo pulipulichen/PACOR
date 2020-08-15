@@ -32,7 +32,7 @@ let KrippendorffHelper = {
    * 
    * @returns {Krippendorff._KrAlpha}
    */
-  calcAlpha: function (arrayByItem, dataType = 4) {
+  calcAlpha: function (arrayByItem, dataType = 'ordinal') {
     let kripCal = new Krippendorff();
     kripCal.setArrayData(arrayByItem, dataType);
     kripCal.calculate();
@@ -42,7 +42,7 @@ let KrippendorffHelper = {
     }
     return alpha
   },
-  calcAlphaByRater: function (arrayByRater, dataType = 4) {
+  calcAlphaByRater: function (arrayByRater, dataType = 'ordinal') {
     let arrayByItem = this.convertArrayPivot(arrayByRater)
     return this.calcAlpha(arrayByItem, dataType)
   },
