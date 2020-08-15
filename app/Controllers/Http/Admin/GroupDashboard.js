@@ -17,9 +17,13 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 const dayjs = use('dayjs')
 const SpreadsheetHelper = use('App/Helpers/SpreadsheetHelper')
 
+const SequenceHelper = use('App/Helpers/SequenceHelper')
+
 class GroupDashboard {
   
   async info ({request, auth}) {
+    this._testSequenceHelper()
+    
     let {webpageID, groupID, dashboardFilterMode} = request.all()
     //console.log(webpageID)
     let webpage = await AuthHelper.checkDomainAdmin(auth, webpageID)
@@ -451,6 +455,17 @@ class GroupDashboard {
     return comments
   }
   
+  
+  // -------------------------
+  
+  _testSequenceHelper () {
+    let data = [1, 2, 2, 1]
+    
+    console.log(SequenceHelper(data, {
+      mergeRepeat: true,
+      exportMode: 'nest-json'
+    }))
+  }
 }
 
 module.exports = GroupDashboard
