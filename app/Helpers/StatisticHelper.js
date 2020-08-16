@@ -131,6 +131,14 @@ let StatisticHelper = {
   },
   krippendorffAlpha: function (arrayData, dataType = 4) {
     return KrippendorffHelper.calcAlpha(arrayData, dataType)
+  },
+  /**
+   * https://stackoverflow.com/a/41452260/6645399
+   * @param {type} arrayData
+   * @returns {Number}
+   */
+  average: function (arrayData) {
+    return arrayData.reduce((a, b) => a + b) / arrayData.length
   }
 }
 
