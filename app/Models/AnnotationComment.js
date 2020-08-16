@@ -76,6 +76,10 @@ class AnnotationComment extends Model {
             .where('deleted', false)
   }
   
+  rates () {
+    return this.hasMany('App/Models/AnnotationCommentRate')
+  }
+  
   /**
    * 需要搭配queryBuilder一起使用
    * query.withCount('i_have_liked', (queryBuilder) => {

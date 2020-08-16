@@ -106,12 +106,13 @@ class WebpageGroupIndicator {
         output.UserRecallLessIdeaTotal = StatisticHelepr.sum(UserRecallLessIdeaVector)
         output.UserRecallLessIdeaMedian = StatisticHelepr.median(UserRecallLessIdeaVector)
         
-        output.calcNoteSimilarityDegree = await this.calcNoteSimilarityDegree(options)
+        output.NoteSimilarityDegree = await this.calcNoteSimilarityDegree(options)
         
         let DialogueVector = await this.calcDialogueVector(options)
         output.DialogueVectorTotal = StatisticHelepr.sum(DialogueVector)
         output.DialogueVectorMedian = StatisticHelepr.median(DialogueVector)
         
+        output.DialogueCount = await this.calcDialogueCount(options)
        
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {

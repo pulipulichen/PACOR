@@ -26,6 +26,7 @@ class Annotation extends Model {
     this.addTrait('Annotation/AnnotationSection')
     this.addTrait('Annotation/AnnotationTypeFilter')
     this.addTrait('Annotation/AnnotationNote')
+    this.addTrait('Annotation/AnnotationInteraction')
     //this.addTrait('Annotation/AnnotationNote')
     
   } // static boot () {

@@ -19,7 +19,9 @@ class UserIndicatorAnnotation {
      *  stepName: 'IndividualReading',
      *  type: ['Confused'],
      *  withAnchorPositions: false,
-     *  withNotes: false
+     *  withNotes: false,
+     *  withComments: false,
+     *  withInteractUserList: false
      * }
      * @type {JSON}
      */
@@ -58,6 +60,10 @@ class UserIndicatorAnnotation {
           query.with('notes')
         }
         
+        if (options.withComments === true) {
+          query.with('comments')
+        }
+        
         // -------------------------
         
         if (options.stepName) {
@@ -76,7 +82,22 @@ class UserIndicatorAnnotation {
         // -------------------------
         
         let result = await query.fetch()
-        return result.toJSON()
+        let resultJSON = result.toJSON()
+        
+        if (options.withInteractUserList === true) {
+          for (let i = 0; i < result.size(); i++) {
+            let interactUserList = await result.nth(i).getInteractUserList()
+            resultJSON[i].interactUserList = interactUserList
+            
+            let interactUserListUnique = interactUserList.filter((value, index, self) => {
+              return self.indexOf(value) === index
+            })
+            
+            resultJSON[i].interactUserListUnique = interactUserListUnique
+          }
+        }
+        
+        return resultJSON
       })
     }
     

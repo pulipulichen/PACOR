@@ -80,6 +80,47 @@ class WebpageGroupIndicatorInteraction {
     }
     
     /**
+     * https://github.com/pulipulichen/PACOR/issues/523
+     * 計算小組中有雙向對話的數量
+     * 最大值max
+     * 最小值是0
+     * 
+     * 數字越大
+     * 數字越小
+     * 
+     * @returns {Number}
+     */
+    Model.prototype.calcDialogueCount = async function (options) {
+      let cacheKey = Cache.key('calcDialogueCount', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let count = 0
+        for (let i = 0; i < usersIDList.length; i++) {
+          let userID = usersIDList[i]
+          let user = await UserModel.find(userID)
+          let annotations = await user.getAnnotationIndicator(webpage, {
+            withInteractUserList: true
+          })
+          
+          annotations.forEach(annotation => {
+            let interactUserListUnique = annotation.interactUserListUnique
+            
+            if (interactUserListUnique.indexOf(userID) > -1 && interactUserListUnique.length > 1) {
+              count++
+            }
+          })
+          //countList.push(c.length)
+        }
+        
+        return count
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    }
+    
+    /**
      * 建立小組互動的網路
      * 
      * @returns {Number}
