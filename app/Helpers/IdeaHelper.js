@@ -30,7 +30,7 @@ let IdeaHelper = {
         let codes = []
         col.split(" ").forEach(code => {
           if (code === "") {
-            return
+            return ''
           }
 
           let {word, type} = codeToWordType(code)
@@ -58,7 +58,7 @@ let IdeaHelper = {
         let codes = []
         col.split(" ").forEach(code => {
           if (code === "") {
-            return
+            return ''
           }
 
           let {word, type} = codeToWordType(code)
@@ -86,7 +86,7 @@ let IdeaHelper = {
         let codes = []
         col.split(" ").forEach(code => {
           if (code === "") {
-            return
+            return ''
           }
 
           let {word, type} = codeToWordType(code)
@@ -121,7 +121,7 @@ let IdeaHelper = {
     if (stringList.trim() === "") {
       return 0
     }
-    return SORT_WORDS(stringList).split(" ").length
+    return this.SORT_WORDS(stringList).split(" ").length
   },
 
   DIFF_WORDS: function (string1, string2) {
@@ -323,7 +323,7 @@ let IdeaHelper = {
       cell = cell[0]
     }
 
-    if (typeof (c2w[cell]) == "string") {
+    if (typeof (c2w[cell]) === "string") {
       let w = c2w[cell]
       let type = 0
       if (w.endsWith("!")) {
@@ -652,6 +652,30 @@ let IdeaHelper = {
     if (typeof (c2w[cell]) === "string") {
       return c2w[cell]
     }
+  },
+  merge: function (ideaList) {
+    let mergeList = []
+    
+    ideaList.forEach(list => {
+      list.forEach(idea => {
+        if (mergeList.indexOf(idea) === -1) {
+          mergeList.push(idea)
+        }
+      })
+    })
+    
+    return mergeList
+  },
+  diff: function (beforeList, afterList) {
+    let newList = []
+    
+    afterList.forEach(idea => {
+      if (beforeList.indexOf(idea) === -1) {
+        newList.push(idea)
+      }
+    })
+    
+    return newList
   }
 }
 

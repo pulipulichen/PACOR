@@ -29,6 +29,7 @@ class WebpageGroupIndicator {
           'users': users.join(' ')
         }
         
+        /*
         let NoConfusionVector = await this.calcNoConfusionVector(options)
         output.NoConfusionTotal = StatisticHelepr.sum(NoConfusionVector)
         output.NoConfusionMedian = StatisticHelepr.median(NoConfusionVector)
@@ -93,6 +94,9 @@ class WebpageGroupIndicator {
         let ConnectednessDegreeOut = await this.calcConnectednessDegree(options, 'out')
         output.ConnectednessDegreeOut = ConnectednessDegreeOut
         output.InvertConnectednessDegreeOut = 1 - ConnectednessDegreeOut
+        */
+        
+        output.RecallNewIdeaProp = await this.calcRecallNewIdeaProp(options)
         
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
