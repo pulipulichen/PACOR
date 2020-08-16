@@ -29,7 +29,6 @@ class WebpageGroupIndicator {
           'users': users.join(' ')
         }
         
-        /*
         let NoConfusionVector = await this.calcNoConfusionVector(options)
         output.NoConfusionTotal = StatisticHelepr.sum(NoConfusionVector)
         output.NoConfusionMedian = StatisticHelepr.median(NoConfusionVector)
@@ -94,9 +93,18 @@ class WebpageGroupIndicator {
         let ConnectednessDegreeOut = await this.calcConnectednessDegree(options, 'out')
         output.ConnectednessDegreeOut = ConnectednessDegreeOut
         output.InvertConnectednessDegreeOut = 1 - ConnectednessDegreeOut
-        */
         
-        output.RecallNewIdeaProp = await this.calcRecallNewIdeaProp(options)
+        output.GroupRecallNewIdeaProp = await this.calcGroupRecallNewIdeaProp(options)
+        output.GroupRecallNewIdeaCount = await this.calcGroupRecallNewIdeaCount(options)
+        output.GroupRecallLessIdeaCount = await this.calcGroupRecallLessIdeaCount(options)
+        
+        let UserRecallNewIdeaVector = await this.calcUserRecallNewIdeaVector(options)
+        output.UserRecallNewIdeaVectorTotal = StatisticHelepr.sum(UserRecallNewIdeaVector)
+        output.UserRecallNewIdeaVectorMedian = StatisticHelepr.median(UserRecallNewIdeaVector)
+        
+        let UserRecallLessIdeaVector = await this.calcUserRecallLessIdeaVector(options)
+        output.UserRecallLessIdeaTotal = StatisticHelepr.sum(UserRecallLessIdeaVector)
+        output.UserRecallLessIdeaMedian = StatisticHelepr.median(UserRecallLessIdeaVector)
         
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
