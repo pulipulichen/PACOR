@@ -66,9 +66,17 @@ class WebpageGroupIndicator {
         
         output.ReadingStyleSimilarity = await this.calcReadingStyleSimilarity(options)
         
-        let AnchorPositionDenseDegree = await this.calcAnchorPositionDenseDegree(options)
-        output.AnchorPositionDenseDegree = AnchorPositionDenseDegree
-        output.InvertAnchorPositionDenseDegree = 1 - AnchorPositionDenseDegree
+        let IndividualReadingAnchorPositionDenseDegree = await this.calcIndividualReadingAnchorPositionDenseDegree(options)
+        output.IndividualReadingAnchorPositionDenseDegree = IndividualReadingAnchorPositionDenseDegree
+        output.InvertIndividualReadingAnchorPositionDenseDegree = 1 - IndividualReadingAnchorPositionDenseDegree
+        
+        let CollaborativeReadingAnchorPositionDenseDegree = await this.calcCollaborativeReadingAnchorPositionDenseDegree(options)
+        output.CollaborativeReadingAnchorPositionDenseDegree = CollaborativeReadingAnchorPositionDenseDegree
+        output.InvertCollaborativeReadingAnchorPositionDenseDegree = 1 - CollaborativeReadingAnchorPositionDenseDegree
+        
+        let AnnotationAnchorPositionDenseDegree = await this.calcAnnotationAnchorPositionDenseDegree(options)
+        output.AnnotationAnchorPositionDenseDegree = AnnotationAnchorPositionDenseDegree
+        output.InvertAnnotationAnchorPositionDenseDegree = 1 - AnnotationAnchorPositionDenseDegree
         
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {

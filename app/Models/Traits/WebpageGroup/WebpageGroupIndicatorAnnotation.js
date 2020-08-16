@@ -375,7 +375,7 @@ class WebpageGroupIndicatorAnnotation {
     
     /**
      * https://github.com/pulipulichen/PACOR/issues/513
-     * 錨點分散率
+     * 個人閱讀時的錨點分散率
      * 
      * 如果小組內錨點分散很大
      * 表示小組內看得地方都不一樣，擁有不同的專業
@@ -389,8 +389,8 @@ class WebpageGroupIndicatorAnnotation {
      * }
      * @returns {Number}
      */
-    Model.prototype.calcAnchorPositionDenseDegree = async function (options) {
-      let cacheKey = Cache.key('calcDenseDegree', options)
+    Model.prototype.calcIndividualReadingAnchorPositionDenseDegree = async function (options) {
+      let cacheKey = Cache.key('calcIndividualReadingAnchorPositionDenseDegree', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let webpage = await this.webpage().fetch()
         
@@ -418,6 +418,101 @@ class WebpageGroupIndicatorAnnotation {
         return StatisticHelper.round(degree, 4)
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     } // Model.prototype.calcMonologuesDegree = async function (options) {
+    
+    /**
+     * https://github.com/pulipulichen/PACOR/issues/513
+     * 協助閱讀時的錨點分散率
+     * 
+     * 如果小組內錨點分散很大
+     * 表示小組內看得地方都不一樣，擁有不同的專業
+     * 因此可以提高他們的學習成效
+     * 
+     * 最大值1
+     * 最小值是0
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all'
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcCollaborativeReadingAnchorPositionDenseDegree = async function (options) {
+      let cacheKey = Cache.key('calcCollaborativeReadingAnchorPositionDenseDegree', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        //usersIDList = usersIDList.slice(0,1)
+        //return await _testCalcAnchorPositionDenseDegree()
+        
+        let annotationsList = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          let annotations = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: false,
+            stepName: 'CollaborativeReading',
+            withAnchorPositions: true
+            //stepName: 'CollaborativeReading',
+            //type: ['Confused', 'Clarified'] // 不限類型
+            //type: ['MainIdea']
+          })
+          annotationsList = annotationsList.concat(annotations)
+        }
+        
+        console.log(annotationsList.length)
+        let degree = AnchorPositionMapHelper.calcDenseDegree(annotationsList, usersIDList.length)
+        return StatisticHelper.round(degree, 4)
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    } // Model.prototype.calcMonologuesDegree = async function (options) {
+    
+    /**
+     * https://github.com/pulipulichen/PACOR/issues/513
+     * 協助閱讀時的錨點分散率
+     * 
+     * 如果小組內錨點分散很大
+     * 表示小組內看得地方都不一樣，擁有不同的專業
+     * 因此可以提高他們的學習成效
+     * 
+     * 最大值1
+     * 最小值是0
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all'
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcAnnotationAnchorPositionDenseDegree = async function (options) {
+      let cacheKey = Cache.key('calcAnnotationAnchorPositionDenseDegree', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        //usersIDList = usersIDList.slice(0,1)
+        //return await _testCalcAnchorPositionDenseDegree()
+        
+        let annotationsList = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          let annotations = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: false,
+            //stepName: 'CollaborativeReading',
+            withAnchorPositions: true
+            //stepName: 'CollaborativeReading',
+            //type: ['Confused', 'Clarified'] // 不限類型
+            //type: ['MainIdea']
+          })
+          annotationsList = annotationsList.concat(annotations)
+        }
+        
+        console.log(annotationsList.length)
+        let degree = AnchorPositionMapHelper.calcDenseDegree(annotationsList, usersIDList.length)
+        return StatisticHelper.round(degree, 4)
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    } // Model.prototype.calcMonologuesDegree = async function (options) {
+    
     
     let _testCalcAnchorPositionDenseDegree = async function () {
       let annotations = await AnnotationModel.query()
