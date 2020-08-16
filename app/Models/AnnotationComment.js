@@ -44,6 +44,10 @@ class AnnotationComment extends Model {
     return this.belongsTo('App/Models/Annotation')
   }
   
+  anchor () {
+    return this.annotation()
+  }
+  
   commentOnAnnotation () {
     return this.annotation()
   }

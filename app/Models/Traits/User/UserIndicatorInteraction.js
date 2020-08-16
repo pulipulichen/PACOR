@@ -23,6 +23,7 @@ class UserIndicatorInteraction {
      *  includeMyself: false,
      *  stepName: 'IndividualReading',
      *  uniqleThreads: true,
+     *  withAnchor: false
      * }
      * @type {JSON}
      */
@@ -49,6 +50,10 @@ class UserIndicatorInteraction {
         
         if (options.includeCommentDeleted === false) {
           query.where('deleted', false)
+        }
+        
+        if (options.withAnchor === true) {
+          query.with('anchor')
         }
         
         // -------------------------
@@ -109,7 +114,8 @@ class UserIndicatorInteraction {
      *  includeAnchorDeleted: true,
      *  anchorType: ['annotation', 'comment'],
      *  stepName: 'IndividualReading',
-     *  type: ['like']
+     *  type: ['like'],
+     *  withAnchor: false
      * }
      * @type {JSON}
      */
@@ -165,6 +171,10 @@ class UserIndicatorInteraction {
             query.where('deleted', false)
           }
           
+          if (options.withAnchor === true) {
+            query.with('anchor')
+          }
+          
           if (Array.isArray(type)) {
             query.whereIn('type', type)
           }
@@ -200,6 +210,10 @@ class UserIndicatorInteraction {
                   
           if (options.includeRateDeleted === false) {
             query.where('deleted', false)
+          }
+          
+          if (options.withAnchor === true) {
+            query.with('anchor')
           }
           
           if (Array.isArray(type)) {

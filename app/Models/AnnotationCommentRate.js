@@ -23,6 +23,10 @@ class AnnotationCommentRate extends Model {
     return this.belongsTo('App/Models/AnnotationComment')
   }
   
+  anchor () {
+    return this.comment()
+  }
+  
   rateToComment () {
     return this.comment()
   }

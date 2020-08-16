@@ -29,6 +29,7 @@ class WebpageGroupIndicator {
           'users': users.join(' ')
         }
         
+        /*
         let NoConfusionVector = await this.calcNoConfusionVector(options)
         output.NoConfusionTotal = StatisticHelepr.sum(NoConfusionVector)
         output.NoConfusionMedian = StatisticHelepr.median(NoConfusionVector)
@@ -77,6 +78,8 @@ class WebpageGroupIndicator {
         let AnnotationAnchorPositionDenseDegree = await this.calcAnnotationAnchorPositionDenseDegree(options)
         output.AnnotationAnchorPositionDenseDegree = AnnotationAnchorPositionDenseDegree
         output.InvertAnnotationAnchorPositionDenseDegree = 1 - AnnotationAnchorPositionDenseDegree
+        */
+        await this.buildInteractionNetwork(options)
         
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
