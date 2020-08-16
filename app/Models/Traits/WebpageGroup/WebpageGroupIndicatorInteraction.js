@@ -123,7 +123,7 @@ class WebpageGroupIndicatorInteraction {
      * }
      * @returns {Number}
      */
-    Model.prototype.calcConnectednessDegree = async function (options) {
+    Model.prototype.calcConnectednessDegree = async function (options, type) {
       let cacheKey = Cache.key('calcConnectednessDegree', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let webpage = await this.webpage().fetch()
@@ -132,10 +132,91 @@ class WebpageGroupIndicatorInteraction {
         let usersIDList = await this.getUsersIDList(onlyCompleted)
         
         let network = await this.buildInteractionNetwork(options)
-        
-        if (options.type === 'all') {
+        //console.log(network)
+        let result = []
+        if (type === 'all'
+                || type === 'full') {
           
+          let resultMap = {}
+          usersIDList.forEach(userID1 => {
+            
+            for (let i = 0; i < usersIDList.length; i++) {
+              let userID2 = usersIDList[i]
+              
+              let keyArray = [userID1, userID2]
+              if (type === 'all') {
+                keyArray.sort()
+              }
+              let key = keyArray.join(',')
+              if (typeof(resultMap[key]) === 'undefined') {
+                resultMap[key] = false
+              }
+              
+              if (resultMap[key] === true) {
+                continue
+              }
+              
+              let matchOut = false
+              if (typeof(network[userID1]) === 'object'
+                      && typeof(network[userID1][userID2]) === 'number'
+                      && network[userID1][userID2] > 0) {
+                matchOut = true
+              }
+              
+              if (matchOut) {
+                resultMap[key] = true
+              }
+            }
+          })
+          
+          Object.keys(resultMap).forEach(key => {
+            if (resultMap[key] === true) {
+              result.push(1)
+            }
+            else {
+              result.push(0)
+            }
+          })
+          
+          //console.log(result)
         }
+        else if (type === 'out') {
+          usersIDList.forEach(userID => {
+            if (typeof(network[userID]) === 'object'
+                    && Object.keys(network[userID]).length > 0) {
+              //result.push(Object.keys(network[userID]).length / usersIDList.length)
+              result.push(1)
+              return true // 符合from，下一個
+            }
+            
+            result.push(0)  // 不符合
+          })
+        }
+        else if (type === 'in') {
+          usersIDList.forEach(userID => {
+            let fromCount = 0
+            for (let i = 0; i < usersIDList.length; i++) {
+              let fromUserID = usersIDList[i]
+              if (typeof(network[fromUserID]) === 'object'
+                      && typeof(network[fromUserID][userID]) === 'number'
+                      && network[fromUserID][userID] > 0) {
+                result.push(1)
+                return true
+                //fromCount++
+              }
+            }
+            
+            //result.push(fromCount / usersIDList.length)  // 不符合
+            result.push(0)
+          })
+        }
+        
+        if (result.length === 0) {
+          return 0
+        }
+        
+        let avg = StatisticHelper.average(result)
+        return StatisticHelper.round(avg, 4)
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
     

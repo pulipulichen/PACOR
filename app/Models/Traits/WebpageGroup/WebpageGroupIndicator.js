@@ -29,7 +29,6 @@ class WebpageGroupIndicator {
           'users': users.join(' ')
         }
         
-        /*
         let NoConfusionVector = await this.calcNoConfusionVector(options)
         output.NoConfusionTotal = StatisticHelepr.sum(NoConfusionVector)
         output.NoConfusionMedian = StatisticHelepr.median(NoConfusionVector)
@@ -78,8 +77,22 @@ class WebpageGroupIndicator {
         let AnnotationAnchorPositionDenseDegree = await this.calcAnnotationAnchorPositionDenseDegree(options)
         output.AnnotationAnchorPositionDenseDegree = AnnotationAnchorPositionDenseDegree
         output.InvertAnnotationAnchorPositionDenseDegree = 1 - AnnotationAnchorPositionDenseDegree
-        */
-        await this.buildInteractionNetwork(options)
+        
+        let ConnectednessDegreeAll = await this.calcConnectednessDegree(options, 'all')
+        output.ConnectednessDegreeAll = ConnectednessDegreeAll
+        output.InvertConnectednessDegreeAll = 1 - ConnectednessDegreeAll
+        
+        let ConnectednessDegreeFull = await this.calcConnectednessDegree(options, 'full')
+        output.ConnectednessDegreeFull = ConnectednessDegreeFull
+        output.InvertConnectednessDegreeFull = 1 - ConnectednessDegreeFull
+        
+        let ConnectednessDegreeIn = await this.calcConnectednessDegree(options, 'in')
+        output.ConnectednessDegreeIn = ConnectednessDegreeIn
+        output.InvertConnectednessDegreeIn = 1 - ConnectednessDegreeIn
+        
+        let ConnectednessDegreeOut = await this.calcConnectednessDegree(options, 'out')
+        output.ConnectednessDegreeOut = ConnectednessDegreeOut
+        output.InvertConnectednessDegreeOut = 1 - ConnectednessDegreeOut
         
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
