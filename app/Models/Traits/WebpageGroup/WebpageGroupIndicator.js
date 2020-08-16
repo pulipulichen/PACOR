@@ -106,6 +106,8 @@ class WebpageGroupIndicator {
         output.UserRecallLessIdeaTotal = StatisticHelepr.sum(UserRecallLessIdeaVector)
         output.UserRecallLessIdeaMedian = StatisticHelepr.median(UserRecallLessIdeaVector)
         
+        output.calcNoteSimilarityDegree = await this.calcNoteSimilarityDegree(options)
+       
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }

@@ -18,7 +18,8 @@ class UserIndicatorAnnotation {
      *  includeDeleted: true
      *  stepName: 'IndividualReading',
      *  type: ['Confused'],
-     *  withAnchorPositions: true
+     *  withAnchorPositions: false,
+     *  withNotes: false
      * }
      * @type {JSON}
      */
@@ -53,6 +54,10 @@ class UserIndicatorAnnotation {
           query.with('anchorPositions')
         }
         
+        if (options.withNotes === true) {
+          query.with('notes')
+        }
+        
         // -------------------------
         
         if (options.stepName) {
@@ -72,6 +77,47 @@ class UserIndicatorAnnotation {
         
         let result = await query.fetch()
         return result.toJSON()
+      })
+    }
+    
+    /**
+     * 計算各種留言相關的指標
+     * 包含annotation跟comment
+     * 這個不是為了顯示用的，純粹是為了分析用的
+     * 
+     * @param {Webpage} webpage
+     * @param {Object} options = {
+     *  includeDeleted: true
+     *  stepName: 'IndividualReading',
+     *  type: ['Confused'],
+     * }
+     * @type {JSON}
+     */
+    Model.prototype.getNoteIndicator = async function (webpage, options = {}) {
+      let cacheKey = Cache.key('User.getNoteIndicator', options)
+      
+      return await Cache.rememberWait([webpage, this], cacheKey, async () => {
+        let notes = []
+        
+        options.withNotes = true
+        let annotations = await this.getAnnotationIndicator(webpage, options)
+        annotations.forEach(annotation => {
+          if (Array.isArray(annotation.notes) === false) {
+            return false
+          }
+          
+          annotation.notes.forEach(note => {
+            notes.push(note.note)
+          })
+        })
+        
+        // ------------------------------
+        let comments = await this.getCommentIndicator(webpage, options)
+        comments.forEach(comment => {
+          notes.push(comment.note)
+        })
+        
+        return notes
       })
     }
     
