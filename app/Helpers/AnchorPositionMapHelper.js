@@ -1,6 +1,6 @@
 'use strict'
 
-const StringHelper = use('App/Helpers/StringHelper')
+const StatisticHelper = use('App/Helpers/StatisticHelper')
 
 let AnchorPositionMapHelper = {
   calcDenseDegree: function (annotations, usersCount) {
@@ -35,7 +35,7 @@ let AnchorPositionMapHelper = {
         map[seq_id].maxPos = end_pos
       }
 
-      for (let i = start_pos; i <= end_pos; i++) {
+      for (let i = start_pos; i < end_pos; i++) {
         if (Array.isArray(map[seq_id].usersBitMap[i]) === false) {
           map[seq_id].usersBitMap[i] = []
         }
@@ -50,19 +50,31 @@ let AnchorPositionMapHelper = {
     if (typeof(usersCount) !== 'number') {
       usersCount = userList.length
     }
+    if (usersCount < 2) {
+      console.log('usersCount is less than 2: ', usersCount)
+      return 0
+    }
     
     let denseDegreeArray = []
     Object.keys(map).forEach(seqID => {
       let {minPos, maxPos, usersBitMap} = map[seqID]
       
       for (let i = minPos; i <= maxPos; i++) {
+        if (Array.isArray(usersBitMap[i]) === false) {
+          continue
+        }
+        
         let userCount = usersBitMap[i].length
-        let prop = (userCount - 1) / (usersCount - 1)
+        let prop = 0
+        if ((usersCount - 1) > 0) {
+          prop = (userCount - 1) / (usersCount - 1)
+        }
         denseDegreeArray.push(prop)
       }
     })
     
-    let degree = StringHelper.average(denseDegreeArray)
+    //console.log(denseDegreeArray)
+    let degree = StatisticHelper.average(denseDegreeArray)
     return degree
     //return StringHelper.round(degree, 4)
   },
@@ -148,12 +160,15 @@ let AnchorPositionMapHelper = {
     }
     
     let anchorPositions = []
+    //console.log(annotations.length)
     annotations.forEach(annotation => {
+      //console.log(Array.isArray(annotation.anchorPositions))
       if (Array.isArray(annotation.anchorPositions) === false) {
         return false
       }
       
       annotation.anchorPositions.forEach(anchorPosition => {
+        //console.log(anchorPosition.type)
         if (anchorPosition.type !== 'textContent') {
           return false
         }
@@ -166,6 +181,7 @@ let AnchorPositionMapHelper = {
         })
       })
     })
+    //console.log(anchorPositions)
     
     return anchorPositions
   } 

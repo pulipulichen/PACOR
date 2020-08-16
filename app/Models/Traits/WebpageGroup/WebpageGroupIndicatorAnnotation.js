@@ -3,10 +3,14 @@
 const Cache = use('Cache')
 const { HttpException } = use('@adonisjs/generic-exceptions') 
 const UserModel = use('App/Models/User')
+
+const AnnotationModel = use('App/Models/Annotation')
 const StatisticHelper = use('App/Helpers/StatisticHelper')
 
 const SequenceHelper = use('App/Helpers/SequenceHelper')
 const KrippendorffHelper = use('App/Helpers/venders/krippendorff-alpha/KrippendorffHelper')
+
+const AnchorPositionMapHelper = use('App/Helpers/AnchorPositionMapHelper')
 
 class WebpageGroupIndicatorAnnotation {
 
@@ -368,6 +372,62 @@ class WebpageGroupIndicatorAnnotation {
         return StatisticHelper.round(alpha, 4)
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
+    
+    /**
+     * https://github.com/pulipulichen/PACOR/issues/513
+     * 錨點分散率
+     * 
+     * 如果小組內錨點分散很大
+     * 表示小組內看得地方都不一樣，擁有不同的專業
+     * 因此可以提高他們的學習成效
+     * 
+     * 最大值1
+     * 最小值是0
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all'
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcAnchorPositionDenseDegree = async function (options) {
+      let cacheKey = Cache.key('calcDenseDegree', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        //usersIDList = usersIDList.slice(0,1)
+        //return await _testCalcAnchorPositionDenseDegree()
+        
+        let annotationsList = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          let annotations = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: false,
+            stepName: 'IndividualReading',
+            withAnchorPositions: true
+            //stepName: 'CollaborativeReading',
+            //type: ['Confused', 'Clarified'] // 不限類型
+            //type: ['MainIdea']
+          })
+          annotationsList = annotationsList.concat(annotations)
+        }
+        
+        let degree = AnchorPositionMapHelper.calcDenseDegree(annotationsList, usersIDList.length)
+        return StatisticHelper.round(degree, 4)
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    } // Model.prototype.calcMonologuesDegree = async function (options) {
+    
+    let _testCalcAnchorPositionDenseDegree = async function () {
+      let annotations = await AnnotationModel.query()
+              .whereIn('id', [4521, 4524, 6187])
+              .with('anchorPositions')
+              .fetch()
+      
+      return AnchorPositionMapHelper.calcDenseDegree(annotations)
+    }
+    
   } // register (Model) {
 }
 
