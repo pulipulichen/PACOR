@@ -856,6 +856,26 @@ var render = function() {
                 _vm.groupIndicatorsEMMTSV = $event.target.value
               }
             }
+          }),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.groupIndicatorsEMMVariableNameList,
+                expression: "groupIndicatorsEMMVariableNameList"
+              }
+            ],
+            domProps: { value: _vm.groupIndicatorsEMMVariableNameList },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.groupIndicatorsEMMVariableNameList = $event.target.value
+              }
+            }
           })
         ])
       ])
@@ -1803,10 +1823,12 @@ let WebpageExport = {
       
       // 要挑那些組別，請看這裡
       // https://drive.google.com/drive/u/0/folders/17_P9Lm20Vx2_NA9lbWf4Fw3NeRefYSoe
+      /*
       targetGroups: [
         'nn1 nn12 nn27 nn4 nn9',
         'nn11 nn20 nn22 nn7',
       ],
+      */
       /*
       excludeGroups: [
         'nn23 nn25 nn999',
@@ -1837,6 +1859,26 @@ let WebpageExport = {
       
       return keys
     },
+    groupModels () {
+      let models = []
+      this.groupIndicators.forEach(group => {
+        if (Array.isArray(group.targetModels) === false) {
+          return false
+        }
+        
+        group.targetModels.forEach(model => {
+          if (models.indexOf(model) === -1) {
+            models.push(model)
+          }
+        })
+      })
+      
+      models.sort()
+      return models
+    },
+    groupIndicatorsEMMVariableNameList () {
+      return this.groupIndicatorsKeys.join('\n')
+    },
     groupIndicatorsTSV () {
       let keys = this.groupIndicatorsKeys
       
@@ -1865,6 +1907,7 @@ let WebpageExport = {
         keys.join('\t')
       ]
       
+      /*
       this.groupIndicators.forEach(group => {
 //        if (this.excludeGroups.indexOf(group.users) > -1) {
 //          return false
@@ -1886,7 +1929,29 @@ let WebpageExport = {
         }).join('\t')
         lines.push(2 + line)
       })
-      
+      */
+      this.groupModels.forEach(model => {
+        this.groupIndicators.forEach(group => {
+          if (Array.isArray(group.targetModels) === false) {
+            return false
+          }
+          
+          if (group.targetModels.indexOf(model) === -1) {
+            return false
+          }
+
+          let line = keys.map(key => {
+            let value = group[key]
+            if (typeof(value) === 'string') {
+              value = value.trim()
+            }
+            return value
+          }).join('\t')
+          line = model + line
+          lines.push(line)
+        })
+      })
+     
       return lines.join('\n')
       //return ''
     }
@@ -1908,7 +1973,7 @@ let WebpageExport = {
       }
       
       let result = await this.lib.AxiosHelper.get('/admin/WebpageExport/groupIndicators', data)
-      //console.log(result)
+      console.log(result)
       if (Array.isArray(result)) {
         this.groupIndicators = result
       }

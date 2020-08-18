@@ -160,6 +160,7 @@ class WebpageExport {
       }
       
       let indicator = await group.calcIndicators(options)
+      
       indicators.push(indicator)
     }
     

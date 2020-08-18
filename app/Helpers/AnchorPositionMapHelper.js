@@ -42,7 +42,7 @@ let AnchorPositionMapHelper = {
         denseDegreeArray.push(prop)
       }
     })
-    console.log(denseDegreeArray)
+    //console.log(denseDegreeArray)
     let degree = StatisticHelper.average(denseDegreeArray)
     return degree
       
@@ -50,7 +50,7 @@ let AnchorPositionMapHelper = {
   calcOverlapVector: function (annotations, users, exportType = 'count') {
     let anchorPositions = this._extractAnchorPositions(annotations)
     if (anchorPositions.length === 0) {
-      return []
+      return [0]
     } 
     
     // -------------------------
@@ -60,7 +60,7 @@ let AnchorPositionMapHelper = {
     // --------------------------
     let usersCount = this._calcUsersCount(users, userList)
     if (usersCount === 0) {
-      return []
+      return [0]
     }
     
     if (Array.isArray(users) === false) {
@@ -106,6 +106,9 @@ let AnchorPositionMapHelper = {
       }
     })
 
+    if (vector.length === 0) {
+      return [0]
+    }
     return vector
   },
   _buildMap: function (anchorPositions) {

@@ -169,7 +169,7 @@ class WebpageGroupIndicatorAnnotationPosition {
     Model.prototype.calcAnnotationAnchorPositionDenseDegree = async function (options) {
       let cacheKey = Cache.key('calcAnnotationAnchorPositionDenseDegree', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
-        return await _testCalcAnchorPositionOverlapVector()
+        //return await _testCalcAnchorPositionOverlapVector()
         
         let webpage = await this.webpage().fetch()
         

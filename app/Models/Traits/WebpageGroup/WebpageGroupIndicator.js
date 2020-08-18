@@ -25,10 +25,12 @@ class WebpageGroupIndicator {
         
         let users = await this.getUsersDisplayName( (options.userFilter === 'onlyCompleted') ) 
         
+        let targetModels = await this.getAttribute('targetModels')
+        
         let output = {
-          'users': users.join(' ')
+          targetModels: targetModels.split(','),
+          'users': users.join(' ').trim()
         }
-        /*
         let NoConfusionVector = await this.calcNoConfusionVector(options)
         output.NoConfusionTotal = StatisticHelepr.sum(NoConfusionVector)
         output.NoConfusionMedian = StatisticHelepr.median(NoConfusionVector)
@@ -65,7 +67,7 @@ class WebpageGroupIndicator {
         output.ActivityMedian = StatisticHelepr.median(ActivityVector)
         
         output.ReadingStyleSimilarity = await this.calcReadingStyleSimilarity(options)
-        */
+        
         // ----------------------------------------
         
         let stepNameList = [
@@ -112,7 +114,7 @@ class WebpageGroupIndicator {
         }
         
         // ----------------------------------------
-        /*
+        
         let ConnectednessDegreeAll = await this.calcConnectednessDegree(options, 'all')
         output.ConnectednessDegreeAll = ConnectednessDegreeAll
         output.InvertConnectednessDegreeAll = 1 - ConnectednessDegreeAll
@@ -151,7 +153,7 @@ class WebpageGroupIndicator {
         output.DialogueVectorMedian = StatisticHelepr.median(DialogueVector)
         
         output.DialogueCount = await this.calcDialogueCount(options)
-        */
+        
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
