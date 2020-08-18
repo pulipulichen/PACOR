@@ -158,15 +158,6 @@ class WebpageGroupIndicatorNote {
     } // Model.prototype.calcMonologuesDegree = async function (options) {
     
     
-    let _testCalcAnchorPositionDenseDegree = async function () {
-      let annotations = await AnnotationModel.query()
-              .whereIn('id', [4521, 4524, 6187])
-              .with('anchorPositions')
-              .fetch()
-      
-      return AnchorPositionMapHelper.calcDenseDegree(annotations)
-    }
-    
   } // register (Model) {
 }
 

@@ -112,33 +112,14 @@ class WebpageGroupIndicatorAnnotationPosition {
      * }
      * @returns {Number}
      */
-    Model.prototype.calcIndividualReadingAnchorPositionDenseDegree = async function (options, baseIndividual = false) {
+    Model.prototype.calcIndividualReadingAnchorPositionDenseDegree = async function (options) {
       let cacheKey = Cache.key('calcIndividualReadingAnchorPositionDenseDegree', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
-        let webpage = await this.webpage().fetch()
-        
-        let onlyCompleted = (options.userFilter === 'onlyCompleted')
-        let usersIDList = await this.getUsersIDList(onlyCompleted)
-        
-        //usersIDList = usersIDList.slice(0,1)
-        //return await _testCalcAnchorPositionDenseDegree()
-        
-        let annotationsList = []
-        for (let i = 0; i < usersIDList.length; i++) {
-          let user = await UserModel.find(usersIDList[i])
-          let annotations = await user.getAnnotationIndicator(webpage, {
-            includeDeleted: false,
-            stepName: 'IndividualReading',
-            withAnchorPositions: true
-            //stepName: 'CollaborativeReading',
-            //type: ['Confused', 'Clarified'] // 不限類型
-            //type: ['MainIdea']
-          })
-          annotationsList = annotationsList.concat(annotations)
+        let tempOptions = {
+                  ...options
         }
-        
-        let degree = AnchorPositionMapHelper.calcDenseDegree(annotationsList, usersIDList, baseIndividual)
-        return StatisticHelper.round(degree, 4)
+        tempOptions.stepName = 'IndividualReading'
+        return await this.calcAnnotationAnchorPositionDenseDegree(tempOptions)
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     } // Model.prototype.calcMonologuesDegree = async function (options) {
     
@@ -158,34 +139,14 @@ class WebpageGroupIndicatorAnnotationPosition {
      * }
      * @returns {Number}
      */
-    Model.prototype.calcCollaborativeReadingAnchorPositionDenseDegree = async function (options, baseIndividual = false) {
+    Model.prototype.calcCollaborativeReadingAnchorPositionDenseDegree = async function (options) {
       let cacheKey = Cache.key('calcCollaborativeReadingAnchorPositionDenseDegree', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
-        let webpage = await this.webpage().fetch()
-        
-        let onlyCompleted = (options.userFilter === 'onlyCompleted')
-        let usersIDList = await this.getUsersIDList(onlyCompleted)
-        
-        //usersIDList = usersIDList.slice(0,1)
-        //return await _testCalcAnchorPositionDenseDegree()
-        
-        let annotationsList = []
-        for (let i = 0; i < usersIDList.length; i++) {
-          let user = await UserModel.find(usersIDList[i])
-          let annotations = await user.getAnnotationIndicator(webpage, {
-            includeDeleted: false,
-            stepName: 'CollaborativeReading',
-            withAnchorPositions: true
-            //stepName: 'CollaborativeReading',
-            //type: ['Confused', 'Clarified'] // 不限類型
-            //type: ['MainIdea']
-          })
-          annotationsList = annotationsList.concat(annotations)
+        let tempOptions = {
+                  ...options
         }
-        
-        //console.log(annotationsList.length)
-        let degree = AnchorPositionMapHelper.calcDenseDegree(annotationsList, usersIDList, baseIndividual)
-        return StatisticHelper.round(degree, 4)
+        tempOptions.stepName = 'CollaborativeReading'
+        return await this.calcAnnotationAnchorPositionDenseDegree(tempOptions)
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     } // Model.prototype.calcMonologuesDegree = async function (options) {
     
@@ -205,10 +166,14 @@ class WebpageGroupIndicatorAnnotationPosition {
      * }
      * @returns {Number}
      */
-    Model.prototype.calcAnnotationAnchorPositionDenseDegree = async function (options, baseIndividual = false) {
+    Model.prototype.calcAnnotationAnchorPositionDenseDegree = async function (options) {
       let cacheKey = Cache.key('calcAnnotationAnchorPositionDenseDegree', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        return await _testCalcAnchorPositionOverlapVector()
+        
         let webpage = await this.webpage().fetch()
+        
+        let {stepName} = options
         
         let onlyCompleted = (options.userFilter === 'onlyCompleted')
         let usersIDList = await this.getUsersIDList(onlyCompleted)
@@ -221,6 +186,59 @@ class WebpageGroupIndicatorAnnotationPosition {
           let user = await UserModel.find(usersIDList[i])
           let annotations = await user.getAnnotationIndicator(webpage, {
             includeDeleted: false,
+            stepName,
+            //stepName: 'CollaborativeReading',
+            withAnchorPositions: true
+            //stepName: 'CollaborativeReading',
+            //type: ['Confused', 'Clarified'] // 不限類型
+            //type: ['MainIdea']
+          })
+          
+          annotationsList = annotationsList.concat(annotations)
+        }
+        
+        //console.log(annotationsList.length)
+        let degree = AnchorPositionMapHelper.calcDenseDegree(annotationsList, usersIDList)
+        return StatisticHelper.round(degree, 4)
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    } // Model.prototype.calcMonologuesDegree = async function (options) {
+    
+    /**
+     * https://github.com/pulipulichen/PACOR/issues/535
+     * 計算重疊的個人資料
+     * 
+     * 如果小組內錨點分散很大
+     * 表示小組內看得地方都不一樣，擁有不同的專業
+     * 因此可以提高他們的學習成效
+     * 
+     * 最大值1
+     * 最小值是0
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all',
+     *   exportType: 'count' 單純看字數 || 'prop' 看有跟人重疊的比例
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcAnnotationAnchorPositionOverlapVector = async function (options) {
+      let cacheKey = Cache.key('calcAnnotationAnchorPositionOverlapVector', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let {stepName, exportType} = options
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        //usersIDList = usersIDList.slice(0,1)
+        //return await _testCalcAnchorPositionDenseDegree()
+        
+        let annotationsList = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          let annotations = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: false,
+            stepName,
             //stepName: 'CollaborativeReading',
             withAnchorPositions: true
             //stepName: 'CollaborativeReading',
@@ -231,11 +249,42 @@ class WebpageGroupIndicatorAnnotationPosition {
         }
         
         //console.log(annotationsList.length)
-        let degree = AnchorPositionMapHelper.calcDenseDegree(annotationsList, usersIDList, baseIndividual)
-        return StatisticHelper.round(degree, 4)
+        return AnchorPositionMapHelper.calcOverlapVector(annotationsList, usersIDList, exportType)
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     } // Model.prototype.calcMonologuesDegree = async function (options) {
     
+    let _testCalcAnchorPositionDenseDegree = async function () {
+      // 4521 跟 4524 是同一個位置， 光學顯微鏡，不同的兩個人
+      // 6187 是不同位置：放大鏡 user 631
+      
+      // 2 2 2 2 2 1 1 1
+      // 光學顯微鏡放大鏡 = (0.5 * 5) / 8
+      
+      let annotations = await AnnotationModel.query()
+              .whereIn('id', [4521, 4524, 6187])
+              .with('anchorPositions')
+              .fetch()
+      
+      return AnchorPositionMapHelper.calcDenseDegree(annotations)
+    }
+    
+    let _testCalcAnchorPositionOverlapVector = async function () {
+      // 4521 跟 4524 是同一個位置， 光學顯微鏡，不同的兩個人
+      // 6187 是不同位置：放大鏡 user 631
+      
+      // 2 2 2 2 2 1 1 1
+      // 光學顯微鏡放大鏡 = (0.5 * 5) / 8
+      
+      let annotations = await AnnotationModel.query()
+              .whereIn('id', [4521, 4524, 6187])
+              .with('anchorPositions')
+              .fetch()
+      
+      
+      let vector =  AnchorPositionMapHelper.calcOverlapVector(annotations, null, 'prop')
+      console.log(vector)
+      return StatisticHelper.average(vector)
+    }
   } // register (Model) {
 }
 

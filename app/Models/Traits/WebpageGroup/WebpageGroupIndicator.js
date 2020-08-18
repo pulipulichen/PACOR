@@ -28,7 +28,7 @@ class WebpageGroupIndicator {
         let output = {
           'users': users.join(' ')
         }
-        
+        /*
         let NoConfusionVector = await this.calcNoConfusionVector(options)
         output.NoConfusionTotal = StatisticHelepr.sum(NoConfusionVector)
         output.NoConfusionMedian = StatisticHelepr.median(NoConfusionVector)
@@ -65,19 +65,54 @@ class WebpageGroupIndicator {
         output.ActivityMedian = StatisticHelepr.median(ActivityVector)
         
         output.ReadingStyleSimilarity = await this.calcReadingStyleSimilarity(options)
+        */
+        // ----------------------------------------
         
-        let IndividualReadingAnchorPositionDenseProp = await this.calcIndividualReadingAnchorPositionDenseProp(options, true)
-        output.IndividualReadingAnchorPositionDenseProp = IndividualReadingAnchorPositionDenseProp
-        output.InvertIndividualReadingAnchorPositionDenseProp = 1 - IndividualReadingAnchorPositionDenseProp
+        let stepNameList = [
+          'IndividualReading',
+          'CollaborativeReading',
+          undefined
+        ]
+        let exportTypeList = [
+          'count',
+          'prop'
+        ]
         
-        let CollaborativeReadingAnchorPositionDenseDegree = await this.calcCollaborativeReadingAnchorPositionDenseDegree(options, true)
-        output.CollaborativeReadingAnchorPositionDenseDegree = CollaborativeReadingAnchorPositionDenseDegree
-        output.InvertCollaborativeReadingAnchorPositionDenseDegree = 1 - CollaborativeReadingAnchorPositionDenseDegree
+        for (let i = 0; i < 3; i++) {
+          let stepName = stepNameList[i]
+          
+          let indexName = stepName
+          if (!indexName) {
+            indexName = ''
+          }
+          
+          let tempOptions = {
+                    ...options
+          }
+          tempOptions.stepName = stepName
+          
+          let prop = await this.calcAnnotationAnchorPositionDenseDegree(tempOptions)
+          output[indexName + 'AnchorPositionDenseDegree'] = prop
+          break
+          output[indexName + 'InvertAnchorPositionDenseDegree'] = 1 - prop
+          
+          for (let j = 0; j < 2; j++) {
+            let exportType = exportTypeList[j]
+            
+            tempOptions.exportType = exportType
+            
+            let vector = await this.calcAnnotationAnchorPositionOverlapVector(tempOptions)
+            
+            if (exportType === 'count') {
+              output[indexName + 'AnchorPositionOverlapTotal'] = StatisticHelepr.sum(vector)
+            }
+            output[indexName + 'AnchorPositionOverlapMedian'] = StatisticHelepr.median(vector)
+            output[indexName + 'AnchorPositionOverlapAverage'] = StatisticHelepr.average(vector)
+          }
+        }
         
-        let AnnotationAnchorPositionDenseDegree = await this.calcAnnotationAnchorPositionDenseDegree(options, true)
-        output.AnnotationAnchorPositionDenseDegree = AnnotationAnchorPositionDenseDegree
-        output.InvertAnnotationAnchorPositionDenseDegree = 1 - AnnotationAnchorPositionDenseDegree
-        
+        // ----------------------------------------
+        /*
         let ConnectednessDegreeAll = await this.calcConnectednessDegree(options, 'all')
         output.ConnectednessDegreeAll = ConnectednessDegreeAll
         output.InvertConnectednessDegreeAll = 1 - ConnectednessDegreeAll
@@ -116,7 +151,7 @@ class WebpageGroupIndicator {
         output.DialogueVectorMedian = StatisticHelepr.median(DialogueVector)
         
         output.DialogueCount = await this.calcDialogueCount(options)
-        
+        */
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
