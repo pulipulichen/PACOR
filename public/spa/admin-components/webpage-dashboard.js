@@ -837,45 +837,31 @@ var render = function() {
               ]
             )
           ]),
-          _vm._v(" "),
+          _vm._v("\r\n\r\n      SPSS\r\n      "),
           _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.groupIndicatorsEMMTSV,
-                expression: "groupIndicatorsEMMTSV"
-              }
-            ],
-            domProps: { value: _vm.groupIndicatorsEMMTSV },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.groupIndicatorsEMMTSV = $event.target.value
-              }
-            }
+            domProps: { innerHTML: _vm._s(_vm.groupIndicatorsEMMTSV) }
           }),
           _vm._v(" "),
           _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.groupIndicatorsEMMVariableNameList,
-                expression: "groupIndicatorsEMMVariableNameList"
-              }
-            ],
-            domProps: { value: _vm.groupIndicatorsEMMVariableNameList },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.groupIndicatorsEMMVariableNameList = $event.target.value
-              }
+            domProps: {
+              innerHTML: _vm._s(_vm.groupIndicatorsEMMVariableNameList)
             }
+          }),
+          _vm._v("\r\n      \r\n      Model 1 - Model 0\r\n      "),
+          _c("textarea", {
+            domProps: { innerHTML: _vm._s(_vm.buildARFF(1, 0)) }
+          }),
+          _vm._v("\r\n      \r\n      Model 1 - Model 3\r\n      "),
+          _c("textarea", {
+            domProps: { innerHTML: _vm._s(_vm.buildARFF(1, 3)) }
+          }),
+          _vm._v("\r\n      \r\n      Model 2 - Model 0\r\n      "),
+          _c("textarea", {
+            domProps: { innerHTML: _vm._s(_vm.buildARFF(2, 0)) }
+          }),
+          _vm._v("\r\n      \r\n      Model 2 - Model 4\r\n      "),
+          _c("textarea", {
+            domProps: { innerHTML: _vm._s(_vm.buildARFF(2, 4)) }
           })
         ])
       ])
@@ -1877,7 +1863,7 @@ let WebpageExport = {
       return models
     },
     groupIndicatorsEMMVariableNameList () {
-      return this.groupIndicatorsKeys.join('\n')
+      return 'model\t' + this.groupIndicatorsKeys.join('\n')
     },
     groupIndicatorsTSV () {
       let keys = this.groupIndicatorsKeys
@@ -1973,11 +1959,96 @@ let WebpageExport = {
       }
       
       let result = await this.lib.AxiosHelper.get('/admin/WebpageExport/groupIndicators', data)
-      console.log(result)
+      //console.log(result)
       if (Array.isArray(result)) {
         this.groupIndicators = result
       }
     },
+    buildARFF: function (modelA, modelB) {
+      let relation = this.mmddhhmm() + '_' + modelA + '-' + modelB
+      
+      // ------------------
+      
+      let attributes = {}
+      let excludeKeys = ['targetModels', 'users']
+      let keys = this.groupIndicatorsKeys
+      keys.forEach(key => {
+        let type = 'numeric'
+        if (excludeKeys.indexOf(key) > -1) {
+          return false
+        }
+        
+        attributes[key] = type
+      })
+      attributes.model = `{A${modelA},B${modelB}}`
+      
+      let attributesText = Object.keys(attributes).map(key => {
+        return `@attribute ${key} ${attributes[key]}`
+      }).join('\n')
+      
+      // ------------------
+      
+      let data = []
+      
+      let models = [modelA, modelB]
+      //console.log(models)
+      models.forEach((model, i) => {
+        this.groupIndicators.forEach(group => {
+          if (Array.isArray(group.targetModels) === false) {
+            return false
+          }
+
+          if (group.targetModels.indexOf(model) === -1) {
+            return false
+          }
+
+          let line = []
+          
+          keys.forEach(key => {
+            if (excludeKeys.indexOf(key) > -1) {
+              return false
+            }
+            let value = group[key]
+            if (typeof(value) === 'string') {
+              value = value.trim()
+            }
+            line.push(value)
+          })
+          
+          if (i === 0) {
+            line.push('A' + model)
+          }
+          else {
+            line.push('B' + model)
+          }
+          data.push(line.join(','))
+        })
+      })
+      //console.log(data)
+        
+      // ------------------
+      // 合併
+      
+      return `@relation ${relation}
+
+${attributesText}
+
+@data
+${data.join('\n')}`
+    },
+    mmddhhmm: function () {
+      let d = new Date()
+      var mm = d.getMonth() < 9 ? "0" + (d.getMonth() + 1) : (d.getMonth() + 1); // getMonth() is zero-based
+      var dd = d.getDate() < 10 ? "0" + d.getDate() : d.getDate();
+      var hh = d.getHours() < 10 ? "0" + d.getHours() : d.getHours();
+      var min = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
+
+      return "".concat(mm)
+              .concat(dd)
+              .concat('-')
+              .concat(hh)
+              .concat(min)
+    }
   } // methods
 }
 

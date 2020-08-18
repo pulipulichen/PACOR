@@ -28,9 +28,11 @@ class WebpageGroupIndicator {
         let targetModels = await this.getAttribute('targetModels')
         
         let output = {
-          targetModels: targetModels.split(','),
+          targetModels: targetModels.split(',').map(m => Number(m)),
           'users': users.join(' ').trim()
         }
+        
+        
         let NoConfusionVector = await this.calcNoConfusionVector(options)
         output.NoConfusionTotal = StatisticHelepr.sum(NoConfusionVector)
         output.NoConfusionMedian = StatisticHelepr.median(NoConfusionVector)

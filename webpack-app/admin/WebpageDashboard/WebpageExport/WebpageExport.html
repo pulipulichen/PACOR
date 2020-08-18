@@ -30,9 +30,22 @@
           {{ $t('Copy') }}
         </a>
       </div>
-        
-      <textarea v-model="groupIndicatorsEMMTSV"></textarea>
-      <textarea v-model="groupIndicatorsEMMVariableNameList"></textarea>
+
+      SPSS
+      <textarea v-html="groupIndicatorsEMMTSV"></textarea>
+      <textarea v-html="groupIndicatorsEMMVariableNameList"></textarea>
+      
+      Model 1 - Model 0
+      <textarea v-html="buildARFF(1,0)"></textarea>
+      
+      Model 1 - Model 3
+      <textarea v-html="buildARFF(1,3)"></textarea>
+      
+      Model 2 - Model 0
+      <textarea v-html="buildARFF(2,0)"></textarea>
+      
+      Model 2 - Model 4
+      <textarea v-html="buildARFF(2,4)"></textarea>
     </div>
   </form>
 </div>
