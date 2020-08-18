@@ -23,6 +23,9 @@ class WebpageGroup extends Model {
     
     this.addTrait('WebpageGroup/WebpageGroupIndicator')
     this.addTrait('WebpageGroup/WebpageGroupIndicatorAnnotation')
+    this.addTrait('WebpageGroup/WebpageGroupIndicatorAnnotationPosition')
+    this.addTrait('WebpageGroup/WebpageGroupIndicatorNote')
+    
     this.addTrait('WebpageGroup/WebpageGroupIndicatorInteraction')
     this.addTrait('WebpageGroup/WebpageGroupIndicatorUserAttributes')
     this.addTrait('WebpageGroup/WebpageGroupIndicatorReadingActivityLog')

@@ -3,7 +3,7 @@
 const StatisticHelper = use('App/Helpers/StatisticHelper')
 
 let AnchorPositionMapHelper = {
-  calcDenseDegree: function (annotations, usersCount) {
+  calcDenseDegree: function (annotations, users, baseIndividual) {
     let anchorPositions = this._extractAnchorPositions(annotations)
     if (anchorPositions.length === 0) {
       return 0
@@ -47,7 +47,8 @@ let AnchorPositionMapHelper = {
     })
     
     // --------------------------
-    if (typeof(usersCount) !== 'number') {
+    let usersCount
+    if (Array.isArray(users) === false) {
       usersCount = userList.length
     }
     if (usersCount < 2) {
@@ -55,28 +56,66 @@ let AnchorPositionMapHelper = {
       return 0
     }
     
-    let denseDegreeArray = []
-    Object.keys(map).forEach(seqID => {
-      let {minPos, maxPos, usersBitMap} = map[seqID]
+    if (baseIndividual === false) {
+      let denseDegreeArray = []
+      Object.keys(map).forEach(seqID => {
+        let {minPos, maxPos, usersBitMap} = map[seqID]
+
+        for (let i = minPos; i <= maxPos; i++) {
+          if (Array.isArray(usersBitMap[i]) === false) {
+            continue
+          }
+
+          let userCount = usersBitMap[i].length
+          let prop = 0
+          if ((usersCount - 1) > 0) {
+            prop = (userCount - 1) / (usersCount - 1)
+          }
+          denseDegreeArray.push(prop)
+        }
+      })
+
+      //console.log(denseDegreeArray)
+      let degree = StatisticHelper.average(denseDegreeArray)
+      return degree
+      //return StringHelper.round(degree, 4)
+    }
+    else {
       
-      for (let i = minPos; i <= maxPos; i++) {
-        if (Array.isArray(usersBitMap[i]) === false) {
-          continue
+      let vector = users.map(userID => {
+        let list = []
+        Object.keys(map).forEach(seqID => {
+          let {minPos, maxPos, usersBitMap} = map[seqID]
+
+          for (let i = minPos; i <= maxPos; i++) {
+            if (Array.isArray(usersBitMap[i]) === false) {
+              continue
+            }
+
+            let userBitMap = usersBitMap[i]
+            
+            if (userBitMap.indexOf(userID) === -1) {
+              continue
+            }
+            
+            if (userBitMap.length > 1) {
+              list.push(1)
+            }
+            else {
+              list.push(0)
+            }
+          }
+        })
+        
+        if (list.length === 0) {
+          return 0
         }
         
-        let userCount = usersBitMap[i].length
-        let prop = 0
-        if ((usersCount - 1) > 0) {
-          prop = (userCount - 1) / (usersCount - 1)
-        }
-        denseDegreeArray.push(prop)
-      }
-    })
-    
-    //console.log(denseDegreeArray)
-    let degree = StatisticHelper.average(denseDegreeArray)
-    return degree
-    //return StringHelper.round(degree, 4)
+        return StatisticHelper.average(list)
+      })
+      
+      return StatisticHelper.average(vector)
+    }
   },
   annotationsToMap: function (annotations) {
     annotations = this._filterAnnotations(annotations)

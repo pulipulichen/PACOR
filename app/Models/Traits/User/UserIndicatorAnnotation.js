@@ -5,6 +5,9 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 const UserModel = use('App/Models/User')
 const AnnotationModel = use('App/Models/Annotation')
 
+const StringHelper = use('App/Helpers/StringHelper')
+const TokenizationHelper = use('App/Helpers/TokenizationHelper')
+
 class UserIndicatorAnnotation {
 
   register(Model) {
@@ -111,6 +114,8 @@ class UserIndicatorAnnotation {
      *  includeDeleted: true
      *  stepName: 'IndividualReading',
      *  type: ['Confused'],
+     *  htmlToText: true,
+     *  useTokenizer: false
      * }
      * @type {JSON}
      */
@@ -128,14 +133,38 @@ class UserIndicatorAnnotation {
           }
           
           annotation.notes.forEach(note => {
-            notes.push(note.note)
+            note = note.note
+            if (options.htmlToText === true) {
+              note = StringHelper.htmlToTextTrim(note)
+            }
+            
+            if (options.useTokenizer === true) {
+              //console.log('note1', note)
+              note = TokenizationHelper.parseSegment(note)
+              note = note.map(n => n.w)
+              //console.log('note2', note)
+            }
+            
+            notes.push(note)
           })
         })
         
         // ------------------------------
         let comments = await this.getCommentIndicator(webpage, options)
         comments.forEach(comment => {
-          notes.push(comment.note)
+          let note = comment.note
+          if (options.htmlToText === true) {
+            note = StringHelper.htmlToTextTrim(note)
+          }
+          
+          if (options.useTokenizer === true) {
+            //console.log('comment note1', note)
+            note = TokenizationHelper.parseSegment(note)
+            note = note.map(n => n.w)
+            //console.log('comment note2', note)
+          }
+          
+          notes.push(note)
         })
         
         return notes

@@ -66,15 +66,15 @@ class WebpageGroupIndicator {
         
         output.ReadingStyleSimilarity = await this.calcReadingStyleSimilarity(options)
         
-        let IndividualReadingAnchorPositionDenseDegree = await this.calcIndividualReadingAnchorPositionDenseDegree(options)
-        output.IndividualReadingAnchorPositionDenseDegree = IndividualReadingAnchorPositionDenseDegree
-        output.InvertIndividualReadingAnchorPositionDenseDegree = 1 - IndividualReadingAnchorPositionDenseDegree
+        let IndividualReadingAnchorPositionDenseProp = await this.calcIndividualReadingAnchorPositionDenseProp(options, true)
+        output.IndividualReadingAnchorPositionDenseProp = IndividualReadingAnchorPositionDenseProp
+        output.InvertIndividualReadingAnchorPositionDenseProp = 1 - IndividualReadingAnchorPositionDenseProp
         
-        let CollaborativeReadingAnchorPositionDenseDegree = await this.calcCollaborativeReadingAnchorPositionDenseDegree(options)
+        let CollaborativeReadingAnchorPositionDenseDegree = await this.calcCollaborativeReadingAnchorPositionDenseDegree(options, true)
         output.CollaborativeReadingAnchorPositionDenseDegree = CollaborativeReadingAnchorPositionDenseDegree
         output.InvertCollaborativeReadingAnchorPositionDenseDegree = 1 - CollaborativeReadingAnchorPositionDenseDegree
         
-        let AnnotationAnchorPositionDenseDegree = await this.calcAnnotationAnchorPositionDenseDegree(options)
+        let AnnotationAnchorPositionDenseDegree = await this.calcAnnotationAnchorPositionDenseDegree(options, true)
         output.AnnotationAnchorPositionDenseDegree = AnnotationAnchorPositionDenseDegree
         output.InvertAnnotationAnchorPositionDenseDegree = 1 - AnnotationAnchorPositionDenseDegree
         
@@ -106,14 +106,17 @@ class WebpageGroupIndicator {
         output.UserRecallLessIdeaTotal = StatisticHelepr.sum(UserRecallLessIdeaVector)
         output.UserRecallLessIdeaMedian = StatisticHelepr.median(UserRecallLessIdeaVector)
         
-        output.NoteSimilarityDegree = await this.calcNoteSimilarityDegree(options)
+        output.NoteSimilarityDegree = await this.calcNoteSimilarityDegree(options, false)
+        output.TokenNoteSimilarityDegree = await this.calcNoteSimilarityDegree(options, true)
+        output.IndividualNoteSimilarityMedian = await this.calcIndividualNoteSimilarityMedian(options, false)
+        output.IndividualTokenNoteSimilarityMedian = await this.calcIndividualNoteSimilarityMedian(options, true)
         
         let DialogueVector = await this.calcDialogueVector(options)
         output.DialogueVectorTotal = StatisticHelepr.sum(DialogueVector)
         output.DialogueVectorMedian = StatisticHelepr.median(DialogueVector)
         
         output.DialogueCount = await this.calcDialogueCount(options)
-       
+        
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
