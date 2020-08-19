@@ -32,7 +32,6 @@ class WebpageGroupIndicator {
           'users': users.join(' ').trim()
         }
         
-        
         let NoConfusionVector = await this.calcNoConfusionVector(options)
         output.NoConfusionTotal = StatisticHelepr.sum(NoConfusionVector)
         output.NoConfusionMedian = StatisticHelepr.median(NoConfusionVector)
@@ -125,30 +124,32 @@ class WebpageGroupIndicator {
         output.ConnectednessDegreeFull = ConnectednessDegreeFull
         output.InvertConnectednessDegreeFull = 1 - ConnectednessDegreeFull
         
-        let ConnectednessDegreeIn = await this.calcConnectednessDegree(options, 'in')
-        output.ConnectednessDegreeIn = ConnectednessDegreeIn
-        output.InvertConnectednessDegreeIn = 1 - ConnectednessDegreeIn
+//        let ConnectednessDegreeIn = await this.calcConnectednessDegree(options, 'in')
+//        output.ConnectednessDegreeIn = ConnectednessDegreeIn
+//        output.InvertConnectednessDegreeIn = 1 - ConnectednessDegreeIn
         
         let ConnectednessDegreeOut = await this.calcConnectednessDegree(options, 'out')
         output.ConnectednessDegreeOut = ConnectednessDegreeOut
         output.InvertConnectednessDegreeOut = 1 - ConnectednessDegreeOut
         
-        output.GroupRecallNewIdeaProp = await this.calcGroupRecallNewIdeaProp(options)
-        output.GroupRecallNewIdeaCount = await this.calcGroupRecallNewIdeaCount(options)
-        output.GroupRecallLessIdeaCount = await this.calcGroupRecallLessIdeaCount(options)
-        
-        let UserRecallNewIdeaVector = await this.calcUserRecallNewIdeaVector(options)
-        output.UserRecallNewIdeaVectorTotal = StatisticHelepr.sum(UserRecallNewIdeaVector)
-        output.UserRecallNewIdeaVectorMedian = StatisticHelepr.median(UserRecallNewIdeaVector)
-        
-        let UserRecallLessIdeaVector = await this.calcUserRecallLessIdeaVector(options)
-        output.UserRecallLessIdeaTotal = StatisticHelepr.sum(UserRecallLessIdeaVector)
-        output.UserRecallLessIdeaMedian = StatisticHelepr.median(UserRecallLessIdeaVector)
+//        output.GroupRecallNewIdeaProp = await this.calcGroupRecallNewIdeaProp(options)
+//        output.GroupRecallNewIdeaCount = await this.calcGroupRecallNewIdeaCount(options)
+//        output.GroupRecallLessIdeaCount = await this.calcGroupRecallLessIdeaCount(options)
+//        
+//        
+//        let UserRecallNewIdeaVector = await this.calcUserRecallNewIdeaVector(options)
+//        output.UserRecallNewIdeaVectorTotal = StatisticHelepr.sum(UserRecallNewIdeaVector)
+//        output.UserRecallNewIdeaVectorMedian = StatisticHelepr.median(UserRecallNewIdeaVector)
+//        
+//        let UserRecallLessIdeaVector = await this.calcUserRecallLessIdeaVector(options)
+//        output.UserRecallLessIdeaTotal = StatisticHelepr.sum(UserRecallLessIdeaVector)
+//        output.UserRecallLessIdeaMedian = StatisticHelepr.median(UserRecallLessIdeaVector)
         
         output.NoteSimilarityDegree = await this.calcNoteSimilarityDegree(options, false)
         output.TokenNoteSimilarityDegree = await this.calcNoteSimilarityDegree(options, true)
-        output.IndividualNoteSimilarityMedian = await this.calcIndividualNoteSimilarityMedian(options, false)
-        output.IndividualTokenNoteSimilarityMedian = await this.calcIndividualNoteSimilarityMedian(options, true)
+         
+        output.IndividualNoteSimilarityAverage = await this.calcIndividualNoteSimilarityAverage(options, false)
+        output.IndividualTokenNoteSimilarityAverage = await this.calcIndividualNoteSimilarityAverage(options, true)
         
         let DialogueVector = await this.calcDialogueVector(options)
         output.DialogueVectorTotal = StatisticHelepr.sum(DialogueVector)

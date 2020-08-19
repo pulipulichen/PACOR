@@ -119,22 +119,22 @@ class WebpageGroupIndicatorNote {
      * }
      * @returns {Number}
      */
-    Model.prototype.calcIndividualNoteSimilarityMedian = async function (options, useTokenizer = false) {
-      let cacheKey = Cache.key('calcIndividualNoteSimilarityMedian', options)
+    Model.prototype.calcIndividualNoteSimilarityAverage = async function (options, useTokenizer = false) {
+      let cacheKey = Cache.key('calcIndividualNoteSimilarityAverage', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let onlyCompleted = (options.userFilter === 'onlyCompleted')
         let usersIDList = await this.getUsersIDList(onlyCompleted)
         
         let charactersBitMap = await this._buildCharactersBitMap(options, useTokenizer)
-        
+        //console.log(charactersBitMap)
         // ------------------------
         let vector = usersIDList.map(userID => {
           let list = []
-          for (let i = 0; i < charactersBitMap.length; i++) {
-            let charUsersList = charactersBitMap[i]
+          Object.keys(charactersBitMap).forEach(word => {
+            let charUsersList = charactersBitMap[word]
             
             if (charUsersList.indexOf(userID) === -1) {
-              continue
+              return false
             }
             
             if (charUsersList.length > 1) {
@@ -143,8 +143,8 @@ class WebpageGroupIndicatorNote {
             else {
               list.push(0)
             }
-          }
-          
+          })
+          //console.log(list)
           if (list.length === 0) {
             return 0
           }
@@ -152,8 +152,8 @@ class WebpageGroupIndicatorNote {
           return StatisticHelper.average(list)
         })
         
-        let median = StatisticHelper.median(vector)
-        return StatisticHelper.round(median, 4)
+        let average = StatisticHelper.average(vector)
+        return StatisticHelper.round(average, 4)
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     } // Model.prototype.calcMonologuesDegree = async function (options) {
     

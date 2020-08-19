@@ -198,6 +198,8 @@ class WebpageGroupIndicatorAnnotation {
      * 那表示可能被教者很有機會會看到教人者的示範
      * 因此提高他們的學習成效
      * 
+     * 這個是只看個人閱讀的時候
+     * 
      * 最大值max
      * 最小值是0
      * 
