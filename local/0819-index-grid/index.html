@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Analysis</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="text/javascript" src="vendors/jquery/jquery-1.7.2.min.js"></script>
+
+    <script src="vendors/vue/vue.min.js"></script>
+    <script src="vendors/date-helper.js"></script>
+
+    <link rel="icon" type="image/png" href="icon.png" />
+    <link rel="stylesheet" href="vendors/semantic-ui/semantic.min.css" />
+    <script src="vendors/semantic-ui/semantic.min.js"></script>
+
+    <link rel="stylesheet/less" type="text/css" href="css/lda.less" />
+    <script>less = {env: 'production'};</script>
+    <script src="vendors/less/less.min.js"></script>
+  </head>
+  <body>
+    <div id="app" class="ui form">
+      <h1>Input</h1>
+      <div>rule / adaptedValue / isLarger / conf / sup</div>
+      <textarea v-model="inputTextarea"></textarea>
+      
+      <h1>Output</h1>
+      <textarea v-model="outputTextarea"></textarea>
+    </div>
+
+    <!-- ======================================================= -->
+
+    <script src="vue-app-data.js"></script>
+    <script src="vue-app-computed.js"></script>
+    <script src="vue-app-watch.js"></script>
+    <script src="vue-app-mounted.js"></script>
+    <script src="vue-app-methods.js"></script>
+    <script src="vue-app.js"></script>
+
+  </body>
+</html>
