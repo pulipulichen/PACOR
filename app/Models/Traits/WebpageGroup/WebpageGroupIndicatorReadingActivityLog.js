@@ -48,7 +48,10 @@ class WebpageGroupIndicatorReadingActivityLog {
     }
     
     /**
-     * https://github.com/pulipulichen/PACOR/issues/521
+     * 觀察同儕的次數
+     * 
+     * 有部分的行為記錄會被視為是觀察他人
+     * 請注意程式碼裡面的內容囉
      * 
      * 最大值
      * 最小值
@@ -71,7 +74,14 @@ class WebpageGroupIndicatorReadingActivityLog {
           let user = await UserModel.find(usersIDList[i])
           
           let c = await user.getReadingActivityLogIndicator(webpage, {
-            type: ["UserFilter.getUserWords"]
+            type: [
+              "UserFilter.getUserWords", // 協助他人的功能
+              "Annotation.floatWidget",
+              "Annotation.listSummary",
+              "AnnotationRate.like",
+              "AnnotationRate.likeComment",
+              "UserNotification.read"
+            ]
           })
           countList.push(c.length)
         }

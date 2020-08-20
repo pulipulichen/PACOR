@@ -282,6 +282,53 @@ class WebpageGroupIndicatorAnnotation {
     } // Model.prototype.calcMonologuesDegree = async function (options) {
     
     /**
+     * https://github.com/pulipulichen/PACOR/issues/517
+     * 單向展示程度 monologues
+     * 
+     * 如果小組內標註數量差異很大
+     * 那表示可能被教者很有機會會看到教人者的示範
+     * 因此提高他們的學習成效
+     * 
+     * 這個是只看個人閱讀的時候
+     * 
+     * 最大值max
+     * 最小值是0
+     * 
+     * 數字越大，表示可能被教者很有機會會看到教人者的示範
+     * 數字越小，表示可能被教者沒有機會會看到教人者的示範
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all'
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcMonologuesAsistVector = async function (options) {
+      let cacheKey = Cache.key('calcMonologuesAsistVector', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let countList = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          let c = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: false,
+            stepName: 'IndividualReading',
+            //stepName: 'CollaborativeReading',
+            //type: ['Confused', 'Clarified'] // 不限類型
+            //type: ['MainIdea']
+          })
+          countList.push(c.length)
+        }
+        
+        return countList
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    } // Model.prototype.calcMonologuesDegree = async function (options) {
+    
+    
+    /**
      * https://github.com/pulipulichen/PACOR/issues/533
      * 整體表現次數
      * 

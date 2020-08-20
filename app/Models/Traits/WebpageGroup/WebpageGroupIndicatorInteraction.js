@@ -55,8 +55,8 @@ class WebpageGroupIndicatorInteraction {
      * 
      * @returns {Number}
      */
-    Model.prototype.calcDialogueVector = async function (options) {
-      let cacheKey = Cache.key('calcDialogueVector', options)
+    Model.prototype.calcDialogueAsistVector = async function (options) {
+      let cacheKey = Cache.key('calcDialogueAsistVector', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let webpage = await this.webpage().fetch()
         
@@ -70,7 +70,7 @@ class WebpageGroupIndicatorInteraction {
             includeCommentDeleted: false, // 被刪掉就看不到建議了
             includeAnnotationDeleted: true,  // 因為都算是給了建議了
             includeMyself: false, // 給自己建議不算啊
-            uniqleThreads: false
+            uniqleThreads: false  // 這個跟PeerAsist不一樣喔
           })
           countList.push(c.length)
         }
@@ -90,16 +90,17 @@ class WebpageGroupIndicatorInteraction {
      * 
      * @returns {Number}
      */
-    Model.prototype.calcDialogueCount = async function (options) {
-      let cacheKey = Cache.key('calcDialogueCount', options)
+    Model.prototype.calcDialogueCountVector = async function (options) {
+      let cacheKey = Cache.key('calcDialogueCountVector', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let webpage = await this.webpage().fetch()
         
         let onlyCompleted = (options.userFilter === 'onlyCompleted')
         let usersIDList = await this.getUsersIDList(onlyCompleted)
         
-        let count = 0
+        let countList = []
         for (let i = 0; i < usersIDList.length; i++) {
+          let count = 0
           let userID = usersIDList[i]
           let user = await UserModel.find(userID)
           let annotations = await user.getAnnotationIndicator(webpage, {
@@ -113,10 +114,12 @@ class WebpageGroupIndicatorInteraction {
               count++
             }
           })
+          
+          countList.push(count)
           //countList.push(c.length)
         }
         
-        return count
+        return countList
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
     

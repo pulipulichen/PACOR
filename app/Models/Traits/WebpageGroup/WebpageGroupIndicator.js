@@ -37,42 +37,11 @@ class WebpageGroupIndicator {
         output.NoConfusionMedian = StatisticHelepr.median(NoConfusionVector)
         
         let PeerAsistVector = await this.calcPeerAsistVector(options)
-        output.PeerAsistTotal = StatisticHelepr.sum(PeerAsistVector)
-        output.PeerAsistMedian = StatisticHelepr.median(PeerAsistVector)
+        output.A1_PeerAsistTotal = StatisticHelepr.sum(PeerAsistVector)
+        output.A2_PeerAsistMedian = StatisticHelepr.median(PeerAsistVector)
         
-        let InspiredAnnotationVector = await this.calcInspiredAnnotationVector(options)
-        output.InspiredAnnotationTotal = StatisticHelepr.sum(InspiredAnnotationVector)
-        output.InspiredAnnotationMedian = StatisticHelepr.median(InspiredAnnotationVector)
+        // -------------------
         
-        let InspiredAnnotationPropVector = await this.InspiredAnnotationPropVector(options)
-        output.InspiredAnnotationPropAverage = StatisticHelepr.average(InspiredAnnotationVector, 4)
-        
-        let TotalAnnotationVector = await this.calcTotalAnnotationVector(options)
-        output.TotalAnnotationTotal = StatisticHelepr.sum(TotalAnnotationVector)
-        output.TotalAnnotationMedian = StatisticHelepr.median(TotalAnnotationVector)
-        
-        output.MonologuesDegree = await this.calcMonologuesDegree(options)
-        output.EvaluationDegree = await this.calcEvaluationDegree(options)
-        output.SkilledDemonstrationDegree = await this.calcSkilledDemonstrationDegree(options)
-        
-        let ModifyInCollaborationVector = await this.calcModifyInCollaborationVector(options)
-        output.ModifyInCollaborationTotal = StatisticHelepr.sum(ModifyInCollaborationVector)
-        output.ModifyInCollaborationMedian = StatisticHelepr.median(ModifyInCollaborationVector)
-        
-        let ObserverPeerVector = await this.calcObserverPeerVector(options)
-        output.ObserverPeerTotal = StatisticHelepr.sum(ObserverPeerVector)
-        output.ObserverPeerMedian = StatisticHelepr.median(ObserverPeerVector)
-        
-        let InvertActivityVector = await this.calcInvertActivityVector(options)
-        output.InvertActivityTotal = StatisticHelepr.sum(InvertActivityVector)
-        output.InvertActivityMedian = StatisticHelepr.median(InvertActivityVector)
-        
-        let ActivityVector = await this.calcActivityVector(options)
-        output.ActivityMedian = StatisticHelepr.median(ActivityVector)
-        
-        output.ReadingStyleSimilarity = await this.calcReadingStyleSimilarity(options)
-        
-        // ----------------------------------------
         
         let stepNameList = [
           'IndividualReading',
@@ -98,9 +67,9 @@ class WebpageGroupIndicator {
           tempOptions.stepName = stepName
           
           let prop = await this.calcAnnotationAnchorPositionDenseDegree(tempOptions)
-          output[indexName + 'AnchorPositionDenseDegree'] = prop
+          output['B_' + indexName + 'AnchorPositionDenseDegree'] = prop
           break
-          output[indexName + 'InvertAnchorPositionDenseDegree'] = 1 - prop
+          output['B_' + indexName + 'InvertAnchorPositionDenseDegree'] = 1 - prop
           
           for (let j = 0; j < 2; j++) {
             let exportType = exportTypeList[j]
@@ -110,12 +79,110 @@ class WebpageGroupIndicator {
             let vector = await this.calcAnnotationAnchorPositionOverlapVector(tempOptions)
             
             if (exportType === 'count') {
-              output[indexName + 'AnchorPositionOverlapTotal'] = StatisticHelepr.sum(vector)
+              output['B_' + indexName + 'AnchorPositionOverlapTotal'] = StatisticHelepr.sum(vector)
             }
-            output[indexName + 'AnchorPositionOverlapMedian'] = StatisticHelepr.median(vector)
-            output[indexName + 'AnchorPositionOverlapAverage'] = StatisticHelepr.average(vector)
+            output['B_' + indexName + 'AnchorPositionOverlapMedian'] = StatisticHelepr.median(vector)
+            output['B_' + indexName + 'AnchorPositionOverlapAverage'] = StatisticHelepr.average(vector)
           }
         }
+        
+        
+        // -------------------
+        
+        let InspiredAnnotationVector = await this.calcInspiredAnnotationVector(options)
+        output.C1_InspiredAnnotationTotal = StatisticHelepr.sum(InspiredAnnotationVector)
+        output.C2_InspiredAnnotationMedian = StatisticHelepr.median(InspiredAnnotationVector)
+        
+        let InspiredAnnotationPropVector = await this.InspiredAnnotationPropVector(options)
+        output.C3_InspiredAnnotationPropMedian = StatisticHelepr.median(InspiredAnnotationVector, 4)
+        
+        // -------------------
+        
+        
+        let RecallInvertedNonTextbaseIdeasVector = await this.calcRecallInvertedNonTextbaseIdeasVector(options)
+        output.D1_RecallInvertedNonTextbaseIdeasTotal = StatisticHelepr.sum(RecallInvertedNonTextbaseIdeasVector)
+        output.D2_RecallInvertedNonTextbaseIdeasMedian = StatisticHelepr.median(RecallInvertedNonTextbaseIdeasVector)
+        
+        let RecallTextbaseIdeasPropVector = await this.calcRecallTextbaseIdeasPropVector(options)
+        output.D3_RecallTextbaseIdeasPropMedian = StatisticHelepr.median(RecallTextbaseIdeasPropVector, 4)
+        
+        output.D4_GroupRecallInvertedNonTextbaseIdeasCount = await this.calcGroupRecallInvertedNonTextbaseIdeasCount(options)
+        output.D5_GroupRecallextbaseIdeasProp = await this.calcGroupRecallextbaseIdeasProp(options)
+        
+        // -------------------
+        
+        let ModifyInCollaborationVector = await this.calcModifyInCollaborationVector(options)
+        output.E1_ModifyInCollaborationTotal = StatisticHelepr.sum(ModifyInCollaborationVector)
+        output.E2_ModifyInCollaborationMedian = StatisticHelepr.median(ModifyInCollaborationVector)
+        
+        // -------------------
+        
+        let MonologuesAsistVector = await this.calcMonologuesAsistVector(options)
+        output.F2a_MonologuesAsistVectorTotal = StatisticHelepr.sum(MonologuesAsistVector)
+        output.F2b_MonologuesAsistVectorMedian = StatisticHelepr.median(MonologuesAsistVector)
+        
+        let DialogueAsistVector = await this.calcDialogueAsistVector(options)
+        output.F3a_DialogueAsistVectorTotal = StatisticHelepr.sum(DialogueAsistVector)
+        output.F3b_DialogueAsistVectorMedian = StatisticHelepr.median(DialogueAsistVector)
+        
+        let TotalAnnotationVector = await this.calcTotalAnnotationVector(options)
+        output.F4a_TotalAnnotationTotal = StatisticHelepr.sum(TotalAnnotationVector)
+        output.F4b_TotalAnnotationMedian = StatisticHelepr.median(TotalAnnotationVector)
+        
+        //output.MonologuesDegree = await this.calcMonologuesDegree(options)
+        
+        output.F5_SkilledDemonstrationDegree = await this.calcSkilledDemonstrationDegree(options)
+        
+        let ObserverPeerVector = await this.calcObserverPeerVector(options)
+        output.F6a_ObserverPeerTotal = StatisticHelepr.sum(ObserverPeerVector)
+        output.F6b_ObserverPeerMedian = StatisticHelepr.median(ObserverPeerVector)
+        
+        // ----------------------------
+        
+        output.G1_EvaluationDegree = await this.calcEvaluationDegree(options)
+        
+        // -------------------------
+        
+        
+        
+        // -------------------------
+        
+        let InvertActivityVector = await this.calcInvertActivityVector(options)
+        output.InvertActivityTotal = StatisticHelepr.sum(InvertActivityVector)
+        output.InvertActivityMedian = StatisticHelepr.median(InvertActivityVector)
+        
+        let ActivityVector = await this.calcActivityVector(options)
+        output.ActivityMedian = StatisticHelepr.median(ActivityVector)
+        
+        output.ReadingStyleSimilarity = await this.calcReadingStyleSimilarity(options)
+        
+        // ----------------------------------------
+        
+        let DialogueCountVector = await this.calcDialogueCountVector(options)
+        output.H1a_DialogueCountTotal = StatisticHelepr.sum(DialogueCountVector)
+        output.H1b_DialogueCountMedian = StatisticHelepr.median(DialogueCountVector)
+        
+        output.H2_GroupNoteSimilarityInvertedDegree = await this.calcGroupNoteSimilarityInvertedDegree(options, false)
+        output.H3_GroupTokenNoteSimilarityInvertedDegree = await this.calcGroupNoteSimilarityInvertedDegree(options, true)
+        
+        // ----
+        
+        let IndividualNoteSimilarityInvertedPropVector = await this.calcIndividualNoteSimilarityInvertedPropVector(options, false)
+        output.H4_IndividualNoteSimilarityInvertedProp = StatisticHelepr.median(IndividualNoteSimilarityInvertedPropVector)
+        
+        let IndividualNoteSimilarityInvertedCountVector = await this.calcIndividualNoteSimilarityInvertedCountVector(options, false)
+        output.H5a_IndividualNoteSimilarityInvertedCountTotal = StatisticHelepr.sum(IndividualNoteSimilarityInvertedCountVector)
+        output.H5b_IndividualNoteSimilarityInvertedCountMedian = StatisticHelepr.median(IndividualNoteSimilarityInvertedCountVector)
+        
+        // ----
+        
+        let IndividualTokenNoteSimilarityInvertedPropVector = await this.calcIndividualNoteSimilarityPropInvertedVector(options, true)
+        output.H6_IndividualTokenNoteSimilarityInvertedProp = StatisticHelepr.median(IndividualTokenNoteSimilarityInvertedPropVector)
+        
+        let IndividualTokenNoteSimilarityInvertedCountVector = await this.calcIndividualNoteSimilarityInvertedCountVector(options, true)
+        output.H7a_IndividualTokenNoteSimilarityInvertedCountTotal = StatisticHelepr.sum(IndividualTokenNoteSimilarityInvertedCountVector)
+        output.H7b_IndividualTokenNoteSimilarityInvertedCountMedian = StatisticHelepr.median(IndividualTokenNoteSimilarityInvertedCountVector)
+        
         
         // ----------------------------------------
         
@@ -147,28 +214,6 @@ class WebpageGroupIndicator {
 //        let UserRecallLessIdeaVector = await this.calcUserRecallLessIdeaVector(options)
 //        output.UserRecallLessIdeaTotal = StatisticHelepr.sum(UserRecallLessIdeaVector)
 //        output.UserRecallLessIdeaMedian = StatisticHelepr.median(UserRecallLessIdeaVector)
-        
-        output.NoteSimilarityDegree = await this.calcNoteSimilarityDegree(options, false)
-        output.TokenNoteSimilarityDegree = await this.calcNoteSimilarityDegree(options, true)
-         
-        output.IndividualNoteSimilarityAverage = await this.calcIndividualNoteSimilarityAverage(options, false)
-        output.IndividualTokenNoteSimilarityAverage = await this.calcIndividualNoteSimilarityAverage(options, true)
-        
-        let DialogueVector = await this.calcDialogueVector(options)
-        output.DialogueVectorTotal = StatisticHelepr.sum(DialogueVector)
-        output.DialogueVectorMedian = StatisticHelepr.median(DialogueVector)
-        
-        output.DialogueCount = await this.calcDialogueCount(options)
-        
-        let RecallInvertedNonTextbaseIdeasVector = await this.calcRecallInvertedNonTextbaseIdeasVector(options)
-        output.RecallInvertedNonTextbaseIdeasTotal = StatisticHelepr.sum(RecallInvertedNonTextbaseIdeasVector)
-        output.RecallInvertedNonTextbaseIdeasMedian = StatisticHelepr.median(RecallInvertedNonTextbaseIdeasVector)
-        
-        let RecallTextbaseIdeasPropVector = await this.calcRecallTextbaseIdeasPropVector(options)
-        output.RecallTextbaseIdeasPropAverage = StatisticHelepr.average(RecallTextbaseIdeasPropVector, 4)
-        
-        output.GroupRecallInvertedNonTextbaseIdeasCount = await this.calcGroupRecallInvertedNonTextbaseIdeasCount(options)
-        output.GroupRecallextbaseIdeasProp = await this.calcGroupRecallextbaseIdeasProp(options)
         
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
