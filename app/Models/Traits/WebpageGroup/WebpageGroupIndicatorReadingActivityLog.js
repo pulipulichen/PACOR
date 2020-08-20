@@ -11,7 +11,10 @@ class WebpageGroupIndicatorReadingActivityLog {
   register(Model) {
     
     /**
+     * 量化：修正標註次數
+     * (Bowman-Perrott, Greenwood, & Tapia, 2007)
      * 
+     * 在協助閱讀階段中，修改標註次數
      * 
      * 最大值
      * 最小值
