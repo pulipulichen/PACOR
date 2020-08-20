@@ -65,9 +65,8 @@ class WebpageGroupIndicator {
           tempOptions.stepName = stepName
           
           let prop = await this.calcAnnotationAnchorPositionDenseDegree(tempOptions)
-          output['B_' + indexName + 'AnchorPositionDenseDegree'] = prop
-          break
-          output['B_' + indexName + 'InvertAnchorPositionDenseDegree'] = 1 - prop
+          output['B' + (i+1) + 'a_' + indexName + 'AnchorPositionDenseDegree'] = prop
+          output['B' + (i+1) + 'b_' + indexName + 'InvertAnchorPositionDenseDegree'] = 1 - prop
           
           for (let j = 0; j < 2; j++) {
             let exportType = exportTypeList[j]
@@ -77,10 +76,10 @@ class WebpageGroupIndicator {
             let vector = await this.calcAnnotationAnchorPositionOverlapVector(tempOptions)
             
             if (exportType === 'count') {
-              output['B_' + indexName + 'AnchorPositionOverlapTotal'] = StatisticHelepr.sum(vector)
+              output['B' + (i+1) + 'c' + (j+1) +  'a_' + indexName + 'AnchorPositionOverlapTotal'] = StatisticHelepr.sum(vector)
             }
-            output['B_' + indexName + 'AnchorPositionOverlapMedian'] = StatisticHelepr.median(vector)
-            output['B_' + indexName + 'AnchorPositionOverlapAverage'] = StatisticHelepr.average(vector)
+            output['B' + (i+1) + 'c' + (j+1) +  'b_' + indexName + 'AnchorPositionOverlapMedian'] = StatisticHelepr.median(vector)
+            output['B' + (i+1) + 'c' + (j+1) +  'c_' + indexName + 'AnchorPositionOverlapAverage'] = StatisticHelepr.average(vector)
           }
         }
         
@@ -91,7 +90,7 @@ class WebpageGroupIndicator {
         output.C1_InspiredAnnotationTotal = StatisticHelepr.sum(InspiredAnnotationVector)
         output.C2_InspiredAnnotationMedian = StatisticHelepr.median(InspiredAnnotationVector)
         
-        let InspiredAnnotationPropVector = await this.InspiredAnnotationPropVector(options)
+        let InspiredAnnotationPropVector = await this.calcInspiredAnnotationPropVector(options)
         output.C3_InspiredAnnotationPropMedian = StatisticHelepr.median(InspiredAnnotationVector, 4)
         
         // -------------------
@@ -161,7 +160,7 @@ class WebpageGroupIndicator {
         
         // ----
         
-        let IndividualTokenNoteSimilarityInvertedPropVector = await this.calcIndividualNoteSimilarityPropInvertedVector(options, true)
+        let IndividualTokenNoteSimilarityInvertedPropVector = await this.calcIndividualNoteSimilarityInvertedPropVector(options, true)
         output.H6_IndividualTokenNoteSimilarityInvertedProp = StatisticHelepr.median(IndividualTokenNoteSimilarityInvertedPropVector)
         
         let IndividualTokenNoteSimilarityInvertedCountVector = await this.calcIndividualNoteSimilarityInvertedCountVector(options, true)
@@ -194,12 +193,29 @@ class WebpageGroupIndicator {
         
         // -------------------------
         
-        let InvertActivityVector = await this.calcInvertActivityVector(options)
-        output.InvertActivityTotal = StatisticHelepr.sum(InvertActivityVector)
-        output.InvertActivityMedian = StatisticHelepr.median(InvertActivityVector)
-        
         let ActivityVector = await this.calcActivityVector(options)
-        output.ActivityMedian = StatisticHelepr.median(ActivityVector)
+        output.K1a_ActivityToal = StatisticHelepr.sum(ActivityVector)
+        output.K1b_ActivityMedian = StatisticHelepr.median(ActivityVector)
+        
+        // --------------------
+        
+        
+        let ConfusionVector = await this.calcConfusionVector(options)
+        output.L1a_ConfusionTotal = StatisticHelepr.sum(ConfusionVector)
+        output.L1b_ConfusionMedian = StatisticHelepr.median(ConfusionVector)
+        
+        // --------------------
+        
+        let TotalAnnotationCommentVector = await this.calcTotalAnnotationCommentVector(options)
+        output.M1a_TotalAnnotationCommentTotal = StatisticHelepr.sum(TotalAnnotationCommentVector)
+        output.M1b_TotalAnnotationCommentMedian = StatisticHelepr.median(TotalAnnotationCommentVector)
+        
+        
+        //let InvertActivityVector = await this.calcInvertActivityVector(options)
+        //output.InvertActivityTotal = StatisticHelepr.sum(InvertActivityVector)
+        //output.InvertActivityMedian = StatisticHelepr.median(InvertActivityVector)
+        
+        
         
 //        output.GroupRecallNewIdeaProp = await this.calcGroupRecallNewIdeaProp(options)
 //        output.GroupRecallNewIdeaCount = await this.calcGroupRecallNewIdeaCount(options)
@@ -214,10 +230,6 @@ class WebpageGroupIndicator {
 //        output.UserRecallLessIdeaTotal = StatisticHelepr.sum(UserRecallLessIdeaVector)
 //        output.UserRecallLessIdeaMedian = StatisticHelepr.median(UserRecallLessIdeaVector)
         
-        
-        let NoConfusionVector = await this.calcNoConfusionVector(options)
-        output.NoConfusionTotal = StatisticHelepr.sum(NoConfusionVector)
-        output.NoConfusionMedian = StatisticHelepr.median(NoConfusionVector)
         
         
         return output

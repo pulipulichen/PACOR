@@ -350,6 +350,10 @@ class WebpageGroupIndicatorUserAttributes {
           }
         }
         
+        if (vector.length === 0) {
+          return [0]
+        }
+        
         return vector
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     } // Model.prototype.calcEvaluationDegree = async function (options) {

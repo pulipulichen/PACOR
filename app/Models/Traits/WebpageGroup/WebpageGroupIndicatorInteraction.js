@@ -213,7 +213,7 @@ class WebpageGroupIndicatorInteraction {
         let usersIDList = await this.getUsersIDList(onlyCompleted)
         
         let network = await this.buildInteractionNetwork(options)
-        console.log(network)
+        //console.log(network)
         let result = []
         if (type === 'all'
                 || type === 'full') {

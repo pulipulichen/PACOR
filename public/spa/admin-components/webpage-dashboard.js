@@ -1863,7 +1863,7 @@ let WebpageExport = {
       return models
     },
     groupIndicatorsEMMVariableNameList () {
-      return 'model\t' + this.groupIndicatorsKeys.join('\n')
+      return 'model\n' + this.groupIndicatorsKeys.join('\n')
     },
     groupIndicatorsTSV () {
       let keys = this.groupIndicatorsKeys

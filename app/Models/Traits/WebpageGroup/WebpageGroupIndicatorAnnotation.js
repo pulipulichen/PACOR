@@ -31,8 +31,8 @@ class WebpageGroupIndicatorAnnotation {
      * }
      * @returns {Number}
      */
-    Model.prototype.calcNoConfusionVector = async function (options) {
-      let cacheKey = Cache.key('calcNoConfusionDegree', options)
+    Model.prototype.calcConfusionVector = async function (options) {
+      let cacheKey = Cache.key('calcConfusionDegree', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let webpage = await this.webpage().fetch()
         
@@ -49,7 +49,7 @@ class WebpageGroupIndicatorAnnotation {
             type: ['Confused', 'Clarified']
             //type: ['MainIdea']
           })
-          countList.push(c.length * -1)
+          countList.push(c.length)
         }
         
         return countList
@@ -185,6 +185,54 @@ class WebpageGroupIndicatorAnnotation {
             includeDeleted: false,
           })
           countList.push(c.length)
+        }
+        
+        return countList
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    }
+    
+    /**
+     * https://github.com/pulipulichen/PACOR/issues/519
+     * 整體標註次數
+     * 
+     * 不論階段
+     * 如果標註次數越多
+     * 表示這個團體更有機會看到別人的標註
+     * 
+     * 最小值max
+     * 最小值是0
+     * 
+     * 數字越大，表示這個團體更有機會看到別人的標註
+     * 數字越小，表示這個團體更沒機會看到別人的標註
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all'
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcTotalAnnotationCommentVector = async function (options) {
+      let cacheKey = Cache.key('calcTotalAnnotationCommentVector', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let countList = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          let a = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: true,
+          })
+          
+          let c = await user.getCommentIndicator(webpage, {
+            includeCommentDeleted: true,
+            includeAnnotationDeleted: true,
+            includeMyself: true,
+            uniqleThreads: false
+          })
+          
+          countList.push(a.length + c.length)
         }
         
         return countList

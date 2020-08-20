@@ -414,9 +414,10 @@ let IdeaHelper = {
         return false
       }
       
-      if (word.endsWith('*') || words.endsWith('!')) {
-        output.push(word)
+      if (word.endsWith('*') || word.endsWith('!')) {
+        return false
       }
+      output.push(word)
     })
     
     return output

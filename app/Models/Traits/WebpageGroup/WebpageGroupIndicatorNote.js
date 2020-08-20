@@ -84,7 +84,7 @@ class WebpageGroupIndicatorNote {
      * @returns {Number}
      */
     Model.prototype.calcGroupNoteSimilarityInvertedDegree = async function (options, useTokenizer = false) {
-      let cacheKey = Cache.key('calcGroupNoteSimilarityDegree', options)
+      let cacheKey = Cache.key('calcGroupNoteSimilarityDegree', options, useTokenizer)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let onlyCompleted = (options.userFilter === 'onlyCompleted')
         let usersIDList = await this.getUsersIDList(onlyCompleted)
@@ -121,7 +121,7 @@ class WebpageGroupIndicatorNote {
      * @returns {Number}
      */
     Model.prototype.calcIndividualNoteSimilarityInvertedPropVector = async function (options, useTokenizer = false) {
-      let cacheKey = Cache.key('calcIndividualNoteSimilarityInvertedPropVector', options)
+      let cacheKey = Cache.key('calcIndividualNoteSimilarityInvertedPropVector', options, useTokenizer)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let onlyCompleted = (options.userFilter === 'onlyCompleted')
         let usersIDList = await this.getUsersIDList(onlyCompleted)
@@ -171,8 +171,8 @@ class WebpageGroupIndicatorNote {
      * }
      * @returns {Number}
      */
-    Model.prototype.calcIndividualNoteSimilarityCountInvertedVector = async function (options, useTokenizer = false) {
-      let cacheKey = Cache.key('calcIndividualNoteSimilarityCountInvertedVector', options)
+    Model.prototype.calcIndividualNoteSimilarityInvertedCountVector = async function (options, useTokenizer = false) {
+      let cacheKey = Cache.key('calcIndividualNoteSimilarityInvertedCountVector', options, useTokenizer)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let onlyCompleted = (options.userFilter === 'onlyCompleted')
         let usersIDList = await this.getUsersIDList(onlyCompleted)
