@@ -196,6 +196,8 @@ class WebpageGroupIndicatorInteraction {
      * 最大值是1
      * 最小值是0
      * 
+     * 不考慮自己連自己
+     * 
      * @param {Object} options = {
      *  userFilter: 'onlyCompleted',
      *  type: 'all' || 'in' || 'out' || 'full'
@@ -203,7 +205,7 @@ class WebpageGroupIndicatorInteraction {
      * @returns {Number}
      */
     Model.prototype.calcConnectednessDegree = async function (options, type) {
-      let cacheKey = Cache.key('calcConnectednessDegree', options)
+      let cacheKey = Cache.key('calcConnectednessDegree', options, type)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let webpage = await this.webpage().fetch()
         
@@ -211,7 +213,7 @@ class WebpageGroupIndicatorInteraction {
         let usersIDList = await this.getUsersIDList(onlyCompleted)
         
         let network = await this.buildInteractionNetwork(options)
-        //console.log(network)
+        console.log(network)
         let result = []
         if (type === 'all'
                 || type === 'full') {
@@ -221,6 +223,10 @@ class WebpageGroupIndicatorInteraction {
             
             for (let i = 0; i < usersIDList.length; i++) {
               let userID2 = usersIDList[i]
+              
+              if (userID1 === userID2) {
+                continue
+              }
               
               let keyArray = [userID1, userID2]
               if (type === 'all') {
@@ -257,14 +263,20 @@ class WebpageGroupIndicatorInteraction {
             }
           })
           
+          //console.log(resultMap)
           //console.log(result)
+          return StatisticHelper.average(result, 4)
         }
         else if (type === 'out') {
           usersIDList.forEach(userID => {
             if (typeof(network[userID]) === 'object'
                     && Object.keys(network[userID]).length > 0) {
               //result.push(Object.keys(network[userID]).length / usersIDList.length)
-              result.push(1)
+              let toUserList = Object.keys(network[userID]).filter(toUserID => Number(toUserID) !== Number(userID))
+              //console.log(toUserList)
+              let toUserCount = toUserList.length
+              
+              result.push(toUserCount / (usersIDList.length - 1))
               return true // 符合from，下一個
             }
             
@@ -276,17 +288,23 @@ class WebpageGroupIndicatorInteraction {
             let fromCount = 0
             for (let i = 0; i < usersIDList.length; i++) {
               let fromUserID = usersIDList[i]
+              if (Number(userID) === Number(fromUserID) ) {
+                continue
+              }
+              
               if (typeof(network[fromUserID]) === 'object'
                       && typeof(network[fromUserID][userID]) === 'number'
                       && network[fromUserID][userID] > 0) {
-                result.push(1)
-                return true
+                //result.push(1)
+                //return true
                 //fromCount++
+                fromCount++
+                continue
               }
             }
             
             //result.push(fromCount / usersIDList.length)  // 不符合
-            result.push(0)
+            result.push(fromCount / (usersIDList.length - 1) )
           })
         }
         
@@ -294,8 +312,11 @@ class WebpageGroupIndicatorInteraction {
           return 0
         }
         
-        let avg = StatisticHelper.average(result)
-        return StatisticHelper.round(avg, 4)
+        //console.log(result)
+        
+        //let avg = StatisticHelper.average(result)
+        //return StatisticHelper.round(avg, 4)
+        return StatisticHelper.median(result, 4)
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
     

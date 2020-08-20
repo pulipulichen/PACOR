@@ -7209,7 +7209,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./helpers/ValidateHelper */ "./webpack-app/helpers/ValidateHelper.js");
 /* harmony import */ var _helpers_VueHelper__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./helpers/VueHelper */ "./webpack-app/helpers/VueHelper.js");
 /* harmony import */ var _helpers_URLHelper__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./helpers/URLHelper */ "./webpack-app/helpers/URLHelper.js");
-/* harmony import */ var _helpers_ClipboardHelper__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./helpers/ClipboardHelper */ "./webpack-app/helpers/ClipboardHelper.js");
+/* harmony import */ var _helpers_ClipboardHelper__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./helpers/ClipboardHelper */ "./webpack-app/helpers/ClipboardHelper.js");
 /* harmony import */ var _admin_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./admin/Auth/Auth.vue */ "./webpack-app/admin/Auth/Auth.vue");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! jquery */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\jquery\\dist\\jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_14__);
@@ -7306,7 +7306,7 @@ let VueController = {
       ValidateHelper: _helpers_ValidateHelper__WEBPACK_IMPORTED_MODULE_9__["default"],
       VueHelper: _helpers_VueHelper__WEBPACK_IMPORTED_MODULE_10__["default"],
       URLHelper: _helpers_URLHelper__WEBPACK_IMPORTED_MODULE_11__["default"],
-      ClipboardHelper: _helpers_ClipboardHelper__WEBPACK_IMPORTED_MODULE_17__["default"],
+      ClipboardHelper: _helpers_ClipboardHelper__WEBPACK_IMPORTED_MODULE_12__["default"],
       //toc: TOCHelper,
     },
     //view: 'Loading',

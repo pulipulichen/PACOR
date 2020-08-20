@@ -147,7 +147,7 @@ let StatisticHelper = {
     
     
     if (typeof(round) === 'number') {
-      median = this.round(median, round)
+      average = this.round(average, round)
     }
     
     return average

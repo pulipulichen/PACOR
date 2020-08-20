@@ -32,9 +32,7 @@ class WebpageGroupIndicator {
           'users': users.join(' ').trim()
         }
         
-        let NoConfusionVector = await this.calcNoConfusionVector(options)
-        output.NoConfusionTotal = StatisticHelepr.sum(NoConfusionVector)
-        output.NoConfusionMedian = StatisticHelepr.median(NoConfusionVector)
+        // -----------------------
         
         let PeerAsistVector = await this.calcPeerAsistVector(options)
         output.A1_PeerAsistTotal = StatisticHelepr.sum(PeerAsistVector)
@@ -143,19 +141,6 @@ class WebpageGroupIndicator {
         
         // -------------------------
         
-        
-        
-        // -------------------------
-        
-        let InvertActivityVector = await this.calcInvertActivityVector(options)
-        output.InvertActivityTotal = StatisticHelepr.sum(InvertActivityVector)
-        output.InvertActivityMedian = StatisticHelepr.median(InvertActivityVector)
-        
-        let ActivityVector = await this.calcActivityVector(options)
-        output.ActivityMedian = StatisticHelepr.median(ActivityVector)
-        
-        output.ReadingStyleSimilarity = await this.calcReadingStyleSimilarity(options)
-        
         // ----------------------------------------
         
         let DialogueCountVector = await this.calcDialogueCountVector(options)
@@ -186,21 +171,35 @@ class WebpageGroupIndicator {
         
         // ----------------------------------------
         
+        output.I1_ReadingStyleSimilarity = await this.calcReadingStyleSimilarity(options)
+        
+        // ----------------------------------------
+        
         let ConnectednessDegreeAll = await this.calcConnectednessDegree(options, 'all')
-        output.ConnectednessDegreeAll = ConnectednessDegreeAll
-        output.InvertConnectednessDegreeAll = 1 - ConnectednessDegreeAll
+        output.J1_ConnectednessDegreeAll = ConnectednessDegreeAll
+        //output.InvertConnectednessDegreeAll = 1 - ConnectednessDegreeAll
         
         let ConnectednessDegreeFull = await this.calcConnectednessDegree(options, 'full')
-        output.ConnectednessDegreeFull = ConnectednessDegreeFull
-        output.InvertConnectednessDegreeFull = 1 - ConnectednessDegreeFull
+        output.J2_ConnectednessDegreeFull = ConnectednessDegreeFull
+        //output.InvertConnectednessDegreeFull = 1 - ConnectednessDegreeFull
         
-//        let ConnectednessDegreeIn = await this.calcConnectednessDegree(options, 'in')
-//        output.ConnectednessDegreeIn = ConnectednessDegreeIn
+        
+        let ConnectednessDegreeIn = await this.calcConnectednessDegree(options, 'in')
+        output.J3_ConnectednessDegreeIn = ConnectednessDegreeIn
 //        output.InvertConnectednessDegreeIn = 1 - ConnectednessDegreeIn
         
         let ConnectednessDegreeOut = await this.calcConnectednessDegree(options, 'out')
-        output.ConnectednessDegreeOut = ConnectednessDegreeOut
-        output.InvertConnectednessDegreeOut = 1 - ConnectednessDegreeOut
+        output.J4_ConnectednessDegreeOut = ConnectednessDegreeOut
+//        output.InvertConnectednessDegreeOut = 1 - ConnectednessDegreeOut
+        
+        // -------------------------
+        
+        let InvertActivityVector = await this.calcInvertActivityVector(options)
+        output.InvertActivityTotal = StatisticHelepr.sum(InvertActivityVector)
+        output.InvertActivityMedian = StatisticHelepr.median(InvertActivityVector)
+        
+        let ActivityVector = await this.calcActivityVector(options)
+        output.ActivityMedian = StatisticHelepr.median(ActivityVector)
         
 //        output.GroupRecallNewIdeaProp = await this.calcGroupRecallNewIdeaProp(options)
 //        output.GroupRecallNewIdeaCount = await this.calcGroupRecallNewIdeaCount(options)
@@ -214,6 +213,12 @@ class WebpageGroupIndicator {
 //        let UserRecallLessIdeaVector = await this.calcUserRecallLessIdeaVector(options)
 //        output.UserRecallLessIdeaTotal = StatisticHelepr.sum(UserRecallLessIdeaVector)
 //        output.UserRecallLessIdeaMedian = StatisticHelepr.median(UserRecallLessIdeaVector)
+        
+        
+        let NoConfusionVector = await this.calcNoConfusionVector(options)
+        output.NoConfusionTotal = StatisticHelepr.sum(NoConfusionVector)
+        output.NoConfusionMedian = StatisticHelepr.median(NoConfusionVector)
+        
         
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
