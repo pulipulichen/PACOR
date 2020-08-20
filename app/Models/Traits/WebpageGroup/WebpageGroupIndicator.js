@@ -164,6 +164,12 @@ class WebpageGroupIndicator {
         output.RecallInvertedNonTextbaseIdeasTotal = StatisticHelepr.sum(RecallInvertedNonTextbaseIdeasVector)
         output.RecallInvertedNonTextbaseIdeasMedian = StatisticHelepr.median(RecallInvertedNonTextbaseIdeasVector)
         
+        let RecallTextbaseIdeasPropVector = await this.calcRecallTextbaseIdeasPropVector(options)
+        output.RecallTextbaseIdeasPropAverage = StatisticHelepr.average(RecallTextbaseIdeasPropVector, 4)
+        
+        output.GroupRecallInvertedNonTextbaseIdeasCount = await this.calcGroupRecallInvertedNonTextbaseIdeasCount(options)
+        output.GroupRecallextbaseIdeasProp = await this.calcGroupRecallextbaseIdeasProp(options)
+        
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }

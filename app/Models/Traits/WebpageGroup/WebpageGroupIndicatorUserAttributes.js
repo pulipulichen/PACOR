@@ -256,6 +256,72 @@ class WebpageGroupIndicatorUserAttributes {
     } // Model.prototype.calcEvaluationDegree = async function (options) {
     
     /**
+     * 團體評估法下的回憶命題
+     * 
+     * @returns {Array}
+     */
+    Model.prototype.getGroupRecallIdeas = async function (options) {
+      let cacheKey = Cache.key('getGroupRecallIdeas', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let ideas = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          
+          try {
+            let recall = user.getAttribute('codes_recall').split(' ')
+            
+            ideas.push(recall)
+          }
+          catch (e) {
+            // do nothing
+          }
+        }
+        
+        let recallMerge = IdeaHelper.merge(ideas)
+        return recallMerge
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    } // Model.prototype.calcEvaluationDegree = async function (options) {
+    
+    /**
+     * 團體評估法下，回憶時，非文本命題的數量，轉換為負數
+     * 
+     * @returns {Number}
+     */
+    Model.prototype.calcGroupRecallInvertedNonTextbaseIdeasCount = async function (options) {
+      let cacheKey = Cache.key('calcGroupRecallInvertedNonTextbaseIdeasCount', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        
+        let recallMerge = await this.getGroupRecallIdeas(options)
+        let recallTextbase = IdeaHelper.filterTextbaseIdea(recallMerge)
+        let nonTextbaseCount = recallMerge.length - recallTextbase.length
+        
+        return nonTextbaseCount * -1
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    } // Model.prototype.calcEvaluationDegree = async function (options) {
+    
+    /**
+     * 團體評估法下，回憶時，非文本命題的數量，轉換為負數
+     * 
+     * @returns {Number}
+     */
+    Model.prototype.calcGroupRecallextbaseIdeasProp = async function (options) {
+      let cacheKey = Cache.key('calcGroupRecallextbaseIdeasProp', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        
+        let recallMerge = await this.getGroupRecallIdeas(options)
+        let recallTextbase = IdeaHelper.filterTextbaseIdea(recallMerge)
+        
+        let prop = (recallTextbase.length / recallMerge.length)
+        return StatisticHelper.round(prop, 4)
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    } // Model.prototype.calcEvaluationDegree = async function (options) {
+    
+    /**
      * 個人回憶時，非文本命題的數量，轉換為負數
      * @returns {Array}
      */
@@ -292,8 +358,8 @@ class WebpageGroupIndicatorUserAttributes {
      * 個人回憶時，文本命題的數量佔全部命題的比例，取平均值
      * @returns {Array}
      */
-    Model.prototype.calcRecallTextbaseIdeasProp = async function (options) {
-      let cacheKey = Cache.key('calcRecallTextbaseIdeasProp', options)
+    Model.prototype.calcRecallTextbaseIdeasPropVector = async function (options) {
+      let cacheKey = Cache.key('calcRecallTextbaseIdeasPropVector', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let webpage = await this.webpage().fetch()
         
