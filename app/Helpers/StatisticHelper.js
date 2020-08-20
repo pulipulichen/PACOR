@@ -14,7 +14,7 @@ let StatisticHelper = {
    * @author: https://pjchender.blogspot.com/2017/09/mean-median-mode.html
    * @param {Array} arr
    */
-  median: function (arr) {
+  median: function (arr, round) {
     arr = arr.sort((a, b) => a - b)
     let median
     if (arr.length % 2 === 0) {
@@ -24,6 +24,11 @@ let StatisticHelper = {
       // 數目為奇數
       median = arr[(arr.length - 1) / 2 ]
     }
+    
+    if (typeof(round) === 'number') {
+      median = this.round(median, round)
+    }
+    
     return median
   },
   /**
@@ -137,8 +142,15 @@ let StatisticHelper = {
    * @param {type} arrayData
    * @returns {Number}
    */
-  average: function (arrayData) {
-    return arrayData.reduce((a, b) => a + b) / arrayData.length
+  average: function (arrayData, round) {
+    let average = arrayData.reduce((a, b) => a + b) / arrayData.length
+    
+    
+    if (typeof(round) === 'number') {
+      median = this.round(median, round)
+    }
+    
+    return average
   }
 }
 

@@ -255,6 +255,71 @@ class WebpageGroupIndicatorUserAttributes {
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     } // Model.prototype.calcEvaluationDegree = async function (options) {
     
+    /**
+     * 個人回憶時，非文本命題的數量，轉換為負數
+     * @returns {Array}
+     */
+    Model.prototype.calcRecallInvertedNonTextbaseIdeasVector = async function (options) {
+      let cacheKey = Cache.key('calcRecallInvertedNonTextbaseIdeasVector', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let vector = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          
+          try {
+            let recall = user.getAttribute('codes_recall').split(' ')
+            let recallTextbase = user.getAttributeRecallTextbaseIdeas()
+            
+            let nonTextbase = recall.length - recallTextbase.length
+            
+            vector.push(nonTextbase * -1)
+          }
+          catch (e) {
+            // do nothing
+          }
+        }
+        
+        return vector
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    } // Model.prototype.calcEvaluationDegree = async function (options) {
+    
+    /**
+     * 個人回憶時，文本命題的數量佔全部命題的比例，取平均值
+     * @returns {Array}
+     */
+    Model.prototype.calcRecallTextbaseIdeasProp = async function (options) {
+      let cacheKey = Cache.key('calcRecallTextbaseIdeasProp', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let vector = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          
+          try {
+            let recall = user.getAttribute('codes_recall').split(' ')
+            let recallTextbase = user.getAttributeRecallTextbaseIdeas()
+            
+            vector.push(recallTextbase.length / recall.length)
+          }
+          catch (e) {
+            // do nothing
+          }
+        }
+        
+        return vector
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    } // Model.prototype.calcEvaluationDegree = async function (options) {
+    
+    
   } // register (Model) {
 }
 

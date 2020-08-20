@@ -1,6 +1,7 @@
 'use strict'
 
 const SpreadsheetHelper = use('App/Helpers/SpreadsheetHelper')
+const IdeaHelper = use('App/Helpers/IdeaHelper')
 
 class UserAttributes {
 
@@ -58,6 +59,11 @@ class UserAttributes {
         }
         return value
       }
+    }
+    
+    Model.prototype.getAttributeRecallTextbaseIdeas = function () {
+      let ideas = this.getAttribute('codes_recall')
+      return IdeaHelper.filterTextbaseIdea(ideas)
     }
     
   } // register (Model) {

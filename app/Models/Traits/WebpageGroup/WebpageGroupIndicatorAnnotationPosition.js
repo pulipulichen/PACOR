@@ -98,9 +98,9 @@ class WebpageGroupIndicatorAnnotationPosition {
     
     /**
      * https://github.com/pulipulichen/PACOR/issues/513
-     * 個人閱讀時的錨點分散率
+     * 個人閱讀時的錨點密度率
      * 
-     * 如果小組內錨點分散很大
+     * 如果小組內錨點重疊程度很大
      * 表示小組內看得地方都不一樣，擁有不同的專業
      * 因此可以提高他們的學習成效
      * 

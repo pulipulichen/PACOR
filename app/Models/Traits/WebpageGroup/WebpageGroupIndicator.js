@@ -40,9 +40,12 @@ class WebpageGroupIndicator {
         output.PeerAsistTotal = StatisticHelepr.sum(PeerAsistVector)
         output.PeerAsistMedian = StatisticHelepr.median(PeerAsistVector)
         
-        let DeeperAnnotationVector = await this.calcDeeperAnnotationVector(options)
-        output.DeeperAnnotationTotal = StatisticHelepr.sum(DeeperAnnotationVector)
-        output.DeeperAnnotationMedian = StatisticHelepr.median(DeeperAnnotationVector)
+        let InspiredAnnotationVector = await this.calcInspiredAnnotationVector(options)
+        output.InspiredAnnotationTotal = StatisticHelepr.sum(InspiredAnnotationVector)
+        output.InspiredAnnotationMedian = StatisticHelepr.median(InspiredAnnotationVector)
+        
+        let InspiredAnnotationPropVector = await this.InspiredAnnotationPropVector(options)
+        output.InspiredAnnotationPropAverage = StatisticHelepr.average(InspiredAnnotationVector, 4)
         
         let TotalAnnotationVector = await this.calcTotalAnnotationVector(options)
         output.TotalAnnotationTotal = StatisticHelepr.sum(TotalAnnotationVector)
@@ -156,6 +159,10 @@ class WebpageGroupIndicator {
         output.DialogueVectorMedian = StatisticHelepr.median(DialogueVector)
         
         output.DialogueCount = await this.calcDialogueCount(options)
+        
+        let RecallInvertedNonTextbaseIdeasVector = await this.calcRecallInvertedNonTextbaseIdeasVector(options)
+        output.RecallInvertedNonTextbaseIdeasTotal = StatisticHelepr.sum(RecallInvertedNonTextbaseIdeasVector)
+        output.RecallInvertedNonTextbaseIdeasMedian = StatisticHelepr.median(RecallInvertedNonTextbaseIdeasVector)
         
         return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
