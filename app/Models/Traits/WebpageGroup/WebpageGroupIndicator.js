@@ -10,6 +10,46 @@ class WebpageGroupIndicator {
 
   register(Model) {
     
+    Model.prototype.calcIndicators = async function (options) {
+      //return await this.calcIndicatorsAll(options)
+      return await this.calcIndicators20200821ExpCtl(options)
+    }
+    
+    Model.prototype._calcIndicatorsGroupInfo = async function (options) {
+      
+        let users = await this.getUsersDisplayName( (options.userFilter === 'onlyCompleted') ) 
+        
+        let targetModels = await this.getAttribute('targetModels')
+        if (typeof(targetModels) === 'number') {
+          targetModels = targetModels + ''
+        }
+        else if (typeof(targetModels) !== 'string') {
+          targetModels = ''
+        }
+        let groupCode = await this.getAttribute('groupCode')
+        
+        let output = {
+          targetModels: targetModels.split(',').map(m => Number(m)),
+          groupCode,
+          'users': users.join(' ').trim(),
+        }
+        
+        let attrList = [
+          'methodCode', 'cov', 'dv', 
+          'read_comp_med', 'read_comp_iqr',
+          'attr_med', 'attr_iqr',
+          'style_c_med', 'style_c_iqr',
+          'style_e_med', 'style_e_iqr',
+        ]
+        
+        for (let i = 0; i < attrList.length; i++) {
+          let attr = attrList[i]
+          output['a' + i + '_' + attr] = await this.getAttribute(attr)
+        }
+        
+        return output
+    }
+    
     /**
      * 取得各種指標
      * 
@@ -18,19 +58,12 @@ class WebpageGroupIndicator {
      * }
      * @returns {Number}
      */
-    Model.prototype.calcIndicators = async function (options) {
-      let cacheKey = Cache.key('calcIndicators', options)
+    Model.prototype.calcIndicatorsAll = async function (options) {
+      let cacheKey = Cache.key('calcIndicatorsAll', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let webpage = await this.webpage().fetch()
         
-        let users = await this.getUsersDisplayName( (options.userFilter === 'onlyCompleted') ) 
-        
-        let targetModels = await this.getAttribute('targetModels')
-        
-        let output = {
-          targetModels: targetModels.split(',').map(m => Number(m)),
-          'users': users.join(' ').trim()
-        }
+        let output = await this._calcIndicatorsGroupInfo(options)
         
         // -----------------------
         
@@ -229,7 +262,7 @@ class WebpageGroupIndicator {
 //        let UserRecallLessIdeaVector = await this.calcUserRecallLessIdeaVector(options)
 //        output.UserRecallLessIdeaTotal = StatisticHelepr.sum(UserRecallLessIdeaVector)
 //        output.UserRecallLessIdeaMedian = StatisticHelepr.median(UserRecallLessIdeaVector)
-        
+        return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
     
@@ -246,14 +279,8 @@ class WebpageGroupIndicator {
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let webpage = await this.webpage().fetch()
         
-        let users = await this.getUsersDisplayName( (options.userFilter === 'onlyCompleted') ) 
         
-        let targetModels = await this.getAttribute('targetModels')
-        
-        let output = {
-          targetModels: targetModels.split(',').map(m => Number(m)),
-          'users': users.join(' ').trim()
-        }
+        let output = await this._calcIndicatorsGroupInfo(options)
         
         let PeerAsistVector = await this.calcPeerAsistVector(options)
         output.A1_PeerAsistTotal = StatisticHelepr.sum(PeerAsistVector)
@@ -296,7 +323,13 @@ class WebpageGroupIndicator {
     
     
     /**
-     * 取得各種指標
+     * 取得實驗組與控制組都可以共用的指標
+     * 
+     * 實驗組
+     * http://pc.pulipuli.info:443/admin#/webpage-dashboard/194/webpage-export
+     * 
+     * 控制組
+     * http://pc.pulipuli.info:443/admin#/webpage-dashboard/197
      * 
      * @param {Object} options {
      *   userFilter: 'onlyCompleted' || 'all'
@@ -308,14 +341,7 @@ class WebpageGroupIndicator {
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let webpage = await this.webpage().fetch()
         
-        let users = await this.getUsersDisplayName( (options.userFilter === 'onlyCompleted') ) 
-        
-        let targetModels = await this.getAttribute('targetModels')
-        
-        let output = {
-          targetModels: targetModels.split(',').map(m => Number(m)),
-          'users': users.join(' ').trim()
-        }
+        let output = await this._calcIndicatorsGroupInfo(options)
         
         // -----------------------
         
@@ -336,8 +362,9 @@ class WebpageGroupIndicator {
           'prop'
         ]
         
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < stepNameList.length; i++) {
           let stepName = stepNameList[i]
+          //console.log(stepName)
           
           let indexName = stepName
           if (!indexName) {
@@ -515,6 +542,7 @@ class WebpageGroupIndicator {
 //        output.UserRecallLessIdeaTotal = StatisticHelepr.sum(UserRecallLessIdeaVector)
 //        output.UserRecallLessIdeaMedian = StatisticHelepr.median(UserRecallLessIdeaVector)
         
+        return output
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
   } // register (Model) {

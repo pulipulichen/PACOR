@@ -42,6 +42,11 @@ let GroupDashboard = {
       ].join('\n')
     },
     groupIndicatorsKeys () {
+      if (this.groupIndicators === undefined 
+        || this.groupIndicators === null) {
+        return []
+      }
+      
       return Object.keys(this.groupIndicators)
     }
   },
@@ -72,6 +77,7 @@ let GroupDashboard = {
       if (!result) {
         throw new Error('GroupDahboard/info got error')
       }
+      //console.log(result.groupIndicators)
       
       this.group = result.group
       this.group.group_seq_id = Number(this.$route.params.groupID)

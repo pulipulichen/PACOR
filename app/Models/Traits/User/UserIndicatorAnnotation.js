@@ -31,6 +31,10 @@ class UserIndicatorAnnotation {
     Model.prototype.getAnnotationIndicator = async function (webpage, options = {}) {
       let cacheKey = Cache.key('User.getAnnotationIndicator', options)
       
+//      if (options.stepName === 'CollaborativeReading') {
+//        throw new Error('step is CollaborativeReading')
+//      }
+      
       return await Cache.rememberWait([webpage, this], cacheKey, async () => {
         let query = AnnotationModel.query()
                 .where('webpage_id', webpage.primaryKeyValue)

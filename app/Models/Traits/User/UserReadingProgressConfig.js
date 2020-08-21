@@ -280,10 +280,19 @@ class UserReadingProgressConfig {
     } // Model.prototype.getReadingProgressLog = async function (webpage) {
     
     Model.prototype.getReadingProgressTimestamp = async function (webpage, stepName) {
+//      if (stepName === 'CollaborativeReading') {
+//        throw new Error('step is CollaborativeReading')
+//        return null
+//      }
+      
       let cacheKey = Cache.key('User.getReadingProgressTimestamp', stepName)
       
       return await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
         let step = await this.getReadingProgress(webpage, stepName)
+//        if (step === null) {
+//          throw new Error('step is null: ' + stepName)
+//          return null
+//        }
         
         let startTimestamp, endTimestamp
         if (isNaN(step.start_timestamp) === false) {

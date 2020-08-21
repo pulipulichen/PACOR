@@ -149,7 +149,6 @@ class WebpageExport {
     let options = {
       userFilter: 'onlyCompleted'
     }
-    
     let indicators = []
     for (let i = 0; i < groups.size(); i++) {
       let group = groups.nth(i)
@@ -158,8 +157,8 @@ class WebpageExport {
       if (excluded === true) {
         continue
       }
-      
       let indicator = await group.calcIndicators(options)
+      //let indicator = await group.calcIndicators20200821ExpCtl(options)
       
       indicators.push(indicator)
     }

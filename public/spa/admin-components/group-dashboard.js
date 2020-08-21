@@ -345,117 +345,6 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "ui segment" },
-        [
-          _c("h3", { attrs: { id: _vm.attrHeaderID("socialNetworksData") } }, [
-            _vm._v(
-              "\r\n      " + _vm._s(_vm.$t("Social Networks Data")) + "\r\n    "
-            )
-          ]),
-          _vm._v(" "),
-          _vm._l(_vm.group.socialNetworks, function(sn, i) {
-            return _c("div", { staticClass: "period-container" }, [
-              _c(
-                "h4",
-                { attrs: { id: _vm.attrHeaderID("socialNetworks" + i) } },
-                [
-                  _vm._v(
-                    "\r\n        " +
-                      _vm._s(_vm.$t("Period")) +
-                      " " +
-                      _vm._s(i + 1) +
-                      ":\r\n        " +
-                      _vm._s(sn.startTimestamp) +
-                      "\r\n        - \r\n        " +
-                      _vm._s(sn.endTimestamp) +
-                      "\r\n      "
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "ui form" }, [
-                _c("div", { staticClass: "two fields" }, [
-                  _c("div", { staticClass: "field" }, [
-                    _c("label", [
-                      _vm._v(
-                        "\r\n              " +
-                          _vm._s(_vm.$t("Nodes")) +
-                          "\r\n            "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("textarea", {
-                      domProps: { innerHTML: _vm._s(_vm.nodesTable(sn.nodes)) }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "field" }, [
-                    _c("label", [
-                      _vm._v(
-                        "\r\n              " +
-                          _vm._s(_vm.$t("Edges")) +
-                          "\r\n            "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("textarea", {
-                      domProps: {
-                        innerHTML: _vm._s(_vm.edgesTable(sn.nodes, sn.edges))
-                      }
-                    })
-                  ])
-                ])
-              ])
-            ])
-          })
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "ui segment" },
-        [
-          _c("h3", { attrs: { id: _vm.attrHeaderID("socialNetworksGraph") } }, [
-            _vm._v(
-              "\r\n      " +
-                _vm._s(_vm.$t("Social Networks Graph")) +
-                "\r\n    "
-            )
-          ]),
-          _vm._v(" "),
-          _vm._l(_vm.group.socialNetworks, function(sn, i) {
-            return _c("div", { staticClass: "period-graph-container" }, [
-              _c(
-                "h4",
-                { attrs: { id: _vm.attrHeaderID("socialNetworksGraphs" + i) } },
-                [
-                  _vm._v(
-                    "\r\n          " +
-                      _vm._s(_vm.$t("Graphs")) +
-                      " " +
-                      _vm._s(i + 1) +
-                      ":\r\n          " +
-                      _vm._s(sn.startTimestamp) +
-                      "\r\n          - \r\n          " +
-                      _vm._s(sn.endTimestamp) +
-                      "\r\n        "
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", {
-                staticClass: "graph-container",
-                attrs: { id: "graph_container_" + i }
-              })
-            ])
-          })
-        ],
-        2
-      ),
-      _vm._v(" "),
       _c("div", { staticClass: "ui segment" }, [
         _c("h3", { attrs: { id: _vm.attrHeaderID("export") } }, [
           _vm._v("\r\n      " + _vm._s(_vm.$t("Export")) + "\r\n    ")
@@ -587,6 +476,11 @@ let GroupDashboard = {
       ].join('\n')
     },
     groupIndicatorsKeys () {
+      if (this.groupIndicators === undefined 
+        || this.groupIndicators === null) {
+        return []
+      }
+      
       return Object.keys(this.groupIndicators)
     }
   },
@@ -617,6 +511,7 @@ let GroupDashboard = {
       if (!result) {
         throw new Error('GroupDahboard/info got error')
       }
+      //console.log(result.groupIndicators)
       
       this.group = result.group
       this.group.group_seq_id = Number(this.$route.params.groupID)

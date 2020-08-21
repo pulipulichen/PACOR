@@ -34,12 +34,13 @@ class GroupDashboard {
     return await Cache.get(cacheKey, async () => {
       
       let users = await this._getGroupReaderCard(webpage, groupID, dashboardFilterMode)
-      let socialNetworks = await this.getSocialNetworks(webpage, users)
+      //let socialNetworks = await this.getSocialNetworks(webpage, users)
+      
       let groupIndicators = await this.calcGroupIndicators(webpage, groupID, dashboardFilterMode)
       
       let group = {
         users,
-        socialNetworks
+        socialNetworks: []
       }
       
       //console.log(group.group_seq_id)

@@ -14,7 +14,7 @@ let StatisticHelper = {
    * @author: https://pjchender.blogspot.com/2017/09/mean-median-mode.html
    * @param {Array} arr
    */
-  median: function (arr, round) {
+  median: function (arr, round = 4) {
     arr = arr.sort((a, b) => a - b)
     let median
     if (arr.length % 2 === 0) {
@@ -142,7 +142,7 @@ let StatisticHelper = {
    * @param {type} arrayData
    * @returns {Number}
    */
-  average: function (arrayData, round) {
+  average: function (arrayData, round = 4) {
     let average = arrayData.reduce((a, b) => a + b) / arrayData.length
     
     
