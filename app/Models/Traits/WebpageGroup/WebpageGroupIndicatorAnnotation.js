@@ -257,6 +257,8 @@ class WebpageGroupIndicatorAnnotation {
     Model.prototype.calcSkilledDemonstrationDegree = async function (options) {
       let cacheKey = Cache.key('calcSkilledDemonstrationDegree', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        //return StatisticHelper.correlationCoefficientR([1, 2, 3], [6, 4, 2])
+        
         let webpage = await this.webpage().fetch()
         
         let onlyCompleted = (options.userFilter === 'onlyCompleted')
@@ -266,17 +268,29 @@ class WebpageGroupIndicatorAnnotation {
         let readCompList = []
         for (let i = 0; i < usersIDList.length; i++) {
           let user = await UserModel.find(usersIDList[i])
+          
           try {
             let readComp = user.getAttribute('read_comp')
             readCompList.push(readComp)
 
-            let c = await user.getAnnotationIndicator(webpage, {
-              includeDeleted: false,
+            let count = 0
+            let annotations = await user.getAnnotationIndicator(webpage, {
+              includeDeleted: false
             })
-            annotationCountList.push(c.length)
+            count = count + annotations.length
+
+            let comments = await user.getCommentIndicator(webpage, {
+              includeCommentDeleted: false,
+              includeAnnotationDeleted: false,
+            })
+            count = count + comments.length
+
+            annotationCountList.push(count)
           }
           catch (e) {}
         }
+        //console.log(annotationCountList)
+        //console.log(readCompList)
         
         let r = StatisticHelper.correlationCoefficientR(annotationCountList, readCompList)
         return StatisticHelper.round(r, 4)
