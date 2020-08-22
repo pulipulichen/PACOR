@@ -8,6 +8,7 @@
 const UserModel = use('App/Models/User')
 const AnnotationModel = use('App/Models/Annotation')
 const AnnotationCommentModel = use('App/Models/AnnotationComment')
+const UserNotificationModel = use('App/Models/UserNotification')
 
 class ReadingActivityLogInteract {
 
@@ -37,17 +38,23 @@ class ReadingActivityLogInteract {
         return await this._getInteractToUserByAnnotationID()
       }
       else if (type === 'AnnotationComment.update') {
-        return await this._getInteractToUserByAnnotationCommentID1()
+        return await this._getInteractToUserFromAnnotationCommentUpdate()
       }
       else if (type === 'AnnotationComment.destroy') {
-        return await this._getInteractToUserByAnnotationCommentID2()
+        return await this._getInteractToUserFromAnnotationCommentDestroy()
+      }
+      else if (type === 'AnnotationRate.likeComment') {
+        return await this._getInteractToUserFromAnnotationRateLikeComment()
       }
       else if (type === 'UserFilter.getUserWords') {
         return await this._getInteractToUserByAnnotationID()
       }
+      else if (type === 'UserNotification.read') {
+        return await this._getInteractToUserFromUserNotificationRead()
+      }
     }
     
-    Model.prototype._getInteractToUserByAnnotationCommentID1 = async function () {
+    Model.prototype._getInteractToUserFromAnnotationCommentUpdate = async function () {
       let log = this.log
       let annotationCommentID = log.commentID
       let comment = await AnnotationCommentModel.find(annotationCommentID)
@@ -56,7 +63,7 @@ class ReadingActivityLogInteract {
       return await annotation.user().fetch()
     }
     
-    Model.prototype._getInteractToUserByAnnotationCommentID2 = async function () {
+    Model.prototype._getInteractToUserFromAnnotationCommentDestroy = async function () {
       let log = this.log
       let annotationCommentID = log.id
       let comment = await AnnotationCommentModel.find(annotationCommentID)
@@ -70,6 +77,20 @@ class ReadingActivityLogInteract {
       let annotationID = log.annotationID
       let annotation = await AnnotationModel.find(annotationID)
       return await annotation.user().fetch()
+    }
+    
+    Model.prototype._getInteractToUserFromAnnotationRateLikeComment = async function () {
+      let log = this.log
+      let annotationCommentID = log.commentID
+      let comment = await AnnotationCommentModel.find(annotationCommentID)
+      return await comment.user().fetch()
+    }
+    
+    Model.prototype._getInteractToUserFromUserNotificationRead = async function () {
+      let log = this.log
+      let userNotificationID = log.id
+      let notification = await UserNotificationModel.find(userNotificationID)
+      return await notification.triggerUser().fetch()
     }
     
     Model.prototype._getInteractToUserByUserID = async function () {
