@@ -3,6 +3,18 @@
 const StatisticHelper = use('App/Helpers/StatisticHelper')
 
 let AnchorPositionMapHelper = {
+  annotaionsToMap: function (annotations) {
+    let anchorPositions = this._extractAnchorPositions(annotations)
+    if (anchorPositions.length === 0) {
+      return 0
+    } 
+    
+    // -------------------------
+    
+    let {map, userList} = this._buildMap(anchorPositions)
+    
+    return {map, userList}
+  },
   calcDenseDegree: function (annotations, users) {
     let anchorPositions = this._extractAnchorPositions(annotations)
     if (anchorPositions.length === 0) {
@@ -24,7 +36,7 @@ let AnchorPositionMapHelper = {
     if (Array.isArray(users) === false) {
       users = userList
     }
-    console.log(map)
+    //console.log(map)
     let denseDegreeArray = []
     Object.keys(map).forEach(seqID => {
       let {minPos, maxPos, usersBitMap} = map[seqID]

@@ -8,6 +8,8 @@ const AnnotationModel = use('App/Models/Annotation')
 const StringHelper = use('App/Helpers/StringHelper')
 const TokenizationHelper = use('App/Helpers/TokenizationHelper')
 
+const AnchorPositionMapHelper = use('App/Helpers/AnchorPositionMapHelper')
+
 class UserIndicatorAnnotation {
 
   register(Model) {
@@ -175,6 +177,25 @@ class UserIndicatorAnnotation {
       })
     }
     
+    Model.prototype.getAnnotationAnchorPositionMap = async function (webpage, options = {}) {
+      let cacheKey = Cache.key('User.getAnnotationAnchorPositionMap', options)
+      
+      return await Cache.rememberWait([webpage, this], cacheKey, async () => {
+        let annotations = await this.getAnnotationIndicator(webpage, {
+          includeDeleted: true,
+          withAnchorPositions: true
+        })
+        let {map, userList} = AnchorPositionMapHelper.annotaionsToMap(annotations)
+        
+        return map
+      })
+    }
+    
+    Model.prototype.isOverlapAnnotationAnchorPoistions = async function (webpage, anchorPositions) {
+      let map = await this.getAnnotationAnchorPositionMap(webpage)
+      
+      return AnchorPositionMapHelper.isOverlap(map, anchorPositions)
+    }
   } // register (Model) {
 }
 

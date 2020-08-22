@@ -10,6 +10,8 @@ const AnnotationModel = use('App/Models/Annotation')
 const AnnotationCommentModel = use('App/Models/AnnotationComment')
 const UserNotificationModel = use('App/Models/UserNotification')
 
+//const AnchorPositionMapHelper = use('App/Helpers/AnchorPositionMapHelper')
+
 class ReadingActivityLogInteract {
 
   register(Model) {
@@ -42,6 +44,9 @@ class ReadingActivityLogInteract {
       }
       else if (type === 'AnnotationComment.destroy') {
         return await this._getInteractToUserFromAnnotationCommentDestroy()
+      }
+      else if (type === 'Annotation.floatWidget') {
+        return await this._getInteractToUserAnnotationFloatWidget()
       }
       else if (type === 'AnnotationRate.likeComment') {
         return await this._getInteractToUserFromAnnotationRateLikeComment()
@@ -79,6 +84,32 @@ class ReadingActivityLogInteract {
       return await annotation.user().fetch()
     }
     
+    Model.prototype._getInteractToUserAnnotationFloatWidget = async function () {
+      let log = this.log
+      let anchorPositions = log.anchorPositions
+      //let anchorMap = AnchorPositionMapHelper.buildMapFromAnchorPositions(anchorPositions)
+      
+      // ----------------
+      
+      let webpage = await this.webpage().fetch()
+      let user = await this.user().fetch()
+      let groupOtherUsers = await user.getOtherUserIDsInGroup(webpage)
+      let users = []
+      for (let i = 0; i < groupOtherUsers.length; i++) {
+        let userID = groupOtherUsers[i]
+        let peer = await UserModel.find(userID)
+        
+        let isMatch = await peer.isOverlapAnnotationAnchorPoistions(webpage, anchorPositions)
+        if (isMatch === true) {
+          users.push(peer)
+        }
+      }
+      
+      return users
+      //let annotation = await AnnotationModel.find(annotationID)
+      //return await annotation.user().fetch()
+    }
+    
     Model.prototype._getInteractToUserFromAnnotationRateLikeComment = async function () {
       let log = this.log
       let annotationCommentID = log.commentID
@@ -98,12 +129,24 @@ class ReadingActivityLogInteract {
       return await UserModel.find(log.userID)
     }
     
+    // ----------------------------
+    
     Model.prototype.isInteractToPeer = async function () {
       let toUser = await this.interactToUser()
       if (toUser === null) {
         return false
       }
-      return (toUser.primaryKeyValue === this.user_id)
+      if (Array.isArray(toUser) === false) {
+        return (toUser.primaryKeyValue === this.user_id)
+      }
+      let isInteractToPeer = false
+      for (let i = 0; i < toUser.length; i++) {
+        if (toUser.primaryKeyValue !== this.user_id) {
+          isInteractToPeer = true
+          break
+        }
+      }
+      return isInteractToPeer
     }
     
     Model.prototype.isInteractToAuthor = async function () {
