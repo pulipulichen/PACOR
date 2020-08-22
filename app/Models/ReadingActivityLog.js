@@ -10,6 +10,7 @@ class ReadingActivityLog extends Model {
     this.addTrait('JSONCase', 'log')
     this.addTrait('DateUnixMS')
     this.addTrait('ReadingActivityLog/ReadingActivityLogSave')
+    this.addTrait('ReadingActivityLog/ReadingActivityLogInteract')
   }
   
   static async findLog (webpageID, userID, type) {
