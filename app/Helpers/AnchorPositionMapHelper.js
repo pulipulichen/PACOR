@@ -132,9 +132,14 @@ let AnchorPositionMapHelper = {
     
     let userList = []
     
-    anchorPositions.forEach(({user_id, seq_id, start_pos, end_pos}) => {
+    anchorPositions.forEach(({user_id, seq_id, paragraph_id, start_pos, end_pos}) => {
       if (userList.indexOf(user_id) === -1) {
         userList.push(user_id)
+      }
+      
+      if (!seq_id && paragraph_id) {
+        seq_id = paragraph_id.slice(paragraph_id.lastIndexOf('-') + 1)
+        seq_id = Number(seq_id)
       }
       
       if (!map[seq_id]) {
@@ -155,6 +160,10 @@ let AnchorPositionMapHelper = {
       for (let i = start_pos; i < end_pos; i++) {
         if (Array.isArray(map[seq_id].usersBitMap[i]) === false) {
           map[seq_id].usersBitMap[i] = []
+        }
+        
+        if (user_id === undefined) {
+          user_id = 0
         }
         
         if (map[seq_id].usersBitMap[i].indexOf(user_id) === -1) {
@@ -288,7 +297,37 @@ let AnchorPositionMapHelper = {
     //console.log(anchorPositions)
     
     return anchorPositions
-  } 
+  },
+  /**
+   * 
+   * @param {type} map
+   * @param {type} anchorPositions
+   * {"anchorPositions":[{"start_pos":68,"end_pos":80,"paragraph_id":"pacor-paragraph-id-5"}]}
+   * @returns {undefined}
+   */
+  isOverlap: function (map, anchorPositions) {
+    let selectMap = this._buildMap(anchorPositions)
+    
+    let isOverlap = false
+    for (let seq_id in selectMap) {
+      if (!map[seq_id]) {
+        continue
+      }
+      
+      let {minPos, maxPos, usersBitMap} = selectMap[seq_id]
+      
+      for (let i = minPos; i < maxPos; i++) {
+        if (Array.isArray(selectMap[seq_id].usersBitMap[i]) === true
+                && selectMap[seq_id].usersBitMap[i].length > 0 
+                && Array.isArray(map[seq_id].usersBitMap[i]) === true
+                && map[seq_id].usersBitMap[i].length > 0) {
+          return true
+        }
+      }
+    }
+    
+    return isOverlap
+  }
 }
 
 module.exports = AnchorPositionMapHelper

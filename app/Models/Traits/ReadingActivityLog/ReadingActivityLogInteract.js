@@ -85,6 +85,11 @@ class ReadingActivityLogInteract {
     }
     
     Model.prototype._getInteractToUserAnnotationFloatWidget = async function () {
+      let stepName = await this.getCurrentStepName()
+      if (stepName === 'IndividualReading') {
+        return await this.user().fetch()
+      }
+      
       let log = this.log
       let anchorPositions = log.anchorPositions
       //let anchorMap = AnchorPositionMapHelper.buildMapFromAnchorPositions(anchorPositions)
@@ -152,6 +157,14 @@ class ReadingActivityLogInteract {
     Model.prototype.isInteractToAuthor = async function () {
       let toUser = await this.interactToUser()
       return (toUser === null)
+    }
+    
+    Model.prototype.getCurrentStepName = async function () {
+      let user = await this.user().fetch()
+      let webpage = await this.webpage.fetch()
+      
+      let unixms = this.created_at_unixms
+      return await user.getReadingProgressStepNameByUnixMS(webpage, unixms)
     }
     
   } // register (Model) {

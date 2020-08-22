@@ -364,6 +364,25 @@ class UserReadingProgressConfig {
       }
       return remainingSeconds
     }
+    
+    Model.prototype.getReadingProgressStepNameByUnixMS = async function (webpage, unixms) {
+      let status = await this.getReadingProgressStatus(webpage)
+      
+      for (let i = 0; i < status.length; i++) {
+        let {step_name, start_timestamp, end_timestamp} = status[i]
+        
+        if (isNaN(end_timestamp) === false) {
+          if (unixms > start_timestamp && unixms < end_timestamp) {
+            return step_name
+          }
+        }
+        else {
+          if (unixms > start_timestamp) {
+            return step_name
+          }
+        }
+      }
+    }
   } // register (Model) {
   
 }
