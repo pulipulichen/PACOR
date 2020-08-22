@@ -6,6 +6,7 @@ class WebpageGroupAttributes {
 
   register(Model) {
     
+    
     let groupAttributes
     
     let initGroupAttributes = function () {
@@ -25,6 +26,11 @@ class WebpageGroupAttributes {
         groupAttributes[users] = line
       })
     } // let initUserAttributes = function () {
+    
+    Model.getAttributeList = function (attributeName) {
+      initGroupAttributes()
+      return Object.keys(groupAttributes).map(users => groupAttributes[users][attributeName])
+    }
     
     Model.prototype.getAttribute = async function (attributeName, defaultValue) {
       initGroupAttributes()

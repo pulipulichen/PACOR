@@ -24,7 +24,7 @@ let AnchorPositionMapHelper = {
     if (Array.isArray(users) === false) {
       users = userList
     }
-
+    console.log(map)
     let denseDegreeArray = []
     Object.keys(map).forEach(seqID => {
       let {minPos, maxPos, usersBitMap} = map[seqID]
@@ -37,6 +37,10 @@ let AnchorPositionMapHelper = {
         let userCount = usersBitMap[i].length
         let prop = 0
         if ((usersCount - 1) > 0) {
+          //console.log(userCount)
+          if (userCount === 0) {
+            continue
+          }
           prop = (userCount - 1) / (usersCount - 1)
         }
         denseDegreeArray.push(prop)

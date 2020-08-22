@@ -150,6 +150,9 @@ class WebpageExport {
       userFilter: 'onlyCompleted'
     }
     let indicators = []
+    
+    let usersGroupIndicatorMap = {}
+    
     for (let i = 0; i < groups.size(); i++) {
       let group = groups.nth(i)
       
@@ -157,11 +160,28 @@ class WebpageExport {
       if (excluded === true) {
         continue
       }
+      
+      let users = await group.getUsersDisplayName(true) 
+      let usersListString = users.join(' ').trim()
+      
       let indicator = await group.calcIndicators(options)
       //let indicator = await group.calcIndicators20200821ExpCtl(options)
       
-      indicators.push(indicator)
+      //indicators.push(indicator)
+      usersGroupIndicatorMap[usersListString] = indicator
     }
+    
+    let usersList = WebpageGroupModel.getAttributeList('users')
+    //console.log(usersList)
+    usersList.forEach(usersListString => {
+      if (!usersGroupIndicatorMap[usersListString]) {
+        return false
+        //console.log(usersGroupIndicatorMap)
+        //throw new Error('UsersListString is not found: ' + usersListString)
+      }
+      
+      indicators.push(usersGroupIndicatorMap[usersListString])
+    })
     
     return indicators
   }

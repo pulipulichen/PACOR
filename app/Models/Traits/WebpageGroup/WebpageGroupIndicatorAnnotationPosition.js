@@ -197,8 +197,9 @@ class WebpageGroupIndicatorAnnotationPosition {
           annotationsList = annotationsList.concat(annotations)
         }
         
-        //console.log(annotationsList.length)
+        console.log(annotationsList.length)
         let degree = AnchorPositionMapHelper.calcDenseDegree(annotationsList, usersIDList)
+        console.log(degree)
         return StatisticHelper.round(degree, 4)
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     } // Model.prototype.calcMonologuesDegree = async function (options) {
