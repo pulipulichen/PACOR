@@ -57,8 +57,8 @@ class UserReadingActivityLog {
             user_id,
             unixms: log.created_at_unixms,
             event: code,
-            type: log.type,
-            log: JSON.stringify(log.log)
+            //type: log.type,
+            //log: JSON.stringify(log.log)
           })
         }
         

@@ -6,6 +6,8 @@ let WebpageExport = {
     this.$i18n.locale = this.config.locale
     return {
       groupIndicators: [],
+      userEventList: [],
+      userEventListLoadingGroupID: null
       
       // 要挑那些組別，請看這裡
       // https://drive.google.com/drive/u/0/folders/17_P9Lm20Vx2_NA9lbWf4Fw3NeRefYSoe
@@ -140,12 +142,32 @@ let WebpageExport = {
      
       return lines.join('\n')
       //return ''
-    }
+    },
+    eventListTSV () {
+      let eventList = this.userEventList
+      if (eventList.length === 0) {
+        return ''
+      }
+
+      let keys = Object.keys(eventList[0])
+      let output = [
+        keys.join('\t')
+      ]
+
+      eventList.forEach(line => {
+        output.push(Object.keys(line).map(key => {
+          return line[key]
+        }).join('\t'))
+      })
+
+      return output.join('\n')
+    },
   },
 //  watch: {
 //  },
   mounted() {
-    this.loadGroupIndicators()
+    //this.loadGroupIndicators()
+    this.loadUserEventList()
   },
   methods: {
     attrHeaderID: function (anchor) {
@@ -162,6 +184,32 @@ let WebpageExport = {
       //console.log(result)
       if (Array.isArray(result)) {
         this.groupIndicators = result
+      }
+    },
+    loadUserEventList: async function () {
+      this.userEventList = []
+      
+      let groupID = 0
+      while (true) {
+        let data = {
+          webpageID: this.$route.params.webpageID,
+          groupID
+        }
+        
+        this.userEventListLoadingGroupID = groupID
+        //console.log('load event list: ' + groupID)
+        let result = await this.lib.AxiosHelper.get('/admin/WebpageExport/eventList', data)
+        
+        //console.log(result)
+        if (Array.isArray(result)) {
+          this.userEventList = this.userEventList.concat(result)
+        }
+        
+        if (result === false) {
+          this.userEventListLoadingGroupID = null
+          return false
+        }
+        groupID++
       }
     },
     buildARFF: function (modelA, modelB) {

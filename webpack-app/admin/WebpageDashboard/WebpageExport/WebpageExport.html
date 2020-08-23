@@ -46,6 +46,12 @@
       
       Model 2 - Model 4
       <textarea v-html="buildARFF(2,4)"></textarea>
+      
+      User Event List 
+      <span v-if="userEventListLoadingGroupID !== null">
+        (Loading {{ userEventListLoadingGroupID }}...)
+      </span>
+      <textarea v-html="eventListTSV"></textarea>
     </div>
   </form>
 </div>

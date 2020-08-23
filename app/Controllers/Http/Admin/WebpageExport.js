@@ -185,6 +185,38 @@ class WebpageExport {
     
     return indicators
   }
+  
+  async eventList( {request, response, auth}) {
+    let {webpageID, groupID} = request.all()
+
+    groupID = Number(groupID)
+    let webpage = await WebpageModel.find(webpageID)
+    let groups = await webpage.groups().fetch()
+
+    let options = {
+      userFilter: 'onlyCompleted'
+    }
+    //let usersDataMap = {}
+
+    //for (let i = 0; i < groups.size(); i++) {
+    if (groupID >= groups.size()) {
+      return false
+    }
+
+    let group = groups.nth(groupID)
+
+
+    let excluded = await group.getAttribute('excluded', true)
+    if (excluded === true) {
+      return []
+    }
+
+    //let users = await group.getUsersDisplayName(true) 
+    //let usersListString = users.join(' ').trim()
+
+    let eventList = await group.getEventList(options)
+    return eventList
+  }
 }
 
 module.exports = WebpageExport
