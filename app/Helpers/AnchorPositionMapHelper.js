@@ -310,7 +310,9 @@ let AnchorPositionMapHelper = {
       return false
     }
     
-    let selectMap = this._buildMap(anchorPositions)
+    let result = this._buildMap(anchorPositions)
+    let selectMap = result.map
+    //console.log(selectMap)
     
     let isOverlap = false
     for (let seq_id in selectMap) {

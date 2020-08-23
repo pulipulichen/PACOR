@@ -94,6 +94,7 @@ class WebpageGroupIndicatorReadingActivityLog {
       let cacheKey = Cache.key('getEventList', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let webpage = await this.webpage().fetch()
+        let groupCode = await this.getAttribute('groupCode')
         
         let onlyCompleted = (options.userFilter === 'onlyCompleted')
         let usersIDList = await this.getUsersIDList(onlyCompleted)
@@ -104,8 +105,15 @@ class WebpageGroupIndicatorReadingActivityLog {
           
           let logs = await user.getReadingActivities(webpage)
           list = list.concat(logs) 
-          break
         }
+        
+        list = list.map(l => {
+          let output = {
+            groupCode,
+            ...l
+          }
+          return output
+        })
         
         return list
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {

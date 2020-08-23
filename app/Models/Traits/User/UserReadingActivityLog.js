@@ -44,15 +44,16 @@ class UserReadingActivityLog {
         for (let i = 0; i < logs.size(); i++) {
           let log = logs.nth(i)
           let code = await log.getCode()
-          //if (!code) {
-          //  continue
-          //}
+          if (!code) {
+            continue
+          }
           
           if (!code) {
             code = ''
           }
           
           output.push({
+            user: this.display_name,
             user_id,
             unixms: log.created_at_unixms,
             event: code,

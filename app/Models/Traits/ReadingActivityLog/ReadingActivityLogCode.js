@@ -21,9 +21,22 @@ class ReadingActivityLogCode {
     Model.prototype.getCode = async function () {
       let type = this.type
       
-      if (type === 'Annotation.create'
-              || type === 'Section.setChecklist') {
-        return 'At'
+      if (type === 'Section.setChecklist') {
+        return 'As'
+      }
+      else if (type === 'Annotation.create') {
+        // {"anchorPositions":[{"section_id":0,"seq_id":5,"paragraph_id":"pacor-paragraph-id-5","start_pos":0,"end_pos":5,"anchor_text":"一六七三年","type":"textContent"}],"type":"MainIdea","notes":{"default":"<p>一六七三年</p>"}}
+        let annotationType = this.log.type
+        if (annotationType === 'Confused' 
+                || annotationType === 'Clarified') {
+          return 'Ac'
+        }
+        else if (annotationType === 'SectionMainIdea') {
+          return 'As'
+        }
+        else if (annotationType === 'MainIdea') {
+          return 'Am'
+        }
       }
       else if (type === 'UserFilter.getUserWords') {
         return 'Ci'
@@ -61,13 +74,20 @@ class ReadingActivityLogCode {
             return 'Pc'
           }
         }
-        if (annotationType === 'MainIdea' 
-                || annotationType === 'SectionMainIdea') {
+        if (annotationType === 'MainIdea' ) {
           if (isInteractToPeer === false) {
             return 'Mm'
           }
           else {
             return 'Pm'
+          }
+        }
+        if (annotationType === 'SectionMainIdea') {
+          if (isInteractToPeer === false) {
+            return 'Ms'
+          }
+          else {
+            return 'Ps'
           }
         }
       }

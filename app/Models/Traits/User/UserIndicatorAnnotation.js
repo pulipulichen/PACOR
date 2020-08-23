@@ -193,7 +193,6 @@ class UserIndicatorAnnotation {
     
     Model.prototype.isOverlapAnnotationAnchorPoistions = async function (webpage, anchorPositions) {
       let map = await this.getAnnotationAnchorPositionMap(webpage)
-      
       return AnchorPositionMapHelper.isOverlap(map, anchorPositions)
     }
   } // register (Model) {
