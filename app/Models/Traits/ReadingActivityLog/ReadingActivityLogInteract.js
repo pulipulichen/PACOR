@@ -139,7 +139,7 @@ class ReadingActivityLogInteract {
     Model.prototype.isInteractToPeer = async function () {
       let toUser = await this.interactToUser()
       if (toUser === null) {
-        return false
+        return null
       }
       if (Array.isArray(toUser) === false) {
         return (toUser.primaryKeyValue === this.user_id)
