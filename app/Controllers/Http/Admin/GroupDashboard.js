@@ -36,7 +36,8 @@ class GroupDashboard {
       let users = await this._getGroupReaderCard(webpage, groupID, dashboardFilterMode)
       //let socialNetworks = await this.getSocialNetworks(webpage, users)
       
-      let groupIndicators = await this.calcGroupIndicators(webpage, groupID, dashboardFilterMode)
+      //let groupIndicators = await this.calcGroupIndicators(webpage, groupID, dashboardFilterMode)
+      let groupIndicators = []
       let eventList = await this.getEventList(webpage, groupID, dashboardFilterMode)
       
       let group = {

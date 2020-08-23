@@ -21,7 +21,8 @@ class ReadingActivityLogCode {
     Model.prototype.getCode = async function () {
       let type = this.type
       
-      if (type === 'Annotation.create') {
+      if (type === 'Annotation.create'
+              || type === 'Section.setChecklist') {
         return 'At'
       }
       else if (type === 'UserFilter.getUserWords') {

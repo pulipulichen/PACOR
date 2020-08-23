@@ -104,6 +104,7 @@ class WebpageGroupIndicatorReadingActivityLog {
           
           let logs = await user.getReadingActivities(webpage)
           list = list.concat(logs) 
+          break
         }
         
         return list

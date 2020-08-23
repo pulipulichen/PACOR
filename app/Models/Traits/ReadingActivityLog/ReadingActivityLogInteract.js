@@ -142,7 +142,7 @@ class ReadingActivityLogInteract {
         return null
       }
       if (Array.isArray(toUser) === false) {
-        return (toUser.primaryKeyValue === this.user_id)
+        return (toUser.primaryKeyValue !== this.user_id)
       }
       let isInteractToPeer = false
       for (let i = 0; i < toUser.length; i++) {
