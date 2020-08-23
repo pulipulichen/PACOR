@@ -137,8 +137,8 @@ class ReadingActivityLogInteract {
     // ----------------------------
     
     Model.prototype.isInteractToPeer = async function () {
-      let toUser = await this.interactToUser()
-      if (toUser === null) {
+      let toUser = await this.getInteractToUser()
+      if (toUser === null || toUser === undefined) {
         return null
       }
       if (Array.isArray(toUser) === false) {
@@ -155,13 +155,13 @@ class ReadingActivityLogInteract {
     }
     
     Model.prototype.isInteractToAuthor = async function () {
-      let toUser = await this.interactToUser()
+      let toUser = await this.getInteractToUser()
       return (toUser === null)
     }
     
     Model.prototype.getCurrentStepName = async function () {
       let user = await this.user().fetch()
-      let webpage = await this.webpage.fetch()
+      let webpage = await this.webpage().fetch()
       
       let unixms = this.created_at_unixms
       return await user.getReadingProgressStepNameByUnixMS(webpage, unixms)

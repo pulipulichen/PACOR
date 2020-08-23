@@ -37,6 +37,7 @@ class GroupDashboard {
       //let socialNetworks = await this.getSocialNetworks(webpage, users)
       
       let groupIndicators = await this.calcGroupIndicators(webpage, groupID, dashboardFilterMode)
+      let eventList = await this.getEventList(webpage, groupID, dashboardFilterMode)
       
       let group = {
         users,
@@ -51,7 +52,8 @@ class GroupDashboard {
       let output = {
         webpageURL: webpageURL,
         group,
-        groupIndicators
+        groupIndicators,
+        eventList
       }
       Cache.put(cacheKey, output, 0.5)
       return output
@@ -245,6 +247,16 @@ class GroupDashboard {
     }
     
     return await group.calcIndicators(options)
+  }
+  
+  async getEventList (webpage, groupID, dashboardFilterMode) {
+    let group = await webpage.getGroup(groupID)
+    
+    let options = {
+      userFilter: dashboardFilterMode
+    }
+    
+    return await group.getEventList(options)
   }
   
   async exportGroupData ({request, response, auth}) {

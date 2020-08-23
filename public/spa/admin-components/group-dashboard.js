@@ -216,6 +216,29 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
+      _c("div", { staticClass: "ui segment" }, [
+        _c("h3", { attrs: { id: _vm.attrHeaderID("groupMembers") } }, [
+          _vm._v("\r\n      " + _vm._s(_vm.$t("Group Members")) + "\r\n    ")
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "ui cards" },
+          _vm._l(_vm.group.users, function(groupUser) {
+            return _c("reader-card", {
+              attrs: {
+                user: groupUser,
+                lib: _vm.lib,
+                status: _vm.status,
+                config: _vm.config,
+                viewOnNewWindow: true
+              }
+            })
+          }),
+          1
+        )
+      ]),
+      _vm._v(" "),
       _vm.groupIndicatorsKeys.length > 0
         ? _c("div", { staticClass: "ui segment" }, [
             _c("h3", { attrs: { id: _vm.attrHeaderID("indicators") } }, [
@@ -323,26 +346,44 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "ui segment" }, [
-        _c("h3", { attrs: { id: _vm.attrHeaderID("groupMembers") } }, [
-          _vm._v("\r\n      " + _vm._s(_vm.$t("Group Members")) + "\r\n    ")
+        _c("h3", { attrs: { id: _vm.attrHeaderID("event") } }, [
+          _vm._v("\r\n      " + _vm._s(_vm.$t("Event List")) + "\r\n    ")
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "ui cards" },
-          _vm._l(_vm.group.users, function(groupUser) {
-            return _c("reader-card", {
-              attrs: {
-                user: groupUser,
-                lib: _vm.lib,
-                status: _vm.status,
-                config: _vm.config,
-                viewOnNewWindow: true
-              }
-            })
-          }),
-          1
-        )
+        _c("form", { staticClass: "ui form" }, [
+          _c("div", { staticClass: "ui fluid buttons" }, [
+            _c(
+              "a",
+              { staticClass: "ui button", on: { click: _vm.initDashboard } },
+              [
+                _c("i", { staticClass: "redo icon" }),
+                _vm._v(
+                  "\r\n          " + _vm._s(_vm.$t("Reload")) + "\r\n        "
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "ui button",
+                on: {
+                  click: function($event) {
+                    return _vm.lib.ClipboardHelper.copy(_vm.eventListTSV)
+                  }
+                }
+              },
+              [
+                _c("i", { staticClass: "copy icon" }),
+                _vm._v(
+                  "\r\n           " + _vm._s(_vm.$t("Copy")) + "\r\n        "
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("textarea", { domProps: { innerHTML: _vm._s(_vm.eventListTSV) } })
+        ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "ui segment" }, [
@@ -427,18 +468,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var sigma_webpack__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sigma-webpack */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\sigma-webpack\\build\\sigma.require.js");
-/* harmony import */ var sigma_webpack__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sigma_webpack__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _sigma_js_plugins_sigma_plugins_dragNodes_sigma_plugins_dragNodes_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sigma.js/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js */ "./webpack-app/admin/GroupDashboard/sigma.js/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js");
-/* harmony import */ var _sigma_js_plugins_sigma_exporters_svg_sigma_exporters_svg_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sigma.js/plugins/sigma.exporters.svg/sigma.exporters.svg.js */ "./webpack-app/admin/GroupDashboard/sigma.js/plugins/sigma.exporters.svg/sigma.exporters.svg.js");
-/* harmony import */ var _sigma_js_plugins_sigma_exporters_svg_sigma_exporters_svg_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_sigma_js_plugins_sigma_exporters_svg_sigma_exporters_svg_js__WEBPACK_IMPORTED_MODULE_2__);
-//import sigmaWebpack from 'sigma-webpack'
-//console.log(Object.keys(sigmaWebpack))
-
-
-//import './sigma.js/plugins/sigma.layout.forceAtlas2/sigma.layout.forceAtlas2.webpack.js'
-
-
+/* harmony import */ var _computedGroupDashboard_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./computedGroupDashboard.js */ "./webpack-app/admin/GroupDashboard/computedGroupDashboard.js");
+/* harmony import */ var _methodsGroupDashboard_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methodsGroupDashboard.js */ "./webpack-app/admin/GroupDashboard/methodsGroupDashboard.js");
+/* harmony import */ var _methodsGraphGroupDashboard_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methodsGraphGroupDashboard.js */ "./webpack-app/admin/GroupDashboard/methodsGraphGroupDashboard.js");
 
 let GroupDashboard = {
   props: ['lib', 'status', 'config'],
@@ -452,38 +484,13 @@ let GroupDashboard = {
         users: []
       },
       dashboardFilterMode: 'onlyCompleted', // 'all' || 'onlyCompleted'
-      groupIndicators: {}
+      groupIndicators: {},
+      eventList: []
     }
   },
 //  components: {
 //  },
-  computed: {
-    'webpagePath': function () {
-      if (typeof(this.status.webpageURL) === 'string') {
-        return '/' + this.status.webpageURL.split('/').slice(3).join('/')
-      }
-    },
-    groupExportLink () {
-      return '/admin/GroupDashboard/exportGroupData?webpageID=' + this.$route.params.webpageID + '&groupID=' + this.$route.params.groupID
-    },
-    groupIndicatorsTSV () {
-      let keys = this.groupIndicatorsKeys
-      let values = keys.map(key => this.groupIndicators[key])
-      
-      return [
-        keys.join('\t'),
-        values.join('\t')
-      ].join('\n')
-    },
-    groupIndicatorsKeys () {
-      if (this.groupIndicators === undefined 
-        || this.groupIndicators === null) {
-        return []
-      }
-      
-      return Object.keys(this.groupIndicators)
-    }
-  },
+  computed: {}, // computedGroupDashboard.js
   watch: {
     dashboardFilterMode () {
       this.initDashboard()
@@ -494,218 +501,17 @@ let GroupDashboard = {
     this.toc = this.$refs.toc
     
   },
-  methods: {
-    initDashboard: async function () {
-      // 先跟伺服器取得webpage的資訊
-      this.reset()
-      
-      let groupID = Number(this.$route.params.groupID)
-      let data = {
-        webpageID: this.$route.params.webpageID,
-        groupID,
-        dashboardFilterMode: this.dashboardFilterMode
-      }
-      
-      let result = await this.lib.AxiosHelper.get('/admin/GroupDashboard/info', data)
-      
-      if (!result) {
-        throw new Error('GroupDahboard/info got error')
-      }
-      //console.log(result.groupIndicators)
-      
-      this.group = result.group
-      this.group.group_seq_id = Number(this.$route.params.groupID)
-      this.groupIndicators = result.groupIndicators
-      
-      //console.log(this.group.users[0])
-      //console.log(this.group.socialNetworks)
-      
-      this.status.webpageURL = result.webpageURL
-      this.status.title = this.$t('Group Dashboard') 
-              + ' #' + (this.group.group_seq_id+1)
-              + ' (' + this.$t('{0} users', this.group.users.length, [this.group.users.length]) + ')'
-      
-      setTimeout(() => {
-        this.drawGraphs()
-      }, 100)
-    },
-    attrHeaderID: function (anchor) {
-      return '/group-dashboard/' + this.$route.params.webpageID + '/' + this.$route.params.groupID + '/' + anchor
-    },
-    reset: function () {
-      this.group.socialNetworks = []
-      this.group.users = []
-      this.groupIndicators = {}
-    },
-    nodesTable: function (nodes) {
-      let lines = [
-        ['id', 'size'].join('\t')
-      ]
-      
-      lines = lines.concat(nodes.map(({id, size}) => [id, size].join('\t')))
-      
-      return lines.join("\n")
-    },
-    edgesTable: function (nodes, edges) {
-      /*
-      let lines = [
-        ['source', 'target', 'size'].join('\t')
-      ]
-      
-      lines = lines.concat(edges.map(({source, target, size}) => [source, target, size].join('\t')))
-      
-      return lines.join("\n")
-      */
-      let nodesList = nodes.map(({id}) => id)
-     
-      let data = {}
-      nodes.forEach(sourceNode => {
-        data[sourceNode.id] = {}
-        nodes.forEach(targetNode => {
-          data[sourceNode.id][targetNode.id] = 0
-        })
-      })
-      
-      edges.forEach(({source, target, size}) => {
-        data[source][target] = size
-      })
-      
-      let lines = [
-        '\t' + nodesList.join('\t')
-      ]
-      
-      nodesList.forEach(source => {
-        let line = [source]
-        
-        nodesList.forEach(target => {
-          line.push(data[source][target])
-        })
-        
-        lines.push(line.join('\t'))
-      })
-      
-      return lines.join('\n')
-    },
-    drawGraphs: function () {
-      this.group.socialNetworks.forEach((socialNetwork, i) => {
-        //return false
-        //if (i > 0) {
-        //  return false
-        //}
-        
-        let s = this.initGraph(i)
-        //window.s = s
-        this.drawSocialNetworkNodes(s, socialNetwork.nodes)
-        this.drawSocialNetworkEdges(s, socialNetwork.edges)
-        s.refresh()
-        
-        /*
-        s.startForceAtlas2({
-          edgeWeightInfluence: 1,
-          strongGravityMode: true,
-          barnesHutOptimize: false
-          //iterationsPerRender: 10
-        })
-         */
-        setTimeout(() => {
-          //s.stopForceAtlas2()
-          
-          let dragListener = sigma_webpack__WEBPACK_IMPORTED_MODULE_0__["sigma"].plugins.dragNodes(s, s.renderers[0])
-          
-          /*
-          s.toSVG({
-            labels: true,
-            classes: false,
-            data: true,
-            download: true,
-            filename: 'hello.svg'
-          });
-          */
-        }, 1000)
-        //console.log(socialNetwork.nodes)
-        //console.log('畫完了...?' + i)
-      })
-    },
-    initGraph: function (i) {
-      let containerID = 'graph_container_' + i
-      //console.log(containerID)
-        
-      let s = new sigma_webpack__WEBPACK_IMPORTED_MODULE_0__["sigma"]({ 
-        //container: containerID,
-
-        // canvas renderer
-        // ===============
-        renderer: {
-          container: document.getElementById(containerID),
-          type: sigma_webpack__WEBPACK_IMPORTED_MODULE_0__["sigma"].renderers.canvas
-          //type: sigma.renderers.svg
-        }
-      })
-
-      s.settings({
-        labelThreshold : 0,
-        sideMargin: 0.5,
-        minArrowSize: 10,
-        minEdgeSize: 1,
-        minNodeSize: 3,
-        maxEdgeSize: 3,
-        defaultEdgeColor: "#00F",
-      })
-      
-      return s
-    },
-    drawSocialNetworkNodes: function (s, nodes) {
-      
-      nodes.forEach(function(node, i, a) {
-        
-        // i 的位置要做重新定位
-        if (i > 0) {
-          if (i % 4 === 1) {
-            // 這是第幾個？
-            i = Math.floor(i / 2) + 1
-          }
-          else if (i % 4 === 2) {
-            i = a.length - Math.floor(i / 2)
-          }
-          else if (i % 4 === 3) {
-            i = a.length - Math.floor(i / 2) - 1
-          }
-          else {
-            i = Math.floor(i / 2)
-          }
-        }
-        
-        node.x = Math.sin(Math.PI * 2 * i / a.length);
-        node.y = Math.cos(Math.PI * 2 * i / a.length) * -1;
-
-        s.graph.addNode({
-          // Main attributes:
-          id: node.id,
-          label: node.id,
-          // Display attributes:
-          x: node.x,
-          y: node.y,
-          size: node.size,
-          //count: node.size
-        })
-      });
-    },
-    drawSocialNetworkEdges: function (s, edges) {
-      edges.forEach(function(edge, i) {
-
-        s.graph.addEdge({
-          id: 'edge' + i,
-          // Reference extremities:
-          source: edge.source,
-          target: edge.target,
-          type: 'curvedArrow',
-          size: edge.size,
-          color: "#666"
-        })
-      });
-    },
-  } // methods
+  methods: {} // methodsGroupDashboard
 }
+
+
+Object(_computedGroupDashboard_js__WEBPACK_IMPORTED_MODULE_0__["default"])(GroupDashboard)
+
+
+Object(_methodsGroupDashboard_js__WEBPACK_IMPORTED_MODULE_1__["default"])(GroupDashboard)
+
+
+Object(_methodsGraphGroupDashboard_js__WEBPACK_IMPORTED_MODULE_2__["default"])(GroupDashboard)
 
 /* harmony default export */ __webpack_exports__["default"] = (GroupDashboard);
 
@@ -798,6 +604,329 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_kazupon_vue_i18n_loader_lib_index_js_GroupDashboard_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cadmin_5CGroupDashboard_5CGroupDashboard_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_kazupon_vue_i18n_loader_lib_index_js_GroupDashboard_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cadmin_5CGroupDashboard_5CGroupDashboard_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_kazupon_vue_i18n_loader_lib_index_js_GroupDashboard_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cadmin_5CGroupDashboard_5CGroupDashboard_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_kazupon_vue_i18n_loader_lib_index_js_GroupDashboard_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cadmin_5CGroupDashboard_5CGroupDashboard_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_kazupon_vue_i18n_loader_lib_index_js_GroupDashboard_yaml_vue_type_custom_index_0_blockType_i18n_issuerPath_D_3A_5Cxampp_5Chtdocs_5Cprojects_nodejs_5CPACOR_5Cwebpack_app_5Cadmin_5CGroupDashboard_5CGroupDashboard_vue_lang_yaml__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./webpack-app/admin/GroupDashboard/computedGroupDashboard.js":
+/*!********************************************************************!*\
+  !*** ./webpack-app/admin/GroupDashboard/computedGroupDashboard.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+/* harmony default export */ __webpack_exports__["default"] = (function (GroupDashboard) {
+  GroupDashboard.computed.webpagePath = function () {
+    if (typeof (this.status.webpageURL) === 'string') {
+      return '/' + this.status.webpageURL.split('/').slice(3).join('/')
+    }
+  }
+
+  GroupDashboard.computed.groupExportLink = function () {
+    return '/admin/GroupDashboard/exportGroupData?webpageID=' + this.$route.params.webpageID + '&groupID=' + this.$route.params.groupID
+  }
+  GroupDashboard.computed.groupIndicatorsTSV = function () {
+    let keys = this.groupIndicatorsKeys
+    let values = keys.map(key => this.groupIndicators[key])
+
+    return [
+      keys.join('\t'),
+      values.join('\t')
+    ].join('\n')
+  }
+  GroupDashboard.computed.groupIndicatorsKeys = function () {
+    if (this.groupIndicators === undefined
+            || this.groupIndicators === null) {
+      return []
+    }
+
+    return Object.keys(this.groupIndicators)
+  }
+  
+  GroupDashboard.computed.eventListTSV = function () {
+    if (this.eventList.length === 0) {
+      return ''
+    }
+    
+    let keys = Object.keys(this.eventList[0])
+    let output = [
+      keys.join('\t')
+    ]
+    
+    this.eventList.forEach(line => {
+      output.push(Object.keys(line).map(key => {
+        return line[key]
+      }).join('\t'))
+    })
+    
+    return output.join('\n')
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/admin/GroupDashboard/methodsGraphGroupDashboard.js":
+/*!************************************************************************!*\
+  !*** ./webpack-app/admin/GroupDashboard/methodsGraphGroupDashboard.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sigma_webpack__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sigma-webpack */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\sigma-webpack\\build\\sigma.require.js");
+/* harmony import */ var sigma_webpack__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sigma_webpack__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _sigma_js_plugins_sigma_plugins_dragNodes_sigma_plugins_dragNodes_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sigma.js/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js */ "./webpack-app/admin/GroupDashboard/sigma.js/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js");
+/* harmony import */ var _sigma_js_plugins_sigma_exporters_svg_sigma_exporters_svg_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sigma.js/plugins/sigma.exporters.svg/sigma.exporters.svg.js */ "./webpack-app/admin/GroupDashboard/sigma.js/plugins/sigma.exporters.svg/sigma.exporters.svg.js");
+/* harmony import */ var _sigma_js_plugins_sigma_exporters_svg_sigma_exporters_svg_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_sigma_js_plugins_sigma_exporters_svg_sigma_exporters_svg_js__WEBPACK_IMPORTED_MODULE_2__);
+//import sigmaWebpack from 'sigma-webpack'
+//console.log(Object.keys(sigmaWebpack))
+
+
+//import './sigma.js/plugins/sigma.layout.forceAtlas2/sigma.layout.forceAtlas2.webpack.js'
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (GroupDashboard) {
+  GroupDashboard.methods.nodesTable = function (nodes) {
+    let lines = [
+      ['id', 'size'].join('\t')
+    ]
+
+    lines = lines.concat(nodes.map(({id, size}) => [id, size].join('\t')))
+
+    return lines.join("\n")
+  }
+  GroupDashboard.methods.edgesTable = function (nodes, edges) {
+    /*
+     let lines = [
+     ['source', 'target', 'size'].join('\t')
+     ]
+     
+     lines = lines.concat(edges.map(({source, target, size}) => [source, target, size].join('\t')))
+     
+     return lines.join("\n")
+     */
+    let nodesList = nodes.map(({id}) => id)
+
+    let data = {}
+    nodes.forEach(sourceNode => {
+      data[sourceNode.id] = {}
+      nodes.forEach(targetNode => {
+        data[sourceNode.id][targetNode.id] = 0
+      })
+    })
+
+    edges.forEach(({source, target, size}) => {
+      data[source][target] = size
+    })
+
+    let lines = [
+      '\t' + nodesList.join('\t')
+    ]
+
+    nodesList.forEach(source => {
+      let line = [source]
+
+      nodesList.forEach(target => {
+        line.push(data[source][target])
+      })
+
+      lines.push(line.join('\t'))
+    })
+
+    return lines.join('\n')
+  }
+  GroupDashboard.methods.drawGraphs = function () {
+    this.group.socialNetworks.forEach((socialNetwork, i) => {
+      //return false
+      //if (i > 0) {
+      //  return false
+      //}
+
+      let s = this.initGraph(i)
+      //window.s = s
+      this.drawSocialNetworkNodes(s, socialNetwork.nodes)
+      this.drawSocialNetworkEdges(s, socialNetwork.edges)
+      s.refresh()
+
+      /*
+       s.startForceAtlas2({
+       edgeWeightInfluence: 1,
+       strongGravityMode: true,
+       barnesHutOptimize: false
+       //iterationsPerRender: 10
+       })
+       */
+      setTimeout(() => {
+        //s.stopForceAtlas2()
+
+        let dragListener = sigma_webpack__WEBPACK_IMPORTED_MODULE_0__["sigma"].plugins.dragNodes(s, s.renderers[0])
+
+        /*
+         s.toSVG({
+         labels: true,
+         classes: false,
+         data: true,
+         download: true,
+         filename: 'hello.svg'
+         });
+         */
+      }, 1000)
+      //console.log(socialNetwork.nodes)
+      //console.log('畫完了...?' + i)
+    })
+  }
+  GroupDashboard.methods.initGraph = function (i) {
+    let containerID = 'graph_container_' + i
+    //console.log(containerID)
+
+    let s = new sigma_webpack__WEBPACK_IMPORTED_MODULE_0__["sigma"]({
+      //container: containerID,
+
+      // canvas renderer
+      // ===============
+      renderer: {
+        container: document.getElementById(containerID),
+        type: sigma_webpack__WEBPACK_IMPORTED_MODULE_0__["sigma"].renderers.canvas
+                //type: sigma.renderers.svg
+      }
+    })
+
+    s.settings({
+      labelThreshold: 0,
+      sideMargin: 0.5,
+      minArrowSize: 10,
+      minEdgeSize: 1,
+      minNodeSize: 3,
+      maxEdgeSize: 3,
+      defaultEdgeColor: "#00F",
+    })
+
+    return s
+  }
+  GroupDashboard.methods.drawSocialNetworkNodes = function (s, nodes) {
+
+    nodes.forEach(function (node, i, a) {
+
+      // i 的位置要做重新定位
+      if (i > 0) {
+        if (i % 4 === 1) {
+          // 這是第幾個？
+          i = Math.floor(i / 2) + 1
+        } else if (i % 4 === 2) {
+          i = a.length - Math.floor(i / 2)
+        } else if (i % 4 === 3) {
+          i = a.length - Math.floor(i / 2) - 1
+        } else {
+          i = Math.floor(i / 2)
+        }
+      }
+
+      node.x = Math.sin(Math.PI * 2 * i / a.length);
+      node.y = Math.cos(Math.PI * 2 * i / a.length) * -1;
+
+      s.graph.addNode({
+        // Main attributes:
+        id: node.id,
+        label: node.id,
+        // Display attributes:
+        x: node.x,
+        y: node.y,
+        size: node.size,
+        //count: node.size
+      })
+    });
+  }
+  GroupDashboard.methods.drawSocialNetworkEdges = function (s, edges) {
+    edges.forEach(function (edge, i) {
+
+      s.graph.addEdge({
+        id: 'edge' + i,
+        // Reference extremities:
+        source: edge.source,
+        target: edge.target,
+        type: 'curvedArrow',
+        size: edge.size,
+        color: "#666"
+      })
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./webpack-app/admin/GroupDashboard/methodsGroupDashboard.js":
+/*!*******************************************************************!*\
+  !*** ./webpack-app/admin/GroupDashboard/methodsGroupDashboard.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sigma_webpack__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sigma-webpack */ "C:\\Users\\pudding\\AppData\\Roaming\\npm\\node_modules\\sigma-webpack\\build\\sigma.require.js");
+/* harmony import */ var sigma_webpack__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sigma_webpack__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _sigma_js_plugins_sigma_plugins_dragNodes_sigma_plugins_dragNodes_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sigma.js/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js */ "./webpack-app/admin/GroupDashboard/sigma.js/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js");
+/* harmony import */ var _sigma_js_plugins_sigma_exporters_svg_sigma_exporters_svg_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sigma.js/plugins/sigma.exporters.svg/sigma.exporters.svg.js */ "./webpack-app/admin/GroupDashboard/sigma.js/plugins/sigma.exporters.svg/sigma.exporters.svg.js");
+/* harmony import */ var _sigma_js_plugins_sigma_exporters_svg_sigma_exporters_svg_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_sigma_js_plugins_sigma_exporters_svg_sigma_exporters_svg_js__WEBPACK_IMPORTED_MODULE_2__);
+//import sigmaWebpack from 'sigma-webpack'
+//console.log(Object.keys(sigmaWebpack))
+
+
+//import './sigma.js/plugins/sigma.layout.forceAtlas2/sigma.layout.forceAtlas2.webpack.js'
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (GroupDashboard) {
+  GroupDashboard.methods.initDashboard = async function () {
+    // 先跟伺服器取得webpage的資訊
+    this.reset()
+
+    let groupID = Number(this.$route.params.groupID)
+    let data = {
+      webpageID: this.$route.params.webpageID,
+      groupID,
+      dashboardFilterMode: this.dashboardFilterMode
+    }
+
+    let result = await this.lib.AxiosHelper.get('/admin/GroupDashboard/info', data)
+
+    if (!result) {
+      throw new Error('GroupDahboard/info got error')
+    }
+    //console.log(result.groupIndicators)
+
+    this.group = result.group
+    this.group.group_seq_id = Number(this.$route.params.groupID)
+    this.groupIndicators = result.groupIndicators
+    this.eventList = result.eventList
+
+    //console.log(this.group.users[0])
+    //console.log(this.group.socialNetworks)
+
+    this.status.webpageURL = result.webpageURL
+    this.status.title = this.$t('Group Dashboard')
+            + ' #' + (this.group.group_seq_id + 1)
+            + ' (' + this.$t('{0} users', this.group.users.length, [this.group.users.length]) + ')'
+
+    setTimeout(() => {
+      this.drawGraphs()
+    }, 100)
+  }
+  GroupDashboard.methods.attrHeaderID = function (anchor) {
+    return '/group-dashboard/' + this.$route.params.webpageID + '/' + this.$route.params.groupID + '/' + anchor
+  }
+  GroupDashboard.methods.reset = function () {
+    this.group.socialNetworks = []
+    this.group.users = []
+    this.groupIndicators = {}
+    this.eventList = []
+  }
+  
+});
 
 /***/ }),
 

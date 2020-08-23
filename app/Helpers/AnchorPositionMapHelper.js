@@ -306,6 +306,10 @@ let AnchorPositionMapHelper = {
    * @returns {undefined}
    */
   isOverlap: function (map, anchorPositions) {
+    if (!map) {
+      return false
+    }
+    
     let selectMap = this._buildMap(anchorPositions)
     
     let isOverlap = false
