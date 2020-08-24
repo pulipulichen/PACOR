@@ -29,9 +29,13 @@ class UserReadingActivityLog {
       })  // return await Cache.rememberWait([webpage, this], cacheKey, async () => {
     }
     
-    Model.prototype.getReadingActivities = async function (webpage) {
+    Model.prototype.getReadingActivities = async function (webpage, options = {}) {
       let cacheKey = Cache.key('getReadingActivities')
       return await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        //let status = await this.getReadingProgressStatus(webpage)
+        //console.log(status)
+        //throw new Error('test')
+        
         let user_id = this.primaryKeyValue
         let logs = await ReadingActivityLogModel
                 .query()
@@ -43,6 +47,12 @@ class UserReadingActivityLog {
         let output = []
         for (let i = 0; i < logs.size(); i++) {
           let log = logs.nth(i)
+          
+          let stepName = await this.getReadingProgressStepNameByUnixMS(webpage, log.created_at_unixms)
+          if (options.stepName && options.stepName !== stepName) {
+            continue
+          }
+          
           let code = await log.getCode()
           if (!code) {
             continue
@@ -57,8 +67,9 @@ class UserReadingActivityLog {
             user_id,
             unixms: log.created_at_unixms,
             event: code,
-            //type: log.type,
-            //log: JSON.stringify(log.log)
+            stepName,
+            type: log.type,
+            log: JSON.stringify(log.log)
           })
         }
         

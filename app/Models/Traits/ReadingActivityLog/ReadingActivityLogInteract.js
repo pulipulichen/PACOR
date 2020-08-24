@@ -167,6 +167,19 @@ class ReadingActivityLogInteract {
       return await user.getReadingProgressStepNameByUnixMS(webpage, unixms)
     }
     
+    Model.prototype.isReply = async function () {
+      if (this.type !== 'AnnotationRate.likeComment') {
+        return false
+      }
+      
+      let annotationCommentID = this.log.commentID
+      let comment = await AnnotationCommentModel.find(annotationCommentID)
+      let annotation = await comment.annotation().fetch()
+      
+      //console.log(annotation.user_id, this.user_id)
+      return (annotation.user_id === this.user_id)
+    }
+    
   } // register (Model) {
 }
 

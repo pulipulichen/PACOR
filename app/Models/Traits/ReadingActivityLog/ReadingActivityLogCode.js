@@ -21,28 +21,28 @@ class ReadingActivityLogCode {
     Model.prototype.getCode = async function () {
       let type = this.type
       
-      if (type === 'Section.setChecklist') {
-        return 'As'
-      }
-      else if (type === 'Annotation.create') {
+      //if (type === 'Section.setChecklist') {
+      //  return 'Sa'
+      //}
+      if (type === 'Annotation.create') {
         // {"anchorPositions":[{"section_id":0,"seq_id":5,"paragraph_id":"pacor-paragraph-id-5","start_pos":0,"end_pos":5,"anchor_text":"一六七三年","type":"textContent"}],"type":"MainIdea","notes":{"default":"<p>一六七三年</p>"}}
         let annotationType = this.log.type
         if (annotationType === 'Confused' 
                 || annotationType === 'Clarified') {
-          return 'Ac'
+          return 'Ca'
         }
         else if (annotationType === 'SectionMainIdea') {
-          return 'As'
+          return 'Sa'
         }
         else if (annotationType === 'MainIdea') {
-          return 'Am'
+          return 'Ma'
         }
       }
       else if (type === 'UserFilter.getUserWords') {
-        return 'Ci'
+        return 'Ai'
       }
       else if (type === 'UserNotification.read') {
-        return 'Cp'
+        return 'Ap'
       }
       
       // ------------------------------
@@ -50,13 +50,13 @@ class ReadingActivityLogCode {
       let isInteractToPeer = await this.isInteractToPeer()
       if (type === 'Annotation.floatWidget') {
         if (isInteractToPeer === null) {
-          return 'At'
+          return 'Ta'
         }
         else if (isInteractToPeer === false) {
-          return 'Mt'
+          return 'Tm'
         }
         else {
-          return 'Pt'
+          return 'Tp'
         }
       }
       
@@ -64,30 +64,40 @@ class ReadingActivityLogCode {
       
       if (typeAnnotation.indexOf(type) > -1) {
         let annotationType = await this.getAnnotationType()
+        let isReply = await this.isReply()
         
         if (annotationType === 'Confused' 
                 || annotationType === 'Clarified') {
           if (isInteractToPeer === false) {
-            return 'Mc'
+            return 'Cm'
+          }
+          else if (isReply === true) {
+            return 'Cr'
           }
           else {
-            return 'Pc'
+            return 'Cp'
           }
         }
         if (annotationType === 'MainIdea' ) {
           if (isInteractToPeer === false) {
             return 'Mm'
           }
+          else if (isReply === true) {
+            return 'Mr'
+          }
           else {
-            return 'Pm'
+            return 'Mp'
           }
         }
         if (annotationType === 'SectionMainIdea') {
           if (isInteractToPeer === false) {
-            return 'Ms'
+            return 'Sm'
+          }
+          else if (isReply === true) {
+            return 'Sr'
           }
           else {
-            return 'Ps'
+            return 'Sp'
           }
         }
       }

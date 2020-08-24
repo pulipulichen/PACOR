@@ -103,7 +103,9 @@ class WebpageGroupIndicatorReadingActivityLog {
         for (let i = 0; i < usersIDList.length; i++) {
           let user = await UserModel.find(usersIDList[i])
           
-          let logs = await user.getReadingActivities(webpage)
+          let logs = await user.getReadingActivities(webpage, {
+            stepName: 'CollaborativeReading'
+          })
           list = list.concat(logs) 
         }
         
