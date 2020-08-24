@@ -7,9 +7,9 @@ class AnnotationInteraction {
 
   register(Model) {
 
-    Model.prototype.getInteractUserList = async function (webpage, user, options) {
+    Model.prototype.getInteractUserList = async function () {
       let cacheKey = Cache.key('getInteractUserList')
-      return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+      return await Cache.rememberWait([this, 'Annotation'], cacheKey, async () => {
         let userIDList = []
         
         let comments = await this.comments()
@@ -41,7 +41,16 @@ class AnnotationInteraction {
       })
     }
     
-
+    
+    Model.prototype.getInteractUserUniqueList = async function (webpage, user, options) {
+      let cacheKey = Cache.key('getInteractUserUniqueList')
+      return await Cache.rememberWait([this, 'Annotation'], cacheKey, async () => {
+        let userIDList = await this.getInteractUserList(webpage, user, options)
+        return userIDList.filter((value, index, self) => {
+          return self.indexOf(value) === index
+        })
+      })
+    }
   } // register (Model) {
 }
 

@@ -96,12 +96,8 @@ class UserIndicatorAnnotation {
         if (options.withInteractUserList === true) {
           for (let i = 0; i < result.size(); i++) {
             let interactUserList = await result.nth(i).getInteractUserList()
+            let interactUserListUnique = await result.nth(i).getInteractUserUniqueList()
             resultJSON[i].interactUserList = interactUserList
-            
-            let interactUserListUnique = interactUserList.filter((value, index, self) => {
-              return self.indexOf(value) === index
-            })
-            
             resultJSON[i].interactUserListUnique = interactUserListUnique
           }
         }

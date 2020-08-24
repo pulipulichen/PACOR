@@ -61,44 +61,23 @@ class ReadingActivityLogCode {
       }
       
       // --------------------------------
+      if (type === 'AnnotationComment.create') {
+        
+      }
+      
       
       if (typeAnnotation.indexOf(type) > -1) {
-        let annotationType = await this.getAnnotationType()
+        let annotationTypeCode = await this.getAnnotationTypeCode()
         let isReply = await this.isReply()
         
-        if (annotationType === 'Confused' 
-                || annotationType === 'Clarified') {
-          if (isInteractToPeer === false) {
-            return 'Cm'
-          }
-          else if (isReply === true) {
-            return 'Cr'
-          }
-          else {
-            return 'Cp'
-          }
+        if (isReply === true) {
+          return annotationTypeCode + 'r'
         }
-        if (annotationType === 'MainIdea' ) {
-          if (isInteractToPeer === false) {
-            return 'Mm'
-          }
-          else if (isReply === true) {
-            return 'Mr'
-          }
-          else {
-            return 'Mp'
-          }
+        else if (isInteractToPeer === false) {
+          return annotationTypeCode + 'm'
         }
-        if (annotationType === 'SectionMainIdea') {
-          if (isInteractToPeer === false) {
-            return 'Sm'
-          }
-          else if (isReply === true) {
-            return 'Sr'
-          }
-          else {
-            return 'Sp'
-          }
+        else {
+          return annotationTypeCode + 'p'
         }
       }
     }
@@ -133,7 +112,19 @@ class ReadingActivityLogCode {
       }
     }
     
-    
+    Model.prototype.getAnnotationTypeCode = async function () {
+      let annotationType = await this.getAnnotationType()
+      if (annotationType === 'Confused' 
+                || annotationType === 'Clarified') {
+          return 'C'
+        }
+        if (annotationType === 'MainIdea' ) {
+          return 'M'
+        }
+        if (annotationType === 'SectionMainIdea') {
+          return 'S'
+        }
+    }
     
   } // register (Model) {
 }

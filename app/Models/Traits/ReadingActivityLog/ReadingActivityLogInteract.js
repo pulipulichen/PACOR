@@ -167,8 +167,13 @@ class ReadingActivityLogInteract {
       return await user.getReadingProgressStepNameByUnixMS(webpage, unixms)
     }
     
+    let typeReply = [
+      'AnnotationComment.create',
+      'AnnotationRate.likeComment',
+    ]
+    
     Model.prototype.isReply = async function () {
-      if (this.type !== 'AnnotationRate.likeComment') {
+      if (typeReply.indexOf(this.type) === -1) {
         return false
       }
       
@@ -176,8 +181,26 @@ class ReadingActivityLogInteract {
       let comment = await AnnotationCommentModel.find(annotationCommentID)
       let annotation = await comment.annotation().fetch()
       
-      //console.log(annotation.user_id, this.user_id)
-      return (annotation.user_id === this.user_id)
+      let isMyAnnotation = (annotation.user_id === this.user_id)
+      if (this.type === 'AnnotationRate.likeComment') {
+        //console.log(annotation.user_id, this.user_id)
+        return isMyAnnotation
+      }
+      
+      if (isMyAnnotation === false) {
+        return false
+      }
+      
+      let comments = await annotation.comments().fetch()
+      let interactUserListUnique = await annotation.getInteractUserUniqueList()
+      
+      if (interactUserListUnique.length === 1
+              && interactUserListUnique[0] === this.user_id) {
+        return false
+      }
+      
+      let firstCommentID = comments.nth(0).primaryKeyValue
+      return (firstCommentID !== annotationCommentID)
     }
     
   } // register (Model) {
