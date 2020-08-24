@@ -173,14 +173,45 @@ class ReadingActivityLogInteract {
     ]
     
     Model.prototype.isReply = async function () {
+      let stepName = await this.getCurrentStepName()
+      if (stepName !== 'CollaborativeReading') {
+        return false
+      }
+      
       if (typeReply.indexOf(this.type) === -1) {
         return false
       }
       
-      let annotationCommentID = this.log.commentID
-      let comment = await AnnotationCommentModel.find(annotationCommentID)
-      let annotation = await comment.annotation().fetch()
-      
+      let annotation
+      let annotationCommentID
+      if (this.type === 'AnnotationRate.likeComment') {
+        annotationCommentID = this.log.commentID
+        let comment = await AnnotationCommentModel.find(annotationCommentID)
+        annotation = await comment.annotation().fetch()
+      }
+      else if (this.type === 'AnnotationComment.create') {
+        let user_id = this.user_id
+        let annotation_id = this.log.annotationID
+        
+        let comments = await AnnotationCommentModel.query()
+                .where('annotation_id', annotation_id)
+                .where('user_id', user_id)
+                .fetch()
+        
+        if (comments.size() > 1) {
+          let note = this.log.note
+          comments = await AnnotationCommentModel.query()
+                .where('annotation_id', annotation_id)
+                .where('user_id', user_id)
+                .where('note', note)
+                .fetch()
+        }
+        
+        let comment = comments.nth(0)
+        annotationCommentID = comments.nth(0).primaryKeyValue
+        annotation = await AnnotationModel.find(comment.annotation_id)
+      }
+      //throw new Error('comment?')
       let isMyAnnotation = (annotation.user_id === this.user_id)
       if (this.type === 'AnnotationRate.likeComment') {
         //console.log(annotation.user_id, this.user_id)
@@ -190,7 +221,6 @@ class ReadingActivityLogInteract {
       if (isMyAnnotation === false) {
         return false
       }
-      
       let comments = await annotation.comments().fetch()
       let interactUserListUnique = await annotation.getInteractUserUniqueList()
       

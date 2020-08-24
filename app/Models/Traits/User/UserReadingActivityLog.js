@@ -48,7 +48,7 @@ class UserReadingActivityLog {
         for (let i = 0; i < logs.size(); i++) {
           let log = logs.nth(i)
           
-          let stepName = await this.getReadingProgressStepNameByUnixMS(webpage, log.created_at_unixms)
+          let stepName = await log.getCurrentStepName()
           if (options.stepName && options.stepName !== stepName) {
             continue
           }
