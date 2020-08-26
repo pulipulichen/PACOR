@@ -13,8 +13,8 @@ class WebpageGroupIndicator {
     Model.prototype.calcIndicators = async function (options) {
       //return await this.calcIndicatorsAll(options)
       //return await this.calcIndicators20200821ExpCtl(options)
-      //return await this.calcIndicators20200822ExpCtlFilter(options)
-      return await this.calcIndicators20200822OnlyExpFiltered(options)
+      return await this.calcIndicators20200822ExpCtlFilter(options)
+      //return await this.calcIndicators20200822OnlyExpFiltered(options)
     }
     
     Model.prototype._calcIndicatorsGroupInfo = async function (options) {

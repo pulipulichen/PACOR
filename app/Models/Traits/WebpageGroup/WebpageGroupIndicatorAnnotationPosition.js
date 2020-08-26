@@ -52,6 +52,7 @@ class WebpageGroupIndicatorAnnotationPosition {
         let arrayByRater = []
         for (let i = 0; i < usersIDList.length; i++) {
           let user = await UserModel.find(usersIDList[i])
+          /*
           let annotations = await user.getAnnotationIndicator(webpage, {
             includeDeleted: true,
             stepName: 'IndividualReading',
@@ -73,6 +74,10 @@ class WebpageGroupIndicatorAnnotationPosition {
               seqList.push(seq_id)
             })
           })
+          */
+          let seqList = await user.getReadingSequenceIDList(webpage, {
+            stepName: 'IndividualReading'
+          })
           
           
           let seqTable = SequenceHelper(seqList, {
@@ -84,7 +89,7 @@ class WebpageGroupIndicatorAnnotationPosition {
             //lag: 2
           })
 
-          //console.log(result)
+          //console.log('seqTable', seqTable)
           //return 1
           arrayByRater.push(seqTable)
           //countList.push(c.length * -1)

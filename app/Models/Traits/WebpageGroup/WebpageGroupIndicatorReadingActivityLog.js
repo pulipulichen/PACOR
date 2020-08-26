@@ -5,6 +5,7 @@ const { HttpException } = use('@adonisjs/generic-exceptions')
 const UserModel = use('App/Models/User')
 
 const StatisticHelper = use('App/Helpers/StatisticHelper')
+const ReadingActivityLogModel = use('App/Models/ReadingActivityLog')
 
 class WebpageGroupIndicatorReadingActivityLog {
 
@@ -38,7 +39,7 @@ class WebpageGroupIndicatorReadingActivityLog {
           
           let c = await user.getReadingActivityLogIndicator(webpage, {
             stepName: 'CollaborativeReading',
-            type: ["UserFilter.getUserWords"]
+            type: ["Annotation.update", "Annotation.destroy"]
           })
           countList.push(c.length)
         }

@@ -110,7 +110,11 @@ class WebpageGroupIndicatorInteraction {
           annotations.forEach(annotation => {
             let interactUserListUnique = annotation.interactUserListUnique
             
-            if (interactUserListUnique.indexOf(userID) > -1 && interactUserListUnique.length > 1) {
+            // 設為大於-1，表示在第一個位置也被視為是對話
+            //if (interactUserListUnique.indexOf(userID) > -1 && interactUserListUnique.length > 1) {
+            
+            // 設為大於0，表示在第二個位置之後才被視為是對話
+            if (interactUserListUnique.indexOf(userID) > 0 && interactUserListUnique.length > 1) {
               count++
             }
           })

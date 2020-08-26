@@ -3,6 +3,7 @@
 const Cache = use('Cache')
 const AnnotationModel = use('App/Models/Annotation')
 const AnnotationCommentModel = use('App/Models/AnnotationComment')
+const ReadingActivityLogModel = use('App/Models/ReadingActivityLog')
 
 class ReadingActivityLogCode {
 
@@ -12,8 +13,8 @@ class ReadingActivityLogCode {
       'Annotation.destroy',
       'Annotation.update',
       'AnnotationComment.create',
-      'AnnotationComment.destroy',
-      'AnnotationComment.update',
+      //'AnnotationComment.destroy',
+      //'AnnotationComment.update',
       'AnnotationRate.like',
       'AnnotationRate.likeComment'
     ]
@@ -61,10 +62,14 @@ class ReadingActivityLogCode {
       }
       
       // --------------------------------
-      if (type === 'AnnotationComment.create') {
-        
-      }
+//      if (type === 'AnnotationComment.create') {
+//        throw new Error('尚未完成')
+//      }
       
+      let isValid = await this.isValid()
+      if (isValid === false) {
+        return undefined
+      }
       
       if (typeAnnotation.indexOf(type) > -1) {
         let annotationTypeCode = await this.getAnnotationTypeCode()
@@ -124,6 +129,67 @@ class ReadingActivityLogCode {
         if (annotationType === 'SectionMainIdea') {
           return 'S'
         }
+    }
+    
+    let typeValid = [
+      'AnnotationRate.like',
+      'AnnotationRate.likeComment'
+    ]
+    
+    Model.prototype.isValid = async function () {
+      if (typeValid.indexOf(this.type) === -1) {
+        return true
+      }
+      
+      if (this.type === 'AnnotationRate.like') {
+        let annotationID = this.log.annotationID
+        
+        let records = await ReadingActivityLogModel
+                .query()
+                .where('webpage_id', this.webpage_id)
+                .where('user_id', this.user_id)
+                .where('type', this.type)
+                .select('id')
+                .whereRaw(`log->>'annotationID' = '${annotationID}'`)
+                .orderBy('id')
+                .fetch()
+        
+        for (let i = 0; i < records.size(); i++) {
+          if (records.nth(i).primaryKeyValue === this.primaryKeyValue) {
+            return (i % 2 === 0)
+          }
+        }
+      }
+      
+      if (this.type === 'AnnotationRate.likeComment') {
+        let commentID = this.log.annotationID
+        
+        let records = await ReadingActivityLogModel
+                .query()
+                .where('webpage_id', this.webpage_id)
+                .where('user_id', this.user_id)
+                .where('type', this.type)
+                .select('id')
+                .whereRaw(`log->>'commentID' = '${commentID}'`)
+                .orderBy('id')
+                .fetch()
+        
+        for (let i = 0; i < records.size(); i++) {
+          if (records.nth(i).primaryKeyValue === this.primaryKeyValue) {
+            return (i % 2 === 0)
+          }
+        }
+      }
+    }
+    
+    Model.prototype.getRepeatableID = function () {
+      if (this.type === "AnnotationComment.create"
+              || this.type === "AnnotationRate.like") {
+        return Number(this.log.annotationID)
+      }
+      else if (this.type === "AnnotationRate.likeComment") {
+        return Number(this.log.commentID)
+      }
     }
     
   } // register (Model) {
