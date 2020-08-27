@@ -13,8 +13,8 @@ class WebpageGroupIndicator {
     Model.prototype.calcIndicators = async function (options) {
       //return await this.calcIndicatorsAll(options)
       //return await this.calcIndicators20200821ExpCtl(options)
-      return await this.calcIndicators20200822ExpCtlFilter(options)
-      //return await this.calcIndicators20200822OnlyExpFiltered(options)
+      //return await this.calcIndicators20200822ExpCtlFilter(options)
+      return await this.calcIndicators20200822OnlyExpFiltered(options)
     }
     
     Model.prototype._calcIndicatorsGroupInfo = async function (options) {
@@ -521,7 +521,7 @@ class WebpageGroupIndicator {
 //        
 //        let ConnectednessDegreeIn = await this.calcConnectednessDegree(options, 'in')
 //        output.J3_ConnectednessDegreeIn = ConnectednessDegreeIn
-////        output.InvertConnectednessDegreeIn = 1 - ConnectednessDegreeIn
+//        output.InvertConnectednessDegreeIn = 1 - ConnectednessDegreeIn
 //        
 //        let ConnectednessDegreeOut = await this.calcConnectednessDegree(options, 'out')
 //        output.J4_ConnectednessDegreeOut = ConnectednessDegreeOut
@@ -535,7 +535,6 @@ class WebpageGroupIndicator {
         
         // --------------------
         
-        
         let ConfusionVector = await this.calcConfusionVector(options)
         output.L1a_ConfusionTotal = StatisticHelepr.sum(ConfusionVector)
         output.L1b_ConfusionMedian = StatisticHelepr.median(ConfusionVector)
@@ -546,12 +545,9 @@ class WebpageGroupIndicator {
         output.M1a_TotalAnnotationCommentTotal = StatisticHelepr.sum(TotalAnnotationCommentVector)
         output.M1b_TotalAnnotationCommentMedian = StatisticHelepr.median(TotalAnnotationCommentVector)
         
-        
         //let InvertActivityVector = await this.calcInvertActivityVector(options)
         //output.InvertActivityTotal = StatisticHelepr.sum(InvertActivityVector)
         //output.InvertActivityMedian = StatisticHelepr.median(InvertActivityVector)
-        
-        
         
 //        output.GroupRecallNewIdeaProp = await this.calcGroupRecallNewIdeaProp(options)
 //        output.GroupRecallNewIdeaCount = await this.calcGroupRecallNewIdeaCount(options)
@@ -722,7 +718,7 @@ class WebpageGroupIndicator {
         let IndividualNoteSimilarityInvertedPropVector = await this.calcIndividualNoteSimilarityInvertedPropVector(options, false)
         output.H4_IndividualNoteSimilarityInvertedProp = StatisticHelepr.median(IndividualNoteSimilarityInvertedPropVector)
         */
-        let IndividualNoteSimilarityInvertedCountVector = await this.calcIndividualNoteSimilarityInvertedCountVector(options, false)
+        //let IndividualNoteSimilarityInvertedCountVector = await this.calcIndividualNoteSimilarityInvertedCountVector(options, false)
         //output.H5a_IndividualNoteSimilarityInvertedCountTotal = StatisticHelepr.sum(IndividualNoteSimilarityInvertedCountVector)
         //output.H5b_IndividualNoteSimilarityInvertedCountMedian = StatisticHelepr.median(IndividualNoteSimilarityInvertedCountVector)
         
@@ -783,8 +779,6 @@ class WebpageGroupIndicator {
         //let InvertActivityVector = await this.calcInvertActivityVector(options)
         //output.InvertActivityTotal = StatisticHelepr.sum(InvertActivityVector)
         //output.InvertActivityMedian = StatisticHelepr.median(InvertActivityVector)
-        
-        
         
 //        output.GroupRecallNewIdeaProp = await this.calcGroupRecallNewIdeaProp(options)
 //        output.GroupRecallNewIdeaCount = await this.calcGroupRecallNewIdeaCount(options)

@@ -118,15 +118,15 @@ class UserReadingActivityLog {
 
             if (!code) {
               this.resetPreventRepeat(log)
-              // 如果想要看沒有取得code的資料的話，請註解這一行
-              //this.resetPreventRepeat(log)
-              //continue
             }
           }
           
           
           
           if (!code) {
+            // 如果想要看沒有取得code的資料的話，請註解這一行
+            continue
+            
             code = ''
             //this.resetPreventRepeat(log)
           }

@@ -289,6 +289,9 @@ class UserReadingProgressConfig {
       
       return await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
         let step = await this.getReadingProgress(webpage, stepName)
+        if (step === null) {
+          throw new Error('step is null: ' + stepName + ' ' + this.display_name)
+        }
 //        if (step === null) {
 //          throw new Error('step is null: ' + stepName)
 //          return null
