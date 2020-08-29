@@ -19,6 +19,11 @@ class ReadingActivityLogCode {
       'AnnotationRate.likeComment'
     ]
     
+    let typeRate = [
+      'AnnotationRate.like',
+      'AnnotationRate.likeComment'
+    ]
+    
     Model.prototype.getCode = async function () {
       let type = this.type
       
@@ -30,20 +35,20 @@ class ReadingActivityLogCode {
         let annotationType = this.log.type
         if (annotationType === 'Confused' 
                 || annotationType === 'Clarified') {
-          return 'Ca'
+          return 'CMa'
         }
         else if (annotationType === 'SectionMainIdea') {
-          return 'Sa'
+          return 'GAa'
         }
         else if (annotationType === 'MainIdea') {
-          return 'Ma'
+          return 'GIa'
         }
       }
       else if (type === 'UserFilter.getUserWords') {
-        return 'Ai'
+        return 'APi'
       }
       else if (type === 'UserNotification.read') {
-        return 'Ap'
+        return 'APp'
       }
       
       // ------------------------------
@@ -51,13 +56,13 @@ class ReadingActivityLogCode {
       let isInteractToPeer = await this.isInteractToPeer()
       if (type === 'Annotation.floatWidget') {
         if (isInteractToPeer === null) {
-          return 'Ta'
+          return 'OBa'
         }
         else if (isInteractToPeer === false) {
-          return 'Tm'
+          return 'OBm'
         }
         else {
-          return 'Tp'
+          return 'OBp'
         }
       }
       
@@ -76,13 +81,24 @@ class ReadingActivityLogCode {
         let isReply = await this.isReply()
         
         if (isReply === true) {
-          return annotationTypeCode + 'r'
+          if (typeRate.indexOf(type) > -1) {
+            return annotationTypeCode + 'rl'
+          }
+          else {
+            return annotationTypeCode + 'rc'
+          }
         }
         else if (isInteractToPeer === false) {
           return annotationTypeCode + 'm'
         }
         else {
-          return annotationTypeCode + 'p'
+          if (typeRate.indexOf(type) > -1) {
+            return annotationTypeCode + 'pl'
+          }
+          else {
+            return annotationTypeCode + 'pc'
+          }
+          //return annotationTypeCode + 'p'
         }
       }
     }
@@ -121,13 +137,13 @@ class ReadingActivityLogCode {
       let annotationType = await this.getAnnotationType()
       if (annotationType === 'Confused' 
                 || annotationType === 'Clarified') {
-          return 'C'
+          return 'CM'
         }
         if (annotationType === 'MainIdea' ) {
-          return 'M'
+          return 'GI'
         }
         if (annotationType === 'SectionMainIdea') {
-          return 'S'
+          return 'GA'
         }
     }
     

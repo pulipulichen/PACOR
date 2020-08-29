@@ -131,6 +131,8 @@ class UserReadingActivityLog {
             //this.resetPreventRepeat(log)
           }
           
+          let interactToUserDisplayNamesList = await log.getInteractToUserDisplayNamesList()
+          
           output.push({
             user: this.display_name,
             user_id,
@@ -138,6 +140,7 @@ class UserReadingActivityLog {
             event: code,
             stepName,
             type: log.type,
+            toUserList: interactToUserDisplayNamesList,
             log: JSON.stringify(log.log)
           })
         }

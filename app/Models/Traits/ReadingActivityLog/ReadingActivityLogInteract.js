@@ -34,7 +34,7 @@ class ReadingActivityLogInteract {
       else if (typeInteractMyself.indexOf(type) > -1) {
         return await this.user().fetch()
       }
-      
+      //console.log('getInteractToUser', type)
       if (type === 'AnnotationRate.like'
               || type === 'AnnotationComment.create') {
         return await this._getInteractToUserByAnnotationID()
@@ -52,16 +52,49 @@ class ReadingActivityLogInteract {
         return await this._getInteractToUserFromAnnotationRateLikeComment()
       }
       else if (type === 'UserFilter.getUserWords') {
-        return await this._getInteractToUserByAnnotationID()
+        return await this._getInteractToUserByUserID()
       }
       else if (type === 'UserNotification.read') {
         return await this._getInteractToUserFromUserNotificationRead()
       }
     }
     
+    Model.prototype.getInteractToUserIDList = async function () {
+      let interactToUser = await this.getInteractToUser()
+      if (!interactToUser) {
+        return undefined
+      }
+      let interactToUserID
+      
+      if (typeof(interactToUser.primaryKeyValue) === 'number') {
+        interactToUserID = interactToUser.primaryKeyValue
+      }
+      else {
+        interactToUserID = interactToUser.map(user => user.primaryKeyValue).join(',')
+      }
+      return interactToUserID
+    }
+    
+    Model.prototype.getInteractToUserDisplayNamesList = async function () {
+      let interactToUser = await this.getInteractToUser()
+      if (!interactToUser) {
+        return undefined
+      }
+      let interactToUserID
+      
+      if (typeof(interactToUser.primaryKeyValue) === 'number') {
+        interactToUserID = interactToUser.display_name
+      }
+      else {
+        interactToUserID = interactToUser.map(user => user.display_name).join(',')
+      }
+      return interactToUserID
+    }
+    
     Model.prototype._getInteractToUserFromAnnotationCommentUpdate = async function () {
       let log = this.log
       let annotationCommentID = log.commentID
+      //console.log('_getInteractToUserFromAnnotationCommentUpdate')
       let comment = await AnnotationCommentModel.find(annotationCommentID)
       let annotationID = comment.annotation_id
       let annotation = await AnnotationModel.find(annotationID)
@@ -71,6 +104,7 @@ class ReadingActivityLogInteract {
     Model.prototype._getInteractToUserFromAnnotationCommentDestroy = async function () {
       let log = this.log
       let annotationCommentID = log.id
+      //console.log('_getInteractToUserFromAnnotationCommentDestroy')
       let comment = await AnnotationCommentModel.find(annotationCommentID)
       let annotationID = comment.annotation_id
       let annotation = await AnnotationModel.find(annotationID)
@@ -79,13 +113,16 @@ class ReadingActivityLogInteract {
     
     Model.prototype._getInteractToUserByAnnotationID = async function () {
       let log = this.log
+      //console.log('_getInteractToUserByAnnotationID')
       let annotationID = log.annotationID
+      //console.log()
       let annotation = await AnnotationModel.find(annotationID)
       return await annotation.user().fetch()
     }
     
     Model.prototype._getInteractToUserAnnotationFloatWidget = async function () {
       let stepName = await this.getCurrentStepName()
+      //console.log('_getInteractToUserAnnotationFloatWidget', 1)
       if (stepName === 'IndividualReading') {
         return await this.user().fetch()
       }
@@ -98,18 +135,22 @@ class ReadingActivityLogInteract {
       
       let webpage = await this.webpage().fetch()
       let user = await this.user().fetch()
+      //console.log('_getInteractToUserAnnotationFloatWidget', 2)
       let groupOtherUsers = await user.getOtherUserIDsInGroup(webpage)
+      //console.log('_getInteractToUserAnnotationFloatWidget', 2, 1)
       let users = []
       for (let i = 0; i < groupOtherUsers.length; i++) {
+        //console.log('_getInteractToUserAnnotationFloatWidget', 2, 2)
         let userID = groupOtherUsers[i]
         let peer = await UserModel.find(userID)
-        
+        //console.log('_getInteractToUserAnnotationFloatWidget', 2, 3)
         let isMatch = await peer.isOverlapAnnotationAnchorPoistions(webpage, anchorPositions)
+        //console.log('_getInteractToUserAnnotationFloatWidget', 2, 4)
         if (isMatch === true) {
           users.push(peer)
         }
       }
-      
+      //console.log('_getInteractToUserAnnotationFloatWidget', 3)
       return users
       //let annotation = await AnnotationModel.find(annotationID)
       //return await annotation.user().fetch()
@@ -118,6 +159,7 @@ class ReadingActivityLogInteract {
     Model.prototype._getInteractToUserFromAnnotationRateLikeComment = async function () {
       let log = this.log
       let annotationCommentID = log.commentID
+      //console.log('_getInteractToUserFromAnnotationRateLikeComment')
       let comment = await AnnotationCommentModel.find(annotationCommentID)
       return await comment.user().fetch()
     }
@@ -125,12 +167,18 @@ class ReadingActivityLogInteract {
     Model.prototype._getInteractToUserFromUserNotificationRead = async function () {
       let log = this.log
       let userNotificationID = log.id
+      //console.log('_getInteractToUserFromUserNotificationRead', 1,userNotificationID)
       let notification = await UserNotificationModel.find(userNotificationID)
-      return await notification.triggerUser().fetch()
+      let triggerUser = await notification.triggerUser().fetch()
+      //console.log('_getInteractToUserFromUserNotificationRead', 2)
+      return triggerUser
     }
     
     Model.prototype._getInteractToUserByUserID = async function () {
       let log = this.log
+      if (!log.userID) {
+        return undefined
+      }
       return await UserModel.find(log.userID)
     }
     

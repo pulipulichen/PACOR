@@ -38,13 +38,14 @@ class UserIndicatorAnnotation {
 //      }
       
       return await Cache.rememberWait([webpage, this], cacheKey, async () => {
+        //console.log('getAnnotationIndicator', 1)
         let query = AnnotationModel.query()
                 .where('webpage_id', webpage.primaryKeyValue)
                 .where('user_id', this.primaryKeyValue)
                 .orderBy('created_at_unixms', 'asc')
         
         // -------------------------
-        
+        //console.log('getAnnotationIndicator', 2)
         if (options.type) {
           let type = options.type
           if (Array.isArray(type)) {
@@ -89,8 +90,10 @@ class UserIndicatorAnnotation {
         }
         
         // -------------------------
-        
+        //console.log('getAnnotationIndicator', 3)
         let result = await query.fetch()
+        
+        //console.log('getAnnotationIndicator', 4)
         let resultJSON = result.toJSON()
         
         if (options.withInteractUserList === true) {
@@ -177,12 +180,13 @@ class UserIndicatorAnnotation {
       let cacheKey = Cache.key('User.getAnnotationAnchorPositionMap', options)
       
       return await Cache.rememberWait([webpage, this], cacheKey, async () => {
+        //console.log('getAnnotationAnchorPositionMap', 1)
         let annotations = await this.getAnnotationIndicator(webpage, {
           includeDeleted: true,
           withAnchorPositions: true
         })
         let {map, userList} = AnchorPositionMapHelper.annotaionsToMap(annotations)
-        
+        //console.log('getAnnotationAnchorPositionMap', 2)
         return map
       })
     }
