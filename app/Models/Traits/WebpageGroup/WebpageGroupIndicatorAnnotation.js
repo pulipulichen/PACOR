@@ -536,6 +536,87 @@ class WebpageGroupIndicatorAnnotation {
       return AnchorPositionMapHelper.calcDenseDegree(annotations)
     }
     
+    /**
+     * 計算整組的解惑率
+     * 
+     * 最大值1
+     * 最小值是0
+     * 
+     * 數字越大，表示這個團體的困惑標註都解惑了
+     * 數字越小，表示這個團體沒有解惑的標註
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all'
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcGroupClarifiedRate = async function (options) {
+      let cacheKey = Cache.key('calcGroupClarifiedRate', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let clarifiedTotal = 0
+        let confusedTotal = 0
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          let clarifiedAnnotation = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: false,
+            type: ['Clarified']
+          })
+
+          let clarifiedCount = clarifiedAnnotation.length
+          clarifiedTotal = clarifiedTotal + clarifiedCount
+          
+          // ----------------
+
+          let confusedAnnotation = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: false,
+            type: ['Confused']
+          })
+
+          let confusedCount = confusedAnnotation.length
+          confusedTotal = confusedTotal + confusedCount
+        }
+        
+        return StatisticHelper.round((clarifiedTotal / (clarifiedTotal + confusedTotal)), 4)
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    }
+    
+    /**
+     * 計算小組成員的解惑率
+     * 
+     * 最大值1
+     * 最小值是0
+     * 
+     * 數字越大，表示這個團體的困惑標註都解惑了
+     * 數字越小，表示這個團體沒有解惑的標註
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all'
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcClarifiedRateVector = async function (options) {
+      let cacheKey = Cache.key('calcClarifiedRateVector', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let vector = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          vector.push(await user.getClarifiedRate(webpage))
+        }
+        
+        return vector
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    }
+    
   } // register (Model) {
 }
 

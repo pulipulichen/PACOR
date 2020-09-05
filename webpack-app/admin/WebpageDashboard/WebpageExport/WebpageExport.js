@@ -166,8 +166,8 @@ let WebpageExport = {
 //  watch: {
 //  },
   mounted() {
-    //this.loadGroupIndicators()
-    this.loadUserEventList()
+    this.loadGroupIndicators()
+    //this.loadUserEventList()
   },
   methods: {
     attrHeaderID: function (anchor) {

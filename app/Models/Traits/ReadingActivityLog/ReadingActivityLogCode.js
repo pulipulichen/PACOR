@@ -35,20 +35,20 @@ class ReadingActivityLogCode {
         let annotationType = this.log.type
         if (annotationType === 'Confused' 
                 || annotationType === 'Clarified') {
-          return 'CMa'
+          return 'CM-w'
         }
         else if (annotationType === 'SectionMainIdea') {
-          return 'GAa'
+          return 'GA-w'
         }
         else if (annotationType === 'MainIdea') {
-          return 'GIa'
+          return 'GI-w'
         }
       }
       else if (type === 'UserFilter.getUserWords') {
-        return 'APi'
+        return 'AP-i'
       }
       else if (type === 'UserNotification.read') {
-        return 'APp'
+        return 'AP-p'
       }
       
       // ------------------------------
@@ -56,13 +56,13 @@ class ReadingActivityLogCode {
       let isInteractToPeer = await this.isInteractToPeer()
       if (type === 'Annotation.floatWidget') {
         if (isInteractToPeer === null) {
-          return 'OBa'
+          return 'OB-a'
         }
         else if (isInteractToPeer === false) {
-          return 'OBm'
+          return 'OB-m'
         }
         else {
-          return 'OBp'
+          return 'OB-p'
         }
       }
       
@@ -82,21 +82,25 @@ class ReadingActivityLogCode {
         
         if (isReply === true) {
           if (typeRate.indexOf(type) > -1) {
-            return annotationTypeCode + 'rl'
+            return annotationTypeCode + '-dr'
+            //return 'ITr'
           }
           else {
-            return annotationTypeCode + 'rc'
+            return annotationTypeCode + '-dc'
+            //return 'ITd'
           }
         }
         else if (isInteractToPeer === false) {
-          return annotationTypeCode + 'm'
+          return annotationTypeCode + '-m'
         }
         else {
           if (typeRate.indexOf(type) > -1) {
-            return annotationTypeCode + 'pl'
+            return annotationTypeCode + '-pr'
+            //return 'ITr'
           }
           else {
-            return annotationTypeCode + 'pc'
+            return annotationTypeCode + '-pc'
+            //return 'ITc'
           }
           //return annotationTypeCode + 'p'
         }

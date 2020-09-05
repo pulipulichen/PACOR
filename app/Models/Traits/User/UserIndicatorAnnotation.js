@@ -185,7 +185,7 @@ class UserIndicatorAnnotation {
           includeDeleted: true,
           withAnchorPositions: true
         })
-        let {map, userList} = AnchorPositionMapHelper.annotaionsToMap(annotations)
+        let {map} = AnchorPositionMapHelper.annotaionsToMap(annotations)
         //console.log('getAnnotationAnchorPositionMap', 2)
         return map
       })
@@ -194,6 +194,37 @@ class UserIndicatorAnnotation {
     Model.prototype.isOverlapAnnotationAnchorPoistions = async function (webpage, anchorPositions) {
       let map = await this.getAnnotationAnchorPositionMap(webpage)
       return AnchorPositionMapHelper.isOverlap(map, anchorPositions)
+    }
+    
+    Model.prototype.getClarifiedRate = async function (webpage) {
+      let cacheKey = Cache.key('User.getClarifiedRate')
+      
+      return await Cache.rememberWait([webpage, this], cacheKey, async () => {
+        
+        let clarifiedAnnotation = await this.getAnnotationIndicator(webpage, {
+          includeDeleted: false,
+          type: ['Clarified']
+        })
+        
+        let clarifiedCount = clarifiedAnnotation.length
+        if (clarifiedCount === 0) {
+          return 0
+        }
+        
+        // ----------------
+        
+        let confusedAnnotation = await this.getAnnotationIndicator(webpage, {
+          includeDeleted: false,
+          type: ['Confused']
+        })
+        
+        let confusedCount = confusedAnnotation.length
+        if (confusedCount === 0) {
+          return 0
+        }
+        
+        return (clarifiedCount / (clarifiedCount + confusedAnnotation))
+      })
     }
   } // register (Model) {
 }

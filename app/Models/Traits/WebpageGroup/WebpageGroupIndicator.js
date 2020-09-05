@@ -13,8 +13,8 @@ class WebpageGroupIndicator {
     Model.prototype.calcIndicators = async function (options) {
       //return await this.calcIndicatorsAll(options)
       //return await this.calcIndicators20200821ExpCtl(options)
-      //return await this.calcIndicators20200822ExpCtlFilter(options)
-      return await this.calcIndicators20200822OnlyExpFiltered(options)
+      return await this.calcIndicators20200822ExpCtlFilter(options)
+      //return await this.calcIndicators20200822OnlyExpFiltered(options)
     }
     
     Model.prototype._calcIndicatorsGroupInfo = async function (options) {
@@ -792,6 +792,16 @@ class WebpageGroupIndicator {
 //        let UserRecallLessIdeaVector = await this.calcUserRecallLessIdeaVector(options)
 //        output.UserRecallLessIdeaTotal = StatisticHelepr.sum(UserRecallLessIdeaVector)
 //        output.UserRecallLessIdeaMedian = StatisticHelepr.median(UserRecallLessIdeaVector)
+        
+        let GroupClarifiedRate = await this.calcGroupClarifiedRate(options)
+        //output.M1a_TotalAnnotationCommentTotal = StatisticHelepr.sum(TotalAnnotationCommentVector)
+        output.Q1_GroupClarifiedRate = GroupClarifiedRate
+        
+        let ClarifiedRateVector = await this.calcClarifiedRateVector(options)
+        output.Q2_ClarifiedRateMedian = StatisticHelepr.median(ClarifiedRateVector)
+        
+        
+        // -------------------------------------
         
         let c = 'ctl'
         if (output.a0_methodCode === 2) {
