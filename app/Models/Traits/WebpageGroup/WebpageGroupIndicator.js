@@ -798,8 +798,13 @@ class WebpageGroupIndicator {
         output.Q1_GroupClarifiedRate = GroupClarifiedRate
         
         let ClarifiedRateVector = await this.calcClarifiedRateVector(options)
+        //console.log(ClarifiedRateVector)
         output.Q2_ClarifiedRateMedian = StatisticHelepr.median(ClarifiedRateVector)
         
+        let ClarifiedCountVector = await this.calcClarifiedCountVector(options)
+        //console.log(ClarifiedRateVector)
+        output.Q3a_ClarifiedCountTotal = StatisticHelepr.sum(ClarifiedCountVector)
+        output.Q3b_ClarifiedCountMedian = StatisticHelepr.median(ClarifiedCountVector)
         
         // -------------------------------------
         

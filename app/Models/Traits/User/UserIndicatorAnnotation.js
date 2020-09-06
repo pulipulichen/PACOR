@@ -199,7 +199,7 @@ class UserIndicatorAnnotation {
     Model.prototype.getClarifiedRate = async function (webpage) {
       let cacheKey = Cache.key('User.getClarifiedRate')
       
-      return await Cache.rememberWait([webpage, this], cacheKey, async () => {
+      return await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
         
         let clarifiedAnnotation = await this.getAnnotationIndicator(webpage, {
           includeDeleted: false,
@@ -219,11 +219,27 @@ class UserIndicatorAnnotation {
         })
         
         let confusedCount = confusedAnnotation.length
-        if (confusedCount === 0) {
-          return 0
-        }
+        //if (confusedCount === 0) {
+          //return 0
+        //}
         
-        return (clarifiedCount / (clarifiedCount + confusedAnnotation))
+        return (clarifiedCount / (clarifiedCount + confusedCount))
+      })
+    }
+    
+    Model.prototype.getClarifiedCount = async function (webpage) {
+      let cacheKey = Cache.key('User.getClarifiedCount')
+      
+      return await Cache.rememberWait([webpage, this, 'User'], cacheKey, async () => {
+        
+        let clarifiedAnnotation = await this.getAnnotationIndicator(webpage, {
+          includeDeleted: false,
+          type: ['Clarified']
+        })
+        
+        let clarifiedCount = clarifiedAnnotation.length
+        
+        return clarifiedCount
       })
     }
   } // register (Model) {

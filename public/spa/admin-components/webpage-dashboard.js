@@ -1817,7 +1817,7 @@ let WebpageExport = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      groupIndicators: [],
+      groupIndicators: [], 
       userEventList: [],
       userEventListLoadingGroupID: null
       
@@ -1978,7 +1978,7 @@ let WebpageExport = {
 //  watch: {
 //  },
   mounted() {
-    //this.loadGroupIndicators()
+    this.loadGroupIndicators()
     this.loadUserEventList()
   },
   methods: {

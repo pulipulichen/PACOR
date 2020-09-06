@@ -30,6 +30,7 @@ class UserReadingActivityLog {
     }
     
     let preventRepeatTypes = [
+      "Annotation.update",
       "AnnotationComment.create",
       "AnnotationRate.like",
       "AnnotationRate.likeComment"

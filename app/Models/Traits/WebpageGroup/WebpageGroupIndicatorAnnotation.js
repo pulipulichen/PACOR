@@ -617,6 +617,38 @@ class WebpageGroupIndicatorAnnotation {
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
     
+    /**
+     * 計算小組成員的解惑數量
+     * 
+     * 最大值 無限
+     * 最小值是0
+     * 
+     * 數字越大，表示這個團體的困惑標註都解惑了
+     * 數字越小，表示這個團體沒有解惑的標註
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all'
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcClarifiedCountVector = async function (options) {
+      let cacheKey = Cache.key('calcClarifiedCountVector', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let vector = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          vector.push(await user.getClarifiedCount(webpage))
+        }
+        
+        return vector
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    }
+    
   } // register (Model) {
 }
 

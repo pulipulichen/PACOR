@@ -767,6 +767,7 @@ var render = function() {
           { staticClass: "ui cards" },
           _vm._l(_vm.group.users, function(groupUser) {
             return _c("reader-card", {
+              key: groupUser.id,
               class: { "is-me": _vm.user.id === groupUser.id },
               attrs: {
                 user: groupUser,

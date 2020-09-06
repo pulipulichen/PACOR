@@ -5,7 +5,7 @@ let WebpageExport = {
   data() {    
     this.$i18n.locale = this.config.locale
     return {
-      groupIndicators: [],
+      groupIndicators: [], 
       userEventList: [],
       userEventListLoadingGroupID: null
       
@@ -167,7 +167,7 @@ let WebpageExport = {
 //  },
   mounted() {
     this.loadGroupIndicators()
-    //this.loadUserEventList()
+    this.loadUserEventList()
   },
   methods: {
     attrHeaderID: function (anchor) {
