@@ -39,6 +39,11 @@ class UserReadingActivityLog {
     let preventRepeatLastType = {}
     let preventRepeatLastID = {}
     
+    let preventDuplicateEvent 
+    let preventDuplicateUnixms
+    
+    let isLastCodeCMW = false
+    
     Model.prototype.resetPreventRepeat = function (log) {
       let userID = this.primaryKeyValue
       let lastType = preventRepeatLastType[userID]
@@ -132,7 +137,27 @@ class UserReadingActivityLog {
             //this.resetPreventRepeat(log)
           }
           
+          if (code === preventDuplicateEvent 
+                  && preventDuplicateUnixms === log.created_at_unixms) {
+            continue
+          }
+          preventDuplicateEvent = code
+          preventDuplicateUnixms = log.created_at_unixms
+          
           let interactToUserDisplayNamesList = await log.getInteractToUserDisplayNamesList()
+          
+          if (code === 'CM-w') {
+            isLastCodeCMW = true
+          }
+          else if (code === 'CM-m' 
+                  //&& isLastCodeCMW === true
+                  && (log.log.notes && log.log.notes.answer === '')) {
+            isLastCodeCMW = false
+            continue
+          }
+          else {
+            isLastCodeCMW = false
+          }
           
           output.push({
             user: this.display_name,

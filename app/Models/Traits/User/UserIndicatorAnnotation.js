@@ -24,6 +24,7 @@ class UserIndicatorAnnotation {
      *  stepName: 'IndividualReading',
      *  type: ['Confused'],
      *  withAnchorPositions: false,
+     *  withAnchorPositionsText: false,
      *  withNotes: false,
      *  withComments: false,
      *  withInteractUserList: false
@@ -63,7 +64,11 @@ class UserIndicatorAnnotation {
         }
         
         if (options.withAnchorPositions === true) {
-          query.with('anchorPositions')
+          query.with('anchorPositions', (builder) => {
+            if (options.withAnchorPositionsText === true) {
+              builder.setVisible(['id', 'webpage_id', 'type', 'section_id', 'seq_id', 'paragraph_id', 'start_pos', 'end_pos', 'anchor_text'])
+            }
+          })
         }
         
         if (options.withNotes === true) {

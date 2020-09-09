@@ -41,6 +41,13 @@ class WebpageGroupIndicatorReadingActivityLog {
             stepName: 'CollaborativeReading',
             type: ["Annotation.update", "Annotation.destroy"]
           })
+          
+          c = c.filter(l => {
+            if (l.log.notes) {
+              return (l.log.notes.answer !== '')
+            }
+            return true
+          })
           countList.push(c.length)
         }
         

@@ -7,6 +7,7 @@ let WebpageExport = {
     return {
       groupIndicators: [], 
       userEventList: [],
+      confusedAnchorTexts: [],
       userEventListLoadingGroupID: null
       
       // 要挑那些組別，請看這裡
@@ -162,12 +163,18 @@ let WebpageExport = {
 
       return output.join('\n')
     },
+    confusedAnchorTextsTSV () {
+      return this.confusedAnchorTexts.map(line => {
+        return Object.keys(line).map(key => line[key]).join('\t')
+      }).join('\n')
+    }
   },
 //  watch: {
 //  },
   mounted() {
-    this.loadGroupIndicators()
-    this.loadUserEventList()
+    //this.loadGroupIndicators()
+    //this.loadUserEventList()
+    this.loadConfusedAnchorTexts()
   },
   methods: {
     attrHeaderID: function (anchor) {
@@ -210,6 +217,19 @@ let WebpageExport = {
           return false
         }
         groupID++
+      }
+    },
+    loadConfusedAnchorTexts: async function () {
+      this.confusedAnchorTexts = []
+      
+      let data = {
+        webpageID: this.$route.params.webpageID
+      }
+      
+      let result = await this.lib.AxiosHelper.get('/admin/WebpageExport/confusedAnchorTexts', data)
+      //console.log(result)
+      if (Array.isArray(result)) {
+        this.confusedAnchorTexts = result
       }
     },
     buildARFF: function (modelA, modelB) {

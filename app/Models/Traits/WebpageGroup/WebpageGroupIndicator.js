@@ -13,8 +13,8 @@ class WebpageGroupIndicator {
     Model.prototype.calcIndicators = async function (options) {
       //return await this.calcIndicatorsAll(options)
       //return await this.calcIndicators20200821ExpCtl(options)
-      return await this.calcIndicators20200822ExpCtlFilter(options)
-      //return await this.calcIndicators20200822OnlyExpFiltered(options)
+      //return await this.calcIndicators20200822ExpCtlFilter(options)
+      return await this.calcIndicators20200822OnlyExpFiltered(options)
     }
     
     Model.prototype._calcIndicatorsGroupInfo = async function (options) {
@@ -1132,7 +1132,7 @@ class WebpageGroupIndicator {
         // -------------------
         
         let ModifyInCollaborationVector = await this.calcModifyInCollaborationVector(options)
-        //output.E1_ModifyInCollaborationTotal = StatisticHelepr.sum(ModifyInCollaborationVector)
+        output.E1_ModifyInCollaborationTotal = StatisticHelepr.sum(ModifyInCollaborationVector)
         output.E2_ModifyInCollaborationMedian = StatisticHelepr.median(ModifyInCollaborationVector)
         
         // -------------------
@@ -1253,6 +1253,14 @@ class WebpageGroupIndicator {
 //        let UserRecallLessIdeaVector = await this.calcUserRecallLessIdeaVector(options)
 //        output.UserRecallLessIdeaTotal = StatisticHelepr.sum(UserRecallLessIdeaVector)
 //        output.UserRecallLessIdeaMedian = StatisticHelepr.median(UserRecallLessIdeaVector)
+        
+        let AnnotationsInIndividualReadingVector = await this.calcAnnotationsInIndividualReadingVector(options)
+        output.Q1_AnnotationsInIndividualReadingTotal = StatisticHelepr.sum(AnnotationsInIndividualReadingVector)
+        
+        let AnnotationsInCollaborativeReadingVector = await this.calcAnnotationsInCollaborativeReadingVector(options)
+        output.Q2_AnnotationsInCollaborativeReadingTotal = StatisticHelepr.sum(AnnotationsInCollaborativeReadingVector)
+        
+        // --------------------------
         
         output['class'] = output.groupCode.slice(0, 2)
         

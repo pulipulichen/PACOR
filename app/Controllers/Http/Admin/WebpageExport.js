@@ -217,6 +217,54 @@ class WebpageExport {
     let eventList = await group.getEventList(options)
     return eventList
   }
+  
+  async confusedAnchorTexts( {request, response, auth}) {
+    let { webpageID } = request.all()
+    
+    let webpage = await WebpageModel.find(webpageID)
+    let groups = await webpage.groups().fetch()
+    
+    let options = {
+      userFilter: 'onlyCompleted'
+    }
+    
+    
+    let anchorTexts = []
+    
+    for (let i = 0; i < groups.size(); i++) {
+      let group = groups.nth(i)
+      
+      let excluded = await group.getAttribute('excluded', true)
+      if (excluded === true) {
+        continue
+      }
+      
+      let users = await group.users().fetch()
+      for (let j = 0; j < users.size(); j++) {
+        let user = users.nth(j)
+        let annotations = await user.getAnnotationIndicator(webpage, {
+          type: ['Confused', 'Clarified'],
+          withAnchorPositions: true,
+          withAnchorPositionsText: true
+        })
+        
+        annotations.forEach(annotation => {
+          annotation.anchorPositions.forEach(anchorPosition => {
+            if (anchorPosition.type !== 'textContent') {
+              return false
+            }
+            //console.log(anchorPosition)
+            anchorTexts.push({
+              user: user.display_name,
+              anchor_text: anchorPosition.anchor_text
+            })
+          })
+        })
+      }
+    }
+    
+    return anchorTexts
+  }
 }
 
 module.exports = WebpageExport
