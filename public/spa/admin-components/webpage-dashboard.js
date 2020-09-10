@@ -1988,9 +1988,9 @@ let WebpageExport = {
 //  watch: {
 //  },
   mounted() {
-    //this.loadGroupIndicators()
+    this.loadGroupIndicators()
     //this.loadUserEventList()
-    this.loadConfusedAnchorTexts()
+    //this.loadConfusedAnchorTexts()
   },
   methods: {
     attrHeaderID: function (anchor) {

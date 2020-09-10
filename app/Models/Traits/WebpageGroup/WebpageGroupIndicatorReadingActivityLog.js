@@ -86,11 +86,13 @@ class WebpageGroupIndicatorReadingActivityLog {
               "UserFilter.getUserWords", // 協助他人的功能
               "Annotation.floatWidget",
               "Annotation.listSummary",
-              "AnnotationRate.like",
-              "AnnotationRate.likeComment",
-              "UserNotification.read"
-            ]
+              //"AnnotationRate.like",
+              //"AnnotationRate.likeComment",
+              //"UserNotification.read" // 不，這不是看同儕，這是看自己的
+            ],
+            interactToPeer: true
           })
+          
           countList.push(c.length)
         }
         

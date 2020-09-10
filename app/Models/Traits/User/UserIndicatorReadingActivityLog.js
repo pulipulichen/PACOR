@@ -39,7 +39,8 @@ class UserIndicatorLog {
      * @param {Webpage} webpage
      * @param {Object} options = {
      *  stepName: 'IndividualReading',
-     *  type: ['UserFilter.getUserWords']
+     *  type: ['UserFilter.getUserWords'],
+        interactToOther: true
      * }
      * @type {JSON}
      */
@@ -81,7 +82,24 @@ class UserIndicatorLog {
         // -------------------------
         
         let result = await query.fetch()
-        return result.toJSON()
+        
+        if (options.interactToPeer === true) {
+          let output = []
+          for (let i = 0; i < result.size(); i++) {
+            let log = result.nth(i)
+            let isInteractToPeer = await log.isInteractToPeer()
+            if (isInteractToPeer === false) {
+              continue
+            }
+            
+            let json = log.toJSON()
+            output.push(json)
+          }
+          return output
+        }
+        else {
+          return result.toJSON()
+        }
       })
     }
     

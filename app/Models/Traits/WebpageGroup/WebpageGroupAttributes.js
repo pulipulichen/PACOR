@@ -11,7 +11,8 @@ class WebpageGroupAttributes {
     
     let initGroupAttributes = function () {
       if (groupAttributes) {
-        return true
+        // 讓他每次都重新讀取
+        //return true
       }
       
       let sheetJSON = SpreadsheetHelper.parseFileToJSON('./config/attributesData/groupAttributes.ods')

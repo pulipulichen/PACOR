@@ -11,7 +11,8 @@ class UserAttributes {
     
     let initUserAttributes = function () {
       if (userAttributes) {
-        return true
+        // 讓他每次都重新讀取
+        //return true
       }
       
       let sheetJSON = SpreadsheetHelper.parseFileToJSON('./config/attributesData/userAttributes.ods')

@@ -12,6 +12,8 @@ class WebpageGroupIndicatorInteraction {
     
     /**
      * 計算小組的總建議次數
+     * 再加上情感建議的次數
+     * 
      * 最大值max
      * 最小值是0
      * 
@@ -32,12 +34,18 @@ class WebpageGroupIndicatorInteraction {
         for (let i = 0; i < usersIDList.length; i++) {
           let user = await UserModel.find(usersIDList[i])
           let c = await user.getCommentIndicator(webpage, {
-            includeCommentDeleted: false, // 被刪掉就看不到建議了
+            includeCommentDeleted: true, // 重點是在給人，所以包含被刪掉的
             includeAnnotationDeleted: true,  // 因為都算是給了建議了
             includeMyself: false, // 給自己建議不算啊
             uniqleThreads: true // 同一串裡面多次回覆，只計算一次
           })
-          countList.push(c.length)
+          
+          let rates = await user.getRateIndicator(webpage, {
+            includeRateDeleted: true, // 重點是在給人，所以包含被刪掉的
+            includeAnchorDeleted: true,  // 因為都算是給了建議了
+            withAnchor: false
+          })
+          countList.push(c.length + rates.length)
         }
         
         return countList

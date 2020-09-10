@@ -43,7 +43,7 @@ class WebpageGroupIndicatorAnnotation {
         for (let i = 0; i < usersIDList.length; i++) {
           let user = await UserModel.find(usersIDList[i])
           let c = await user.getAnnotationIndicator(webpage, {
-            includeDeleted: false,
+            includeDeleted: true,
             stepName: 'IndividualReading',
             //stepName: 'CollaborativeReading',
             type: ['Confused', 'Clarified']
@@ -210,8 +210,89 @@ class WebpageGroupIndicatorAnnotation {
      * }
      * @returns {Number}
      */
-    Model.prototype.calcTotalAnnotationCommentVector = async function (options) {
-      let cacheKey = Cache.key('calcTotalAnnotationCommentVector', options)
+    Model.prototype.calcTotalAnnotationIncludeDeletedVector = async function (options) {
+      let cacheKey = Cache.key('calcTotalAnnotationIncludeDeletedVector', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let countList = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          let c = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: true,
+          })
+          countList.push(c.length)
+        }
+        
+        return countList
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    }
+    
+    /**
+     * https://github.com/pulipulichen/PACOR/issues/519
+     * 整體標註次數
+     * 
+     * 不論階段
+     * 如果標註次數越多
+     * 表示這個團體更有機會看到別人的標註
+     * 
+     * 最小值max
+     * 最小值是0
+     * 
+     * 數字越大，表示這個團體更有機會看到別人的標註
+     * 數字越小，表示這個團體更沒機會看到別人的標註
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all'
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcTotalMainIdeaAnnotationVector = async function (options) {
+      let cacheKey = Cache.key('calcTotalMainIdeaAnnotationVector', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let countList = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          let c = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: false,
+            type: ['MainIdea', 'SectionMainIdea'],
+          })
+          countList.push(c.length)
+        }
+        
+        return countList
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    }
+    
+    /**
+     * https://github.com/pulipulichen/PACOR/issues/519
+     * 整體標註次數
+     * 
+     * 不論階段
+     * 如果標註次數越多
+     * 表示這個團體更有機會看到別人的標註
+     * 
+     * 最小值max
+     * 最小值是0
+     * 
+     * 數字越大，表示這個團體更有機會看到別人的標註
+     * 數字越小，表示這個團體更沒機會看到別人的標註
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all'
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcTotalAnnotationCommentIncludeDeletedVector = async function (options) {
+      let cacheKey = Cache.key('calcTotalAnnotationCommentIncludeDeletedVector', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
         let webpage = await this.webpage().fetch()
         
@@ -228,6 +309,54 @@ class WebpageGroupIndicatorAnnotation {
           let c = await user.getCommentIndicator(webpage, {
             includeCommentDeleted: true,
             includeAnnotationDeleted: true,
+            includeMyself: true,
+            uniqleThreads: false
+          })
+          
+          countList.push(a.length + c.length)
+        }
+        
+        return countList
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    }
+    
+    /**
+     * https://github.com/pulipulichen/PACOR/issues/519
+     * 整體標註次數
+     * 
+     * 不論階段
+     * 如果標註次數越多
+     * 表示這個團體更有機會看到別人的標註
+     * 
+     * 最小值max
+     * 最小值是0
+     * 
+     * 數字越大，表示這個團體更有機會看到別人的標註
+     * 數字越小，表示這個團體更沒機會看到別人的標註
+     * 
+     * @param {Object} options {
+     *   userFilter: 'onlyCompleted' || 'all'
+     * }
+     * @returns {Number}
+     */
+    Model.prototype.calcTotalAnnotationCommentExcludeDeletedVector = async function (options) {
+      let cacheKey = Cache.key('calcTotalAnnotationCommentExcludeDeletedVector', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let countList = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          let a = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: false,
+          })
+          
+          let c = await user.getCommentIndicator(webpage, {
+            includeCommentDeleted: false,
+            includeAnnotationDeleted: false,
             includeMyself: true,
             uniqleThreads: false
           })
