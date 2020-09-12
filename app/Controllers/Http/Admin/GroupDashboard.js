@@ -284,12 +284,13 @@ class GroupDashboard {
     // ------------------
     
     let users = await this._getGroupReaderCard(webpage, groupID)
+    /*
     let socialNetworks = await this.getSocialNetworks(webpage, users)
     
     // ------------------
     data.Members = this._buildSheetGroupMember(users)
     this._buildSheetsSocialNetworks(data, socialNetworks)
-    
+    */
     data.Annotations = await this._buildSheetAnnotations(webpage, users)
     data.Comments = await this._buildSheetComments(webpage, users)
     

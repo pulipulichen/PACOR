@@ -31,7 +31,10 @@
         </a>
       </div>
 
-      SPSS
+      SPSS 
+      <span v-if="groupIndicatorsListLoadingGroupID !== null">
+        (Loading {{ groupIndicatorsListLoadingGroupID }}...)
+      </span>
       <textarea v-html="groupIndicatorsEMMTSV"></textarea>
       <textarea v-html="groupIndicatorsEMMVariableNameList"></textarea>
       

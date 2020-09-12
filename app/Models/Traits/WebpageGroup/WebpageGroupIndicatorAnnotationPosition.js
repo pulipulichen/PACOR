@@ -76,7 +76,8 @@ class WebpageGroupIndicatorAnnotationPosition {
           })
           */
           let seqList = await user.getReadingSequenceIDList(webpage, {
-            stepName: 'IndividualReading'
+            //stepName: 'IndividualReading'
+            stepName: options.stepName
           })
           
           
@@ -85,7 +86,8 @@ class WebpageGroupIndicatorAnnotationPosition {
             exportMode: 'array',
             //exportMode: 'flat-json',
             codes,
-            lag: [1, 2]
+            //lag: [1, 2]
+            lag: options.lag
             //lag: 2
           })
 

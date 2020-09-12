@@ -141,7 +141,11 @@ class WebpageExport {
   }
   
   async groupIndicators ({request, response, auth}) {
-    let { webpageID } = request.all()
+    let { webpageID, groupID } = request.all()
+    
+    if (isNaN(groupID) === false) {
+      groupID = Number(groupID)
+    }
     
     let webpage = await WebpageModel.find(webpageID)
     let groups = await webpage.groups().fetch()
@@ -153,7 +157,17 @@ class WebpageExport {
     
     let usersGroupIndicatorMap = {}
     
+    if (typeof(groupID) === 'number'
+              && groupID >= groups.size()) {
+      return false
+    }
+    
     for (let i = 0; i < groups.size(); i++) {
+      if (typeof(groupID) === 'number'
+              && i !== groupID) {
+        continue
+      }
+      
       let group = groups.nth(i)
       
       let excluded = await group.getAttribute('excluded', true)

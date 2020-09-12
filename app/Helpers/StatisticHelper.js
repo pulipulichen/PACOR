@@ -32,12 +32,14 @@ let StatisticHelper = {
     return median
   },
   /**
+   * https://www.calculatorsoup.com/calculators/statistics/mean-median-mode.php
+   * 
    * @Author https://github.com/compute-io/iqr/blob/master/lib/index.js
    * @param {type} arr
    * @param {type} opts
    * @returns {Number}
    */
-  iqr: function (arr, opts) {
+  iqr2: function (arr, opts) {
     if (!Array.isArray(arr)) {
       throw new TypeError('iqr()::invalid input argument. Must provide an array.');
     }
@@ -60,7 +62,7 @@ let StatisticHelper = {
   /**
    * @Author https://github.com/compute-io/quantile/blob/master/lib/index.js
    */
-  quantile: function (arr, p, opts) {
+  quantile2: function (arr, p, opts) {
     if (!Array.isArray(arr)) {
       throw new TypeError('quantile()::invalid input argument. First argument must be an array.');
     }
@@ -114,6 +116,26 @@ let StatisticHelper = {
     id = Math.ceil(id);
     return arr[ id ];
   }, // end FUNCTION quantile()
+  asc: function (arr) {
+    return arr.sort((a, b) => a - b)
+  },
+  //sum: function(arr) { 
+  //  return arr.reduce((a, b) => a + b, 0)
+  //},
+  quantile: function (arr, q) {
+    const sorted = this.asc(arr);
+    const pos = (sorted.length - 1) * q;
+    const base = Math.floor(pos);
+    const rest = pos - base;
+    if (sorted[base + 1] !== undefined) {
+        return sorted[base] + rest * (sorted[base + 1] - sorted[base]);
+    } else {
+        return sorted[base];
+    }
+  },
+  iqr: function (arr) {
+    return this.quantile(arr, 0.75) - this.quantile(arr, 0.25)
+  },
   round: function (float, length = 0) {
     if (isNaN(float) === false) {
       float = Number(float)

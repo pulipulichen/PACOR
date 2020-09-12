@@ -837,7 +837,17 @@ var render = function() {
               ]
             )
           ]),
-          _vm._v("\r\n\r\n      SPSS\r\n      "),
+          _vm._v("\r\n\r\n      SPSS \r\n      "),
+          _vm.groupIndicatorsListLoadingGroupID !== null
+            ? _c("span", [
+                _vm._v(
+                  "\r\n        (Loading " +
+                    _vm._s(_vm.groupIndicatorsListLoadingGroupID) +
+                    "...)\r\n      "
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c("textarea", {
             domProps: { innerHTML: _vm._s(_vm.groupIndicatorsEMMTSV) }
           }),
@@ -1824,8 +1834,8 @@ let WebpageExport = {
       groupIndicators: [], 
       userEventList: [],
       confusedAnchorTexts: [],
-      userEventListLoadingGroupID: null
-      
+      userEventListLoadingGroupID: null,
+      groupIndicatorsListLoadingGroupID: null
       // 要挑那些組別，請看這裡
       // https://drive.google.com/drive/u/0/folders/17_P9Lm20Vx2_NA9lbWf4Fw3NeRefYSoe
       /*
@@ -1988,7 +1998,8 @@ let WebpageExport = {
 //  watch: {
 //  },
   mounted() {
-    this.loadGroupIndicators()
+    //this.loadGroupIndicators()
+    this.loadGroupIndicatorsBatch()
     //this.loadUserEventList()
     //this.loadConfusedAnchorTexts()
   },
@@ -2008,6 +2019,43 @@ let WebpageExport = {
       if (Array.isArray(result)) {
         this.groupIndicators = result
       }
+    },
+    loadGroupIndicatorsBatch: async function () {
+      this.groupIndicators = []
+      
+      let groupID = 0
+      this.groupIndicatorsListLoadingGroupID = groupID
+      
+      while (true) {
+        let data = {
+          webpageID: this.$route.params.webpageID,
+          groupID: groupID
+        }
+
+        let result = await this.lib.AxiosHelper.get('/admin/WebpageExport/groupIndicators', data)
+        if (result === false) {
+          break
+        }
+        
+        //console.log(result)
+        if (Array.isArray(result)) {
+          this.groupIndicators = this.groupIndicators.concat(result)
+        }
+        
+        groupID++
+        this.groupIndicatorsListLoadingGroupID = groupID
+      }
+      
+      this.groupIndicatorsListLoadingGroupID = null
+      
+      this.groupIndicators.sort((a, b) => {
+        if (a.groupCode < b.groupCode) {
+          return -1
+        }
+        else {
+          return 1
+        }
+      })
     },
     loadUserEventList: async function () {
       this.userEventList = []

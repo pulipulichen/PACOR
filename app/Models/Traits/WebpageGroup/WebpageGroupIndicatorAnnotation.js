@@ -137,6 +137,19 @@ class WebpageGroupIndicatorAnnotation {
         let countList = []
         for (let i = 0; i < usersIDList.length; i++) {
           let user = await UserModel.find(usersIDList[i])
+          let all = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: true, // 沒錯，包括刪除，因為我們要算的是他被影響的程度
+            //stepName: 'IndividualReading',
+            //stepName: 'CollaborativeReading',
+            //type: ['Confused', 'Clarified'] // 不限類型
+            //type: ['MainIdea']
+          })
+          
+          if (all.length === 0) {
+            countList.push(0)
+            continue
+          }
+          
           let c = await user.getAnnotationIndicator(webpage, {
             includeDeleted: true, // 沒錯，包括刪除，因為我們要算的是他被影響的程度
             //stepName: 'IndividualReading',
@@ -144,7 +157,8 @@ class WebpageGroupIndicatorAnnotation {
             //type: ['Confused', 'Clarified'] // 不限類型
             //type: ['MainIdea']
           })
-          countList.push(c.length)
+          
+          countList.push(c.length / all.length)
         }
         
         return countList
@@ -223,6 +237,7 @@ class WebpageGroupIndicatorAnnotation {
           let user = await UserModel.find(usersIDList[i])
           let c = await user.getAnnotationIndicator(webpage, {
             includeDeleted: true,
+            type: ['MainIdea', 'Confused', 'Clarified'],
           })
           countList.push(c.length)
         }
@@ -263,7 +278,31 @@ class WebpageGroupIndicatorAnnotation {
           let user = await UserModel.find(usersIDList[i])
           let c = await user.getAnnotationIndicator(webpage, {
             includeDeleted: false,
-            type: ['MainIdea', 'SectionMainIdea'],
+            //type: ['MainIdea', 'SectionMainIdea'],
+            type: ['MainIdea'],
+          })
+          countList.push(c.length)
+        }
+        
+        return countList
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    }
+    
+    Model.prototype.calcTotalConfusedClarifiedIdeaAnnotationVector = async function (options) {
+      let cacheKey = Cache.key('calcTotalConfusedClarifiedIdeaAnnotationVector', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let countList = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          let c = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: false,
+            //type: ['MainIdea', 'SectionMainIdea'],
+            type: ['Confused', 'Clarified'],
           })
           countList.push(c.length)
         }
