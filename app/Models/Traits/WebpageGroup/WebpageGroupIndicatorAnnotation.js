@@ -288,6 +288,29 @@ class WebpageGroupIndicatorAnnotation {
       })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
     }
     
+    Model.prototype.calcTotalSectionMainIdeaAnnotationVector = async function (options) {
+      let cacheKey = Cache.key('calcTotalMainIdeaAnnotationVector', options)
+      return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {
+        let webpage = await this.webpage().fetch()
+        
+        let onlyCompleted = (options.userFilter === 'onlyCompleted')
+        let usersIDList = await this.getUsersIDList(onlyCompleted)
+        
+        let countList = []
+        for (let i = 0; i < usersIDList.length; i++) {
+          let user = await UserModel.find(usersIDList[i])
+          let c = await user.getAnnotationIndicator(webpage, {
+            includeDeleted: false,
+            type: ['MainIdea', 'SectionMainIdea'],
+            //type: ['MainIdea'],
+          })
+          countList.push(c.length)
+        }
+        
+        return countList
+      })  // return await Cache.rememberWait([webpage, user, this], cacheKey, async () => {
+    }
+    
     Model.prototype.calcTotalConfusedClarifiedIdeaAnnotationVector = async function (options) {
       let cacheKey = Cache.key('calcTotalConfusedClarifiedIdeaAnnotationVector', options)
       return await Cache.rememberWait([this, 'WebpageGroup'], cacheKey, async () => {

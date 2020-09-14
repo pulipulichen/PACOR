@@ -188,7 +188,7 @@ class WebpageGroupIndicator {
         
         //output.MonologuesDegree = await this.calcMonologuesDegree(options)
         
-        output.F5_SkilledDemonstrationDegree = await this.calcSkilledDemonstrationDegree(options)
+        //output.F5_SkilledDemonstrationDegree = await this.calcSkilledDemonstrationDegree(options)
         
         let ObserverPeerVector = await this.calcObserverPeerVector(options)
         output.F6a_ObserverPeerTotal = StatisticHelepr.sum(ObserverPeerVector)
@@ -1126,10 +1126,10 @@ class WebpageGroupIndicator {
 //        output.Qa1_TotalAnnotationTotal = StatisticHelepr.median(TotalAnnotationVector)
 //        output.Qa2_TotalAnnotationIQR = StatisticHelepr.iqr(TotalAnnotationVector)
 //        
-        //let TotalMainIdeaAnnotationVector = await this.calcTotalMainIdeaAnnotationVector(options)
-        //output.Qb1_TotalMainIdeaAnnotationTotal = StatisticHelepr.median(TotalMainIdeaAnnotationVector)
-        //output.Qb2_TotalMainIdeaAnnotationIQR = StatisticHelepr.iqr(TotalMainIdeaAnnotationVector)
-        
+        let TotalSectionMainIdeaAnnotationVector = await this.calcTotalSectionMainIdeaAnnotationVector(options)
+        output.Qb1_TotalSectionMainIdeaAnnotationTotal = StatisticHelepr.median(TotalSectionMainIdeaAnnotationVector)
+        output.Qb2_TotalSectionMainIdeaAnnotationIQR = StatisticHelepr.iqr(TotalSectionMainIdeaAnnotationVector)
+        /*
         output.Y1_ReadingStyleSimilarityIR12 = await this.calcReadingStyleSimilarity({
           ...options,
           stepName: 'IndividualReading',
@@ -1155,6 +1155,7 @@ class WebpageGroupIndicator {
         })
         
         output.F5_SkilledDemonstrationDegree = await this.calcSkilledDemonstrationDegree(options)
+        */
 //        
         // -------------------------------------
         
